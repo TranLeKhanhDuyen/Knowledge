@@ -1,7 +1,13 @@
 :root {
     --primary-color: #fff;
-    --secondary-color: #0E6248;
+    --secondary-color: #0e6248;
     --tertiary-color: #fbf8f6;
     --quaternary-color: #ddd;
     --text-dark: #272727;
+    --primary-font: "Lato";
+    --font-s: 12px;
+    --font-m: 14px;
+    --font-l: 16px;
+    --font-xl: 18px;
+    --font-xxl: 36px;
 }

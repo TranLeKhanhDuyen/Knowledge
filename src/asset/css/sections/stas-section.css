@@ -1,0 +1,18 @@
+.stas-section {
+    width: 942px;
+    height: 128px;
+    border-radius: 8px;
+    background-color: var(--tertiary-color);
+    margin: auto;
+    margin-top: 120px;
+  }
+  
+  .stas-section ul{
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 67px ;
+      padding-left: 64px;
+      padding-right: 145px;
+  }
+  

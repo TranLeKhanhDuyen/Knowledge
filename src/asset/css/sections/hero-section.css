@@ -1,0 +1,83 @@
+.hero-section {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(52, 42, 42, 0.6) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-image: url(/src/asset/images/bg_hero.png);
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--primary-font);
+}
+
+.hero-section-navbar {
+  max-height: 52px;
+  color: var(--primary-color);
+  display: flex;
+  padding-top: 28px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 98px;
+  margin-right: 50px;
+  align-items: center;
+}
+
+.hero-section-navbar-left,
+.hero-section-navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.hero-section-navbar-left ul,
+.hero-section-navbar-right ul {
+  list-style: none;
+  display: flex;
+}
+
+.hero-section-navbar-left ul li {
+  list-style-type: none;
+  margin: 15px 0px 0px 38px;
+}
+
+.hero-section-navbar-right ul li {
+  list-style-type: none;
+  margin: 15px 38px 0px 0px;
+}
+
+.hero-section h1 {
+  margin: auto;
+  max-width: 520px;
+  align-content: center;
+  display: flex;
+  margin-top: 220px;
+  text-align: center;
+  color: var(--primary-color);
+  font-size: var(--font-xxl);
+}
+
+.hero-section-navbar-right .btn--share{
+  margin-top: 9px;
+}
+
+.hero-section-button {
+  display: flex;
+  justify-content: center;
+  margin: 24px;
+}
+
+.hero-section-button .btn--primary {
+  margin: 0 21.75px;
+  margin-bottom: 254px;
+}
+
+.hero-section-button .btn--secondary {
+  margin: 0 21.75px;
+  margin-bottom: 254px;
+  border-radius: 4px;
+}

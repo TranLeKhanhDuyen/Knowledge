@@ -1,0 +1,12 @@
+.reading-resources-section {
+    width: 940px;
+    height: 395px;
+    margin: auto;
+    margin-top: 160px;
+    border: 1px solid black;
+    
+}
+.reading-resources-section button{
+    float: right;
+    margin-top: 27px ;
+}

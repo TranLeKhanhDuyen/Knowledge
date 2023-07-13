@@ -25,12 +25,16 @@
   padding-top: 28px;
   margin: 0 auto;
   align-items: center;
+ 
 }
 
-.logo {
+.hero-section-navbar .logo {
   margin-left: 98px;
   margin-right: 50px;
   align-items: center;
+  margin-top: 28px;
+
+
 }
 
 .hero-section-navbar-left,

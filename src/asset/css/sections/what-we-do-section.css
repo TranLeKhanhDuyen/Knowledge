@@ -11,11 +11,11 @@
   }
   
   .what-we-do-card {
-
     display: flex;
     padding-top: 159px;
     height: 432px;
   }
+
   .what-we-do-card-1,
   .what-we-do-card-2,
   .what-we-do-card-3 {
@@ -25,6 +25,7 @@
     border: 1px solid var(--quaternary-color);
     margin-right: 34px;
   }
+
   .what-we-do-card img {
     width: 280px;
     height: 168px;
@@ -33,18 +34,20 @@
     border-radius: 8px;
     transform: translate(24px, -48px);
   }
+
   .what-we-do-card h2 {
     color: var(--text-dark);
     font-family: var(--primary-font);
     font-size: var(--font-xl);
     margin-left: 24px;
   }
+  
   .what-we-do-card p {
     width: 232px;
     color: var(--text-dark);
     font-family: var(--primary-font);
     font-size: var(--font-l);
-    padding-left: 0 auto;
+    padding-left: 24px;
     text-align: left;
     padding-top: 0px;
   }

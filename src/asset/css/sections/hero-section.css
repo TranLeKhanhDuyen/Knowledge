@@ -8,8 +8,7 @@
   background: linear-gradient(
     180deg,
     rgba(52, 42, 42, 0.6) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+    rgba(0, 0, 0, 0) 100%);
   background-image: url(/src/asset/images/bg_hero.png);
   background-size: cover;
   text-align: center;
@@ -25,7 +24,6 @@
   padding-top: 28px;
   margin: 0 auto;
   align-items: center;
- 
 }
 
 .hero-section-navbar .logo {
@@ -33,8 +31,6 @@
   margin-right: 50px;
   align-items: center;
   margin-top: 28px;
-
-
 }
 
 .hero-section-navbar-left,
@@ -63,6 +59,7 @@
   margin-left: 4px;
   margin-top: 7px;
 }
+
 .hero-section h1 {
   margin: auto;
   max-width: 520px;
@@ -72,6 +69,7 @@
   text-align: center;
   color: var(--primary-color);
   font-size: var(--font-xxl);
+  font-family: var(--primary-font);
 }
 
 .hero-section-navbar-right .btn--share{

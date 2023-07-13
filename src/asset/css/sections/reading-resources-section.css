@@ -1,0 +1,52 @@
+.reading-resources-section {
+    width: 940px;
+    height: 395px;
+    margin: auto;
+    margin-top: 160px;
+    border: 1px solid var(--primary-color);
+}
+
+.reading-resources-section .btn--primary {
+    float: right;
+    margin-top: 27px;
+}
+
+.reading-card {
+    display: flex;
+    height: 268px;
+    margin-top: 127px;
+}
+
+.reading-card-1,
+.reading-card-2,
+.reading-card-3 {
+    width: 280px;
+    border-radius: 8px;
+    border: 1px solid var(--quaternary-color);
+    margin-right: 45px;
+}
+
+.reading-card h2 {
+    color: var(--text-dark);
+    font-family: var(--primary-font);
+    font-size: var(--font-xl);
+    margin-left: 24px;
+    margin-top: 26px;
+}
+
+.reading-card p {
+    width: 232px;
+    color: var(--text-dark);
+    font-family: var(--primary-font);
+    font-size: var(--font-l);
+    text-align: left;
+    margin: 8px 24px 16px 24px;
+}
+
+.reading-card .btn--tertiary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 26px;
+}

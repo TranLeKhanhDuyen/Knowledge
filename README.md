@@ -72,6 +72,22 @@ The layout inclues:
 * Footer section
   * Title
   * Button
-  * Icon  
+  * Icon
+### CSS
+* Variable
+  * Pprimary-color: #fff
+  * Secondary-color: #0e6248
+  * Tertiary-color: #fbf8f6
+  * Quaternary-color: #ddd
+  * Quinary-color: rgba(255, 255, 255, 0.85)
+  * Text-dark: #272727
+  * Primary-font: "Lato", sans-serif
+  * Font-s: 12px
+  * Font-m: 14px
+  * Font-l: 16px
+  * Font-xl: 18px
+  * Font-xxl: 36px;
+  
+
 
 

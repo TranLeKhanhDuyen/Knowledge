@@ -6,7 +6,7 @@
 * Details design: [Figma](https://www.figma.com/file/yaDpevutRiFWtMhVH7BSNh/Charity_Homepage?node-id=0%3A2&mode=dev)
 ### TIMELINE
 * Start date: 06/07/2023
-* End date: 13/07/2023
+* End date: 11/07/2023
   
 ### TEAMSIZE
 * 1 dev
@@ -87,6 +87,18 @@ The layout inclues:
   * Font-l: 16px
   * Font-xl: 18px
   * Font-xxl: 36px;
+ 
+### STRUCTURE
+* Src
+  * Asset
+    * Css
+      * Bases
+      * Components
+      * Sections
+      * Untils
+    * Fonts
+    * Images
+  * Index.html
   
 
 

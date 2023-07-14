@@ -1,9 +1,9 @@
 .news-letter-section {
-    width: 940px;
-    height: 200px;
+    width: 984px;
+    height: 209px;
     background-color: var(--secondary-color);
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 126px;
     border-radius: 8px;
 }
 
@@ -11,23 +11,23 @@
     flex-direction: column;
     color: var(--primary-color);
     text-align: center;
+    word-spacing: 2.5px;
     font-family: var(--primary-font);
     font-size: var(--font-l);
-    margin: 0 auto;
-    padding-top: 69px;
+    padding-top: 73px;
+    
 }
 
 .news-letter-section form {
-    margin: 24px;
-    margin-top: 24px;
-    /* position: relative; */
+    margin-left: 34px;
+    margin-top: 28px;
     display: flex;
-    margin-left: 281px;
+    margin-left: 295px;
 }
 
 .news-letter-section input[type=email] {
-    width: 240px;
-    height: 40px;
+    width: 275px;
+    height: 38px;
     color: var(--text-dark);
     font-family: var(--primary-font);
     font-size: var(--font-l);
@@ -35,7 +35,5 @@
     border-radius: 4px 0px 0px 4px;
     border: 1px solid var(--quaternary-color);
     background: var(--tertiary-color);
-    padding-left: 16px;
-    
-   
+    padding-left: 15px;
 }

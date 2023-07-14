@@ -1,208 +1,219 @@
- .gallery-section {
-   display: grid;
-   width: 100%;
-   height: 382px;
-   border: 1px solid black;
-   margin-top: 70px;
-   grid-template-columns: auto auto auto auto auto auto auto auto;
- }
+.gallery-section {
+  display: grid;
+  width: 100%;
+  height: 382px;
+  border: 1px solid black;
+  margin-top: 72px;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+}
 
- .gallery-1 {
-   grid-column-start: 3;
-   grid-row-start: 1;
-   grid-row-end: 3;
- }
+.gallery-1 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
 
- .gallery-2 {
-   grid-column-start: 2;
-   grid-row-start: 1;
- }
+.gallery-2 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
 
- .gallery-3 {
-   grid-column-start: 7;
-   grid-row-start: 1;
- }
+.gallery-3 {
+  grid-column-start: 7;
+  grid-row-start: 1;
+}
 
- .gallery-4 {
-   grid-column-start: 4;
-   grid-row-start: 2;
- }
+.gallery-4 {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
 
- .gallery-5 {
-   grid-column-start: 8;
-   grid-row-start: 2;
- }
+.gallery-5 {
+  grid-column-start: 8;
+  grid-row-start: 2;
+}
 
- .gallery-6 {
-   grid-column-start: 7;
-   grid-row-start: 2;
- }
+.gallery-6 {
+  grid-column-start: 7;
+  grid-row-start: 2;
+}
 
- .gallery-7 {
-   grid-column-start: 1;
-   grid-row-start: 2;
- }
+.gallery-7 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
 
- .gallery-8 {
-   grid-column-start: 5;
-   grid-row-start: 2;
- }
+.gallery-8 {
+  grid-column-start: 5;
+  grid-row-start: 2;
+}
 
- .gallery-9 {
-   grid-column-start: 6;
-   grid-row-start: 1;
-   grid-row-end: 3;
- }
+.gallery-9 {
+  grid-column-start: 6;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
 
- .gallery-10 {
-   grid-column-start: 2;
-   grid-row-start: 2;
- }
+.gallery-10 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
 
- .gallery-11 {
-   grid-column-start: 8;
-   grid-row-start: 1;
- }
+.gallery-11 {
+  grid-column-start: 8;
+  grid-row-start: 1;
+}
 
- .gallery-12 {
-   grid-column-start: 4;
-   grid-column-end: 6;
-   grid-row-start: 1;
- }
+.gallery-12 {
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 1;
+}
 
- .gallery-13 {
-   grid-column-start: 1;
-   grid-row-start: 1;
- }
+.gallery-13 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
 
- .gallery-1, .gallery-2, .gallery-3, .gallery-4, .gallery-5, .gallery-6, .gallery-7,
- .gallery-8, .gallery-9, .gallery-10, .gallery-11, .gallery-12, .gallery-13 {
-   border: 1px solid var(--quaternary-color);
-   border-radius: 8px;
- }
+.gallery-1,
+.gallery-2,
+.gallery-3,
+.gallery-4,
+.gallery-5,
+.gallery-6,
+.gallery-7,
+.gallery-8,
+.gallery-9,
+.gallery-10,
+.gallery-11,
+.gallery-12,
+.gallery-13 {
+  border: 1px solid var(--quaternary-color);
+  border-radius: 8px;
+}
 
- .gallery-1 {
-   width: 240px;
-   height: 320px;
- }
+.gallery-1 {
+  width: 240px;
+  height: 320px;
+}
 
- .gallery-1 img {
-   transform: translate(22px, -20px);
- }
+.gallery-1 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-2 {
-   width: 120px;
-   height: 120px;
- }
+.gallery-2 {
+  width: 120px;
+  height: 120px;
+}
 
- .gallery-2 img {
-   transform: translate(22px, -20px);
- }
+.gallery-2 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-3 {
-   width: 120px;
-   height: 120px;
- }
+.gallery-3 {
+  width: 120px;
+  height: 120px;
+}
 
- .gallery-3 img {
-   transform: translate(22px, -20px);
- }
+.gallery-3 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-4 {
-   width: 160px;
-   height: 160px;
- }
+.gallery-4 {
+  width: 160px;
+  height: 160px;
+}
 
- .gallery-4 img {
-   transform: translate(22px, -20px);
- }
+.gallery-4 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-5 {
-   width: 70px;
-   height: 216px;
- }
+.gallery-5 {
+  width: 70px;
+  height: 216px;
+}
 
- .gallery-5 img {
-   transform: translate(22px, -20px);
- }
+.gallery-5 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-6 {
-   width: 160px;
-   height: 160px;
- }
+.gallery-6 {
+  width: 160px;
+  height: 160px;
+}
 
- .gallery-6 img {
-   transform: translate(22px, -20px);
- }
+.gallery-6 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-7 {
-   width: 20px;
-   height: 160px;
-   margin: 26px 26px 26px 0px;
-     border-radius: 0px 0px 8px 0px;
- }
+.gallery-7 {
+  width: 20px;
+  height: 160px;
+  margin: 26px 26px 26px 0px;
+  border-radius: 0px 0px 8px 0px;
+}
 
- .gallery-7 img {
-   transform: translate(0px, -20px);
- }
+.gallery-7 img {
+  transform: translate(0px, -20px);
+}
 
- .gallery-8 {
-   width: 160px;
-   height: 160px;
- }
+.gallery-8 {
+  width: 160px;
+  height: 160px;
+}
 
- .gallery-8 img {
-   transform: translate(22px, -20px);
- }
+.gallery-8 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-9 {
-   width: 160px;
-   height: 306px;
- }
+.gallery-9 {
+  width: 160px;
+  height: 306px;
+}
 
- .gallery-9 img {
-   transform: translate(22px, -20px);
- }
+.gallery-9 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-10 {
-   width: 200px;
-   height: 160px;
- }
+.gallery-10 {
+  width: 200px;
+  height: 160px;
+}
 
- .gallery-10 img {
-   transform: translate(22px, -20px);
- }
+.gallery-10 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-11 {
-   width: 110px;
-   height: 120px;
- }
+.gallery-11 {
+  width: 110px;
+  height: 120px;
+}
 
- .gallery-11 img {
-   transform: translate(22px, -20px);
- }
+.gallery-11 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-12 {
-   width: 336px;
-   height: 144px;
- }
+.gallery-12 {
+  width: 336px;
+  height: 144px;
+}
 
- .gallery-12 img {
-   transform: translate(22px, -20px);
- }
+.gallery-12 img {
+  transform: translate(22px, -20px);
+}
 
- .gallery-13 {
-   width: 96px;
-   height: 139px;
-   margin: 20px 14px 0px 0px;
-   border-radius: 0px 0px 8px 0px;
- }
+.gallery-13 {
+  width: 96px;
+  height: 139px;
+  margin: 20px 14px 0px 0px;
+  border-radius: 0px 0px 8px 0px;
+}
 
- .gallery-13 img {
-   transform: translate(0px, -20px);
- }
+.gallery-13 img {
+  transform: translate(0px, -20px);
+}
 
- /* .gallery-section {
+/* .gallery-section {
     display: flex;
     width: 100%;
     height: 382px;

@@ -17,7 +17,7 @@
 * Vercal
 
 ### SUPPORTED BROWSER
-* Google Chrome
+* Google Chrome: Version 114.0.5735.199
 
 ### EDITOR
 * Visual Studio Code

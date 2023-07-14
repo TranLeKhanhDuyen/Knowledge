@@ -9,8 +9,7 @@
   background: linear-gradient(
     180deg,
     rgba(52, 42, 42, 0.6) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+    rgba(0, 0, 0, 0) 100%);
   background-image: url(/src/asset/images/bg_hero.png);
   background-size: cover;
   text-align: center;

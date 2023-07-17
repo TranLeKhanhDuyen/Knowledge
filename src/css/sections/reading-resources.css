@@ -4,19 +4,16 @@
 }
 
 .reading .btn-quaternary {
-  float: right;
-  margin-right: 260px;
+  margin-left: 1035px;
 }
 
 .reading-all-card {
-  
   display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 50px;
+  padding-bottom: 30px;
 }
-/* 
+
 .reading-card .btn-tertiary {
-  display: flex;
-  margin: 0 auto;
-  transform: translate(2px, -4px);
-}  */
+  transform: translate(92px, -6px);
+} 

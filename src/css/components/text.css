@@ -4,7 +4,6 @@
     font-size: var(--font-xl);
     padding-left: 24px;
     margin-top: 30px;
-    /* transform: translateY(-22px); */
   }
   
   .text-p {
@@ -13,7 +12,6 @@
     font-size: var(--font-l);
     padding-left: 24px;
     text-align: left;
-    /* transform: translateY(-30px); */
     word-spacing: 3px;
     line-height: 1.4;
   }

@@ -15,12 +15,10 @@
 }
 
 .reading-card {
-  margin-top: 105px;
+  margin-top: 65px;
   border-radius: 8px;
   border: 1px solid var(--quaternary-color);
-  /* margin-left: 255px; */
-  /* padding: 29px 30px; */
-  /* width: 400px; */
+  max-width: 295px;
 }
 
 .reading-card-text {

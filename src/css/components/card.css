@@ -15,7 +15,6 @@
 }
 
 .reading-card {
-  margin-top: 65px;
   border-radius: 8px;
   border: 1px solid var(--quaternary-color);
   max-width: 295px;

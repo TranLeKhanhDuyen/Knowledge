@@ -65,7 +65,7 @@
 }
 
 .btn-subscribe {
-  width: 126px;
+  padding: 0px 23px 0px 23px;
   border-radius: 0px 4px 4px 0px;
   background: var(--quinary-color);
   color: var(--secondary-color);

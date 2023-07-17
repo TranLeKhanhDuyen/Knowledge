@@ -1,14 +1,13 @@
-.news-letter-section {
-    width: 984px;
-    height: 209px;
+.news-letter {
+    max-width: 984px;
     background-color: var(--secondary-color);
     margin: 0 auto;
-    margin-top: 126px;
+    margin-top: 130px;
     border-radius: 8px;
+    padding-bottom: 50px;
 }
 
-.news-letter-section p {
-    flex-direction: column;
+.news-letter p {
     color: var(--primary-color);
     text-align: center;
     word-spacing: 2.5px;
@@ -18,16 +17,15 @@
     
 }
 
-.news-letter-section form {
-    margin-left: 34px;
+.news-letter form {
+    margin-left: 25px;
     margin-top: 28px;
     display: flex;
-    margin-left: 295px;
+    justify-content: center;
 }
 
-.news-letter-section input[type=email] {
-    width: 275px;
-    height: 38px;
+.news-letter input[type=email] {
+    width: 265px;
     color: var(--text-dark);
     font-family: var(--primary-font);
     font-size: var(--font-l);
@@ -35,5 +33,5 @@
     border-radius: 4px 0px 0px 4px;
     border: 1px solid var(--quaternary-color);
     background: var(--tertiary-color);
-    padding-left: 15px;
+    padding: 10px 15px;
 }

@@ -7,7 +7,7 @@ footer {
 }
 
 .footers {
-    width: 980px;
+    max-width: 980px;
     margin: 0 auto;
 }
 

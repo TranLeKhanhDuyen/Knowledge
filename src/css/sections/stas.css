@@ -1,0 +1,16 @@
+.stas {
+  max-width: 986px;
+  border-radius: 8px;
+  background-color: var(--tertiary-color);
+  margin: auto;
+  margin-top: 124px;
+  /* padding: 20px; */
+}
+
+.stas ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 70px 63px 45px 70px;
+  font-family: var(--primary-font);
+}

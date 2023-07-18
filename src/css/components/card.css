@@ -1,0 +1,24 @@
+.card-img {
+  border-radius: 8px;
+  border: 1px solid var(--quaternary-color);
+  margin-top: 28px;
+  margin-right: 40px;
+  max-width: 280px;
+  padding-right: 11px;
+}
+
+.card-img img {
+  width: 294px;
+  position: relative;
+  border-radius: 8px;
+  transform: translate(26px, -28px);
+}
+
+.reading-card {
+  border-radius: 8px;
+  border: 1px solid var(--quaternary-color);
+  max-width: 295px;
+}
+
+.reading-card-text {
+}

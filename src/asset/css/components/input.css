@@ -1,8 +1,0 @@
-.ip{
-    width: 332px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 4px;
-    border: 1px solid var(--quaternary-color);
-    background: var(--primary-color);
-}

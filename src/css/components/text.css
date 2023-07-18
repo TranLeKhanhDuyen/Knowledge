@@ -1,0 +1,16 @@
+.text-h2 {
+    color: var(--text-dark);
+    font-family: var(--primary-font);
+    font-size: var(--font-xl);
+ 
+  }
+  
+  .text-p {
+    color: var(--text-dark);
+    font-family: var(--primary-font);
+    font-size: var(--font-l);
+    text-align: left;
+    word-spacing: 3px;
+    line-height: 1.4;
+  }
+  

@@ -1,5 +1,5 @@
 .btn-share {
-  padding: 7px 24px 7px 16px;
+  padding: 7px 24px 7px 12px;
   margin-right: 0px;
   max-height: 32px;
   background-color: var(--secondary-color);
@@ -21,7 +21,7 @@
 }
 
 .btn-primary {
-  padding: 11px 33px;
+  padding: 10px 30px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   border: none;
@@ -33,7 +33,7 @@
 }
 
 .btn-secondary {
-  padding: 11px 27px;
+  padding: 10px 25px;
   background: var(--color-white-alpha-85, var(--quinary-color));
   border-radius: 4px;
   border: none;

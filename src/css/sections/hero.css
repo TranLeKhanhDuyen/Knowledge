@@ -46,14 +46,11 @@
   padding-right: 38px;
 }
 
-.navbar-right .btn-share {
-  margin-top: 10px;
-}
-.navbar-right .btn-share {
+.navbar-right .btn-nav {
   margin-top: 10px;
 }
 
-.btn-share .custom-img {
+.btn-nav .bth-icon {
   transform: translate(8px, 2px);
 }
 

@@ -20,13 +20,13 @@
   transform: translate(26px, -28px);
 }
 
-.what-we-do-card .text-h2 {
+.what-we-do-card .text-lg {
   padding-left: 25px;
   transform: translateY(-22px);
   margin: 0px;
 }
 
-.what-we-do-card .text-p {
+.what-we-do-card .text-md {
   padding-left: 24px;
   transform: translateY(-30px);
 }

@@ -4,7 +4,7 @@
 
 .what-we-do .btn-primary {
   float: right;
-  margin-right: 4px
+  margin-right: 4px;
 }
 
 .what-we-do-card {
@@ -15,13 +15,13 @@
 }
 
 .card-img {
-margin-right: 36px;
+  max-width: 280px;
 }
 
 .card-img img {
   position: relative;
   border-radius: 8px;
-  transform: translate(23px, -27px);
+  transform: translate(21px, -27px);
 }
 
 .what-we-do-card .text-lg {

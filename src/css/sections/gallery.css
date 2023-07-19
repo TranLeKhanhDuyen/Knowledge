@@ -1,9 +1,8 @@
 .gallery-section {
   display: grid;
   width: 100%;
-  margin-top: 80px;
+  margin-top: 81px;
   grid-template-columns: auto auto auto auto auto auto auto auto;
-  border: 1px solid black;
 }
 
 .gallery-1 {

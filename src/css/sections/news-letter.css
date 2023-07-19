@@ -1,8 +1,7 @@
 .news-letter {
-    max-width: 984px;
     background-color: var(--secondary-color);
     margin: 0 auto;
-    margin-top: 130px;
+    margin-top: 119px;
     border-radius: 8px;
     padding-bottom: 50px;
 }
@@ -19,7 +18,7 @@
 
 .news-letter form {
     margin-left: 25px;
-    margin-top: 28px;
+    margin-top: 26px;
     display: flex;
     justify-content: center;
 }

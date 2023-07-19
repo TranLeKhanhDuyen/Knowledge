@@ -1,14 +1,9 @@
 footer {
     width: 100%;
-    height: 209px;
+    min-height: 209px;
     flex-shrink: 0;
     background: var(--text-dark);
-    margin-top: 109px;
-}
-
-.footers {
-    max-width: 980px;
-    margin: 0 auto;
+    margin-top: 104px;
 }
 
 .footer-left {
@@ -16,7 +11,7 @@ footer {
 }
 
 .footer-left-logo img {
-    margin-top: 46.5px;
+    margin-top: 44px;
 }
 
 .footer-left .logo {
@@ -24,22 +19,25 @@ footer {
 }
 
 .logo-heart img {
-    margin-left: 47.45px;
-    margin-top: 84.5px;
+    margin-left: 44px;
+    margin-top: 81px;
 }
 
 .footer-left p {
     color: var(--primary-color);
     font-size: var(--font-s);
-    margin-top: 16.87px;
-    word-spacing: 4.5px;
-    letter-spacing: 0.1px;
+    margin-top: 17px;
+    word-spacing: 4px;
+}
+
+.footer-left .social {
+    margin-top: 9px;
 }
 
 .footer-right p {
     float: right;
     text-align: right;
-    margin-top: 43px;
+    margin-top: 41px;
     color: var(--primary-color);
     font-size: var(--font-s);
     line-height: 18px;

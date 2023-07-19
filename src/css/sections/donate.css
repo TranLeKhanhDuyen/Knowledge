@@ -35,7 +35,7 @@
   padding-right: 2px;
 }
 
-.btn-donate img {
+.btn-link img {
   transform: translate(13px, 3px);
 }
 
@@ -48,6 +48,6 @@
   font-size: var(--font-l);
 }
 
-.donate-input .btn-donate {
+.donate-input .btn-link {
   margin-top: 8px;
 }

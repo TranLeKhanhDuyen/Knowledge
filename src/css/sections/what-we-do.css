@@ -1,41 +1,38 @@
 .what-we-do {
   margin-top: 126px;
-  margin-left: 260px;
 }
 
 .what-we-do .btn-primary {
-  margin-top: 27.4px;
+  margin-top: 27px;
   float: right;
-  margin-right: 263px;
 }
 
 .what-we-do-card {
   display: flex;
   padding-top: 140px;
+  justify-content: space-between;
+  clear: both;
 }
 
-.what-we-do-card h2 {
-  color: var(--text-dark);
-  font-family: var(--primary-font);
-  font-size: var(--font-xl);
-  margin-left: 25.5px;
+.card-img img {
+  position: relative;
+  border-radius: 8px;
+  transform: translate(26px, -28px);
+}
+
+.what-we-do-card .text-lg {
+  padding-left: 25px;
   transform: translateY(-22px);
+  margin: 0px;
 }
 
-.what-we-do-card p {
-  color: var(--text-dark);
-  font-family: var(--primary-font);
-  font-size: var(--font-l);
+.what-we-do-card .text-md {
   padding-left: 24px;
-  text-align: left;
   transform: translateY(-30px);
-  word-spacing: 3px;
-  line-height: 1.4;
 }
 
 .what-we-do-card .btn-tertiary {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin: 0 auto;
   transform: translate(8px, -25px);

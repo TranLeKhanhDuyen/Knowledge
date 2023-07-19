@@ -1,11 +1,11 @@
-.text-h2 {
+.text-lg {
     color: var(--text-dark);
     font-family: var(--primary-font);
     font-size: var(--font-xl);
  
   }
   
-  .text-p {
+  .text-md {
     color: var(--text-dark);
     font-family: var(--primary-font);
     font-size: var(--font-l);

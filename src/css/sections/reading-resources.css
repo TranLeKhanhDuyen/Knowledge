@@ -14,12 +14,12 @@
   margin-top: 65px;
 }
 
-.reading-card .text-h2 {
+.reading-card .text-lg {
   margin: 0 auto;
   padding: 28px 0px 0px 27px;
 }
 
-.reading-card .text-p {
+.reading-card .text-md {
   margin: 0 auto;
   padding-left: 27px;
   padding-top: 7px;

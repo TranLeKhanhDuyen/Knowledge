@@ -30,7 +30,7 @@
 }
 
 .btn-primary {
-  padding: 6px 28px;
+  padding: 11px 28px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   border: none;
@@ -62,7 +62,7 @@
 }
 
 .btn-tertiary {
-  padding: 11px 23px;
+  padding: 10px 20px;
   background: var(--secondary-color);
   border-radius: 4px;
   border: none;

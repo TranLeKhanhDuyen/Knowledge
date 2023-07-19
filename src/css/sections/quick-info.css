@@ -12,5 +12,6 @@
   font-size: var(--font-xl);
   margin: 0 auto;
   padding: 41px;
-  word-spacing: 2.3px;
+  word-spacing: 0.5px;
+  line-height: 20px;
 }

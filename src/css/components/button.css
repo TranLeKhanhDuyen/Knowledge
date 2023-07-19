@@ -1,6 +1,5 @@
 .btn-nav {
-  padding: 7px 24px 7px 12px;
-  margin-right: 0px;
+  padding: 6px 22px 7px 17px;
   max-height: 32px;
   background-color: var(--secondary-color);
   border-radius: 4px;
@@ -31,7 +30,7 @@
 }
 
 .btn-primary {
-  padding: 10px 30px;
+  padding: 10px 33px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   border: none;
@@ -48,7 +47,7 @@
 }
 
 .btn-secondary {
-  padding: 10px 25px;
+  padding: 11px 27px;
   background: var(--color-white-alpha-85, var(--quinary-color));
   border-radius: 4px;
   border: none;

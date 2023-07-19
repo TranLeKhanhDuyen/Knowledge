@@ -1,17 +1,17 @@
 .reading {
   margin: 0 auto;
-  margin-top: 203px;
-  max-width: 988px;
+  margin-top: 194px;
 }
 
 .reading .btn-quaternary {
-  margin-left: 777px;
+  float: right;
+  margin-bottom: 60px;
 }
 
 .reading-all-card {
   display: flex;
   justify-content: space-between;
-  margin-top: 65px;
+  clear: both;
 }
 
 .reading-card .text-lg {
@@ -21,10 +21,10 @@
 
 .reading-card .text-md {
   margin: 0 auto;
-  padding-left: 27px;
+  padding-left: 25px;
   padding-top: 7px;
 }
 
 .reading-card .btn-tertiary {
-  margin: 20px 90px;
+  margin: 16px 83px 24px 83px;
 }

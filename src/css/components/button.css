@@ -15,7 +15,7 @@
 }
 
 .btn-link {
-  padding: 11px 34px 12px 21px;
+  padding: 10px 28px 11px 21px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   border: none;
@@ -77,7 +77,7 @@
 }
 
 .btn-quaternary {
-  padding: 10px 40px 12px 40px;
+  padding: 11px 36px;
   background-color: var(--secondary-color);
   border-radius: 4px;
   border: none;

@@ -1,14 +1,14 @@
 .donate {
   margin: auto;
-  margin-top: 65px;
+  margin-top: 104px;
   display: flex;
   justify-content: space-evenly;
 }
 
 .donate .text-md {
-  max-width: 460px;
+  max-width: 440px;
   margin-left: 130px;
-  margin-top: 146px;
+  margin-top: 140px;
 }
 
 .donate-input {
@@ -22,7 +22,7 @@
 }
 
 .donate-input form {
-  margin-top: 9px;
+  margin-top: 4px;
 }
 
 .donate-input label {
@@ -36,12 +36,12 @@
 }
 
 .btn-link img {
-  transform: translate(13px, 3px);
+  transform: translate(6px, 2px);
 }
 
 .donate-select {
   position: absolute;
-  padding: 11px 17px;
+  padding: 11px 14px;
   border: 1px solid var(--quaternary-color);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -49,5 +49,5 @@
 }
 
 .donate-input .btn-link {
-  margin-top: 8px;
+  margin-top: 13px;
 }

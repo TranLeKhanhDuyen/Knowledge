@@ -23,7 +23,6 @@
 
 .navbar .logo {
   padding-top: 4px;
-  padding-right: 16px;
 }
 
 .logo .heart {
@@ -43,16 +42,13 @@
   padding-left: 0px;
 }
 
-.navbar-left ul li{
-  padding-right: 42px;
-}
-
+.navbar-left ul li,
 .navbar-right ul li{
   padding-right: 38px;
 }
 
 .navbar-right .btn-nav {
-  margin-top: 13px;
+  margin-top: 11px;
 }
 
 .btn-nav .bth-icon {
@@ -62,7 +58,7 @@
 .hero h1 {
   margin: 0 auto;
   max-width: 545px;
-  margin-top: 210px;
+  margin-top: 197px;
   color: var(--primary-color);
   font-size: var(--font-xxl);
   font-family: var(--primary-font);
@@ -72,10 +68,10 @@
 }
 
 .button-hero {
-  margin-top: 24px;
+  margin-top: 21px;
   display: flex;
   justify-content: center;
-  margin-bottom: 270px;
-  gap: 46px;
-  margin-right: 30px;
+  margin-bottom: 257px;
+  gap: 44px;
+  margin-right: 26px;
 }

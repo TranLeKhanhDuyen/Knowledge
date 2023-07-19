@@ -1,17 +1,20 @@
 .what-we-do {
-  margin-top: 126px;
+  margin-top: 145px;
 }
 
 .what-we-do .btn-primary {
-  margin-top: 27px;
   float: right;
 }
 
 .what-we-do-card {
   display: flex;
-  padding-top: 140px;
+  padding-top: 65px;
   justify-content: space-between;
   clear: both;
+}
+
+.card-img {
+margin-right: 36px;
 }
 
 .card-img img {
@@ -21,19 +24,19 @@
 }
 
 .what-we-do-card .text-lg {
-  padding-left: 25px;
-  transform: translateY(-22px);
-  margin: 0px;
+  padding: 0px 23px;
+  transform: translateY(-5px);
 }
 
 .what-we-do-card .text-md {
   padding-left: 24px;
-  transform: translateY(-30px);
+  margin-top: 3px;
 }
 
 .what-we-do-card .btn-tertiary {
   display: flex;
-  align-items: center;
   margin: 0 auto;
-  transform: translate(8px, -25px);
+  margin-top: 15px;
+  margin-left: 79px;
+  margin-bottom: 23px;
 }

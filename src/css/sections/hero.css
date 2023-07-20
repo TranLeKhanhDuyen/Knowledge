@@ -47,6 +47,15 @@
   padding-right: 38px;
 }
 
+
+.navbar-right ul li:hover{
+  color: var(--hover-color);
+}
+
+.navbar-left ul li:hover{
+  color: var(--hover-color);
+}
+
 .navbar-right .btn-nav {
   margin-top: 11px;
 }

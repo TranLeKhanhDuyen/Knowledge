@@ -1,4 +1,4 @@
-.input-form{
+.input-form {
     min-width: 312px;
     min-height: 18px;
     margin-bottom: 13px;
@@ -11,6 +11,6 @@
 
 .input-form:focus {
     border-color: var(--secondary-color);
-  }
-  
-  
+    outline: none;
+    box-shadow: 0 0 4px var(--secondary-color);
+}

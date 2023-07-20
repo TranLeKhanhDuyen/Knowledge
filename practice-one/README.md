@@ -100,6 +100,21 @@ The layout inclues:
     * Images
   * Index.html
   
+### STEPS INSTALL AND RUN CODE
 
+Open Windows PowerShell or cmd or [Windows Terminal](https://www.microsoft.com/en-gb/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)
 
+* **Step 1:** Clone develop branch
+```bash
+git clone --single-branch --branch practice-one git@github.com:TranLeKhanhDuyen/intern-agility.git
+```
+* **Step 2:**  Move to _practice-one_ folder
 
+```bash
+cd intern-agility/practice-one/src
+```
+
+* **Step 3:** Run code
+```bash
+start index.html
+```

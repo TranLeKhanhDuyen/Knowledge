@@ -88,15 +88,18 @@ The layout inclues:
   * Font-xxl: 36px;
  
 ### STRUCTURE
-* Src
-  * Asset
-    * Css
-      * Bases
-      * Components
-      * Sections
-      * Untils
-    * Fonts
-    * Images
+* practice-one
+  * Src
+    * asset
+      * fonts
+      * images
+    * styles
+      * css
+        * bases
+        * components
+        * sections
+        * utils
+
   * Index.html
 
 ### STEPS INSTALL AND RUN CODE

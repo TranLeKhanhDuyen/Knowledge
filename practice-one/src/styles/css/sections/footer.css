@@ -1,44 +1,37 @@
-footer {
-    min-height: 209px;
-    flex-shrink: 0;
+.footer-page{
     background: var(--text-dark);
+    padding-bottom: 20px;
+}
+
+.footers {
     margin-top: 104px;
-}
-
-.footer-left {
-    position: absolute;
-}
-
-.footer-left-logo img {
-    margin-top: 44px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-left .logo {
     position: absolute;
+    margin-top: 44px;
 }
 
-.logo-heart img {
+.footer-left .logo-heart img {
     margin-left: 44px;
     margin-top: 81px;
 }
 
-.footer-left p {
-    color: var(--primary-color);
-    font-size: var(--font-s);
-    margin-top: 17px;
-    word-spacing: 4px;
+.footer-left .text-sm {
+    margin-top: 14px;
 }
 
-.footer-left .social {
-    margin-top: 9px;
+.footer-left .social img{
+    margin-top: 6px;
 }
 
-.footer-right p {
-    float: right;
+.footer-right {
     text-align: right;
-    margin-top: 41px;
-    color: var(--primary-color);
-    font-size: var(--font-s);
-    line-height: 18px;
-    font-family: var(--primary-font);
+    margin-top: 40px;
+}
+
+.address-content .text-sm{
+    margin-top: 18px;
 }

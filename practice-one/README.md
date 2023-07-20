@@ -26,7 +26,6 @@
 * Work fine on Chrome browser latest version
 * Use the right HTML tags
 * Apply Flexbox
-* [Emmet with VSC](https://code.visualstudio.com/docs/editor/emmet): helps code HTML/CSS quickly
 * Apply CSS Guideline
 * Apply Commitlint Online - lint commit messages online
 * Use validate tools: https://validator.w3.org/

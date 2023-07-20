@@ -99,7 +99,25 @@ The layout inclues:
     * Fonts
     * Images
   * Index.html
-  
 
+### STEPS INSTALL AND RUN CODE
+Open Windows PowerShell or cmd or [Windows Terminal](https://www.microsoft.com/en-gb/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)
+
+* **Step 1:** Open cmd and clone practice-one branch
+
+```bash
+git clone --single-branch --branch practice-one git@github.com:TranLeKhanhDuyen/intern-agility.git 
+```
+
+* **Step 2:** Clone practice-one branch
+
+```bash
+cd intern-agility/practice-one
+```
+* **Step 3:** Clone practice-one branch
+
+```bash
+start index.html
+```
 
 

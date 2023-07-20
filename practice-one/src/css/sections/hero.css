@@ -3,7 +3,7 @@
   background: linear-gradient(180deg,
           rgba(52, 42, 42, 0.6) 0%,
           rgba(0, 0, 0, 0) 100%);
-  background-image: url(/src/assets/images/background/bg-hero.png);
+  background-image: url(/practice-one/src/assets/images/background/bg-hero.png);
   background-size: cover;
 }
 

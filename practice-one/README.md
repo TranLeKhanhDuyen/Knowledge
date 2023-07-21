@@ -26,7 +26,6 @@
 * Work fine on Chrome browser latest version
 * Use the right HTML tags
 * Apply Flexbox
-* [Emmet with VSC](https://code.visualstudio.com/docs/editor/emmet): helps code HTML/CSS quickly
 * Apply CSS Guideline
 * Apply Commitlint Online - lint commit messages online
 * Use validate tools: https://validator.w3.org/
@@ -89,19 +88,21 @@ The layout inclues:
   * Font-xxl: 36px;
  
 ### STRUCTURE
-* Src
-  * Asset
-    * Css
-      * Bases
-      * Components
-      * Sections
-      * Untils
-    * Fonts
-    * Images
-  * Index.html
-  
-### STEPS INSTALL AND RUN CODE
+* practice-one
+  * Src
+    * asset
+      * fonts
+      * images
+    * styles
+      * css
+        * bases
+        * components
+        * sections
+        * utils
 
+  * Index.html
+
+### STEPS INSTALL AND RUN CODE
 Open Windows PowerShell or cmd or [Windows Terminal](https://www.microsoft.com/en-gb/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)
 
 * **Step 1:** Clone develop branch

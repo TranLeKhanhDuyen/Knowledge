@@ -34,8 +34,8 @@
     padding: 10px 15px;
 }
 
-.input-form:focus {
+.news-letter input[type=email]:focus {
     border-color: var(--secondary-color);
     outline: none;
-    box-shadow: 0 0 4px var(--secondary-color);
+    box-shadow: 0 0 4px var(--primary-color);
 }

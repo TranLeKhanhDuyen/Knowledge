@@ -3,31 +3,31 @@
     padding-bottom: 20px;
 }
 
-.footers {
+.footer-container {
     margin-top: 104px;
     display: flex;
     justify-content: space-between;
 }
 
-.footer-left .logo {
+.footer-copyright .logo {
     position: absolute;
     margin-top: 44px;
 }
 
-.footer-left .logo-heart img {
+.footer-copyright .logo-heart img {
     margin-left: 44px;
     margin-top: 81px;
 }
 
-.footer-left .text-sm {
+.footer-copyright .text-sm {
     margin-top: 14px;
 }
 
-.footer-left .social img{
+.footer-copyright .social img{
     margin-top: 6px;
 }
 
-.footer-right {
+.footer-contact {
     text-align: right;
     margin-top: 40px;
 }

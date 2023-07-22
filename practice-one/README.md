@@ -4,6 +4,7 @@
 ### OVERVIEW
 * This document provides analyze the design, planning and questions for HTML-CSS practice one.
 * Details design: [Figma](https://www.figma.com/file/yaDpevutRiFWtMhVH7BSNh/Charity_Homepage?node-id=0%3A2&mode=dev)
+* Deployee: [here](https://duyen-build-vercal.vercel.app/)
 ### TIMELINE
 * Start date: 06/07/2023
 * End date: 11/07/2023

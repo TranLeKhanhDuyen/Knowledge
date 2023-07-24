@@ -1,0 +1,30 @@
+.reading {
+  margin: 0 auto;
+  margin-top: 190px;
+}
+
+.reading .btn-quaternary {
+  float: right;
+  margin-bottom: 60px;
+}
+
+.reading-all-card {
+  display: flex;
+  justify-content: space-between;
+  clear: both;
+}
+
+.reading-card .text-lg {
+  margin: 0 auto;
+  padding: 28px 0px 0px 27px;
+}
+
+.reading-card .text-md {
+  margin: 0 auto;
+  padding-left: 25px;
+  padding-top: 7px;
+}
+
+.reading-card .btn-tertiary {
+  margin: 15px 83px 24px 83px;
+}

@@ -1,0 +1,14 @@
+.quick-info {
+  width: 100%;
+  background-color: var(--tertiary-color);
+}
+
+.quick-info .text-lg {
+  display: flex;
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 41px;
+  word-spacing: 0.5px;
+  line-height: 20px;
+}

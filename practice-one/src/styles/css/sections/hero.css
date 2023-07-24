@@ -1,0 +1,67 @@
+.hero{
+  width: 100%;
+  background: linear-gradient(180deg,
+          rgba(52, 42, 42, 0.6) 0%,
+          rgba(0, 0, 0, 0) 100%);
+  background-image: url(/practice-one/src/assets/images/background/bg-hero.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--primary-font);
+}
+
+.navbar {  
+  color: var(--primary-color);
+  display: flex;
+  padding-top: 24px;
+  align-items: center;
+  font-size: var(--font-l);
+}
+
+.navbar .logo {
+  padding: 4px 60px;
+}
+
+.logo .heart {
+  transform: translate(-68px, 2px);
+}
+
+.navbar-items ul{
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar-items ul li{
+  padding-right: 38px;
+ 
+}
+
+
+.navbar-items ul li:hover{
+  color: var(--hover-color);
+}
+
+.btn-nav .bth-icon {
+  transform: translate(8px, 2px);
+}
+
+.hero h1 {
+  margin: 0 auto;
+  max-width: 545px;
+  margin-top: 195px;
+  color: var(--primary-color);
+  font-size: var(--font-xxl);
+  font-family: var(--primary-font);
+  font-weight: 400;
+  text-align: center;
+  line-height: 41px;
+}
+
+.button-hero {
+  margin-top: 21px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 257px;
+  gap: 44px;
+  margin-right: 26px;
+}

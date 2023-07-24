@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #fff;
+    --secondary-color: #0e6248;
+    --tertiary-color: #fbf8f6;
+    --quaternary-color: #ddd;
+    --quinary-color: rgba(255, 255, 255, 0.85);
+    --hover-color: #049169;
+    --text-dark: #272727;
+    --primary-font: "Lato", sans-serif;
+    --font-s: 12px;
+    --font-m: 14px;
+    --font-l: 16px;
+    --font-xl: 18px;
+    --font-xxl: 36px;
+}

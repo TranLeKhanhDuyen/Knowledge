@@ -1,0 +1,43 @@
+.what-we-do {
+  margin-top: 145px;
+}
+
+.what-we-do .btn-primary {
+  float: right;
+  margin-right: 4px;
+}
+
+.what-we-do-card {
+  display: flex;
+  padding-top: 65px;
+  justify-content: space-between;
+  clear: both;
+}
+
+.card-img {
+  max-width: 280px;
+}
+
+.card-img img {
+  position: relative;
+  border-radius: 8px;
+  transform: translate(21px, -27px);
+}
+
+.what-we-do-card .text-lg {
+  padding: 0px 23px;
+  transform: translateY(-5px);
+}
+
+.what-we-do-card .text-md {
+  padding-left: 24px;
+  margin-top: 3px;
+}
+
+.what-we-do-card .btn-tertiary {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-left: 79px;
+  margin-bottom: 23px;
+}

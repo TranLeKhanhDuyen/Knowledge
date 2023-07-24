@@ -1,13 +1,10 @@
-.wrapper {
+.hero{
   width: 100%;
   background: linear-gradient(180deg,
           rgba(52, 42, 42, 0.6) 0%,
           rgba(0, 0, 0, 0) 100%);
   background-image: url(/practice-one/src/assets/images/background/bg-hero.png);
   background-size: cover;
-}
-
-.hero{
   display: flex;
   flex-direction: column;
   font-family: var(--primary-font);
@@ -16,48 +13,32 @@
 .navbar {  
   color: var(--primary-color);
   display: flex;
-  padding-top: 26px;
-  justify-content: space-between;
+  padding-top: 24px;
+  align-items: center;
   font-size: var(--font-l);
 }
 
 .navbar .logo {
-  padding-top: 4px;
+  padding: 4px 60px;
 }
 
 .logo .heart {
   transform: translate(-68px, 2px);
 }
 
-.navbar-left,
-.navbar-right {
-  display: flex;
-}
-
-.navbar-left ul,
-.navbar-right ul {
+.navbar-items ul{
   list-style-type: none;
   display: flex;
-  align-items: center;
-  padding-left: 0px;
 }
 
-.navbar-left ul li,
-.navbar-right ul li{
+.navbar-items ul li{
   padding-right: 38px;
+ 
 }
 
 
-.navbar-right ul li:hover{
+.navbar-items ul li:hover{
   color: var(--hover-color);
-}
-
-.navbar-left ul li:hover{
-  color: var(--hover-color);
-}
-
-.navbar-right .btn-nav {
-  margin-top: 11px;
 }
 
 .btn-nav .bth-icon {
@@ -67,7 +48,7 @@
 .hero h1 {
   margin: 0 auto;
   max-width: 545px;
-  margin-top: 197px;
+  margin-top: 195px;
   color: var(--primary-color);
   font-size: var(--font-xxl);
   font-family: var(--primary-font);

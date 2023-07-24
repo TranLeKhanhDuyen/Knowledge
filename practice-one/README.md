@@ -4,6 +4,7 @@
 ### OVERVIEW
 * This document provides analyze the design, planning and questions for HTML-CSS practice one.
 * Details design: [Figma](https://www.figma.com/file/yaDpevutRiFWtMhVH7BSNh/Charity_Homepage?node-id=0%3A2&mode=dev)
+* Deployee: [here](https://duyen-build-vercal.vercel.app/)
 ### TIMELINE
 * Start date: 06/07/2023
 * End date: 11/07/2023
@@ -100,26 +101,21 @@ The layout inclues:
         * sections
         * utils
 
-  * Index.html
-
 ### STEPS INSTALL AND RUN CODE
 Open Windows PowerShell or cmd or [Windows Terminal](https://www.microsoft.com/en-gb/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab)
 
-* **Step 1:** Open cmd and clone practice-one branch
+
+* **Step 1:** Clone develop branch
+```bash
+git clone --single-branch --branch practice-one git@github.com:TranLeKhanhDuyen/intern-agility.git
+```
+* **Step 2:**  Move to _practice-one_ folder
 
 ```bash
-git clone --single-branch --branch practice-one git@github.com:TranLeKhanhDuyen/intern-agility.git 
+cd intern-agility/practice-one/src
 ```
 
-* **Step 2:** Clone practice-one branch
-
-```bash
-cd intern-agility/practice-one
-```
-* **Step 3:** Clone practice-one branch
-
+* **Step 3:** Run code
 ```bash
 start index.html
 ```
-
-

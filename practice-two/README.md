@@ -1,5 +1,5 @@
 # PRACTICE 2 - HTML/CSS
-*Jul 06, 2023*
+*Aug 02, 2023*
 
 ### OVERVIEW
 * This document provides analyze the design, planning and questions for HTML-CSS practice two.

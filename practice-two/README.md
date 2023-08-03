@@ -36,7 +36,7 @@
 
 
 ### STRUCTURE HTML
-The layout inclues: 12 sections
+The layout inclues: 14 sections
 * Header
   * Navbar
   * Button
@@ -76,9 +76,10 @@ The layout inclues: 12 sections
 * Copyright
 ### CSS
 * Colors
-  * Background: #fff
-  * Primary-color: ##F4F4F4
-  * Secondary-color: #004050
+  * Primary-color: #fff
+  * Secondary-color: ##F4F4F4
+  * Tertiary-color: #004050
+
 * Font-family
   * Primary-font: Satoshi
 * Font-weight
@@ -93,8 +94,54 @@ The layout inclues: 12 sections
   * text-2xl: 48px
   * text-3xl: 64px
 
-### STRUCTURE
-* Update later
+### FOLDER STRUCTURE
+
+```
+|-- practice-two
+    |-- src
+        |-- assets
+        |-- sections
+        |-- styles
+           |-- base
+           |-- components
+           |-- layout
+           |-- pages
+           |-- themes
+           |-- utils
+           |-- vendors
+           |-- main.css
+        |-- index.html
+    |-- .editorconfig
+    |-- .gitignore
+    |-- commitlint.config.js
+    |-- package-lock.json
+    |-- package.json
+    |-- README.md
+|-- README.md
+
+```
 
 ### STEPS INSTALL AND RUN CODE
-* Update later
+- Step 01: Clone repository:
+
+```
+git clone -b feature/practice-two <https://github.com/TranLeKhanhDuyen/intern-agility.git>
+```
+
+- Step 02: Move to folder practice-two:
+
+```
+cd practice-two
+```
+
+- Step 03: Install dependencies:
+
+```
+npm install
+```
+
+- Step 04: Finally run with:
+
+```
+npm start
+```

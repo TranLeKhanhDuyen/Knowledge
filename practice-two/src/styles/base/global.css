@@ -1,0 +1,10 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container{
+  margin-left: 24px;
+  margin-right: 24px;
+  margin: 0 auto;
+  padding: 0 10px;
+}

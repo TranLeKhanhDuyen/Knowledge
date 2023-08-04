@@ -1,0 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  margin-left: calc(24 / 16 * 1rem);
+  margin-right: calc(24 / 16 * 1rem);
+  margin: 0 auto;
+}
+
+html {
+  font-size: 16px;
+}

@@ -1,5 +1,5 @@
 .header-page {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   margin-top: calc(24 / 16 * 1rem);
 }
@@ -66,6 +66,7 @@
   cursor: pointer;
   transition: var(--smooth);
   z-index: 3;
+  margin-left: 9.5rem;
 }
 
 .menu-icon {
@@ -110,3 +111,4 @@
 .open .menu-icon::after {
   transform: rotate(45deg) translate(2rem, -2rem);
 }
+

@@ -10,12 +10,14 @@ button {
 }
 
 .btn-primary {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   background-color: var(--tertiary-color);
 }
 
 .btn-secondary {
-  color: var(--light-color);
-  font-size: var(--text-sm);
-  background-color: var(--primary-color);
+  color: var(--primary-color);
+  font-size: var(--font-md);
+  background-color: var(--green-color);
+  letter-spacing: -0.013875rem;
 }
+

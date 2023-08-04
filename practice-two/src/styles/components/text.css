@@ -1,9 +1,17 @@
 .text-md{
   font-size: var(--font-md);
-  color: var(--light-color);
+  color: var(--dark-color);
+  font-family: var(--primary-font);
+  font-weight: var(--fw-normal);
+  line-height: 1.625rem;
 }
 
 .text-2xl{
   font-size: var(--font-2xl);
   color: var(--dark-color);
+  font-family: var(--primary-font);
+  font-weight: var(--fw-bold);
+  line-height: 2.875rem;
+  letter-spacing: -0.03125rem;
 }
+

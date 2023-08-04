@@ -5,9 +5,11 @@
   --tertiary-color: #004050;
   --light-color: #787878;
   --dark-color: #000;
+  --green-color: #00CC61;
+  --grey-color: #DCDCDC;
 
   /* font variable */
-  --primary-font: "Satoshi", sans-serif;
+  --primary-font: "satoshi", sans-serif;
 
   /* font size variable with 1rem = 16px*/
   --font-sm: 0.875rem;
@@ -15,8 +17,14 @@
   --font-lg: 1.125rem;
   --font-xl: 2rem;
   --font-2xl: 2.25rem;
-  --text-3xl: 3rem;
-  --text-4xl: 4rem;
+  --font-3xl: 3rem;
+  --font-4xl: 4rem;
+
+ /* font weight */
+  --fw-bold: 700;
+  --fw-semibold: 500;
+  --fw-normal: 400;
 
   --smooth: all 0.3s ease-in;
 }
+

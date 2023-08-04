@@ -2,9 +2,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.container{
-  margin-left: 24px;
-  margin-right: 24px;
+.container {
+  margin-left: calc(24 / 16 * 1rem);
+  margin-right: calc(24 / 16 * 1rem);
   margin: 0 auto;
   padding: 0 10px;
+}
+
+html {
+  font-size: 16px;
 }

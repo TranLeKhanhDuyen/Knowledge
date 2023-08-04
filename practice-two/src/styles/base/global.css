@@ -3,8 +3,7 @@ html {
 }
 
 .container {
-  margin-left: calc(24 / 16 * 1rem);
-  margin-right: calc(24 / 16 * 1rem);
+  max-width: 17rem;
   margin: 0 auto;
 }
 

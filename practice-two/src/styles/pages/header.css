@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 calc(14 /16 * 1rem)
+  margin: 0 calc(14 / 16 * 1rem);
 }
 
 .navbar-logo img {
@@ -104,10 +104,10 @@
   background: transparent;
 }
 
-.open .menu-icon::before{
-  transform: rotate(-45deg) translate(2rem, 2rem) ;
+.open .menu-icon::before {
+  transform: rotate(-45deg) translate(2rem, 2rem);
 }
 
-.open .menu-icon::after{
+.open .menu-icon::after {
   transform: rotate(45deg) translate(2rem, -2rem);
 }

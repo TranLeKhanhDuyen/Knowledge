@@ -1,0 +1,26 @@
+button {
+  font-family: var(--primary-font);
+  text-align: center;
+  color: var(--primary-color);
+  border: none;
+  border-radius: calc(8 / 16 * 1rem);
+  cursor: pointer;
+  padding-top: calc(14 / 16 * 1rem);
+  padding-bottom: calc(12 / 16 * 1rem);
+  transition: var(--smooth);
+}
+
+.btn-primary {
+  font-size: var(--text-md);
+  background-color: var(--tertiary-color);
+}
+
+.btn-secondary {
+  color: var(--primary-color);
+  font-size: var(--font-md);
+  background-color: var(--green-color);
+  font-weight: var( --fw-semibold);
+  letter-spacing: -0.03125rem;
+}
+
+

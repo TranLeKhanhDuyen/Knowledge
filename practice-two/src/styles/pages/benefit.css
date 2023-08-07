@@ -1,0 +1,18 @@
+.benefit{
+  margin-top: 9rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 4.5rem;
+  background-color: var(--tertiary-color);
+}
+
+.benefit-items{
+  display: grid;
+  row-gap: 1rem;
+}
+
+.benefit-item{
+  display: grid;
+  row-gap: 0.5rem;
+}
+

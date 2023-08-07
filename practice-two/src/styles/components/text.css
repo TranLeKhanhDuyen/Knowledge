@@ -13,8 +13,17 @@
   line-height: 1.625rem;
 }
 
-.text-2xl {
-  font-size: var(--font-2xl);
+.text-xl{
+ font-family: var(--primary-font);
+ font-size: var(--font-xl);
+ color: var(--dark-color);
+ line-height: 1.6875rem;
+ font-weight: var(--fw-bold);
+ letter-spacing: 0.0225rem;
+}
+
+.text-3xl {
+  font-size: var(--font-3xl);
   color: var(--dark-color);
   font-family: var(--primary-font);
   font-weight: var(--fw-bold);

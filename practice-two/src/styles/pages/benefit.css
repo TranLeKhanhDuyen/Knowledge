@@ -3,16 +3,16 @@
   background-color: var(--tertiary-color);
 }
 
-.benefit-content{
+.benefit-content {
   padding-top: 4.5rem;
   padding-bottom: 3rem;
 }
 
-.benefit-content .text-3xl{
+.benefit-content .text-3xl {
   color: var(--primary-color);
 }
 
-.benefit-content .text-md{
+.benefit-content .text-md {
   margin-top: 1rem;
   color: var(--primary-color);
 }
@@ -30,20 +30,20 @@
   display: grid;
 }
 
-.benefit-icon{
+.benefit-icon {
   padding: 2.8rem 0.35rem 2.8rem;
 }
 
-.benefit-item .line{
-  background-color: var(--primary-color); ;
+.benefit-item .line {
+  background-color: var(--primary-color);
 }
 
-.benefit-item .text-xl{
+.benefit-item .text-xl {
   margin-top: 1rem;
   color: var(--primary-color);
 }
 
-.benefit-item .text-md{
+.benefit-item .text-md {
   margin-top: 0.5rem;
   color: var(--primary-color);
 }

@@ -3,11 +3,11 @@ html {
 }
 
 .container {
-  margin-left: calc(24 / 16 * 1rem);
-  margin-right: calc(24 / 16 * 1rem);
+  width: 85%;
   margin: 0 auto;
 }
 
 html {
   font-size: 16px;
 }
+

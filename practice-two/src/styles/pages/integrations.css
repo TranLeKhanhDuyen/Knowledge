@@ -1,0 +1,39 @@
+.integrations {
+  background-color: var(--secondary-color);
+  margin-top: 4.5rem;
+}
+
+.integrations .text-4xl {
+  text-align: center;
+  padding-top: 4.6rem;
+}
+
+.integrations .text-md {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.integrations-img {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.col-s {
+  grid-column: span 1;
+  width: 5rem;
+}
+
+.col-l {
+  grid-column: span 2;
+  width: 11.5rem;
+}
+
+.integrations-link {
+  margin: 0 auto;
+}
+
+.integrations-link .text-md {
+  text-decoration: none;
+}

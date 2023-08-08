@@ -1,0 +1,24 @@
+.revenue-statis {
+  margin-top: 4.48rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, auto);
+  gap: 0.9rem;
+}
+
+.revenue-statis .tag {
+  width: 17.5%;
+  margin-top: 1.5rem;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  letter-spacing: 0.178px;
+  padding-top: 0.1rem;
+}
+
+.revenue-img {
+  margin-top: 1.56rem;
+}

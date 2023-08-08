@@ -1,0 +1,31 @@
+.service {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, auto);
+  gap: 0.9rem;
+}
+
+.service .tag {
+  width: 20%;
+  margin-top: 1.6rem;
+}
+
+.service .text-2xl {
+  text-transform: capitalize;
+}
+
+.service .icon-with-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  letter-spacing: 0.178px;
+  padding-top: 0.1rem;
+}
+
+.service-img {
+  background-color: var(--secondary-color);
+  padding: 1.55rem 2.65rem 0rem;
+  border-radius: 0.4rem;
+  margin-top: 1.56rem;
+}

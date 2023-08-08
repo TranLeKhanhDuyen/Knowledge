@@ -1,9 +1,6 @@
-.header-page {
+.navbar {
   width: 100%;
   margin-top: calc(24 / 16 * 1rem);
-}
-
-.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,5 +107,3 @@
 .open .menu-icon::after {
   transform: rotate(45deg) translate(2rem, -2rem);
 }
-
-

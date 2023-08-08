@@ -1,0 +1,20 @@
+.service {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, auto);
+  gap: 0.9rem;
+}
+
+.service .tag {
+  width: 25%;
+  margin-top: 1.6rem;
+}
+
+.service .text-2xl {
+  text-transform: capitalize;
+}
+
+.service-img {
+  margin-top: 1.56rem;
+}

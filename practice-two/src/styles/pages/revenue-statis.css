@@ -11,14 +11,6 @@
   margin-top: 1.5rem;
 }
 
-.icon-with-text {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  letter-spacing: 0.178px;
-  padding-top: 0.1rem;
-}
-
 .revenue-img {
   margin-top: 1.56rem;
 }

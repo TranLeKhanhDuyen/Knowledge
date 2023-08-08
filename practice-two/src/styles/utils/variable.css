@@ -15,10 +15,11 @@
   --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.125rem;
-  --font-xl: 2rem;
-  --font-2xl: 2.25rem;
-  --font-3xl: 3rem;
-  --font-4xl: 4rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 2rem;
+  --font-3xl: 2.25rem;
+  --font-4xl: 3rem;
+  --font-5xl: 4rem;
 
  /* font weight */
   --fw-bold: 700;

@@ -1,0 +1,49 @@
+.marketing {
+  margin-top: 4.48rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, auto);
+  gap: 0.9rem;
+}
+
+.marketing .tag {
+  width: 35%;
+  margin-top: 1.6rem;
+}
+
+.marketing .text-2xl {
+  text-transform: capitalize;
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  letter-spacing: 0.178px;
+  padding-top: 0.1rem;
+}
+
+.marketing-img {
+  background-color: var(--secondary-color);
+  padding: 1.55rem 2.65rem 0rem;
+  border-radius: 0.4rem;
+  margin-top: 1.56rem;
+}
+
+.marketing-btn{
+  background-color: var(--tertiary-color);
+  padding: 0.5rem 0.55rem;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  margin: 0 auto;
+  transform: translateY(-4.3rem);
+}
+
+.marketing-btn .btn-secondary{
+  font-size: var(--font-xs);
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.25rem;
+}

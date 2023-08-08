@@ -13,6 +13,7 @@
   --primary-font: "satoshi", sans-serif;
 
   /* font size variable with 1rem = 16px*/
+  --font-xs: 0.55rem;
   --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.125rem;

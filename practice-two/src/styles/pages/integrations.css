@@ -1,0 +1,45 @@
+.integrations {
+  background-color: var(--secondary-color);
+  margin-top: 4.5rem;
+}
+
+.integrations .text-4xl {
+  text-align: center;
+  padding-top: 4.6rem;
+}
+
+.integrations .text-md {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.integrations-img {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.5rem;
+  row-gap: 0.34rem;
+}
+
+.col-s {
+  grid-column: span 1;
+  width: 5rem;
+}
+
+.col-l {
+  grid-column: span 2;
+  width: 11.5rem;
+}
+
+.integrations-link {
+  padding: 1.5rem 0 4.3rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.integrations-link .text-md {
+  text-decoration: none;
+  letter-spacing: 0.0214375rem;
+  font-weight: var(--fw-semibold);
+}

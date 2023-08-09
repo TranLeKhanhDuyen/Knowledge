@@ -1,0 +1,17 @@
+.feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.feedback .text-bold{
+  text-transform: capitalize;
+  font-weight: var(--fw-bold);
+  color: var(--dark-color);
+  padding: 0.35rem 0 0.2rem;
+}
+
+.feedback .text-normal{
+  text-transform: capitalize;
+  line-height: normal;
+}

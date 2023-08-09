@@ -21,6 +21,14 @@
   line-height: 1.625rem;
 }
 
+.text-lg {
+  font-size: var(--font-lg);
+  color: var(--dark-color);
+  font-family: var(--primary-font);
+  font-weight: var(--fw-bold);
+  line-height: normal;
+}
+
 .text-xl {
  font-family: var(--primary-font);
  font-size: var(--font-xl);
@@ -46,4 +54,13 @@
   font-weight: var(--fw-bold);
   line-height: 2.875rem;
   letter-spacing: -0.03125rem;
+}
+
+.text-5xl {
+  font-size: var(--font-5xl);
+  color: var(--dark-color);
+  font-family: var(--primary-font);
+  font-weight: var(--fw-bold);
+  line-height: 2.875rem;
+  letter-spacing: -0.02075rem;
 }

@@ -1,0 +1,44 @@
+.new-service {
+  margin-top: 4.5rem;
+}
+
+.new-service .forward-link {
+  padding: 1.5rem 0 2rem;
+}
+
+.services {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.service-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-content .text-sm {
+  text-transform: uppercase;
+  color: var(--light-color);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.0875rem;
+}
+
+.service-content .line {
+  background-color: var(--light-color);
+}
+
+.service-content .text-xl {
+  letter-spacing: -0.017375rem;
+  line-height: 1.875rem;
+} 
+
+.service-content .text-md{
+  display: flex;
+}
+
+.service-content .text-md-grey{
+  padding-left: 0.37rem;
+}

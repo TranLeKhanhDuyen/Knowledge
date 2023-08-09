@@ -27,6 +27,7 @@
   font-family: var(--primary-font);
   font-weight: var(--fw-bold);
   line-height: normal;
+  text-decoration: none;
 }
 
 .text-xl {
@@ -36,6 +37,7 @@
  line-height: 1.6875rem;
  font-weight: var(--fw-bold);
  letter-spacing: 0.0225rem;
+ text-decoration: none;
 }
 
 .text-2xl {

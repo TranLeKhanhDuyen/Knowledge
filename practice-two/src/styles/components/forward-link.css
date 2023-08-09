@@ -1,0 +1,10 @@
+.forward-link {
+  display: flex;
+  align-items: flex-end;
+}
+
+.forward-link .text-md {
+  text-decoration: none;
+  letter-spacing: 0.0214375rem;
+  font-weight: var(--fw-semibold);
+}

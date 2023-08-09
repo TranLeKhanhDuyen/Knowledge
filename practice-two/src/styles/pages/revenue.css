@@ -1,0 +1,33 @@
+.revenue {
+  margin-top: 8.8rem;
+  padding-bottom: 4.5rem;
+}
+
+.revenue .text-md {
+  color: var(--light-color);
+  padding: 1rem 0;
+}
+
+.revenue-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.3rem;
+}
+
+.revenue-content .text-5xl {
+  margin-top: 2rem;
+}
+
+.revenue-content .text-lg {
+  margin-top: 1.2rem;
+}
+
+.revenue-content .text-2xl {
+  margin-top: 2rem;
+  letter-spacing: -0.045rem;
+}
+
+.revenue-content .feedback{
+  margin-top: 1.85rem;
+}

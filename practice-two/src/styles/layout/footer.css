@@ -1,0 +1,15 @@
+.footer-wrapper{
+  margin-top: 3rem;
+}
+
+.social-media{
+  display: flex;
+  gap: 10px;
+}
+
+.social-media .fa-brands{
+  background-color: #3b5998;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+

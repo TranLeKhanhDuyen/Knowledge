@@ -1,0 +1,47 @@
+.supercharge {
+  background-image: url(../../assets/images/background.svg);
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.supercharge-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 4.6rem;
+  padding-bottom: 4.45rem;
+}
+
+.supercharge-content .text-4xl {
+  color: var(--primary-color);
+}
+
+.supercharge-content .text-lg {
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-weight: var(--fw-semibold);
+  line-height: 1.75rem;
+}
+
+.supercharge-wrapper .btn-primary {
+  margin: 0 auto;
+  margin-top: 11.3rem;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.3rem 1.6rem 1.2rem 2rem;
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+  font-family: Satoshi;
+  font-size: var(--font-lg);
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  letter-spacing: -0.015rem;
+}
+
+.supercharge-wrapper .text-sm{
+ text-align: center;
+  margin-top: 1.7rem;
+  color: var(--primary-color);
+  font-weight: var(--fw-semibold);
+}

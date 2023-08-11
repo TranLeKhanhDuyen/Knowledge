@@ -37,6 +37,8 @@
 
 .hero-img {
   margin-top: 2.65rem;
-  max-width: 19rem;
+  position: absolute;
+  right: 0;
+  margin-bottom: 2.65rem;
+  z-index: 0;
 }
-

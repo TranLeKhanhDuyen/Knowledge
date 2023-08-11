@@ -13,14 +13,14 @@ html {
   margin: 0 auto;
 }
 
-/* @media (min-width: 576px) {
+@media (min-width: 768px) {
   .container {
-    width: 91%;
+    width: 720px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .container {
-    width: 83%;
+    width: 1140px;
   }
-} */
+}

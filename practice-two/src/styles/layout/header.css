@@ -1,15 +1,13 @@
 .navbar {
-  width: 100%;
-  margin-top: calc(24 / 16 * 1rem);
+  /* width: 100%; */
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .navbar-logo img {
-  width: calc(97 / 16 * 1rem);
-  height: calc(20 / 16 * 1rem);
-  object-fit: cover;
+  width: 6rem;
 }
 
 .navbar-links {
@@ -18,7 +16,7 @@
   left: 0;
   width: 50%;
   height: 100%;
-  background-color: var(--light-color);
+  background-color: var(--grey-color);
   z-index: 5;
   transition: var(--smooth);
   transform: translateX(-100%);
@@ -33,43 +31,42 @@
 
 .navbar-link {
   list-style: none;
-  margin: calc(55 / 16 * 1rem);
+  margin: 3.4rem;
 }
 
-.navbar-link a {
+.navbar-link .text-sm {
   text-decoration: none;
-  color: var(--primary-color);
-  font-weight: 400;
-  transition: var(--smooth);
+  color: var(--dark-color);
+  font-weight: var(--fw-normal);
 }
 
-.navbar-link a:hover {
-  color: var(--tertiary-color);
+.navbar-link .text-sm:hover {
+  color: var(--green-color);
+  font-weight:var(--fw-bold);
 }
 
 .btn-navbar {
   display: flex;
-  justify-content: space-around;
-  font-size: var(--text-sm);
+  justify-content: space-evenly;
 }
 
 .menu-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(24 / 16 * 1rem);
-  height: calc(24 / 16 * 1rem);
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
   transition: var(--smooth);
   z-index: 3;
-  margin-left: 9.5rem;
+  /* margin-left: 9.5rem; */
 }
 
 .menu-icon {
-  width: calc(18 / 16 * 1rem);
-  height: calc(1 / 16 * 1rem);
+  width: 1.125rem;
+  height: 0.06rem;
   background-color: var(--light-color);
-  border-radius: calc(5 / 16 * 1rem);
+  border-radius: 0.3rem;
   transition: var(--smooth);
   position: relative;
   padding: 0.01rem;
@@ -78,10 +75,10 @@
 .menu-icon::before,
 .menu-icon::after {
   content: " ";
-  width: calc(18 / 16 * 1rem);
-  height: calc(1 / 16 * 1rem);
+  width: 1.125rem;
+  height: 0.06rem;
   background-color: var(--light-color);
-  border-radius: calc(5 / 16 * 1rem);
+  border-radius: 0.3rem;
   transition: var(--smooth);
   position: absolute;
 }

@@ -1,14 +1,13 @@
 .marketing {
-  margin-top: 4.48rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, auto);
+  margin-top: 4.5rem;
+  display: flex;
+  flex-direction: column;
   gap: 0.9rem;
 }
 
 .marketing .tag {
   width: 35%;
-  margin-top: 1.6rem;
+  margin-top: 1.5rem;
 }
 
 .marketing .text-2xl {
@@ -24,7 +23,7 @@
 
 .marketing-btn {
   background-color: var(--tertiary-color);
-  padding: 0.5rem 0.55rem;
+  padding: 0.43rem 0.6rem;
   border-radius: 0.4rem;
   display: flex;
   align-items: center;
@@ -36,6 +35,6 @@
 
 .marketing-btn .btn-secondary {
   font-size: var(--font-xs);
-  padding: 0.5rem 0.9rem;
+  padding: 0.55rem 0.9rem;
   border-radius: 0.25rem;
 }

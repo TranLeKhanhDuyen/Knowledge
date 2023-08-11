@@ -8,6 +8,5 @@
 }
 
 .card:hover .benefit-icon{
-  fill: black;
   color: var(--dark-color);
 }

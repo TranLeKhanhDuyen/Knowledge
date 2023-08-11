@@ -59,6 +59,10 @@
   justify-content: space-evenly;
 }
 
+.btn-navbar .btn-primary{
+  padding: 0.2rem 2rem;
+}
+
 .menu-icons {
   display: flex;
   justify-content: center;
@@ -120,6 +124,8 @@
 
   .navbar{
     margin-top: 1rem;
+    justify-content: normal;
+    gap: 5.7rem;
   }
 
   .navbar-logo img {
@@ -141,9 +147,9 @@
   }
 
   .navbar-links ul{
-    display: flex;
     flex-direction: row;
-    align-items: center;
+    margin: 0;
+    gap: 2.63rem;
   }
 
   .menu-icons {

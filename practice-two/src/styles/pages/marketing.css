@@ -13,7 +13,7 @@
 }
 
 .marketing-content .tag {
-  width: 35%;
+  width: 41%;
   margin-top: 1rem;
 }
 
@@ -45,7 +45,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 75%;
+  width: 85%;
   margin: 0 auto;
   transform: translateY(-3.6rem);
 }

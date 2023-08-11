@@ -1,5 +1,4 @@
 .navbar {
-  /* width: 100%; */
   margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -42,7 +41,7 @@
 
 .navbar-link .text-sm:hover {
   color: var(--green-color);
-  font-weight:var(--fw-bold);
+  font-weight: var(--fw-bold);
 }
 
 .btn-navbar {
@@ -59,7 +58,6 @@
   cursor: pointer;
   transition: var(--smooth);
   z-index: 3;
-  /* margin-left: 9.5rem; */
 }
 
 .menu-icon {

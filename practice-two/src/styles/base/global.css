@@ -1,5 +1,11 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 .container {
@@ -7,7 +13,14 @@ html {
   margin: 0 auto;
 }
 
-html {
-  font-size: 16px;
+/* @media (min-width: 576px) {
+  .container {
+    width: 91%;
+  }
 }
 
+@media (min-width: 1200px) {
+  .container {
+    width: 83%;
+  }
+} */

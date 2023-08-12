@@ -1,8 +1,12 @@
-.hero {
+.hero{
+  background-color: var(--secondary-color);
+}
+
+.hero-wrapper{
   margin-top: 3rem;
 }
 
-.hero .text-md {
+.hero-wrapper .text-md {
   margin-top: 1rem;
 }
 
@@ -29,9 +33,10 @@
   width: 94%;
   margin: 0 auto;
   margin-bottom: 0.5rem;
+  padding: 0.8rem;
 }
 
-.hero .text-sm {
+.hero-wrapper .text-sm {
   margin-top: 0.9rem;
 }
 
@@ -48,23 +53,23 @@
 }
 
 @media (min-width: 1440px) {
-  .hero {
+  .hero-wrapper {
     display: flex;
-    margin-top: 0rem;
+    margin-top: 0.4rem;
   }
 
   .hero-content {
     width: 40rem;
   }
 
-  .hero .text-4xl {
+  .hero-wrapper .text-4xl {
     margin-top: 5.5rem;
     font-size: var(--font-6xl);
     line-height: 4.625rem;
     letter-spacing: -0.055rem;
   }
 
-  .hero .text-md {
+  .hero-wrapper .text-md {
     font-size: var(--font-lg);
     margin-top: 1.5rem;
     padding-right: 9rem;
@@ -73,10 +78,28 @@
 
   .input-form {
     flex-direction: row;
+    margin-top: 4rem;
+    align-items: center;
+    gap: 6rem;
+    width: 71%;
+  }
+
+  .input-form .fill-input {
+    padding-left: 1.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.25rem;
+    font-size: var(--font-lg);
+    letter-spacing: -0.15;
   }
 
   .input-form .btn-secondary {
-  padding: 1rem;
+    padding: 1rem 1.4rem;
+    width: auto;
+    margin: 0;
+    font-size: var(--font-lg);
+    font-weight: var(--fw-bold);
+    line-height: normal;
+    letter-spacing: -0.016rem;
   }
 
   .hero-img {

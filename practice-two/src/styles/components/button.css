@@ -3,10 +3,8 @@ button {
   text-align: center;
   color: var(--primary-color);
   border: none;
-  border-radius: calc(8 / 16 * 1rem);
+  border-radius: 0.5rem;
   cursor: pointer;
-  padding-top: calc(14 / 16 * 1rem);
-  padding-bottom: calc(12 / 16 * 1rem);
   transition: var(--smooth);
 }
 

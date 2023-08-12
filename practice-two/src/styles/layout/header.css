@@ -1,5 +1,5 @@
 .navbar {
-  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -128,7 +128,7 @@
   }
 
   .navbar{
-    margin-top: 1.5rem;
+    padding-top: 1.5rem;
     justify-content: normal;
     gap: 5.7rem;
   }

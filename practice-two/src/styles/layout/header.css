@@ -59,8 +59,13 @@
   justify-content: space-evenly;
 }
 
-.btn-navbar .btn-primary{
-  padding: 0.2rem 2rem;
+.btn-navbar .btn-primary,
+.btn-navbar .btn-secondary{
+  padding: 0.375rem 0.75rem;
+  font-size: var(--font-sm);
+  font-weight: var(--fw-bold);
+  border-radius: 0.25rem;
+  letter-spacing: -0.012rem;
 }
 
 .menu-icons {
@@ -123,7 +128,7 @@
   }
 
   .navbar{
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     justify-content: normal;
     gap: 5.7rem;
   }

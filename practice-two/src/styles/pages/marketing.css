@@ -3,7 +3,7 @@
   padding-bottom: 0.8rem;
 }
 
-.marketing-wrapper{
+.marketing-wrapper {
   display: flex;
   flex-direction: column;
 }
@@ -32,7 +32,7 @@
   margin-top: 2.3rem;
 }
 
-.item-img {
+.marketing-items .item-img {
   background-color: var(--secondary-color);
   padding: 1.55rem 2.65rem 0rem;
   border-radius: 0.4rem;
@@ -54,4 +54,74 @@
   font-size: var(--font-xs);
   padding: 0.55rem 0.9rem;
   border-radius: 0.25rem;
+}
+
+@media (min-width: 1440px) {
+  .marketing {
+    margin-top: 7.5rem;
+  }
+
+  .marketing-wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .marketing .tag {
+    width: 23%;
+    margin-top: 5rem;
+  }
+
+  .marketing-text {
+    width: 30.4rem;
+    gap: 1rem;
+  }
+
+  .marketing-text .text-2xl {
+    font-size: var(--font-5xl);
+    line-height: 3.8rem;
+    letter-spacing: -0.04rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.2rem;
+  }
+
+  .marketing .text-md {
+    font-size: var(--font-lg);
+    font-style: normal;
+    font-weight: var(--fw-normal);
+    line-height: 1.75rem;
+    letter-spacing: 0.2px;
+  }
+
+  .marketing .icon-with-text {
+    gap: 1.5rem;
+  }
+
+  .marketing-text-first {
+    padding-bottom: 0.5rem;
+  }
+
+  .marketing-items .item-img {
+    margin-top: 0.5rem;
+    width: 34.5rem;
+    padding: 3.375rem 5.5rem 0rem;
+    border-radius: 0.4rem;
+  }
+
+  .item-btn {
+    border-radius: 0.75rem;
+    width: 81%;
+    padding: 0.7rem 1.4rem;
+    transform: translateY(-6.6rem);
+  }
+
+  .item-btn .text-xs {
+    font-size: var(--font-lg);
+  }
+
+  .item-btn .btn-secondary {
+    font-size: var(--font-lg);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.75rem;
+  }
 }

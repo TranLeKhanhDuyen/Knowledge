@@ -1,11 +1,12 @@
 .benefit {
-  margin-top: 4.5rem;
   background-color: var(--tertiary-color);
 }
 
 .benefit-content {
   padding-top: 4.5rem;
-  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .benefit-content .text-4xl {
@@ -13,7 +14,6 @@
 }
 
 .benefit-content .text-md {
-  margin-top: 1rem;
   color: var(--primary-color);
 }
 
@@ -24,6 +24,7 @@
   align-items: end;
   gap: 0.8rem;
   padding-bottom: 4.5rem;
+  margin-top: 3rem;
 }
 
 .benefit-item {
@@ -31,7 +32,6 @@
   display: flex;
   flex-direction: column;
 }
-
 
 .icon-smilely {
   background-image: url(../../assets/images/ic-smiley-white.svg);
@@ -71,30 +71,53 @@
   color: var(--primary-color);
 }
 
-.item-text{
-  padding-bottom: 1.7rem ;
+.item-text {
+  padding-bottom: 1.7rem;
 }
 
 .benefit-item:hover .text-md,
-.benefit-item:hover .text-xl{
+.benefit-item:hover .text-xl {
   color: var(--dark-color);
 }
 
-.benefit-item:hover .line{
+.benefit-item:hover .line {
   background-color: var(--dark-color);
 }
 
-.benefit-item:hover .icon-smilely{
+.benefit-item:hover .icon-smilely {
   background-image: url(../../assets/images/ic-smile-black.svg);
 }
 
-.benefit-item:hover .icon-laptop{
+.benefit-item:hover .icon-laptop {
   background-image: url(../../assets/images/ic-laptop-black.svg);
 }
 
-.benefit-item:hover .icon-pen{
+.benefit-item:hover .icon-pen {
   background-image: url(../../assets/images/ic-pen-black.svg);
 }
 
+@media (min-width: 1440px) {
+  .benefit-content {
+    padding-top: 7.5rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 5.6rem;
+  }
 
+  .benefit-content .text-4xl {
+    color: #fff;
+    font-size: var(--font-5xl);
+    line-height: normal;
+    letter-spacing: 0;
+    gap: 3rem;
+  }
+
+  .benefit-content .text-md {
+    margin-top: 1.5rem;
+    font-size: var(--font-lg);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem;
+  }
+}
 

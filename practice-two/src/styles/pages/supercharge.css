@@ -38,9 +38,42 @@
   letter-spacing: -0.015rem;
 }
 
-.supercharge-wrapper .text-sm{
- text-align: center;
+.supercharge-wrapper .text-sm {
+  text-align: center;
   margin-top: 1.7rem;
   color: var(--primary-color);
   font-weight: var(--fw-semibold);
+}
+
+@media (min-width: 1440px) {
+  .supercharge {
+    background-image: url(../../assets/images/background-lg.svg);
+    margin-top: 3rem;
+  }
+
+  .supercharge-wrapper {
+    flex-direction: row;
+    padding-bottom: 7.5rem;
+    gap: 14rem;
+  }
+
+  .supercharge-content {
+    margin-top: 2.9rem;
+    max-width: 40rem;
+  }
+
+  .supercharge-content .text-4xl {
+    font-size: var(--font-6xl);
+    line-height: 4.625rem;
+    letter-spacing: -0.05rem;
+  }
+
+  .supercharge-content .text-lg {
+    margin-top: 1.5rem;
+    padding-right: 4rem;
+  }
+
+  .supercharge-btn {
+    margin-top: 1.4rem;
+  }
 }

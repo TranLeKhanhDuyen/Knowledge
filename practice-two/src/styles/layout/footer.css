@@ -104,3 +104,37 @@
   border: none;
   font-weight: var(--fw-bold);
 }
+
+@media (min-width: 1440px) {
+  .footer-wrapper {
+    margin-top: 7.5rem;
+    padding-bottom: 8rem;
+  }
+  
+  .footer-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 7.8rem;
+  }
+
+  .footer-logo {
+    max-width: 16.5rem;
+  }
+
+  .footer-summary {
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+.product{
+    padding-left: 5.1rem;
+  }
+
+  .discover{
+    padding-left: 1.9rem;
+  }
+
+  .help-center{
+    padding-left: 1.3rem;
+  }
+}

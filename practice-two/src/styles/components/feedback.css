@@ -4,14 +4,24 @@
   gap: 0.7rem;
 }
 
-.feedback .text-bold{
+.feedback .text-bold {
   text-transform: capitalize;
   font-weight: var(--fw-bold);
   color: var(--dark-color);
   padding: 0.35rem 0 0.2rem;
 }
 
-.feedback .text-normal{
+.feedback .text-normal {
   text-transform: capitalize;
   line-height: normal;
+}
+
+@media (min-width: 1440px) {
+  .feedback .avata-img{
+    width:3rem;
+  }
+
+  .feedback .text-sm {
+    font-size: var(--font-md);
+  }
 }

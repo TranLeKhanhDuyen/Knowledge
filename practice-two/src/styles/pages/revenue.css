@@ -15,6 +15,11 @@
   gap: 4.3rem;
 }
 
+.revenue-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .revenue-content .text-5xl {
   margin-top: 2rem;
 }
@@ -28,6 +33,58 @@
   letter-spacing: -0.045rem;
 }
 
-.revenue-content .feedback{
+.revenue-content .feedback {
   margin-top: 1.85rem;
+}
+
+@media (min-width: 1440px) {
+  .revenue {
+    margin-top: 15.5rem;
+    /* padding-bottom: 4.5rem; */
+  }
+
+  .revenue-wrapper{
+gap: 2rem;
+  }
+
+  .revenue .text-4xl {
+    font-size: var(--font-5xl);
+    letter-spacing: -0.04rem;
+  }
+
+  .revenue .text-md {
+    font-size: var(--font-lg);
+    /* margin-top: 0.6rem; */
+    padding: 1.6rem 0 2.6rem;
+  }
+
+  .revenue-content {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 9.5rem;
+    align-items: flex-start;
+    padding-bottom: 2.5rem;
+  }
+
+  .revenue-percentage .text-5xl {
+    font-size: 4.5rem;
+    width: 15rem;
+  }
+ 
+  .revenue-percentage .text-lg {
+    font-size: var(--font-xl);
+    margin-top: 2.3rem;
+  }
+
+  .revenue-feedback .text-2xl {
+    font-size: var(--font-3xl);
+    font-weight: var(--fw-semibold);
+    line-height: 2.625rem;
+    letter-spacing: -0.02rem;
+    margin-top: 1rem;
+  }
+
+  .revenue-feedback .feedback{
+    margin-top: 2rem;
+  }
 }

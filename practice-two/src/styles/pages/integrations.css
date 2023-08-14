@@ -43,3 +43,33 @@
   letter-spacing: 0.0214375rem;
   font-weight: var(--fw-semibold);
 }
+
+@media (min-width: 1440px) {
+  .integrations {
+    padding-bottom: 1.2rem;
+  }
+
+  .integrations .text-4xl {
+    text-align: center;
+    padding-top: 8.2rem;
+    font-size: var(--font-5xl);
+  }
+
+  .integrations .text-md {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: var(--font-lg);
+  }
+
+  .integrations-img {
+    margin-top: 3rem;
+    grid-template-columns: repeat(5, auto);
+    column-gap: 0.5rem;
+    row-gap: 0.34rem;
+  }
+
+  .integrations-link .text-md {
+    font-size: var(--font-2xl);
+    letter-spacing: 0.03rem;
+  }
+}

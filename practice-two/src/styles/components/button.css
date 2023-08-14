@@ -3,16 +3,24 @@ button {
   text-align: center;
   color: var(--primary-color);
   border: none;
-  border-radius: calc(8 / 16 * 1rem);
+  border-radius: 0.5rem;
   cursor: pointer;
-  padding-top: calc(14 / 16 * 1rem);
-  padding-bottom: calc(12 / 16 * 1rem);
   transition: var(--smooth);
 }
 
 .btn-primary {
-  font-size: var(--text-md);
+  color: var(--dark-color);
+  font-family: var(--primary-font);
+  font-size: var(--font-md);
+  background-color: var(--primary-color);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.03125rem;
+  border: 0.01rem solid var(--light-color);
+}
+
+.btn-primary:hover {
   background-color: var(--tertiary-color);
+  color: var(--primary-color);
 }
 
 .btn-secondary {
@@ -20,8 +28,10 @@ button {
   font-family: var(--primary-font);
   font-size: var(--font-md);
   background-color: var(--green-color);
-  font-weight: var( --fw-semibold);
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.03125rem;
 }
 
-
+.btn-secondary:hover{
+  background-color: var(--tertiary-color);
+}

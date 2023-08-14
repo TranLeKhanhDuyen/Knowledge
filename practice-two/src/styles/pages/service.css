@@ -1,13 +1,20 @@
 .service {
   margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, auto);
-  gap: 0.9rem;
+}
+
+.service-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.56rem;
+}
+
+.service-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .service .tag {
-  width: 25%;
+  width: 31%;
   margin-top: 1.6rem;
 }
 
@@ -15,6 +22,52 @@
   text-transform: capitalize;
 }
 
-.service-img {
-  margin-top: 1.56rem;
+@media (min-width: 1440px) {
+  .service {
+    margin-top: 2.2rem;
+    padding-bottom: 2.9rem;
+  }
+
+  .service-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .service .tag {
+    width: 18%;
+    margin-top: 6.7rem;
+  }
+
+  .service-text {
+    width: 30.4rem;
+    gap: 1em;
+  }
+
+  .service-text .text-2xl {
+    font-size: var(--font-5xl);
+    line-height: 3.625rem;
+    letter-spacing: -0.04rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .service-text .text-md {
+    font-size: var(--font-lg);
+    font-style: normal;
+    font-weight: var(--fw-normal);
+    line-height: 1.75rem;
+  }
+
+  .service-text .icon-with-text {
+    gap: 1.5rem;
+  }
+
+  .service-text-first {
+    padding-bottom: 0.4rem;
+  }
+
+  .service-img {
+    margin-top: 3rem;
+    width: 34.7rem;
+  }
 }

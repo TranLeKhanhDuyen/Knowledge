@@ -1,16 +1,75 @@
 .revenue-statis {
-  margin-top: 4.48rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(8, auto);
-  gap: 0.9rem;
+  margin-top: 4.5rem;
+}
+
+.revenue-statis-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.revenue-statis-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .revenue-statis .tag {
-  width: 17.5%;
-  margin-top: 1.5rem;
+  width: 23.5%;
+  margin-top: 2.5rem;
 }
 
-.revenue-img {
-  margin-top: 1.56rem;
+.revenue-statis-text {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 1440px) {
+  .revenue-statis {
+    margin-top: 10.5rem;
+  }
+
+  .revenue-statis-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .revenue-statis .tag {
+    width: 13.5%;
+    margin-top: 5.7rem;
+  }
+
+  .revenue-statis-text {
+    width: 30.4rem;
+    gap: 1rem;
+  }
+
+  .revenue-statis-text .text-2xl {
+    font-size: var(--font-5xl);
+    line-height: 3.625rem;
+    letter-spacing: -0.04rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .revenue-statis-text .text-md {
+    font-size: var(--font-lg);
+    font-style: normal;
+    font-weight: var(--fw-normal);
+    line-height: 1.75rem;
+  }
+
+  .revenue-statis-text .icon-with-text {
+    gap: 1.5rem;
+  }
+
+.revenue-text-first {
+    padding-bottom: 0.5rem;
+  }
+
+  .revenue-statis-img {
+    margin-top: 3rem;
+    width: 34.7rem;
+  }
 }

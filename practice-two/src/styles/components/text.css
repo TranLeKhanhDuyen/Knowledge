@@ -1,68 +1,80 @@
-.text-xs {
+p,
+h1,
+h2 {
   font-family: var(--primary-font);
-  font-size: var(--font-xs);
+  text-decoration: none;
+}
+
+.text-light {
+  color: var(--light-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}
+
+.text-white {
   color: var(--primary-color);
-  font-weight: var(--fw-bold);
+}
+
+.text-grey {
+  color: var(--grey-color);
+}
+
+.text-xs {
+  font-size: 0.88rem;
   letter-spacing: -0.007rem;
 }
 
 .text-sm {
-  font-family: var(--primary-font);
-  font-size: var(--font-sm);
-  color: var(--light-color);
-  font-weight: var(--fw-normal);
+  font-size: 1.4rem;
 }
 
 .text-md {
-  font-size: var(--font-md);
-  color: var(--dark-color);
-  font-family: var(--primary-font);
-  font-weight: var(--fw-normal);
-  line-height: 1.625rem;
+  font-size: 1.6rem;
+  line-height: 2.6;
 }
 
 .text-lg {
-  font-size: var(--font-lg);
-  color: var(--dark-color);
-  font-family: var(--primary-font);
-  font-weight: var(--fw-bold);
+  font-size: 1.8rem;
   line-height: normal;
-  text-decoration: none;
 }
 
 .text-xl {
- font-family: var(--primary-font);
- font-size: var(--font-xl);
- color: var(--dark-color);
- line-height: 1.6875rem;
- font-weight: var(--fw-bold);
- letter-spacing: 0.0225rem;
- text-decoration: none;
+  font-size: 2rem;
+  letter-spacing: 0.0375rem;
 }
 
 .text-2xl {
- font-family: var(--primary-font);
- font-size: var(--font-2xl);
- color: var(--dark-color);
- line-height: 2.125rem;
- font-weight: var(--fw-bold);
- letter-spacing: -0.020625rem;
+  font-size: 2.4rem;
+  line-height: 3.4;
+  letter-spacing: -0.033rem;
+}
+
+.text-3xl {
+  font-size: 3.2rem;
 }
 
 .text-4xl {
-  font-size: var(--font-4xl);
-  color: var(--dark-color);
-  font-family: var(--primary-font);
-  font-weight: var(--fw-bold);
+  font-size: 3.6rem;
   line-height: 2.875rem;
   letter-spacing: -0.03125rem;
 }
 
 .text-5xl {
-  font-size: var(--font-5xl);
-  color: var(--dark-color);
-  font-family: var(--primary-font);
+  font-size: 4.8rem;
+  line-height: 4.6rem;
+  letter-spacing: -0.033rem;
+}
+
+.text-6xl {
+  font-size: 6.4rem;
+}
+
+.text-semibold {
+  font-weight: var(--fw-semibolf);
+}
+
+.text-bold {
   font-weight: var(--fw-bold);
-  line-height: 2.875rem;
-  letter-spacing: -0.02075rem;
 }

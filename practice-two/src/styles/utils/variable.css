@@ -12,18 +12,6 @@
   /* font variable */
   --primary-font: "satoshi", sans-serif;
 
-  /* font size variable with 1rem = 16px*/
-  --font-xs: 0.55rem;
-  --font-sm: 0.875rem;
-  --font-md: 1rem;
-  --font-lg: 1.125rem;
-  --font-xl: 1.25rem;
-  --font-2xl: 1.5rem;
-  --font-3xl: 2rem;
-  --font-4xl: 2.25rem;
-  --font-5xl: 3rem;
-  --font-6xl: 4rem;
-
  /* font weight */
   --fw-bold: 700;
   --fw-semibold: 500;

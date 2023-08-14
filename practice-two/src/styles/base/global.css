@@ -5,7 +5,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 .container {
@@ -17,14 +17,18 @@ html {
   background-color: var(--secondary-color);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
+  html {
+    font-size: 16px;
+  }
+
   .container {
-    width: 720px;
+    max-width: 540x;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   .container {
-    width: 1140px;
+    max-width: 1140px;
   }
 }

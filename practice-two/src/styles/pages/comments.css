@@ -3,18 +3,23 @@
   padding-bottom: 4.5rem;
 }
 
-.comments-wrapper .text-4xl {
+.comments-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-content .text-4xl {
   padding-top: 4.6rem;
   text-align: center;
 }
 
-.comments-wrapper .forward-link {
+.comments-content .forward-link {
   margin-top: 1.5rem;
   justify-content: center;
   font-weight: var(--fw-semibold);
 }
 
-.comments-wrapper .forward-link .text-xl {
+.comments-content .forward-link .text-xl {
   font-weight: var(--fw-semibold);
 }
 
@@ -33,14 +38,64 @@
 .comments-detail .text-xl {
   margin-top: 1.1rem;
   font-weight: var(--fw-semibold);
-  line-height: 1.875rem; 
+  line-height: 1.875rem;
   letter-spacing: -0.017375rem;
 }
 
-.comments-detail .feedback{
+.comments-detail .feedback {
   margin-top: 1.3rem;
 }
 
-.comments-detail .feedback .text-normal{
+.comments-detail .feedback .text-normal {
   padding-top: 0.3rem;
+}
+
+@media (min-width: 1440px) {
+  .comments {
+    margin-top: 4.2rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .comments-content {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5rem;
+  }
+
+  .comments-content .text-4xl {
+    max-width: 35rem;
+    padding-top: 7.5rem;
+    text-align: center;
+    font-size: var(--font-5xl);
+    text-align: start;
+    line-height: 3.625rem;
+  }
+
+  .comments-detail {
+    margin-top: 4.5rem;
+    flex-direction: row;
+    gap: 1.875rem;
+  }
+
+  .comments-detail .text-xl {
+    margin-top: 1.6rem;
+    font-weight: var(--fw-semibold);
+    font-size: var(--font-2xl);
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: -0.333px;
+    max-width: 22.5rem;
+  }
+
+  .comments-detail .feedback {
+    margin-top: 3rem;
+  }
+
+  .comments-detail .feedback .text-normal {
+    padding-top: 0.1rem;
+  }
+
+  .comment .andrew {
+    margin-top: 7.2rem;
+  }
 }

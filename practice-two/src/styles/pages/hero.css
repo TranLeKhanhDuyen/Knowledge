@@ -1,5 +1,6 @@
-.hero{
-  margin-top: 3rem;
+.hero {
+  padding-top: 3rem;
+  background-color: var(--secondary-color);
 }
 
 .hero .text-md {
@@ -51,7 +52,7 @@
 @media (min-width: 1440px) {
   .hero {
     display: flex;
-    margin-top: 0.4rem;
+    padding-top: 0.4rem;
   }
 
   .hero-content {
@@ -94,8 +95,8 @@
     line-height: normal;
     letter-spacing: -0.016rem;
   }
-  
-  .hero-content .text-sm{
+
+  .hero-content .text-sm {
     margin-top: 0.8rem;
     padding-left: 1rem;
   }

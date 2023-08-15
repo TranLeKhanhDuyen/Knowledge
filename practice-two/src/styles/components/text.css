@@ -22,56 +22,6 @@ li {
   color: var(--grey-color);
 }
 
-.text-xs {
-  font-size: 0.88rem;
-  letter-spacing: -0.007rem;
-}
-
-.text-sm {
-  font-size: 1.4rem;
-}
-
-.text-md {
-  font-size: 1.6rem;
-  line-height: 2.6;
-}
-
-.text-lg {
-  font-size: 1.8rem;
-  line-height: normal;
-}
-
-.text-xl {
-  font-size: 2rem;
-  letter-spacing: 0.0375rem;
-}
-
-.text-2xl {
-  font-size: 2.4rem;
-  line-height: 3.4;
-  letter-spacing: -0.033rem;
-}
-
-.text-3xl {
-  font-size: 3.2rem;
-}
-
-.text-4xl {
-  font-size: 3.6rem;
-  line-height: 2.875rem;
-  letter-spacing: -0.03125rem;
-}
-
-.text-5xl {
-  font-size: 4.8rem;
-  line-height: 4.6rem;
-  letter-spacing: -0.033rem;
-}
-
-.text-6xl {
-  font-size: 6.4rem;
-}
-
 .text-semibold {
   font-weight: var(--fw-semibolf);
 }

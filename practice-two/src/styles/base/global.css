@@ -13,6 +13,13 @@ html {
   margin: 0 auto;
 }
 
+hr {
+  background-color: var(--light-color);
+  height: 1px;
+  width: 100%;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 720px;

@@ -1,14 +1,18 @@
 .partner {
   width: 100%;
-  margin-top: 21.3rem;
+  padding-bottom: 4.5rem;
+  background-color: var(--secondary-color);
+}
+
+.partner-wrapper {
+  padding-top: 0.2rem;
   display: flex;
   flex-direction: column;
   gap: 2.6rem;
-  padding-bottom: 4.5rem;
 }
 
-.partner .text-sm {
-  color: var(--dark-color);
+.partner-decs {
+  font-size: 0.875rem;
 }
 
 .grid-partner {
@@ -20,32 +24,29 @@
 
 @media (min-width: 1440px) {
   .partner {
-    margin-top: 8.4rem;
-    flex-direction: row;
-    align-items: center;
-    gap: 7.5rem;
-    padding-bottom: 5.55rem;
+    padding-bottom: 4.7rem;
   }
 
-  .partner .text-sm {
-    font-size: var(--font-md);
-    font-weight: var(--fw-semibold);
-    letter-spacing: -0.013rem;
+  .partner-wrapper {
+    padding-top: 2.4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .grid-partner {
     grid-template-columns: repeat(5, auto);
-    column-gap: 4rem;
+    column-gap: 3.5rem;
   }
 
   .grid-partner .google-img,
   .grid-partner .canon-img,
   .grid-partner .amazon-img {
-    width: 6rem;
+    width: 5.3rem;
   }
 
   .grid-partner .atlassian-img {
-    width: 8.49rem;
+    width: 7.2rem;
   }
 
   .grid-partner .walmart-img {

@@ -1,6 +1,7 @@
 p,
 h1,
-h2 {
+h2,
+li {
   font-family: var(--primary-font);
   text-decoration: none;
 }

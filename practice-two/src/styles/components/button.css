@@ -1,5 +1,4 @@
 button {
-  font-family: var(--primary-font);
   text-align: center;
   color: var(--primary-color);
   border: none;
@@ -11,10 +10,8 @@ button {
 .btn-primary {
   color: var(--dark-color);
   font-family: var(--primary-font);
-  font-size: var(--font-md);
   background-color: var(--primary-color);
   font-weight: var(--fw-semibold);
-  letter-spacing: -0.03125rem;
   border: 0.01rem solid var(--light-color);
 }
 
@@ -26,12 +23,10 @@ button {
 .btn-secondary {
   color: var(--primary-color);
   font-family: var(--primary-font);
-  font-size: var(--font-md);
   background-color: var(--green-color);
   font-weight: var(--fw-semibold);
-  letter-spacing: -0.03125rem;
 }
 
-.btn-secondary:hover{
+.btn-secondary:hover {
   background-color: var(--tertiary-color);
 }

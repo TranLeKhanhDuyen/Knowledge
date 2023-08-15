@@ -3,14 +3,14 @@
 }
 
 .navbar {
-  padding-top: 1.5rem;
+  padding-top: 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .navbar-logo img {
-  width: 6rem;
+  width: 9.7rem;
 }
 
 .navbar-list {
@@ -77,16 +77,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  max-width: 2rem;
   cursor: pointer;
   transition: var(--smooth);
   z-index: 3;
 }
 
 .menu-icon {
-  width: 1.125rem;
-  height: 0.06rem;
+  width: 1.9rem;
+  height: 0.16rem;
   background-color: var(--light-color);
   border-radius: 0.3rem;
   transition: var(--smooth);
@@ -97,8 +96,8 @@
 .menu-icon::before,
 .menu-icon::after {
   content: " ";
-  width: 1.125rem;
-  height: 0.06rem;
+  width: 1.9rem;
+  height: 0.16rem;
   background-color: var(--light-color);
   border-radius: 0.3rem;
   transition: var(--smooth);
@@ -129,7 +128,7 @@
 
 @media (min-width: 1440px) {
   .navbar {
-    padding-top: 1.5rem;
+    padding-top: 1.4rem;
     justify-content: normal;
     gap: 5.7rem;
   }
@@ -141,11 +140,11 @@
   .navbar-list {
     position: initial;
     transform: translateX(0);
+    width: auto;
     opacity: 1;
     background-color: transparent;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    gap: 21rem;
   }
 
   .btn-navbar {

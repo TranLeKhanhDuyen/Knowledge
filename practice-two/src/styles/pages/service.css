@@ -5,69 +5,88 @@
 .service-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.56rem;
+  gap: 2.4rem;
 }
 
-.service-text {
+.service-content {
   display: flex;
   flex-direction: column;
 }
 
-.service .tag {
-  width: 31%;
-  margin-top: 1.6rem;
+.service-text {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.service .text-2xl {
+.service .tag {
+  width: 31%;
+  margin-top: 2.5rem;
+}
+
+.service-title {
   text-transform: capitalize;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
+  letter-spacing: -0.02rem;
+}
+
+.service-desc {
+  line-height: 1.625rem;
+}
+
+.service-done {
+  line-height: 1.61rem;
+  letter-spacing: 0.0015rem;
 }
 
 @media (min-width: 1440px) {
   .service {
-    margin-top: 2.2rem;
-    padding-bottom: 2.9rem;
+    margin-top: 1.3rem;
+    padding-bottom: 2.3rem;
   }
 
   .service-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .service .tag {
-    width: 18%;
-    margin-top: 6.7rem;
+    width: 4.7rem;
+    margin-top: 5.9rem;
   }
 
   .service-text {
-    width: 30.4rem;
-    gap: 1em;
+    width: 28rem;
   }
 
-  .service-text .text-2xl {
-    font-size: var(--font-5xl);
-    line-height: 3.625rem;
-    letter-spacing: -0.04rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .service-text .text-md {
-    font-size: var(--font-lg);
-    font-style: normal;
-    font-weight: var(--fw-normal);
-    line-height: 1.75rem;
-  }
-
-  .service-text .icon-with-text {
-    gap: 1.5rem;
-  }
-
-  .service-text-first {
+  .service-title {
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+    letter-spacing: -0.01rem;
     padding-bottom: 0.4rem;
   }
 
+  .service-desc{
+    line-height: 1.55rem; 
+    letter-spacing: 0.01rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .service-done{
+    line-height: 1.55rem;
+    padding-right: 1rem;
+    letter-spacing: 0.2px;
+  }
+
+  .service-text .icon-with-text {
+    gap: 1.35rem;
+  }
+
   .service-img {
-    margin-top: 3rem;
-    width: 34.7rem;
+    margin-top: 2.7rem;
+    width: 30.8rem;
   }
 }

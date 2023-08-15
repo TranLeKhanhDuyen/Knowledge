@@ -13,34 +13,34 @@
   gap: 2.75rem;
 }
 
-.service-content {
+.new-service-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.service-content .text-sm {
+.new-service-content .text-sm {
   text-transform: uppercase;
   color: var(--light-color);
   font-weight: var(--fw-bold);
   letter-spacing: 0.0875rem;
 }
 
-.service-content .line {
+.new-service-content .line {
   background-color: var(--light-color);
 }
 
-.service-content .text-xl {
+.new-service-content .text-xl {
   letter-spacing: -0.017375rem;
   line-height: 1.875rem;
 }
 
-.service-content .text-md {
+.new-service-content .text-md {
   display: flex;
   font-weight: var(--fw-semibold);
 }
 
-.service-content .text-md-grey {
+.new-service-content .text-md-grey {
   padding-left: 0.37rem;
   color: var(--light-color);
   font-weight: var(--fw-normal);
@@ -75,12 +75,12 @@
     gap: 2rem;
   }
 
-  .service-content {
+  .new-service-content {
     width: 35rem;
     gap: 1.3rem;
   }
 
-  .service-content .text-xl {
+  .new-service-content .text-xl {
     letter-spacing: -0.017375rem;
     line-height: 1.875rem;
     font-size: var(--font-3xl);
@@ -89,11 +89,11 @@
     padding-right: 2rem;
   }
   
-  .service-content .content-first {
+  .new-service-content .content-first {
     padding-right: 2rem;
   }
 
-  .service-content .content-second {
+  .new-service-content .content-second {
     padding-right: 1rem;
   }
 }

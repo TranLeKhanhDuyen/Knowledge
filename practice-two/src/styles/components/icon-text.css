@@ -2,8 +2,8 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  padding-top: 0.05rem;
   letter-spacing: 0.178px;
-  padding-top: 0.1rem;
 }
 
 .icon-quotes {
@@ -13,4 +13,10 @@
   font-weight: var(--fw-bold);
   letter-spacing: -0.1rem;
   max-height: 3rem;
+}
+
+@media (min-width: 1440px) {
+  .icon-with-text {
+    gap: 1.3rem;
+  }
 }

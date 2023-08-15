@@ -2,14 +2,14 @@
   background-color: var(--secondary-color);
 }
 
-.navbar {
+.header-wrapper {
   padding-top: 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar-logo img {
+.header-logo img {
   width: 9.7rem;
 }
 
@@ -127,13 +127,13 @@
 }
 
 @media (min-width: 1440px) {
-  .navbar {
+  .header-wrapper {
     padding-top: 1.4rem;
     justify-content: normal;
     gap: 5.7rem;
   }
 
-  .navbar-logo img {
+  .header-logo img {
     width: 6.6rem;
   }
 

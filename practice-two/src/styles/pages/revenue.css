@@ -1,90 +1,110 @@
 .revenue {
-  margin-top: 8.8rem;
-  padding-bottom: 4.5rem;
+  margin-top: 9.2rem;
+  padding-bottom: 0.5rem;
 }
 
-.revenue .text-md {
-  color: var(--light-color);
-  padding: 1rem 0;
+.revenue-title {
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.5px;
 }
 
-.revenue-wrapper {
+.revenue-desc {
+  margin-top: 0.9rem;
+  padding-bottom: 3rem;
+  line-height: 26px;
+}
+
+.sale-period {
+  margin-top: 1.9rem;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -0.667px;
+}
+
+.sale-info {
+  padding-top: 1.2rem;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.feedback-content {
   margin-top: 2rem;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: -0.333px;
+}
+
+.feedback-customer {
   display: flex;
-  flex-direction: column;
-  gap: 4.3rem;
-}
-
-.revenue-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.revenue-content .text-5xl {
+  gap: 0.7rem;
   margin-top: 2rem;
+  padding-bottom: 4.1rem;
 }
 
-.revenue-content .text-lg {
-  margin-top: 1.2rem;
+.customer-info {
+  font-size: 14px;
+  line-height: 1.25rem;
 }
 
-.revenue-content .text-2xl {
-  margin-top: 2rem;
-  letter-spacing: -0.045rem;
-}
-
-.revenue-content .feedback {
-  margin-top: 1.85rem;
+.avatar-img {
+  width: 40px;
+  height: 40px;
 }
 
 @media (min-width: 1440px) {
   .revenue {
-    margin-top: 15.5rem;
-    /* padding-bottom: 4.5rem; */
+    margin-top: 13.35rem;
   }
 
-  .revenue-wrapper{
-gap: 2rem;
+  .revenue-title {
+    font-size: 48px;
+    line-height: 68px;
+    letter-spacing: -0.667px;
   }
 
-  .revenue .text-4xl {
-    font-size: var(--font-5xl);
-    letter-spacing: -0.04rem;
-  }
-
-  .revenue .text-md {
-    font-size: var(--font-lg);
-    /* margin-top: 0.6rem; */
-    padding: 1.6rem 0 2.6rem;
+  .revenue-desc {
+    margin-top: 0.7rem;
+    padding-bottom: 3.9rem;
+    line-height: 28px;
   }
 
   .revenue-content {
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 9.5rem;
-    align-items: flex-start;
-    padding-bottom: 2.5rem;
+    display: flex;
+    gap: 164px;
   }
 
-  .revenue-percentage .text-5xl {
-    font-size: 4.5rem;
-    width: 15rem;
-  }
- 
-  .revenue-percentage .text-lg {
-    font-size: var(--font-xl);
-    margin-top: 2.3rem;
-  }
-
-  .revenue-feedback .text-2xl {
-    font-size: var(--font-3xl);
-    font-weight: var(--fw-semibold);
-    line-height: 2.625rem;
-    letter-spacing: -0.02rem;
-    margin-top: 1rem;
+  .sale-period {
+    width: 227px;
+    padding-top: 0.8rem;
+    padding-bottom: 0.3rem;
+    font-size: 72px;
+    line-height: 74px;
+    letter-spacing: -1px;
   }
 
-  .revenue-feedback .feedback{
-    margin-top: 2rem;
+  .sale-info {
+    font-size: 20px;
+  }
+
+  .feedback-content {
+    padding-top: 0.8rem;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: -0.444px;
+  }
+
+  .feedback-customer {
+    margin-top: 1.8rem;
+    padding-bottom: 3.8rem;
+  }
+
+  .customer-info {
+    font-size: 16px;
+  }
+
+  .avatar-img {
+    width: 48px;
+    height: 48px;
   }
 }

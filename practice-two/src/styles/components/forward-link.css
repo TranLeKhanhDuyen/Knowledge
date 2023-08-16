@@ -3,8 +3,9 @@
   align-items: flex-end;
 }
 
-.forward-link .text-md {
+.text-link {
   text-decoration: none;
-  letter-spacing: 0.0214375rem;
-  font-weight: var(--fw-semibold);
+  color: var(--dark);
+  font-weight: 500;
+  padding-bottom: 0.4rem;
 }

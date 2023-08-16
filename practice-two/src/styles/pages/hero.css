@@ -28,7 +28,7 @@
   flex-direction: column;
   border: 1px solid var(--grey-color);
   border-radius: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
   background-color: var(--primary-color);
   gap: 0.2rem;
 }

@@ -43,19 +43,10 @@
   align-items: flex-end;
   justify-content: center;
 }
-
-.text-link {
-  text-decoration: none;
+.integrations-link .text-link {
   letter-spacing: 0.343px;
   margin-top: 1.9rem;
-  padding-bottom: 0.4rem;
-}
 
-.integrations-ic {
-  display: inline-block;
-  background: url(../../assets/images/arrow-right-ic.svg);
-  width: 24px;
-  height: 24px;
 }
 
 @media (min-width: 1440px) {
@@ -99,7 +90,7 @@
     height: 6.67rem;
   }
 
-  .text-link {
+  .integrations-link .text-link {
     margin-top: 3.2rem;
     font-size: 1.3rem;
     letter-spacing: 0.04rem;

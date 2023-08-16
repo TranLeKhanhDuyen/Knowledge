@@ -48,6 +48,7 @@
   .supercharge {
     background-image: url(../../assets/images/background-lg.svg);
     margin-top: 0;
+    background-repeat: no-repeat;
   }
 
   .supercharge-wrapper {

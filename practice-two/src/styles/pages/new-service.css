@@ -50,17 +50,16 @@
 }
 
 .content-mobile {
-  display: block; 
+  display: block;
 }
 
 .content-desktop {
-  display: none; 
+  display: none;
 }
 
 .author {
   padding-left: 0.37rem;
 }
-
 
 @media (min-width: 1440px) {
   .new-service {
@@ -122,15 +121,10 @@
   }
 
   .content-mobile {
-    display: none; 
+    display: none;
   }
-  
+
   .content-desktop {
-    display: block; 
+    display: block;
   }
-  
-  /*
-  .new-service-content .content-second {
-    padding-right: 1rem;
-  } */
 }

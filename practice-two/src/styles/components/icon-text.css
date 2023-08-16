@@ -14,9 +14,13 @@
   letter-spacing: -0.1rem;
   max-height: 3rem;
 }
-
 @media (min-width: 1440px) {
   .icon-with-text {
     gap: 1.3rem;
   }
+
+  .icon-quotes{
+    font-size: 6.5rem;
+  }
 }
+

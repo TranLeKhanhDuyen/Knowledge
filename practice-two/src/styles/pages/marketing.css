@@ -1,6 +1,6 @@
 .marketing {
-  margin-top: 4.4rem;
-  padding-bottom: 0.8rem;
+  margin-top: 70.4px;
+  padding-bottom: 12.8px;
 }
 
 .marketing-wrapper {
@@ -9,7 +9,7 @@
 }
 
 .marketing-content {
-  margin-top: 2.4rem;
+  margin-top: 38.4px;
 }
 
 .marketing-content .tag {
@@ -17,74 +17,74 @@
 }
 
 .marketing-text {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .marketing-title {
   text-transform: capitalize;
-  font-size: 1.5rem;
-  margin-top: 0.2rem;
-  letter-spacing: -0.02rem;
+  font-size: 24px;
+  margin-top: 3.2px;
+  letter-spacing: -0.32px;
   line-height: 34px;
 }
 
 .marketing-desc,
 .marketing-done {
-  line-height: 1.625rem;
+  line-height: 26px;
 }
 
 .marketing-done {
-  letter-spacing: -0.002rem;
+  letter-spacing: -0.032px;
 }
 
 .marketing-items {
-  margin-top: 2.3rem;
+  margin-top: 36.8px;
 }
 
 .marketing-items .item-img {
   background-color: var(--secondary-color);
-  padding: 1.55rem 2.65rem 0rem;
-  border-radius: 0.4rem;
+  padding: 24.8px 42.4px 0;
+  border-radius: 6.4px;
 }
 
 .item-btn {
   background-color: var(--tertiary-color);
   padding: 0.47rem 0.6rem;
-  border-radius: 0.4rem;
+  border-radius: 6.4px;
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 14.4px;
   width: 82%;
   margin: 0 auto;
-  transform: translateY(-3.6rem);
+  transform: translateY(-57.6px);
 }
 
 .text-btn {
-  font-size: 0.55rem;
-  padding-left: 0.2rem;
+  font-size: 8.8px;
+  padding-left: 3.2px;
   letter-spacing: -0.123px;
 }
 
 .btn-click {
-  font-size: 0.55rem;
-  padding: 0.55rem 0.5rem;
-  border-radius: 0.25rem;
+  font-size: 8.8px;
+  padding: 8.8px 8px;
+  border-radius: 4px;
 }
 
 @media (min-width: 768px) {
   .marketing .tag {
-    width: 7rem;
+    width: 112px;
   }
 
   .item-img {
-    width: 30rem;
+    width: 480px;
   }
 
   .item-btn {
-    width: 30rem;
+    width: 480px;
     justify-content: space-between;
     margin-left: 0;
   }
@@ -94,75 +94,73 @@
   .marketing-wrapper {
     flex-direction: row-reverse;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 54px;
   }
 }
 
 
 @media (min-width: 1440px) {
   .marketing {
-    margin-top: 6.6rem;
+    margin-top: 118.8px;
   }
 
   .marketing-wrapper {
-    gap: 2rem;
+    gap: 36px;
   }
 
   .marketing .tag {
-    max-width: 6.2rem;
-    margin-top: 4.2rem;
-    margin-left: 3.3rem;
+    max-width: 111.6px;
+    margin-top: 75.6px;
+    margin-left: 59.4px;
   }
 
   .marketing-text {
-    gap: 0.88rem;
-    padding-left: 3.3rem;
+    gap: 15.84px;
+    padding-left: 59.4px;
   }
 
   .marketing-title {
-    font-size: 2.66rem;
-    line-height: 3.2rem;
-    letter-spacing: -0.037rem;
-    padding-bottom: 0.3rem;
-    padding-top: 0.2rem;
+    font-size: 48px;
+    line-height: 57.6px;
+    letter-spacing: -0.666px;
+    padding-bottom: 5.4px;
+    padding-top: 3.2px;
   }
 
   .marketing-desc {
-    line-height: 1.625rem;
+    line-height: 26px;
     letter-spacing: 0.2px;
-    padding-bottom: 0.3rem;
+    padding-bottom: 5.4px;
   }
 
   .marketing-done {
-    gap: 1.4rem;
-    line-height: 1.55rem;
-    letter-spacing: 0.01rem;
+    gap: 25.2px;
+    line-height: 27.9px;
+    letter-spacing: 0.18px;
   }
 
   .marketing-items .item-img {
-    margin-top: 0.5rem;
-    width: 31rem;
-    padding: 3rem 5rem 0rem;
-    border-radius: 0.4rem;
+    margin-top: 9px;
+    width: 558px;
+    padding: 54px 90px 0;
+    border-radius: 6.4px;
   }
 
   .text-btn {
-    font-size: 1rem;
     letter-spacing: -0.25px;
   }
 
   .item-btn {
     margin: 0 auto;
-    border-radius: 0.75rem;
-    width: 25.38rem;
-    padding: 0.7rem 1.3rem;
-    transform: translateY(-6.3rem);
+    border-radius: 13.5px;
+    width: 456.8px;
+    padding: 12.6px 23.4px;
+    transform: translateY(-113.4px);
     letter-spacing: -0.25px;
   }
 
   .btn-click {
-    font-size: 1rem;
-    padding: 1rem 1.2rem;
-    border-radius: 0.4rem;
+    padding: 18px 21.6px;
+    border-radius: 6.4px;
   }
 }

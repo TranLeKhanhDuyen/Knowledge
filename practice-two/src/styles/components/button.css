@@ -2,7 +2,7 @@ button {
   text-align: center;
   color: var(--primary-color);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: var(--smooth);
 }
@@ -12,7 +12,7 @@ button {
   font-family: var(--primary-font);
   background-color: var(--primary-color);
   font-weight: var(--fw-semibold);
-  border: 0.01rem solid var(--light-color);
+  border: 0.16px solid var(--light-color);
 }
 
 .btn-primary:hover {

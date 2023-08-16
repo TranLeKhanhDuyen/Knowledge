@@ -1,7 +1,7 @@
 .footer-wrapper {
   font-family: Satoshi;
-  margin-top: 4.55rem;
-  padding-bottom: 8rem;
+  margin-top: 72.8px;
+  padding-bottom: 128px;
 }
 
 .footer-content {
@@ -12,31 +12,31 @@
 .footer-logo {
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
+  gap: 20.8px;
 }
 
 .logo-img {
-  width: 6.6rem;
+  width: 105.6px;
 }
 
 .logo-text {
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 .social-media {
   display: flex;
-  gap: 0.93rem;
-  padding-top: 0.25rem;
+  gap: 14.88px;
+  padding-top: 4px;
 }
 
 .social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 0.1rem;
+  width: 1.6px;
   height: 0.1;
-  padding: 0.73rem;
+  padding: 11.7px;
   border-radius: 50%;
   color: var(--primary-color);
   transition: background-color 0.3s;
@@ -55,22 +55,22 @@
 }
 
 .footer-summary {
-  margin-top: 3.3rem;
+  margin-top: 46.4px;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 42.4px;
 }
 
 .title-link {
-  padding-bottom: 1.375rem;
+  padding-bottom: 22px;
   font-weight: var(--fw-bold);
 }
 
 .item-link {
-  padding-bottom: 1.25rem;
-  font-size: 0.875rem;
+  padding-bottom: 20px;
+  font-size: 14px;
   font-weight: var(--fw-normal);
-  letter-spacing: 0.125rem;
+  letter-spacing: 2px;
 }
 
 .footer-line {
@@ -79,38 +79,38 @@
 }
 
 .footer-copyright {
-  margin-top: 2.3rem;
+  margin-top: 36.8px;
 }
 
 .copyright-wrapper {
-  margin-top: 1.75rem;
+  margin-top: 28px;
   display: flex;
   flex-direction: column;
-  gap: 2.1rem;
+  gap: 48px;
 }
 
 .copyright-text {
   color: var(--light-color);
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: var(--fw-normal);
-  letter-spacing: 0.0125rem;
+  letter-spacing: 0.2px;
 }
 
 .contact {
   display: flex;
   flex-direction: column;
-  gap: 1.22rem;
+  gap: 19.52px;
 }
 
 .text-contact {
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: var(--fw-normal);
-  letter-spacing: 0.0125rem;
+  letter-spacing: 0.2px;
 }
 
 .select-translate {
   display: flex;
-  gap: 0.2rem;
+  gap: 3.2px;
 }
 
 .language-dropdown {
@@ -119,89 +119,89 @@
 }
 
 .language-item {
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: var(--fw-semibold);
   line-height: normal;
-  letter-spacing: 0.012rem;
+  letter-spacing: 0.192px;
 }
 
 @media(min-width: 1200px){
   .footer-content {
     flex-direction: row;
-    gap: 1rem;
+    gap: 18px;
   }
 
   .footer-summary {
-    margin-top: 0.2rem;
+    margin-top: 3.6px;
     flex-direction: row;
   }
 
   .copyright-wrapper {
     flex-direction: row;
-    gap: 7rem;
+    gap: 126px;
     align-items: center;
   }
 
   .contact {
     flex-direction: row;
-    gap: 4rem;
+    gap: 72px;
   }
 }
 
 @media(min-width: 1440px) {
   .footer-wrapper {
-    margin-top: 6.7rem;
-    padding-bottom: 8rem;
-    gap: 1.7rem;
+    margin-top: 120.8px;
+    padding-bottom: 144px;
+    gap: 30.6px;
   }
 
   .footer-content {
     flex-direction: row;
-    gap: 7.6rem;
+    gap: 136.8px;
   }
 
   .footer-logo {
-    max-width: 14rem;
-    gap: 1.1rem;
+    max-width: 252px;
+    gap: 19.8px;
   }
 
   .logo-img {
-    width: 5.9rem;
-    height: 1.22rem;
+    width: 106.2px;
+    height: 21.96px;
   }
 
   .logo-text {
-    font-size: 0.77rem;
+    font-size: 14px;
     line-height: 1.4rem;
   }
 
   .item-link {
-    padding-bottom: 1.1rem;
-    font-size: 0.77rem;
-    letter-spacing: 0.01rem;
+    padding-bottom: 19.8px;
+    font-size: 14px;
+    letter-spacing: 0.18px;
   }
 
   .footer-summary {
-    margin-top: 0.2rem;
+    margin-top: 3.6px;
     flex-direction: row;
   }
 
   .product {
-    padding-left: 5.3rem;
-    padding-right: 2.2rem;
+    padding-left: 95.4px;
+    padding-right: 39.6px;
   }
 
   .help-center {
-    padding-left: 1.7rem;
+    padding-left: 30.6px;
   }
 
   .title-link {
-    font-size: 0.88rem;
+    font-size: 15.84px;
   }
 
   .social-media {
-    gap: 0.7rem;
-    padding-top: 0.15rem;
+    gap: 12.6px;
+    padding-top: 2.7px;
   }
   .footer-line {
     margin: 0 auto;
@@ -209,31 +209,31 @@
   }
 
   .footer-copyright {
-    margin-top: 5rem;
+    margin-top: 90px;
   }
 
   .copyright-wrapper {
-    margin-top: 2.3rem;
+    margin-top: 41.4px;
     flex-direction: row;
-    gap: 11.3rem;
+    gap: 203.4px;
     align-items: center;
   }
 
   .copyright-text {
     color: var(--light-color);
-    font-size: 0.77rem;
+    font-size: 14px;
     font-weight: var(--fw-normal);
-    letter-spacing: 0.0125rem;
+    letter-spacing: 0.225px;
   }
 
   .contact {
     flex-direction: row;
-    gap: 2.8rem;
+    gap: 50.4px;
   }
 
   .text-contact {
-    font-size: 0.77rem;
-    letter-spacing: 0.01rem;
+    font-size: 14px;
+    letter-spacing: 0.18px;
   }
 
   .select-translate {

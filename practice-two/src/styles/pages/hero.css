@@ -6,20 +6,19 @@
 }
 
 .hero-content {
-  margin: 0 1.5rem;
+  margin: 0 24px;
 }
 
 .hero-title {
-  margin-top: 3.08rem;
-  font-size: 2.25rem;
-  line-height: 2.875rem;
-  letter-spacing: -0.03rem;
+  margin-top: 49.3px;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.48px;
 }
 
 .hero-desc {
-  margin-top: 1rem;
-  font-size: 1rem;
-  line-height: 1.625rem;
+  margin-top: 16px;
+  line-height: 26px;
 }
 
 .input-form {
@@ -27,28 +26,25 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--grey-color);
-  border-radius: 0.5rem;
-  margin-top: 1.8rem;
+  border-radius: 8px;
+  margin-top: 28.8px;
   background-color: var(--primary-color);
-  gap: 0.2rem;
+  gap: 3.2px;
 }
 
 .hero-input {
   border: none;
-  margin-top: 0.35rem;
-  padding: 0.6rem 0.95rem 1.1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: -0.014rem;
+  margin-top: 5.6px;
+  padding: 9.6px 15.2px 17.6px;
+  letter-spacing: -0.224px;
 }
 
 .hero-button {
   width: 94%;
   margin: 0 auto;
-  margin-bottom: 0.5rem;
-  padding: 0.875rem 0.875rem 0.8rem;
-  font-size: 1rem;
-  letter-spacing: -0.014rem;
+  margin-bottom: 8px;
+  padding: 14px 14px 12.8px;
+  letter-spacing: -0.224px;
 }
 
 input:focus {
@@ -56,16 +52,15 @@ input:focus {
 }
 
 .text-access {
-  margin-top: 0.82rem;
-  font-size: 0.875rem;
+  margin-top: 13.12px;
+  font-size: 14px;
 }
 
 .hero-img {
-  margin-top: 2.65rem;
-  margin-bottom: 2.65rem;
+  margin: 42.4px 0;
   z-index: 0;
-  width: 18.9rem;
-  height: 15.8rem;
+  width: 302.4px;
+  height: 252.8px;
 }
 
 @media (min-width: 768px) {
@@ -74,70 +69,68 @@ input:focus {
     align-items: flex-start;
   }
 
-    .hero-img {
-    width: 20rem;
-    height: 22rem;
-    margin-top: 3.4rem;
+  .hero-img {
+    width: 320px;
+    height: 352px;
+    margin-top: 54.4px;
   }
 }
 
 @media (min-width: 1200px) {
   .hero-content {
-    margin: 0 5rem;
-  }  
+    margin: 0 90px;
+  }
 }
 
 @media (min-width: 1440px) {
   .hero-content {
-    margin-left: 8.25rem;
+    margin-left: 148.5px;
   }
 
   .hero-title {
-    margin-top: 5.3rem;
-    width: 32rem;
-    font-size: 3.5rem;
-    line-height: 4.1rem;
+    margin-top: 95.4px;
+    max-width: 585px;
+    font-size: 64px;
+    line-height: 73.8px;
+    letter-spacing: -0.889px;
   }
 
   .hero-desc {
-    font-size: 1rem;
-    margin-top: 1.2rem;
-    padding-right: 6rem;
+    margin-top: 22.5px;
+    padding-right: 108px;
     line-height: 28px;
   }
 
   .input-form {
     flex-direction: row;
-    margin-top: 3.4rem;
+    margin-top: 61.2px;
     align-items: center;
     width: 77%;
-    padding: 0.5rem;
-    gap: 3.4rem;
+    padding: 9px;
+    gap: 61.2px;
   }
 
   .hero-input {
-    font-size: 1rem;
-    letter-spacing: -0.15rem;
-    margin-top: 0.5rem;
-    letter-spacing: -0.01rem;
-    padding: 0.6rem 0.95rem 0.7rem 0.9rem;
+    letter-spacing: -2.7px;
+    margin-top: 9px;
+    letter-spacing: -0.18px;
+    padding: 10.8px 17.1px 12.6px 16.2px;
   }
 
   .hero-button {
     margin: 0;
-    font-size: 1rem;
-    letter-spacing: -0.02rem;
+    letter-spacing: -0.36px;
   }
 
   .text-access {
-    margin-top: 0.7rem;
-    padding-left: 0.85rem;
-    letter-spacing: -0.04rem;
+    margin-top: 12.6px;
+    padding-left: 15.3px;
+    letter-spacing: -0.72px;
   }
 
   .hero-img {
-    width: 33.8rem;
-    height: 31.7rem;
-    margin-top: 3.4rem;
+    width: 608.4px;
+    height: 570.6px;
+    margin-top: 61.2px;
   }
 }

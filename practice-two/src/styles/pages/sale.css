@@ -1,5 +1,5 @@
 .sale {
-  margin-top: 68.8px;
+  margin-top: 70px;
 }
 
 .sale-content {
@@ -7,7 +7,7 @@
 }
 
 .sale .tag {
-  width: 24.5%;
+  max-width: 65px;
   margin-top: 40px;
 }
 
@@ -43,8 +43,8 @@
 
 .sale-img {
   margin-top: 40px;
-  width: 272px;
-  height: 272px;
+  max-width: 272px;
+  max-height: 272px;
 }
 
 .text-done-mobile {

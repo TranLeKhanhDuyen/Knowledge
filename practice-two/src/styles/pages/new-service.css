@@ -1,5 +1,5 @@
 .new-service {
-  margin-top: 72px;
+  margin-top: 73px;
 }
 
 .new-service-title {
@@ -20,7 +20,7 @@
   margin-top: 16px;
   display: flex;
   flex-direction: column;
-  gap: 20.8px;
+  gap: 23px;
 }
 
 .new-service-content {
@@ -34,7 +34,7 @@
   font-weight: var(--fw-bold);
   font-size: 14px;
   letter-spacing: 1.4px;
-  margin-top: 32px;
+  margin-top: 30px;
 }
 
 .content-title {
@@ -58,7 +58,7 @@
 }
 
 .author {
-  padding-left: 5.92px;
+  padding-left: 4.5px;
 }
 
 @media (min-width: 1440px) {

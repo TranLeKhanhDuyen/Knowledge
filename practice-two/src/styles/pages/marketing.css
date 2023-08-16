@@ -13,7 +13,7 @@
 }
 
 .marketing-content .tag {
-  width: 41%;
+  max-width: 112px;
 }
 
 .marketing-text {
@@ -41,7 +41,7 @@
 }
 
 .marketing-items {
-  margin-top: 36.8px;
+  margin-top: 39px;
 }
 
 .marketing-items .item-img {
@@ -52,7 +52,7 @@
 
 .item-btn {
   background-color: var(--tertiary-color);
-  padding: 0.47rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 6.4px;
   display: flex;
   align-items: center;

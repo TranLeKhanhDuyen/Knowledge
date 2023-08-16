@@ -1,11 +1,11 @@
 .service {
-  margin-top: 16px;
+  margin-top: 17px;
 }
 
 .service-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 38.4px;
+  gap: 40px;
 }
 
 .service-content {
@@ -21,7 +21,7 @@
 }
 
 .service .tag {
-  width: 31%;
+  max-width: 85px;
   margin-top: 40px;
 }
 
@@ -52,7 +52,7 @@
   }
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
   .service-wrapper {
     flex-direction: row;
     justify-content: space-between;
@@ -63,7 +63,6 @@
     height: 540px;
   }
 }
-
 
 @media (min-width: 1440px) {
   .service {
@@ -91,13 +90,13 @@
     padding-bottom: 7.2px;
   }
 
-  .service-desc{
-    line-height: 27.9px; 
+  .service-desc {
+    line-height: 27.9px;
     letter-spacing: 0.18px;
     padding-bottom: 3.6px;
   }
 
-  .service-done{
+  .service-done {
     line-height: 27.9px;
     padding-right: 18px;
     letter-spacing: 0.2px;

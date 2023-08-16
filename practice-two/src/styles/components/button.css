@@ -1,18 +1,14 @@
-button {
-  text-align: center;
-  color: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: var(--smooth);
-}
-
 .btn-primary {
+  text-align: center;
+  border: none;
   color: var(--dark-color);
   font-family: var(--primary-font);
   background-color: var(--primary-color);
   font-weight: var(--fw-semibold);
   border: 0.16px solid var(--light-color);
+  cursor: pointer;
+  transition: var(--smooth);
+  border-radius: 8px;
 }
 
 .btn-primary:hover {
@@ -21,10 +17,15 @@ button {
 }
 
 .btn-secondary {
+  text-align: center;
+  border: none;
   color: var(--primary-color);
   font-family: var(--primary-font);
   background-color: var(--green-color);
   font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: var(--smooth);
+  border-radius: 8px;
 }
 
 .btn-secondary:hover {

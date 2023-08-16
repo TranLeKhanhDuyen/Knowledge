@@ -76,6 +76,10 @@
   letter-spacing: 0.2px;
 }
 
+.item-link:hover {
+ color: var(--green-color);
+}
+
 .footer-line {
   margin: 0 auto;
   width: 88%;
@@ -109,6 +113,10 @@
   font-size: 14px;
   font-weight: var(--fw-normal);
   letter-spacing: 0.2px;
+}
+
+.text-contact:hover {
+  color: var(--green-color);
 }
 
 .select-translate {

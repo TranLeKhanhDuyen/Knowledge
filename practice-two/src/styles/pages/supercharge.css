@@ -8,88 +8,115 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 4.37rem;
+  padding-bottom: 70px;
 }
 
 .supercharge-title {
-  font-size: 2.25rem;
-  margin-top: 4.6rem;
-  line-height: 2.875rem;
-  letter-spacing: -0.03rem;
+  font-size: 36px;
+  margin-top: 73.6px;
+  line-height: 46px;
+  letter-spacing: -0.48px;
 }
 
 .supercharge-desc {
-  margin-top: 1rem;
-  line-height: 1.75rem;
-  font-size: 1.125rem;
+  margin-top: 16px;
+  line-height: 28px;
+  font-size: 18px;
 }
 
 .supercharge-wrapper .btn-primary {
   margin: 0 auto;
-  margin-top: 11.3rem;
+  margin-top: 180.8px;
   display: flex;
-  gap: 1.5rem;
-  padding: 1.3rem 1.6rem 1.2rem 2rem;
+  gap: 24px;
+  padding: 20.8px 25.6px 19.2px 32px;
   color: var(--dark-color);
   background-color: var(--primary-color);
-  font-family: Satoshi;
-  font-size: 1.125rem;
+  font-size: 18px;
   line-height: normal;
-  letter-spacing: -0.015rem;
+  letter-spacing: -0.24px;
 }
 
 .supercharge-btn-text {
   text-align: center;
-  margin-top: 1.7rem;
-  font-size: 0.875rem;
+  margin-top: 27.2px;
+  font-size: 14px;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   .supercharge {
     background-image: url(../../assets/images/background-lg.svg);
+    background-size: cover;
     margin-top: 0;
     background-repeat: no-repeat;
   }
 
   .supercharge-wrapper {
     flex-direction: row;
-    padding-bottom: 6.6rem;
-    gap: 8rem;
   }
 
   .supercharge-wrapper .btn-primary {
-    margin-top: 10rem;
+    margin-top: 113px;
     display: flex;
-    padding: 1.15rem 1.42rem 1.06rem 1.77rem;
-    font-size: 1rem;
-    letter-spacing: -0.015rem;
+    letter-spacing: -0.27px;
   }
 
   .supercharge-btn-text {
-    font-size: 0.77rem;
-    margin-top: 1.4rem;
+    font-size: 14px;
+    margin-top: 25px;
   }
 
   .supercharge-content {
-    margin-top: 2.9rem;
-    max-width: 40rem;
+    margin-top: 52.2px;
+    max-width: 720px;
   }
 
   .supercharge-title {
-    margin-top: 3.9rem;
-    font-size: 3.55rem;
-    line-height: 4.1rem;
-    letter-spacing: -0.05rem;
+    margin-top: 30px;
+    font-size: 48px;
+    line-height: 60px;
   }
 
   .supercharge-desc {
-    margin-top: 1.3rem;
-    padding-right: 8rem;
-    font-size: 1rem;
-    line-height: 1.55rem;
+    font-size: 16px;
+    margin-right: 70px;
   }
 
   .supercharge-btn {
-    margin-top: 1.4rem;
+    margin-top: 25.2px;
+  }
+  
+}
+
+@media (min-width: 1440px) {
+  .supercharge-wrapper {
+    padding-bottom: 118.8px;
+    gap: 144px;
+  }
+
+  .supercharge-title {
+    margin-top: 70.2px;
+    font-size: 64px;
+    line-height: 73.4px;
+    letter-spacing: -0.9px;
+  }
+
+  .supercharge-desc {
+    margin-top: 23.4px;
+    padding-right: 144px;
+    font-size: 18px;
+    line-height: 27.9px;
+    margin-right: 0;
+  }
+
+  .supercharge-btn {
+    margin-top: 25.2px;
+  } 
+
+  .supercharge-wrapper .btn-primary {
+    margin-top: 180px;
+    display: flex;
+    padding: 20.7px 25.56px 19.08px 31.86px;
+    letter-spacing: -0.27px;
   }
 }

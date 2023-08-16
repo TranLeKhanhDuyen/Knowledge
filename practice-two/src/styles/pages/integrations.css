@@ -1,21 +1,21 @@
 .integrations {
   background-color: var(--secondary-color);
-  margin-top: 4.5rem;
-  padding-bottom: 1.55rem;
+  margin-top: 72px;
+  padding-bottom: 24.8px;
 }
 
 .integrations-title {
   text-align: center;
-  padding-top: 4.6rem;
-  font-size: 2.25rem;
-  line-height: 2.875rem;
-  letter-spacing: -0.03rem;
+  padding-top: 72px;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.48px;
 }
 
 .integrations-desc {
-  margin-top: 1rem;
-  line-height: 1.625rem;
-  padding: 0 0.3rem;
+  margin-top: 16px;
+  line-height: 26px;
+  padding: 0 4.8px;
   text-align: center;
 }
 
@@ -24,50 +24,50 @@
   flex-wrap: wrap;
   column-gap: 6px;
   row-gap: 8px;
-  margin-top: 3rem;
+  margin-top: 48px;
 }
 
 .col-s {
-  width: 4.875rem;
-  height: 4.875rem;
+  width: 78px;
+  height: 78px;
 }
 
 .col-l {
-  width: 11.625rem;
-  height: 4.875rem;
+  width: 186px;
+  height: 78px;
 }
 
 .integrations-link {
-  padding: 0.937rem 0 2.68rem;
+  padding: 15px 0 42.88px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 .integrations-link .text-link {
   letter-spacing: 0.343px;
-  margin-top: 1.9rem;
+  margin-top: 30.4px;
 
 }
 
 @media (min-width: 1440px) {
   .integrations {
-    margin-top: 5.5rem;
-    padding-bottom: 3.6rem;
+    margin-top: 99px;
+    padding-bottom: 64.8px;
   }
 
   .integrations-title {
-    padding-top: 6.5rem;
-    font-size: 2.6rem;
-    line-height: 3.7rem;
-    letter-spacing: -0.01rem;
+    padding-top: 120px;
+    font-size: 46px;
+    line-height: 68px; 
+    letter-spacing: 0.2px;
   }
 
   .integrations-desc {
-    margin-top: 0.75rem;
+    margin-top: 13.5px;
   }
 
   .integrations-img {
-    margin-top: 4rem;
+    margin-top: 72px;
     column-gap: 8px;
     row-gap: 8px;
   }
@@ -77,24 +77,28 @@
   }
 
   .col-s {
-    width: 6.67rem;
-    height: 6.67rem;
+    width: 120px;
+    height: 120px;
   }
 
   .col-l {
-    width: 16rem;
-    height: 6.67rem;
+    width: 288px;
+    height: 120px;
   }
 
   .col-xl {
-    width: 20.67rem;
-    height: 6.67rem;
+    width: 372px;
+    height: 120px;
   }
 
   .integrations-link .text-link {
-    margin-top: 3.2rem;
-    font-size: 1.3rem;
-    letter-spacing: 0.04rem;
-    padding-bottom: 0.2rem;
+    margin-top: 57.6px;
+    font-size: 24px;
+    letter-spacing: 0.72px;
+    padding-bottom: 3.6px;
   }
+
+  .integrations-link {
+    padding: 20px 0 55px;
+}
 }

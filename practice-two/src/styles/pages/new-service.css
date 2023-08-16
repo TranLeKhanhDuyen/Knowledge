@@ -63,22 +63,25 @@
 
 @media (min-width: 1440px) {
   .new-service {
-    margin-top: 140px;
+    margin-top: 134px;
+  }
+
+  .new-service .text-link{
+    padding-bottom: 0;
   }
 
   .new-service-title {
     font-size: 63px;
     letter-spacing: -0.32px;
     max-width: 684px;
+    padding-bottom: 10px;
   }
 
-  .new-service .forward-link {
-    padding: 0;
-    float: right;
-    margin: 0;
-    align-items: flex-start;
+  .link-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
-
   .new-service .text-link {
     font-size: 20px;
   }
@@ -126,5 +129,9 @@
 
   .content-desktop {
     display: block;
+  }
+
+  .date, .author{
+    font-size: 16px;
   }
 }

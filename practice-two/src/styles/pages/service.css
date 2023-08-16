@@ -66,8 +66,8 @@
 
 @media (min-width: 1440px) {
   .service {
-    margin-top: 23.4px;
-    padding-bottom: 41.4px;
+    margin-top: 24px;
+    padding-bottom: 19px;
   }
 
   .service-wrapper {
@@ -81,19 +81,21 @@
 
   .service-text {
     width: 504px;
+    margin-top: 15px;
+    gap: 16.7;
   }
 
   .service-title {
     font-size: 46px;
-    line-height: 57.6px;
-    letter-spacing: -0.18px;
     padding-bottom: 7.2px;
+    line-height: 58px; 
+    letter-spacing: 0.3px;
   }
 
   .service-desc {
     line-height: 27.9px;
     letter-spacing: 0.18px;
-    padding-bottom: 3.6px;
+    padding-bottom: 6.5px;
   }
 
   .service-done {
@@ -107,7 +109,8 @@
   }
 
   .service-img {
-    margin-top: 48.6px;
-    width: 554.4px;
+    margin-top: 48px;
+    width: 555px;
+    height: 555px;
   }
 }

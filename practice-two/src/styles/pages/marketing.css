@@ -90,14 +90,13 @@
   }
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
   .marketing-wrapper {
     flex-direction: row-reverse;
     justify-content: space-between;
     gap: 54px;
   }
 }
-
 
 @media (min-width: 1440px) {
   .marketing {
@@ -108,14 +107,17 @@
     gap: 36px;
   }
 
+  .marketing-content {
+    margin-top: 45px;
+  }
+
   .marketing .tag {
-    max-width: 111.6px;
     margin-top: 75.6px;
     margin-left: 59.4px;
   }
 
   .marketing-text {
-    gap: 15.84px;
+    gap: 17px;
     padding-left: 59.4px;
   }
 
@@ -123,14 +125,14 @@
     font-size: 48px;
     line-height: 57.6px;
     letter-spacing: -0.666px;
-    padding-bottom: 5.4px;
+    padding-bottom: 7.5px;
     padding-top: 3.2px;
   }
 
   .marketing-desc {
-    line-height: 26px;
-    letter-spacing: 0.2px;
     padding-bottom: 5.4px;
+    line-height: 28px; 
+    letter-spacing: 0.2px;
   }
 
   .marketing-done {
@@ -147,6 +149,7 @@
   }
 
   .text-btn {
+    font-size: 18px;
     letter-spacing: -0.25px;
   }
 
@@ -160,6 +163,7 @@
   }
 
   .btn-click {
+    font-size: 18px;
     padding: 18px 21.6px;
     border-radius: 6.4px;
   }

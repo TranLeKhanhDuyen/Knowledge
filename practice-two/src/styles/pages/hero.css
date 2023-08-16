@@ -107,7 +107,7 @@ input:focus {
     flex-direction: row;
     margin-top: 61.2px;
     align-items: center;
-    width: 77%;
+    max-width: 459px;
     padding: 9px;
     gap: 61.2px;
   }
@@ -115,24 +115,27 @@ input:focus {
   .hero-input {
     letter-spacing: -2.7px;
     margin-top: 9px;
+    font-size: 18px;
     letter-spacing: -0.18px;
-    padding: 10.8px 17.1px 12.6px 16.2px;
+    padding: 10px 17px 13px 16px;
   }
 
   .hero-button {
     margin: 0;
+    font-size: 18px;
     letter-spacing: -0.36px;
   }
 
   .text-access {
+    font-size: 16px;
     margin-top: 12.6px;
     padding-left: 15.3px;
-    letter-spacing: -0.72px;
+    letter-spacing: -0.9px;
   }
 
   .hero-img {
     width: 608.4px;
-    height: 570.6px;
+    height: 570px;
     margin-top: 61.2px;
   }
 }

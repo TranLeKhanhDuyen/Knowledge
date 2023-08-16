@@ -31,19 +31,23 @@
 
 @media (min-width: 1440px) {
   .partner {
-    padding-bottom: 84.6px;
+    padding-bottom: 87px;
   }
 
   .partner-wrapper {
-    padding-top: 43.2px;
+    padding-top: 50px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
 
+  .partner-decs {
+    font-size: 16px;
+  }
+
   .grid-partner {
     grid-template-columns: repeat(5, auto);
-    column-gap: 63px;
+    column-gap: 65px;
   }
 
   .grid-partner .google-img,
@@ -53,10 +57,10 @@
   }
 
   .grid-partner .atlassian-img {
-    width: 129.6px;
+    width: 135px;
   }
 
   .grid-partner .walmart-img {
-    width: 145.8px;
+    width: 130px;
   }
 }

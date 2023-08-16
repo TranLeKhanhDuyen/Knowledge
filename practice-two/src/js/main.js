@@ -1,4 +1,4 @@
-const menu = document.querySelector(".navbar-links");
+const menu = document.querySelector(".navbar");
 const menuButton = document.querySelector(".menu-icons");
 
 menuButton.addEventListener("click", () => {

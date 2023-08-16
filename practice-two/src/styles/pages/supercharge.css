@@ -8,19 +8,20 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-bottom: 4.36rem;
+  padding-bottom: 4.37rem;
 }
 
-.supercharge-content .text-4xl {
-  color: var(--primary-color);
+.supercharge-title {
+  font-size: 2.25rem;
   margin-top: 4.6rem;
+  line-height: 2.875rem;
+  letter-spacing: -0.03rem;
 }
 
-.supercharge-content .text-lg {
+.supercharge-desc {
   margin-top: 1rem;
-  color: var(--primary-color);
-  font-weight: var(--fw-semibold);
   line-height: 1.75rem;
+  font-size: 1.125rem;
 }
 
 .supercharge-wrapper .btn-primary {
@@ -32,29 +33,40 @@
   color: var(--dark-color);
   background-color: var(--primary-color);
   font-family: Satoshi;
-  font-size: var(--font-lg);
-  font-weight: var(--fw-bold);
+  font-size: 1.125rem;
   line-height: normal;
   letter-spacing: -0.015rem;
 }
 
-.supercharge-wrapper .text-sm {
+.supercharge-btn-text {
   text-align: center;
   margin-top: 1.7rem;
-  color: var(--primary-color);
-  font-weight: var(--fw-semibold);
+  font-size: 0.875rem;
 }
 
 @media (min-width: 1440px) {
   .supercharge {
     background-image: url(../../assets/images/background-lg.svg);
-    margin-top: 3rem;
+    margin-top: 0;
   }
 
   .supercharge-wrapper {
     flex-direction: row;
-    padding-bottom: 7.5rem;
-    gap: 14rem;
+    padding-bottom: 6.6rem;
+    gap: 8rem;
+  }
+
+  .supercharge-wrapper .btn-primary {
+    margin-top: 10rem;
+    display: flex;
+    padding: 1.15rem 1.42rem 1.06rem 1.77rem;
+    font-size: 1rem;
+    letter-spacing: -0.015rem;
+  }
+
+  .supercharge-btn-text {
+    font-size: 0.77rem;
+    margin-top: 1.4rem;
   }
 
   .supercharge-content {
@@ -62,15 +74,18 @@
     max-width: 40rem;
   }
 
-  .supercharge-content .text-4xl {
-    font-size: var(--font-6xl);
-    line-height: 4.625rem;
+  .supercharge-title {
+    margin-top: 3.9rem;
+    font-size: 3.55rem;
+    line-height: 4.1rem;
     letter-spacing: -0.05rem;
   }
 
-  .supercharge-content .text-lg {
-    margin-top: 1.5rem;
-    padding-right: 4rem;
+  .supercharge-desc {
+    margin-top: 1.3rem;
+    padding-right: 8rem;
+    font-size: 1rem;
+    line-height: 1.55rem;
   }
 
   .supercharge-btn {

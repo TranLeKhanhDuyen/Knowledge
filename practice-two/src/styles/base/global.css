@@ -36,3 +36,13 @@ hr {
     font-size: 18px;
   }
 }
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  html {
+    font-size: 18px;
+  }
+}

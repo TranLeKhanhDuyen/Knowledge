@@ -81,8 +81,13 @@ input:focus {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
+  .hero-content {
+    margin: 0 5rem;
+  }  
+}
 
+@media (min-width: 1440px) {
   .hero-content {
     margin-left: 8.25rem;
   }
@@ -97,17 +102,17 @@ input:focus {
   .hero-desc {
     font-size: 1rem;
     margin-top: 1.2rem;
-    padding-right: 9rem;
+    padding-right: 6rem;
     line-height: 28px;
   }
 
   .input-form {
     flex-direction: row;
-    margin-top: 3.6rem;
+    margin-top: 3.4rem;
     align-items: center;
-    width: 70%;
+    width: 77%;
     padding: 0.5rem;
-    gap: 2.4rem;
+    gap: 3.4rem;
   }
 
   .hero-input {

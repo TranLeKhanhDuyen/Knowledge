@@ -119,6 +119,13 @@
   background-color: var(--dark-color);
 }
 
+@media (min-width: 1200px){
+  .benefit-items {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 @media (min-width: 1440px) {
   .benefit {
     padding-bottom: 2.3rem;
@@ -147,9 +154,6 @@
   }
 
   .benefit-items {
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 3srem;
     padding-top: 1rem;
   }
 

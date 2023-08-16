@@ -38,7 +38,6 @@
 }
 
 .text-done {
-  /* max-width: 210px; */
   font-weight: var(--fw-normal);
   line-height: 1.6rem;
   letter-spacing: 0.01rem;
@@ -51,22 +50,40 @@
 }
 
 .text-done-mobile {
-  display: block; 
+  display: block;
   margin-right: 2rem;
 }
 
 .text-done-desktop {
-  display: none; 
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .sale .tag {
+    width: 4rem;
+  }
+
+  .sale-img {
+    width: 30.8rem;
+    height: 30.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sale-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sale-img {
+    width: 25rem;
+    height: 28rem;
+  }
 }
 
 @media (min-width: 1440px) {
   .sale {
     margin-top: 6.7rem;
-  }
-
-  .sale-wrapper {
-    display: flex;
-    justify-content: space-between;
   }
 
   .sale .tag {

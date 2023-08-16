@@ -74,6 +74,22 @@
   border-radius: 0.25rem;
 }
 
+/* @media (min-width: 768px) {
+  .marketing .tag {
+    max-width: 7.2rem;
+  }
+
+  .marketing-items .item-img {
+    width: 25rem;
+  }
+
+  .item-btn {
+    max-width: 2rem;
+    justify-content: space-between;
+    margin-left: 2rem;
+  }
+} */
+
 @media (min-width: 1440px) {
   .marketing {
     margin-top: 6.6rem;

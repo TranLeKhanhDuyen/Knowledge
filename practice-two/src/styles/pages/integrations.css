@@ -51,7 +51,8 @@
 
 @media (min-width: 1440px) {
   .integrations {
-    padding-bottom: 3.9rem;
+    margin-top: 5.5rem;
+    padding-bottom: 3.6rem;
   }
 
   .integrations-title {

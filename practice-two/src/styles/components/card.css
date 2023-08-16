@@ -5,6 +5,7 @@
 
 .card:hover {
   background-color: #FFE377;
+  cursor: pointer;
 }
 
 .card:hover .benefit-icon{

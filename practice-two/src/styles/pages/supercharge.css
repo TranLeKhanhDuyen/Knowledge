@@ -46,6 +46,7 @@
 @media (min-width: 1440px) {
   .supercharge {
     background-image: url(../../assets/images/background-lg.svg);
+    background-size: cover;
     margin-top: 0;
     background-repeat: no-repeat;
   }

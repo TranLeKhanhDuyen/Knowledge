@@ -153,7 +153,7 @@
 
 @media (min-width: 1440px) {
   .footer-wrapper {
-    margin-top: 120.8px;
+    margin-top: 118px;
     padding-bottom: 144px;
     gap: 30.6px;
   }
@@ -164,13 +164,14 @@
   }
 
   .footer-logo {
+    margin-top: 5px;
     max-width: 252px;
-    gap: 19.8px;
+    gap: 19px;
   }
 
   .logo-img {
-    width: 106.2px;
-    height: 21.96px;
+    width: 106px;
+    height: 22px;
   }
 
   .logo-text {
@@ -185,25 +186,26 @@
   }
 
   .footer-summary {
-    margin-top: 3.6px;
+    margin-top: 0;
     flex-direction: row;
   }
 
   .product {
-    padding-left: 95.4px;
-    padding-right: 39.6px;
+    padding-left: 107px;
+    padding-right: 52px;
   }
 
   .help-center {
-    padding-left: 30.6px;
+    padding-left: 43px;
   }
 
   .title-link {
-    font-size: 15.84px;
+    font-size: 16px;
+    padding-bottom: 12px;
   }
 
   .social-media {
-    gap: 12.6px;
+    gap: 17px;
     padding-top: 2.7px;
   }
   .footer-line {
@@ -231,7 +233,7 @@
 
   .contact {
     flex-direction: row;
-    gap: 50.4px;
+    gap: 48px;
   }
 
   .text-contact {

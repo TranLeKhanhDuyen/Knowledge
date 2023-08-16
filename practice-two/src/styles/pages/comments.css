@@ -59,30 +59,32 @@
 
 @media (min-width: 1440px) {
   .comments {
-    margin-top: 99px;
-    padding-bottom: 113.4px;
+    margin-top: 102px;
+    padding-bottom: 120px;
   }
 
   .comments-content {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-end;
   }
 
   .comment-title {
     max-width: 540px;
-    margin-top: 41.4px;
+    margin-top: 46px;
     text-align: left;
     font-size: 48px;
-    letter-spacing: -0.48px;
+    letter-spacing: -0.7px;
     line-height: 57.6px;
   }
 
   .comments-content .text-link {
     font-size: 20px;
+    padding-bottom: 0;
   }
 
   .comments-detail {
-    margin-top: 72px;
+    margin-top: 75px;
     flex-direction: row;
     gap: 28.8px;
   }
@@ -106,14 +108,24 @@
   .comments-detail .feedback {
     margin-top: 45px;
     padding-top: 1.8px;
-    gap: 7.2px;
-  }
-
-  .job {
-    padding-top: 1.8px;
+    gap: 11px;
   }
 
   .comment .andrew {
     margin-top: 111.6px;
+  }
+
+  .comment-author {
+    font-size: 16px;
+  }
+
+  .job {
+    font-size: 16px;
+    padding-top: 1.8px;
+  }
+
+  .avata-img {
+    width: 48px;
+    height: 48px;
   }
 }

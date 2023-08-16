@@ -1,3 +1,4 @@
+a,
 p,
 h1,
 h2,
@@ -23,7 +24,7 @@ li {
 }
 
 .text-semibold {
-  font-weight: var(--fw-semibolf);
+  font-weight: var(--fw-semibold);
 }
 
 .text-bold {

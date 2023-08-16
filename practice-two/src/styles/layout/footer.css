@@ -125,7 +125,30 @@
   letter-spacing: 0.012rem;
 }
 
-@media (min-width: 1440px) {
+@media(min-width: 1200px){
+  .footer-content {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .footer-summary {
+    margin-top: 0.2rem;
+    flex-direction: row;
+  }
+
+  .copyright-wrapper {
+    flex-direction: row;
+    gap: 7rem;
+    align-items: center;
+  }
+
+  .contact {
+    flex-direction: row;
+    gap: 4rem;
+  }
+}
+
+@media(min-width: 1440px) {
   .footer-wrapper {
     margin-top: 6.7rem;
     padding-bottom: 8rem;

@@ -17,7 +17,7 @@
 }
 
 .comments-content .forward-link {
-  margin-top: 24px;
+  margin-top: 25px;
   justify-content: center;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .comments-detail {
-  margin-top: 44.8px;
+  margin-top: 44px;
   display: flex;
   flex-direction: column;
   gap: 44.8px;

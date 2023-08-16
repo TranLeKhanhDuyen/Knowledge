@@ -68,11 +68,20 @@ input:focus {
   height: 15.8rem;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 768px) {
   .hero {
     flex-direction: row;
     align-items: flex-start;
   }
+
+    .hero-img {
+    width: 20rem;
+    height: 22rem;
+    margin-top: 3.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
 
   .hero-content {
     margin-left: 8.25rem;

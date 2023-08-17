@@ -10,9 +10,8 @@
 }
 
 .benefit-title {
-  font-size: 36px;
+  letter-spacing: -0.5px;
   line-height: 46px;
-  letter-spacing: -0.48px;
 }
 
 .benefit-desc {
@@ -130,16 +129,14 @@
   }
 
   .benefit-content {
-    padding-top: 122.4px;
+    padding-top: 118px;
     flex-direction: row;
     align-items: center;
     gap: 99px;
   }
 
   .benefit-title {
-    font-size: 46.8px;
-    letter-spacing: 0.45px;
-    gap: 54px;
+    letter-spacing: 0;
     max-width: 486px;
     line-height: normal;
   }

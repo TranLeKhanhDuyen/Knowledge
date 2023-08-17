@@ -18,7 +18,6 @@
 
 .hero-desc {
   margin-top: 16px;
-  line-height: 26px;
 }
 
 .input-form {
@@ -35,8 +34,7 @@
 .hero-input {
   border: none;
   margin-top: 5.6px;
-  padding: 9.6px 15.2px 17.6px;
-  font-size: 16px;
+  padding: 8px 15px 15px;
   letter-spacing: -0.224px;
 }
 
@@ -44,8 +42,7 @@
   width: 94%;
   margin: 0 auto;
   margin-bottom: 8px;
-  padding: 14px 14px 12.8px;
-  font-size: 16px;
+  padding: 12px 14px 10px;
   letter-spacing: -0.224px;
 }
 
@@ -54,12 +51,11 @@ input:focus {
 }
 
 .text-access {
-  margin-top: 13.12px;
-  font-size: 14px;
+  margin-top: 3px;
 }
 
 .hero-img {
-  margin: 42.4px 0;
+  margin: 32px 0;
   z-index: 0;
   width: 302.4px;
   height: 252.8px;
@@ -74,7 +70,7 @@ input:focus {
   .hero-img {
     width: 320px;
     height: 352px;
-    margin-top: 54.4px;
+    margin-top: 54px;
   }
 }
 
@@ -86,7 +82,7 @@ input:focus {
 
 @media (min-width: 1440px) {
   .hero-content {
-    margin-left: 148.5px;
+    margin-left: 149px;
   }
 
   .hero-title {
@@ -100,7 +96,6 @@ input:focus {
   .hero-desc {
     margin-top: 22.5px;
     padding-right: 108px;
-    line-height: 28px;
   }
 
   .input-form {
@@ -115,27 +110,22 @@ input:focus {
   .hero-input {
     letter-spacing: -2.7px;
     margin-top: 9px;
-    font-size: 18px;
     letter-spacing: -0.18px;
-    padding: 10px 17px 13px 16px;
+    padding: 7px 31px 13px 15px;
   }
 
   .hero-button {
     margin: 0;
-    font-size: 18px;
     letter-spacing: -0.36px;
   }
 
   .text-access {
-    font-size: 16px;
-    margin-top: 12.6px;
-    padding-left: 15.3px;
-    letter-spacing: -0.9px;
+    padding-left: 16px;
   }
 
   .hero-img {
     width: 608.4px;
     height: 570px;
-    margin-top: 61.2px;
+    margin-top: 61px;
   }
 }

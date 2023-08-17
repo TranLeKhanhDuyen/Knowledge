@@ -7,14 +7,11 @@
 .integrations-title {
   text-align: center;
   padding-top: 72px;
-  font-size: 36px;
   line-height: 46px;
-  letter-spacing: -0.48px;
 }
 
 .integrations-desc {
   margin-top: 16px;
-  line-height: 26px;
   padding: 0 4.8px;
   text-align: center;
 }
@@ -48,7 +45,6 @@
 .integrations-link .text-link {
   letter-spacing: 0.343px;
   margin-top: 30.4px;
-
 }
 
 @media (min-width: 1440px) {
@@ -59,13 +55,11 @@
 
   .integrations-title {
     padding-top: 120px;
-    font-size: 46px;
-    line-height: 68px; 
-    letter-spacing: 0.2px;
+    line-height: 68px;
   }
 
   .integrations-desc {
-    margin-top: 13.5px;
+    margin-top: 11px;
   }
 
   .integrations-img {
@@ -102,5 +96,5 @@
 
   .integrations-link {
     padding: 20px 0 55px;
-}
+  }
 }

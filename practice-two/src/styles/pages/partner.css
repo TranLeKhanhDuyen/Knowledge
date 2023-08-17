@@ -5,10 +5,10 @@
 }
 
 .partner-wrapper {
-  padding-top: 3.2px;
+  padding-top: 14px;
   display: flex;
   flex-direction: column;
-  gap: 41.6px;
+  gap: 41px;
 }
 
 .partner-decs {
@@ -35,7 +35,7 @@
   }
 
   .partner-wrapper {
-    padding-top: 50px;
+    padding-top: 62px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

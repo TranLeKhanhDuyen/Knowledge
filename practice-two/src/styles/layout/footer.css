@@ -57,11 +57,11 @@
   margin-top: 43px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 27px;
 }
 
 .title-link {
-  padding-bottom: 5px;
+  padding-bottom: 3px;
   line-height: 34px;
   letter-spacing: 0.2px;
 }

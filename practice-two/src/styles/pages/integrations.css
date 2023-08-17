@@ -7,14 +7,12 @@
 .integrations-title {
   text-align: center;
   padding-top: 72px;
-  font-size: 36px;
-  line-height: 46px;
   letter-spacing: -0.48px;
+  line-height: 46px;
 }
 
 .integrations-desc {
   margin-top: 16px;
-  line-height: 26px;
   padding: 0 4.8px;
   text-align: center;
 }
@@ -57,9 +55,8 @@
 
   .integrations-title {
     padding-top: 120px;
-    font-size: 46px;
     line-height: 68px; 
-    letter-spacing: 0.2px;
+    letter-spacing: -0.5px;
   }
 
   .integrations-desc {

@@ -1,6 +1,6 @@
 .footer-wrapper {
   font-family: Satoshi;
-  margin-top: 72.8px;
+  margin-top: 75px;
   padding-bottom: 128px;
 }
 
@@ -68,7 +68,6 @@
 
 .item-link {
   font-family: var(--primary-font);
-  /* padding-bottom: 20px; */
   font-weight: var(--fw-normal);
   letter-spacing: 0.2px;
 }
@@ -170,7 +169,7 @@
   .footer-logo {
     margin-top: 5px;
     max-width: 252px;
-    gap: 19px;
+    gap: 20px;
   }
 
   .logo-img {
@@ -205,7 +204,7 @@
 
   .title-link {
     font-size: 16px;
-    padding-bottom: 0;
+    padding-bottom: 2px;
   }
 
   .social-media {
@@ -218,11 +217,11 @@
   }
 
   .footer-copyright {
-    margin-top: 97px;
+    margin-top: 99px;
   }
 
   .copyright-wrapper {
-    margin-top: 41.4px;
+    margin-top: 38px;
     flex-direction: row;
     gap: 203.4px;
     align-items: center;

@@ -84,7 +84,7 @@
   .comments-detail {
     margin-top: 75px;
     flex-direction: row;
-    gap: 28.8px;
+    gap: 30px;
   }
 
   .comment {

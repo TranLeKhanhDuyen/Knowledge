@@ -45,6 +45,7 @@
 
 .supercharge-btn .btn-primary{
   position: relative;
+  border-radius: 8px;
 }
 
 .arrow {

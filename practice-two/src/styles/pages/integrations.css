@@ -18,11 +18,13 @@
 }
 
 .integrations-img {
+  max-width: 272px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 6px;
   row-gap: 8px;
+  margin: 0 auto;
   margin-top: 48px;
 }
 
@@ -48,6 +50,18 @@
   margin-top: 30.4px;
 }
 
+@media (min-width: 768px){
+  .integrations-img {
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .integrations-img {
+    max-width: 800px;
+  }
+}
+
 @media (min-width: 1440px) {
   .integrations {
     margin-top: 99px;
@@ -68,6 +82,7 @@
     margin-top: 72px;
     column-gap: 8px;
     row-gap: 8px;
+    max-width: 1140px;
   }
 
   .integrations-img :nth-child(6) {

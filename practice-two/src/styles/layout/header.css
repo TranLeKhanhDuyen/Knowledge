@@ -85,7 +85,7 @@
 .menu-icon::before,
 .menu-icon::after {
   content: " ";
-  width: 17.6px;
+  width: 18px;
   height: 1.92px;
   background-color: var(--light-color);
   border-radius: 4.8px;

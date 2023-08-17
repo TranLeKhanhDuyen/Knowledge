@@ -62,7 +62,7 @@
 
 .title-link {
   padding-bottom: 5px;
-  line-height: 34px; 
+  line-height: 34px;
   letter-spacing: 0.2px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .item-link:hover {
- color: var(--green-color);
+  color: var(--green-color);
 }
 
 .footer-line {
@@ -131,6 +131,13 @@
   letter-spacing: 0.192px;
 }
 
+@media (min-width: 768px) {
+  .footer-summary {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
 @media (min-width: 1200px) {
   .footer-content {
     flex-direction: row;
@@ -139,7 +146,6 @@
 
   .footer-summary {
     margin-top: 3.6px;
-    flex-direction: row;
   }
 
   .copyright-wrapper {
@@ -189,7 +195,6 @@
 
   .footer-summary {
     margin-top: 0;
-    flex-direction: row;
     gap: 15px;
   }
 
@@ -222,7 +227,6 @@
 
   .copyright-wrapper {
     margin-top: 38px;
-    flex-direction: row;
     gap: 203.4px;
     align-items: center;
   }

@@ -31,11 +31,11 @@
 
 @media (min-width: 1440px) {
   .partner {
-    padding-bottom: 93px;
+    padding-bottom: 89px;
   }
 
   .partner-wrapper {
-    padding-top: 62px;
+    padding-top: 93px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

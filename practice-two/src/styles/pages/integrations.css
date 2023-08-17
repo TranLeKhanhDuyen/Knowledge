@@ -8,6 +8,7 @@
   text-align: center;
   padding-top: 72px;
   line-height: 46px;
+  letter-spacing: -0.5px;
 }
 
 .integrations-desc {
@@ -17,11 +18,13 @@
 }
 
 .integrations-img {
+  max-width: 272px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 6px;
   row-gap: 8px;
+  margin: 0 auto;
   margin-top: 48px;
 }
 
@@ -47,6 +50,18 @@
   margin-top: 30.4px;
 }
 
+@media (min-width: 768px){
+  .integrations-img {
+    max-width: 550px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .integrations-img {
+    max-width: 800px;
+  }
+}
+
 @media (min-width: 1440px) {
   .integrations {
     margin-top: 99px;
@@ -54,18 +69,20 @@
   }
 
   .integrations-title {
-    padding-top: 120px;
+    padding-top: 121px;
     line-height: 68px;
+    letter-spacing: -0.667px;
   }
 
   .integrations-desc {
-    margin-top: 11px;
+    margin-top: 14px;
   }
 
   .integrations-img {
     margin-top: 72px;
     column-gap: 8px;
     row-gap: 8px;
+    max-width: 1140px;
   }
 
   .integrations-img :nth-child(6) {
@@ -90,11 +107,11 @@
   .integrations-link .text-link {
     margin-top: 57.6px;
     font-size: 24px;
-    letter-spacing: 0.72px;
+    letter-spacing: 0.55px;
     padding-bottom: 3.6px;
   }
 
   .integrations-link {
-    padding: 20px 0 55px;
+    padding: 18px 0 55px;
   }
 }

@@ -136,9 +136,9 @@
   }
 
   .benefit-title {
-    letter-spacing: 0;
     max-width: 486px;
     line-height: normal;
+    letter-spacing: normal;
   }
 
   .benefit-desc {
@@ -149,7 +149,7 @@
   }
 
   .benefit-items {
-    padding-top: 18px;
+    padding-top: 16px;
   }
 
   .benefit-item {

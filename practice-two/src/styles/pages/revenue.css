@@ -5,6 +5,7 @@
 
 .revenue-title {
   line-height: 46px;
+  letter-spacing: -0.5px;
 }
 
 .revenue-desc {
@@ -58,11 +59,12 @@
 
   .revenue-title {
     line-height: 68px;
+    letter-spacing: -0.667px;
   }
 
   .revenue-desc {
     margin-top: 12px;
-    padding-bottom: 73px;
+    padding-bottom: 75px;
     line-height: 28px;
   }
 

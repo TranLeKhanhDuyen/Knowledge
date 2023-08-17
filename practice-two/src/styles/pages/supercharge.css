@@ -45,6 +45,7 @@
 
 .supercharge-btn .btn-primary{
   position: relative;
+  border-radius: 8px;
 }
 
 .arrow {
@@ -58,12 +59,9 @@
   border-width: 0 2px 2px 0; 
 }
 
-/* .supercharge-btn .btn-primary .arrow:hover{
+.btn-primary:hover .arrow{
   border: 3px solid var(--primary-color);
-} */
-
-.arrow:hover .btn-primary {
-	color: var(--primaryss-color);
+  border-width: 0 2px 2px 0; 
 }
 
 @media (min-width: 1200px) {
@@ -118,7 +116,7 @@
   }
 
   .supercharge-title {
-    margin-top: 70.2px;
+    margin-top: 69px;
     font-size: 64px;
     line-height: 73.4px;
     letter-spacing: -0.9px;

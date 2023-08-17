@@ -22,7 +22,8 @@
   row-gap: 40px;
 }
 
-@media (min-width: 1200px) {
+
+@media (min-width: 768px){
   .grid-partner {
     grid-template-columns: repeat(5, auto);
     column-gap: 63px;
@@ -31,11 +32,11 @@
 
 @media (min-width: 1440px) {
   .partner {
-    padding-bottom: 87px;
+    padding-bottom: 89px;
   }
 
   .partner-wrapper {
-    padding-top: 62px;
+    padding-top: 93px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

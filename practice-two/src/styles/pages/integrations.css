@@ -22,6 +22,7 @@
 .integrations-img {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 6px;
   row-gap: 8px;
   margin-top: 48px;
@@ -43,6 +44,7 @@
   align-items: flex-end;
   justify-content: center;
 }
+
 .integrations-link .text-link {
   letter-spacing: 0.343px;
   margin-top: 30.4px;

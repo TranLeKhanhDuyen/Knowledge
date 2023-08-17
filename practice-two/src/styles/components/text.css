@@ -46,6 +46,7 @@ li {
 
 .text-xl {
   font-size: 36px;
+  letter-spacing: -0.5px;
   font-weight: var(--fw-bold);
 }
 
@@ -62,5 +63,6 @@ li {
 
   .text-xl {
     font-size: 48px;
+    letter-spacing: -0.667px;
   }
 }

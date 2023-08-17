@@ -4,9 +4,7 @@
 }
 
 .revenue-title {
-  font-size: 36px;
   line-height: 46px;
-  letter-spacing: -0.5px;
 }
 
 .revenue-desc {
@@ -59,9 +57,7 @@
   }
 
   .revenue-title {
-    font-size: 48px;
     line-height: 68px;
-    letter-spacing: -0.667px;
   }
 
   .revenue-desc {

@@ -138,6 +138,7 @@
   .benefit-title {
     max-width: 486px;
     line-height: normal;
+    letter-spacing: normal;
   }
 
   .benefit-desc {

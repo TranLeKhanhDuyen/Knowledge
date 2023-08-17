@@ -8,6 +8,7 @@
   text-align: center;
   padding-top: 72px;
   line-height: 46px;
+  letter-spacing: -0.5px;
 }
 
 .integrations-desc {
@@ -56,6 +57,7 @@
   .integrations-title {
     padding-top: 120px;
     line-height: 68px;
+    letter-spacing: -0.667px;
   }
 
   .integrations-desc {
@@ -90,7 +92,7 @@
   .integrations-link .text-link {
     margin-top: 57.6px;
     font-size: 24px;
-    letter-spacing: 0.72px;
+    letter-spacing: 0.55px;
     padding-bottom: 3.6px;
   }
 

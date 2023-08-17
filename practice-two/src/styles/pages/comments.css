@@ -12,6 +12,7 @@
   padding-top: 73.6px;
   text-align: center;
   line-height: 46px;
+  letter-spacing: -0.5px;
 }
 
 .comments-content .forward-link {
@@ -72,6 +73,7 @@
     margin-top: 46px;
     text-align: left;
     line-height: 57.6px;
+    letter-spacing: -0.667px;
   }
 
   .comments-content .text-link {
@@ -80,7 +82,7 @@
   }
 
   .comments-detail {
-    margin-top: 73px;
+    margin-top: 75px;
     flex-direction: row;
     gap: 28.8px;
   }

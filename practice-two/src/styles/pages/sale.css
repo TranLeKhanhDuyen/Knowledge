@@ -87,6 +87,7 @@
   .sale-text {
     max-width: 547.2px;
     gap: 0;
+    margin-top: 15px;
   }
 
   .sale-title {
@@ -96,7 +97,7 @@
   }
 
   .sale-desc {
-    padding: 27px 0 24px;
+    padding: 25px 0 24px;
     line-height: 28.08px;
   }
 

@@ -87,8 +87,7 @@
   }
 
   .services {
-    clear: both;
-    margin-top: 48.6px;
+    margin-top: 47px;
     flex-direction: row;
     justify-content: space-between;
     gap: 32.4px;

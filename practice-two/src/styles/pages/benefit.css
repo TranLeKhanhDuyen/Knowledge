@@ -32,6 +32,13 @@
   padding: 0 24px 32px;
   display: flex;
   flex-direction: column;
+  background-color: rgba(244, 240, 240, 0.04);
+  border-radius: 12px;
+}
+
+.benefit-item:hover {
+  background-color: #FFE377;
+  cursor: pointer;
 }
 
 .icon-smilely,

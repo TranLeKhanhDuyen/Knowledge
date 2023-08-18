@@ -24,7 +24,7 @@
   font-size: 18px;
 }
 
-.supercharge-wrapper .btn-primary {
+.supercharge-click {
   margin: 0 auto;
   margin-top: 180.8px;
   display: flex;
@@ -43,7 +43,7 @@
   font-size: 14px;
 }
 
-.supercharge-btn .btn-primary{
+.supercharge-click{
   position: relative;
   border-radius: 8px;
 }
@@ -59,7 +59,7 @@
   border-width: 0 2px 2px 0; 
 }
 
-.btn-primary:hover .arrow{
+.supercharge-click:hover .arrow{
   border: 3px solid var(--primary-color);
   border-width: 0 2px 2px 0; 
 }
@@ -76,7 +76,7 @@
     flex-direction: row;
   }
 
-  .supercharge-wrapper .btn-primary {
+  .supercharge-click {
     margin-top: 113px;
     display: flex;
     letter-spacing: -0.27px;
@@ -134,7 +134,7 @@
     margin-top: 25.2px;
   } 
 
-  .supercharge-wrapper .btn-primary {
+  .supercharge-click {
     margin-top: 180px;
   }
 }

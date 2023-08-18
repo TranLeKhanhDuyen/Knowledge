@@ -8,7 +8,7 @@
 * My Trello: [here](https://trello.com/b/yQlmWuS5/internship-duyen-tran-practicetwo0)
 ### TIMELINE
 * Start date: 02/08/2023
-* End date: 11/08/2023
+* End date: 17/08/2023
   
 ### TEAMSIZE
 * 1 dev
@@ -51,7 +51,7 @@ The layout inclues: 14 sections
   * Logo images
 * Benefit section
   * Cards
-* Revenue-statis section
+* Sale section
   * Image 
   * Tag
 * Maketing section
@@ -79,13 +79,20 @@ The layout inclues: 14 sections
   * Primary-color: #fff
   * Secondary-color: ##F4F4F4
   * Tertiary-color: #004050
+  * Light-color: #787878
+  * Dark-color: #000
+  * Green-color: #00cc61
+  * Grey-color: #dcdcdc
+  * Yellow-color: #FFE377
 
 * Font-family
   * Primary-font: Satoshi
+    
 * Font-weight
   * fw-regular: 400
   * fw-semibold: 500
   * fw-bold: 700
+    
 * Font-size
   * text-sm: 14px
   * text-md: 16px

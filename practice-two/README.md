@@ -6,7 +6,7 @@
 * You can refer details design here: [Figma](https://www.figma.com/file/QIMFoTvHjbrnZy6sp24DKz/Yoora-CMS-(Copy)-(Copy)?type=design&node-id=0-1&mode=design&t=sMtIHNgTzubuZnWL-0)
 * GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/learn-html-css)
 * My Trello: [here](https://trello.com/b/yQlmWuS5/internship-duyen-tran-practicetwo0)
-* Deploy: [here](https://yoora-page-tranlekhanhduyen.vercel.app/)
+* Deploy: [here](https://pr2-yoora-git-feature-practice-two-tranlekhanhduyen.vercel.app/#)
 ### TIMELINE
 * Start date: 02/08/2023
 * End date: 17/08/2023
@@ -34,100 +34,6 @@
 ### TARGET
 * Apply knowledge to responsive practice one design
 * Used media queries fcoor popular screen size
-
-
-### STRUCTURE HTML
-The layout inclues: 14 sections
-* Header
-  * Navbar
-  * Button
-  * Logo
-  * Background
-* Hero section
-  * Descript content
-  * Images
-  * Input form
-  * Background 
-* Partner section
-  * Logo images
-* Benefit section
-  * Cards
-* Sale section
-  * Image 
-  * Tag
-* Maketing section
-  * Tag
-  * Images 
-* Service section
-  * Tag
-  * Images 
-* Integrations section
-  * Logo images
-* New-service section
-  * Images
-* Revenue section
-  * Avata images
-* Comments section
-  * Avata images
-* Supercharge section
-  * Button
-* Footer
-  * Logo
-  * Icon 
-* Copyright
-### CSS
-* Colors
-  * Primary-color: #fff
-  * Secondary-color: ##F4F4F4
-  * Tertiary-color: #004050
-  * Light-color: #787878
-  * Dark-color: #000
-  * Green-color: #00cc61
-  * Grey-color: #dcdcdc
-  * Yellow-color: #FFE377
-
-* Font-family
-  * Primary-font: Satoshi
-    
-* Font-weight
-  * fw-regular: 400
-  * fw-semibold: 500
-  * fw-bold: 700
-    
-* Font-size
-  * text-sm: 14px
-  * text-md: 16px
-  * text-lg: 18px
-  * text-xl: 32px
-  * text-2xl: 48px
-  * text-3xl: 64px
-
-### FOLDER STRUCTURE
-
-```
-|-- practice-two
-    |-- src
-        |-- assets
-        |-- sections
-        |-- styles
-           |-- base
-           |-- components
-           |-- layout
-           |-- pages
-           |-- themes
-           |-- utils
-           |-- vendors
-           |-- main.css
-        |-- index.html
-    |-- .editorconfig
-    |-- .gitignore
-    |-- commitlint.config.js
-    |-- package-lock.json
-    |-- package.json
-    |-- README.md
-|-- README.md
-
-```
 
 ### STEPS INSTALL AND RUN CODE
 - Step 01: Clone repository:

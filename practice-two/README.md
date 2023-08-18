@@ -6,6 +6,7 @@
 * You can refer details design here: [Figma](https://www.figma.com/file/QIMFoTvHjbrnZy6sp24DKz/Yoora-CMS-(Copy)-(Copy)?type=design&node-id=0-1&mode=design&t=sMtIHNgTzubuZnWL-0)
 * GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/learn-html-css)
 * My Trello: [here](https://trello.com/b/yQlmWuS5/internship-duyen-tran-practicetwo0)
+* Deploy: [here](https://yoora-page-tranlekhanhduyen.vercel.app/)
 ### TIMELINE
 * Start date: 02/08/2023
 * End date: 17/08/2023

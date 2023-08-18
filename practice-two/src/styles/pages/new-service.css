@@ -30,6 +30,7 @@
 }
 
 .service-topic {
+  font-family: 'satoshi';
   text-transform: uppercase;
   font-weight: var(--fw-bold);
   font-size: 14px;

@@ -113,12 +113,6 @@
 
 .line-smilely,
 .line-pen,
-.line-laptop {
-  background-color: var(--primary-color);
-}
-
-.line-smilely,
-.line-pen,
 .line-laptop:hover {
   background-color: var(--dark-color);
 }

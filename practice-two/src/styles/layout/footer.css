@@ -70,6 +70,7 @@
   font-family: var(--primary-font);
   font-weight: var(--fw-normal);
   letter-spacing: 0.2px;
+  color: var(--dark-color);
   cursor: pointer;
 }
 
@@ -109,6 +110,7 @@
   font-size: 14px;
   font-weight: var(--fw-normal);
   letter-spacing: 0.2px;
+  color: var(--text-dark);
   cursor: pointer;
 }
 

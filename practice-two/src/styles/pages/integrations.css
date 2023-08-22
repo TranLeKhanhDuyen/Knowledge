@@ -52,6 +52,7 @@
 
 .integrations-img img {
   transition: transform 0.3s ease; 
+  cursor: pointer;
 }
 
 .integrations-img img:hover {

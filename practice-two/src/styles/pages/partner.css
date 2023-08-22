@@ -24,6 +24,7 @@
 
 .grid-partner img {
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .grid-partner img:hover {

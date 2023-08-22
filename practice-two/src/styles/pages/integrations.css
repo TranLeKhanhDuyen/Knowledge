@@ -39,7 +39,7 @@
 }
 
 .integrations-link {
-  padding: 15px 0 42.88px;
+  margin: 15px 0 42.88px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -74,7 +74,7 @@
 @media (min-width: 1440px) {
   .integrations {
     margin-top: 99px;
-    padding-bottom: 64.8px;
+    padding-bottom: 19px;
   }
 
   .integrations-title {
@@ -121,6 +121,6 @@
   }
 
   .integrations-link {
-    padding: 18px 0 55px;
+    margin-bottom: 98px;
   }
 }

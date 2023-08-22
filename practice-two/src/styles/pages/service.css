@@ -88,7 +88,7 @@
 
   .service-title {
     font-size: 46px;
-    padding-bottom: 7.2px;
+    margin-bottom: 7.2px;
     line-height: 58px; 
     letter-spacing: 0.3px;
   }
@@ -96,12 +96,12 @@
   .service-desc {
     line-height: 27.9px;
     letter-spacing: 0.18px;
-    padding-bottom: 6.5px;
+    margin-bottom: 6.5px;
   }
 
   .service-done {
     line-height: 27.9px;
-    padding-right: 18px;
+    margin-right: 18px;
     letter-spacing: 0.2px;
   }
 

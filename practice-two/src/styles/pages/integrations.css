@@ -50,6 +50,14 @@
   margin-top: 30.4px;
 }
 
+.integrations-img img {
+  transition: transform 0.3s ease; 
+}
+
+.integrations-img img:hover {
+  transform: scale(0.9); 
+}
+
 @media (min-width: 768px){
   .integrations-img {
     max-width: 550px;

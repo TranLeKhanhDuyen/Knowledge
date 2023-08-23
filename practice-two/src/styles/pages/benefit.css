@@ -1,0 +1,234 @@
+.benefit {
+  background-color: var(--tertiary-color);
+}
+
+.benefit-content {
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit-title {
+  letter-spacing: -0.5px;
+  line-height: 46px;
+}
+
+.benefit-desc {
+  line-height: 26px;
+}
+
+.benefit-items {
+  margin-top: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 14px;
+  padding-bottom: 70.4px;
+}
+
+.benefit-item {
+  padding: 0 24px 32px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(244, 240, 240, 0.04);
+  border-radius: 12px;
+}
+
+.benefit-item:hover {
+  background-color: #FFE377;
+  cursor: pointer;
+}
+
+.icon-smilely,
+.icon-laptop,
+.icon-pen {
+  min-height: 88px;
+  margin-top: 45.6px;
+  margin-left: 5.6px;
+}
+
+.line-smilely,
+.line-pen {
+  margin-top: 8px;
+}
+
+.icon-laptop {
+  margin-top: 52px;
+  min-height: 88px;
+}
+
+.laptop {
+  padding-bottom: 26.4px;
+}
+
+.icon-smilely {
+  background-image: url(../../assets/images/ic-smiley-white.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-laptop {
+  background-image: url(../../assets/images/ic-laptop-white.svg);
+  background-repeat: no-repeat;
+}
+
+.icon-pen {
+  background-image: url(../../assets/images/ic-pen-white.svg);
+  background-repeat: no-repeat;
+}
+
+.card-title {
+  margin-top: 14px;
+  font-size: 20px;
+  letter-spacing: 0.368px;
+  line-height: 28px;
+}
+
+.card-desc {
+  margin-top: 8px;
+  line-height: 26px;
+}
+
+.benefit-item:hover .card-title,
+.benefit-item:hover .card-desc {
+  color: var(--dark-color);
+}
+
+.benefit-item:hover .line {
+  background-color: var(--dark-color);
+}
+
+.benefit-item:hover .icon-smilely {
+  background-image: url(../../assets/images/ic-smile-black.svg);
+}
+
+.benefit-item:hover .icon-laptop {
+  background-image: url(../../assets/images/ic-laptop-black.svg);
+}
+
+.benefit-item:hover .icon-pen {
+  background-image: url(../../assets/images/ic-pen-black.svg);
+}
+
+.line-smilely,
+.line-pen,
+.line-laptop:hover {
+  background-color: var(--dark-color);
+}
+
+@media (min-width: 1200px){
+  .benefit-items {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1440px) {
+  .benefit {
+    padding-bottom: 52px;
+  }
+
+  .benefit-content {
+    padding-top: 118px;
+    flex-direction: row;
+    align-items: center;
+    gap: 99px;
+  }
+
+  .benefit-title {
+    max-width: 486px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  .benefit-desc {
+    margin-top: 27px;
+    line-height: 31.5px;
+    max-width: 486px;
+    line-height: 28.8px;
+  }
+
+  .benefit-items {
+    margin-top: 64px;
+  }
+
+  .benefit-item {
+    max-width: 372.6px;
+    padding: 0 32.04px 57.6px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .icon-smilely {
+    max-height: 63px;
+    margin-top: 73.8px;
+  }
+
+  .icon-laptop {
+    margin-top: 72px;
+    max-height: 59.4px;
+    margin-left: 0;
+  }
+
+  .icon-pen {
+    max-height: 63px;
+    margin-top: 73.8px;
+    margin-left: 0;
+  }
+
+  .line-smilely,
+  .line-pen,
+  .line-laptop {
+    margin-top: 34px;
+  }
+
+  .pen-desc {
+    padding-bottom: 27px;
+  }
+
+  .card-title {
+    margin-top: 18px;
+    font-size: 20px;
+    letter-spacing: 0.414px;
+    line-height: 27px;
+  }
+
+  .card-desc {
+    margin-top: 10.8px;
+    font-size: 16px;
+    line-height: 25.92px;
+    padding-right: 45px;
+  }
+
+  .customers {
+    padding-right: 126px;
+  }
+
+  .icon-smilely {
+    background-image: url(../../assets/images/ic-smiley-white-lg.svg);
+  }
+
+  .icon-laptop {
+    background-image: url(../../assets/images/ic-laptop-white-lg.svg);
+  }
+
+  .icon-pen {
+    background-image: url(../../assets/images/ic-pen-white-lg.svg);
+  }
+
+  .benefit-item:hover {
+    transform: translateY(-18px);
+  }
+  .benefit-item:hover .icon-smilely {
+    background-image: url(../../assets/images/ic-smiley-black-lg.svg);
+  }
+
+  .benefit-item:hover .icon-laptop {
+    background-image: url(../../assets/images/ic-laptop-black-lg.svg);
+  }
+
+  .benefit-item:hover .icon-pen {
+    background-image: url(../../assets/images/ic-pen-black-lg.svg);
+  }
+}

@@ -1,0 +1,21 @@
+:root {
+  /* color varibale */
+  --primary-color: #fff;
+  --secondary-color: #f4f4f4;
+  --tertiary-color: #004050;
+  --light-color: #787878;
+  --dark-color: #000;
+  --green-color: #00cc61;
+  --grey-color: #dcdcdc;
+  --yellow-color: #FFE377;
+
+  /* font variable */
+  --primary-font: "satoshi", sans-serif;
+
+ /* font weight */
+  --fw-bold: 700;
+  --fw-semibold: 500;
+  --fw-normal: 400;
+
+  --smooth: all 0.3s ease-in;
+}

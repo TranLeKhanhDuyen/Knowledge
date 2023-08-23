@@ -1,0 +1,174 @@
+.marketing {
+  margin-top: 70.4px;
+  padding-bottom: 12.8px;
+}
+
+.marketing-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.marketing-content {
+  margin-top: 38.4px;
+}
+
+.marketing-content .tag {
+  max-width: 112px;
+}
+
+.marketing-text {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.marketing-title {
+  text-transform: capitalize;
+  font-size: 24px;
+  margin-top: 3.2px;
+  letter-spacing: -0.32px;
+  line-height: 34px;
+}
+
+.marketing-desc,
+.marketing-done {
+  line-height: 26px;
+}
+
+.marketing-done {
+  letter-spacing: -0.032px;
+}
+
+.marketing-items {
+  margin-top: 39px;
+}
+
+.marketing-items .item-img {
+  background-color: var(--secondary-color);
+  padding: 24.8px 42.4px 0;
+  border-radius: 6.4px;
+}
+
+.item-btn {
+  background-color: var(--tertiary-color);
+  padding: 4.8px 9.6px;
+  border-radius: 6.4px;
+  display: flex;
+  align-items: center;
+  gap: 14.4px;
+  width: 225px;
+  margin-left: 25px;
+  transform: translateY(-57.6px);
+}
+
+.text-btn {
+  font-size: 8.8px;
+  padding-left: 3.2px;
+  letter-spacing: -0.123px;
+}
+
+.btn-click {
+  font-size: 8.8px;
+  padding: 8.8px 8px;
+  border-radius: 4px;
+}
+
+.btn-click:hover {
+  box-shadow: inset 0 0 0 1px var(--green-color); 
+}
+
+@media (min-width: 768px) {
+  .marketing .tag {
+    width: 112px;
+  }
+
+  .item-img {
+    width: 480px;
+  }
+
+  .item-btn {
+    width: 480px;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .marketing-wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 54px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .marketing {
+    margin-top: 118.8px;
+  }
+
+  .marketing-wrapper {
+    gap: 36px;
+  }
+
+  .marketing-content {
+    margin-top: 45px;
+  }
+
+  .marketing .tag {
+    margin-top: 75.6px;
+    margin-left: 59.4px;
+  }
+
+  .marketing-text {
+    gap: 17px;
+    margin-left: 59.4px;
+  }
+
+  .marketing-title {
+    font-size: 48px;
+    line-height: 57.6px;
+    letter-spacing: -0.66px;
+    margin-bottom: 7.5px;
+    margin-top: 8.2px;
+  }
+
+  .marketing-desc {
+    margin-bottom: 5.4px;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+  }
+
+  .marketing-done {
+    gap: 25.2px;
+    line-height: 27.9px;
+    letter-spacing: 0.18px;
+  }
+
+  .marketing-items .item-img {
+    margin-top: 9px;
+    width: 558px;
+    padding: 54px 90px 0;
+    border-radius: 6.4px;
+  }
+
+  .text-btn {
+    font-size: 18px;
+    letter-spacing: -0.25px;
+  }
+
+  .item-btn {
+    margin: 0 auto;
+    border-radius: 13.5px;
+    width: 456.8px;
+    padding: 12.6px 23.4px;
+    transform: translateY(-111.5px);
+    letter-spacing: -0.25px;
+  }
+
+  .btn-click {
+    font-size: 18px;
+    padding: 18px 21.6px;
+    border-radius: 6.4px;
+  }
+}

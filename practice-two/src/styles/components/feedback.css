@@ -1,0 +1,23 @@
+.feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 11.2px;
+}
+
+.feedback .text-bold {
+  text-transform: capitalize;
+  font-weight: var(--fw-bold);
+  color: var(--dark-color);
+  padding: 5.6px 0 3.2px;
+}
+
+.feedback .text-normal {
+  text-transform: capitalize;
+  line-height: normal;
+}
+
+@media (min-width: 1440px) {
+  .feedback .avatar-img {
+    width: 54px;
+  }
+}

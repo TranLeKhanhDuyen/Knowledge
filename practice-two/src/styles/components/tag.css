@@ -1,0 +1,10 @@
+.tag {
+  background-color: var(--yellow-color);
+  color: var(--dark-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  padding: 9.6px 8px;
+  border-radius: 4px;
+}

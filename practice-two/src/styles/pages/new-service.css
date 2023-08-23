@@ -1,0 +1,136 @@
+.new-service {
+  margin-top: 73px;
+}
+
+.new-service-title {
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.48px;
+}
+
+.new-service .forward-link {
+  margin-top: 25.6px;
+}
+
+.new-service .text-link {
+  letter-spacing: 0.32px;
+}
+
+.services {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.new-service-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.service-topic {
+  font-family: 'satoshi';
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  margin-top: 30px;
+}
+
+.content-title {
+  font-size: 20px;
+  letter-spacing: -0.32px;
+  line-height: 30px;
+}
+
+.content-desc {
+  display: flex;
+  font-weight: var(--fw-semibold);
+  margin-top: 1.6px;
+}
+
+.content-mobile {
+  display: block;
+}
+
+.content-desktop {
+  display: none;
+}
+
+.author {
+  padding-left: 4.5px;
+}
+
+@media (min-width: 1440px) {
+  .new-service {
+    margin-top: 134px;
+  }
+
+  .new-service .text-link{
+    padding-bottom: 0;
+  }
+
+  .new-service-title {
+    font-size: 63px;
+    letter-spacing: -0.32px;
+    max-width: 684px;
+  }
+
+  .link-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .new-service .text-link {
+    font-size: 20px;
+  }
+
+  .services {
+    margin-top: 59px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32.4px;
+  }
+
+  .service-topic {
+    font-size: 14px;
+  }
+
+  .new-service-content {
+    width: 630px;
+    gap: 14.4px;
+  }
+
+  .service-content-img {
+    margin-top: 12.6px;
+  }
+
+  .content-title {
+    letter-spacing: 0.27px;
+    line-height: 33.75px;
+    font-size: 30.6px;
+    line-height: 42px;
+    margin-top: 9px;
+  }
+
+  .content-desc {
+    margin-top: 12.6px;
+  }
+
+  .content-first {
+    padding-right: 72px;
+  }
+
+  .content-mobile {
+    display: none;
+  }
+
+  .content-desktop {
+    display: block;
+  }
+
+  .date, .author{
+    font-size: 16px;
+  }
+}

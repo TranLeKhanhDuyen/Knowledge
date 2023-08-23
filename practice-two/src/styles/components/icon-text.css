@@ -1,0 +1,25 @@
+.icon-with-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-top: 0.8px;
+  letter-spacing: 0.178px;
+}
+
+.icon-quotes {
+  color: var(--green-color);
+  font-family: var(--primary-font);
+  font-size: 120px;
+  font-weight: var(--fw-bold);
+  letter-spacing: -1.6px;
+  max-height: 48px;
+}
+@media (min-width: 1440px) {
+  .icon-with-text {
+    gap: 23.4px;
+  }
+
+  .icon-quotes{
+    font-size: 117px;
+  }
+}

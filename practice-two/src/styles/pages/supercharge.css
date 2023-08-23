@@ -1,0 +1,139 @@
+.supercharge {
+  background-image: url(../../assets/images/background.svg);
+  width: 100%;
+  height: auto;
+}
+
+.supercharge-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 70px;
+}
+
+.supercharge-title {
+  font-size: 36px;
+  margin-top: 73.6px;
+  line-height: 46px;
+  letter-spacing: -0.48px;
+}
+
+.supercharge-desc {
+  margin-top: 14px;
+  line-height: 28px;
+  font-size: 18px;
+}
+
+.supercharge-click {
+  margin: 0 auto;
+  margin-top: 180.8px;
+  display: flex;
+  gap: 24px;
+  padding: 20px 75px 19px 32px;
+  color: var(--dark-color);
+  background-color: var(--primary-color);
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: -0.24px;
+}
+
+.supercharge-btn-text {
+  text-align: center;
+  margin-top: 27.2px;
+  font-size: 14px;
+}
+
+.supercharge-click{
+  position: relative;
+  border-radius: 8px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: 36px;
+  transform: translateY(-30%) rotate(315deg); 
+  width: 10px;
+  height: 10px;
+  border: 3px solid var(--dark-color);
+  border-width: 0 2px 2px 0; 
+}
+
+.supercharge-click:hover .arrow{
+  border: 3px solid var(--primary-color);
+  border-width: 0 2px 2px 0; 
+}
+
+@media (min-width: 1200px) {
+  .supercharge {
+    background-image: url(../../assets/images/background-lg.svg);
+    background-size: cover;
+    margin-top: 0;
+    background-repeat: no-repeat;
+  }
+
+  .supercharge-wrapper {
+    flex-direction: row;
+  }
+
+  .supercharge-click {
+    margin-top: 113px;
+    display: flex;
+    letter-spacing: -0.27px;
+  }
+
+  .supercharge-btn-text {
+    font-size: 14px;
+    margin-top: 25px;
+  }
+
+  .supercharge-content {
+    margin-top: 52.2px;
+    max-width: 720px;
+  }
+
+  .supercharge-title {
+    margin-top: 30px;
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .supercharge-desc {
+    font-size: 16px;
+    margin-right: 70px;
+  }
+
+  .supercharge-btn {
+    margin-top: 25.2px;
+  }
+  
+}
+
+@media (min-width: 1440px) {
+  .supercharge-wrapper {
+    padding-bottom: 118.8px;
+    gap: 144px;
+  }
+
+  .supercharge-title {
+    margin-top: 69px;
+    font-size: 64px;
+    line-height: 73.4px;
+    letter-spacing: -0.9px;
+  }
+
+  .supercharge-desc {
+    margin-top: 23.4px;
+    margin-right: 144px;
+    font-size: 18px;
+    line-height: 27.9px;
+  }
+
+  .supercharge-btn {
+    margin-top: 25.2px;
+  } 
+
+  .supercharge-click {
+    margin-top: 180px;
+  }
+}

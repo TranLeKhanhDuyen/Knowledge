@@ -1,0 +1,142 @@
+.hero {
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hero-content {
+  margin: 0 24px;
+}
+
+.hero-title {
+  margin-top: 49.3px;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -0.48px;
+}
+
+.hero-desc {
+  margin-top: 16px;
+}
+
+.input-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--grey-color);
+  border-radius: 8px;
+  margin-top: 28.8px;
+  background-color: var(--primary-color);
+  gap: 3.2px;
+}
+
+.hero-input {
+  border: none;
+  margin-top: 5.6px;
+  padding: 8px 15px 15px;
+  letter-spacing: -0.224px;
+}
+
+.hero-button {
+  width: 94%;
+  margin: 0 auto;
+  margin-bottom: 8px;
+  padding: 12px 14px 10px;
+  letter-spacing: -0.224px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.text-access {
+  margin-top: 3px;
+}
+
+.hero-img {
+  margin: 32px 0;
+  z-index: 0;
+  width: 302.4px;
+  height: 252.8px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .hero-img {
+    width: 320px;
+    height: 352px;
+    margin-top: 54px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-content {
+    margin: 0 90px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-content {
+    margin-left: 149px;
+  }
+
+  .hero-title {
+    margin-top: 95.4px;
+    max-width: 585px;
+    font-size: 64px;
+    line-height: 73.8px;
+    letter-spacing: -0.889px;
+  }
+
+  .hero-desc {
+    margin-top: 22.5px;
+    padding-right: 108px;
+  }
+
+  .input-form {
+    flex-direction: row;
+    margin-top: 61.2px;
+    align-items: center;
+    max-width: 459px;
+    padding: 9px;
+    gap: 61.2px;
+  }
+
+  .hero-input {
+    letter-spacing: -2.7px;
+    margin-top: 9px;
+    letter-spacing: -0.18px;
+    padding: 7px 31px 13px 15px;
+  }
+
+  .hero-button {
+    margin: 0;
+    letter-spacing: -0.36px;
+  }
+
+  .text-access {
+    padding-left: 16px;
+  }
+
+  .hero-img {
+    width: 608px;
+    height: 507px;
+    margin-top: 92px;
+  }
+}
+
+@media (min-width: 1441px){
+  .wrapper{
+    background-color: var(--secondary-color);
+  }
+
+  .hero{
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}

@@ -1,0 +1,166 @@
+.header-page {
+  background-color: var(--secondary-color);
+}
+
+.header-wrapper {
+  padding-top: 25.6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo img {
+  width: 96px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  width: 70%;
+  height: 100%;
+  background-color: var(--grey-color);
+  z-index: 5;
+  transform: translateX(-100%);
+  opacity: 0;
+  font-size: 14px;
+  list-style: none;
+}
+
+.navbar-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.navbar-item {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: var(--fw-normal);
+}
+
+.navbar-item:hover {
+  color: var(--green-color);
+}
+
+.navbar.navbar-open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.btn-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  font-size: 14px;
+}
+
+.btn-login,
+.btn-free {
+  padding: 7px 12px;
+  border-radius: 4px;
+}
+
+.menu-icons {
+  cursor: pointer;
+  transition: var(--smooth);
+  z-index: 3;
+  padding-right: 3.2px;
+}
+
+.menu-icon {
+  width: 18px;
+  height: 1.9px;
+  background-color: var(--light-color);
+  border-radius: 4.8px;
+  transition: var(--smooth);
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: " ";
+  width: 18px;
+  height: 1.92px;
+  background-color: var(--light-color);
+  border-radius: 4.8px;
+  transition: var(--smooth);
+  position: absolute;
+}
+
+.menu-icon::before {
+  transform: translateY(-8px);
+}
+
+.menu-icon::after {
+  transform: translateY(8px);
+}
+
+/* menu amination */
+.open .menu-icon {
+  transform: translateX(-48px);
+  background: transparent;
+}
+
+.open .menu-icon::before {
+  transform: rotate(-45deg) translate(32px, 32px);
+}
+
+.open .menu-icon::after {
+  transform: rotate(45deg) translate(32px, -32px);
+}
+
+@media (min-width: 1200px) {
+  .navbar {
+    position: initial;
+    transform: translateX(0);
+    width: auto;
+    opacity: 1;
+    background-color: transparent;
+    flex-direction: row;
+    gap: 203.4px;
+  }
+
+  .btn-navbar {
+    gap: 18px;
+  }
+
+  .navbar-list {
+    flex-direction: row;
+    margin: 0;
+    gap: 36px;
+  }
+
+  .menu-icons {
+    display: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-wrapper {
+    padding-top: 23px;
+    justify-content: normal;
+    gap: 90px;
+  }
+
+  .header-logo img {
+    width: 106.2px;
+  }
+
+  .navbar {
+    gap: 329.4px;
+  }
+
+  .navbar-list {
+    gap: 42.12px;
+  }
+
+  .btn-navbar {
+    gap: 19px;
+  }
+}

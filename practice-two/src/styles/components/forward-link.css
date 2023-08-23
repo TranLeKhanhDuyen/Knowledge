@@ -1,0 +1,15 @@
+.forward-link a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-link {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.forward-link:hover{
+  color: var(--green-color);
+}

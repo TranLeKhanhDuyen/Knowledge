@@ -1,0 +1,28 @@
+.btn-primary {
+  text-align: center;
+  background-color: var(--primary-color);
+  font-weight: var(--fw-semibold);
+  border: 0.16px solid var(--light-color);
+  cursor: pointer;
+  transition: var(--smooth);
+}
+
+.btn-primary:hover {
+  background-color: var(--tertiary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary {
+  text-align: center;
+  border: none;
+  color: var(--primary-color);
+  background-color: var(--green-color);
+  font-weight: var(--fw-bold);
+  cursor: pointer;
+  transition: var(--smooth);
+  border-radius: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--tertiary-color);
+}

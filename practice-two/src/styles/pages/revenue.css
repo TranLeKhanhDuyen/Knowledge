@@ -1,0 +1,109 @@
+.revenue {
+  margin-top: 147.2px;
+  padding-bottom: 5px;
+}
+
+.revenue-title {
+  line-height: 46px;
+  letter-spacing: -0.5px;
+}
+
+.revenue-desc {
+  margin: 14.5px 0 48px;
+  line-height: 26px;
+}
+
+.sale-period {
+  margin-top: 31.5px;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -0.667px;
+}
+
+.sale-info {
+  margin-top: 19.2px;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.feedback-content {
+  margin-top: 30px;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: -0.333px;
+}
+
+.feedback-customer {
+  display: flex;
+  gap: 11.2px;
+  margin-top: 34px;
+  margin-bottom: 66px;
+}
+
+.customer-info {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+}
+
+
+@media (min-width: 1440px) {
+  .revenue {
+    margin-top: 240px;
+  }
+
+  .revenue-title {
+    line-height: 68px;
+    letter-spacing: -0.667px;
+  }
+
+  .revenue-desc {
+    margin-top: 12px;
+    margin-bottom: 72px;
+    line-height: 28px;
+  }
+
+  .revenue-content {
+    display: flex;
+    gap: 164px;
+  }
+
+  .sale-period {
+    width: 227px;
+    margin-top: 49px;
+    font-size: 72px;
+    line-height: 74px;
+    letter-spacing: -1px;
+  }
+
+  .sale-info {
+    font-size: 20px;
+    margin-top: 24px;
+  }
+
+  .feedback-content {
+    margin-top: 45px;
+    font-size: 32px;
+    line-height: 42px;
+    letter-spacing: -0.444px;
+  }
+
+  .feedback-customer {
+    margin-top: 36.5px;
+    margin-bottom: 72px;
+  }
+
+  .customer-info {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .avatar-img {
+    width: 48px;
+    height: 48px;
+  }
+}

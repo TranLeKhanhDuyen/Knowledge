@@ -122,19 +122,19 @@
 
   .marketing-text {
     gap: 17px;
-    padding-left: 59.4px;
+    margin-left: 59.4px;
   }
 
   .marketing-title {
     font-size: 48px;
     line-height: 57.6px;
-    letter-spacing: -0.666px;
-    padding-bottom: 7.5px;
-    padding-top: 5px;
+    letter-spacing: -0.66px;
+    margin-bottom: 7.5px;
+    margin-top: 8.2px;
   }
 
   .marketing-desc {
-    padding-bottom: 5.4px;
+    margin-bottom: 5.4px;
     line-height: 28px;
     letter-spacing: 0.2px;
   }

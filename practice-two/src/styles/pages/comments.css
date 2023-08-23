@@ -9,7 +9,7 @@
 }
 
 .comment-title {
-  padding-top: 73.6px;
+  margin-top: 73.6px;
   text-align: center;
   line-height: 46px;
   letter-spacing: -0.5px;
@@ -44,7 +44,7 @@
 }
 
 .comments-detail .feedback {
-  margin-top: 20.8px;
+  margin-top: 22.5px;
 }
 
 .comment-author {
@@ -70,7 +70,7 @@
 
   .comment-title {
     max-width: 540px;
-    margin-top: 46px;
+    margin-top: 119.6px;
     text-align: left;
     line-height: 57.6px;
     letter-spacing: -0.667px;

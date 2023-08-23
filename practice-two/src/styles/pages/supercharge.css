@@ -19,7 +19,7 @@
 }
 
 .supercharge-desc {
-  margin-top: 16px;
+  margin-top: 14px;
   line-height: 28px;
   font-size: 18px;
 }
@@ -124,10 +124,9 @@
 
   .supercharge-desc {
     margin-top: 23.4px;
-    padding-right: 144px;
+    margin-right: 144px;
     font-size: 18px;
     line-height: 27.9px;
-    margin-right: 0;
   }
 
   .supercharge-btn {

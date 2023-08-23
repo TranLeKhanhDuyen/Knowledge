@@ -97,7 +97,7 @@
   }
 
   .sale-desc {
-    padding: 25px 0 24px;
+    margin: 25px 0 24px;
     line-height: 28.08px;
   }
 
@@ -107,7 +107,7 @@
 
   .text-done {
     max-width: 430px;
-    padding-bottom: 16.2px;
+    margin-bottom: 16.2px;
     line-height: 27.9px;
   }
   .text-done-mobile {
@@ -116,8 +116,8 @@
 
   .text-done-desktop {
     display: block;
-    padding-right: 54px;
-    padding-bottom: 16.2px;
+    margin-right: 54px;
+    margin-bottom: 16.2px;
     line-height: 27.9px;
   }
 

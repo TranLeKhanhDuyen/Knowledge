@@ -1,13 +1,13 @@
-.forward-link {
+.forward-link a {
   display: flex;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-link {
   text-decoration: none;
   color: var(--dark);
   font-weight: 500;
-  padding-bottom: 6.4px;
 }
 
 .forward-link:hover{

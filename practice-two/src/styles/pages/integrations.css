@@ -39,7 +39,7 @@
 }
 
 .integrations-link {
-  padding: 15px 0 42.88px;
+  margin: 15px 0 42.88px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -48,6 +48,15 @@
 .integrations-link .text-link {
   letter-spacing: 0.343px;
   margin-top: 30.4px;
+}
+
+.integrations-img img {
+  transition: transform 0.3s ease; 
+  cursor: pointer;
+}
+
+.integrations-img img:hover {
+  transform: scale(0.9); 
 }
 
 @media (min-width: 768px){
@@ -65,7 +74,7 @@
 @media (min-width: 1440px) {
   .integrations {
     margin-top: 99px;
-    padding-bottom: 64.8px;
+    padding-bottom: 19px;
   }
 
   .integrations-title {
@@ -112,6 +121,6 @@
   }
 
   .integrations-link {
-    padding: 18px 0 55px;
+    margin-bottom: 98px;
   }
 }

@@ -22,8 +22,16 @@
   row-gap: 40px;
 }
 
+.grid-partner img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-@media (min-width: 768px){
+.grid-partner img:hover {
+  transform: scale(0.9);
+}
+
+@media (min-width: 768px) {
   .grid-partner {
     grid-template-columns: repeat(5, auto);
     column-gap: 63px;

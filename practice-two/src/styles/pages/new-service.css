@@ -17,7 +17,7 @@
 }
 
 .services {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
   gap: 23px;
@@ -75,7 +75,6 @@
     font-size: 63px;
     letter-spacing: -0.32px;
     max-width: 684px;
-    padding-bottom: 10px;
   }
 
   .link-service {
@@ -88,7 +87,7 @@
   }
 
   .services {
-    margin-top: 47px;
+    margin-top: 59px;
     flex-direction: row;
     justify-content: space-between;
     gap: 32.4px;

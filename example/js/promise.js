@@ -37,7 +37,7 @@ promise
     console.log("Done");
   });
 
-//== PROMISE CHAIN
+//=====
 function sleep(ms) {
   return new Promise(function (resolve) {
     setTimeout(resolve, ms);
@@ -62,4 +62,3 @@ sleep(1000)  //not hell
     return sleep(1000);
   });
 
-  

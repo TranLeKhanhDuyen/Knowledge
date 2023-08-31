@@ -1,0 +1,18 @@
+.calculator {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgb(185, 234, 234);
+    border: 2px solid rgb(209, 233, 239);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .input-number, .btn-operation {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  

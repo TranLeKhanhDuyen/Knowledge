@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./sum.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <h1>Calculator</h1>
+        <input class="input-number" type="number" id="num1" placeholder="Enter number 1">
+        <input class="input-number" type="number" id="num2" placeholder="Enter number 2"><br>
+        <button class="btn-operation" onclick="calculate('add')">+</button>
+        <button class="btn-operation" onclick="calculate('subtract')">-</button>
+        <button class="btn-operation" onclick="calculate('multiply')">*</button>
+        <button class="btn-operation" onclick="calculate('divide')">/</button>
+        <p id="result">RESULT: </p>
+        <script src="./sum.js"></script>
+</body>
+
+</html>

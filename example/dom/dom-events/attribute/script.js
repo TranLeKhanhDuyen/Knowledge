@@ -39,3 +39,22 @@ const changeText = () => {
   const p = document.querySelector("p");
   p.textContent = "I changed because of an inline event handler.";
 };
+
+//
+var aElements = document.links;
+for (var i = 0; i < aElements.length; ++i) {
+  aElements[i].onclick = function (e) {
+    console.log(e.target.href);
+  };
+}
+console.log(aElements);
+
+// preventDefault
+var ulElement = document.querySelector("ul");
+ulElement.onmousedown = function(e) {
+  e.preventDefault();
+};
+
+ulElement.onclick = function(e) {
+  console.log(e.target);
+};

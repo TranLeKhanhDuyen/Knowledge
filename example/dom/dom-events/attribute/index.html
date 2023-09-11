@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .ip-couses{
+            margin-top: 20px;
+        }
+        ul {
+            display: none;
+        }
+
+        input.ip-couses:focus ~ ul{
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +35,21 @@
 
     <button style="margin-top: 20px;" onclick="changeText()">Click me</button>
     <p>Try to change me.</p>
+
+    <a
+        href="https://www.google.com/url?q=https://www.digitalocean.com/community/tutorials/how-to-modify-attributes-classes-and-styles-in-the-dom&sa=D&source=docs&ust=1694422439791325&usg=AOvVaw2NKnyPMORY1J0Fs8cw0pdW">
+        Learning DOM</a><br>
+    <a href="https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript">
+        Dom Events
+    </a><br>
+
+    <input class="ip-couses" placeholder="search couses">
+    <ul>
+        <li>Javascript</li>
+        <li>PHP</li>
+        <li>Python</li>
+        <li>Dart</li>
+    </ul>
 </body>
 <script src="./script.js"></script>
 

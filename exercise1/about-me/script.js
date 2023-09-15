@@ -8,7 +8,7 @@ for (var i = 0; i < items.length; i++) {
 }
 
 var styleItem = document.createElement("style");
-styleitem.innerHTML = ".listitem {color: red;}";
+styleItem.innerHTML = ".listitem {color: red;}";
 document.head.appendChild(styleItem);
 
 var itemImg = document.createElement("img");

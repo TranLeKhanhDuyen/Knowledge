@@ -4,12 +4,12 @@ function getOptions() {
     const options = select.options;
     const optionCount = options.length;
 
-    let message = "Các mục trong danh sách thả xuống:\n";
+    let message = "Dropdown list itemd: \n";
     for (let i = 0; i < optionCount; i++) {
       message += options[i].text + "\n";
     }
 
-    alert("Số lượng mục: " + optionCount + "\n" + message);
+    alert("Length of list items:  " + optionCount + "\n" + message);
   }
 
 //solution 2

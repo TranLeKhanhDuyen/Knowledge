@@ -17,7 +17,7 @@
         </a>
         <div class="menu">
             <button class="btn">
-                <img class="graph-img" src="./assets/icons/graph-white.png" alt="Graph"> 
+                <img class="graph-img" src="./assets/icons/graph-white.png" alt="Graph">
                 <p class="text-btn">Report</p>
             </button>
             <button class="btn">
@@ -33,14 +33,19 @@
     <main class="pages">
         <div class="time">
             <div class="time-break">
-                <button class="btn">Pomodoro</button>
-                <button class="btn">Short Break</button>
-                <button class="btn">Long Break</button>
+                <button id="forcus" class="btn-primary">Pomodoro</button>
+                <button id="shortbreak" class="btn-primary">Short Break</button>
+                <button id="longbreak" class="btn-primary">Long Break</button>
             </div>
-            <div class="timer-string">
-
+            <div class="timer-string-container">
+                <span id="time"></span>
+                <div class="btn-container">
+                    <button id="btn-start" class="show">START</button>
+                    <button id="btn-pause" class="show">PAUSE</button>
+                    <button id="btn-reset" class="hide"> <img class="hide-img" src="./assets/icons/next-white3.png" alt="">
+                    </button>
+                </div>
             </div>
-            <button class="btn-click">START</button>
         </div>
         <div class="task">
             <p>#1</p>

@@ -1,9 +1,11 @@
 :root {
-    --primary-font: 'ArialRounded', Helvetica;
-
-    --font-sm: 14px;
+    --primary-font: 'ArialRounded','Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --font-sm: 13px;
     --font-md: 16px;
     --font-lg: 18px;
+    --font-xl: 20px;
+    --font-2xl: 22px;
 
     --fw-bold: 700;
     --fw-semibold: 500;

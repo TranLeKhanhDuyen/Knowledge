@@ -1,4 +1,4 @@
-.btn{
+.btn {
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -7,10 +7,29 @@
     background: none rgba(255, 255, 255, 0.2);
     box-shadow: none;
     margin-left: 10px;
-    font-size: 13px;
+    font-size: var(--font-sm);
     padding: 8px 12px;
     min-width: 70px;
     border: none;
     color: white !important;
 }
 
+.btn-primary {
+    border: none;
+    margin: 0px;
+    border-radius: 4px;
+    font-size: var(--font-md);
+    padding: 2px 12px;
+    height: 28px;
+    cursor: pointer;
+    background: none;
+    box-shadow: none;
+    color: white;
+    opacity: 1;
+}
+
+.btn-primary:focus{
+    font-weight: var(--fw-bold);
+    background: none rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}

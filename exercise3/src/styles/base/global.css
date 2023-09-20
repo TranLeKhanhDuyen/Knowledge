@@ -1,5 +1,16 @@
 * {
     box-sizing: border-box;
     padding: 0;
-  }
-  
+}
+
+.pages {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.body-bg {
+    background-color: rgb(186, 73, 73);
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+}

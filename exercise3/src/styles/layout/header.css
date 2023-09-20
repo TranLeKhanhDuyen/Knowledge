@@ -1,12 +1,40 @@
-.header{
+.header {
+    display: flex;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid rgb(175, 62, 62);
+}
+
+.logo {
+    display: flex;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+.logo-text {
+    font-size: 20px;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: var(--fw-bold);
+}
+
+.menu {
     display: flex;
 }
 
-.logo-img{
-    width: 20px;
-    height: 20px;
+.graph-img, .config-img, .user-img {
+    width: 16px;
+    height: 16px;
 }
 
-.logo-text{
-    font-size: 20px;
+.text-btn {
+    margin-left: 4px;
+    font-size: 13px;
 }

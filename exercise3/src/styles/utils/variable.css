@@ -1,0 +1,16 @@
+:root {
+    --primary-font: 'ArialRounded', Helvetica;
+
+    --font-sm: 14px;
+    --font-md: 16px;
+    --font-lg: 18px;
+
+    --fw-bold: 700;
+    --fw-semibold: 500;
+    --fw-normal: 400;
+
+    --primary-color: #fff;
+    --red-color: rgb(186, 73, 73);
+    --green-color: rgb(56, 133, 138);
+    --blue-color: rgb(57, 112, 151);
+}

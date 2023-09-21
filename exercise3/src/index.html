@@ -16,33 +16,34 @@
             <p class="logo-text">Pomofocus</p>
         </a>
         <div class="menu">
-            <button class="btn">
+            <button class="btn-primary">
                 <img class="graph-img" src="./assets/icons/graph-white.png" alt="Graph">
                 <p class="text-btn">Report</p>
             </button>
-            <button class="btn">
+            <button class="btn-primary">
                 <img class="config-img" src="./assets/icons/config-white.png" alt="Graph">
                 <p class="text-btn">Setting</p>
             </button>
-            <button class="btn">
+            <button class="btn-primary">
                 <img class="user-img" src="./assets/icons/user-white.png" alt="Graph">
                 <p class="text-btn">Login</p>
             </button>
         </div>
     </header>
     <main class="pages">
-        <div class="time">
+        <div class="time-container">
             <div class="time-break">
-                <button id="forcus" class="btn-primary">Pomodoro</button>
-                <button id="shortbreak" class="btn-primary">Short Break</button>
-                <button id="longbreak" class="btn-primary">Long Break</button>
+                <button id="focus" class="btn btn-focus">Pomodoro</button>
+                <button id="shortbreak" class="btn btn-shortbreak">Short Break</button>
+                <button id="longbreak" class="btn btn-longbreak">Long Break</button>
             </div>
             <div class="timer-string-container">
                 <span id="time"></span>
                 <div class="btn-container">
                     <button id="btn-start" class="show">START</button>
-                    <button id="btn-pause" class="show">PAUSE</button>
-                    <button id="btn-reset" class="hide"> <img class="hide-img" src="./assets/icons/next-white3.png" alt="">
+                    <button id="btn-pause" class="hide">PAUSE</button>
+                    <button id="btn-reset" class="hide">
+                        <img class="hide-img" src="./assets/icons/next-white3.png" alt="image">
                     </button>
                 </div>
             </div>

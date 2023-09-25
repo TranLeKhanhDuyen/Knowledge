@@ -1,0 +1,31 @@
+.task {
+    text-align: center;
+}
+
+.heading-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.title {
+    color: var(--primary-color);
+    font-size: var(--font-2xl);
+    font-weight: var(--fw-bold);
+}
+
+.btn-option {
+    background: none rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 6px;
+}
+
+.icon-option {
+    max-width: 16px;
+    max-height: 16px;
+}

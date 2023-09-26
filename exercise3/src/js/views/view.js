@@ -1,3 +1,5 @@
+import TimerView from "./model.js";
+
 const TimerView = {
     updateDisplay(minCount, count) {
         const timeElement = document.getElementById("time");

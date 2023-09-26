@@ -1,3 +1,6 @@
+import TimerModel from "../models/model.js";
+import TimerView from "../views/view.js";
+
 const TimerController = {
     init() {
         const startBtn = document.getElementById("btn-start");

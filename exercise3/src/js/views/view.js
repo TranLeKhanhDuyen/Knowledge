@@ -1,4 +1,4 @@
-import TimerView from "./model.js";
+import TimerView from "../models/model.js";
 
 const TimerView = {
     updateDisplay(minCount, count) {

@@ -81,6 +81,7 @@
     pointer-events: auto;
     transition: all 0.2s ease-out 0s;
     display: none;
+    box-shadow: none;
 }
 
 .hide-img {

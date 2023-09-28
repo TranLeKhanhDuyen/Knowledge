@@ -1,28 +1,31 @@
-import TimerView from "../models/model.js";
+export default class View {
+    constructor(controller) {
+        this.controller = controller;
+        this.focusButton = document.getElementById("focus");
+        this.shortBreakButton = document.getElementById("shortbreak");
+        this.longBreakButton = document.getElementById("longbreak");
+        this.startBtn = document.getElementById("btn-start");
+        this.resetButton = document.getElementById("btn-reset");
+        this.pauseButton = document.getElementById("btn-pause");
+        this.time = document.getElementById("time");
 
-const TimerView = {
-    updateDisplay(minCount, count) {
-        const timeElement = document.getElementById("time");
-        timeElement.textContent = `${appendZero(minCount)}:${appendZero(
-            count
-        )}`;
-    },
+        this.initEventListeners();
+    }
 
-    toggleStartPauseButtons(showStart) {
-        const startBtn = document.getElementById("btn-start");
-        const pauseBtn = document.getElementById("btn-pause");
-        if (showStart) {
-            startBtn.classList.remove("hide");
-            startBtn.classList.add("show");
-            pauseBtn.classList.remove("show");
-            pauseBtn.classList.add("hide");
-        } else {
-            startBtn.classList.remove("show");
-            startBtn.classList.add("hide");
-            pauseBtn.classList.remove("hide");
-            pauseBtn.classList.add("show");
-        }
-    },
-};
+    initEventListeners() {
+        this.resetButton.addEventListener("click", () => {
+            this.controller.handleReset();
+        });
+    }
+    
+    appendZero(value) {
+        return value < 10 ? `0${value}` : value;
+    }
 
-export default TimerView;
+    displayTime(minCount, count) {
+        const timeElement = document.getElementById('time');
+        const formattedMinCount = this.appendZero(minCount);
+        const formattedCount = this.appendZero(count);
+        timeElement.textContent = `${formattedMinCount}:${formattedCount}`;
+    }
+}

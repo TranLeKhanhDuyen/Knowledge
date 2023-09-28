@@ -34,4 +34,3 @@ export default class Controller {
     this.model.toggleTodo(id);
   };
 }
-s

@@ -1,22 +1,20 @@
-export default class Model {
+export default class TimerModel {
     constructor() {
-        this.count = 59;
-        this.minCount = 24;
+        this.count = 25 * 60;
+        this.set = null;
         this.active = "focus";
+        this.minCounts = {
+            focus: 25 * 60,
+            shortbreak: 5 * 60,
+            longbreak: 15 * 60,
+        };
+        this.paused = true;
     }
-
-    reset() {
-        switch (this.active) {
-            case "long":
-                this.minCount = 14;
-                break;
-            case "short":
-                this.minCount = 4;
-                break;
-            default:
-                this.minCount = 24;
-                break;
-        }
-        this.count = 59;
+    setTimer(mode) {
+        this.count = this.minCounts[mode];
+        this.active = mode;
+    }
+    setPaused(paused) {
+        this.paused = paused;
     }
 }

@@ -1,4 +1,4 @@
-class Model {
+export default class Model {
   constructor() {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
   }
@@ -50,5 +50,3 @@ class Model {
     this._commit(this.todos);
   }
 }
-
-export default Model;

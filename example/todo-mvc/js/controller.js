@@ -1,4 +1,4 @@
-class Controller {
+export default class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
@@ -34,5 +34,4 @@ class Controller {
     this.model.toggleTodo(id);
   };
 }
-
-export default Controller;
+s

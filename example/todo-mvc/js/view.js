@@ -1,4 +1,4 @@
-class View {
+export default class View {
   constructor() {
     this.app = this.getElement("#root");
     this.form = this.createElement("form");
@@ -135,5 +135,3 @@ class View {
     });
   }
 }
-
-export default View;

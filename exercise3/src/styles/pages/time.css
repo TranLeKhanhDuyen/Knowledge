@@ -37,8 +37,7 @@
 
 .btn-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: baseline;
     margin-top: 40px;
 }
 
@@ -52,7 +51,6 @@
     cursor: pointer;
     border: none;
     margin: 0 auto;
-    padding: 0px 12px;
     border-radius: 4px;
     box-shadow: rgb(235, 235, 235) 0px 6px 0px;
     font-size: 22px;
@@ -65,7 +63,7 @@
 }
 
 #btn-pause {
-    box-shadow: none
+    box-shadow: none;
 }
 
 .hide {

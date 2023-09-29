@@ -1,5 +1,14 @@
 {
-  "devDependencies": {
-    "parcel": "^2.9.3"
-  }
+    "name": "exercise3",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "parcel src/index.html",
+        "build": "parcel build src/index.html"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "parcel": "^2.9.3"
+    }
 }

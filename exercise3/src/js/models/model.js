@@ -10,11 +10,13 @@ export default class TimerModel {
         };
         this.paused = true;
     }
-    setTimer(mode) {
+
+    setTimer(mode) { // set countdown time: focus, short, long 
         this.count = this.minCounts[mode];
         this.active = mode;
     }
-    setPaused(paused) {
+
+    setPaused(paused) { //pause time
         this.paused = paused;
     }
 }

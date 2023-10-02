@@ -1,5 +1,5 @@
-import TimerModel from "./models/model.js";
-import TimerView from "./views/view.js";
-import TimerController from "./controllers/controller.js";
+import TimerModel from "./models/timer-model.js";
+import TimerView from "./views/timer-view.js";
+import TimerController from "./controllers/timer-controller.js";
 
 new TimerController(new TimerModel(), new TimerView());

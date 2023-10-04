@@ -23,7 +23,19 @@ export default class TaskModel {
         this.tasks = this.tasks.map((task) =>
             task.id === id
                 ? { id: task.id, text: updateTask, complete: task.complete }
-                : task,
+                : task
+        );
+    }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+    }
+
+    toggleTask(id) {
+        this.tasks = this.tasks.map((task) =>
+            task.id === id
+                ? { id: task.id, text: task.text, complete: !task.complete }
+                : todo
         );
     }
 }

@@ -52,6 +52,7 @@
             <p>#1</p>
             <p>Time to focus!</p>
         </div>
+
         <section class="task-container">
             <div class="heading-task">
                 <h1 class="title">Tasks</h1>
@@ -59,9 +60,39 @@
                     <img src="./assets/icons/icon-option.png" alt="icon option" class="icon-option">
                 </button>
             </div>
-            <div class="task-list">
-            </div>
+            <ul class="task-list">
+            </ul>
         </section>
+
+        <form class="add-task-container">
+            <div class="add-task-wrapper">
+                <input type="text" placeholder="What are you working on?" class="task-input">
+                <span class="est-text">Est Pomodoros</span>
+                <div class="est-quantity">
+                    <input type="number" class="quantity">
+                    <button type="button" class="button-quantity-up">
+                        <img class="quantity-up-img" src="./assets/icons/caret-up.png" alt="caret up">
+                    </button>
+                    <button type="button" class="button-quantity-down">
+                        <img class="quantity-down-img" src="./assets/icons/caret-down.png" alt="caret down">
+                    </button>
+                </div>
+            </div>
+            <div class="task-button">
+                <div class="task-button-delete">
+                    <button type="button" class="button-delete">Delete</button>
+                </div>
+                <div class="task-button-submit">
+                    <button type="button" class="button-cancel">Cancel</button>
+                    <button type="submit" class="button-save">Save</button>
+                </div>
+            </div>
+
+        </form>
+
+        <button type="button" class="add-task-button">
+            <img class="add-task-img" src="./assets/icons/plus-circle-white.png" alt="plus circle">Add Task
+        </button>
     </main>
 
     <script type="module" src="./js/app.js"></script>

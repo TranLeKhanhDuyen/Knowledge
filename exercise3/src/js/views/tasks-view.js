@@ -1,28 +1,48 @@
-export default class TaskView {
-    contructor() {
-        this.app = this.getElement("#root");
+export default class FormView {
+    constructor() {
+        this.taskForm = document.querySelector(".add-task-container");
+        this.buttonAdd = document.querySelector(".add-task-button");
+        this.buttonCancel = document.querySelector(".button-cancel");
+        this.buttonDelete = document.querySelector(".button-delete");
+        this.taskInput = document.querySelector(".task-input");
+        this.quantityEst = document.querySelector(".quantity-input");
 
-        this.submitButton = this.createElement("button");
-        this.submitButton.textContent = "Add Task";
-
-        this.form = this.createElement("form");
-
-        this.input = this.createElement("input");
-        this.input.type = "text";
-        this.input.plaholder = "What are you working on?";
-
-        this.submitButton = this;
+        this.taskForm.classList.add("hidden");
+        this.buttonDelete.classList.add("hidden");
     }
 
-    createElement(tag, classElement) {
-        const element = document.createElement(tag);
-        if (className) element.classList.add(className);
+    toggleTaskForm() {
+        this.btnAdd.addEventListener("click", () => {
+            helpers.dom.toggleDisplay(this.taskForm, this.buttonAdd);
 
-        return element;
+            const showForm = this.taskForm.classList.contains("hidden");
+
+            if (this.taskInput.value !== "" && showForm) {
+                this.showAlert();
+            }
+        });
+
+        this.buttonCancel.addEventListener("click", () => {
+            helpers.dom.toggleDisplay(this.taskForm, this.buttonAdd);
+
+            const formId = this.taskForm.getAttribute("form-id");
+
+            if (this.taskInput !== "" && formId !== "") {
+                this.buttonAdd.classList.remove("hidden");
+                this.showAlert();
+            }
+        });
     }
 
-    getElement(selector) {
-        const element = document.querySelector(selector);
-        return element;
+    showAlert() {
+        alert("The changes will be lost. Are you sure you want to close it?");
+        this.resetInput();
+        this.buttonAdd.classList.remove("hidden");
+    }
+
+    resetInput() {
+        this.taskInput.value = "";
+        this.est.value = 1;
+        this.clickedTaskId = null;
     }
 }

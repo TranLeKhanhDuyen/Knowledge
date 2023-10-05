@@ -6,6 +6,10 @@ export default class TaskModel {
         ];
     }
 
+    getTasks() {
+        return this.tasks;
+    }
+
     addTask(taskText) {
         const task = {
             id:
@@ -15,10 +19,10 @@ export default class TaskModel {
             text: taskText,
             complete: false,
         };
-
         this.tasks.push(task);
+        console.log("Tasks updated:", this.tasks);
     }
-
+    
     editTask(id, updateTask) {
         this.tasks = this.tasks.map((task) =>
             task.id === id

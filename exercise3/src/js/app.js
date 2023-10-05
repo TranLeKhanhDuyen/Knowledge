@@ -1,5 +1,18 @@
-import TimerModel from "./models/timer-model.js";
-import TimerView from "./views/timer-view.js";
-import TimerController from "./controllers/timer-controller.js";
+import View from './views/index';
+import Model from './models/index';
+import Controller from './controllers/index';
+import LoadingView from './views/loadingView';
 
-new TimerController(new TimerModel(), new TimerView());
+export class App {
+  start() {
+    const controller = new Controller(new Model(), new View());
+    controller.initHome();
+
+    document.onreadystatechange = () => {
+      if (document.readyState === 'complete') {
+        setTimeout(new LoadingView().hide, 2000);
+      }
+    };
+  }
+}
+

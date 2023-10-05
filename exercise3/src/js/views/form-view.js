@@ -40,9 +40,4 @@ export default class FormView {
         this.buttonAdd.classList.remove("hidden");
     }
 
-    resetInput() {
-        this.taskInput.value = "";
-        this.est.value = 1;
-        this.clickedTaskId = null;
-    }
 }

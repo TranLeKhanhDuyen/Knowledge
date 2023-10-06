@@ -83,8 +83,8 @@
     margin-top: 10px;
 }
 
-.button-quantity-up,
-.button-quantity-down {
+.btn-quantity-up,
+.btn-quantity-down {
     border-radius: 4px;
     cursor: pointer;
     opacity: 0.9;
@@ -106,7 +106,7 @@
     opacity: 0.6;
 }
 
-.task-button {
+.task-btn {
     margin-top: 30px;
     padding: 14px 20px;
     text-align: right;
@@ -120,9 +120,9 @@
     align-items: center;
 }
 
-.button-delete,
-.button-cancel,
-.button-save {
+.btn-delete,
+.btn-cancel,
+.btn-save {
     border-radius: 4px;
     cursor: pointer;
     opacity: 0.9;
@@ -137,13 +137,13 @@
     font-weight: var(--fw-bold);
 }
 
-.button-save {
+.btn-save {
     background-color: rgb(34, 34, 34);
     border: 2px solid rgb(34, 34, 34);
     color: var(--primary-color);
 }
 
-.add-task-button {
+.add-task-btn {
     box-sizing: border-box;
     width: 100%;
     height: 64px;

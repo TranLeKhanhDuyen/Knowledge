@@ -6,13 +6,13 @@ export default class TaskController {
         this.model = new TaskModel();
         this.view = new TaskView();
 
-        this.view.addButton.addEventListener("click", () =>
+        this.view.addBtn.addEventListener("click", () =>
             this.view.showTaskForm()
         );
-        this.view.saveButton.addEventListener("click", () =>
+        this.view.saveBtn.addEventListener("click", () =>
             this.handleSaveTask()
         );
-        this.view.cancelButton.addEventListener("click", () =>
+        this.view.cancelBtn.addEventListener("click", () =>
             this.handleCancel()
         );
     }

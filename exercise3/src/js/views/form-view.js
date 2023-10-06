@@ -1,19 +1,19 @@
 export default class FormView {
     constructor() {
         this.taskForm = document.querySelector(".add-task-container");
-        this.buttonAdd = document.querySelector(".add-task-button");
-        this.buttonCancel = document.querySelector(".button-cancel");
-        this.buttonDelete = document.querySelector(".button-delete");
+        this.btnAdd = document.querySelector(".add-task-btn");
+        this.btnCancel = document.querySelector(".btn-cancel");
+        this.btnDelete = document.querySelector(".btn-delete");
         this.taskInput = document.querySelector(".task-input");
         this.quantityEst = document.querySelector(".quantity-input");
 
         this.taskForm.classList.add("hidden");
-        this.buttonDelete.classList.add("hidden");
+        this.btnDelete.classList.add("hidden");
     }
 
     toggleTaskForm() {
         this.btnAdd.addEventListener("click", () => {
-            helpers.dom.toggleDisplay(this.taskForm, this.buttonAdd);
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAdd);
 
             const showForm = this.taskForm.classList.contains("hidden");
 
@@ -22,13 +22,13 @@ export default class FormView {
             }
         });
 
-        this.buttonCancel.addEventListener("click", () => {
-            helpers.dom.toggleDisplay(this.taskForm, this.buttonAdd);
+        this.btnCancel.addEventListener("click", () => {
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAdd);
 
             const formId = this.taskForm.getAttribute("form-id");
 
             if (this.taskInput !== "" && formId !== "") {
-                this.buttonAdd.classList.remove("hidden");
+                this.btnAdd.classList.remove("hidden");
                 this.showAlert();
             }
         });
@@ -37,7 +37,7 @@ export default class FormView {
     showAlert() {
         alert("The changes will be lost. Are you sure you want to close it?");
         this.resetInput();
-        this.buttonAdd.classList.remove("hidden");
+        this.btnAdd.classList.remove("hidden");
     }
 
 }

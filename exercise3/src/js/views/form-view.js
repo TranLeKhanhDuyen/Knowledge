@@ -6,7 +6,8 @@ export default class FormView {
         this.btnDelete = document.querySelector(".btn-delete");
         this.taskInput = document.querySelector(".task-input");
         this.quantityEst = document.querySelector(".quantity-input");
-
+        this.btnQuantityUp = document.querySelector(".btn-quantity-up");
+        this.btnQuantityDown = document.querySelector(".btn-quantity-down");
         this.taskForm.classList.add("hidden");
         this.btnDelete.classList.add("hidden");
     }
@@ -40,4 +41,79 @@ export default class FormView {
         this.btnAdd.classList.remove("hidden");
     }
 
+    resetInput() {
+        this.taskInput.value = "";
+        this.quantityEst.value = 1;
+        this.clickedTaskId = null;
+        this.taskForm.setAttribute("form-id", "");
+    }
+
+    controlValue() {
+        this.btnQuantityUp.addEventListener("click", () => {
+            this.quantityEst.value = parseFloat(this.quantityEst.value) + 1;
+        });
+
+        this.btnQuantityDown.addEventListener("click", () => {
+            if (this.quantityEst.value > 0) {
+                this.quantityEst.value = parseFloat(this.quantityEst.value) - 1;
+            }
+        });
+        return this.quantityEst.value;
+    }
+
+    submitTask(handleSubmitTask) {
+        this.taskForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const taskNameValue = this.taskInput.value.trim();
+            const estPomodoroValue = this.quantityEst.value.trim();
+            const taskId = this.taskForm.getAttribute("form-id");
+
+            if (taskNameValue && estPomodoroValue) {
+                if (taskId) {
+                    handleSubmitTask(
+                        true,
+                        taskId,
+                        taskNameValue,
+                        estPomodoroValue
+                    );
+                    this.taskForm.classList.add("hidden");
+                } else {
+                    handleSubmitTask(
+                        false,
+                        null,
+                        taskNameValue,
+                        estPomodoroValue
+                    );
+                }
+            }
+
+            this.resetInput();
+        });
+    }
+
+    deleteTask(handleDeleteTask) {
+        this.btnDelete.addEventListener("click", () => {
+            const taskId = this.taskForm.getAttribute("form-id");
+
+            if (taskId) {
+                handleDeleteTask(taskId);
+                this.taskForm.classList.add("hidden");
+                this.resetInput();
+            }
+        });
+    }
+
+    renderForm(taskData) {
+        if (taskData) {
+            const taskName = document.querySelector(".task-input");
+            const estPomodoro =
+                document.querySelector(".quantity-input");
+            taskName.value = taskData.taskName; //
+            estPomodoro.value = taskData.estPomodoro;
+
+            this.taskForm.classList.remove("hidden");
+        } else {
+            this.taskForm.classList.remove("hidden");
+        }
+    }
 }

@@ -1,11 +1,11 @@
-import TaskTemplate from "";
+import TaskTemplate from "../template/index";
 
 export default class TaskView {
     constructor() {
         this.taskList = document.querySelector(".task-list");
         this.taskForm = document.querySelector(".add-task-container");
         this.btnAddTask = document.querySelector(".add-task-btn");
-        this.btnsDeleteTask = document.querySelector(".btn-delete");
+        this.btnDeleteTask = document.querySelector(".btn-delete");
     }
 
     toggleVisibility() {

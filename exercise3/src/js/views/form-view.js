@@ -3,20 +3,21 @@ import { helpers } from '../helper/index';
 export default class FormView {
     constructor() {
         this.taskForm = document.querySelector(".add-task-container");
-        this.btnAdd = document.querySelector(".add-task-btn");
+        this.btnAddTask = document.querySelector(".add-task-btn");
         this.btnCancel = document.querySelector(".btn-cancel");
         this.btnDelete = document.querySelector(".btn-delete");
         this.taskInput = document.querySelector(".task-input");
-        this.quantityEst = document.querySelector(".quantity-input");
+        this.quantityEst = document.querySelector(".quantity");
         this.btnQuantityUp = document.querySelector(".btn-quantity-up");
         this.btnQuantityDown = document.querySelector(".btn-quantity-down");
+
         this.taskForm.classList.add("hidden");
         this.btnDelete.classList.add("hidden");
     }
 
     toggleTaskForm() {
-        this.btnAdd.addEventListener("click", () => {
-            helpers.dom.toggleDisplay(this.taskForm, this.btnAdd);
+        this.btnAddTask.addEventListener("click", () => {
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask);
 
             const showForm = this.taskForm.classList.contains("hidden");
 
@@ -26,12 +27,12 @@ export default class FormView {
         });
 
         this.btnCancel.addEventListener("click", () => {
-            helpers.dom.toggleDisplay(this.taskForm, this.btnAdd);
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask);
 
             const formId = this.taskForm.getAttribute("form-id");
 
             if (this.taskInput !== "" && formId !== "") {
-                this.btnAdd.classList.remove("hidden");
+                this.btnAddTask.classList.remove("hidden");
                 this.showAlert();
             }
         });
@@ -40,7 +41,7 @@ export default class FormView {
     showAlert() {
         alert("The changes will be lost. Are you sure you want to close it?");
         this.resetInput();
-        this.btnAdd.classList.remove("hidden");
+        this.btnAddTask.classList.remove("hidden");
     }
 
     resetInput() {
@@ -109,7 +110,7 @@ export default class FormView {
         if (taskData) {
             const taskName = document.querySelector(".task-input");
             const estPomodoro =
-                document.querySelector(".quantity-input");
+                document.querySelector(".quantity");
             taskName.value = taskData.taskNameDisplay; //
             estPomodoro.value = taskData.estPomodoro;
 

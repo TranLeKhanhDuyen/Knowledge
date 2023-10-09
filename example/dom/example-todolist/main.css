@@ -91,7 +91,6 @@ body {
   font-size: 15px;
   letter-spacing: 0.5px;
   cursor: default;
-  overflow: hidden;
 }
 
 .todoList li i {

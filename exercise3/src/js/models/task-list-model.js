@@ -14,13 +14,13 @@ export default class TaskListModel {
         this.tasks.pusk(task);
     }
 
-    updateTask(updateTask) {
+    updateTask(updatedTask) {
         const taskIndex = this.tasks.findIndex(
             (task) => task.id === updatedTask.id
         );
 
         if (taskIndex !== -1) {
-            this.tasks[tasksIndex] = { ...this.task[taskIndex], ...updateTask };
+            this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updateTask };
         }
     }
 
@@ -32,3 +32,4 @@ export default class TaskListModel {
         }
     }
 }
+

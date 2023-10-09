@@ -13,6 +13,7 @@ export default class FormView {
 
         this.taskForm.classList.add("hidden");
         this.btnDelete.classList.add("hidden");
+
     }
 
     toggleTaskForm() {

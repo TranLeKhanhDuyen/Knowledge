@@ -25,7 +25,7 @@ export default class TaskListModel {
     }
 
     deleteTask(taskId) {
-        const taskId = this.tasks.findIndex((task) => task.id === taskId);
+        const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
 
         if (taskIndex !== -1) {
             this.tasks.splice(taskIndex, 1);

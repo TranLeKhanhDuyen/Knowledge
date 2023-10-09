@@ -108,7 +108,7 @@ export default class FormView {
             const taskName = document.querySelector(".task-input");
             const estPomodoro =
                 document.querySelector(".quantity-input");
-            taskName.value = taskData.taskName; //
+            taskName.value = taskData.taskNameDisplay; //
             estPomodoro.value = taskData.estPomodoro;
 
             this.taskForm.classList.remove("hidden");

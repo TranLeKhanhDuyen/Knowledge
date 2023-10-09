@@ -15,19 +15,29 @@ export default class TaskView {
     }
 
     renderTasks(newTasks, renderForm) {
-        this.taskListElement.innerHTML = "";
+        this.taskList.innerHTML = "";
         newTasks.forEach((newTask) => {
             const taskTemplate = TaskTemplate.renderTask(newTask);
-            this.taskListElement.innerHTML += taskTemplate;
+            this.taskList.innerHTML += taskTemplate;
         });
 
         this.taskList.addEventListener("click", (e) => {
-            const taskElement = e.target.closest(".task-item[data-id]");
-            const taskId = taskElement.getAttribute("data-id");
+            const task = e.target.closest(".task-item[data-id]");
+            const taskId = task.getAttribute("data-id");
 
-            if (taskId){
-                const taskName = taskElement.querySelector('.task-name').textContent;
-                const estValue = taskElement.querySelector('')
+            if (taskId) {
+                const taskNameValue =
+                    taskElement.querySelector(".task-name").textContent;
+                const estValue = task.querySelector("task-est").textContent;
+
+                this.taskForm.setAttribute("form-id", taskId);
+                renderForm({ taskName: taskNameValue, estPomodoro: estValue });
+                this.togglVisibility();
+
+                setTimeout(() => {
+                    this.taskForm.classList.remove("hidden");
+                    this.btnAddTask.classList.add("top");
+                }, 100);
             }
         });
     }

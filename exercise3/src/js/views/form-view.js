@@ -1,3 +1,5 @@
+import { helpers } from '../helper/index';
+
 export default class FormView {
     constructor() {
         this.taskForm = document.querySelector(".add-task-container");

@@ -1,6 +1,6 @@
 import TimerModel from './timer-model';
 import TaskModel from './tasks-model';
-import TaskListModel from './tasks-list-model';
+import TaskListModel from './task-list-model';
 
 export default class Model {
   constructor() {

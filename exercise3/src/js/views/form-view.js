@@ -1,4 +1,4 @@
-import { helpers } from '../helper/index';
+import { helpers } from "../helper/index";
 
 export default class FormView {
     constructor() {
@@ -13,7 +13,6 @@ export default class FormView {
 
         this.taskForm.classList.add("hidden");
         this.btnDelete.classList.add("hidden");
-
     }
 
     toggleTaskForm() {
@@ -110,8 +109,7 @@ export default class FormView {
     renderForm(taskData) {
         if (taskData) {
             const taskName = document.querySelector(".task-input");
-            const estPomodoro =
-                document.querySelector(".quantity");
+            const estPomodoro = document.querySelector(".quantity");
             taskName.value = taskData.taskNameDisplay; //
             estPomodoro.value = taskData.estPomodoro;
 

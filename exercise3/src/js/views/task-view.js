@@ -27,12 +27,12 @@ export default class TaskView {
 
             if (taskId) {
                 const taskNameValue =
-                    taskElement.querySelector(".task-name").textContent;
+                    task.querySelector(".task-name").textContent;
                 const estValue = task.querySelector("task-est").textContent;
 
                 this.taskForm.setAttribute("form-id", taskId);
                 renderForm({ taskName: taskNameValue, estPomodoro: estValue });
-                this.togglVisibility();
+                this.toggleVisibility();
 
                 setTimeout(() => {
                     this.taskForm.classList.remove("hidden");

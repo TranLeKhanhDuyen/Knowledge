@@ -16,7 +16,7 @@ export default class taskTemplate {
         
               <span class="task-est">${newTask.est}</span>
             </div>
-             <button class="btn-optio">
+             <button class="btn-option">
               <img src="${editIcon}" alt="icon more" class="icon-more edit">
         </button>
       </div>

@@ -6,7 +6,7 @@ export default class TaskTemplate {
         `<li class="task-item" data-id="${newTask.id}" >
             <div class="task-wrapper task-check">
                  <span class="icon-checked"></span>
-                 <p class="task-name">${newTask.taskName}</p>
+                 <p class="task-name">${newTask.taskNameDisplay}</p>
             </div>
             <div class="task-wrapper">
                 <div class="task-item-done">

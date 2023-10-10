@@ -1,6 +1,3 @@
-import Model from "../models";
-import View from "../views";
-
 export default class Controller {
     /** @type  {Model} */
     model;

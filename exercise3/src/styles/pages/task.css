@@ -31,7 +31,7 @@
   justify-content: center;
   width: 25px;
   height: 25px;
-  background-color: var(--gainsboro-color);
+  background-color: gray;
   margin-right: 10px;
   border-radius: 50px;
 }
@@ -53,15 +53,15 @@
 }
 
 .is-checked {
-  background-color: var(--primary-bg-color);
+  background-color: green;
 }
 
 .task-name {
-  color: var(--secondary-text-color);
+  color: black;
   font-weight: var(--fw-extrabold);
   width: 85%;
-  overflow: hidden;
-  overflow-wrap: break-word;
+  /* overflow: hidden; */
+  /* overflow-wrap: break-word; */
 }
 
 .task-finish {
@@ -71,8 +71,8 @@
 
 .task-item-done {
   margin-right: 18px;
-  color: var(--gray-text-color);
-  font-weight: var(--fw-extrabold);
+  color: red;
+  font-weight: var(--fw-bold);
 }
 
 .task-actual {

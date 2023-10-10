@@ -1,6 +1,6 @@
 import Model from "../models";
 import View from "../views";
-// JSDoc
+
 export default class Controller {
     /** @type  {Model} */
     model;
@@ -30,16 +30,16 @@ export default class Controller {
         }
     }
 
-    handleSubmitTask(isUpdate, taskId, taskName = "", est = "") {
+    handleSubmitTask(isUpdate, taskId, taskNameDisplay = "", est = "") {
         if (isUpdate) {
             const updatedTask = {
                 id: taskId,
-                taskName,
+                taskNameDisplay,
                 est,
             };
             this.taskListModel.updateTask(updatedTask);
         } else {
-            this.taskListModel.addTask(taskName, est);
+            this.taskListModel.addTask(taskNameDisplay, est);
         }
         this.view.taskView.renderTasks(this.taskListModel.tasks);
         this.initTaskView();

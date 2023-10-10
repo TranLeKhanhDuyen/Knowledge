@@ -19,7 +19,7 @@ export default class FormView {
         this.btnAddTask.addEventListener("click", () => {
             helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask);
 
-            const showForm = this.taskForm.classList.contains("hidden");
+            const showForm = this.taskForm.classList.value.indexOf("hidden");
 
             if (this.taskInput.value !== "" && showForm) {
                 this.showAlert();
@@ -71,6 +71,10 @@ export default class FormView {
             const estPomodoroValue = this.quantityEst.value.trim();
             const taskId = this.taskForm.getAttribute("form-id");
 
+            console.log("taskNameValue:", taskNameValue);
+            console.log("estPomodoroValue:", estPomodoroValue);
+            console.log("taskId:", taskId);
+
             if (taskNameValue && estPomodoroValue) {
                 if (taskId) {
                     handleSubmitTask(
@@ -111,7 +115,7 @@ export default class FormView {
             const taskName = document.querySelector(".task-input");
             const estPomodoro = document.querySelector(".quantity");
             taskName.value = taskData.taskNameDisplay; //
-            estPomodoro.value = taskData.estPomodoro;
+            estPomodoro.value = taskData.est;
 
             this.taskForm.classList.remove("hidden");
         } else {

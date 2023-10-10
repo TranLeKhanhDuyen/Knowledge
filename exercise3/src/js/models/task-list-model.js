@@ -3,20 +3,20 @@ export default class TaskListModel {
         this.tasks = [];
     }
 
-    addTask(taskName, est) {
+    addTask(taskNameDisplay, est) {
         const task = {
             id: Date.now(),
-            taskName,
+            taskNameDisplay,
             est,
             isCompleted: false,
         };
 
-        this.tasks.pusk(task);
+        this.tasks.push(task);
     }
 
     updateTask(updatedTask) {
         const taskIndex = this.tasks.findIndex(
-            (task) => task.id === updatedTask.id
+            task => task.id === updatedTask.id
         );
 
         if (taskIndex !== -1) {
@@ -25,11 +25,10 @@ export default class TaskListModel {
     }
 
     deleteTask(taskId) {
-        const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
+        const taskIndex = this.tasks.findIndex(task=> task.id === taskId);
 
         if (taskIndex !== -1) {
             this.tasks.splice(taskIndex, 1);
         }
     }
 }
-

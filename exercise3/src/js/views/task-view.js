@@ -28,10 +28,10 @@ export default class TaskView {
             if (taskId) {
                 const taskNameValue =
                     task.querySelector(".task-name").textContent;
-                const estValue = task.querySelector("task-est").textContent;
+                const estValue = task.querySelector(".task-est").textContent;
 
                 this.taskForm.setAttribute("form-id", taskId);
-                renderForm({ taskNameDisplay: taskNameValue, estPomodoro: estValue });
+                renderForm({ taskNameDisplay: taskNameValue, est: estValue });
                 this.toggleVisibility();
 
                 setTimeout(() => {

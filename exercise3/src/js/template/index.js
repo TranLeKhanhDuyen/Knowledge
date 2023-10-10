@@ -1,4 +1,4 @@
-import editIcon from "../../assets/icons/icon-option.png";
+import editIcon from "../../assets/icons/vertical-ellipsis.png";
 
 export default class TaskTemplate {
     constructor() {}
@@ -14,7 +14,7 @@ export default class TaskTemplate {
                 <span>/</span>
                 <span class="task-est">${newTask.est}</span>
             </div>
-            <button class="btn-more btn-show-task border-platinum pointer opacity">
+            <button class="btn-more btn-show-task ">
             <img src="${editIcon}" alt="icon more" class="icon-more edit">
             </button>
       </div>

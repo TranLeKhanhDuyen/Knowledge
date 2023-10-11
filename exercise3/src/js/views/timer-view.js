@@ -74,6 +74,7 @@ export default class TimerView {
             clearInterval(this.model.set);
             this.showStartOnly();
             this.hideResetButton();
+            document.body.style.backgroundColor = "rgb(186, 73, 73)";
         });
 
         this.defaultTime(this.model.minCounts.focus);
@@ -87,6 +88,7 @@ export default class TimerView {
             clearInterval(this.model.set);
             this.showStartOnly();
             this.hideResetButton();
+            document.body.style.backgroundColor = "rgb(56, 133, 198)";
         });
 
         this.longBreakBtn.addEventListener("click", () => {
@@ -98,6 +100,7 @@ export default class TimerView {
             clearInterval(this.model.set);
             this.showStartOnly();
             this.hideResetButton();
+            document.body.style.backgroundColor = "rgb(57, 112, 151)";
         });
 
         this.resetBtn.addEventListener("click", () => {

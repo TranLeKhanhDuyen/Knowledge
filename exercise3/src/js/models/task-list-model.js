@@ -5,7 +5,8 @@ export default class TaskListModel {
 
     addTask(taskNameDisplay, est) {
         const task = {
-            id: Date.now(),
+            // id: Date.now(),
+            id: window.crypto.randomUUID(),
             taskNameDisplay,
             est,
             isCompleted: false,
@@ -20,7 +21,7 @@ export default class TaskListModel {
         );
 
         if (taskIndex !== -1) {
-            this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updateTask };
+            this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updatedTask };
         }
     }
 

@@ -88,7 +88,7 @@ export default class TimerView {
             clearInterval(this.model.set);
             this.showStartOnly();
             this.hideResetButton();
-            document.body.style.backgroundColor = "rgb(56, 133, 198)";
+            document.body.style.backgroundColor = "rgb(56, 133, 138)";
         });
 
         this.longBreakBtn.addEventListener("click", () => {

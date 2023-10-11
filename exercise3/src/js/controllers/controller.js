@@ -7,14 +7,14 @@ export default class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-        this.taskListModel = this.model.taskListModel;
-        this.view.timerView.loadScript(this.model.timerModel);
+        // this.taskListModel = this.model.taskListModel;
+        // this.view.timerView.loadScript(this.model.timerModel);
     }
 
     initFormView() {
         this.view.formView.toggleTaskForm();
         this.view.formView.submitTask(this.handleSubmitTask.bind(this));
-        this.view.formView.controlValue();
+        this.view.formView.controlValue(); //
     }
 
     initTaskView() {

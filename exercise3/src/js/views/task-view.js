@@ -11,7 +11,6 @@ export default class TaskView {
     toggleVisibility() {
         this.taskForm.classList.add("hidden");
         this.btnAddTask.classList.remove("hidden");
-        this.btnDeleteTask.classList.remove("hidden");
     }
 
     renderTasks(newTasks, renderForm) {
@@ -21,12 +20,12 @@ export default class TaskView {
             this.taskList.innerHTML += taskTemplate;
         });
 
-        this.taskList.addEventListener("click", (e) => {
+        this.taskList.addEventListener("click", (e) => { //nên event cho từng item 
             const task = e.target.closest(".task-item[data-id]");
             const taskId = task.getAttribute("data-id");
 
-            if (taskId) {
-                const taskNameValue =
+            if (taskId) { //luu data và get data từ model
+                const taskNameValue = 
                     task.querySelector(".task-name").textContent;
                 const estValue = task.querySelector(".task-est").textContent;
 
@@ -34,10 +33,10 @@ export default class TaskView {
                 renderForm({ taskNameDisplay: taskNameValue, est: estValue });
                 this.toggleVisibility();
 
-                setTimeout(() => {
+                // setTimeout(() => { //note
                     this.taskForm.classList.remove("hidden");
                     this.btnAddTask.classList.add("top");
-                }, 100);
+                // }, 100);
             }
         });
     }

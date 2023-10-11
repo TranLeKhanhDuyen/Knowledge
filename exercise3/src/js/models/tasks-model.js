@@ -1,5 +1,5 @@
 export default class TaskModel {
-    constructor(id, taskText, numberPomodoro) {
+    constructor(id, numberPomodoro) {
         this.id = id;
         this.numberPomodoro = numberPomodoro;
     }

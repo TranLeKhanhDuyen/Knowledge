@@ -8,3 +8,8 @@ export class App {
         controller.initHome();
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const myApp = new App();
+    myApp.start();
+});

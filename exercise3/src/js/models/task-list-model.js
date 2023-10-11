@@ -9,7 +9,6 @@ export default class TaskListModel {
             id: window.crypto.randomUUID(),
             taskNameDisplay,
             est,
-            isCompleted: false,
         };
 
         this.tasks.push(task);
@@ -21,7 +20,7 @@ export default class TaskListModel {
         );
 
         if (taskIndex !== -1) {
-            this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updatedTask };
+            this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updatedTask }; //creates a new copy of the task object found at taskIndex
         }
     }
 

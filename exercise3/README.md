@@ -3,7 +3,7 @@
 ### OVERVIEW
 * This document provides planning for Javascript exercise 3.
 * GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/exercise3/exercise3)
-* Deploy: [here](https://practice-two-htmlcss-tranlekhanhduyen.vercel.app/)
+* Deploy: [here](https://intern-agility.vercel.app/)
 ### TIMELINE
 * Start date: 20/10/2023
 * End date: 10/11/2023

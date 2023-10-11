@@ -12,14 +12,14 @@ export default class FormView {
         this.btnQuantityDown = document.querySelector(".btn-quantity-down");
 
         this.taskForm.classList.add("hidden");
+        this.btnDelete.classList.add("hidden");
     }
 
     toggleTaskForm() {
         this.btnAddTask.addEventListener("click", () => {
             helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask);
 
-            const showForm = this.taskForm.classList.value.indexOf("hidden");
-
+            const showForm = this.taskForm.classList.contains("hidden");
             if (this.taskInput.value !== "" && showForm) {
                 this.showAlert();
             }

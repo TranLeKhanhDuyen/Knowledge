@@ -149,9 +149,6 @@
     height: 64px;
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     opacity: 0.8;
     margin-top: 12px;
@@ -164,4 +161,5 @@
     width: 18px;
     margin-right: 8px;
     opacity: 0.8;
+    transform: translateY(3px);
 }

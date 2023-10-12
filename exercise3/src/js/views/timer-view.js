@@ -63,29 +63,29 @@ export default class TimerView {
         this.longBreakBtn.classList.add("btn-focus");
     }
 
-    loadScript(model) {
-        this.model = model;
+    loadScript(timeNumber) {
+        this.timeNumber = timeNumber;
         this.focusBtn.addEventListener("click", () => {
             this.removeFocus();
             this.addFocus();
-            this.model.setTimer("focus");
-            this.displayTime(this.model.count);
-            this.model.paused = true;
-            clearInterval(this.model.set);
+            this.timeNumber.setTimer("focus");
+            this.displayTime(this.timeNumber.count);
+            this.timeNumber.paused = true;
+            clearInterval(this.timeNumber.set);
             this.showStartOnly();
             this.hideResetButton();
             document.body.style.backgroundColor = "rgb(186, 73, 73)";
         });
 
-        this.defaultTime(this.model.minCounts.focus);
+        this.defaultTime(this.timeNumber.minCounts.focus);
 
         this.shortBreakBtn.addEventListener("click", () => {
             this.removeFocus();
             this.addShortBreakFocus();
-            this.model.setTimer("shortbreak");
-            this.displayTime(this.model.count);
-            this.model.paused = true;
-            clearInterval(this.model.set);
+            this.timeNumber.setTimer("shortbreak");
+            this.displayTime(this.timeNumber.count);
+            this.timeNumber.paused = true;
+            clearInterval(this.timeNumber.set);
             this.showStartOnly();
             this.hideResetButton();
             document.body.style.backgroundColor = "rgb(56, 133, 138)";
@@ -94,20 +94,20 @@ export default class TimerView {
         this.longBreakBtn.addEventListener("click", () => {
             this.removeFocus();
             this.addLongBreakFocus();
-            this.model.setTimer("longbreak");
-            this.displayTime(this.model.count);
-            this.model.paused = true;
-            clearInterval(this.model.set);
+            this.timeNumber.setTimer("longbreak");
+            this.displayTime(this.timeNumber.count);
+            this.timeNumber.paused = true;
+            clearInterval(this.timeNumber.set);
             this.showStartOnly();
             this.hideResetButton();
             document.body.style.backgroundColor = "rgb(57, 112, 151)";
         });
 
         this.resetBtn.addEventListener("click", () => {
-            this.model.paused = true;
-            clearInterval(this.model.set);
-            this.model.setTimer(this.model.active);
-            this.displayTime(this.model.count);
+            this.timeNumber.paused = true;
+            clearInterval(this.timeNumber.set);
+            this.timeNumber.setTimer(this.timeNumber.active);
+            this.displayTime(this.timeNumber.count);
             this.showStartOnly();
             this.hideResetButton();
             this.resetBtn.classList.remove("show");
@@ -117,8 +117,8 @@ export default class TimerView {
         });
 
         this.pauseBtn.addEventListener("click", () => {
-            this.model.paused = true;
-            clearInterval(this.model.set);
+            this.timeNumber.paused = true;
+            clearInterval(this.timeNumber.set);
             this.showStartOnly();
             this.resetBtn.classList.remove("show");
             this.pauseBtn.classList.remove("show");
@@ -132,15 +132,15 @@ export default class TimerView {
             this.startBtn.classList.add("hide");
             this.startBtn.classList.remove("show");
 
-            if (this.model.paused) {
-                this.model.paused = false;
-                this.displayTime(this.model.count);
-                this.model.set = setInterval(() => {
-                    if (this.model.count > 0 && !this.model.paused) {
-                        this.model.count--;
-                        this.displayTime(this.model.count);
+            if (this.timeNumber.paused) {
+                this.timeNumber.paused = false;
+                this.displayTime(this.timeNumber.count);
+                this.timeNumber.set = setInterval(() => {
+                    if (this.timeNumber.count > 0 && !this.timeNumber.paused) {
+                        this.timeNumber.count--;
+                        this.displayTime(this.timeNumber.count);
                     } else {
-                        clearInterval(this.model.set);
+                        clearInterval(this.timeNumber.set);
                     }
                 }, 1000);
             }

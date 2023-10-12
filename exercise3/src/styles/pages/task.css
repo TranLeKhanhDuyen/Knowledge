@@ -9,17 +9,16 @@
     padding: 13px 14px;
     margin-bottom: 8px;
     border-radius: 4px;
-    border-left: 6px solid transparent;
+    
     background-color: var(--primary-color);
 }
 
 .task-item:hover {
-    border-color: #ccc;
     cursor: pointer;
 }
 
-.is-click-task {
-    border-color: #222;
+.task-item.selected {
+    border-left: 6px solid #816c6c;
 }
 
 .task-check {
@@ -63,11 +62,6 @@
     width: 85%;
     overflow: hidden;
     overflow-wrap: break-word;
-}
-
-.task-finish {
-    text-decoration: line-through;
-    color: var(--gray-text-color);
 }
 
 .task-item-done {

@@ -1,6 +1,6 @@
 import editIcon from "../../assets/icons/vertical-ellipsis.png";
 
-export default class TaskTemplate {
+export default class TaskTemplate {  //
     constructor() {}
     static renderTask = (newTask) =>
         `<li class="task-item" data-id="${newTask.id}" >

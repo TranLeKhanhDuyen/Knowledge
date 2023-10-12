@@ -26,6 +26,7 @@ export default class FormView {
 
         this.btnCancel.addEventListener("click", () => {
             helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask);
+            this.clearSelection();
 
             const formId = this.taskForm.getAttribute("form-id");
 
@@ -34,6 +35,11 @@ export default class FormView {
                 this.showAlert();
             }
         });
+    }
+
+    clearSelection() {
+        const selectedTasks = document.querySelectorAll('.task-item.selected');
+        selectedTasks.forEach((task) => task.classList.remove('selected'));
     }
 
     showAlert() {

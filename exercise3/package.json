@@ -5,6 +5,14 @@
         "start": "parcel src/index.html",
         "build": "parcel build src/index.html"
     },
+    "prettier":{
+        "semi": false,
+        "arrowParens": "always",
+        "singleQuote": true,
+        "printWidth": 100,
+        "trailingComma": "all"
+        
+    },
     "author": "",
     "license": "ISC",
     "description": "",

@@ -19,3 +19,8 @@
 .hidden {
     display: none;
 }
+
+.visibility-hidden {
+    visibility: hidden;
+    height: 0;
+}

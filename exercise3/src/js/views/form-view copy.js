@@ -1,10 +1,5 @@
 import { helpers } from '../helper/index'
 
-const REASON = {
-    CANCEL: 'The changes will be lost. Are you sure you want to close it?',
-    SAVE: '',
-}
-
 export default class FormView {
     constructor() {
         this.taskForm = document.querySelector('.add-task-container')
@@ -16,43 +11,52 @@ export default class FormView {
         this.btnQuantityUp = document.querySelector('.btn-quantity-up')
         this.btnQuantityDown = document.querySelector('.btn-quantity-down')
 
-        this.taskForm.classList.add('visibility-hidden')
+        this.taskForm.classList.add('hidden')
     }
 
-    displayTaskForm(isShow) {
-        this.taskForm.classList.toggle('visibility-hidden', !isShow) //  remove hidden => isShow = true
-        this.btnAddTask.classList.toggle('hidden', isShow) //  remove hidden => isShow = true
-    }
-
-    bindTaskForm() {
+    bindAddTask() {
         this.btnAddTask.addEventListener('click', () => {
-            const btnDelete = document.querySelector('.btn-delete')
-            this.displayTaskForm(true)
-            btnDelete.classList.add('visibility-hidden')
-            if (this.taskInput.value !== '') {
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask)
+
+            const showForm = this.taskForm.classList.contains('hidden')
+            if (this.taskInput.value !== '' && showForm) {
+                this.showAlert()
+            }
+        })
+    }
+
+    toggleTaskForm() {
+        this.btnAddTask.addEventListener('click', () => {
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask)
+
+            const showForm = this.taskForm.classList.contains('hidden')
+            if (this.taskInput.value !== '' && showForm) {
                 this.showAlert()
             }
         })
 
         this.btnCancel.addEventListener('click', () => {
-            this.displayTaskForm(false)
-            // this.clearSelection()
+            helpers.dom.toggleDisplay(this.taskForm, this.btnAddTask)
+            this.clearSelection()
 
-            if (this.taskInput !== '') {
-                this.btnAddTask.classList.remove('visibility-hidden')
+            const formId = this.taskForm.getAttribute('form-id')
+
+            if (this.taskInput !== '' && formId !== '') {
+                this.btnAddTask.classList.remove('hidden')
                 this.showAlert()
             }
         })
+    }
 
-        this.btnQuantityUp.addEventListener('click', () => {
-            this.quantityEst.value = parseFloat(this.quantityEst.value) + 1
-        })
+    clearSelection() {
+        const selectedTasks = document.querySelectorAll('.task-item.selected')
+        selectedTasks.forEach((task) => task.classList.remove('selected'))
+    }
 
-        this.btnQuantityDown.addEventListener('click', () => {
-            if (this.quantityEst.value > 0) {
-                this.quantityEst.value = parseFloat(this.quantityEst.value) - 1
-            }
-        })
+    showAlert() {
+        alert('The changes will be lost. Are you sure you want to close it?')
+        this.resetInput()
+        this.btnAddTask.classList.remove('hidden')
     }
 
     resetInput() {
@@ -62,7 +66,20 @@ export default class FormView {
         this.taskForm.setAttribute('form-id', '')
     }
 
-    bindSubmitTask(handleSubmitTask) {
+    controlValue() {
+        this.btnQuantityUp.addEventListener('click', () => {
+            this.quantityEst.value = parseFloat(this.quantityEst.value) + 1
+        })
+
+        this.btnQuantityDown.addEventListener('click', () => {
+            if (this.quantityEst.value > 0) {
+                this.quantityEst.value = parseFloat(this.quantityEst.value) - 1
+            }
+        })
+        return this.quantityEst.value
+    }
+
+    submitTask(handleSubmitTask) {
         this.taskForm.addEventListener('submit', (e) => {
             e.preventDefault()
             const taskNameValue = this.taskInput.value.trim()
@@ -76,7 +93,7 @@ export default class FormView {
             if (taskNameValue && estPomodoroValue) {
                 if (taskId) {
                     handleSubmitTask(true, taskId, taskNameValue, estPomodoroValue)
-                    this.taskForm.classList.add('visibility-hidden')
+                    this.taskForm.classList.add('hidden')
                 } else {
                     handleSubmitTask(false, null, taskNameValue, estPomodoroValue)
                 }
@@ -86,13 +103,13 @@ export default class FormView {
         })
     }
 
-    bindDeleteTask(handleDeleteTask) {
+    deleteTask(handleDeleteTask) {
         this.btnDelete.addEventListener('click', () => {
             const taskId = this.taskForm.getAttribute('form-id')
 
             if (taskId) {
                 handleDeleteTask(taskId)
-                this.taskForm.classList.add('visibility-hidden')
+                this.taskForm.classList.add('hidden')
                 this.resetInput()
             }
         })
@@ -102,26 +119,12 @@ export default class FormView {
         if (taskData) {
             const taskName = document.querySelector('.task-input')
             const estPomodoro = document.querySelector('.quantity')
-            const btnDelete = document.querySelector('.btn-delete')
-
-            btnDelete.classList.remove('visibility-hidden')
             taskName.value = taskData.taskNameDisplay
             estPomodoro.value = taskData.est
 
-            this.taskForm.classList.remove('visibility-hidden')
+            this.taskForm.classList.remove('hidden')
         } else {
-            this.taskForm.classList.remove('visibility-hidden')
+            this.taskForm.classList.remove('hidden')
         }
-    }
-
-    // clearSelection() {
-    //     const selectedTasks = document.querySelectorAll('.task-item.selected')
-    //     selectedTasks.forEach((task) => task.classList.remove('selected'))
-    // }
-
-    showAlert(message = REASON.CANCEL) {
-        alert(message)
-        this.resetInput()
-        this.btnAddTask.classList.remove('visibility-hidden')
     }
 }

@@ -37,18 +37,8 @@ export default class TimerView {
         this.resetBtn.classList.remove('show')
     }
 
-    showResetButton() {
-        this.resetBtn.classList.add('show')
-    }
-
     hideResetButton() {
         this.resetBtn.classList.remove('show')
-    }
-
-    removeFocus() {
-        this.focusBtn.classList.remove('btn-focus')
-        this.shortBreakBtn.classList.remove('btn-focus')
-        this.longBreakBtn.classList.remove('btn-focus')
     }
 
     addFocus() {
@@ -56,17 +46,16 @@ export default class TimerView {
     }
 
     addShortBreakFocus() {
-        this.shortBreakBtn.classList.add('btn-focus')
+        this.shortBreakBtn.classList.add('btn-shortbreak')
     }
 
     addLongBreakFocus() {
-        this.longBreakBtn.classList.add('btn-focus')
+        this.longBreakBtn.classList.add('btn-longbreak')
     }
 
     bindSetTimer(timeModel) {
         this.timeNumber = timeModel
         this.focusBtn.addEventListener('click', () => {
-            this.removeFocus()
             this.startBtn.classList.add('show')
             this.addFocus()
             this.timeNumber.setTimer('focus')
@@ -81,7 +70,6 @@ export default class TimerView {
         this.defaultTime(this.timeNumber.minCounts.focus)
 
         this.shortBreakBtn.addEventListener('click', () => {
-            this.removeFocus()
             this.startBtn.classList.add('show')
             this.addShortBreakFocus()
             this.timeNumber.setTimer('shortbreak')
@@ -94,7 +82,6 @@ export default class TimerView {
         })
 
         this.longBreakBtn.addEventListener('click', () => {
-            this.removeFocus()
             this.startBtn.classList.add('show')
             this.addLongBreakFocus()
             this.timeNumber.setTimer('longbreak')
@@ -119,6 +106,7 @@ export default class TimerView {
             this.pauseBtn.classList.remove('show')
             this.startBtn.classList.remove('hide')
             this.startBtn.classList.add('show')
+            this.focusBtn.classList.add('btn')
         })
 
         this.pauseBtn.addEventListener('click', () => {

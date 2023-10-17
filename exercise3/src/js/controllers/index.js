@@ -3,8 +3,6 @@
 export default class HomeController {
     /** @type { import("../type").TimerModel} */
     timerModel
-    /** @type { import("../type").TaskModel} */
-    taskModel
     /** @type { import("../type").TaskListModel} */
     taskListModel
     /** @type { import("../type").TimeView} */
@@ -14,10 +12,9 @@ export default class HomeController {
     /** @type { import("../type").TaskView} */
     taskView
 
-    constructor({ timerModel, taskModel, taskListModel, timerView, formView, taskView }) {
+    constructor({ timerModel, taskListModel, timerView, formView, taskView }) {
         Object.assign(this, {
             timerModel,
-            taskModel,
             taskListModel,
             timerView,
             formView,

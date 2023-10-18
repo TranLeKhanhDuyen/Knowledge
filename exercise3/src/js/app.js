@@ -5,7 +5,7 @@ import TaskListModel from './models/task-list-model'
 import TaskView from './views/task-view'
 import TimerView from './views/timer-view'
 
-start = () => {
+const start = () => {
     new HomeController({
         timerModel: new TimerModel(),
         formView: new FormView(),
@@ -13,6 +13,7 @@ start = () => {
         taskView: new TaskView(),
         timerView: new TimerView(),
     })
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {

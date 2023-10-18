@@ -22,7 +22,6 @@ export default class TaskView {
         })
 
         this.taskList.addEventListener('click', (e) => {
-            //nên event cho từng item
             const task = e.target.closest('.task-item[data-id]')
             const taskId = task.getAttribute('data-id')
 
@@ -30,8 +29,7 @@ export default class TaskView {
                 const selectedTasks = document.querySelectorAll('.task-item.selected')
                 selectedTasks.forEach((task) => task.classList.remove('selected'))
                 task.classList.add('selected')
-
-                //luu data và get data từ model
+                
                 const taskNameValue = task.querySelector('.task-name').textContent
                 const estValue = task.querySelector('.task-est').textContent
 

@@ -1,5 +1,3 @@
-import { helpers } from '../helper/index'
-
 const REASON = {
     CANCEL: 'The changes will be lost. Are you sure you want to close it?',
     SAVE: '',

@@ -6,10 +6,11 @@
         "src/index.html"
     ],
     "scripts": {
-        "start": "parcel --no-cache",
-        "build": "parcel build --no-cache"
+        "start": "parcel src/index.html",
+        "build": "parcel build src/index.html"
     },
-    
+    "author": "",
+    "license": "ISC",
     "devDependencies": {
         "parcel": "^2.10.0"
     }

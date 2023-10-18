@@ -36,7 +36,6 @@ export default class FormView {
 
         this.btnCancel.addEventListener('click', () => {
             this.displayTaskForm(false)
-            // this.clearSelection()
 
             if (this.taskInput !== '') {
                 this.btnAddTask.classList.remove('visibility-hidden')
@@ -113,11 +112,6 @@ export default class FormView {
             this.taskForm.classList.remove('visibility-hidden')
         }
     }
-
-    // clearSelection() {
-    //     const selectedTasks = document.querySelectorAll('.task-item.selected')
-    //     selectedTasks.forEach((task) => task.classList.remove('selected'))
-    // }
 
     showAlert(message = REASON.CANCEL) {
         alert(message)

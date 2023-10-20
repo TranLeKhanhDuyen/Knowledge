@@ -1,7 +1,7 @@
 # EXERCISE 3 - JAVASCRIPT
 
 ### OVERVIEW
-* This document provides planning for Javascript exercise 3.
+* This document provides planning for Javascript exercise 3 - Pomofocus app.
 * GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/exercise3/exercise3)
 * Deploy: [here](https://intern-agility.vercel.app/)
 ### TIMELINE

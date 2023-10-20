@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomofocus</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://kit.fontawesome.com/8979718ec7.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-bg">
+    <header class="pages header">
+        <a class="logo" href="index.html">
+            <img class="logo-img" src="./assets/icons/icon-white2.png" alt="Logo">
+            <p class="logo-text">Pomofocus</p>
+        </a>
+        <div class="menu">
+            <button class="btn-primary">
+                <img class="graph-img" src="./assets/icons/graph-white.png" alt="Graph">
+                <p class="text-btn">Report</p>
+            </button>
+            <button class="btn-primary">
+                <img class="config-img" src="./assets/icons/config-white.png" alt="Graph">
+                <p class="text-btn">Setting</p>
+            </button>
+            <button class="btn-primary">
+                <img class="user-img" src="./assets/icons/user-white.png" alt="Graph">
+                <p class="text-btn">Login</p>
+            </button>
+        </div>
+    </header>
+    <main class="pages">
+        <div class="time-container">
+            <div class="time-break">
+                <button id="focus" class="btn btn-focus">Pomodoro</button>
+                <button id="shortbreak" class="btn btn-shortbreak">Short Break</button>
+                <button id="longbreak" class="btn btn-longbreak">Long Break</button>
+            </div>
+            <div class="timer-string-container">
+                <span id="time"></span>
+                <div class="btn-container">
+                    <button id="btn-start" class="show">START</button>
+                    <button id="btn-pause" class="hide">PAUSE</button>
+                    <button id="btn-reset" class="hide">
+                        <img class="hide-img" src="./assets/icons/next-white3.png" alt="image">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="task">
+            <p>#1</p>
+            <p>Time to focus!</p>
+        </div>
+
+        <section class="task-container">
+            <div class="heading-task">
+                <h1 class="title">Tasks</h1>
+                <button class="btn-option">
+                    <img src="./assets/icons/icon-option.png" alt="icon option" class="icon-option">
+                </button>
+            </div>
+            <ul class="task-list">
+            </ul>
+        </section>
+
+        <form class="add-task-container">
+            <div class="add-task-wrapper">
+                <input type="text" placeholder="What are you working on?" class="task-input">
+                <span class="est-text">Est Pomodoros</span>
+                <div class="est-quantity">
+                    <input type="number" class="quantity" value="1">
+                    <button type="button" class="btn-quantity-up">
+                        <img class="quantity-up-img" src="./assets/icons/caret-up.png" alt="caret up">
+                    </button>
+                    <button type="button" class="btn-quantity-down">
+                        <img class="quantity-down-img" src="./assets/icons/caret-down.png" alt="caret down">
+                    </button>
+                </div>
+            </div>
+            <div class="task-btn">
+                <div class="task-btn-delete">
+                    <button type="button" class="btn-delete">Delete</button>
+                </div>
+                <div class="task-button-submit">
+                    <button type="button" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </div>
+
+        </form>
+
+        <button type="button" class="add-task-btn">
+            <img class="add-task-img" src="./assets/icons/plus-circle-white.png" alt="plus circle">Add Task
+        </button>
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>

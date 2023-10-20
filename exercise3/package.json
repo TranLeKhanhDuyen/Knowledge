@@ -1,0 +1,16 @@
+{
+    "name": "exercise3",
+    "version": "1.0.0",
+    "description": "",
+    "src": "src/index.html",
+    "scripts": {
+        "start": "parcel src/index.html",
+        "build": "parcel build src/index.html"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "parcel": "^2.10.0",
+        "prettier": "3.0.3"
+    }
+}

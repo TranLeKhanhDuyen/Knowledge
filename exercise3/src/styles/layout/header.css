@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(102, 94, 94, 0.5);
+}
+
+.logo {
+    display: flex;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+.logo-text {
+    font-size: 20px;
+    color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: var(--fw-bold);
+}
+
+.menu {
+    display: flex;
+}
+
+.graph-img, .config-img, .user-img {
+    width: 16px;
+    height: 16px;
+}
+
+.text-btn {
+    margin-left: 4px;
+    font-size: 13px;
+}

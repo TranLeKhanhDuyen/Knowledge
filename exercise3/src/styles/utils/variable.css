@@ -1,0 +1,18 @@
+:root {
+    --primary-font: 'ArialRounded','Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --font-sm: 13px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 20px;
+    --font-2xl: 22px;
+
+    --fw-bold: 700;
+    --fw-semibold: 500;
+    --fw-normal: 400;
+
+    --primary-color: #fff;
+    --red-color: rgb(186, 73, 73);
+    --green-color: rgb(56, 133, 138);
+    --blue-color: rgb(57, 112, 151);
+}

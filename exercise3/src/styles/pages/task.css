@@ -1,0 +1,97 @@
+.task-item,
+.task-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.task-item {
+    justify-content: space-between;
+    padding: 13px 14px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 6px solid transparent;
+    background-color: var(--primary-color);
+}
+
+.task-item:hover {
+    cursor: pointer;
+}
+
+.task-item.selected {
+    border-left: 6px solid #816c6c;
+}
+
+.task-check {
+    width: 60%;
+}
+
+.icon-checked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: gray;
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.icon-checked:hover {
+    opacity: 0.5;
+}
+
+.icon-checked::after {
+    content: "";
+    display: block;
+    margin-bottom: 3px;
+    width: 5px;
+    height: 11px;
+    border-style: solid;
+    border-color: var(--primary-color);
+    border-width: 0px 3px 3px 0px;
+    transform: rotate(45deg);
+}
+
+.task-name {
+    color: black;
+    font-weight: var(--fw-extrabold);
+    width: 85%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.task-item-done {
+    margin-right: 18px;
+    color: #bbb;
+    font-weight: var(--fw-bold);
+}
+
+.task-actual {
+    font-size: 18px;
+    margin-left: 2px;
+}
+
+.task-est {
+    font-size: 18px;
+}
+
+.icon-more {
+    max-width: 16px;
+    max-height: 16px;
+}
+
+.edit {
+    opacity: 0.4;
+    max-width: 18px;
+    max-height: 18px;
+}
+
+.btn-more {
+    background-color: #ffffff1a;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 6px;
+    opacity: 0.9;
+    border: 1px solid #e8e8e8;
+    cursor: pointer;
+}

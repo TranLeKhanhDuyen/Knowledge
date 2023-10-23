@@ -1,0 +1,61 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Call from Jim Abe (MSO)",
+            "description": "This is a new task",
+            "createDate": "2023/21/10",
+            "dueDate": "2023/22/10"
+        },
+        {
+            "id": 2,
+            "title": "Learn html/css",
+            "description": "HTML5 CSS3",
+            "createDate": "2023/23/10",
+            "dueDate": "2023/24/10"
+        },
+        {
+            "id": 3,
+            "title": "Learn Javascript ",
+            "description": "Dom, Js6",
+            "createDate": "2023/25/10",
+            "dueDate": "2023/26/10"
+        }
+    ],
+    "status": [
+        {
+            "id": 1,
+            "workStatus": "Todo"
+        },
+        
+        {
+            "id": 2,
+            "workStatus": "In progress"
+        },
+
+        {
+            "id": 3,
+            "workStatus": "Done"
+        },
+
+        {
+            "id": 4,
+            "workStatus": "Archived"
+        }
+    ],
+
+    "comment": [
+        {
+            "id": 1,
+            "text": "abcd"
+        },
+        {
+            "id": 2,
+            "text": "dddd"
+        },
+        {
+            "id": 3,
+            "text": "vvvv"
+        }
+    ]
+}

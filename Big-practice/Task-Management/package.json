@@ -2,10 +2,12 @@
     "name": "my-project",
     "source": "src/index.html",
     "scripts": {
+        "server": "json-server --watch src/js/server/db.json",
         "start": "parcel",
         "build": "parcel build"
     },
     "devDependencies": {
-        "parcel": "^2.10.0"
+        "parcel": "^2.10.0",
+        "json-server": "^0.17.3"
     }
 }

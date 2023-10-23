@@ -5,19 +5,19 @@
 }
 
 .todo{
-    background-color: #40A9FF;
+    background-color: var(--blue-select-color);
     color: var(--primary-color);
 }
 
 .done{
-    background-color: #43A047;
+    background-color: var(--green-color);
     color: var(--primary-color);
 }
 
 .inprogress{
-    background-color: #FFB41F;
+    background-color: var(--yellow-color);
 }
 
 .archived{
-    background-color: #E1E1E3;
+    background-color: var(--grey-rgb-color);
 }

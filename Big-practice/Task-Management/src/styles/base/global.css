@@ -1,4 +1,13 @@
 * {
-	box-sizing: border-box;
-	padding: 0;
+    font-family: roboto;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html {
+    font-family: roboto;
+}
+
+.container {
+    padding: 0 21px;
 }

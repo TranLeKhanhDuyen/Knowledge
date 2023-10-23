@@ -1,5 +1,4 @@
 :root {
-    --primary-font: 'roboto';
     --font-sm: 12px;
     --font-md: 16px;
     --font-lg: 18px;
@@ -13,5 +12,6 @@
     --secondary-color: #FFF;
     --tertiary-color: #292A31;
     --blue-title-color: #4A90E2;
-    --blue-select-color: #40A9FF
+    --blue-select-color: #40A9FF;
+    --grey-color: #D2D2D6
 }

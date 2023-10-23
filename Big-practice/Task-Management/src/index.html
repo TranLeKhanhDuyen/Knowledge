@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
     <title>Document</title>
 </head>
 
 <body>
     <header class="header-container">
-        <a href="./assets/images/logo.png" class="logo">
+        <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" alt="logo" class="logo-img">
             <h1 class="header-title">task management</h1>
         </a>
-        <form class="seach-container">
-            <img class="search-icon" src="./assets/icons/search.png" alt="search icon">
-            <input type="text" placeholder="Search for tasks">
-            <img class="close-icon" src="./assets/icons/close.png" alt="close icon">
-        </form>
-        <figure class="user">
-            <img class="avata" src="./assets/images/user.png" alt="avata">
-            <p class="name">Sara M.</p>
-        </figure>
+        <div class="header-content">
+            <form class="search-container">
+                <img class="search-icon" src="./assets/icons/search.png" alt="search icon">
+                <input class="search-input" type="text" placeholder="Search for tasks">
+            </form>
+            <figure class="user">
+                <img class="avata" src="./assets/images/user.svg" alt="avata">
+                <p class="name">Sara M.</p>
+            </figure>
+        </div>
     </header>
 </body>
 

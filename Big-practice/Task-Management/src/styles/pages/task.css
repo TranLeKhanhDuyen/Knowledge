@@ -1,0 +1,23 @@
+.tasks-container {
+    display: flex;
+    gap: 22px;
+    margin: 21px;
+}
+
+.todo{
+    background-color: #40A9FF;
+    color: var(--primary-color);
+}
+
+.done{
+    background-color: #43A047;
+    color: var(--primary-color);
+}
+
+.inprogress{
+    background-color: #FFB41F;
+}
+
+.archived{
+    background-color: #E1E1E3;
+}

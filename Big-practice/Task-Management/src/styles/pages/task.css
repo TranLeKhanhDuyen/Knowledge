@@ -4,20 +4,20 @@
     margin: 21px;
 }
 
-.todo{
+.todo {
     background-color: var(--blue-select-color);
     color: var(--primary-color);
 }
 
-.done{
+.done {
     background-color: var(--green-color);
     color: var(--primary-color);
 }
 
-.inprogress{
+.inprogress {
     background-color: var(--yellow-color);
 }
 
-.archived{
+.archived {
     background-color: var(--grey-rgb-color);
 }

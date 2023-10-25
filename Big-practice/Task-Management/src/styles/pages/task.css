@@ -21,3 +21,23 @@
 .archived {
   background-color: var(--grey-rgb-color);
 }
+
+.add-task-container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.task-input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--dark-grey-color);
+  background-color: var(--grey-light-color);
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.task-input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--dark-grey-color);
+}

@@ -1,46 +1,52 @@
 # EXERCISE 3 - JAVASCRIPT
 
 ### OVERVIEW
-* This document provides planning for Javascript practice - Task Management App.
-* GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/big-practice)
+
+- This document provides planning for Javascript practice - Task Management App.
+- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/big-practice)
+
 ### TIMELINE
-* Start date: 2023/10/20
-* End date: 2023/10/30
-* Total: 7 days
-  
+
+- Start date: 2023/10/20
+- End date: 2023/10/30
+- Total: 7 days
+
 ### TEAMSIZE
-* 1 dev
+
+- 1 dev
 
 ### TECHNICAL
-* HTML5
-* CSS3
-* JS6
-* Dom
-* MVC
+
+- HTML5
+- CSS3
+- JS6
+- Dom
+- MVC
 
 ### SUPPORTED BROWSER
-* Version 118.0.5993.89 (64-bit)
+
+- Version 118.0.5993.89 (64-bit)
 
 ### EDITOR
-* Visual Studio Code
+
+- Visual Studio Code
 
 ### REQUIMENTS
-* Understand & apply knowledge HTML/CSS/JavaScript (with ES6 syntax).
-* Apply MVC.
-* DOM manipulation, form validation.
-* Understand how asynchronous code work & apply in practice (API call or any place we can as mock API in code).
-* Get familiar with DevTools (e.g. Google Chrome DevTools) for debugging issues (breakpoint, log, etc..).
 
-
+- Understand & apply knowledge HTML/CSS/JavaScript (with ES6 syntax).
+- Apply MVC.
+- DOM manipulation, form validation.
+- Understand how asynchronous code work & apply in practice (API call or any place we can as mock API in code).
+- Get familiar with DevTools (e.g. Google Chrome DevTools) for debugging issues (breakpoint, log, etc..).
 
 ### TARGET
-* DOM manipulation.
-* Structure project following Module pattern.
-* ES6 features.
 
-
+- DOM manipulation.
+- Structure project following Module pattern.
+- ES6 features.
 
 ### STEPS INSTALL AND RUN CODE
+
 - Step 01: Clone repository:
 
 ```

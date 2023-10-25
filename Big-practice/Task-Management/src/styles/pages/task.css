@@ -1,23 +1,23 @@
 .tasks-container {
-    display: flex;
-    gap: 22px;
-    margin: 21px;
+  display: flex;
+  gap: 22px;
+  margin: 21px;
 }
 
-.todo{
-    background-color: var(--blue-select-color);
-    color: var(--primary-color);
+.todo {
+  background-color: var(--blue-select-color);
+  color: var(--primary-color);
 }
 
-.done{
-    background-color: var(--green-color);
-    color: var(--primary-color);
+.done {
+  background-color: var(--green-color);
+  color: var(--primary-color);
 }
 
-.inprogress{
-    background-color: var(--yellow-color);
+.inprogress {
+  background-color: var(--yellow-color);
 }
 
-.archived{
-    background-color: var(--grey-rgb-color);
+.archived {
+  background-color: var(--grey-rgb-color);
 }

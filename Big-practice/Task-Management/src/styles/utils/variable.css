@@ -1,0 +1,21 @@
+:root {
+    --font-sm: 12px;
+    --font-md: 16px;
+    --font-lg: 18px;
+    --font-xl: 25px;
+
+    --fw-bold: 700;
+    --fw-semibold: 500;
+    --fw-normal: 400;
+
+    --primary-color: #F0F0F1;
+    --secondary-color: #FFF;
+    --tertiary-color: #292A31;
+    --blue-title-color: #4A90E2;
+    --blue-select-color: #40A9FF;
+    --grey-color: #D2D2D6;
+    --green-color: #43A047;
+    --yellow-color: #FFB41F;
+    --grey-rgb-color: #E1E1E3
+
+}

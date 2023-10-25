@@ -1,4 +1,4 @@
-.task-list {
+.task-status {
   display: flex;
   width: 453px;
   height: 62px;
@@ -8,4 +8,16 @@
   border-radius: 3px 3px 0px 0px;
   text-transform: uppercase;
   font-weight: var(--fw-bold);
+}
+
+.task-list {
+  display: flex;
+  padding-bottom: 47px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-color);
+  background: var(--grey-light-color);
 }

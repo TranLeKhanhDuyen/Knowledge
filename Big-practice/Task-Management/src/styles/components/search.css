@@ -1,0 +1,18 @@
+.search-container {
+  display: flex;
+  margin: 7px 15px;
+  border-radius: 4px;
+  border: 1px solid var(--grey-color);
+  padding: 8px 10px 8px 15px;
+}
+
+.search-input {
+  border: none;
+  font-size: var(--font-lg);
+  line-height: normal;
+  padding: 3px 30px 2px 15px;
+}
+
+.search-input:focus {
+  outline: none;
+}

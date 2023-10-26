@@ -1,0 +1,14 @@
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.user-avata {
+  margin-right: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.user-name {
+  font-weight: var(--fw-bold);
+}

@@ -8,58 +8,7 @@
   width: 100%;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-img {
-  width: 40px;
-  height: 40px;
-  margin-right: 5px;
-}
-
-.header-title {
-  color: var(--blue-title-color);
-  font-size: var(--font-xl);
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-}
-
 .header-content {
   display: flex;
   align-items: center;
-}
-
-.search-container {
-  display: flex;
-  margin: 7px 15px;
-  border-radius: 4px;
-  border: 1px solid var(--grey-color);
-  padding: 8px 10px 8px 15px;
-}
-
-.search-input {
-  font-family: "Roboto Condensed", sans-serif;
-  border: none;
-  font-size: var(--font-lg);
-  line-height: normal;
-  padding: 3px 30px 2px 15px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-}
-
-.avata {
-  margin-right: 15px;
-  width: 30px;
-  height: 30px;
-}
-
-.name {
-  font-weight: var(--fw-bold);
 }

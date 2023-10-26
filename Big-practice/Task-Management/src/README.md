@@ -65,7 +65,19 @@ cd Big-practice/Task-Management
 npm install
 ```
 
-- Step 04: Finally run with:
+- Step 04: Install json server:
+
+```
+npm install -g json-server
+```
+
+- Step 05: Install json server:
+
+```
+npm run server
+```
+
+- Step 06: Finally run with:
 
 ```
 npm start

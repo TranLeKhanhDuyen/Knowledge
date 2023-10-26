@@ -17,4 +17,10 @@
 
 .commenters {
   margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-content {
+  margin: 2px 44px;
 }

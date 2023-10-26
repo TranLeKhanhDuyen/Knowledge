@@ -1,0 +1,17 @@
+.tasks-container {
+  display: flex;
+  gap: 22px;
+  margin: 21px;
+}
+
+.task-list {
+  display: flex;
+  padding-bottom: 47px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-color);
+  background: var(--grey-light-color);
+}

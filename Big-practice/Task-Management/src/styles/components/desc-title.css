@@ -1,0 +1,9 @@
+.desc-title {
+  color: var(--gray-50, #787885);
+  font-size: var(--font-lg);
+  font-style: normal;
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  display: flex;
+  align-items: center;
+}

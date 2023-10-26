@@ -2,7 +2,8 @@
   --font-sm: 12px;
   --font-md: 16px;
   --font-lg: 18px;
-  --font-xl: 25px;
+  --font-xl: 20px;
+  --font-xxl: 25px;
 
   --fw-bold: 700;
   --fw-semibold: 500;
@@ -19,4 +20,5 @@
   --yellow-color: #FFB41F;
   --grey-rgb-color: #E1E1E3;
   --dark-grey-color: #9696A0;
+  --subtle-grey-color: #5A5B6A;
 }

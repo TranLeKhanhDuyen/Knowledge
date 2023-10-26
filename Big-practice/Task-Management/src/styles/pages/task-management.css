@@ -15,3 +15,9 @@
   border: 1px solid var(--secondary-color);
   background: var(--grey-light-color);
 }
+
+.desc-task-container {
+  max-width: 769px;
+  border-radius: 4px 4px 0px 0px;
+  background: var(--secondary-color);
+}

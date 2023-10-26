@@ -1,0 +1,13 @@
+.desc-date {
+  padding: 0 20px;
+  margin-top: 58px;
+}
+
+.desc-task {
+  margin-top: 11px;
+}
+
+.date-select {
+  margin-top: 10px;
+  font-size: var(--font-lg);
+}

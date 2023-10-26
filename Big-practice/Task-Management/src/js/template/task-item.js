@@ -23,7 +23,7 @@ export default class TaskItem {
     <div class="task-date">
       <p class="date-ago">${data.task.createDate}</p>
       <div class="date-left">
-        <img src="${iconClock}" class="clock-icon"></img>
+        <img src="${iconClock}" class="clock-icon">
         <p>${data.task.dueDate}</p>
       </div>
     </div>

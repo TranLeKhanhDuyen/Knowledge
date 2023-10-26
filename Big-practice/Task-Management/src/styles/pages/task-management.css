@@ -15,21 +15,3 @@
   border: 1px solid var(--secondary-color);
   background: var(--grey-light-color);
 }
-
-.todo {
-  background-color: var(--blue-select-color);
-  color: var(--primary-color);
-}
-
-.done {
-  background-color: var(--green-color);
-  color: var(--primary-color);
-}
-
-.inprogress {
-  background-color: var(--yellow-color);
-}
-
-.archived {
-  background-color: var(--grey-rgb-color);
-}

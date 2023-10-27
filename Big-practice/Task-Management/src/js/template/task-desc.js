@@ -37,7 +37,9 @@ export default class TaskDescription {
       <div class="commenters">
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
-          <p class="user-name">Sara M.</p>
+          <span class="user-name">Sara M.
+          <p class="time-ago">(${data.comments.timeAgo} mins ago) </p>
+          </span> 
         </figure>
         <img class="delete-icon" src="${iconDelete}"></img>
       </div>

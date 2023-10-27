@@ -43,15 +43,18 @@
   "comments": [
     {
       "id": 1,
-      "text": "Very well"
+      "text": "Very well",
+      "timeAgo": 4
     },
     {
       "id": 2,
-      "text": "Oh, good"
+      "text": "Oh, good",
+      "timeAgo": 6
     },
     {
       "id": 3,
-      "text": "Pass"
+      "text": "Pass",
+      "timeAgo": 3
     }
   ]
 }

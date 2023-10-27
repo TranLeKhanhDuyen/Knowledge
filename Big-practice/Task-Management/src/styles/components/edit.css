@@ -1,4 +1,4 @@
-.desc-edit {
+.edit-task-container {
   padding: 0 20px;
   margin-top: 17px;
 }
@@ -7,6 +7,6 @@
   margin-left: 15px ;
 }
 
-.desc-task {
+.task-description {
   margin-top: 11px;
 }

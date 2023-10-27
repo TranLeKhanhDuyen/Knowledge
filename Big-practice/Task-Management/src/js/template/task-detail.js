@@ -19,11 +19,11 @@ export default class TaskDetail {
       <img class="close-icon" src="${iconClose}" alt="close icon">
     </div>
 
-    <div class="desc-edit">
+    <div class="edit-task-container">
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <p class="desc-task">${data.tasks.description}</p>
+      <p class="task-description">${data.tasks.description}</p>
     </div>
 
     <div class="date-container">
@@ -31,7 +31,7 @@ export default class TaskDetail {
       <input class="date-select" type="date">
     </div>
 
-    <div class="comments">
+    <div class="comments-container">
       <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
       <div class="commenters">

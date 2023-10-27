@@ -26,7 +26,7 @@ export default class TaskDescription {
       <p class="desc-task">${data.tasks.description}</p>
     </div>
 
-    <div class="desc-date">
+    <div class="date-container">
       <h3 class="desc-title">Due Date</h3>
       <input class="date-select" type="date">
     </div>
@@ -37,15 +37,14 @@ export default class TaskDescription {
       <div class="commenters">
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
-          <span class="user-name">Sara M.
+          <span class="user-name">Sara M.</span> 
           <p class="time-ago">(${data.comments.timeAgo} mins ago) </p>
-          </span> 
         </figure>
-        <img class="delete-icon" src="${iconDelete}"></img>
+        <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>
       <p class="comments-content">${data.comments.text}</p>
     </div>
   </div>
-    `
-  }
+    `;
+  };
 }

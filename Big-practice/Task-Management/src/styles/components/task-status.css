@@ -1,13 +1,9 @@
 .task-status {
-  display: flex;
   width: 453px;
   height: 62px;
   padding: 20px 21px 15px;
-  align-items: center;
-  flex-shrink: 0;
   border-radius: 3px 3px 0px 0px;
   text-transform: uppercase;
-  font-weight: var(--fw-bold);
 }
 
 .todo {

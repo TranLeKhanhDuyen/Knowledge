@@ -1,4 +1,4 @@
-.desc-header {
+.detail-header {
   display: flex;
   color: var(--subtle-grey-color);
   font-size: var(--font-xl);
@@ -14,7 +14,7 @@
   gap: 10px;
 }
 
-.desc-option {
+.option {
   padding: 3px 18px 3px 5px;
   color: var(--blue-select-color);
   border: 1px solid var(--blue-select-color);

@@ -2,9 +2,9 @@
 @import url(./logo.css);
 @import url(./search.css);
 @import url(./user.css);
+@import url(./title.css);
 @import url(./task-input.css);
-@import url(./desc-header.css);
-@import url(./desc-edit.css);
-@import url(./desc-date.css);
-@import url(./desc-title.css);
+@import url(./detail-header.css);
+@import url(./edit.css);
+@import url(./date.css);
 @import url(./comments.css);

@@ -1,5 +1,4 @@
-.desc-title {
-  color: var(--gray-50, #787885);
+.title {
   font-size: var(--font-lg);
   font-style: normal;
   font-weight: var(--fw-bold);
@@ -7,3 +6,8 @@
   display: flex;
   align-items: center;
 }
+
+.detail-title {
+  color: var(--faint-color);
+}
+

@@ -16,7 +16,7 @@
   background: var(--grey-light-color);
 }
 
-.desc-task-container {
+.detail-task-container {
   max-width: 769px;
   border-radius: 4px 4px 0px 0px;
   background: var(--secondary-color);

@@ -3,15 +3,15 @@ import iconClose from "../../assets/icons/close.svg";
 import iconDelete from "../../assets/icons/delete.svg";
 import userAvatar from "../../assets/images/user.svg";
 
-export default class TaskDescription {
+export default class TaskDetail {
   constructor() {}
 
-  static renderTaskDescription = (data) => {
+  static renderTaskDetail = (data) => {
     return `
-    <div class="desc-task-container">
-    <div class="desc-header">
+    <div class="detail-task-container">
+    <div class="detail-header">
       <span class="task-title">${data.tasks.title}
-        <select class="desc-option">
+        <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
         </select>
@@ -20,19 +20,19 @@ export default class TaskDescription {
     </div>
 
     <div class="desc-edit">
-      <span class="desc-title">Description
+      <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
       <p class="desc-task">${data.tasks.description}</p>
     </div>
 
     <div class="date-container">
-      <h3 class="desc-title">Due Date</h3>
+      <h3 class="title detail-title">Due Date</h3>
       <input class="date-select" type="date">
     </div>
 
     <div class="comments">
-      <h3 class="desc-title">Comments</h3>
+      <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
       <div class="commenters">
         <figure class="user">

@@ -6,4 +6,10 @@
 .date-select {
   margin-top: 10px;
   font-size: var(--font-lg);
+  border: none;
+  padding: 0;
+}
+
+.date-select:focus {
+  outline-color: var(--faint-color);
 }

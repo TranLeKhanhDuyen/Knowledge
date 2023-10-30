@@ -38,7 +38,7 @@ export default class TaskDetail {
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
           <span class="user-name text-bold">Sara M.</span> 
-          <p class="time-ago">(${data.comments.timeAgo} mins ago) </p>
+          <p class="time-ago font-sm">(${data.comments.timeAgo} mins ago) </p>
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>

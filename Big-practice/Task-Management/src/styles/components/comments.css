@@ -27,7 +27,6 @@
 
 .time-ago {
   color: var(--faint-color);
-  font-size: var(--font-sm);
   font-style: italic;
   margin-left: 15px;
 }

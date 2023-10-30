@@ -24,9 +24,3 @@
 .comments-content {
   margin: 2px 44px;
 }
-
-.time-ago {
-  color: var(--faint-color);
-  font-style: italic;
-  margin-left: 15px;
-}

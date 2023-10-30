@@ -2,10 +2,8 @@
 @import url(./logo.css);
 @import url(./search.css);
 @import url(./user.css);
-@import url(./title.css);
 @import url(./task-input.css);
-@import url(./detail-header.css);
-@import url(./edit.css);
+@import url(./task-item.css);
 @import url(./date.css);
 @import url(./comments.css);
 @import url(./text.css);

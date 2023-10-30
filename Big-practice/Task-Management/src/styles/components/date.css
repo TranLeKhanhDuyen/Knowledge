@@ -12,3 +12,15 @@
 .date-select:focus {
   outline-color: var(--faint-color);
 }
+
+.date-left {
+  display: flex;
+  color: var(--faint-color);
+  align-items: center;
+}
+
+.time-ago {
+  color: var(--faint-color);
+  font-style: italic;
+  margin-left: 15px;
+}

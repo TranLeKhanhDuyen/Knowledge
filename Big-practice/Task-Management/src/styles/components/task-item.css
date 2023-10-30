@@ -15,11 +15,4 @@
 .task-date {
   display: flex;
   justify-content: space-between;
-  font-size: var(--font-md);
-}
-
-.date-left {
-  display: flex;
-  color: var(--faint-color);
-  align-items: center;
 }

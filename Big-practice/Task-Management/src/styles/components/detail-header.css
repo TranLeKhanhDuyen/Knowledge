@@ -1,8 +1,6 @@
 .detail-header {
   display: flex;
   color: var(--subtle-grey-color);
-  font-size: var(--font-xl);
-  font-weight: var(--fw-bold);
   justify-content: space-between;
   border-bottom: 1px solid var(--grey-color);
   padding: 20px;

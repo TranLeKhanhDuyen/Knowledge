@@ -9,7 +9,6 @@
   background-color: var(--grey-light-color);
   margin-bottom: 8px;
   width: 100%;
-  font-size: var(--font-lg);
 }
 
 .task-input:focus {

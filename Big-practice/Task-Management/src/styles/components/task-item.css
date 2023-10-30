@@ -21,6 +21,5 @@
 .date-left {
   display: flex;
   color: var(--faint-color);
-  font-size: var(--font-sm);
   align-items: center;
 }

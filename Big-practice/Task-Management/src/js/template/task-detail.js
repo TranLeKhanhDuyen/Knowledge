@@ -9,7 +9,7 @@ export default class TaskDetail {
   static renderTaskDetail = (data) => {
     return `
     <div class="detail-task-container">
-    <div class="detail-header">
+    <div class="detail-header text-xl text-bold">
       <span class="task-title">${data.tasks.title}
         <select class="option">
           <option value="New">New</option>
@@ -28,7 +28,7 @@ export default class TaskDetail {
 
     <div class="date-container">
       <h3 class="title detail-title">Due Date</h3>
-      <input class="date-select" type="date">
+      <input class="date-select text-lg" type="date">
     </div>
 
     <div class="comments-container">
@@ -37,7 +37,7 @@ export default class TaskDetail {
       <div class="commenters">
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
-          <span class="user-name">Sara M.</span> 
+          <span class="user-name text-bold">Sara M.</span> 
           <p class="time-ago">(${data.comments.timeAgo} mins ago) </p>
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">

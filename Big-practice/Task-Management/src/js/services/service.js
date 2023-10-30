@@ -27,6 +27,31 @@ export default class APIService {
   getDescription = (id) => this.sendRequest(id, "get");
 
   /**
+   * Sends a POST request to add a new task.
+   *
+   * @param {*} data - The data for the new task.
+   * @returns {Promise} A promise that resolves to the response data.
+   */
+  addTask = (data) => this.sendRequest(null, "post", data);
+
+  /**
+   * Sends a POST request to edit a specific task.
+   *
+   * @param {number} id - The ID of the task to edit.
+   * @param {*} data - The data to update the task.
+   * @returns {Promise} A promise that resolves to the response data.
+   */
+  editTask = (id, data) => this.sendRequest(id, "post", data);
+
+  /**
+   * Sends a DELETE request to delete a specific task.
+   *
+   * @param {number} id - The ID of the task to delete.
+   * @returns {Promise} A promise that resolves to the response data.
+   */
+  deleteTask = (id) => this.sendRequest(id, "delete");
+
+  /**
    * Sends a HTTP request to the API.
    * @param {number | null} id - The ID of the item (if applicable).
    * @param {string} method - The HTTP method for the request (e.g., "GET", "POST").

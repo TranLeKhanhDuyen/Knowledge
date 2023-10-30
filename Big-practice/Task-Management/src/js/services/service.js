@@ -24,7 +24,7 @@ export default class APIService {
    * @param {number} id - The ID of the item to retrieve.
    * @returns {Promise} A promise that resolves to the response data.
    */
-  getDescription = (id) => this.sendRequest(id, "get");
+  getDetail = (id) => this.sendRequest(id, "get");
 
   /**
    * Sends a POST request to add a new task.

@@ -13,12 +13,12 @@
   <header class="header-container">
     <a href="#" class="logo">
       <img src="./assets/images/logo.svg" alt="logo" class="logo-img">
-      <h1 class="logo-title">task management</h1>
+      <h1 class="logo-title text-xl">task management</h1>
     </a>
     <div class="header-content">
       <form class="search-container">
         <img class="search-icon" src="./assets/icons/search.png" alt="search icon">
-        <input class="search-input" type="text" placeholder="Search for tasks">
+        <input class="search-input text-lg" type="text" placeholder="Search for tasks">
       </form>
       <figure class="user">
         <img class="user-avatar" src="./assets/images/user.svg" alt="avatar">
@@ -30,27 +30,67 @@
   <div class="tasks-container">
 
     <div class="task-list">
-      <h2 class="task-status todo">todo</h2>
+      <h2 class="title task-status todo">todo</h2>
       <div class="task-input-container">
         <form action="#" class="add-task">
-          <input type="text" class="task-input">
+          <input type="text" class="task-input text-lg">
           <p>Enter to create a new task</p>
         </form>
       </div>
     </div>
 
     <div class="task-list">
-      <h2 class="task-status inprogress">in progress</h2>
+      <h2 class="title task-status inprogress">in progress</h2>
     </div>
 
     <div class="task-list">
-      <h2 class="task-status done">done</h2>
+      <h2 class="title task-status done">done</h2>
     </div>
 
     <div class="task-list">
-      <h2 class="task-status archived">archived</h2>
+      <h2 class="title task-status archived">archived</h2>
     </div>
   </div>
+
+  <!-- TODO: DYNAMIC DATA -->
+  <!-- <div class="detail-task-container">
+    <div class="detail-header">
+      <span class="task-title">Call from Jim Abe
+        <select class="option">
+          <option value="New">New</option>
+          <option value="Old">Old</option>
+        </select>
+      </span>
+      <img class="close-icon" src="./assets/icons/close.svg" alt="close icon">
+    </div>
+
+    <div class="edit-task-container">
+      <span class="title detail-title">Description
+        <img class="edit-icon" src="./assets/icons/edit.svg" alt="edit icon">
+      </span>
+      <p class="task-description">This is a new task</p>
+    </div>
+
+    <div class="date-container">
+      <h3 class="title detail-title">Due Date</h3>
+      <input class="date-select" type="date">
+    </div>
+
+    <div class="comments-container">
+      <h3 class="title detail-title">Comments</h3>
+      <input class="comments-input" type="text" placeholder="Enter new comment...">
+      <div class="commenters">
+        <figure class="user">
+          <img class="user-avatar" src="./assets/images/user.svg" alt="avatar">
+          <span class="user-name">Sara M. </span>
+          <p class="time-ago">8 mins ago </p>
+        </figure>
+        <img class="delete-icon" src="./assets/icons/delete.svg" alt="delete icon">
+      </div>
+      <p class="comments-content">Good</p>
+    </div>
+
+  </div> -->
 </body>
 
 </html>

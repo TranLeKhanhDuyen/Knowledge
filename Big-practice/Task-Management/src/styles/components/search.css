@@ -8,7 +8,6 @@
 
 .search-input {
   border: none;
-  font-size: var(--font-lg);
   line-height: normal;
   padding: 3px 30px 2px 15px;
 }

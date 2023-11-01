@@ -7,7 +7,7 @@ export default class TaskView {
     this.inProgressStatus = document.querySelector(".inprogress");
     this.doneStatus = document.querySelector(".done");
     this.archivedStatus = document.querySelector(".archived");
-    this.taskList = document.querySelector(".task-list");
+    this.taskBoard = document.querySelector(".task-board");
     this.tasks = [];
   }
 

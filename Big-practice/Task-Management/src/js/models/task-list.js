@@ -1,7 +1,7 @@
 import TaskModel from "./task.js"
 import APITask from "../services/task";
 
-export default class TaskList {
+export default class TaskListModel {
   constructor() {
     this.APITask = new APITask();
   }

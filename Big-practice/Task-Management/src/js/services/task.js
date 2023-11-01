@@ -1,7 +1,7 @@
 import { API_URL } from "../constants/url";
 
 export default class APITask {
-  async add(taskName) {
+  async addTask(taskName) {
     const response = await fetch(
       API_URL.requestOptions("POST", taskName)
     );

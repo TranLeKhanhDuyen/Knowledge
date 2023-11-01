@@ -28,9 +28,14 @@ export default class TaskView {
 
   bindAddTask(handler) {
     this.taskName.addEventListener("keydown", (event) => {
+      const taskName = this.taskName.value.trim();
       if (event.key === "Enter") {
         event.preventDefault();
-        handler(this.taskName.value);
+        
+        if (taskName) {
+          handler(taskName);
+          return;
+        }
       }
     });
   }

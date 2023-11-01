@@ -12,7 +12,7 @@ export default class TaskListModel {
     try {
       return await this.APITask.addTask(task)
     } catch (error) {
-      throw new error ('Error ocurred in adding process')
+      throw new error;
     }
   }
 }

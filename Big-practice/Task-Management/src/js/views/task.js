@@ -4,6 +4,9 @@ export default class TaskView {
   constructor() {
     this.taskName = document.querySelector(".task-input");
     this.todoStatus = document.querySelector(".todo");
+    this.inProgressStatus = document.querySelector(".inprogress");
+    this.doneStatus = document.querySelector(".done");
+    this.archivedStatus = document.querySelector(".archived");
     this.taskList = document.querySelector(".task-list");
     this.tasks = [];
   }

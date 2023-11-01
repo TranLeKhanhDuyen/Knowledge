@@ -3,4 +3,10 @@ export default class Controller {
     this.model = model;
     this.view = view;
   }
+
+  handlerAddTask = async (taskName) => {
+    const task = await this.model.addTask(taskName);
+    this.view.displayNewTask(task);
+    this.view.resetForm();
+  };
 }

@@ -1,5 +1,5 @@
-// import Controller from './controllers/controller';
-// import Model from './models/.gitkeep';
-// import View from './views/view';
+import Controller from './controllers/controller.js';
+import TaskList from './models/task-list';
+import TaskView from './views/task';
 
-// const app = new Controller(new Model(), new View());
+new Controller(new TaskList(), new TaskView());

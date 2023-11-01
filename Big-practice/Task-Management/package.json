@@ -2,9 +2,9 @@
   "name": "my-project",
   "source": "src/index.html",
   "scripts": {
-    "server": "json-server --watch src/server/db.json",
-    "start": "parcel",
-    "build": "parcel build"
+    "server": "json-server --watch src/js/server/db.json",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",

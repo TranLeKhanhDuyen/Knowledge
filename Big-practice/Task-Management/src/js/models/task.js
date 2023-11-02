@@ -6,6 +6,5 @@ export default class TaskModel {
     this.detail = '';
     this.dueDate = date.getDueDate();
     this.createdDate = date.getCurrentDate();
-    this.stateId = 1;
   }
 }

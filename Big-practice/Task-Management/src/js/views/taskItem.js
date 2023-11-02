@@ -23,27 +23,4 @@ export default class TaskItemView {
       }
     });
   }
-
-//   renderTasks(newTasks, renderFormCallback) {
-//     this.taskList.innerHTML = "";
-//     newTasks.forEach((newTask) => {
-//       const taskItemTemplate = TaskItemTemplate.renderTaskItem(newTask);
-//       this.taskList.innerHTML += taskItemTemplate;
-//     });
-
-//     this.taskList.addEventListener("click", (e) => {
-//       const task = e.target.closest(".task-item[data-id]");
-//       const taskId = task.getAttribute("data-id");
-//       if (taskId) {
-//         const selectedTasks = document.querySelectorAll(".task-item.selected");
-//         selectedTasks.forEach((task) => task.classList.remove("selected"));
-//         task.classList.add("selected");
-
-//         const taskTitleValue = task.querySelector(".task-title").textContent;
-
-//         // this.taskForm.setAttribute("form-id", taskId);
-//         renderFormCallback({ taskTitleDisplay: taskTitleValue });
-//       }
-//     });
-//   }
 }

@@ -30,22 +30,4 @@ export default class TaskItemTemplate {
       </div>
     </div>`;
   }
-
-//   <div class="task-item-container"  data-id="${data.id}">
-//   <div class="task-content text-md">
-//     <h3 class="task-title">${data.task.title}</h3>
-//     <img src="${iconDelete}" alt="delete icon" class="delete-icon">
-//   </div>
-//   <div class="task-date text-md">
-//     <p class="date-ago">${data.task.createDate} days ago</p>
-//     <div class="date-left text-sm">
-//       <img src="${iconClock}" class="clock-icon">
-//       <p>${data.task.dueDate}</p>
-//     </div>
-//   </div>
-// </div>`;
-
-  // static renderDetailTask(data){
-
-  // }
 }

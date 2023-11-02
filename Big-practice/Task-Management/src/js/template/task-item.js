@@ -1,7 +1,8 @@
 import iconDelete from "../../assets/icons/delete.svg";
 import iconClock from "../../assets/icons/clock.svg";
+import date from "../utilities/date"
 
-export default class TaskItem {
+export default class TaskItemTemplate {
   constructor() {}
 
   /**
@@ -13,20 +14,38 @@ export default class TaskItem {
    * @param {string} data.task.dueDate - The task's due date.
    */
 
-  static renderTaskItem = (data) => {
+  static renderTaskItem(data){
     return `
-    <div class="task-item-container">
-    <div class="task-content text-md">
-      <h3 class="task-title">${data.task.title}</h3>
-      <img src="${iconDelete}" alt="delete icon" class="icon-delete">
-    </div>
-    <div class="task-date text-md">
-      <p class="date-ago">${data.task.createDate}</p>
-      <div class="date-left text-sm">
-        <img src="${iconClock}" class="clock-icon">
-        <p>${data.task.dueDate}</p>
+    <div class="task-item-container"  data-id="${data.id}">
+      <div class="task-content text-md">
+        <h3 class="task-title">${data.task.title}</h3>
+        <img src="${iconDelete}" alt="delete icon" class="delete-icon">
       </div>
-    </div>
-  </div>`;
-  };
+      <div class="task-date text-md">
+        <p class="date-ago">${date.diffTime(data.createdDate)} days ago</p>
+        <div class="date-left text-sm">
+          <img src="${iconClock}" class="clock-icon">
+          <p>${date.diffTime(data.dueDate, Math.ceil, 'left')}</p>
+        </div>
+      </div>
+    </div>`;
+  }
+
+//   <div class="task-item-container"  data-id="${data.id}">
+//   <div class="task-content text-md">
+//     <h3 class="task-title">${data.task.title}</h3>
+//     <img src="${iconDelete}" alt="delete icon" class="delete-icon">
+//   </div>
+//   <div class="task-date text-md">
+//     <p class="date-ago">${data.task.createDate} days ago</p>
+//     <div class="date-left text-sm">
+//       <img src="${iconClock}" class="clock-icon">
+//       <p>${data.task.dueDate}</p>
+//     </div>
+//   </div>
+// </div>`;
+
+  // static renderDetailTask(data){
+
+  // }
 }

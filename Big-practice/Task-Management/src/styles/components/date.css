@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.date-ago {
+ font-size: var(--font-sm);
+}
+
 .time-ago {
   color: var(--faint-color);
   font-style: italic;

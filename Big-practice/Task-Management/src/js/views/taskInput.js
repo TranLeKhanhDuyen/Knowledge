@@ -1,4 +1,4 @@
-import TaskItem from "../template/task-item";
+import TaskItemTemplate from "../template/task-item";
 
 export default class TaskView {
   constructor() {
@@ -12,7 +12,7 @@ export default class TaskView {
   }
 
   resetForm() {
-    this.taskInput.parentElement.reset();
+    this.taskInput.value = "";
   }
 
   bindAddTask(handler) {
@@ -30,7 +30,7 @@ export default class TaskView {
   }
 
   addTask(taskName) {
-    const taskItem = new TaskItem(taskName);
+    const taskItem = new TaskItemTemplate(taskName);
     this.tasks.push(taskItem);
     this.taskBoard.innerHTML += taskItem.render();
   }

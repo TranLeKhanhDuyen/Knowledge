@@ -3,30 +3,21 @@ export default class TaskListModel {
     this.tasks = [];
   }
 
-  // addTask(taskNameDisplay) {
-  //   const task = {
-  //     id: window.crypto.randomUUID(),
-  //     taskNameDisplay,
-  //   };
+  addTask(task) {
+    this.tasks.push(task);
+    Storage.setData("tasks", this.tasks);
+  }
 
-  //   this.tasks.push(task);
-  // }
+  getTasks() {
+    return this.tasks;
+  }
 
-  // updateTask(updatedTask) {
-  //   const taskIndex = this.tasks.findIndex(
-  //     (task) => task.id === updatedTask.id
-  //   );
+  getTaskById(taskId) {
+    return this.tasks.find((task) => task.id === taskId);
+  }
 
-  //   if (taskIndex !== -1) {
-  //     this.tasks[taskIndex] = { ...this.tasks[taskIndex], ...updatedTask }; //creates a new copy of the task object found at taskIndex
-  //   }
-  // }
-
-  // deleteTask(taskId) {
-  //   const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
-
-  //   if (taskIndex !== -1) {
-  //     this.tasks.splice(taskIndex, 1);
-  //   }
-  // }
+  deleteTask(taskId) {
+    this.tasks = this.tasks.filter((task) => task.id !== taskId);
+    Storage.setData("tasks", this.tasks);
+  }
 }

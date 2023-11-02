@@ -18,8 +18,8 @@ export default class TaskItemTemplate {
     return `
     <div class="task-item-container"  data-id="${data.id}">
       <div class="task-content text-md">
-        <h3 class="task-title">${data.task.title}</h3>
-        <img src="${iconDelete}" alt="delete icon" class="delete-icon">
+        <h3 class="task-title">${data.task.title}</h3>       
+        <img src="${iconDelete}" alt="delete icon" class="delete-icon" data-id="${data.id}">
       </div>
       <div class="task-date text-md">
         <p class="date-ago">${date.diffTime(data.createdDate)} days ago</p>

@@ -8,7 +8,7 @@ export default class TaskItemView {
   constructor() {
     this.taskList = document.querySelector(".task-list");
     this.taskInput = document.querySelector(".task-input");
-    this.taskItem = document.querySelector(".task-item-container");
+    // this.taskItem = document.querySelector(".task-item-container");
     this.handlerShowTask();
     this.bindTaskDetail();
     this.displayTasksFromLocalStorage();
@@ -21,7 +21,6 @@ export default class TaskItemView {
       this.taskList.innerHTML += taskItem;
     });
   }
-
 
   handlerShowTask() {
     this.taskInput.addEventListener("keydown", (e) => {
@@ -49,17 +48,16 @@ export default class TaskItemView {
     });
   }
 
-  // bindTaskDetail() {
-  //   const taskItem = document.getElementsByClassName("task-item-container");
-  //   console.log(taskItem);
-  //   this.taskItem.addEventListener("click", () => {
-  //     console.log("first");
-  //     const taskDetailData = this.getTaskDetailData();
-
-  //     // display taskDetail nếu có dữ liệu
-  //     if (taskDetailData) {
-  //       this.renderTaskDetail(taskDetailData);
-  //     }
-  //   });
-  // }
+  bindTaskDetail() {
+    const taskList = document.querySelector(".task-list");
+    taskList.addEventListener("click", (e) => {
+      if (e.target.closest(".task-item-container")) {
+        console.log("cs");
+        const taskDetailData = this.getTaskDetailData();
+        if (taskDetailData) {
+          this.renderTaskDetail(taskDetailData);
+        }
+      }
+    });
+  }
 }

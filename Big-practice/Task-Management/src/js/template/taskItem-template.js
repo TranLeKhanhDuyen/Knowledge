@@ -16,10 +16,10 @@ export default class TaskItemTemplate {
 
   static renderTaskItem(data){
     return `
-    <div class="task-item-container"  data-id="${data.id}">
+    <div class="task-item-container" >
       <div class="task-content text-md">
         <h3 class="task-title">${data.task.title}</h3>       
-        <img src="${iconDelete}" alt="delete icon" class="delete-icon" data-id="${data.id}">
+        <img src="${iconDelete}" alt="delete icon" class="delete-icon">
       </div>
       <div class="task-date text-md">
         <p class="date-ago">${date.diffTime(data.createdDate)} days ago</p>

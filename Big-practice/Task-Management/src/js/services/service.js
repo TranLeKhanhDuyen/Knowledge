@@ -27,29 +27,29 @@ export default class APIService {
   getDetail = (id) => this.sendRequest(id, "get");
 
   /**
-   * Sends a POST request to add a new task.
+   * Sends a POST request to add a new Item.
    *
-   * @param {*} data - The data for the new task.
+   * @param {*} data - The data for the new Item.
    * @returns {Promise} A promise that resolves to the response data.
    */
-  addTask = (data) => this.sendRequest(null, "post", data);
+  addItem = (data) => this.sendRequest(null, "post", data);
 
   /**
-   * Sends a POST request to edit a specific task.
+   * Sends a POST request to edit a specific Item.
    *
-   * @param {number} id - The ID of the task to edit.
-   * @param {*} data - The data to update the task.
+   * @param {number} id - The ID of the Item to edit.
+   * @param {*} data - The data to update the Item.
    * @returns {Promise} A promise that resolves to the response data.
    */
-  editTask = (id, data) => this.sendRequest(id, "post", data);
+  editItem = (id, data) => this.sendRequest(id, "post", data);
 
   /**
-   * Sends a DELETE request to delete a specific task.
+   * Sends a DELETE request to delete a specific Item.
    *
-   * @param {number} id - The ID of the task to delete.
+   * @param {number} id - The ID of the Item to delete.
    * @returns {Promise} A promise that resolves to the response data.
    */
-  deleteTask = (id) => this.sendRequest(id, "delete");
+  deleteItem = (id) => this.sendRequest(id, "delete");
 
   /**
    * Sends a HTTP request to the API.
@@ -59,7 +59,9 @@ export default class APIService {
    * @returns {Promise} A promise that resolves to the response data.
    */
   sendRequest = async (id, method, body) => {
-    const url = `${this.apiUrl}/${this.path}/${id}`;
+    // eslint-disable-next-line sonarjs/no-nested-template-literals
+    const url = `${this.apiUrl}${this.path}${id ? `/${id}` : ""}`;
+    console.log("URL:", url);
     const response = await fetch(url, {
       method,
       headers: {

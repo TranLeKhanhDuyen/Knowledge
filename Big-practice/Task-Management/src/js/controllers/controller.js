@@ -8,9 +8,8 @@ export default class Controller {
 
   handlerAddTask = async (taskName) => {
     const task = await this.model.addTask(taskName);
-    console.log(task)
+    console.log(task);
     this.view.showTaskItem(task);
     this.view.resetForm();
   };
 }
-

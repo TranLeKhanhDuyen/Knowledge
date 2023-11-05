@@ -9,11 +9,10 @@ export default class TaskListModel {
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
     const taskData = {
-      // id: Math.random(),
       taskName: newTask.taskName,
-      createDate: newTask.createdDate,
+      detail: newTask.detail,
       dueDate: newTask.dueDate,
-      description: "TODO: Fix me",
+      createDate: newTask.createdDate,
     };
     this.tasks.push(taskData);
     return taskData;
@@ -22,10 +21,8 @@ export default class TaskListModel {
   async addTask(taskName) {
     try {
       const newTask = this.createTask(taskName);
-      console.log('Call me');
+      console.log("Call me");
       return await this.apiService.addItem(newTask);
-      // const addedTask = await this.apiService.addItem(newTask);
-      // return addedTask;
     } catch (error) {
       throw new Error("Error occurred in adding process");
     }

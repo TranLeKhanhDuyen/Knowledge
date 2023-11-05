@@ -1,6 +1,6 @@
 import iconDelete from "../../assets/icons/delete.svg";
 import iconClock from "../../assets/icons/clock.svg";
-import date from "../utilities/date"
+import date from "../utilities/date";
 
 export default class TaskItemTemplate {
   constructor() {}
@@ -14,20 +14,29 @@ export default class TaskItemTemplate {
    * @param {string} data.task.dueDate - The task's due date.
    */
 
-  static renderTaskItem(data){
-    return `
-    <div class="task-item-container" >
-      <div class="task-content text-md">
-        <h3 class="task-title">${data.task.title}</h3>       
-        <img src="${iconDelete}" alt="delete icon" class="delete-icon">
-      </div>
-      <div class="task-date text-md">
-        <p class="date-ago">${date.diffTime(data.createdDate)} days ago</p>
-        <div class="date-left text-sm">
-          <img src="${iconClock}" class="clock-icon">
-          <p>${date.diffTime(data.dueDate, Math.ceil, 'left')}</p>
+  static renderTaskItem(data) {
+    if (Array.isArray(data)) {
+      return data
+        .map(
+          (item) => `
+      <li class="task-item-container" >
+        <div class="task-content text-md">
+          <h3 class="task-title">${item.task.title}</h3>       
+          <img src="${iconDelete}" alt="delete icon" class="delete-icon">
         </div>
-      </div>
-    </div>`;
+        <div class="task-date text-md">
+          <p class="date-ago">${date.diffTime(item.createdDate)} days ago</p>
+          <div class="date-left text-sm">
+            <img src="${iconClock}" class="clock-icon">
+            <p>${date.diffTime(item.dueDate, Math.ceil, "left")}</p>
+          </div>
+        </div>
+      </li>
+      `
+        )
+        .join(" ");
+    } else {
+      return "";
+    }
   }
 }

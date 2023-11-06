@@ -12,7 +12,7 @@ export default class TaskListModel {
       taskName: newTask.taskName,
       detail: newTask.detail,
       dueDate: newTask.dueDate,
-      createDate: newTask.createdDate,
+      createdDate: newTask.createdDate,
     };
     this.tasks.push(taskData);
     return taskData;

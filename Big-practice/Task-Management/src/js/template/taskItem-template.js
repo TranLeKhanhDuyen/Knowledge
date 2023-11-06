@@ -21,11 +21,11 @@ export default class TaskItemTemplate {
           (item) => `
       <li class="task-item-container" >
         <div class="task-content text-md">
-          <h3 class="task-title">${item.task.title}</h3>       
+          <h3 class="task-title">${item.taskName}</h3>       
           <img src="${iconDelete}" alt="delete icon" class="delete-icon">
         </div>
         <div class="task-date text-md">
-          <p class="date-ago">${date.diffTime(item.createdDate)} days ago</p>
+          <p class="date-ago">${date.diffTime(item.createdDate)}</p>
           <div class="date-left text-sm">
             <img src="${iconClock}" class="clock-icon">
             <p>${date.diffTime(item.dueDate, Math.ceil, "left")}</p>

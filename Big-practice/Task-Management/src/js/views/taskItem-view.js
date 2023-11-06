@@ -8,8 +8,6 @@ export default class TaskItemView {
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
     this.taskListModel = new TaskListModel();
-    this.bindAddTask(this.showTaskItem);
-    // this.showTaskDetail();
 
     // Get tasks from API
     this.tasks = [];
@@ -22,7 +20,6 @@ export default class TaskItemView {
   showTaskItem() {
     // Get task list area
     const taskListDisplay = document.querySelector(".task-list");
-    console.log(taskListDisplay);
     taskListDisplay.innerHTML = "";
 
     this.tasks.forEach((task) => {
@@ -30,18 +27,17 @@ export default class TaskItemView {
     });
   }
 
-  bindAddTask() {
+  bindAddTask(add) {
     this.taskInput.addEventListener("keyup", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
         const newTaskName = this.taskInput.value;
 
         try {
-          // Call request to create a task
-          const addedTask = await this.taskListModel.addTask(newTaskName);
-
+          console.log(this.tasks)
           // Update the current task list
-          this.tasks = [...this.tasks, addedTask];
+          this.tasks = [...this.tasks, add];
+          // this.tasks.push(newTaskName);
           // this.tasks.push(addedTask);
 
           // Show the tasks

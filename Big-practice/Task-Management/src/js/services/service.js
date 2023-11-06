@@ -61,7 +61,6 @@ export default class APIService {
   sendRequest = async (id, method, body) => {
     // eslint-disable-next-line sonarjs/no-nested-template-literals
     const url = `${this.apiUrl}${this.path}${id ? `/${id}` : ""}`;
-    console.log("URL:", url);
     const response = await fetch(url, {
       method,
       headers: {

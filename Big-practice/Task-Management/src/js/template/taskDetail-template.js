@@ -10,7 +10,7 @@ export default class TaskDetailTemplate {
     return `
     <div class="detail-task-container">
     <div class="detail-header text-xl text-bold">
-      <span class="task-title">${data.task.title}
+      <span class="task-title">${data.title}
         <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
@@ -23,7 +23,7 @@ export default class TaskDetailTemplate {
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <p class="task-description">${data.task.description}</p>
+      <p class="task-description">${data.description}</p>
     </div>
 
     <div class="date-container">

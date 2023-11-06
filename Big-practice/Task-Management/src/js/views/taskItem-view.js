@@ -16,8 +16,8 @@ export default class TaskItemView {
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
     this.taskListModel = new TaskListModel();
-    // this.taskItems = document.querySelectorAll(".task-item-container");
     this.bindAddTask(this.showTaskItem);
+    this.bindShowTaskDetail();
 
     // Get tasks from API
     this.tasks = [];
@@ -40,7 +40,7 @@ export default class TaskItemView {
       // this.taskListDisplay.appendChild(task.content.firstElementChild(task));
       // taskListDisplay.innerHTML += `<li>${task}</li>`;
       taskListDisplay.innerHTML += `
-      <li class="task-item-container" >
+      <li class="task-item-container" data-task =${data.id}>
       <div class="task-content text-md">
         <h3 class="task-title">${data.taskName}</h3>       
         <img src="${iconDelete}" alt="delete icon" class="delete-icon">
@@ -57,10 +57,6 @@ export default class TaskItemView {
       console.log(taskListDisplay);
     });
   }
-
-  // const element = document.createElement("template");
-  // this.taskList.innerHTML = TaskItemTemplate.renderTaskItem(tasks);
-  // this.taskList.appendChild(element.content.firstElementChild);
 
   bindAddTask() {
     this.taskInput.addEventListener("keyup", async (e) => {
@@ -87,71 +83,19 @@ export default class TaskItemView {
       }
     });
   }
-  //  taskItems.forEach(taskItem => {
 
-  //  })
-
-  // showTaskDetail() {
-  //   const taskItems = document.querySelectorAll(".task-item-container");
-  //   taskItems.innerHTML = " ";
-  //   taskItems.forEach((taskItem) => {
-  //     taskItem.addEventListener("click", () => {
-  //       // Show the task detail page
-  //       this.showTaskDetail(taskItem);
-  //     });
-  //   });
-  // }
-
-  // showTaskDetails() {
-  //   const taskItems = document.querySelectorAll(".task-item-container");
-  //   console.log(taskItems, "bkgs");
-  //   taskItems.forEach((taskItem) => {
-  //     taskItem.addEventListener("click", () => {
-  //       // Show the task detail page
-  //       console.log("task detail", taskItem);
-  //       this.showTaskDetail(taskItem);
-  //     });
-  //   });
-  // }
-  // showTaskDetail(taskItem) {
-  //   // Get the task data
-  //   const taskData = taskItem.dataset.task;
-
-  //   // Render the task detail
-  //   const taskDetail = TaskDetailTemplate.renderTaskDetail(taskData);
-
-  //   // Add the task detail to the DOM
-  //   const taskDetailContainer = document.querySelector(
-  //     ".detail-task-container"
-  //   );
-  //   taskDetailContainer.innerHTML = taskDetail;
-
-  //   // Show the task detail container
-  //   taskDetailContainer.style.display = "block";
-  // }
-
-  showTaskDetail() {
-    const taskDetailContainer = document.querySelector(
-      ".detail-task-container"
-    );
-    const closeIcon = document.querySelector(".close-icon");
-
-    const taskItems = document.querySelectorAll(".task-item");
-
-    taskItems.forEach((taskItem) => {
-      console.log(taskItem, "abc");
-      taskItem.addEventListener("click", () => {
-        const task = taskItem.dataset.task;
-        console.log(task, "sh");
-        taskDetailContainer.innerHTML =
-          TaskDetailTemplate.renderTaskDetail(task);
-        taskDetailContainer.style.display = "block";
-        console.log(taskDetailContainer, "task detail");
+  bindShowTaskDetail() {
+    const taskItems = document.querySelectorAll(".task-item-container");
+    const taskDetailDisplay = document.querySelector(".detail-task-container");
+    if (taskItems) {
+      taskItems.forEach((taskItem) => {
+        taskItem.addEventListener("click", () => {
+          const taskData = JSON.parse(taskItem.getAttribute("data-task"));
+          taskDetailDisplay.innerHTML =
+            TaskDetailTemplate.renderTaskDetail(taskData);
+          // taskDetailDisplay.style.display = "block";
+        });
       });
-    });
-
-    closeIcon.addEventListener("click", () => {
-      taskDetailContainer.style.display = "none";
-    });
+    }
   }
 }

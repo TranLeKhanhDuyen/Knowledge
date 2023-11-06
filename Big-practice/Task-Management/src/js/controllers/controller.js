@@ -6,10 +6,10 @@ export default class Controller {
     // this.view.bindAddTask(this.handlerAddTask());
   }
 
-  handlerAddTask = async (taskName) => {
-    const task = await this.model.addTask(taskName);
-    console.log(task);
-    this.view.showTaskItem(task);
-    this.view.resetForm();
-  };
+  // handlerAddTask = async (taskName) => {
+  //   const task = await this.model.addTask(taskName);
+  //   console.log(task);
+  //   this.view.showTaskItem(task);
+  //   this.view.resetForm();
+  // };
 }

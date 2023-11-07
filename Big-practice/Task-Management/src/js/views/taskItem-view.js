@@ -5,6 +5,7 @@ import TaskListModel from "../models/taskList-model";
 export default class TaskItemView {
   constructor() {
     this.taskList = document.querySelector(".task-list");
+    this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
     this.taskListModel = new TaskListModel();
@@ -27,27 +28,25 @@ export default class TaskItemView {
     });
   }
 
-  bindAddTask(add) {
-    this.taskInput.addEventListener("keyup", async (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const newTaskName = this.taskInput.value;
+  bindAddTask(handler) {
+    this.formAddTask.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log(this.taskInput);
+      const newTaskName = this.taskInput.value;
+      console.log(newTaskName);
+      const newTask = await handler(newTaskName);
+      try {
+        this.tasks = [...this.tasks, newTask];
+        console.log(this.tasks);
 
-        try {
-          console.log(this.tasks)
-          // Update the current task list
-          this.tasks = [...this.tasks, add];
-          // this.tasks.push(newTaskName);
-          // this.tasks.push(addedTask);
+        // Show the tasks
+        this.showTaskItem();
 
-          // Show the tasks
-          this.showTaskItem();
-
-          // Reset the form
-          this.resetForm();
-        } catch (error) {
-          console.log("task is empty");
-        }
+        // Reset the form
+        this.resetForm();
+      } catch (error) {
+        console.log("task is empty");
       }
     });
   }

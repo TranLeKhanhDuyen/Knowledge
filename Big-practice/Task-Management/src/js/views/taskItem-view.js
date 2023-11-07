@@ -1,6 +1,7 @@
 import TaskItemTemplate from "../template/taskItem-template";
 // import TaskDetailTemplate from "../template/taskDetail-template";
 import TaskListModel from "../models/taskList-model";
+import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskItemView {
   constructor() {
@@ -46,7 +47,7 @@ export default class TaskItemView {
         // Reset the form
         this.resetForm();
       } catch (error) {
-        console.log("task is empty");
+        alert(ERROR_MESSAGE.ADD_FAIL);
       }
     });
   }

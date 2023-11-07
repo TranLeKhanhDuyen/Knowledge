@@ -4,6 +4,7 @@
 export const ERROR_MESSAGE = {
   LOAD_ERROR: "Error when loading data",
   SERVER_ERROR: "Server Error! Please try again later",
+  ADD_FAIL: "Task is empty",
 };
 
 /**

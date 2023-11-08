@@ -8,14 +8,8 @@ export default class TaskListModel {
 
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
-    const taskData = {
-      taskName: newTask.taskName,
-      detail: newTask.detail,
-      dueDate: newTask.dueDate,
-      createdDate: newTask.createdDate,
-    };
-    this.tasks.push(taskData);
-    return taskData;
+    this.tasks.push(newTask);
+    return newTask;
   }
 
   async addTask(taskName) {

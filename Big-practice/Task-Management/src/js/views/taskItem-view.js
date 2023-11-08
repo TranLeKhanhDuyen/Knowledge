@@ -1,6 +1,5 @@
 import TaskItemTemplate from "../template/taskItem-template";
 // import TaskDetailTemplate from "../template/taskDetail-template";
-import TaskListModel from "../models/taskList-model";
 import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskItemView {
@@ -9,7 +8,6 @@ export default class TaskItemView {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
-    this.taskListModel = new TaskListModel();
 
     // Get tasks from API
     this.tasks = [];

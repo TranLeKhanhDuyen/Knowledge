@@ -21,9 +21,7 @@ export default class TaskListModel {
   async addTask(taskName) {
     try {
       const newTask = this.createTask(taskName);
-      const taskItem = await this.apiService.addItem(newTask);
-      console.log(taskItem);
-      return taskItem;
+      return await this.apiService.addItem(newTask);
     } catch (error) {
       throw new Error("Error occurred in adding process");
     }

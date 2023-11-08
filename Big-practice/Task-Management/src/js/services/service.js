@@ -60,13 +60,7 @@ export default class APIService {
    */
 
   sendRequest = async (method, body, id = null) => {
-    let url;
-    if (id) {
-      url = `${this.apiUrl}${this.path}/${id}`;
-    } else {
-      url = `${this.apiUrl}${this.path}`;
-    }
-    // const url = `${this.apiUrl}${this.path}${id ? "/" + id : ""}`;
+    const url = `${this.apiUrl}${this.path}${id ? "/" + id : ""}`;
     const response = await fetch(url, {
       method,
       headers: {

@@ -32,7 +32,7 @@ export default class APIService {
    * @param {*} data - The data for the new Item.
    * @returns {Promise} A promise that resolves to the response data.
    */
-  addItem = (data) => this.sendRequest(null, "post", data);
+  addItem = (data) => this.sendRequest("post", data);
 
   /**
    * Sends a POST request to edit a specific Item.
@@ -58,9 +58,15 @@ export default class APIService {
    * @param {*} body - The request payload (if applicable).
    * @returns {Promise} A promise that resolves to the response data.
    */
-  sendRequest = async (id, method, body) => {
-    const path = id ? `/${id}` : "";
-    const url = this.apiUrl + this.path + path;
+
+  sendRequest = async (method, body, id = null) => {
+    let url;
+    if (id) {
+      url = `${this.apiUrl}${this.path}/${id}`;
+    } else {
+      url = `${this.apiUrl}${this.path}`;
+    }
+    // const url = `${this.apiUrl}${this.path}${id ? "/" + id : ""}`;
     const response = await fetch(url, {
       method,
       headers: {

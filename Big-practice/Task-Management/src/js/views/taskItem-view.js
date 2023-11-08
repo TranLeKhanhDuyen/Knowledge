@@ -33,7 +33,6 @@ export default class TaskItemView {
       e.stopPropagation();
       console.log(this.taskInput);
       const newTaskName = this.taskInput.value;
-      console.log(newTaskName);
       const newTask = await handler(newTaskName);
       try {
         this.tasks = [...this.tasks, newTask];

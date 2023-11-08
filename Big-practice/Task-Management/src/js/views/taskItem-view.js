@@ -32,12 +32,10 @@ export default class TaskItemView {
     this.formAddTask.addEventListener("submit", async (e) => {
       e.preventDefault();
       e.stopPropagation();
-      console.log(this.taskInput);
       const newTaskName = this.taskInput.value;
       const newTask = await handle(newTaskName);
       try {
         this.tasks = [...this.tasks, newTask];
-        console.log(this.tasks);
 
         // Show the tasks
         this.showTaskItem();

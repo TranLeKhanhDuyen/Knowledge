@@ -8,22 +8,14 @@ export default class TaskListModel {
 
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
-    const taskData = {
-      taskName: newTask.taskName,
-      detail: newTask.detail,
-      dueDate: newTask.dueDate,
-      createdDate: newTask.createdDate,
-    };
-    this.tasks.push(taskData);
-    return taskData;
+    this.tasks.push(newTask);
+    return newTask;
   }
 
   async addTask(taskName) {
     try {
       const newTask = this.createTask(taskName);
-      const taskItem = await this.apiService.addItem(newTask);
-      console.log(taskItem);
-      return taskItem;
+      return await this.apiService.addItem(newTask);
     } catch (error) {
       throw new Error("Error occurred in adding process");
     }
@@ -36,9 +28,4 @@ export default class TaskListModel {
   getTaskById(taskId) {
     return this.tasks.find((task) => task.id === taskId);
   }
-
-  // deleteTask(taskId) {
-  //   this.tasks = this.tasks.filter((task) => task.id !== taskId);
-  //   Storage.setData("tasks", this.tasks);
-  // }
 }

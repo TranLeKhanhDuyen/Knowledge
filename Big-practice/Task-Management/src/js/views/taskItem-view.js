@@ -8,6 +8,7 @@ export default class TaskItemView {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
+    this.taskItem = document.querySelector(".task-item-container");
     this.taskItem = document.querySelector(".task-item-container")
 
     // Get tasks from API
@@ -29,30 +30,29 @@ export default class TaskItemView {
   }
 
   bindAddTask(handle) {
-    this.formAddTask.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log(this.taskInput);
-      const newTaskName = this.taskInput.value;
-      const newTask = await handle(newTaskName);
-      try {
-        this.tasks = [...this.tasks, newTask];
-        console.log(this.tasks);
+    this.formAddTask.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const newTaskName = this.taskInput.value;
+        const newTask = await handle(newTaskName);
+        try {
+          this.tasks = [...this.tasks, newTask];
 
-        // Show the tasks
-        this.showTaskItem();
+          // Show the tasks
+          this.showTaskItem();
 
-        // Reset the form
-        this.resetForm();
-      } catch (error) {
-        alert(ERROR_MESSAGE.ADD_FAIL);
+          // Reset the form
+          this.resetForm();
+        } catch (error) {
+          alert(ERROR_MESSAGE.ADD_FAIL);
+        }
       }
     });
   }
 
-  handleTaskDetail(){
-    this.taskItem.addEventListener("click", async(e) => {
+  // handleTaskDetail(){
+  //   this.taskItem.addEventListener("click", async(e) => {
 
-    })
-  }
+  //   })
+  // }
 }

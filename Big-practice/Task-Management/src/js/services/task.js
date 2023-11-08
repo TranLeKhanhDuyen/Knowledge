@@ -8,7 +8,6 @@ export default class APITask {
       APIHelper.sendRequest("POST", taskName)
     );
     const result = await response.json();
-
     return {
       status: response.status,
       data: result,
@@ -17,6 +16,16 @@ export default class APITask {
 
   async get() {
     const response = await fetch(API_TASKS);
+    const result = await response.json();
+
+    return {
+      status: response.status,
+      data: result,
+    };
+  }
+
+  async find(id) {
+    const response = await fetch(`${API_TASKS}/${id}`);
     const result = await response.json();
 
     return {

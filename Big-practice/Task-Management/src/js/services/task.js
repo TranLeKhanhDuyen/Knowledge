@@ -5,7 +5,7 @@ export default class APITask {
   async addTask(taskName) {
     const response = await fetch(
       API_TASKS,
-      APIHelper.requestOptions("POST", taskName)
+      APIHelper.sendRequest("POST", taskName)
     );
     const result = await response.json();
 

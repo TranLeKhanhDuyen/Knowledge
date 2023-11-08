@@ -1,7 +1,7 @@
 import { API_URL } from "../constants/url";
 
 export default class APIHelper {
-  static requestOptions(method, data, contentType = "application/json") {
+  static sendRequest(method, data, contentType = "application/json") {
     return {
       method,
       body: JSON.stringify(data),

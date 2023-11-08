@@ -59,8 +59,8 @@ export default class APIService {
    * @returns {Promise} A promise that resolves to the response data.
    */
   sendRequest = async (id, method, body) => {
-    // eslint-disable-next-line sonarjs/no-nested-template-literals
-    const url = `${this.apiUrl}${this.path}${id ? `/${id}` : ""}`;
+    const path = id ? `/${id}` : "";
+    const url = this.apiUrl + this.path + path;
     const response = await fetch(url, {
       method,
       headers: {

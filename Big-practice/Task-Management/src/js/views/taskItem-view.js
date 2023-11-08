@@ -8,6 +8,7 @@ export default class TaskItemView {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
+    this.taskItem = document.querySelector(".task-item-container");
 
     // Get tasks from API
     this.tasks = [];
@@ -27,13 +28,13 @@ export default class TaskItemView {
     });
   }
 
-  bindAddTask(handler) {
+  bindAddTask(handle) {
     this.formAddTask.addEventListener("submit", async (e) => {
       e.preventDefault();
       e.stopPropagation();
       console.log(this.taskInput);
       const newTaskName = this.taskInput.value;
-      const newTask = await handler(newTaskName);
+      const newTask = await handle(newTaskName);
       try {
         this.tasks = [...this.tasks, newTask];
         console.log(this.tasks);

@@ -16,3 +16,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}

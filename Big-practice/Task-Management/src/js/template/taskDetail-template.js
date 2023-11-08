@@ -3,14 +3,14 @@ import iconClose from "../../assets/icons/close.svg";
 import iconDelete from "../../assets/icons/delete.svg";
 import userAvatar from "../../assets/images/user.svg";
 
-export default class TaskDetail {
+export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail = (data) => {
     return `
     <div class="detail-task-container">
     <div class="detail-header text-xl text-bold">
-      <span class="task-title">${data.tasks.title}
+      <span class="task-title">${data.title}
         <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
@@ -23,7 +23,7 @@ export default class TaskDetail {
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <p class="task-description">${data.tasks.description}</p>
+      <p class="task-description">${data.description}</p>
     </div>
 
     <div class="date-container">
@@ -38,11 +38,11 @@ export default class TaskDetail {
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
           <span class="user-name text-bold">Sara M.</span> 
-          <p class="time-ago text-sm">(${data.comments.timeAgo} mins ago) </p>
+          <p class="time-ago text-sm">(${data.comments}) </p>
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>
-      <p class="comments-content">${data.comments.text}</p>
+      <p class="comments-content">${data.commentst}</p>
     </div>
   </div>
     `;

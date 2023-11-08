@@ -29,21 +29,22 @@ export default class TaskItemView {
   }
 
   bindAddTask(handle) {
-    this.formAddTask.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const newTaskName = this.taskInput.value;
-      const newTask = await handle(newTaskName);
-      try {
-        this.tasks = [...this.tasks, newTask];
+    this.formAddTask.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const newTaskName = this.taskInput.value;
+        const newTask = await handle(newTaskName);
+        try {
+          this.tasks = [...this.tasks, newTask];
 
-        // Show the tasks
-        this.showTaskItem();
+          // Show the tasks
+          this.showTaskItem();
 
-        // Reset the form
-        this.resetForm();
-      } catch (error) {
-        alert(ERROR_MESSAGE.ADD_FAIL);
+          // Reset the form
+          this.resetForm();
+        } catch (error) {
+          alert(ERROR_MESSAGE.ADD_FAIL);
+        }
       }
     });
   }

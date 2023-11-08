@@ -1,5 +1,5 @@
 import TaskItemTemplate from "../template/taskItem-template";
-// import TaskDetailTemplate from "../template/taskDetail-template";
+import TaskDetailTemplate from "../template/taskDetail-template";
 import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskItemView {
@@ -8,11 +8,11 @@ export default class TaskItemView {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.todoBoard = document.getElementById("js-todo");
-    this.taskItem = document.querySelector(".task-item-container");
-    this.taskItem = document.querySelector(".task-item-container")
+    // this.taskItem = document.querySelector(".task-item-container");
 
     // Get tasks from API
     this.tasks = [];
+    this.handleTaskDetail();
   }
 
   resetForm() {
@@ -50,9 +50,21 @@ export default class TaskItemView {
     });
   }
 
-  // handleTaskDetail(){
-  //   this.taskItem.addEventListener("click", async(e) => {
+  handleTaskDetail() {
+    this.taskList.addEventListener("click", async (e) => {
+      const taskItem = e.target.closest(".task-item-container");
+      console.log(e.target);
+      if (taskItem) {
+        const taskId = taskItem.dataset.taskId;
+        const selectedTask = this.tasks.find((task) => task.id === taskId);
 
-  //   })
-  // }
+        // Render task detail template
+        const taskDetailContainer = document.querySelector(
+          ".detail-task-container"
+        );
+        taskDetailContainer.innerHTML =
+          TaskDetailTemplate.renderTaskDetail(selectedTask);
+      }
+    });
+  }
 }

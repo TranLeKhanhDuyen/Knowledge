@@ -6,11 +6,14 @@ import userAvatar from "../../assets/images/user.svg";
 export default class TaskDetailTemplate {
   constructor() {}
 
-  static renderTaskDetail = (data) => {
-    return `
+  static renderTaskDetail(data) {
+    if (Array.isArray(data)) {
+      return data
+        .map(
+          (item) => `
     <div class="detail-task-container">
     <div class="detail-header text-xl text-bold">
-      <span class="task-title">${data.title}
+      <span class="task-title">${item.taskName}
         <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
@@ -23,7 +26,7 @@ export default class TaskDetailTemplate {
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <p class="task-description">${data.description}</p>
+      <p class="task-description">${item.description}</p>
     </div>
 
     <div class="date-container">
@@ -38,13 +41,18 @@ export default class TaskDetailTemplate {
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
           <span class="user-name text-bold">Sara M.</span> 
-          <p class="time-ago text-sm">(${data.comments}) </p>
+          <p class="time-ago text-sm">(${item.comments}) </p>
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>
-      <p class="comments-content">${data.commentst}</p>
+      <p class="comments-content">${item.commentst}</p>
     </div>
   </div>
-    `;
-  };
+  `
+        )
+        .join(" ");
+    } else {
+      return "";
+    }
+  }
 }

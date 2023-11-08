@@ -34,9 +34,4 @@ export default class TaskListModel {
   getTaskById(taskId) {
     return this.tasks.find((task) => task.id === taskId);
   }
-
-  // deleteTask(taskId) {
-  //   this.tasks = this.tasks.filter((task) => task.id !== taskId);
-  //   Storage.setData("tasks", this.tasks);
-  // }
 }

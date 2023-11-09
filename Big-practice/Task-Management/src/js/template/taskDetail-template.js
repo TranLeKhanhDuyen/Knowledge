@@ -11,7 +11,7 @@ export default class TaskDetailTemplate {
       return data
         .map(
           (item) => `
-    <div class="detail-task-container">
+    <div class="detail-task-container overlay">
     <div class="detail-header text-xl text-bold">
       <span class="task-title">${item.taskName}
         <select class="option">

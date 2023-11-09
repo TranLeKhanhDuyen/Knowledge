@@ -26,11 +26,26 @@ export default class TaskListModel {
     }
   }
 
-  getTasks() {
-    return this.tasks;
+  async getTaskDetail(taskId) {
+    try {
+      // Call the API to get task detail by ID
+      const apiResponse = await this.apiTask.getTask(taskId);
+
+      // Assuming data property holds the task detail
+      return apiResponse.data;
+    } catch (error) {
+      throw new Error("Error occurred in getting task detail");
+    }
   }
 
-  getTaskById(taskId) {
-    return this.tasks.find((task) => task.id === taskId);
+  async find(id) {
+    try {
+      const { status, data } = await this.APITask.find(id);
+
+      if (status !== 200) return this.showError("vvvv");
+      return data;
+    } catch (error) {
+      return this.showError("Vvv");
+    }
   }
 }

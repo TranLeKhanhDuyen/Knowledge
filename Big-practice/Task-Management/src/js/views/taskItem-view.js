@@ -1,18 +1,16 @@
 import TaskItemTemplate from "../template/taskItem-template";
-import TaskDetailTemplate from "../template/taskDetail-template";
 import { ERROR_MESSAGE } from "../constants/message";
+import TaskDetailTemplate from "../template/taskDetail-template";
 
 export default class TaskItemView {
   constructor() {
     this.taskList = document.querySelector(".task-list");
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
-    this.todoBoard = document.getElementById("js-todo");
     // this.taskItem = document.querySelector(".task-item-container");
 
     // Get tasks from API
     this.tasks = [];
-    this.handleTaskDetail();
   }
 
   resetForm() {
@@ -49,21 +47,46 @@ export default class TaskItemView {
     });
   }
 
-  handleTaskDetail() {
+  bindTaskDetail() {
     this.taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
-      console.log(e.target);
-      if (taskItem) {
-        const taskId = taskItem.dataset.taskId;
-        const selectedTask = this.tasks.find((task) => task.id === taskId);
+      const taskId = taskItem.dataset.id;
 
-        // Render task detail template
-        const taskDetailContainer = document.querySelector(
-          ".detail-task-container"
-        );
-        taskDetailContainer.innerHTML =
-          TaskDetailTemplate.renderTaskDetail(selectedTask);
+      const selectedTask = this.tasks.find(
+        (task) => Number(task.id) === Number(taskId)
+      );
+      console.log(selectedTask);
+      if (taskItem) {
+        taskItem.innerHTML = TaskDetailTemplate.renderTaskDetail([
+          selectedTask,
+        ]);
       }
     });
   }
+
+  // handleTaskDetail = (event) => {
+  //   const taskItem = document.querySelector(".task-item-container");
+  //   const closeIconElement = document.querySelector(".close-icon ");
+
+  //   const showTaskDetail = [
+  //     {
+  //       element: taskItem,
+  //       action: () => {
+  //         taskItem.classList.add("active");
+  //       },
+  //     },
+  //     {
+  //       element: closeIconElement,
+  //       action: () => {
+  //         taskItem.classList.remove("active");
+  //       },
+  //     },
+  //   ];
+
+  //   for (const displayTaskDetail of showTaskDetail) {
+  //     if (event.target === displayTaskDetail.element) {
+  //       displayTaskDetail.action();
+  //     }
+  //   }
+  // };
 }

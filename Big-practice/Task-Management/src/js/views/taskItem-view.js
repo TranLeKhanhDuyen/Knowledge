@@ -37,7 +37,6 @@ export default class TaskItemView {
         const newTask = await handle(newTaskName);
         try {
           this.tasks = [...this.tasks, newTask];
-
           // Show the tasks
           this.showTaskItem();
 

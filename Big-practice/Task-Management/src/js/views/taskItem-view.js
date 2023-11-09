@@ -47,17 +47,32 @@ export default class TaskItemView {
     });
   }
 
+  // bindTaskDetail() {
+  //   this.taskList.addEventListener("click", async (e) => {
+  //     const taskItem = e.target.closest(".task-item-container");
+  //     const taskId = taskItem.dataset.id;
+
+  //     const selectedTask = this.tasks.find(
+  //       (task) => Number(task.id) === Number(taskId)
+  //     );
+  //     console.log(selectedTask);
+  //     if (taskItem) {
+  //       taskItem.innerHTML = TaskDetailTemplate.renderTaskDetail([
+  //         selectedTask,
+  //       ]);
+  //     }
+  //   });
+  // }
+
   bindTaskDetail() {
     this.taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
       const taskId = taskItem.dataset.id;
-
-      const selectedTask = this.tasks.find(
-        (task) => Number(task.id) === Number(taskId)
-      );
-      console.log(selectedTask);
+      const selectedTask = this.tasks.find((task) => Number(task.id) === Number(taskId));
+      
       if (taskItem) {
-        taskItem.innerHTML = TaskDetailTemplate.renderTaskDetail([
+        const taskDetail = document.querySelector(".detail-task-container");
+        taskDetail.innerHTML = TaskDetailTemplate.renderTaskDetail([
           selectedTask,
         ]);
       }

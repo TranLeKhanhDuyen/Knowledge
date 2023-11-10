@@ -53,10 +53,16 @@ export default class TaskItemView {
       const selectedTask = this.tasks.find(
         (task) => Number(task.id) === Number(taskId)
       );
-      console.log("Selected Task:", selectedTask);
+
       if (handle) {
         this.renderTaskDetail([selectedTask]);
-        console.log(this.renderTaskDetail([selectedTask]));
+
+        const closeIcons = document.querySelectorAll(".close-icon");
+        closeIcons.forEach((closeIcon) => {
+          closeIcon.addEventListener("click", () => {
+            this.closeTaskDetail();
+          });
+        });
       }
     });
   }
@@ -66,5 +72,16 @@ export default class TaskItemView {
     detailContainer.innerHTML =
       TaskDetailTemplate.renderTaskDetail(selectedTask);
     document.body.appendChild(detailContainer);
+  }
+  
+  closeTaskDetail() {
+    const detailContainers = document.querySelectorAll(
+      ".detail-task-container"
+    );
+    detailContainers.forEach((detailContainer) => {
+      if (detailContainer) {
+        detailContainer.classList.add("hidden");
+      }
+    });
   }
 }

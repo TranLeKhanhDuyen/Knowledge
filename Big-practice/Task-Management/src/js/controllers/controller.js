@@ -1,10 +1,8 @@
 export default class Controller {
-  constructor(taskListModel, taskItemView, 
-    // taskDetailView
-    ) {
+  constructor(taskListModel, taskItemView, taskDetailView) {
     this.taskListModel = taskListModel;
     this.taskItemView = taskItemView;
-    // this.taskDetailView = taskDetailView;
+    this.taskDetailView = taskDetailView;
     this.init();
   }
 

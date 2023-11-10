@@ -26,7 +26,9 @@ export default class TaskDetailTemplate {
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <p class="task-description">${item.description}</p>
+        <form action="#" method="get" class="add-description">
+          <input type="text" class="description-input text-lg">
+        </form>
     </div>
 
     <div class="date-container">

@@ -46,6 +46,8 @@ export default class TaskItemView {
     });
   }
 
+  /* HANDLER TASK DETAIL */
+
   bindTaskDetail(handle) {
     this.taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
@@ -73,7 +75,7 @@ export default class TaskItemView {
       TaskDetailTemplate.renderTaskDetail(selectedTask);
     document.body.appendChild(detailContainer);
   }
-  
+
   closeTaskDetail() {
     const detailContainers = document.querySelectorAll(
       ".detail-task-container"

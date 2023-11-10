@@ -7,8 +7,8 @@ export default class TaskItemView {
     this.taskList = document.querySelector(".task-list");
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
-    // this.taskItem = document.querySelector(".task-item-container");
-
+    this.taskItem = document.querySelector(".task-item-container");
+    this.taskDetail = document.querySelector(".detail-task-container");
     // Get tasks from API
     this.tasks = [];
   }
@@ -47,6 +47,36 @@ export default class TaskItemView {
     });
   }
 
+  bindTaskDetail(handle) {
+    this.taskList.addEventListener("click", async (e) => {
+      const taskItem = e.target.closest(".task-item-container");
+      const taskId = taskItem.dataset.id;
+      const selectedTask = this.tasks.find(
+        (task) => Number(task.id) === Number(taskId)
+      );
+
+      console.log("Selected Task:", selectedTask);
+
+      if (handle) {
+        this.renderTaskDetail(selectedTask);
+        console.log(this.renderTaskDetail(selectedTask));
+      }
+    });
+  }
+
+  renderTaskDetail(selectedTask) {
+    const taskDetail = document.querySelectorAll(".detail-task-container");
+    console.log("Task Detail Container:", taskDetail);
+
+    if (taskDetail) {
+      taskDetail.innerHTML = TaskDetailTemplate.renderTaskDetail([
+        selectedTask,
+      ]);
+    } else {
+      console.error("Cannot find .detail-task-container");
+    }
+  }
+
   // bindTaskDetail() {
   //   this.taskList.addEventListener("click", async (e) => {
   //     const taskItem = e.target.closest(".task-item-container");
@@ -63,21 +93,7 @@ export default class TaskItemView {
   //     }
   //   });
   // }
-
-  bindTaskDetail() {
-    this.taskList.addEventListener("click", async (e) => {
-      const taskItem = e.target.closest(".task-item-container");
-      const taskId = taskItem.dataset.id;
-      const selectedTask = this.tasks.find((task) => Number(task.id) === Number(taskId));
-      
-      if (taskItem) {
-        const taskDetail = document.querySelector(".detail-task-container");
-        taskDetail.innerHTML = TaskDetailTemplate.renderTaskDetail([
-          selectedTask,
-        ]);
-      }
-    });
-  }
+  // taskDetail.innerHTML += TaskDetailTemplate.renderTaskDetail(data);
 
   // handleTaskDetail = (event) => {
   //   const taskItem = document.querySelector(".task-item-container");

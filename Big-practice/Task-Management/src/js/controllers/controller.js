@@ -2,7 +2,6 @@ export default class Controller {
   constructor(taskListModel, taskItemView) {
     this.taskListModel = taskListModel;
     this.taskItemView = taskItemView;
-
     this.init();
   }
 
@@ -17,18 +16,19 @@ export default class Controller {
     });
   }
 
-  // async handleTaskDetail() {
-  //   this.taskDetailView.bindTaskDetail(async (taskDetail) => {
-  //     return await this.taskListModel.getDetailTask(taskDetail);
-  //   });
-  // }
-
   async handleTaskDetail() {
-    // this.taskDetailView.bindTaskDetail(async (taskId) => {
-    //   const taskDetail = await this.taskListModel.getTaskDetail(taskId);
-    //   console.log("Task Detail:", taskDetail);
-    // });
-    const a = await this.taskListModel.getTaskDetail()
-    this.taskItemView.bindTaskDetail(a)
+    // const detail = await this.taskListModel.getTaskDetail();
+    const a = await this.taskListModel.getTaskDetail();
+    this.taskItemView.bindTaskDetail(a);
   }
 }
+// async handleTaskDetail() {
+//   this.taskDetailView.bindTaskDetail(async (taskDetail) => {
+//     return await this.taskListModel.getDetailTask(taskDetail);
+//   });
+// }
+
+// this.taskDetailView.bindTaskDetail(async (taskId) => {
+//   const taskDetail = await this.taskListModel.getTaskDetail(taskId);
+//   console.log("Task Detail:", taskDetail);
+// });

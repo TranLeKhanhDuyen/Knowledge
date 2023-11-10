@@ -1,5 +1,7 @@
 import APITask from "../services/task";
 import TaskModel from "./task-model";
+import { ERROR_MESSAGE } from "../constants/message";
+
 export default class TaskListModel {
   constructor() {
     this.tasks = [];
@@ -26,7 +28,7 @@ export default class TaskListModel {
     }
   }
 
-  async getTaskDetail(taskId) {
+  async getTask(taskId) {
     try {
       // Call the API to get task detail by ID
       const apiResponse = await this.apiTask.getTask(taskId);
@@ -40,7 +42,7 @@ export default class TaskListModel {
 
   async find(id) {
     try {
-      const { status, data } = await this.APITask.find(id);
+      const { status, data } = await this.apiTask.find(id);
 
       if (status !== 200) return this.showError("vvvv");
       return data;
@@ -48,4 +50,16 @@ export default class TaskListModel {
       return this.showError("Vvv");
     }
   }
+
+  async edit(id, updateData) {
+    try {
+      const { status } = await this.apiTask.edit(id, updateData);
+      
+      if (status !== 200) return this.showError(ERROR_MESSAGE[status]);
+      return status;
+    } catch (error) {
+      return this.showError(ERROR_MESSAGE).SERVER_ERROR;
+    }
+  }
+
 }

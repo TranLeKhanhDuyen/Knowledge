@@ -60,7 +60,7 @@
   margin-top: 11px;
 }
 
-.description-input {
+.input-description{
   border-radius: 5px;
   border: 1px solid var(--grey-rgb-color);
   margin: 15px 0 8px;
@@ -68,7 +68,7 @@
   width: 100%;
 }
 
-.description-input:focus {
+.input-description:focus {
   outline: none;
   border: 1px solid var(--dark-grey-color);
 }

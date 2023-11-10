@@ -9,6 +9,7 @@ export default class Controller {
   init() {
     this.handleAddTask();
     this.handleTaskDetail();
+    this.handleUpdateTask();
   }
 
   async handleAddTask() {
@@ -20,6 +21,12 @@ export default class Controller {
   async handleTaskDetail() {
     this.taskItemView.bindTaskDetail(async (taskDetail) => {
       return await this.taskListModel.getTask(taskDetail);
+    });
+  }
+
+  async handleUpdateTask() {
+    this.taskDetailView.bindTaskDetail(async () => {
+      return await this.taskDetailView.getTask();
     });
   }
 }

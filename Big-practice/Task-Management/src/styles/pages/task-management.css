@@ -19,7 +19,7 @@
 /* TASK-DETAIL */
 
 .detail-task-container {
-  min-width: 769px;
+  max-width: 769px;
   border-radius: 4px 4px 0px 0px;
   background: var(--secondary-color);
   padding-bottom: 50px;
@@ -60,7 +60,7 @@
   margin-top: 11px;
 }
 
-.input-description{
+.input-description {
   border-radius: 5px;
   border: 1px solid var(--grey-rgb-color);
   margin: 15px 0 8px;

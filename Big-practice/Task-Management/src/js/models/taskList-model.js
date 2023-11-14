@@ -54,12 +54,11 @@ export default class TaskListModel {
   async edit(id, updateData) {
     try {
       const { status } = await this.apiTask.edit(id, updateData);
-      
+
       if (status !== 200) return this.showError(ERROR_MESSAGE[status]);
       return status;
     } catch (error) {
       return this.showError(ERROR_MESSAGE).SERVER_ERROR;
     }
   }
-
 }

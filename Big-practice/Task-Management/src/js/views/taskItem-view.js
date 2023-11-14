@@ -70,7 +70,7 @@ export default class TaskItemView {
   }
 
   renderTaskDetail(selectedTask) {
-    const detailContainer = document.createElement("div");
+    const detailContainer = document.querySelector(".detail-container");
     detailContainer.innerHTML =
       TaskDetailTemplate.renderTaskDetail(selectedTask);
     document.body.appendChild(detailContainer);

@@ -19,11 +19,13 @@ export default class APITask {
       data: result,
     };
   }
+
   /**
    * Gets all tasks from the API
    *
    * @returns {Promise<{status: number, data: Array}>} - A promise that resolves to an object containing the status code and an array of tasks from the API response
    */
+
   async getTask() {
     const response = await fetch(API_TASKS);
     const result = await response.json();
@@ -39,6 +41,7 @@ export default class APITask {
    * @param {number} id - The ID of the task to find
    * @returns {Promise<{status: number, data: Object}>} - A promise that resolves to an object containing the status code and the task data from the API response
    */
+
   async findTask(id) {
     const response = await fetch(`${API_TASKS}/${id}`);
     const result = await response.json();
@@ -47,5 +50,14 @@ export default class APITask {
       status: response.status,
       data: result,
     };
+  }
+
+  async edit(id, updateData) {
+    const response = await fetch(
+      `${API_TASKS}/${id}`,
+      APIHelper.sendRequest("PATCH", updateData)
+    );
+
+    return { status: response.status };
   }
 }

@@ -25,8 +25,8 @@ export default class Controller {
   }
 
   async handleUpdateTask() {
-    this.taskDetailView.bindTaskDetail(async () => {
-      return await this.taskDetailView.getTask();
+    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
+      return await this.taskListModel.edit(id, updateData);
     });
   }
 }

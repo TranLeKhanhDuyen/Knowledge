@@ -1,35 +1,43 @@
+import TaskDetailTemplate from "../template/taskDetail-template";
+
 export default class TaskDetailView {
   constructor() {
-    this.formAddDesc = document.querySelector("form.add-description");
+    this.formAddDesc = document.querySelector("form.edit-task-container");
     this.inputDesc = document.querySelector(".input-description");
-    // this.taskListContainer = document.querySelector(".task-list-container");
+    // this.taskDesc = document.querySelector(".task-desc");
     this.updateTasks = [];
   }
 
-  bindUpdateTask(handler) {
-    this.formAddDesc.addEventListener("keydown", async (e) => {
-      console.log(e.key)
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const inputDesc = this.inputDesc.value;
-        const taskDesc = await handler(inputDesc);
-        try {
-          this.updateTasks = [...this.updateTasks, taskDesc];
-          this.showTaskDesc();
-        } catch (erro) {
-          console.log("...");
+  bindUpdateTask(handle) {
+    console.log(document.querySelector(".input-description"));
+    if (this.formAddDesc) {
+      this.formAddDesc.addEventListener("input", async (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const desc = this.inputDesc.value;
+          console.log(desc);
+          const descContent = await handle(desc);
+          try {
+            this.updateTasks = [...this.updateTasks, descContent];
+
+            // Show the tasks
+            this.showDesc();
+          } catch (error) {
+            console.error("Error:");
+          }
         }
-      }
-    });
+      });
+    }
   }
 
-  showTaskDesc(taskDesc) {
-    // Display the task description on the client's screen
-    const taskElement = document.createElement("div");
-    taskElement.textContent = taskDesc;
-    this.inputDesc.value = taskDesc;
-    this.inputDesc.appendChild(taskElement);
+  showDesc() {
+    const descDisplay = document.querySelector(".task-desc");
+    descDisplay.innerHTML = "";
 
-    // You can customize this method based on your HTML structure and styling
+    this.updateTasks.forEach((updateTask) => {
+      descDisplay.innerHTML += TaskDetailTemplate.renderTaskDetail([
+        updateTask,
+      ]);
+    });
   }
 }

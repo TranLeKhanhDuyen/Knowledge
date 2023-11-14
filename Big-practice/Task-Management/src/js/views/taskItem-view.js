@@ -55,6 +55,7 @@ export default class TaskItemView {
       const selectedTask = this.tasks.find(
         (task) => Number(task.id) === Number(taskId)
       );
+      console.log(selectedTask);
 
       if (handle) {
         this.renderTaskDetail([selectedTask]);

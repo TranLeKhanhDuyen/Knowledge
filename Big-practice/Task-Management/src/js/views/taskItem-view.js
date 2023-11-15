@@ -50,17 +50,18 @@ export default class TaskItemView {
 
   /* HANDLER TASK DETAIL */
 
-  bindTaskDetail(handle) {
+  bindTaskDetail(handleUpdate, handleFind) {
     this.taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
       const taskId = taskItem.dataset.id;
-      const selectedTask = this.tasks.find(
-        (task) => Number(task.id) === Number(taskId)
-      );
+      // const selectedTask = this.tasks.find(
+      //   (task) => Number(task.id) === Number(taskId)
+      // );
+      const selectedTask = await handleFind(taskId)
       console.log(selectedTask);
-      console.log(handle);
-      if (handle) {
-        this.renderTaskDetail([selectedTask], handle);
+      // console.log(handleUpdate);
+      if (handleUpdate) {
+        this.renderTaskDetail([selectedTask], handleUpdate);
 
         const closeIcons = document.querySelectorAll(".close-icon");
         closeIcons.forEach((closeIcon) => {
@@ -80,6 +81,7 @@ export default class TaskItemView {
     // Add event update task
     handleUpdateTask();
   }
+
   closeTaskDetail() {
     const detailContainers = document.querySelectorAll(
       ".detail-task-container"

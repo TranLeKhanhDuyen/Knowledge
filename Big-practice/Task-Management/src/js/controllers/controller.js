@@ -19,7 +19,12 @@ export default class Controller {
   }
 
   async handleTaskDetail() {
-    this.taskItemView.bindTaskDetail(this.handleUpdateTask);
+    this.taskItemView.bindTaskDetail(this.handleUpdateTask, (id) => this.handleFindTask(id));
+  }
+
+  // id: number
+  handleFindTask = async (id) => {
+    return this.taskListModel.find(id)
   }
 
   handleUpdateTask = () => {

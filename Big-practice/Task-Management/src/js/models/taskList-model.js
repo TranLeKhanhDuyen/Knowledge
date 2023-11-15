@@ -40,7 +40,7 @@ export default class TaskListModel {
 
   async find(id) {
     try {
-      const { status, data } = await this.apiTask.find(id);
+      const { status, data } = await this.apiTask.findTask(id);
 
       if (status !== 200) return this.showError("vvvv");
       return data;
@@ -51,10 +51,11 @@ export default class TaskListModel {
 
   async edit(id, updateData) {
     try {
-      const { status } = await this.apiTask.edit(id, updateData);
+      const response = await this.apiTask.edit(id, updateData); //destructring
 
-      if (status !== 200) return this.showError(ERROR_MESSAGE[status]);
-      return status;
+      if (response.status !== 200) return this.showError(ERROR_MESSAGE[response.status]);
+
+      return response;
     } catch (error) {
       return "error";
     }

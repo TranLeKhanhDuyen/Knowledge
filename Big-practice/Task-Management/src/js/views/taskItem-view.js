@@ -9,6 +9,8 @@ export default class TaskItemView {
     this.taskInput = document.querySelector(".task-input");
     this.taskItem = document.querySelector(".task-item-container");
     this.taskDetail = document.querySelector(".detail-task-container");
+
+    this.board = document.querySelector(".task-board");
     // Get tasks from API
     this.tasks = [];
   }
@@ -56,9 +58,9 @@ export default class TaskItemView {
         (task) => Number(task.id) === Number(taskId)
       );
       console.log(selectedTask);
-
+      console.log(handle);
       if (handle) {
-        this.renderTaskDetail([selectedTask]);
+        this.renderTaskDetail([selectedTask], handle);
 
         const closeIcons = document.querySelectorAll(".close-icon");
         closeIcons.forEach((closeIcon) => {
@@ -70,13 +72,14 @@ export default class TaskItemView {
     });
   }
 
-  renderTaskDetail(selectedTask) {
+  renderTaskDetail(selectedTask, handleUpdateTask) {
     const detailContainer = document.querySelector(".detail-container");
+    // Render task detail
     detailContainer.innerHTML =
       TaskDetailTemplate.renderTaskDetail(selectedTask);
-    document.body.appendChild(detailContainer);
+    // Add event update task
+    handleUpdateTask();
   }
-
   closeTaskDetail() {
     const detailContainers = document.querySelectorAll(
       ".detail-task-container"

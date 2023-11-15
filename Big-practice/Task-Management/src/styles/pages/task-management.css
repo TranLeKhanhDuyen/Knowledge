@@ -72,3 +72,16 @@
   outline: none;
   border: 1px solid var(--dark-grey-color);
 }
+
+.desc {
+  border-radius: 5px;
+  border: 1px solid var(--grey-rgb-color);
+  margin: 15px 0 8px;
+  padding: 10px;
+  width: 100%;
+}
+
+.desc:focus {
+  outline: none;
+  border: 1px solid var(--dark-grey-color);
+}

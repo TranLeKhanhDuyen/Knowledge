@@ -17,8 +17,6 @@ export default class TaskListModel {
   async addTask(taskName) {
     try {
       const newTask = this.createTask(taskName);
-      // return await this.apiTask.addItem(newTask);
-
       const apiResponse = await this.apiTask.addTask(newTask);
 
       // Assuming data property holds the new task
@@ -58,7 +56,7 @@ export default class TaskListModel {
       if (status !== 200) return this.showError(ERROR_MESSAGE[status]);
       return status;
     } catch (error) {
-      return this.showError(ERROR_MESSAGE).SERVER_ERROR;
+      return "error";
     }
   }
 }

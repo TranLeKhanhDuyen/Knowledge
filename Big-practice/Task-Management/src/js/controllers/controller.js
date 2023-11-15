@@ -19,14 +19,13 @@ export default class Controller {
   }
 
   async handleTaskDetail() {
-    this.taskItemView.bindTaskDetail(async (taskDetail) => {
-      return await this.taskListModel.getTask(taskDetail);
-    });
+    this.taskItemView.bindTaskDetail(this.handleUpdateTask);
   }
 
-  async handleUpdateTask() {
+  handleUpdateTask = () => {
+    console.log("handleUpdateTask this: ", this);
     this.taskDetailView.bindUpdateTask(async (id, updateData) => {
       return await this.taskListModel.edit(id, updateData);
     });
-  }
+  };
 }

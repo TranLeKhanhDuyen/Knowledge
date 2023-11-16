@@ -17,17 +17,10 @@ export default class TaskDetailView {
         const { data } = await handle(id, { description });
         try {
           this.updateData = { ...this.updateData, ...data };
-          this.showDesc();
         } catch (error) {
           alert(ERROR_MESSAGE.ADD_FAIL);
         }
       });
     }
-  }
-
-  showDesc() {
-    const descDisplay = document.querySelector(".task-desc");
-    descDisplay.innerHTML = "";
-    descDisplay.innerHTML += `${this.updateData.description}`;
   }
 }

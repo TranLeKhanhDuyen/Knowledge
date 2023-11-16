@@ -12,24 +12,24 @@ export default class Controller {
     this.handleUpdateTask();
   }
 
-  handleAddTask = async () => {
+  handleAddTask = () => {
     this.taskItemView.bindAddTask(async (task) => {
       return this.taskListModel.addTask(task);
     });
   };
 
-  handleTaskDetail = async () => {
+  handleTaskDetail = () => {
     this.taskItemView.bindTaskDetail(this.handleUpdateTask, (id) =>
       this.handleFindTask(id)
     );
   };
 
-  handleFindTask = async (id) => {
+  handleFindTask = (id) => {
     return this.taskListModel.find(id);
   };
 
-  handleUpdateTask = async () => {
-    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
+  handleUpdateTask = () => {
+    this.taskDetailView.bindUpdateTask((id, updateData) => {
       return this.taskListModel.edit(id, updateData);
     });
   };

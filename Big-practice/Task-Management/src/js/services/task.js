@@ -53,11 +53,14 @@ export default class APITask {
   }
 
   async edit(id, updateData) {
-    const response = await fetch(
-      `${API_TASKS}/${id}`,
+    const response = await fetch(`${API_TASKS}/${id}`,
       APIHelper.sendRequest("PATCH", updateData)
     );
+    const result = await response.json();
 
-    return { status: response.status };
+    return {
+      status: response.status,
+      data: result,
+    };
   }
 }

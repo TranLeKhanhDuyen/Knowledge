@@ -1,34 +1,26 @@
-import TaskDetailTemplate from "../template/taskDetail-template";
+import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskDetailView {
   constructor() {
-    this.formAddDesc = document.querySelector("form.add-description");
-    this.inputDesc = document.querySelector(".input-description");
-    this.taskListContainer = document.querySelector(".task-list-container");
     this.updateData = {};
   }
 
   // DOMContentLoaded -> bind event
   bindUpdateTask(handle) {
     const formAddDesc = document.querySelector("form.add-description");
-    const inputDesc = document.querySelector(".input-description");
+    const taskDescContent = document.querySelector(".task-desc");
     console.log(formAddDesc);
     if (formAddDesc) {
-      console.log(formAddDesc, " nhan duoc event");
-      inputDesc.addEventListener("keydown", async (e) => {
-        if (e.key === "Enter") {
-          console.log(e.key);
-          e.preventDefault();
-          const desc = inputDesc.value;
-          const id = document.querySelector(".detail-task-container").dataset
-            .id;
-          const taskDesc = await handle(id, desc); // 200
-          try {
-            this.updateData = [...this.updateData, {taskName: taskDesc}];
-            console.log(this.updateData);
-          } catch (erro) {
-            console.log("...");
-          }
+      taskDescContent.addEventListener("blur", async (e) => {
+        e.preventDefault();
+        const description = taskDescContent.textContent;
+        const id = document.querySelector(".detail-task-container").dataset.id;
+        const { data } = await handle(id, { description });
+        try {
+          this.updateData = { ...this.updateData, ...data };
+          this.showDesc();
+        } catch (error) {
+          alert(ERROR_MESSAGE.ADD_FAIL);
         }
       });
     }
@@ -37,9 +29,7 @@ export default class TaskDetailView {
   showDesc() {
     const descDisplay = document.querySelector(".task-desc");
     descDisplay.innerHTML = "";
-
-    this.updateData.forEach((task) => {
-      descDisplay.innerHTML += TaskDetailTemplate.renderTaskDetail([task]);
-    });
+    console.log(this.updateData);
+    descDisplay.innerHTML += `${this.updateData.description}`;
   }
 }

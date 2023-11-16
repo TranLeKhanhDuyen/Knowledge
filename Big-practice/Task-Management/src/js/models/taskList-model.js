@@ -50,7 +50,7 @@ export default class TaskListModel {
       if (status !== 200) return this.showError(ERROR_CODE[status]);
       return data;
     } catch (error) {
-      return this.showError("Vvv");
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
     }
   }
 

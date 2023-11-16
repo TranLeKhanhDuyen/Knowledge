@@ -23,7 +23,6 @@
   border-radius: 4px 4px 0px 0px;
   background: var(--secondary-color);
   padding-bottom: 50px;
-
   position: fixed;
   top: 40%;
   left: 50%;
@@ -60,7 +59,6 @@
   border-radius: 5px;
   border: 1px solid var(--grey-rgb-color);
   margin: 15px 0 8px;
-  /* padding: 10px; */
   padding: 19px 17px;
 }
 

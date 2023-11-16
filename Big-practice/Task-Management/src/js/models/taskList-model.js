@@ -1,11 +1,16 @@
 import APITask from "../services/task";
 import TaskModel from "./task-model";
+import { ERROR_CODE } from "../constants/message";
 import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskListModel {
   constructor() {
     this.tasks = [];
     this.apiTask = new APITask("/tasks");
+  }
+
+  bindError(callback) {
+    this.showError = callback;
   }
 
   createTask(taskName) {
@@ -42,7 +47,7 @@ export default class TaskListModel {
     try {
       const { status, data } = await this.apiTask.findTask(id);
 
-      if (status !== 200) return this.showError("vvvv");
+      if (status !== 200) return this.showError(ERROR_CODE[status]);
       return data;
     } catch (error) {
       return this.showError("Vvv");
@@ -54,11 +59,11 @@ export default class TaskListModel {
       const response = await this.apiTask.edit(id, updateData); //destructring
 
       if (response.status !== 200)
-        return this.showError(ERROR_MESSAGE[response.status]);
+        return this.showError(ERROR_CODE[response.status]);
 
       return response;
     } catch (error) {
-      return "error";
+      return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
 }

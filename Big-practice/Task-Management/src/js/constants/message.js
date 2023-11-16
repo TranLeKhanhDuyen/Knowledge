@@ -14,3 +14,20 @@ export const SUCCESS_MESSAGE = {
   ADD_TASK: "Add task successfully",
   DELETE_TASK: "Delete task successfully",
 };
+
+export const ERROR_CODE = {
+  // 4xx Client Error
+  400: "Bad Request",
+  401: "Unauthorized",
+  403: "Forbidden",
+  404: "Not Found",
+  405: "Method Not Allowed",
+  408: "Request Timeout",
+  429: "Too Many Requests",
+  // 5xx Server Error
+  500: "Internal Server Error",
+  501: "Not Implemented",
+  502: "Bad Gateway",
+  503: "Service Unavailable",
+  504: "Gateway Timeout",
+};

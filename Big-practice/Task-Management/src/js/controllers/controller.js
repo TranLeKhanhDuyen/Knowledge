@@ -10,6 +10,7 @@ export default class Controller {
     this.handleAddTask();
     this.handleTaskDetail();
     this.handleUpdateTask();
+    this.handleComments();
   }
 
   handleAddTask = () => {
@@ -31,6 +32,12 @@ export default class Controller {
   handleUpdateTask = () => {
     this.taskDetailView.bindUpdateTask((id, updateData) => {
       return this.taskListModel.edit(id, updateData);
+    });
+  };
+
+  handleComments = () => {
+    this.taskDetailView.bindComments((updateData) => {
+      return this.taskListModel.comments(updateData);
     });
   };
 }

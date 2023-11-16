@@ -39,11 +39,12 @@ export default class TaskDetailTemplate {
     <div class="comments-container">
       <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
+      <ul class="comments-list"></ul>
       <div class="commenters">
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
           <span class="user-name text-bold">Sara M.</span> 
-          <p class="time-ago text-sm">(${item.comments}) </p>
+          <p class="time-ago text-sm"></p>
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>

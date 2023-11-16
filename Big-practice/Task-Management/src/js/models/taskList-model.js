@@ -66,4 +66,23 @@ export default class TaskListModel {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
+
+  // //comment
+  // createComment(comments) {
+  //   const newComment = new TaskModel(comments);
+  //   this.tasks.push(newComment);
+  //   return newComment;
+  // }
+
+  // async comments(comments) {
+  //   try {
+  //     const newComment = this.createTask(comments);
+  //     const apiResponse = await this.apiTask.comment(newComment);
+
+  //     // Assuming data property holds the new task
+  //     return apiResponse.data;
+  //   } catch (error) {
+  //     throw new Error("Error occurred in adding process");
+  //   }
+  // }
 }

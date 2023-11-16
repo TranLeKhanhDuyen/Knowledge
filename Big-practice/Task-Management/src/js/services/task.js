@@ -57,7 +57,18 @@ export default class APITask {
       APIHelper.sendRequest("PATCH", updateData)
     );
     const result = await response.json();
+    return {
+      status: response.status,
+      data: result,
+    };
+  }
 
+  async comments(updateData) {
+    const response = await fetch(
+      API_TASKS,
+      APIHelper.sendRequest("PATCH", updateData)
+    );
+    const result = await response.json();
     return {
       status: response.status,
       data: result,

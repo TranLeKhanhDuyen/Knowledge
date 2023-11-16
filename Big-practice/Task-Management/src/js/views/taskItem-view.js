@@ -54,12 +54,7 @@ export default class TaskItemView {
     this.taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
       const taskId = taskItem.dataset.id;
-      // const selectedTask = this.tasks.find(
-      //   (task) => Number(task.id) === Number(taskId)
-      // );
-      const selectedTask = await handleFind(taskId)
-      console.log(selectedTask);
-      // console.log(handleUpdate);
+      const selectedTask = await handleFind(taskId);
       if (handleUpdate) {
         this.renderTaskDetail([selectedTask], handleUpdate);
 

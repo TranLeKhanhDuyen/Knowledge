@@ -53,7 +53,8 @@ export default class TaskListModel {
     try {
       const response = await this.apiTask.edit(id, updateData); //destructring
 
-      if (response.status !== 200) return this.showError(ERROR_MESSAGE[response.status]);
+      if (response.status !== 200)
+        return this.showError(ERROR_MESSAGE[response.status]);
 
       return response;
     } catch (error) {

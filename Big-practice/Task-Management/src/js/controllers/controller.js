@@ -29,7 +29,6 @@ export default class Controller {
   };
 
   handleUpdateTask = async () => {
-    console.log("handleUpdateTask this: ", this);
     this.taskDetailView.bindUpdateTask(async (id, updateData) => {
       return this.taskListModel.edit(id, updateData);
     });

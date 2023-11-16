@@ -60,9 +60,11 @@
   border-radius: 5px;
   border: 1px solid var(--grey-rgb-color);
   margin: 15px 0 8px;
-  padding: 10px;
+  /* padding: 10px; */
+  padding: 19px 17px;
 }
 
 .task-desc:focus {
   border: 1px solid var(--dark-grey-color);
+  outline: none;
 }

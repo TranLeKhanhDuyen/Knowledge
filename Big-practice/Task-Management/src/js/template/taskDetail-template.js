@@ -19,7 +19,7 @@ export default class TaskDetailTemplate {
           <option value="Old">Old</option>
         </select>
       </span>
-      <img class="close-icon" src="${iconClose}" alt="close icon">
+      <img class="close-icon cursor" src="${iconClose}" alt="close icon">
     </div>
 
     <div class="edit-task-container">

@@ -9,7 +9,6 @@ export default class TaskDetailView {
   bindUpdateTask(handle) {
     const formAddDesc = document.querySelector("form.add-description");
     const taskDescContent = document.querySelector(".task-desc");
-    console.log(formAddDesc);
     if (formAddDesc) {
       taskDescContent.addEventListener("blur", async (e) => {
         e.preventDefault();
@@ -29,7 +28,6 @@ export default class TaskDetailView {
   showDesc() {
     const descDisplay = document.querySelector(".task-desc");
     descDisplay.innerHTML = "";
-    console.log(this.updateData);
     descDisplay.innerHTML += `${this.updateData.description}`;
   }
 }

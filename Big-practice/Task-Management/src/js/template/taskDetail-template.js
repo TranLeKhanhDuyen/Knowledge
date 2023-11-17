@@ -7,10 +7,9 @@ export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail(data) {
-    if (Array.isArray(data)) {
-      return data
-        .map(
-          (item) => `
+    return data
+      .map(
+        (item) => `
     <div class="detail-task-container" data-id="${item.id}">
     <div class="detail-header text-xl text-bold">
       <span class="task-title">${item.taskName}
@@ -51,10 +50,7 @@ export default class TaskDetailTemplate {
     </div>
   </div>
   `
-        )
-        .join(" ");
-    } else {
-      return "";
-    }
+      )
+      .join(" ");
   }
 }

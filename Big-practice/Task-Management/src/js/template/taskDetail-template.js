@@ -7,9 +7,10 @@ export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail(data) {
-    return data
+    return `${data
       .map(
-        (item) => `
+        (item) =>
+          `
     <div class="detail-task-container" data-id="${item.id}">
     <div class="detail-header text-xl text-bold">
       <span class="task-title">${item.taskName}
@@ -26,7 +27,7 @@ export default class TaskDetailTemplate {
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
       <form action="#" method="get" class="add-description">
-        <p contenteditable="true" class = "task-desc">${item.description}</p>
+        <p contenteditable="true" class="task-desc">${item.description}</p>
       </form>
     </div>
 
@@ -51,6 +52,6 @@ export default class TaskDetailTemplate {
   </div>
   `
       )
-      .join(" ");
+      .join(" ")}`;
   }
 }

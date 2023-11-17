@@ -6,6 +6,7 @@ import { ERROR_MESSAGE } from "../constants/message";
 export default class TaskListModel {
   constructor() {
     this.tasks = [];
+    this.updateTask = {};
     this.apiTask = new APITask("/tasks");
   }
 
@@ -67,22 +68,37 @@ export default class TaskListModel {
     }
   }
 
-  // //comment
-  // createComment(comments) {
-  //   const newComment = new TaskModel(comments);
-  //   this.tasks.push(newComment);
-  //   return newComment;
-  // }
+  //comment
+  createComment(id, updateData) {
+    const newComment = new TaskModel(id, updateData);
+    this.updateTask.push(newComment);
+    return newComment;
+  }
 
-  // async comments(comments) {
+  async comments(id, updateData) {
+    try {
+      const newComment = this.createComment(id, updateData);
+      const apiResponse = await this.apiTask.comments(newComment);
+
+      // Assuming data property holds the new task
+      return apiResponse.data;
+    } catch (error) {
+      throw new Error("Error occurred in adding process");
+    }
+  }
+}
+
+  
+  // async comments(id, updateData) {
   //   try {
-  //     const newComment = this.createTask(comments);
-  //     const apiResponse = await this.apiTask.comment(newComment);
+  //     const response = await this.apiTask.comments(id, updateData); //destructring
 
-  //     // Assuming data property holds the new task
-  //     return apiResponse.data;
+  //     if (response.status !== 200)
+  //       return this.showError(ERROR_CODE[response.status]);
+
+  //     return response;
   //   } catch (error) {
-  //     throw new Error("Error occurred in adding process");
+  //     return this.showError(ERROR_MESSAGE.ADD_FAIL);
   //   }
   // }
-}
+

@@ -48,7 +48,7 @@ export default class TaskDetailTemplate {
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>
-      <p class="comments-content">${item.commentst}</p>
+      <p class="comments-content">${item.comments}</p>
     </div>
   </div>
   `

@@ -53,7 +53,8 @@ export default class APITask {
   }
 
   async edit(id, updateData) {
-    const response = await fetch(`${API_TASKS}/${id}`,
+    const response = await fetch(
+      `${API_TASKS}/${id}`,
       APIHelper.sendRequest("PATCH", updateData)
     );
     const result = await response.json();
@@ -63,10 +64,10 @@ export default class APITask {
     };
   }
 
-  async comments(updateData) {
+  async comments(id, updateData) {
     const response = await fetch(
-      API_TASKS,
-      APIHelper.sendRequest("PATCH", updateData)
+      `${API_TASKS}/${id}`,
+      APIHelper.sendRequest("POST", updateData)
     );
     const result = await response.json();
     return {

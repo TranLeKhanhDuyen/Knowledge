@@ -70,14 +70,17 @@ export default class TaskItemView {
 
   renderTaskDetail(selectedTask, handleUpdateTask) {
     const detailContainer = document.querySelector(".detail-container");
-    // Render task detail
-    detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(selectedTask);
+    detailContainer.innerHTML =
+      TaskDetailTemplate.renderTaskDetail(selectedTask);
     // Add event update task
     handleUpdateTask();
+    console.log(handleUpdateTask);
   }
 
   closeTaskDetail() {
-    const detailContainers = document.querySelectorAll(".detail-task-container");
+    const detailContainers = document.querySelectorAll(
+      ".detail-task-container"
+    );
     detailContainers.forEach((detailContainer) => {
       if (detailContainer) {
         detailContainer.classList.add("hidden");

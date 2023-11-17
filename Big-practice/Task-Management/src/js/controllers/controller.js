@@ -23,7 +23,8 @@ export default class Controller {
     this.taskItemView.bindTaskDetail(this.handleUpdateTask, (id) =>
       this.handleFindTask(id)
     );
-    this.taskDetailView.bindComments(this.handleComments)
+    this.taskDetailView.bindComments(this.handleComments, (id) =>
+    this.handleFindTask(id))
   };
 
   handleFindTask = (id) => {
@@ -38,7 +39,7 @@ export default class Controller {
 
   handleComments = () => {
     this.taskDetailView.bindComments((id, updateData) => {
-      return this.taskListModel.comments(id, updateData);
+      return this.taskListModel.edit(id, updateData);
     });
   };
 }

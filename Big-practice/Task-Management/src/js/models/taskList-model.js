@@ -69,23 +69,23 @@ export default class TaskListModel {
   }
 
   //comment
-  createComment(id, updateData) {
-    const newComment = new TaskModel(id, updateData);
-    this.updateTask.push(newComment);
-    return newComment;
-  }
+  // createComment(id, updateData) {
+  //   const newComment = new TaskModel(id, updateData);
+  //   this.updateTask.push(newComment);
+  //   return newComment;
+  // }
 
-  async comments(id, updateData) {
-    try {
-      const newComment = this.createComment(id, updateData);
-      const apiResponse = await this.apiTask.comments(newComment);
+  // async comments(id, updateData) {
+  //   try {
+  //     const newComment = this.createComment(id, updateData);
+  //     const apiResponse = await this.apiTask.comments(newComment);
 
-      // Assuming data property holds the new task
-      return apiResponse.data;
-    } catch (error) {
-      throw new Error("Error occurred in adding process");
-    }
-  }
+  //     // Assuming data property holds the new task
+  //     return apiResponse.data;
+  //   } catch (error) {
+  //     throw new Error("Error occurred in adding process");
+  //   }
+  // }
 }
 
   

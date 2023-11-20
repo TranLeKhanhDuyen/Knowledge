@@ -18,5 +18,8 @@ body {
 
 .hidden {
   visibility: hidden;
-  height: 0;
+}
+
+.cursor {
+  cursor: pointer;
 }

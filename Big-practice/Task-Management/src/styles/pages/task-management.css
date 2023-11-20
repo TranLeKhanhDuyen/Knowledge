@@ -19,10 +19,14 @@
 /* TASK-DETAIL */
 
 .detail-task-container {
-  max-width: 769px;
+  min-width: 769px;
   border-radius: 4px 4px 0px 0px;
   background: var(--secondary-color);
   padding-bottom: 50px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .detail-header {
@@ -51,6 +55,14 @@
   margin-top: 17px;
 }
 
-.task-description {
-  margin-top: 11px;
+.task-desc {
+  border-radius: 5px;
+  border: 1px solid var(--grey-rgb-color);
+  margin: 15px 0 8px;
+  padding: 19px 17px;
+}
+
+.task-desc:focus {
+  border: 1px solid var(--dark-grey-color);
+  outline: none;
 }

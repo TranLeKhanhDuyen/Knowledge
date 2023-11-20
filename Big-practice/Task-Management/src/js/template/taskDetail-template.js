@@ -6,24 +6,29 @@ import userAvatar from "../../assets/images/user.svg";
 export default class TaskDetailTemplate {
   constructor() {}
 
-  static renderTaskDetail = (data) => {
-    return `
-    <div class="detail-task-container">
+  static renderTaskDetail(data) {
+    return `${data
+      .map(
+        (item) =>
+          `
+    <div class="detail-task-container" data-id="${item.id}">
     <div class="detail-header text-xl text-bold">
-      <span class="task-title">${data.title}
+      <span class="task-title">${item.taskName}
         <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
         </select>
       </span>
-      <img class="close-icon" src="${iconClose}" alt="close icon">
+      <img class="close-icon cursor" src="${iconClose}" alt="close icon">
     </div>
 
     <div class="edit-task-container">
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <p class="task-description">${data.description}</p>
+      <form action="#" method="get" class="add-description">
+        <p contenteditable="true" class="task-desc">${item.description}</p>
+      </form>
     </div>
 
     <div class="date-container">
@@ -38,13 +43,15 @@ export default class TaskDetailTemplate {
         <figure class="user">
           <img class="user-avatar" src="${userAvatar}" alt="avatar">
           <span class="user-name text-bold">Sara M.</span> 
-          <p class="time-ago text-sm">(${data.comments}) </p>
+          <p class="time-ago text-sm">(${item.comments}) </p>
         </figure>
         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
       </div>
-      <p class="comments-content">${data.commentst}</p>
+      <p class="comments-content">${item.commentst}</p>
     </div>
   </div>
-    `;
-  };
+  `
+      )
+      .join(" ")}`;
+  }
 }

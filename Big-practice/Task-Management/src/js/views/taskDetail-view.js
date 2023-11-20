@@ -1,8 +1,9 @@
 import { ERROR_MESSAGE } from "../constants/message";
+import TaskDetailTemplate from "../template/taskDetail-template";
 
 export default class TaskDetailView {
   constructor() {
-    this.updateData = {};
+    this.updateData = [];
   }
 
   // DOMContentLoaded -> bind event
@@ -27,98 +28,47 @@ export default class TaskDetailView {
     }
 
     // Handle Comments
-    const formComment = document.querySelector(".comments-container");
+    // const formComment = document.querySelector(".comments-container");
     const inputComment = document.querySelector(".comments-input");
-    const commentDisplay = document.querySelector(".comments-content");
-
-    if (formComment) {
-      formComment.addEventListener("keydown", async (e) => {
+    if (inputComment) {
+      inputComment.addEventListener("keydown", async (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
           const comments = inputComment.value;
-          commentDisplay.textContent = comments
-          console.log("comments", comments);
-          // const id = document.querySelector(".detail-task-container").dataset.id;
-          // console.log("id", id);
-          const { data } = await handle({ comments });
+          console.log(comments);
+          const id = document.querySelector(".detail-task-container").dataset
+            .id;
+          console.log(id);
+          const { data } = await handle(id, { comments });
+          console.log(data);
           try {
             this.updateData = { ...this.updateData, ...data };
-
+            console.log(this.updateData);
             this.showComment();
+            console.log(this.showComment);
             inputComment.value = "";
           } catch (error) {
-            alert(ERROR_MESSAGE.ADD_FAIL);
+            alert("cmt is emty");
+            // alert(ERROR_MESSAGE.ADD_FAIL);
           }
         }
       });
     }
   }
 
-  // showComment() {
-  //   const commentContainer = document.querySelector(".show-comments");
-  //   // const commentDisplay = document.querySelector(".comments-content");
-  //   // console.log(commentDisplay)
-  //   commentContainer.innerHTML = "";
-
-  //   this.updateData.forEach((comments) => {
-  //     commentContainer.innerHTML += ``;
-  //   });
-  // }
-
   showComment() {
-    const commentList = document.querySelector(".show-comments");
-    this.updateData.forEach((comment) => {
-      const commentItem = document.createElement("li");
-      commentItem.innerHTML = `<p class="comments-content">${comment}</p>`;
-      commentList.appendChild(commentItem);
-    });
+    console.log("show cmt");
+    const commentDisplay = document.querySelector(".comment-list");
+    commentDisplay.innerHTML = "";
+
+    if (this.updateData) {
+      this.updateData.forEach((comments) => {
+        commentDisplay.innerHTML += TaskDetailTemplate.renderComment([
+          comments,
+        ]);
+      });
+    } else {
+      console.error("updateData is not an array", this.updateData);
+    }
   }
-  
-
-  bindComments() {
-    const formComment = document.querySelector(".comments-container");
-    const inputComment = document.querySelector(".comments-input");
-    console.log("formComment", formComment);
-    console.log("inputComment", inputComment);
-    // if (formComment) {
-    //   formComment.addEventListener("keydown", async (e) => {
-    //     if (e.key === "Enter") {
-    //       e.preventDefault();
-    //       const comments = inputComment.value;
-    //       console.log("comments", comments);
-    //       const id = document.querySelector(".detail-task-container").dataset
-    //         .id;
-    //       console.log("id", id);
-    //       const { data } = await handle(id, { comments });
-    //       try {
-    //         this.updateData = { ...this.updateData, ...data };
-
-    //         this.showComment();
-    //         inputComment.value = "";
-    //       } catch (error) {
-    //         alert(ERROR_MESSAGE.ADD_FAIL);
-    //       }
-    //     }
-    //   });
-    // }
-  }
-
-  // showComment() {
-  //   const commentDisplay = document.querySelector(".comment-list");
-  //   commentDisplay.innerHTML = "";
-
-  //   this.updateData.forEach((comments) => {
-  //     commentDisplay.innerHTML += `<li>
-  //     <p class="comments-content">${comments}</p>
-  //     <div class="commenters">
-  //       <figure class="user">
-  //         <img class="user-avatar"  alt="avatar">
-  //         <span class="user-name text-bold">Sara M.</span>
-  //         <p class="time-ago text-sm">${comments}</p>
-  //       </figure>
-  //       <img class="delete-icon" alt="delete icon">
-  //     </div>
-  //   </li>`;
-  //   });
-  // }
 }

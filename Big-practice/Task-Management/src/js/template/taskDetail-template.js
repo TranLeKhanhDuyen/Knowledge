@@ -7,10 +7,10 @@ export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail(data) {
-    if (Array.isArray(data)) {
-      return data
-        .map(
-          (item) => `
+    return `${data
+      .map(
+        (item) =>
+          `
     <div class="detail-task-container" data-id="${item.id}">
     <div class="detail-header text-xl text-bold">
       <span class="task-title">${item.taskName}
@@ -27,7 +27,7 @@ export default class TaskDetailTemplate {
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
       <form action="#" method="get" class="add-description">
-        <p contenteditable="true" class = "task-desc">${item.description}</p>
+        <p contenteditable="true" class="task-desc">${item.description}</p>
       </form>
     </div>
 
@@ -39,25 +39,32 @@ export default class TaskDetailTemplate {
     <div class="comments-container">
       <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
-      <ul class="comments-list"></ul>
-      <div class = "show-comments">
-        <div class="commenters">
-          <figure class="user">
-            <img class="user-avatar" src="${userAvatar}" alt="avatar">
-            <span class="user-name text-bold">Sara M.</span> 
-            <p class="time-ago text-sm"></p>
-         </figure>
-          <img class="delete-icon" src="${iconDelete}" alt="delete icon">
-      </div>
-      <p class="comments-content">${item.comments}</p>
-      </div>
+      <ul class="comment-list"></ul>
     </div>
   </div>
   `
-        )
-        .join(" ");
-    } else {
-      return "";
-    }
+      )
+      .join(" ")}`;
+  }
+
+  static renderComment(data) {
+    return `${data
+      .map(
+        (item) =>
+          `
+      <li class="commenters">
+        <div class="commenter">
+          <figure class="user">
+            <img class="user-avatar" src="${userAvatar}" alt="avatar">
+            <span class="user-name text-bold">Sara M.</span> 
+            <p class="time-ago text-sm">(${item.comments}) </p>
+         </figure>
+         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
+        </div>
+        <p class="comment-content">${item.comments}</p>
+      </li>
+  `
+      )
+      .join(" ")}`;
   }
 }

@@ -48,23 +48,18 @@ export default class TaskDetailTemplate {
   }
 
   static renderComment(data) {
-    return `${data
-      .map(
-        (item) =>
-          `
+    return `
       <li class="commenters">
         <div class="commenter">
           <figure class="user">
             <img class="user-avatar" src="${userAvatar}" alt="avatar">
             <span class="user-name text-bold">Sara M.</span> 
-            <p class="time-ago text-sm">(${item.comments}) </p>
+            <p class="time-ago text-sm"></p>
          </figure>
-         <img class="delete-icon" src="${iconDelete}" alt="delete icon">
+         <img class="delete-icon cursor" src="${iconDelete}" alt="delete icon">
         </div>
-        <p class="comment-content">${item.comments}</p>
+        <p class="comment-content">${data.comments}</p>
       </li>
-  `
-      )
-      .join(" ")}`;
+  `;
   }
 }

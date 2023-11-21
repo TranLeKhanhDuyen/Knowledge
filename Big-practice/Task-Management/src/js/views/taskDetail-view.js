@@ -3,7 +3,7 @@ import TaskDetailTemplate from "../template/taskDetail-template";
 
 export default class TaskDetailView {
   constructor() {
-    this.updateData = [];
+    this.updateData = {};
   }
 
   // DOMContentLoaded -> bind event
@@ -28,47 +28,53 @@ export default class TaskDetailView {
     }
 
     // Handle Comments
-    // const formComment = document.querySelector(".comments-container");
     const inputComment = document.querySelector(".comments-input");
-    if (inputComment) {
-      inputComment.addEventListener("keydown", async (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          const comments = inputComment.value;
-          console.log(comments);
-          const id = document.querySelector(".detail-task-container").dataset
-            .id;
-          console.log(id);
-          const { data } = await handle(id, { comments });
-          console.log(data);
+    inputComment.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const comments = inputComment.value.trim();
+        const id = document.querySelector(".detail-task-container").dataset.id;
+        const { data } = await handle(id, { comments });
+        if (comments !== "") {
           try {
             this.updateData = { ...this.updateData, ...data };
-            console.log(this.updateData);
             this.showComment();
-            console.log(this.showComment);
             inputComment.value = "";
           } catch (error) {
             alert("cmt is emty");
             // alert(ERROR_MESSAGE.ADD_FAIL);
           }
+        } else {
+          alert("Comment cannot be empty");
         }
-      });
-    }
+      }
+    });
   }
 
   showComment() {
-    console.log("show cmt");
     const commentDisplay = document.querySelector(".comment-list");
     commentDisplay.innerHTML = "";
 
+    // if (this.updateData.length > 0) {
+    //   this.updateData.forEach((data) => {
+    //     const renderedComment = TaskDetailTemplate.renderComment(data);
+    //     commentDisplay.innerHTML += renderedComment;
+    //   });
+    // } else {
+    //   console.error(
+    //     "updateData không xác định hoặc không phải là một mảng có dữ liệu",
+    //     this.updateData
+    //   );
+    // }
+
     if (this.updateData) {
-      this.updateData.forEach((comments) => {
-        commentDisplay.innerHTML += TaskDetailTemplate.renderComment([
-          comments,
-        ]);
-      });
+      const renderedComment = TaskDetailTemplate.renderComment(this.updateData);
+      commentDisplay.innerHTML += renderedComment;
     } else {
-      console.error("updateData is not an array", this.updateData);
+      console.error(
+        "updateData không xác định hoặc không phải là một đối tượng",
+        this.updateData
+      );
     }
   }
 }

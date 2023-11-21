@@ -36,16 +36,11 @@ export default class TaskDetailView {
         const id = document.querySelector(".detail-task-container").dataset.id;
         const { data } = await handle(id, { comments });
         if (comments !== "") {
-          try {
-            this.updateData = { ...this.updateData, ...data };
-            this.showComment();
-            inputComment.value = "";
-          } catch (error) {
-            alert("cmt is emty");
-            // alert(ERROR_MESSAGE.ADD_FAIL);
-          }
+          this.updateData = { ...this.updateData, ...data };
+          this.showComment();
+          inputComment.value = "";
         } else {
-          alert("Comment cannot be empty");
+          alert(ERROR_MESSAGE.COMMENT_EMPTY);
         }
       }
     });
@@ -54,27 +49,9 @@ export default class TaskDetailView {
   showComment() {
     const commentDisplay = document.querySelector(".comment-list");
     commentDisplay.innerHTML = "";
-
-    // if (this.updateData.length > 0) {
-    //   this.updateData.forEach((data) => {
-    //     const renderedComment = TaskDetailTemplate.renderComment(data);
-    //     commentDisplay.innerHTML += renderedComment;
-    //   });
-    // } else {
-    //   console.error(
-    //     "updateData không xác định hoặc không phải là một mảng có dữ liệu",
-    //     this.updateData
-    //   );
-    // }
-
     if (this.updateData) {
       const renderedComment = TaskDetailTemplate.renderComment(this.updateData);
       commentDisplay.innerHTML += renderedComment;
-    } else {
-      console.error(
-        "updateData không xác định hoặc không phải là một đối tượng",
-        this.updateData
-      );
     }
   }
 }

@@ -19,7 +19,7 @@ export default class TaskItemTemplate {
       return data
         .map(
           (item) => `
-      <li class="task-item-container" data-id="${item.id}">
+      <li class="task-item-container" draggable="true" data-id="${item.id}">
         <div class="task-content text-md">
           <h3 class="task-title">${item.taskName}</h3>       
           <img src="${iconDelete}" alt="delete icon" class="delete-icon">

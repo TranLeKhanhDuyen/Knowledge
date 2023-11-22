@@ -4,21 +4,16 @@ import TaskDetailTemplate from "../template/taskDetail-template";
 
 export default class TaskItemView {
   constructor() {
-    this.taskList = document.querySelector(".task-list");
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.taskDetail = document.querySelector(".detail-task-container");
-    // this.todos = document.querySelectorAll(".task-item-container");
 
-    // this.board = document.querySelector(".task-board");
-    // Get tasks from API
     this.tasks = [];
     this.handleDrag();
   }
 
   updateDraggableTasks() {
     // Add event listeners for each task item
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     const todos = document.querySelectorAll(".task-item-container");
     todos.forEach((task) => {
       task.addEventListener("dragstart", this.dragStart.bind(this));
@@ -64,7 +59,8 @@ export default class TaskItemView {
   /* HANDLER TASK DETAIL */
 
   bindTaskDetail(handleUpdate, handleFind) {
-    this.taskList.addEventListener("click", async (e) => {
+    const taskList = document.querySelector(".task-list");
+    taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
       const taskId = taskItem.dataset.id;
       const selectedTask = await handleFind(taskId);
@@ -125,7 +121,6 @@ export default class TaskItemView {
 
   dragStart(e) {
     e.dataTransfer.setData("text/plain", e.target.dataset.id);
-    console.log(e.target.dataset.id); //ok
     // Add a class để biểu thị việc drag
     e.target.classList.add("dragged-task");
     console.log("dragStart");
@@ -151,10 +146,41 @@ export default class TaskItemView {
     const targetBoard = e.target.closest(".task-board");
 
     if (targetBoard && draggedTask) {
+      // Kiểm tra và đặt giá trị mặc định cho targetBoard.id
+      const targetBoardId = targetBoard.id || "js-default";
+
+      // Đảm bảo targetBoardId chứa ít nhất hai phần tử trước khi sử dụng split
+      const newStatus = targetBoardId.split("js-")[1] || null;
+
+      const oldStatus = draggedTask.dataset.status;
+
+      // Cập nhật trạng thái của taskItem trong this.tasks
+      const updateTasks = this.tasks.map((task) => {
+        console.log(targetBoard.id);
+        if (task.id === taskId) {
+          task.status = newStatus;
+        }
+        return task;
+      });
+
+      this.tasks = updateTasks;
+
+      // Di chuyển taskItem đến trạng thái mới
       draggedTask.parentNode.removeChild(draggedTask);
       targetBoard.querySelector(".task-list").appendChild(draggedTask);
 
+      // Xoá taskItem khỏi trạng thái cũ
+      this.tasks = this.tasks.filter((task) => task.status !== oldStatus);
+      this.updateAfterDrop(taskId, targetBoard, oldStatus);
       this.updateDraggableTasks();
     }
   }
+
+  // updateAfterDrop(taskId, targetBoard, oldStatus) {
+  //   const [, newStatus] = targetBoard.id.split("js-")[1]; // Giả sử ID của board có dạng "js-[status]"
+  //   this.updateData = this.updateData || {};
+  //   this.updateData.status = newStatus;
+  //   oldStatus(taskId, this.updateData);
+  //   this.updateData = {};
+  // }
 }

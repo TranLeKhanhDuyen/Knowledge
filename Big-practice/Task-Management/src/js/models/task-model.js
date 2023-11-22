@@ -1,4 +1,5 @@
 import date from "../utilities/date";
+import STATUS from "../constants/status";
 
 export default class TaskModel {
   constructor(taskName) {
@@ -7,6 +8,6 @@ export default class TaskModel {
     this.dueDate = date.getDueDate();
     this.createdDate = date.getCurrentDate();
     this.comments = "";
-    this.status = "";
+    this.status = STATUS.TODO;
   }
 }

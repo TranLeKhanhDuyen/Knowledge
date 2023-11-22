@@ -54,13 +54,24 @@ export default class TaskListModel {
     }
   }
 
-  async edit(id, updateData) {
+  async edit(id, newStatus) {
     try {
+      const updateData = { status: newStatus };
+
       const response = await this.apiTask.edit(id, updateData); //destructring
 
       if (response.status !== 200)
         return this.showError(ERROR_CODE[response.status]);
 
+      // Cập nhật trạng thái của công việc trong danh sách tasks
+      const updatedTasks = this.tasks.map((task) => {
+        if (task.id === id) {
+          task.status = newStatus;
+        }
+        return task;
+      });
+
+      this.tasks = updatedTasks;
       return response;
     } catch (error) {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);

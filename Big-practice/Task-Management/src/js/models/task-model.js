@@ -7,5 +7,6 @@ export default class TaskModel {
     this.dueDate = date.getDueDate();
     this.createdDate = date.getCurrentDate();
     this.comments = "";
+    this.status = "";
   }
 }

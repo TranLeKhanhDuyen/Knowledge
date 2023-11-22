@@ -6,7 +6,6 @@ import { ERROR_MESSAGE } from "../constants/message";
 export default class TaskListModel {
   constructor() {
     this.tasks = [];
-    this.updateTask = {};
     this.apiTask = new APITask("/tasks");
   }
 

@@ -63,16 +63,4 @@ export default class APITask {
       data: result,
     };
   }
-
-  async comments(id, updateData) {
-    const response = await fetch(
-      `${API_TASKS}/${id}`,
-      APIHelper.sendRequest("POST", updateData)
-    );
-    const result = await response.json();
-    return {
-      status: response.status,
-      data: result,
-    };
-  }
 }

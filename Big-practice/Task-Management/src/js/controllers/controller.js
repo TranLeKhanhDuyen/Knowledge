@@ -10,7 +10,6 @@ export default class Controller {
     this.handleAddTask();
     this.handleTaskDetail();
     this.handleUpdateTask();
-    this.handleComments();
   }
 
   handleAddTask = () => {
@@ -23,8 +22,6 @@ export default class Controller {
     this.taskItemView.bindTaskDetail(this.handleUpdateTask, (id) =>
       this.handleFindTask(id)
     );
-    // this.taskDetailView.bindComments(this.handleComments, (id) =>
-    // this.handleFindTask(id))
   };
 
   handleFindTask = (id) => {
@@ -35,11 +32,5 @@ export default class Controller {
     this.taskDetailView.bindUpdateTask((id, updateData) => {
       return this.taskListModel.edit(id, updateData);
     });
-  };
-
-  handleComments = () => {
-    // this.taskDetailView.bindComments((id, updateData) => {
-    //   return this.taskListModel.edit(id, updateData);
-    // });
   };
 }

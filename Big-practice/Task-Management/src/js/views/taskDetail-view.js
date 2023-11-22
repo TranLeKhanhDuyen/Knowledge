@@ -10,13 +10,10 @@ export default class TaskDetailView {
   bindUpdateTask(handle) {
     const formAddDesc = document.querySelector("form.add-description");
     const taskDescContent = document.querySelector(".task-desc");
-    console.log("formAddDesc", formAddDesc);
-    console.log("taskDescContent", taskDescContent);
     if (formAddDesc) {
       taskDescContent.addEventListener("blur", async (e) => {
         e.preventDefault();
         const description = taskDescContent.textContent;
-        console.log("description", description);
         const id = document.querySelector(".detail-task-container").dataset.id;
         const { data } = await handle(id, { description });
         try {

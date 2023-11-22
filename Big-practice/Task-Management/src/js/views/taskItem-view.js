@@ -74,7 +74,6 @@ export default class TaskItemView {
       TaskDetailTemplate.renderTaskDetail(selectedTask);
     // Add event update task
     handleUpdateTask();
-    console.log(handleUpdateTask);
   }
 
   closeTaskDetail() {

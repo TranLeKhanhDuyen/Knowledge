@@ -9,14 +9,21 @@ export default class Controller {
   init() {
     this.handleAddTask();
     this.handleTaskDetail();
-    this.handleUpdateTask();
     this.handleUpdateTaskStatus();
+    this.handleUpdateTask();
   }
 
+
+
   handleAddTask = () => {
-    this.taskItemView.bindAddTask(async (task) => {
-      return this.taskListModel.addTask(task);
-    });
+    this.taskItemView.bindAddTask(
+      async (task) => {
+        return await this.taskListModel.addTask(task);
+      },
+      async (taskId, newStatus) => {
+        return await this.taskListModel.edit(taskId, newStatus);
+      }
+    );
   };
 
   handleTaskDetail = () => {
@@ -25,17 +32,24 @@ export default class Controller {
     );
   };
 
+  handleUpdateTaskStatus = () => {
+    this.taskItemView.updateDraggableTasks((taskId, newStatus) => {
+      return this.taskListModel.edit(taskId, newStatus);
+    });
+  };
+
   handleFindTask = (id) => {
     return this.taskListModel.find(id);
   };
 
   handleUpdateTask = () => {
     this.taskDetailView.bindUpdateTask((id, updateData) => {
-      return this.taskListModel.edit(id, updateData);
+      
+      // data: task list
+      const data = this.taskListModel.edit(id, updateData);
+      this.taskItemView.renderListTask(data)
     });
-  };
 
-  handleUpdateTaskStatus = (taskId, newStatus) => {
-    return this.taskListModel.updateTaskStatus(taskId, newStatus);
+    
   };
 }

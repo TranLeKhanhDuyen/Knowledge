@@ -54,11 +54,11 @@ export default class TaskListModel {
     }
   }
 
-  async edit(id, newStatus) {
+  async edit(id, payload) {
     try {
-      const updateData = { status: newStatus };
+      // const updateData = { status: newStatus };
 
-      const response = await this.apiTask.edit(id, updateData); //destructring
+      const response = await this.apiTask.edit(id, payload); //destructring
 
       if (response.status !== 200)
         return this.showError(ERROR_CODE[response.status]);

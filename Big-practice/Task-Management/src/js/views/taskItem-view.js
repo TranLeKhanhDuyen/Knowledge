@@ -10,14 +10,13 @@ export default class TaskItemView {
     this.taskDetail = document.querySelector(".detail-task-container");
 
     this.tasks = [];
-    this.updateDraggableTasks();
   }
 
   resetForm() {
     this.taskInput.parentElement.reset();
   }
 
-  showTaskItem() {
+  showTaskItem(handleUpdate) {
     // Get task list area
     const taskListDisplay = document.querySelector(".task-list");
     taskListDisplay.innerHTML = "";
@@ -26,10 +25,10 @@ export default class TaskItemView {
       taskListDisplay.innerHTML += TaskItemTemplate.renderTaskItem([task]);
     });
 
-    this.updateDraggableTasks();
+    this.updateDraggableTasks(handleUpdate);
   }
 
-  bindAddTask(handle) {
+  bindAddTask(handle, handleUpdate) {
     this.formAddTask.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -38,7 +37,7 @@ export default class TaskItemView {
         try {
           this.tasks = [...this.tasks, newTask];
           // Show the tasks
-          this.showTaskItem();
+          this.showTaskItem(handleUpdate);
           // Reset the form
           this.resetForm();
         } catch (error) {
@@ -88,31 +87,38 @@ export default class TaskItemView {
     });
   }
 
-  /* HANFLE DRAG DROP */
-
-  updateDraggableTasks() {
+  /* HANDLE DRAG DROP */
+  //remove -> add
+  
+  updateDraggableTasks(handler) {
     // Add event listeners for each task item
     const todos = document.querySelectorAll(".task-item-container");
+
+    console.log("todos", todos)
+
     todos.forEach((task) => {
+      console.log("hi");
       task.addEventListener("dragstart", this.dragStart.bind(this));
       task.addEventListener("dragend", this.dragEnd.bind(this));
     });
 
+    console.log("handler 10", handler);
+
     const taskBoards = document.querySelectorAll(".task-board");
     taskBoards.forEach((board) => {
       board.addEventListener("dragover", this.dragOver.bind(this));
-      board.addEventListener("drop", this.dragDrop.bind(this));
+      board.addEventListener("drop", (e) => this.dragDrop(e, handler));
     });
   }
 
   dragStart(e) {
     e.dataTransfer.setData("text/plain", e.target.dataset.id);
-    console.log(e.target.dataset); //OK
+    console.log("ni", e.target.dataset); //OK
 
-    console.log("dragStart status:", e.target.dataset.statusS); //OK
+    console.log("dragStart status:", e.target.dataset.status); //OK
     // Stores the current state
-    e.target.dataset.oldStatus = e.target.dataset.status;
-    console.log("oldStatus:", e.target.dataset.oldStatus); //OK
+    // e.target.dataset.oldStatus = e.target.dataset.status;
+    // console.log("oldStatus:", e.target.dataset.oldStatus); //OK
 
     // Add class to represent drag
     e.target.classList.add("dragged-task");
@@ -131,32 +137,34 @@ export default class TaskItemView {
     e.preventDefault();
   }
 
-  dragDrop(e) {
+  dragDrop = async (e, handler) => {
     e.preventDefault();
+
+    // console.log("e", e.dataTransfer)
     const taskId = e.dataTransfer.getData("text/plain");
-    console.log("taskId:", taskId); //OK
+
+    // console.log("taskId:", taskId); //OK
     const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
-    console.log("draggedTask: ", draggedTask); //OK
+    // console.log("draggedTask: ", draggedTask); //OK
     const targetBoard = e.target.closest(".task-board");
-    console.log("targetBoard:", targetBoard);
+    // console.log("targetBoard:", targetBoard);
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || "js-default";
-      console.log("targetBoardId: ", targetBoardId);
-
-      if (targetBoardId.startsWith("js-")) {
-        const newStatus = targetBoardId.split("js-")[1] || null; //OK
-        console.log("newStatus:", newStatus);
-      } else {
-        console.error("Not work:", targetBoardId);
-      }
+      // console.log("targetBoardId: ", targetBoardId);
 
       const newStatus = targetBoardId.split("js-")[1] || null; //OK
-      console.log("newStatus:", newStatus);
+      // console.log("newStatus:", newStatus);
+
+      console.log("handler 20", handler)
+
+      handler(taskId, { status: newStatus });
+
+      // console.log("data dc di ma", data);
 
       const oldStatus = draggedTask.dataset.oldStatus; //FAIL
-      console.log("oldStatus:", oldStatus);
+      // console.log("oldStatus:", oldStatus);
 
       // Update status for item of this.tasks
       const updateTasks = this.tasks.map((task) => {
@@ -165,7 +173,6 @@ export default class TaskItemView {
           task.status = newStatus;
           console.log(newStatus);
         }
-        console.log(newStatus);
         return task;
       });
 

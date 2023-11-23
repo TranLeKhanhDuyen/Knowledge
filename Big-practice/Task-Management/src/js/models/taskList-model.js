@@ -63,7 +63,7 @@ export default class TaskListModel {
       if (response.status !== 200)
         return this.showError(ERROR_CODE[response.status]);
 
-      // Cập nhật trạng thái của công việc trong danh sách tasks
+      // Update state in tasks
       const updatedTasks = this.tasks.map((task) => {
         if (task.id === id) {
           task.status = newStatus;

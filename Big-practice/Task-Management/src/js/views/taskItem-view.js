@@ -70,7 +70,6 @@ export default class TaskItemView {
 
   renderTaskDetail(selectedTask, handleUpdateTask) {
     const detailContainer = document.querySelector(".detail-container");
-    // Render task detail
     detailContainer.innerHTML =
       TaskDetailTemplate.renderTaskDetail(selectedTask);
     // Add event update task

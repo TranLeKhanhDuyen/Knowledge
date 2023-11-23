@@ -15,12 +15,12 @@
   outline: none;
 }
 
-.commenters {
+.commenter {
   margin-top: 24px;
   display: flex;
   justify-content: space-between;
 }
 
-.comments-content {
+.comment-content {
   margin: 2px 44px;
 }

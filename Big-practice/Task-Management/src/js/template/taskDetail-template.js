@@ -39,19 +39,27 @@ export default class TaskDetailTemplate {
     <div class="comments-container">
       <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
-      <div class="commenters">
-        <figure class="user">
-          <img class="user-avatar" src="${userAvatar}" alt="avatar">
-          <span class="user-name text-bold">Sara M.</span> 
-          <p class="time-ago text-sm">(${item.comments}) </p>
-        </figure>
-        <img class="delete-icon" src="${iconDelete}" alt="delete icon">
-      </div>
-      <p class="comments-content">${item.commentst}</p>
+      <ul class="comment-list"></ul>
     </div>
   </div>
   `
       )
       .join(" ")}`;
+  }
+
+  static renderComment(data) {
+    return `
+      <li class="commenters">
+        <div class="commenter">
+          <figure class="user">
+            <img class="user-avatar" src="${userAvatar}" alt="avatar">
+            <span class="user-name text-bold">Sara M.</span> 
+            <p class="time-ago text-sm"></p>
+         </figure>
+         <img class="delete-icon cursor" src="${iconDelete}" alt="delete icon">
+        </div>
+        <p class="comment-content">${data.comments}</p>
+      </li>
+  `;
   }
 }

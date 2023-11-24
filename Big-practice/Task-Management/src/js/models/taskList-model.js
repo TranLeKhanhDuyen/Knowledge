@@ -56,23 +56,11 @@ export default class TaskListModel {
 
   async edit(id, payload) {
     try {
-      // const updateData = { status: newStatus };
 
-      const response = await this.apiTask.edit(id, payload); //destructring
+      const response = await this.apiTask.edit(id, payload); 
 
       if (response.status !== 200)
         return this.showError(ERROR_CODE[response.status]);
-
-      // Update state in tasks
-      const updatedTasks = this.tasks.map((task) => {
-        if (task.id === id) {
-          task.status = newStatus;
-        }
-        return task;
-      });
-
-      this.tasks = updatedTasks;
-      return response;
     } catch (error) {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }

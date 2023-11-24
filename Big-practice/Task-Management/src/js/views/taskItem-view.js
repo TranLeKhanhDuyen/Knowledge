@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import TaskItemTemplate from "../template/taskItem-template";
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../template/taskDetail-template";
@@ -8,6 +7,7 @@ export default class TaskItemView {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
     this.taskDetail = document.querySelector(".detail-task-container");
+    this.taskList = document.querySelector(".task-list");
 
     this.tasks = [];
   }
@@ -18,11 +18,10 @@ export default class TaskItemView {
 
   showTaskItem(handleUpdate) {
     // Get task list area
-    const taskListDisplay = document.querySelector(".task-list");
-    taskListDisplay.innerHTML = "";
+    this.taskList.innerHTML = "";
 
     this.tasks.forEach((task) => {
-      taskListDisplay.innerHTML += TaskItemTemplate.renderTaskItem([task]);
+      this.taskList.innerHTML += TaskItemTemplate.renderTaskItem([task]);
     });
 
     this.updateDraggableTasks(handleUpdate);
@@ -50,8 +49,7 @@ export default class TaskItemView {
   /* HANDLER TASK DETAIL */
 
   bindTaskDetail(handleUpdate, handleFind) {
-    const taskList = document.querySelector(".task-list");
-    taskList.addEventListener("click", async (e) => {
+    this.taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
       const taskId = taskItem.dataset.id;
       const selectedTask = await handleFind(taskId);

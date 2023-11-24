@@ -7,9 +7,15 @@ export default class Controller {
   }
 
   init() {
-    this.handleAddTask();
-    this.handleTaskDetail();
-    this.handleUpdateTask();
+    this.taskItemView.syncTasks().then(()=>{
+      this.handleAddTask();
+      this.handleDragDropBoard()
+      // this.ite
+      // this.taskListModel.deleteTask(1).then(res=> console.log(res))
+      this.handleTaskDetail();
+      this.handleUpdateTask();
+
+    })
   }
 
   handleAddTask = () => {
@@ -19,6 +25,17 @@ export default class Controller {
       },
       async (taskId, newStatus) => {
         return await this.taskListModel.edit(taskId, newStatus);
+      }
+    );
+  };
+  handleDragDropBoard = () => {
+    this.taskItemView.addBoardEvent(
+      
+      async (taskId, newStatus) => {
+        const res =await this.taskListModel.edit(taskId, newStatus);
+        const tasks= await this.taskListModel.getTask();
+        this.taskItemView.revalidateTasks(tasks)
+        return res
       }
     );
   };

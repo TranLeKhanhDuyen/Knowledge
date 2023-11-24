@@ -4,19 +4,38 @@ import { ERROR_CODE } from "../constants/message";
 import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskListModel {
-  constructor() {
-    this.tasks = [];
+   constructor() {
     this.apiTask = new APITask("/tasks");
+    this.tasks =   [];
+    this.syncTasks().then(res=>res)
   }
-
+  
   bindError(callback) {
     this.showError = callback;
   }
+  
+  async syncTasks() {
+    this.tasks =  await this.apiTask.getTask().then(res => res.data) || [];
+    // console.log(this.tasks)
+  }
+
 
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
     this.tasks.push(newTask);
     return newTask;
+  }
+  async deleteTask(id) {
+    
+    try {
+      // const newTask = this.deleteTask(taskName);
+      const apiResponse = await this.apiTask.delete(id);
+  
+      // Assuming data property holds the new task
+      return apiResponse.data;
+    } catch (error) {
+      throw new Error("Error occurred in adding process");
+    }
   }
 
   async addTask(taskName) {
@@ -42,6 +61,7 @@ export default class TaskListModel {
       throw new Error("Error occurred in getting task detail");
     }
   }
+  
 
   async find(id) {
     try {

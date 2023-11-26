@@ -14,13 +14,11 @@ export default class TaskItemView {
     this.listDone = document.querySelector("#done");
     this.listArchived = document.querySelector("#archived");
     // this.tasks = []; // lấy từ model
-    // this.syncTasks().then(res=>res)
   }
 
   async syncTasks() {
     this.tasks =
       (await new APITask("/tasks").getTask().then((res) => res.data)) || [];
-    // console.log(this.tasks)
   }
 
   resetForm() {
@@ -29,11 +27,17 @@ export default class TaskItemView {
 
   showTaskItem(handleUpdate) {
     // Get task list area
-    // this.taskList.innerHTML = "";
     this.listTodo.innerHTML = "";
     this.listProgress.innerHTML = "";
     this.listDone.innerHTML = "";
     this.listArchived.innerHTML = "";
+    console.log([
+      this.listTodo,
+      this.listProgress,
+      this.listDone,
+      this.listArchived,
+    ]);
+
     const taskStatus = ["todo", "inprogress", "done", "archived"];
     Array.from([
       this.listTodo,
@@ -47,6 +51,7 @@ export default class TaskItemView {
       console.log(this.tasks);
       listElm.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
     });
+
     this.updateDraggableTasks(handleUpdate);
   }
 
@@ -122,12 +127,10 @@ export default class TaskItemView {
 
     todos.forEach((task) => {
       task.addEventListener("dragstart", this.dragStart.bind(this));
-      task.addEventListener("dragend", this.dragEnd.bind(this));
     });
   }
 
   addBoardEvent(handler) {
-    // console.log('a;alskd;alskd')
     const taskBoards = document.querySelectorAll(".task-board");
     taskBoards.forEach((board) => {
       board.addEventListener("dragover", this.dragOver.bind(this));

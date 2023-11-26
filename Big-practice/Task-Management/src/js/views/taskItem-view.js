@@ -13,12 +13,13 @@ export default class TaskItemView {
     this.listProgress = document.querySelector("#progress");
     this.listDone = document.querySelector("#done");
     this.listArchived = document.querySelector("#archived");
-    this.tasks = []; // lấy từ model
+    // this.tasks = []; // lấy từ model
     // this.syncTasks().then(res=>res)
   }
 
   async syncTasks() {
-    this.tasks =  await new APITask('/tasks').getTask().then(res => res.data) || [];
+    this.tasks =
+      (await new APITask("/tasks").getTask().then((res) => res.data)) || [];
     // console.log(this.tasks)
   }
 
@@ -33,18 +34,19 @@ export default class TaskItemView {
     this.listProgress.innerHTML = "";
     this.listDone.innerHTML = "";
     this.listArchived.innerHTML = "";
-    console.log([this.listTodo,this.listProgress,this.listDone,this.listArchived])
-    // eslint-disable-next-line no-unexpected-multiline
-    const taskStatus = ["todo","inprogress","done","archived"]
-    Array.from([this.listTodo,this.listProgress,this.listDone,this.listArchived]).forEach((listElm,idx) => {
-      const filterTasks = this.tasks.filter(task => task.status === taskStatus[idx])
-      console.log(this.tasks)
+    const taskStatus = ["todo", "inprogress", "done", "archived"];
+    Array.from([
+      this.listTodo,
+      this.listProgress,
+      this.listDone,
+      this.listArchived,
+    ]).forEach((listElm, idx) => {
+      const filterTasks = this.tasks.filter(
+        (task) => task.status === taskStatus[idx]
+      );
+      console.log(this.tasks);
       listElm.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
     });
-    // this.tasks.forEach((task) => {
-    //   this.taskList.innerHTML += TaskItemTemplate.renderTaskItem([task]);
-    // });
-
     this.updateDraggableTasks(handleUpdate);
   }
 
@@ -58,7 +60,7 @@ export default class TaskItemView {
         try {
           this.tasks = [...this.tasks, newTask];
           // console.log(this.tasks)
-          
+
           // Show the tasks
           this.showTaskItem(handleUpdate);
           // Reset the form
@@ -89,9 +91,9 @@ export default class TaskItemView {
       }
     });
   }
-  
+
   revalidateTasks(tasks) {
-    this.tasks= tasks
+    this.tasks = tasks;
   }
 
   renderTaskDetail(selectedTask, handleUpdateTask) {
@@ -114,7 +116,6 @@ export default class TaskItemView {
   }
 
   /* HANDLE DRAG DROP */
-  //remove -> add
   updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll(".task-item-container");
@@ -123,16 +124,7 @@ export default class TaskItemView {
       task.addEventListener("dragstart", this.dragStart.bind(this));
       task.addEventListener("dragend", this.dragEnd.bind(this));
     });
-
-    
-    // 1 lan
-    // const taskBoards = document.querySelectorAll(".task-board");
-    // taskBoards.forEach((board) => {
-    //   board.addEventListener("dragover", this.dragOver.bind(this));
-    //   board.addEventListener("drop", (e) => this.dragDrop(e, handler));
-    // });
   }
-
 
   addBoardEvent(handler) {
     // console.log('a;alskd;alskd')
@@ -146,36 +138,6 @@ export default class TaskItemView {
     e.dataTransfer.setData("text/plain", e.target.dataset.id);
     // Add class to represent drag
     e.target.classList.add("dragged-task");
-  }
-
-  dragEnd() {
-    // Remove the class when dragging ends
-    // const draggedTasks = document.querySelectorAll(".dragged-task");
-    // draggedTasks.forEach((draggedTask) => {
-    //   draggedTask.classList.remove("dragged-task");
-    // });
-
-    // const draggedTasks = document.querySelectorAll(".dragged-task");
-
-    // draggedTasks.forEach((draggedTask) => {
-    //   draggedTask.classList.remove("dragged-task");
-    //   const taskId = draggedTask.dataset.id;
-    //     // console.log('dragEnd')
-    //     // Check if the task is moved out of "todo"
-    //     console.log('task:: ',this.tasks)
-    //     console.log('taskId:: ',taskId)
-    //     const isMovedOutOfTodo = this.tasks.findIndex(
-    //       (task) => task.id === Number(taskId) && task.status === "todo"
-    //       );
-    //       console.log('dragEnd isMovedOutOfTodo:: ', isMovedOutOfTodo)
-
-    //   if (isMovedOutOfTodo!==-1) {
-    //     // Remove the task from the UI and the tasks array
-    //     // draggedTask.remove();
-    //     this.tasks = this.tasks.filter((task) => task.id !== taskId*1);
-    //     // edit api -> get task
-    //   }
-    // });
   }
 
   dragOver(e) {

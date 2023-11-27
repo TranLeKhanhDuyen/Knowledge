@@ -7,7 +7,9 @@ export default class Controller {
   }
 
   async init() {
-    await this.taskItemView.syncTasks().then(() => {
+    this.taskItemView.syncTasks().then(() => {
+      // const tasks = await this.taskListModel.syncTasks();
+      // await this.taskItemView.showTaskItem(tasks).then(() => {
       this.handleAddTask();
       this.handleDragDropBoard();
       this.handleTaskDetail();

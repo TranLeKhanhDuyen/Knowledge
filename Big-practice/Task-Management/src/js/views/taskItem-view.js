@@ -43,7 +43,6 @@ export default class TaskItemView {
       const filterTasks = this.tasks.filter(
         (task) => task.status === taskStatus[idx]
       );
-      console.log(this.tasks);
       listElm.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
     });
 
@@ -59,8 +58,6 @@ export default class TaskItemView {
         const newTask = await handle(newTaskName);
         try {
           this.tasks = [...this.tasks, newTask];
-          // console.log(this.tasks)
-
           // Show the tasks
           this.showTaskItem(handleUpdate);
           // Reset the form
@@ -71,6 +68,17 @@ export default class TaskItemView {
       }
     });
   }
+
+  // bindDeleteTask(handleUpdate) {
+  //   const buttonsDelete = document.querySelectorAll(".delete-icon");
+
+  //   buttonsDelete.forEach((buttonDelete) => {
+  //     buttonDelete.addEventListener("click", async (e) => {
+  //       const taskId = e.target.dataset.id;
+
+  //     });
+  //   });
+  // }
 
   /* HANDLER TASK DETAIL */
 
@@ -116,6 +124,7 @@ export default class TaskItemView {
   }
 
   /* HANDLE DRAG DROP */
+
   updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll(".task-item-container");
@@ -132,6 +141,7 @@ export default class TaskItemView {
       board.addEventListener("drop", (e) => this.dragDrop(e, handler));
     });
   }
+
   dragStart(e) {
     e.dataTransfer.setData("text/plain", e.target.dataset.id);
     // Add class to represent drag

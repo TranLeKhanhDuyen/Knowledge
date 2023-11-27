@@ -13,10 +13,14 @@ export default class TaskListModel {
     this.showError = callback;
   }
 
-  async syncTasks() {
-    this.tasks = (await this.apiTask.getTask().then((res) => res.data)) || [];
-    console.log(this.tasks)
-  }
+  // async syncTasks() {
+  //   return (await this.apiTask.getTask().then((res) => res.data)) || [];
+  // }
+
+  //  async syncTasks() {
+  //   this.tasks =  await this.apiTask.getTask().then(res => res.data) || [];
+  //   // console.log(this.tasks)
+  // }
 
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
@@ -26,7 +30,6 @@ export default class TaskListModel {
 
   async deleteTask(id) {
     try {
-      // const newTask = this.deleteTask(taskName);
       const apiResponse = await this.apiTask.delete(id);
 
       // Assuming data property holds the new task

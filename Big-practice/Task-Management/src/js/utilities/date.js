@@ -1,12 +1,11 @@
 const getCurrentDate = () => {
   const date = new Date();
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 };
 
 const getDueDate = () => {
   const date = new Date();
-  date.setMonth(date.getMonth() + 2);
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  return `${date.getMonth() + 1 + 1}/${date.getDate()}/${date.getFullYear()}`;
 };
 
 const diffTime = (date, method = Math.floor, adverb = "ago") => {

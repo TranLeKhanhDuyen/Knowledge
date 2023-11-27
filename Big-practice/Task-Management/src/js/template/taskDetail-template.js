@@ -2,6 +2,7 @@ import iconEdit from "../../assets/icons/edit.svg";
 import iconClose from "../../assets/icons/close.svg";
 import iconDelete from "../../assets/icons/delete.svg";
 import userAvatar from "../../assets/images/user.svg";
+// import date from "../utilities/date";
 
 export default class TaskDetailTemplate {
   constructor() {}
@@ -33,7 +34,8 @@ export default class TaskDetailTemplate {
 
     <div class="date-container">
       <h3 class="title detail-title">Due Date</h3>
-      <input class="date-select text-lg" type="date">
+      <input class="date-select text-lg" type="date" value="${(item.dueDate)} id= "js-due">
+      <p class="daysRemaining">day left</p>
     </div>
 
     <div class="comments-container">

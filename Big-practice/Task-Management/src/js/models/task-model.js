@@ -10,4 +10,15 @@ export default class TaskModel {
     this.comments = "";
     this.status = STATUS.TODO;
   }
+
+  toJson() {
+    return {
+      taskName: this.taskName,
+      description: this.description,
+      dueDate: this.dueDate,
+      createdDate: this.createdDate,
+      comments: this.comments,
+      status: this.status,
+    };
+  }
 }

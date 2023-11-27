@@ -8,7 +8,6 @@ export default class TaskItemView {
   constructor() {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
-    this.taskDetail = document.querySelector(".detail-task-container");
     this.taskList = document.querySelector(".task-list");
     this.listTodo = document.querySelector("#todo");
     this.listProgress = document.querySelector("#progress");
@@ -39,11 +38,11 @@ export default class TaskItemView {
       this.listProgress,
       this.listDone,
       this.listArchived,
-    ]).forEach((listElm, idx) => {
+    ]).forEach((listElement, index) => {
       const filterTasks = this.tasks.filter(
-        (task) => task.status === taskStatus[idx]
+        (task) => task.status === taskStatus[index]
       );
-      listElm.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
+      listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
     });
 
     this.updateDraggableTasks(handleUpdate);

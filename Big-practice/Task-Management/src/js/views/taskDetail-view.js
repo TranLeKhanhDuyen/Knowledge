@@ -7,6 +7,7 @@ export default class TaskDetailView {
   }
 
   // DOMContentLoaded -> bind event
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   bindUpdateTask(handle) {
     const formAddDesc = document.querySelector("form.add-description");
     const taskDescContent = document.querySelector(".task-desc");
@@ -14,12 +15,48 @@ export default class TaskDetailView {
       taskDescContent.addEventListener("blur", async (e) => {
         e.preventDefault();
         const description = taskDescContent.textContent;
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         const id = document.querySelector(".detail-task-container").dataset.id;
-        const { data } = await handle(id, { description });
+        const { data } = await  handle(id, { description });
         try {
           this.updateData = { ...this.updateData, ...data };
         } catch (error) {
           alert(ERROR_MESSAGE.ADD_FAIL);
+        }
+      });
+    }
+
+    //DATE
+    const dueDateInput = document.querySelector(".date-select");
+    const daysRemainingElement = document.querySelector(".daysRemaining");
+
+    if (dueDateInput) {
+      // Add event change
+      dueDateInput.addEventListener("change", (event) => {
+        const selectedDate = new Date(event.target.value);
+
+        const id = document.querySelector(".detail-task-container").dataset.id;
+
+        try {
+          const { data } = handle(id, { selectedDate });
+          this.updateData = { ...this.updateData, ...data};
+          console.log(this.updateData);
+          // Get the current date
+          const currentDate = new Date();
+          // Calculate the number of milliseconds difference between the selected date and the current date
+          const timeDiff = selectedDate.getTime() - currentDate.getTime();
+
+          // Convert from milliseconds to days + round down
+          const daysRemaining = Math.floor(
+            timeDiff / (1000 * 60 * 60 * 24) + 1
+          );
+
+          // Show the number of days remaining
+          daysRemainingElement.textContent = `${daysRemaining} day left`;
+
+          console.log(`Số ngày còn lại: ${daysRemaining} ngày`);
+        } catch (error) {
+          console.error("Lỗi khi gọi hàm handle:", error);
         }
       });
     }
@@ -31,8 +68,9 @@ export default class TaskDetailView {
         if (e.key === "Enter") {
           e.preventDefault();
           const comments = inputComment.value.trim();
-          const id = document.querySelector(".detail-task-container").dataset.id;
-          console.log(id)
+          const id = document.querySelector(".detail-task-container").dataset
+            .id;
+          console.log(id);
           const { data } = await handle(id, { comments });
           if (comments !== "") {
             this.updateData = { ...this.updateData, ...data };
@@ -45,7 +83,7 @@ export default class TaskDetailView {
       });
     }
   }
-  
+
   showComment() {
     const commentDisplay = document.querySelector(".comment-list");
     commentDisplay.innerHTML = "";
@@ -54,4 +92,5 @@ export default class TaskDetailView {
       commentDisplay.innerHTML += renderedComment;
     }
   }
+  
 }

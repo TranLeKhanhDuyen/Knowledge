@@ -26,23 +26,26 @@ export default class TaskDetailView {
 
     // Handle Comments
     const inputComment = document.querySelector(".comments-input");
-    inputComment.addEventListener("keydown", async (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const comments = inputComment.value.trim();
-        const id = document.querySelector(".detail-task-container").dataset.id;
-        const { data } = await handle(id, { comments });
-        if (comments !== "") {
-          this.updateData = { ...this.updateData, ...data };
-          this.showComment();
-          inputComment.value = "";
-        } else {
-          alert(ERROR_MESSAGE.COMMENT_EMPTY);
+    if (inputComment) {
+      inputComment.addEventListener("keydown", async (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          const comments = inputComment.value.trim();
+          const id = document.querySelector(".detail-task-container").dataset.id;
+          console.log(id)
+          const { data } = await handle(id, { comments });
+          if (comments !== "") {
+            this.updateData = { ...this.updateData, ...data };
+            this.showComment();
+            inputComment.value = "";
+          } else {
+            alert(ERROR_MESSAGE.COMMENT_EMPTY);
+          }
         }
-      }
-    });
+      });
+    }
   }
-
+  
   showComment() {
     const commentDisplay = document.querySelector(".comment-list");
     commentDisplay.innerHTML = "";

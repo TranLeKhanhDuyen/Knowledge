@@ -40,7 +40,6 @@ export default class TaskDetailView {
         try {
           const { data } = handle(id, { selectedDate });
           this.updateData = { ...this.updateData, ...data};
-          console.log(this.updateData);
           // Get the current date
           const currentDate = new Date();
           // Calculate the number of milliseconds difference between the selected date and the current date
@@ -53,10 +52,8 @@ export default class TaskDetailView {
 
           // Show the number of days remaining
           daysRemainingElement.textContent = `${daysRemaining} day left`;
-
-          console.log(`Số ngày còn lại: ${daysRemaining} ngày`);
         } catch (error) {
-          console.error("Lỗi khi gọi hàm handle:", error);
+          console.error("Fail:", error);
         }
       });
     }

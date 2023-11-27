@@ -68,34 +68,26 @@ export default class TaskItemView {
       }
     });
   }
-
-  // bindDeleteTask(handleUpdate) {
-  //   const buttonsDelete = document.querySelectorAll(".delete-icon");
-
-  //   buttonsDelete.forEach((buttonDelete) => {
-  //     buttonDelete.addEventListener("click", async (e) => {
-  //       const taskId = e.target.dataset.id;
-
-  //     });
-  //   });
-  // }
-
   /* HANDLER TASK DETAIL */
 
   bindTaskDetail(handleUpdate, handleFind) {
-    this.taskList.addEventListener("click", async (e) => {
+    document.body.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
-      const taskId = taskItem.dataset.id;
-      const selectedTask = await handleFind(taskId);
-      if (handleUpdate) {
-        this.renderTaskDetail([selectedTask], handleUpdate);
 
-        const closeIcons = document.querySelectorAll(".close-icon");
-        closeIcons.forEach((closeIcon) => {
-          closeIcon.addEventListener("click", () => {
-            this.closeTaskDetail();
+      if (taskItem) {
+        const taskId = taskItem.dataset.id;
+        const selectedTask = await handleFind(taskId);
+
+        if (handleUpdate) {
+          this.renderTaskDetail([selectedTask], handleUpdate);
+
+          const closeIcons = document.querySelectorAll(".close-icon");
+          closeIcons.forEach((closeIcon) => {
+            closeIcon.addEventListener("click", () => {
+              this.closeTaskDetail();
+            });
           });
-        });
+        }
       }
     });
   }

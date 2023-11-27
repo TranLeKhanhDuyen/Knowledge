@@ -2,6 +2,7 @@ import TaskItemTemplate from "../template/taskItem-template";
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../template/taskDetail-template";
 import APITask from "../services/task";
+import STATUS from "../constants/status";
 
 export default class TaskItemView {
   constructor() {
@@ -13,7 +14,6 @@ export default class TaskItemView {
     this.listProgress = document.querySelector("#progress");
     this.listDone = document.querySelector("#done");
     this.listArchived = document.querySelector("#archived");
-    // this.tasks = []; // lấy từ model
   }
 
   async syncTasks() {
@@ -31,14 +31,9 @@ export default class TaskItemView {
     this.listProgress.innerHTML = "";
     this.listDone.innerHTML = "";
     this.listArchived.innerHTML = "";
-    console.log([
-      this.listTodo,
-      this.listProgress,
-      this.listDone,
-      this.listArchived,
-    ]);
 
-    const taskStatus = ["todo", "inprogress", "done", "archived"];
+    const taskStatus = Object.values(STATUS);
+
     Array.from([
       this.listTodo,
       this.listProgress,

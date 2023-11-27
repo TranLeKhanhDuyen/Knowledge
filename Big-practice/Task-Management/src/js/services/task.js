@@ -69,6 +69,7 @@ export default class APITask {
       data: result,
     };
   }
+  
   async delete(id) {
     const response = await fetch(
       `${API_TASKS}/${id}`,

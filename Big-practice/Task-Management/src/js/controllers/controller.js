@@ -6,21 +6,18 @@ export default class Controller {
     this.init();
   }
 
-  init() {
-    this.taskItemView.syncTasks().then(()=>{
+  async init() {
+    await this.taskItemView.syncTasks().then(() => {
       this.handleAddTask();
-      this.handleDragDropBoard()
-      // this.ite
-      // this.taskListModel.deleteTask(1).then(res=> console.log(res))
+      this.handleDragDropBoard();
       this.handleTaskDetail();
       this.handleUpdateTask();
-
-    })
+    });
   }
 
   handleAddTask = () => {
     this.taskItemView.bindAddTask(
-      async (task) => { 
+      async (task) => {
         return await this.taskListModel.addTask(task);
       },
       async (taskId, newStatus) => {
@@ -28,16 +25,14 @@ export default class Controller {
       }
     );
   };
+
   handleDragDropBoard = () => {
-    this.taskItemView.addBoardEvent(
-      
-      async (taskId, newStatus) => {
-        const res =await this.taskListModel.edit(taskId, newStatus);
-        const tasks= await this.taskListModel.getTask();
-        this.taskItemView.revalidateTasks(tasks)
-        return res
-      }
-    );
+    this.taskItemView.addBoardEvent(async (taskId, newStatus) => {
+      const res = await this.taskListModel.edit(taskId, newStatus);
+      const tasks = await this.taskListModel.getTask();
+      this.taskItemView.revalidateTasks(tasks);
+      return res;
+    });
   };
 
   handleTaskDetail = () => {

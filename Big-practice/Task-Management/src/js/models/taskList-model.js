@@ -7,7 +7,6 @@ export default class TaskListModel {
   constructor() {
     this.apiTask = new APITask("/tasks");
     this.tasks = [];
-    this.syncTasks().then((res) => res);
   }
 
   bindError(callback) {
@@ -16,7 +15,7 @@ export default class TaskListModel {
 
   async syncTasks() {
     this.tasks = (await this.apiTask.getTask().then((res) => res.data)) || [];
-    // console.log(this.tasks)
+    console.log(this.tasks)
   }
 
   createTask(taskName) {
@@ -24,6 +23,7 @@ export default class TaskListModel {
     this.tasks.push(newTask);
     return newTask;
   }
+
   async deleteTask(id) {
     try {
       // const newTask = this.deleteTask(taskName);

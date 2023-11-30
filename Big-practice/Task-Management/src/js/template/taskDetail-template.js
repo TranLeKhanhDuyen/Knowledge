@@ -34,7 +34,7 @@ export default class TaskDetailTemplate {
 
     <div class="date-container">
       <h3 class="title detail-title">Due Date</h3>
-      <input class="date-select text-lg" type="date" value="${(item.dueDate)} id= "js-due">
+      <input class="date-select text-lg" type="date" value="${item.dueDate}" id= "js-due">
       <p class="daysRemaining">day left</p>
     </div>
 

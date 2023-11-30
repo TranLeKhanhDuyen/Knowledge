@@ -17,7 +17,7 @@ export default class TaskDetailView {
         const description = taskDescContent.textContent;
         // eslint-disable-next-line sonarjs/no-duplicate-string
         const id = document.querySelector(".detail-task-container").dataset.id;
-        const { data } = await  handle(id, { description });
+        const { data } = await handle(id, { description });
         try {
           this.updateData = { ...this.updateData, ...data };
         } catch (error) {
@@ -39,11 +39,14 @@ export default class TaskDetailView {
 
         try {
           const { data } = handle(id, { selectedDate });
-          this.updateData = { ...this.updateData, ...data};
+          console.log(data);
+          this.updateData = { ...this.updateData, ...data };
           // Get the current date
           const currentDate = new Date();
+          console.log(currentDate);
           // Calculate the number of milliseconds difference between the selected date and the current date
           const timeDiff = selectedDate.getTime() - currentDate.getTime();
+          console.log(timeDiff);
 
           // Convert from milliseconds to days + round down
           const daysRemaining = Math.floor(
@@ -89,5 +92,4 @@ export default class TaskDetailView {
       commentDisplay.innerHTML += renderedComment;
     }
   }
-  
 }

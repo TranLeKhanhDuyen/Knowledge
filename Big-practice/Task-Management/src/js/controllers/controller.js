@@ -15,8 +15,9 @@ export default class Controller {
       this.handleAddTask();
       this.handleDragDropBoard();
       this.handleTaskDetail();
-      this.handleUpdateTask();
+      this.handleSearchTasks();
     });
+    this.handleUpdateTask();
   }
 
   handleAddTask = () => {
@@ -56,4 +57,12 @@ export default class Controller {
       this.taskDetailView.showComment();
     });
   };
+
+  handleSearchTasks() {
+    this.taskItemView.bindSearchTasks(async (searchTerm) => {
+      const searchTasks = await this.taskListModel.searchTasks(searchTerm);
+      this.taskItemView.revalidateTasks(searchTasks);
+      this.taskItemView.showTaskItem(this.handleUpdateTask);
+    });
+  }
 }

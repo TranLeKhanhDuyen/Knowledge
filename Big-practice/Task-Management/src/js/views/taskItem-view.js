@@ -33,18 +33,20 @@ export default class TaskItemView {
 
     const taskStatus = Object.values(STATUS);
 
-    Array.from([
-      this.listTodo,
-      this.listProgress,
-      this.listDone,
-      this.listArchived,
-    ]).forEach((listElement, index) => {
-      const filterTasks = this.tasks.filter(
-        (task) => task.status === taskStatus[index]
-      );
-      listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
-    });
-
+    if (this.tasks) {
+      Array.from([
+        this.listTodo,
+        this.listProgress,
+        this.listDone,
+        this.listArchived,
+      ]).forEach((listElement, index) => {
+        const filterTasks = this.tasks.filter(
+          (task) => task.status === taskStatus[index]
+        );
+        listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
+      });
+    }
+  
     this.updateDraggableTasks(handleUpdate);
   }
 
@@ -160,4 +162,14 @@ export default class TaskItemView {
       targetBoard.querySelector(".task-list").appendChild(draggedTask);
     }
   };
+
+  //SEARCH 
+  bindSearchTasks(handleSearch) {
+    const searchInput = document.querySelector(".search-input");
+    // this.searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      handleSearch(searchTerm);
+    });
+  }
 }

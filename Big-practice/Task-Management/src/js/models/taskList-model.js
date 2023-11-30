@@ -12,10 +12,10 @@ export default class TaskListModel {
   bindError(callback) {
     this.showError = callback;
   }
-
-  // async syncTasks() {
-  //   return (await this.apiTask.getTask().then((res) => res.data)) || [];
-  // }
+  
+  async syncTasks() {
+    return (await this.apiTask.getTask().then((res) => res.data)) || [];
+  }
 
   //  async syncTasks() {
   //   this.tasks =  await this.apiTask.getTask().then(res => res.data) || [];
@@ -84,4 +84,15 @@ export default class TaskListModel {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
+  
+  async searchTasks(searchTerm) {
+    try {
+      const response = await this.apiTask.searchTasks(searchTerm);
+      return response.data;
+    } catch (error) {
+      console.error("Error searching tasks:", error);
+      return [];
+    }
+  }
+  
 }

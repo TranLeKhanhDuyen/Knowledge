@@ -1,10 +1,15 @@
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../template/taskDetail-template";
+import date from "../utilities/date";
 
 export default class TaskDetailView {
   constructor() {
-    this.updateData = {};
+    this.updateData = {
+      selectedDate: null,
+    };
   }
+
+
 
   // DOMContentLoaded -> bind event
   // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -27,34 +32,29 @@ export default class TaskDetailView {
     }
 
     //DATE
+
     const dueDateInput = document.querySelector(".date-select");
     const daysRemainingElement = document.querySelector(".daysRemaining");
 
     if (dueDateInput) {
       // Add event change
-      dueDateInput.addEventListener("change", (event) => {
+      dueDateInput.addEventListener("change", async (event) => {
         const selectedDate = new Date(event.target.value);
 
         const id = document.querySelector(".detail-task-container").dataset.id;
+        const daysRemaining = date.diffTime(selectedDate);
 
         try {
           const { data } = handle(id, { selectedDate });
-          console.log(data);
           this.updateData = { ...this.updateData, ...data };
-          // Get the current date
-          const currentDate = new Date();
-          console.log(currentDate);
-          // Calculate the number of milliseconds difference between the selected date and the current date
-          const timeDiff = selectedDate.getTime() - currentDate.getTime();
-          console.log(timeDiff);
 
-          // Convert from milliseconds to days + round down
-          const daysRemaining = Math.floor(
-            timeDiff / (1000 * 60 * 60 * 24) + 1
-          );
+          if (daysRemaining !== null) {
+            daysRemainingElement.textContent = daysRemaining;
+          } else {
+            daysRemainingElement.textContent = "Invalid date";
+          }
 
-          // Show the number of days remaining
-          daysRemainingElement.textContent = `${daysRemaining} day left`;
+          this.updateData.selectedDate = dueDateInput.value;
         } catch (error) {
           console.error("Fail:", error);
         }
@@ -83,6 +83,7 @@ export default class TaskDetailView {
       });
     }
   }
+ 
 
   showComment() {
     const commentDisplay = document.querySelector(".comment-list");

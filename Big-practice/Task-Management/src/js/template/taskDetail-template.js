@@ -47,8 +47,8 @@ export default class TaskDetailTemplate {
       .join(" ")}`;
   }
 
+  
   static renderComment(data) {
-    console.log(data) //none
     return `
       <li class="commenters">
         <div class="commenter">

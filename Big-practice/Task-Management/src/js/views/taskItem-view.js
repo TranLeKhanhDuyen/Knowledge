@@ -46,7 +46,7 @@ export default class TaskItemView {
         listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
       });
     }
-  
+
     this.updateDraggableTasks(handleUpdate);
   }
 
@@ -97,10 +97,17 @@ export default class TaskItemView {
     this.tasks = tasks;
   }
 
-  renderTaskDetail(selectedTask, handleUpdateTask) {
+  renderTaskDetail(selectedTasks, handleUpdateTask) {
+    console.log(selectedTasks);
     const detailContainer = document.querySelector(".detail-container");
     detailContainer.innerHTML =
-      TaskDetailTemplate.renderTaskDetail(selectedTask);
+      TaskDetailTemplate.renderTaskDetail(selectedTasks);
+    const commentContainer = detailContainer.querySelector(".comment-list");
+
+    commentContainer.insertAdjacentHTML(
+      "beforeend",
+      TaskDetailTemplate.renderComment(selectedTasks[0])
+    );
     // Add event update task
     handleUpdateTask();
   }
@@ -163,7 +170,7 @@ export default class TaskItemView {
     }
   };
 
-  //SEARCH 
+  //SEARCH
   bindSearchTasks(handleSearch) {
     const searchInput = document.querySelector(".search-input");
     // this.searchInput = document.getElementById("searchInput");

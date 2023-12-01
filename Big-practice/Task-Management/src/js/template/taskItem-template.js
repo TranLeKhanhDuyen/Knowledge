@@ -30,7 +30,7 @@ export default class TaskItemTemplate {
           <p class="date-ago">${date.diffTime(item.createdDate)}</p>
           <div class="date-left text-sm">
             <img src="${iconClock}" class="clock-icon">
-            <p id ="due-date">${date.diffTime(item.dueDate, Math.ceil, "left")}</p>
+            <p class ="due-date">${date.diffTime(item.dueDate, Math.ceil, "left")}</p>
           </div>
         </div>
       </li>

@@ -3,7 +3,9 @@ import TaskDetailTemplate from "../template/taskDetail-template";
 import date from "../utilities/date";
 
 export default class TaskDetailView {
-  constructor() {}
+  constructor() {
+    this.updateData = {};
+  }
 
   // DOMContentLoaded -> bind event
   bindUpdateTask(handle) {
@@ -33,11 +35,15 @@ export default class TaskDetailView {
 
         const newDueDate = date.formatDate(e.target.value);
 
-           // Update the days remaining in detail view
+        // Update the days remaining in detail view
         const daysRemainingElement = document.querySelector(".daysRemaining");
-        daysRemainingElement.innerHTML = date.diffTime( newDueDate, Math.round,"left");
+        daysRemainingElement.innerHTML = date.diffTime(
+          newDueDate,
+          Math.round,
+          "left"
+        );
 
-        const {data} = handle(id, { newDueDate });
+        const { data } = handle(id, {dueDate: newDueDate });
 
         // Update the due date in updateData
         this.updateData = { ...this.updateData, ...data };
@@ -48,9 +54,13 @@ export default class TaskDetailView {
         );
 
         if (taskItem) {
-          const dueDateElement = taskItem.querySelector("#due-date");
+          const dueDateElement = taskItem.querySelector(".due-date");
           if (dueDateElement) {
-            dueDateElement.innerHTML = date.diffTime(newDueDate,Math.round, "left");
+            dueDateElement.innerHTML = date.diffTime(
+              newDueDate,
+              Math.round,
+              "left"
+            );
           }
         }
       });
@@ -60,20 +70,23 @@ export default class TaskDetailView {
   bindComments(handle) {
     const inputComment = document.querySelector(".comments-input");
     if (inputComment) {
-      inputComment.addEventListener("keydown", (e) => {
+      inputComment.addEventListener("keydown",  async (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
 
           const comments = inputComment.value.trim();
+          console.log(comments)
 
           const id = document.querySelector(".detail-task-container").dataset.id;
 
-          const data = handle(id, { comments });
+          const data = await  handle(id, { comments });
+
           console.log(data);
 
           if (comments !== "") {
+            // 
             this.updateData = { ...this.updateData, ...data };
-
+            console.log("this.updateData",this.updateData)
             this.showComments();
 
             inputComment.value = "";
@@ -89,9 +102,7 @@ export default class TaskDetailView {
     const commentDisplay = document.querySelector(".comment-list");
     commentDisplay.innerHTML = "";
     if (this.updateData) {
-      const renderedComment = TaskDetailTemplate.renderComment([
-        this.updateData.comments,
-      ]);
+      const renderedComment = TaskDetailTemplate.renderComment(this.updateData);
       commentDisplay.innerHTML += renderedComment;
     }
   }

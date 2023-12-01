@@ -3,26 +3,19 @@ import TaskDetailTemplate from "../template/taskDetail-template";
 import date from "../utilities/date";
 
 export default class TaskDetailView {
-  constructor() {
-    this.updateData = {
-      selectedDate: null,
-    };
-  }
-
-
+  constructor() {}
 
   // DOMContentLoaded -> bind event
-  // eslint-disable-next-line sonarjs/cognitive-complexity
   bindUpdateTask(handle) {
     const formAddDesc = document.querySelector("form.add-description");
     const taskDescContent = document.querySelector(".task-desc");
     if (formAddDesc) {
-      taskDescContent.addEventListener("blur", async (e) => {
+      taskDescContent.addEventListener("blur", (e) => {
         e.preventDefault();
         const description = taskDescContent.textContent;
         // eslint-disable-next-line sonarjs/no-duplicate-string
         const id = document.querySelector(".detail-task-container").dataset.id;
-        const { data } = await handle(id, { description });
+        const { data } = handle(id, { description });
         try {
           this.updateData = { ...this.updateData, ...data };
         } catch (error) {
@@ -32,49 +25,57 @@ export default class TaskDetailView {
     }
 
     //DATE
-
     const dueDateInput = document.querySelector(".date-select");
-    const daysRemainingElement = document.querySelector(".daysRemaining");
 
     if (dueDateInput) {
-      // Add event change
-      dueDateInput.addEventListener("change", async (event) => {
-        const selectedDate = new Date(event.target.value);
-
+      dueDateInput.addEventListener("change", (e) => {
         const id = document.querySelector(".detail-task-container").dataset.id;
-        const daysRemaining = date.diffTime(selectedDate);
 
-        try {
-          const { data } = handle(id, { selectedDate });
-          this.updateData = { ...this.updateData, ...data };
+        const newDueDate = date.formatDate(e.target.value);
 
-          if (daysRemaining !== null) {
-            daysRemainingElement.textContent = daysRemaining;
-          } else {
-            daysRemainingElement.textContent = "Invalid date";
+           // Update the days remaining in detail view
+        const daysRemainingElement = document.querySelector(".daysRemaining");
+        daysRemainingElement.innerHTML = date.diffTime( newDueDate, Math.round,"left");
+
+        const {data} = handle(id, { newDueDate });
+
+        // Update the due date in updateData
+        this.updateData = { ...this.updateData, ...data };
+
+        // Update the task item's due date
+        const taskItem = document.querySelector(
+          `.task-item-container[data-id="${id}"]`
+        );
+
+        if (taskItem) {
+          const dueDateElement = taskItem.querySelector("#due-date");
+          if (dueDateElement) {
+            dueDateElement.innerHTML = date.diffTime(newDueDate,Math.round, "left");
           }
-
-          this.updateData.selectedDate = dueDateInput.value;
-        } catch (error) {
-          console.error("Fail:", error);
         }
       });
     }
+  }
 
-    // Handle Comments
+  bindComments(handle) {
     const inputComment = document.querySelector(".comments-input");
     if (inputComment) {
-      inputComment.addEventListener("keydown", async (e) => {
+      inputComment.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
+
           const comments = inputComment.value.trim();
-          const id = document.querySelector(".detail-task-container").dataset
-            .id;
-          console.log(id);
-          const { data } = await handle(id, { comments });
+
+          const id = document.querySelector(".detail-task-container").dataset.id;
+
+          const data = handle(id, { comments });
+          console.log(data);
+
           if (comments !== "") {
             this.updateData = { ...this.updateData, ...data };
-            this.showComment();
+
+            this.showComments();
+
             inputComment.value = "";
           } else {
             alert(ERROR_MESSAGE.COMMENT_EMPTY);
@@ -83,13 +84,14 @@ export default class TaskDetailView {
       });
     }
   }
- 
 
-  showComment() {
+  showComments() {
     const commentDisplay = document.querySelector(".comment-list");
     commentDisplay.innerHTML = "";
     if (this.updateData) {
-      const renderedComment = TaskDetailTemplate.renderComment(this.updateData);
+      const renderedComment = TaskDetailTemplate.renderComment([
+        this.updateData.comments,
+      ]);
       commentDisplay.innerHTML += renderedComment;
     }
   }

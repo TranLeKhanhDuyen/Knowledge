@@ -69,7 +69,7 @@ export default class APITask {
       data: result,
     };
   }
-  
+
   async delete(id) {
     const response = await fetch(
       `${API_TASKS}/${id}`,
@@ -96,7 +96,7 @@ export default class APITask {
     const url = `${API_TASKS}?search=${encodeURIComponent(searchTerm)}`;
     const response = await fetch(url, APIHelper.sendRequest("GET"));
     const result = await response.json();
-  
+
     if (!response.ok) {
       throw new Error(`Error searching tasks: ${result.message}`);
     }

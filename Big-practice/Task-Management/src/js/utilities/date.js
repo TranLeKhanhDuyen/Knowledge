@@ -8,24 +8,46 @@ const getDueDate = () => {
   return `${date.getMonth() + 1 + 1}/${date.getDate()}/${date.getFullYear()}`;
 };
 
-const diffTime = (date, method = Math.floor, adverb = "ago") => {
+// const diffTime = (date, method = Math.floor, adverb = "ago") => {
+//   const convertDate = new Date(date);
+//   const day = 1000 * 60 * 60 * 24;
+//   const diff = method(Math.abs(convertDate - Date.now()) / day);
+
+//   switch (diff) {
+//     case 0:
+//       return "Today";
+
+//     case 1:
+//       return `${diff} day ${adverb}`;
+
+//     case 2:
+//     case 3:
+//       return `${diff} days ${adverb}`;
+
+//     default:
+//       return date;
+//   }
+// };
+
+const diffTime = (date, method = Math.floor, adverb = "ago", unit = "day") => {
   const convertDate = new Date(date);
-  const day = 1000 * 60 * 60 * 24;
-  const diff = method(Math.abs(convertDate - Date.now()) / day);
+  const unitMillis = {
+    day: 1000 * 60 * 60 * 24,
+    hour: 1000 * 60 * 60,
+    minute: 1000 * 60,
+    second: 1000,
+  };
+  const diff = method(Math.abs(convertDate - Date.now()) / unitMillis[unit]);
 
   switch (diff) {
     case 0:
       return "Today";
 
     case 1:
-      return `${diff} day ${adverb}`;
-
-    case 2:
-    case 3:
-      return `${diff} days ${adverb}`;
+      return `${diff} ${unit} ${adverb}`;
 
     default:
-      return date;
+      return `${diff} ${unit}s ${adverb}`;
   }
 };
 
@@ -48,24 +70,23 @@ function formatDate(date) {
 
 function timeElapse(timeStamp) {
   const minutes = 1000 * 60;
-  const diffMins = Math.floor((Date.now() - (+timeStamp)) / minutes);
-  const [dateString] = new Date(timeStamp).toISOString().split('T');
+  const diffMins = Math.floor((Date.now() - +timeStamp) / minutes);
+  const [dateString] = new Date(timeStamp).toISOString().split("T");
   const diffHours = Math.floor(diffMins / 60);
 
   switch (true) {
-    case (diffMins === 0):
-      return 'Just now';
-    
-    case (diffMins === 1): 
+    case diffMins === 0:
+      return "Just now";
+
+    case diffMins === 1:
       return `${diffMins} min ago`;
 
-    case (diffMins < 60):
+    case diffMins < 60:
       return `${diffMins} mins ago`;
 
-    case (diffMins < (60 * 24)):
-      
-      return `${diffHours} ${(diffHours === 1) ? 'hour' : 'hours'} ago`;
-  
+    case diffMins < 60 * 24:
+      return `${diffHours} ${diffHours === 1 ? "hour" : "hours"} ago`;
+
     default:
       return formatDate(dateString);
   }

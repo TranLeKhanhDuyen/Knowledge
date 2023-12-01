@@ -2,15 +2,13 @@ import iconEdit from "../../assets/icons/edit.svg";
 import iconClose from "../../assets/icons/close.svg";
 import iconDelete from "../../assets/icons/delete.svg";
 import userAvatar from "../../assets/images/user.svg";
-// import date from "../utilities/date";
+import date from "../utilities/date";
 
 export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail(data) {
-    return `${data
-      .map(
-        (item) =>
+    return `${data.map((item) =>
           `
     <div class="detail-task-container" data-id="${item.id}">
     <div class="detail-header text-xl text-bold">
@@ -34,7 +32,7 @@ export default class TaskDetailTemplate {
 
     <div class="date-container">
       <h3 class="title detail-title">Due Date</h3>
-      <input class="date-select text-lg" type="date"  value="${item.dueDate}" id= "js-due">
+      <input class="date-select text-lg" type="date"  value="${date.convertDateInput(item.dueDate)}" id= "js-due">
       <p class="daysRemaining">day left</p>
     </div>
 
@@ -50,6 +48,7 @@ export default class TaskDetailTemplate {
   }
 
   static renderComment(data) {
+    console.log(data) //none
     return `
       <li class="commenters">
         <div class="commenter">

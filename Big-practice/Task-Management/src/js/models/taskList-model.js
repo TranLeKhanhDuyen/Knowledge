@@ -12,15 +12,10 @@ export default class TaskListModel {
   bindError(callback) {
     this.showError = callback;
   }
-  
+
   async syncTasks() {
     return (await this.apiTask.getTask().then((res) => res.data)) || [];
   }
-
-  //  async syncTasks() {
-  //   this.tasks =  await this.apiTask.getTask().then(res => res.data) || [];
-  //   // console.log(this.tasks)
-  // }
 
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
@@ -28,9 +23,10 @@ export default class TaskListModel {
     return newTask;
   }
 
-  async deleteTask(id) {
+  async addTask(taskName) {
     try {
-      const apiResponse = await this.apiTask.delete(id);
+      const newTask = this.createTask(taskName);
+      const apiResponse = await this.apiTask.addTask(newTask);
 
       // Assuming data property holds the new task
       return apiResponse.data;
@@ -39,10 +35,9 @@ export default class TaskListModel {
     }
   }
 
-  async addTask(taskName) {
+  async deleteTask(id) {
     try {
-      const newTask = this.createTask(taskName);
-      const apiResponse = await this.apiTask.addTask(newTask);
+      const apiResponse = await this.apiTask.delete(id);
 
       // Assuming data property holds the new task
       return apiResponse.data;
@@ -84,7 +79,18 @@ export default class TaskListModel {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
-  
+ 
+  // async comment(id) {
+  //   try {
+  //     const response = await this.apiTask.comment(id);
+
+  //     if (response.status !== 200)
+  //       return this.showError(ERROR_CODE[response.status]);
+  //   } catch (error) {
+  //     return this.showError(ERROR_MESSAGE.ADD_FAIL);
+  //   }
+  // }
+
   async searchTasks(searchTerm) {
     try {
       const response = await this.apiTask.searchTasks(searchTerm);
@@ -94,5 +100,4 @@ export default class TaskListModel {
       return [];
     }
   }
-  
 }

@@ -54,7 +54,11 @@ export default class Controller {
     this.taskDetailView.bindUpdateTask(async (id, updateData) => {
       // data: task list
       await this.taskListModel.edit(id, updateData);
-      this.taskDetailView.showComment();
+    });
+
+    this.taskDetailView.bindComments(async (id, updateData) => {
+      // data: task list
+      await this.taskListModel.edit(id, updateData);
     });
   };
 

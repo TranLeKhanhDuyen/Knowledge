@@ -10,8 +10,6 @@ export default class Controller {
 
   async init() {
     this.taskItemView.syncTasks().then(() => {
-      // const tasks = await this.taskListModel.syncTasks();
-      // await this.taskItemView.showTaskItem(tasks).then(() => {
       this.handleAddTask();
       this.handleDragDropBoard();
       this.handleTaskDetail();
@@ -53,7 +51,6 @@ export default class Controller {
   handleUpdateTask = () => {
     this.taskDetailView.bindUpdateTask(async (id, updateData) => {
       // data: task list
-
       try {
         await this.taskListModel.edit(id, updateData);
 
@@ -61,7 +58,6 @@ export default class Controller {
       } catch (e) {
         console.error(e)
       }
-
     });
 
     this.taskDetailView.bindComments(async (id, updateData) => {

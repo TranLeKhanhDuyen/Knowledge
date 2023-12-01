@@ -15,7 +15,6 @@ export default class TaskDetailView {
       taskDescContent.addEventListener("blur", (e) => {
         e.preventDefault();
         const description = taskDescContent.textContent;
-        // eslint-disable-next-line sonarjs/no-duplicate-string
         const id = document.querySelector(".detail-task-container").dataset.id;
         const { data } = handle(id, { description });
         try {
@@ -26,7 +25,7 @@ export default class TaskDetailView {
       });
     }
 
-    //DATE
+    /* HANDLER DATE */
     const dueDateInput = document.querySelector(".date-select");
 
     if (dueDateInput) {
@@ -41,7 +40,7 @@ export default class TaskDetailView {
           Math.round,
           "left"
         );
-        const { data } = handle(id, {dueDate: newDueDate });
+        const { data } = handle(id, { dueDate: newDueDate });
 
         // Update the due date in updateData
         this.updateData = { ...this.updateData, ...data };
@@ -65,15 +64,18 @@ export default class TaskDetailView {
     }
   }
 
+  /* HANDLER COMMENTS */
+
   bindComments(handle) {
     const inputComment = document.querySelector(".comments-input");
     if (inputComment) {
-      inputComment.addEventListener("keydown",  async (e) => {
+      inputComment.addEventListener("keydown", async (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
           const comments = inputComment.value.trim();
-          const id = document.querySelector(".detail-task-container").dataset.id;
-          const data = await  handle(id, { comments });
+          const id = document.querySelector(".detail-task-container").dataset
+            .id;
+          const data = await handle(id, { comments });
           if (comments !== "") {
             this.updateData = { ...this.updateData, ...data };
             this.showComments();

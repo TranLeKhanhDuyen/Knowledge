@@ -19,7 +19,6 @@ export default class TaskItemTemplate {
       return data
         .map(
           (item)  => {
-            console.log("item.status:", item.status);
           return`
       <li class="task-item-container" draggable="true" data-id="${item.id}" data-status="${item.status}">
         <div class="task-content text-md">

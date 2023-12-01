@@ -79,17 +79,6 @@ export default class TaskListModel {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
- 
-  // async comment(id) {
-  //   try {
-  //     const response = await this.apiTask.comment(id);
-
-  //     if (response.status !== 200)
-  //       return this.showError(ERROR_CODE[response.status]);
-  //   } catch (error) {
-  //     return this.showError(ERROR_MESSAGE.ADD_FAIL);
-  //   }
-  // }
 
   async searchTasks(searchTerm) {
     try {

@@ -5,7 +5,7 @@ const getCurrentDate = () => {
 
 const getDueDate = () => {
   const date = new Date();
-  return `${date.getMonth()  + 1}/${date.getDate()}/${date.getFullYear()}`;
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 };
 
 const diffTime = (date, method = Math.floor, adverb = "ago", unit = "day") => {
@@ -30,24 +30,21 @@ const diffTime = (date, method = Math.floor, adverb = "ago", unit = "day") => {
   }
 };
 
-function convertDateInput(dateStr) {
+const convertDateInput = (dateStr) => {
   const [month, day, year] = dateStr.split("/");
-
-  // Subtract month by 1 because JavaScript counts months from 0 to 11
-  // Add day by 1 because the timezone difference
   const date = new Date(+year, +month - 1, +day + 1);
   const [dateValue] = date.toISOString().split("T");
 
   return dateValue;
-}
+};
 
-function formatDate(date) {
+const formatDate = (date) => {
   const [year, month, day] = date.split("-");
 
   return [month, day, year].join("/");
-}
+};
 
-function timeElapse(timeStamp) {
+const timeElapse = (timeStamp) => {
   const minutes = 1000 * 60;
   const diffMins = Math.floor((Date.now() - +timeStamp) / minutes);
   const [dateString] = new Date(timeStamp).toISOString().split("T");
@@ -69,7 +66,7 @@ function timeElapse(timeStamp) {
     default:
       return formatDate(dateString);
   }
-}
+};
 
 export default {
   getCurrentDate,

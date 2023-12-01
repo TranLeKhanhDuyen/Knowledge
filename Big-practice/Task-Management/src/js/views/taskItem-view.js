@@ -120,6 +120,7 @@ export default class TaskItemView {
   }
 
   /* HANDLE DRAG DROP */
+
   updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll(".task-item-container");
@@ -164,7 +165,8 @@ export default class TaskItemView {
     }
   };
 
-  //SEARCH
+  /* HANDLER SEARCH TASK */
+  
   bindSearchTasks(handleSearch) {
     const searchInput = document.querySelector(".search-input");
     searchInput.addEventListener("input", () => {

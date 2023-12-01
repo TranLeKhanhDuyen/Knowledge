@@ -1,5 +1,3 @@
-// import TaskModel from "../models/task-model";
-
 export default class Controller {
   constructor(taskListModel, taskItemView, taskDetailView) {
     this.taskListModel = taskListModel;

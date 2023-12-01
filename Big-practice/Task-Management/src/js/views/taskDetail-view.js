@@ -15,6 +15,7 @@ export default class TaskDetailView {
       taskDescContent.addEventListener("blur", (e) => {
         e.preventDefault();
         const description = taskDescContent.textContent;
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         const id = document.querySelector(".detail-task-container").dataset.id;
         const { data } = handle(id, { description });
         try {
@@ -33,13 +34,6 @@ export default class TaskDetailView {
         const id = document.querySelector(".detail-task-container").dataset.id;
         const newDueDate = date.formatDate(e.target.value);
 
-        // Update the days remaining in detail view
-        const daysRemainingElement = document.querySelector(".daysRemaining");
-        daysRemainingElement.innerHTML = date.diffTime(
-          newDueDate,
-          Math.round,
-          "left"
-        );
         const { data } = handle(id, { dueDate: newDueDate });
 
         // Update the due date in updateData

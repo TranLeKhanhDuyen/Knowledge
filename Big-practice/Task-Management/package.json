@@ -6,7 +6,6 @@
     "build": "parcel build src/index.html",
     "server": "json-server src/js/server/db.json"
   },
-  
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",

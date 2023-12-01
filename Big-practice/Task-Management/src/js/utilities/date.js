@@ -46,7 +46,7 @@ const formatDate = (date) => {
 
 const timeElapse = (timeStamp) => {
   const minutes = 1000 * 60;
-  const diffMins = Math.floor((Date.now() - +timeStamp) / minutes);
+  const diffMins = Math.floor((Date.now() + timeStamp) / minutes);
   const [dateString] = new Date(timeStamp).toISOString().split("T");
   const diffHours = Math.floor(diffMins / 60);
 

@@ -8,7 +8,9 @@ export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail(data) {
-    return `${data.map((item) =>
+    return `${data
+      .map(
+        (item) =>
           `
     <div class="detail-task-container" data-id="${item.id}">
     <div class="detail-header text-xl text-bold">
@@ -32,8 +34,10 @@ export default class TaskDetailTemplate {
 
     <div class="date-container">
       <h3 class="title detail-title">Due Date</h3>
-      <input class="date-select text-lg" type="date"  value="${date.convertDateInput(item.dueDate)}" id= "js-due">
-      <p class="daysRemaining">day left</p>
+      <input class="date-select text-lg" type="date"  value="${date.convertDateInput(
+        item.dueDate
+      )}" id= "js-due">
+      <p class="daysRemaining">${date.diffTime(item.dueDate)}</p>
     </div>
 
     <div class="comments-container">

@@ -47,7 +47,6 @@ export default class TaskDetailTemplate {
       .join(" ")}`;
   }
 
-  
   static renderComment(data) {
     return `
       <li class="commenters">

@@ -32,7 +32,6 @@ export default class TaskDetailView {
     if (dueDateInput) {
       dueDateInput.addEventListener("change", (e) => {
         const id = document.querySelector(".detail-task-container").dataset.id;
-
         const newDueDate = date.formatDate(e.target.value);
 
         // Update the days remaining in detail view
@@ -42,7 +41,6 @@ export default class TaskDetailView {
           Math.round,
           "left"
         );
-
         const { data } = handle(id, {dueDate: newDueDate });
 
         // Update the due date in updateData
@@ -73,22 +71,12 @@ export default class TaskDetailView {
       inputComment.addEventListener("keydown",  async (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
-
           const comments = inputComment.value.trim();
-          console.log(comments)
-
           const id = document.querySelector(".detail-task-container").dataset.id;
-
           const data = await  handle(id, { comments });
-
-          console.log(data);
-
           if (comments !== "") {
-            // 
             this.updateData = { ...this.updateData, ...data };
-            console.log("this.updateData",this.updateData)
             this.showComments();
-
             inputComment.value = "";
           } else {
             alert(ERROR_MESSAGE.COMMENT_EMPTY);

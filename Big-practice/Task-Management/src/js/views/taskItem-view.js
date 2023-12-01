@@ -98,16 +98,12 @@ export default class TaskItemView {
   }
 
   renderTaskDetail(selectedTasks, handleUpdateTask) {
-    console.log(selectedTasks);
     const detailContainer = document.querySelector(".detail-container");
     detailContainer.innerHTML =
       TaskDetailTemplate.renderTaskDetail(selectedTasks);
     const commentContainer = detailContainer.querySelector(".comment-list");
 
-    commentContainer.insertAdjacentHTML(
-      "beforeend",
-      TaskDetailTemplate.renderComment(selectedTasks[0])
-    );
+    commentContainer.insertAdjacentHTML("beforeend",TaskDetailTemplate.renderComment(selectedTasks[0]));
     // Add event update task
     handleUpdateTask();
   }
@@ -124,11 +120,9 @@ export default class TaskItemView {
   }
 
   /* HANDLE DRAG DROP */
-
   updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll(".task-item-container");
-
     todos.forEach((task) => {
       task.addEventListener("dragstart", this.dragStart.bind(this));
     });
@@ -173,7 +167,6 @@ export default class TaskItemView {
   //SEARCH
   bindSearchTasks(handleSearch) {
     const searchInput = document.querySelector(".search-input");
-    // this.searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
       handleSearch(searchTerm);

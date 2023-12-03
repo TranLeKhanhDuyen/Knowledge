@@ -17,25 +17,30 @@ export default class TaskItemTemplate {
   static renderTaskItem(data) {
     if (Array.isArray(data)) {
       return data
-        .map(
-          (item)  => {
-          return`
-      <li class="task-item-container" draggable="true" data-id="${item.id}" data-status="${item.status}">
+        .map((item) => {
+          return `
+      <li class="task-item-container" draggable="true" data-id="${
+        item.id
+      }" data-status="${item.status}">
         <div class="task-content text-md">
-          <h3 class="task-title">${item.taskName}</h3>       
-          <img src="${iconDelete}" alt="delete icon" class="delete-icon">
+          <h3 class="task-title">${item.taskName}</h3>  
+          <button class="delete"> <img src="${iconDelete}" alt="delete icon" class="delete-icon">
+          </button>  
         </div>
         <div class="task-date text-md">
           <p class="date-ago">${date.diffTime(item.createdDate)}</p>
           <div class="date-left text-sm">
             <img src="${iconClock}" class="clock-icon">
-            <p class ="due-date">${date.diffTime(item.dueDate, Math.ceil, "left")}</p>
+            <p class ="due-date">${date.diffTime(
+              item.dueDate,
+              Math.ceil,
+              "left"
+            )}</p>
           </div>
         </div>
       </li>
-      `
-          }
-        )
+      `;
+        })
         .join(" ");
     } else {
       return "";

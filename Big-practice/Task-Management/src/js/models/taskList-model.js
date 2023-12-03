@@ -35,14 +35,14 @@ export default class TaskListModel {
     }
   }
 
-  async deleteTask(id) {
+  async delete(id) {
     try {
-      const apiResponse = await this.apiTask.delete(id);
+      const { status } = await this.apiTask.delete(id);
 
-      // Assuming data property holds the new task
-      return apiResponse.data;
+      if (status !== 200) return this.showError(ERROR_CODE[status]);
+      return status;
     } catch (error) {
-      throw new Error("Error occurred in adding process");
+      return this.showError("Error occurred in delete process");
     }
   }
 

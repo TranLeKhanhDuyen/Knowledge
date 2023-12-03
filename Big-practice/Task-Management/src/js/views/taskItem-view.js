@@ -103,7 +103,10 @@ export default class TaskItemView {
       TaskDetailTemplate.renderTaskDetail(selectedTasks);
     const commentContainer = detailContainer.querySelector(".comment-list");
 
-    commentContainer.insertAdjacentHTML("beforeend",TaskDetailTemplate.renderComment(selectedTasks[0]));
+    commentContainer.insertAdjacentHTML(
+      "beforeend",
+      TaskDetailTemplate.renderComment(selectedTasks[0])
+    );
     // Add event update task
     handleUpdateTask();
   }
@@ -166,12 +169,27 @@ export default class TaskItemView {
   };
 
   /* HANDLER SEARCH TASK */
-  
+
   bindSearchTasks(handleSearch) {
     const searchInput = document.querySelector(".search-input");
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
       handleSearch(searchTerm);
+    });
+  }
+
+  /* HANDLE DELETE */
+  bindDelete(handleDelete) {
+    document.body.addEventListener("click", async (e) => {
+      const taskItem = e.target.closest(".task-item-container");
+      if (taskItem) {
+        const deleteButton = taskItem.querySelector(".delete");
+        if (deleteButton) {
+          const taskId = taskItem.dataset.id;
+          console.log(taskId);
+          handleDelete(taskId);
+        }
+      }
     });
   }
 }

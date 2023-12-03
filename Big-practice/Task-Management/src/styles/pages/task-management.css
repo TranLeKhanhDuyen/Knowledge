@@ -16,6 +16,11 @@
   background: var(--grey-light-color);
 }
 
+.delete {
+  border: none;
+  background-color: var(--secondary-color);
+}
+
 /* TASK-DETAIL */
 
 .detail-task-container {

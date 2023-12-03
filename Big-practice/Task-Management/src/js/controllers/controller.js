@@ -9,6 +9,7 @@ export default class Controller {
   async init() {
     this.taskItemView.syncTasks().then(() => {
       this.handleAddTask();
+      this.handleDeleteTask();
       this.handleDragDropBoard();
       this.handleTaskDetail();
       this.handleSearchTasks();
@@ -52,9 +53,9 @@ export default class Controller {
       try {
         await this.taskListModel.edit(id, updateData);
 
-        return{data: await this.taskListModel.find(id)}
+        return { data: await this.taskListModel.find(id) };
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     });
 
@@ -62,7 +63,21 @@ export default class Controller {
       // data: task list
       await this.taskListModel.edit(id, updateData);
 
-      return await this.taskListModel.find(id)
+      return await this.taskListModel.find(id);
+    });
+  };
+
+  handleDeleteTask = () => {
+    this.taskItemView.bindDelete(async (id) => {
+      try {
+        await this.taskListModel.delete(id);
+        console.log(id);
+        // const tasks = await this.taskListModel.getTask();
+        // return this.taskItemView.revalidateTasks(tasks);
+        // return await this.taskListModel.find(id);
+      } catch (e) {
+        console.log(e);
+      }
     });
   };
 

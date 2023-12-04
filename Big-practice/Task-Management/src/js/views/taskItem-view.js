@@ -102,12 +102,14 @@ export default class TaskItemView {
     const detailContainer = document.querySelector(".detail-container");
     detailContainer.innerHTML =
       TaskDetailTemplate.renderTaskDetail(selectedTasks);
-    const commentContainer = detailContainer.querySelector(".comment-list");
 
-    commentContainer.insertAdjacentHTML(
-      "beforeend",
-      TaskDetailTemplate.renderComment(selectedTasks[0])
-    );
+    const commentContainer = detailContainer.querySelector(".comment-list");
+    if (selectedTasks[0].comments) {
+      commentContainer.insertAdjacentHTML(
+        "beforeend",
+        TaskDetailTemplate.renderComment(selectedTasks[0])
+      );
+    }
     // Add event update task
     handleUpdateTask();
   }

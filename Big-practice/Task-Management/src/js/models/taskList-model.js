@@ -80,13 +80,14 @@ export default class TaskListModel {
     }
   }
 
-  async searchTasks(searchTerm) {
+  async searchTask(searchTerm) {
     try {
-      const response = await this.apiTask.searchTasks(searchTerm);
+      const response = await this.apiTask.searchTask(searchTerm);
       return response.data;
     } catch (error) {
       console.error("Error searching tasks:", error);
       return [];
     }
   }
+  
 }

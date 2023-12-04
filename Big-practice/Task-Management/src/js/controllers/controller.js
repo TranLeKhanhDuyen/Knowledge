@@ -12,7 +12,7 @@ export default class Controller {
       this.handleDelete();
       this.handleDragDropBoard();
       this.handleTaskDetail();
-      this.handleSearchTasks();
+      this.handleSearch();
     });
     this.handleUpdateTask();
   }
@@ -78,11 +78,10 @@ export default class Controller {
     });
   };
 
-  handleSearchTasks() {
-    this.taskItemView.bindSearchTasks(async (searchTerm) => {
-      const searchTasks = await this.taskListModel.searchTasks(searchTerm);
-      this.taskItemView.revalidateTasks(searchTasks);
-      this.taskItemView.showTaskItem(this.handleUpdateTask);
+  handleSearch() {
+    this.taskItemView.bindSearchTask(async (searchTerm) => {
+       this.taskItemView.searchTasks(searchTerm);
     });
   }
+
 }

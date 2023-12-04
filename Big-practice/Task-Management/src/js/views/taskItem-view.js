@@ -73,6 +73,7 @@ export default class TaskItemView {
 
   bindTaskDetail(handleUpdate, handleFind) {
     document.body.addEventListener("click", async (e) => {
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       const taskItem = e.target.closest(".task-item-container");
 
       if (taskItem) {
@@ -168,16 +169,6 @@ export default class TaskItemView {
     }
   };
 
-  /* HANDLER SEARCH TASK */
-
-  bindSearchTasks(handleSearch) {
-    const searchInput = document.querySelector(".search-input");
-    searchInput.addEventListener("input", () => {
-      const searchTerm = searchInput.value.toLowerCase();
-      handleSearch(searchTerm);
-    });
-  }
-
   /* HANDLE DELETE */
 
   bindDelete(handleDelete) {
@@ -195,6 +186,24 @@ export default class TaskItemView {
           }
         }
       }
+    });
+  }
+
+  /* HANDLER SEARCH TASK */
+
+  async searchTasks(searchTerm) {
+    const filteredTasks = this.tasks.filter(
+      (task) =>
+        task.taskName && task.taskName.toLowerCase().includes(searchTerm)
+    );
+    this.showTaskItem(filteredTasks);
+  }
+
+  bindSearchTask(handleSearch) {
+    const searchInput = document.querySelector(".search-input");
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      handleSearch(searchTerm);
     });
   }
 }

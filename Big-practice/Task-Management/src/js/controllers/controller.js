@@ -9,7 +9,7 @@ export default class Controller {
   async init() {
     this.taskItemView.syncTasks().then(() => {
       this.handleAddTask();
-      this.handleDeleteTask();
+      this.handleDelete();
       this.handleDragDropBoard();
       this.handleTaskDetail();
       this.handleSearchTasks();
@@ -67,15 +67,12 @@ export default class Controller {
     });
   };
 
-  handleDeleteTask = () => {
+  handleDelete = () => {
     this.taskItemView.bindDelete(async (id) => {
       try {
         await this.taskListModel.delete(id);
-        console.log(id);
-        // const tasks = await this.taskListModel.getTask();
-        // return this.taskItemView.revalidateTasks(tasks);
-        // return await this.taskListModel.find(id);
       } catch (e) {
+        this.showError(e.message);
         console.log(e);
       }
     });

@@ -179,15 +179,20 @@ export default class TaskItemView {
   }
 
   /* HANDLE DELETE */
+
   bindDelete(handleDelete) {
     document.body.addEventListener("click", async (e) => {
-      const taskItem = e.target.closest(".task-item-container");
-      if (taskItem) {
-        const deleteButton = taskItem.querySelector(".delete");
-        if (deleteButton) {
+      const deleteButton = e.target.closest(".delete");
+      if (deleteButton) {
+        const taskItem = deleteButton.closest(".task-item-container");
+        if (taskItem) {
           const taskId = taskItem.dataset.id;
-          console.log(taskId);
-          handleDelete(taskId);
+          try {
+            await handleDelete(taskId);
+            taskItem.remove();
+          } catch (error) {
+            console.error(error);
+          }
         }
       }
     });

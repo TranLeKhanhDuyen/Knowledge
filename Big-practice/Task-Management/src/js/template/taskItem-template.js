@@ -24,7 +24,8 @@ export default class TaskItemTemplate {
       }" data-status="${item.status}">
         <div class="task-content text-md">
           <h3 class="task-title">${item.taskName}</h3>  
-          <button class="delete"> <img src="${iconDelete}" alt="delete icon" class="delete-icon">
+          <button class="delete cursor"> 
+            <img src="${iconDelete}" alt="delete icon" class="delete-icon">
           </button>  
         </div>
         <div class="task-date text-md">

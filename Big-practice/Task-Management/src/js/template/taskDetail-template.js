@@ -37,7 +37,11 @@ export default class TaskDetailTemplate {
       <input class="date-select text-lg" type="date"  value="${date.convertDateInput(
         item.dueDate
       )}" id= "js-due">
-      <p class="daysRemaining">${date.diffTime(item.dueDate)}</p>
+      <p class="daysRemaining">${date.diffTime(
+        item.dueDate,
+        Math.ceil,
+        "left"
+      )}</p>
     </div>
 
     <div class="comments-container">

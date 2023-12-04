@@ -8,13 +8,10 @@ export default class TaskDetailTemplate {
   constructor() {}
 
   static renderTaskDetail(data) {
-    return `${data
-      .map(
-        (item) =>
-          `
-    <div class="detail-task-container" data-id="${item.id}">
+    return `
+    <div class="detail-task-container" data-id="${data.id}">
     <div class="detail-header text-xl text-bold">
-      <span class="task-title">${item.taskName}
+      <span class="task-title">${data.taskName}
         <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
@@ -28,17 +25,17 @@ export default class TaskDetailTemplate {
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
       <form action="#" method="get" class="add-description">
-        <p contenteditable="true" class="task-desc">${item.description}</p>
+        <p contenteditable="true" class="task-desc">${data.description}</p>
       </form>
     </div>
 
     <div class="date-container">
       <h3 class="title detail-title">Due Date</h3>
       <input class="date-select text-lg" type="date"  value="${date.convertDateInput(
-        item.dueDate
+        data.dueDate
       )}" id= "due-date">
       <p class="daysRemaining">${date.diffTime(
-        item.dueDate,
+        data.dueDate,
         Math.ceil,
         "left"
       )}</p>
@@ -50,9 +47,7 @@ export default class TaskDetailTemplate {
       <ul class="comment-list"></ul>
     </div>
   </div>
-  `
-      )
-      .join(" ")}`;
+  `;
   }
 
   static renderComment(data) {

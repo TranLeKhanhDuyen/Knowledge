@@ -87,7 +87,7 @@ export default class TaskItemView {
         const selectedTask = await handleFind(taskId);
 
         if (handleUpdate) {
-          this.renderTaskDetail([selectedTask], handleUpdate);
+          this.renderTaskDetail(selectedTask, handleUpdate);
 
           const closeIcons = document.querySelectorAll(".close-icon");
           closeIcons.forEach((closeIcon) => {
@@ -110,10 +110,10 @@ export default class TaskItemView {
       TaskDetailTemplate.renderTaskDetail(selectedTasks);
 
     const commentContainer = detailContainer.querySelector(".comment-list");
-    if (selectedTasks[0].comments) {
+    if (selectedTasks.comments) {
       commentContainer.insertAdjacentHTML(
         "beforeend",
-        TaskDetailTemplate.renderComment(selectedTasks[0])
+        TaskDetailTemplate.renderComment(selectedTasks)
       );
     }
     // Add event update task

@@ -1,15 +1,6 @@
 {
   "tasks": [
     {
-      "taskName": "t1",
-      "description": "ok",
-      "dueDate": "12/03/2023",
-      "createdDate": "12/1/2023",
-      "comments": "h",
-      "status": "inprogress",
-      "id": 1
-    },
-    {
       "taskName": "t2",
       "description": "",
       "dueDate": "12/08/2023",
@@ -21,10 +12,10 @@
     {
       "taskName": "ok",
       "description": "",
-      "dueDate": "12/06/2023",
+      "dueDate": "12/15/2023",
       "createdDate": "12/1/2023",
       "comments": "",
-      "status": "todo",
+      "status": "inprogress",
       "id": 3
     }
   ]

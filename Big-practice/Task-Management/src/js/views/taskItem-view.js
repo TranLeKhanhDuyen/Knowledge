@@ -177,7 +177,7 @@ export default class TaskItemView {
   };
 
   /* HANDLE DELETE */
-
+  
   bindDelete(handleDelete) {
     document.body.addEventListener("click", async (e) => {
       const deleteButton = e.target.closest(".delete");
@@ -185,17 +185,22 @@ export default class TaskItemView {
         const taskItem = deleteButton.closest(".task-item-container");
         if (taskItem) {
           const taskId = taskItem.dataset.id;
-          try {
-            await handleDelete(taskId);
-            taskItem.remove();
-          } catch (error) {
-            alert(error);
+          
+          const userConfirmed = confirm("Are you sure you want to delete this task?");
+          
+          if (userConfirmed) {
+            try {
+              await handleDelete(taskId);
+              taskItem.remove();
+            } catch (error) {
+              alert(error);
+            }
           }
         }
       }
     });
   }
-
+  
   /* HANDLER SEARCH TASK */
 
   async searchTasks(searchTerm) {

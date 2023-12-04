@@ -44,35 +44,10 @@ const formatDate = (date) => {
   return [month, day, year].join("/");
 };
 
-const timeElapse = (timeStamp) => {
-  const minutes = 1000 * 60;
-  const diffMins = Math.floor((Date.now() + timeStamp) / minutes);
-  const [dateString] = new Date(timeStamp).toISOString().split("T");
-  const diffHours = Math.floor(diffMins / 60);
-
-  switch (true) {
-    case diffMins === 0:
-      return "Just now";
-
-    case diffMins === 1:
-      return `${diffMins} min ago`;
-
-    case diffMins < 60:
-      return `${diffMins} mins ago`;
-
-    case diffMins < 60 * 24:
-      return `${diffHours} ${diffHours === 1 ? "hour" : "hours"} ago`;
-
-    default:
-      return formatDate(dateString);
-  }
-};
-
 export default {
   getCurrentDate,
   getDueDate,
   diffTime,
   convertDateInput,
-  formatDate,
-  timeElapse,
+  formatDate
 };

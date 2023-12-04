@@ -7,13 +7,12 @@ export default class Controller {
   }
 
   async init() {
-    this.taskItemView.syncTasks().then(() => {
-      this.handleAddTask();
-      this.handleDelete();
-      this.handleDragDropBoard();
-      this.handleTaskDetail();
-      this.handleSearch();
-    });
+    await this.taskItemView.syncTasks();
+    this.handleAddTask();
+    this.handleDelete();
+    this.handleDragDropBoard();
+    this.handleTaskDetail();
+    this.handleSearch();
     this.handleUpdateTask();
   }
 
@@ -26,6 +25,19 @@ export default class Controller {
         return await this.taskListModel.edit(taskId, newStatus);
       }
     );
+  };
+
+  handleDelete = () => {
+    this.taskItemView.bindDelete(async (id) => {
+      try {
+        await this.taskListModel.delete(id);
+        await this.taskItemView.syncTasks();
+        return this.taskItemView.showTaskItem();
+      } catch (e) {
+        this.showError(e.message);
+        console.log(e);
+      }
+    });
   };
 
   handleDragDropBoard = () => {
@@ -49,7 +61,6 @@ export default class Controller {
 
   handleUpdateTask = () => {
     this.taskDetailView.bindUpdateTask(async (id, updateData) => {
-      // data: task list
       try {
         await this.taskListModel.edit(id, updateData);
 
@@ -60,28 +71,15 @@ export default class Controller {
     });
 
     this.taskDetailView.bindComments(async (id, updateData) => {
-      // data: task list
       await this.taskListModel.edit(id, updateData);
 
       return await this.taskListModel.find(id);
     });
   };
 
-  handleDelete = () => {
-    this.taskItemView.bindDelete(async (id) => {
-      try {
-        await this.taskListModel.delete(id);
-      } catch (e) {
-        this.showError(e.message);
-        console.log(e);
-      }
-    });
-  };
-
   handleSearch() {
     this.taskItemView.bindSearchTask(async (searchTerm) => {
-       this.taskItemView.searchTasks(searchTerm);
+      this.taskItemView.searchTasks(searchTerm);
     });
   }
-
 }

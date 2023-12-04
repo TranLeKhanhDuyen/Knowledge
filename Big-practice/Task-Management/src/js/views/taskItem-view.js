@@ -24,7 +24,9 @@ export default class TaskItemView {
     this.taskInput.parentElement.reset();
   }
 
-  showTaskItem(handleUpdate) {
+  showTaskItem(tasks) {
+
+    if(!tasks) tasks = this.tasks
     // Get task list area
     this.listTodo.innerHTML = "";
     this.listProgress.innerHTML = "";
@@ -33,25 +35,25 @@ export default class TaskItemView {
 
     const taskStatus = Object.values(STATUS);
 
-    if (this.tasks) {
+    if (tasks) {
       Array.from([
         this.listTodo,
         this.listProgress,
         this.listDone,
         this.listArchived,
       ]).forEach((listElement, index) => {
-        const filterTasks = this.tasks.filter(
+        const filterTasks = tasks.filter(
           (task) => task.status === taskStatus[index]
         );
         listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
       });
     }
 
-    this.updateDraggableTasks(handleUpdate);
+    this.updateDraggableTasks();
   }
 
-  bindAddTask(handle, handleUpdate) {
-    this.showTaskItem(handleUpdate);
+  bindAddTask(handle) {
+    this.showTaskItem();
     this.formAddTask.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -60,7 +62,7 @@ export default class TaskItemView {
         try {
           this.tasks = [...this.tasks, newTask];
           // Show the tasks
-          this.showTaskItem(handleUpdate);
+          this.showTaskItem();
           // Reset the form
           this.resetForm();
         } catch (error) {
@@ -75,6 +77,10 @@ export default class TaskItemView {
     document.body.addEventListener("click", async (e) => {
       // eslint-disable-next-line sonarjs/no-duplicate-string
       const taskItem = e.target.closest(".task-item-container");
+
+      if(e.target.closest('.delete')) {
+        return
+      }
 
       if (taskItem) {
         const taskId = taskItem.dataset.id;
@@ -162,8 +168,9 @@ export default class TaskItemView {
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || "js-default";
+      console.log(targetBoard.id)
       const newStatus = targetBoardId.split("js-")[1] || null;
-
+console.log(newStatus)
       handler(taskId, { status: newStatus });
       // Move taskItem to new state
       draggedTask.parentNode.removeChild(draggedTask);
@@ -182,6 +189,7 @@ export default class TaskItemView {
           const taskId = taskItem.dataset.id;
           try {
             await handleDelete(taskId);
+// get task api
             taskItem.remove();
           } catch (error) {
             console.error(error);
@@ -198,6 +206,7 @@ export default class TaskItemView {
       (task) =>
         task.taskName && task.taskName.toLowerCase().includes(searchTerm)
     );
+    console.log(filteredTasks)
     this.showTaskItem(filteredTasks);
   }
 
@@ -205,6 +214,7 @@ export default class TaskItemView {
     const searchInput = document.querySelector(".search-input");
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
+      console.log(searchTerm)
       handleSearch(searchTerm);
     });
   }

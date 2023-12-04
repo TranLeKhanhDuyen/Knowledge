@@ -42,7 +42,7 @@ export default class TaskListModel {
       if (status !== 200) return this.showError(ERROR_CODE[status]);
       return status;
     } catch (error) {
-      return this.showError("Error occurred in delete process");
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
     }
   }
 

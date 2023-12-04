@@ -85,7 +85,7 @@ export default class TaskListModel {
       const response = await this.apiTask.searchTask(searchTerm);
       return response.data;
     } catch (error) {
-      console.error("Error searching tasks:", error);
+      alert("Error searching tasks:", error);
       return [];
     }
   }

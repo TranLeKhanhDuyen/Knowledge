@@ -35,17 +35,17 @@ export default class Controller {
         return this.taskItemView.showTaskItem();
       } catch (e) {
         this.showError(e.message);
-        console.log(e);
+        alert(e.message);
       }
     });
   };
 
   handleDragDropBoard = () => {
     this.taskItemView.addBoardEvent(async (taskId, newStatus) => {
-      const res = await this.taskListModel.edit(taskId, newStatus);
+      const task = await this.taskListModel.edit(taskId, newStatus);
       const tasks = await this.taskListModel.getTask();
       this.taskItemView.revalidateTasks(tasks);
-      return res;
+      return task;
     });
   };
 
@@ -66,7 +66,7 @@ export default class Controller {
 
         return { data: await this.taskListModel.find(id) };
       } catch (e) {
-        console.error(e);
+        alert('Error updating task: ' + e.message);
       }
     });
 

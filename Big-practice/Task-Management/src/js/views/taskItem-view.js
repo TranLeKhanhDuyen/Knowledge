@@ -168,9 +168,7 @@ export default class TaskItemView {
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || "js-default";
-      console.log(targetBoard.id)
       const newStatus = targetBoardId.split("js-")[1] || null;
-console.log(newStatus)
       handler(taskId, { status: newStatus });
       // Move taskItem to new state
       draggedTask.parentNode.removeChild(draggedTask);
@@ -189,10 +187,9 @@ console.log(newStatus)
           const taskId = taskItem.dataset.id;
           try {
             await handleDelete(taskId);
-// get task api
             taskItem.remove();
           } catch (error) {
-            console.error(error);
+            alert(error);
           }
         }
       }
@@ -206,7 +203,6 @@ console.log(newStatus)
       (task) =>
         task.taskName && task.taskName.toLowerCase().includes(searchTerm)
     );
-    console.log(filteredTasks)
     this.showTaskItem(filteredTasks);
   }
 
@@ -214,7 +210,6 @@ console.log(newStatus)
     const searchInput = document.querySelector(".search-input");
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
-      console.log(searchTerm)
       handleSearch(searchTerm);
     });
   }

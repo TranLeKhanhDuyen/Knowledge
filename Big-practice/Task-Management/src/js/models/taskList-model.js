@@ -79,15 +79,4 @@ export default class TaskListModel {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
-
-  async searchTask(searchTerm) {
-    try {
-      const response = await this.apiTask.searchTask(searchTerm);
-      return response.data;
-    } catch (error) {
-      alert("Error searching tasks:", error);
-      return [];
-    }
-  }
-  
 }

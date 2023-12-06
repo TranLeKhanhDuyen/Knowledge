@@ -28,7 +28,7 @@ export default class TaskDetailView {
       });
     }
 
-    /* HANDLER DATE */
+    // HANDLER DATE 
     const dueDateInput = document.querySelector(".date-select");
 
     if (dueDateInput) {
@@ -60,7 +60,7 @@ export default class TaskDetailView {
     }
   }
 
-  /* HANDLER COMMENTS */
+  // HANDLER COMMENTS 
 
   bindComments(handle) {
     const inputComment = document.querySelector(".comments-input");

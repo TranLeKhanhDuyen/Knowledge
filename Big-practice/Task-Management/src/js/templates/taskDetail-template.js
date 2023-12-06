@@ -5,7 +5,6 @@ import userAvatar from "../../assets/images/user.svg";
 import date from "../utilities/date";
 
 export default class TaskDetailTemplate {
-
   static renderTaskDetail(data) {
     return `
     <div class="detail-task-container" data-id="${data.id}">
@@ -23,9 +22,9 @@ export default class TaskDetailTemplate {
       <span class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
       </span>
-      <form action="#" method="get" class="add-description">
-        <p contenteditable="true" class="task-desc">${data.description}</p>
-      </form>
+        <div contenteditable="true" class="add-description">${
+          data.description
+        }</div> 
     </div>
 
     <div class="date-container">
@@ -48,7 +47,7 @@ export default class TaskDetailTemplate {
   </div>
   `;
   }
-
+  
   static renderComment(data) {
     return `
       <li class="commenters">

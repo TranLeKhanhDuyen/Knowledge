@@ -9,12 +9,11 @@ export default class TaskDetailView {
 
   // DOMContentLoaded -> bind event
   bindUpdateTask(handle) {
-    const formAddDesc = document.querySelector("form.add-description");
-    const taskDescContent = document.querySelector(".task-desc");
-    if (formAddDesc) {
-      taskDescContent.addEventListener("blur", (e) => {
+    const addDesc = document.querySelector(".add-description");
+    if (addDesc) {
+      addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
-        const description = taskDescContent.textContent;
+        const description = addDesc.textContent;
         // eslint-disable-next-line sonarjs/no-duplicate-string
         const id = document.querySelector(".detail-task-container").dataset.id;
         const { data } = handle(id, { description });

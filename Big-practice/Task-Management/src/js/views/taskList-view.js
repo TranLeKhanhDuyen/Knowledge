@@ -134,7 +134,7 @@ export default class TaskListView {
     });
   }
 
-  //  HANDLE DRAG DROP 
+  //  HANDLE DRAG DROP
 
   updateDraggableTasks() {
     // Add event listeners for each task item
@@ -179,32 +179,34 @@ export default class TaskListView {
     }
   };
 
-  //  HANDLE DELETE 
+  //  HANDLE DELETE
 
   bindDelete(handleDelete) {
     document.body.addEventListener("click", async (e) => {
       const deleteButton = e.target.closest(".delete");
-      const taskItem = this.getTaskItem(deleteButton);
-      if (deleteButton && taskItem) {
-        const taskId = taskItem.dataset.id;
+      if (deleteButton) {
+        const taskItem = this.getTaskItem(deleteButton);
+        if (taskItem) {
+          const taskId = taskItem.dataset.id;
 
-        const userConfirmed = confirm(
-          "Are you sure you want to delete this task?"
-        );
+          const userConfirmed = confirm(
+            "Are you sure you want to delete this task?"
+          );
 
-        if (userConfirmed) {
-          try {
-            await handleDelete(taskId);
-            taskItem.remove();
-          } catch (error) {
-            alert(error);
+          if (userConfirmed) {
+            try {
+              await handleDelete(taskId);
+              taskItem.remove();
+            } catch (error) {
+              alert(error);
+            }
           }
         }
       }
     });
   }
 
-  //  HANDLER SEARCH TASK 
+  //  HANDLER SEARCH TASK
 
   async searchTasks(searchTerm) {
     const filteredTasks = this.tasks.filter(

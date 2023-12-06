@@ -1,4 +1,4 @@
-import TaskListTemplate from "../templates/taskItem-template";
+import TaskListTemplate from "../templates/taskList-template";
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import APITask from "../services/task";

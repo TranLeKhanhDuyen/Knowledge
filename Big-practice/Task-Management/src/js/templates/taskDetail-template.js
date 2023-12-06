@@ -5,7 +5,6 @@ import userAvatar from "../../assets/images/user.svg";
 import date from "../utilities/date";
 
 export default class TaskDetailTemplate {
-  constructor() {}
 
   static renderTaskDetail(data) {
     return `

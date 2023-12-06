@@ -3,8 +3,6 @@ import iconClock from "../../assets/icons/clock.svg";
 import date from "../utilities/date";
 
 export default class TaskListTemplate {
-  constructor() {}
-
   /**
    * Create an HTML template string to display a task item.
    *

@@ -1,10 +1,10 @@
-import TaskItemTemplate from "../template/taskItem-template";
+import TaskListTemplate from "../templates/taskItem-template";
 import { ERROR_MESSAGE } from "../constants/message";
-import TaskDetailTemplate from "../template/taskDetail-template";
+import TaskDetailTemplate from "../templates/taskDetail-template";
 import APITask from "../services/task";
 import STATUS from "../constants/status";
 
-export default class TaskItemView {
+export default class TaskListView {
   constructor() {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
@@ -45,7 +45,7 @@ export default class TaskItemView {
         const filterTasks = tasks.filter(
           (task) => task.status === taskStatus[index]
         );
-        listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
+        listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks);
       });
     }
 

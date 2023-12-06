@@ -2,7 +2,7 @@ import iconDelete from "../../assets/icons/delete.svg";
 import iconClock from "../../assets/icons/clock.svg";
 import date from "../utilities/date";
 
-export default class TaskItemTemplate {
+export default class TaskListTemplate {
   constructor() {}
 
   /**
@@ -14,7 +14,7 @@ export default class TaskItemTemplate {
    * @param {string} data.task.dueDate - The task's due date.
    */
 
-  static renderTaskItem(data) {
+  static renderTaskList(data) {
     if (Array.isArray(data)) {
       return data
         .map((item) => {

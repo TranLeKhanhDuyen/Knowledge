@@ -7,15 +7,18 @@ export default class TaskDetailView {
     this.updateData = {};
   }
 
-  // DOMContentLoaded -> bind event
+  getId() {
+    const detailContainer = document.querySelector(".detail-task-container");
+    return detailContainer ? detailContainer.dataset.id : null;
+  }
+
   bindUpdateTask(handle) {
     const addDesc = document.querySelector(".add-description");
     if (addDesc) {
       addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
         const description = addDesc.textContent;
-        // eslint-disable-next-line sonarjs/no-duplicate-string
-        const id = document.querySelector(".detail-task-container").dataset.id;
+        const id = this.getId()
         const { data } = handle(id, { description });
         try {
           this.updateData = { ...this.updateData, ...data };
@@ -30,7 +33,7 @@ export default class TaskDetailView {
 
     if (dueDateInput) {
       dueDateInput.addEventListener("change", (e) => {
-        const id = document.querySelector(".detail-task-container").dataset.id;
+        const id = this.getId()
         const newDueDate = date.formatDate(e.target.value);
 
         const { data } = handle(id, { dueDate: newDueDate });
@@ -66,8 +69,7 @@ export default class TaskDetailView {
         if (e.key === "Enter") {
           e.preventDefault();
           const comments = inputComment.value.trim();
-          const id = document.querySelector(".detail-task-container").dataset
-            .id;
+          const id = this.getId()
           const data = await handle(id, { comments });
           if (comments !== "") {
             this.updateData = { ...this.updateData, ...data };

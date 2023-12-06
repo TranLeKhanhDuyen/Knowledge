@@ -1,5 +1,3 @@
-import { API_URL } from "../constants/url";
-
 export default class APIHelper {
   static sendRequest(method, data, contentType = "application/json") {
     return {
@@ -9,9 +7,5 @@ export default class APIHelper {
         "Content-Type": contentType,
       },
     };
-  }
-
-  static apiEndpoint(url) {
-    return `${API_URL}${url}`;
   }
 }

@@ -27,7 +27,7 @@ export default class TaskListModel {
       // Assuming data property holds the new task
       return apiResponse.data;
     } catch (error) {
-      throw new Error("Error occurred in adding process");
+      return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
 
@@ -50,7 +50,7 @@ export default class TaskListModel {
       // Assuming data property holds the task detail
       return apiResponse.data;
     } catch (error) {
-      throw new Error("Error occurred in getting task detail");
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
     }
   }
 

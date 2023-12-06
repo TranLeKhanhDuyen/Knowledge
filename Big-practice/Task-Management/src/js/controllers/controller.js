@@ -35,7 +35,7 @@ export default class Controller {
         return this.taskItemView.showTaskItem();
       } catch (e) {
         this.showError(e.message);
-        alert(e.message);
+        console.log(e);
       }
     });
   };
@@ -66,7 +66,7 @@ export default class Controller {
 
         return { data: await this.taskListModel.find(id) };
       } catch (e) {
-        alert('Error updating task: ' + e.message);
+        console.error(e);
       }
     });
 

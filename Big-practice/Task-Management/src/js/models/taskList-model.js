@@ -13,10 +13,6 @@ export default class TaskListModel {
     this.showError = callback;
   }
 
-  async syncTasks() {
-    return (await this.apiTask.getTask().then((res) => res.data)) || [];
-  }
-
   createTask(taskName) {
     const newTask = new TaskModel(taskName);
     this.tasks.push(newTask);

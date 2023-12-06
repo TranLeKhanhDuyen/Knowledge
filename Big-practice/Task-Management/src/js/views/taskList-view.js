@@ -25,8 +25,7 @@ export default class TaskListView {
   }
 
   showTaskItem(tasks) {
-
-    if(!tasks) tasks = this.tasks
+    if (!tasks) tasks = this.tasks;
     // Get task list area
     this.listTodo.innerHTML = "";
     this.listProgress.innerHTML = "";
@@ -71,15 +70,19 @@ export default class TaskListView {
       }
     });
   }
-  /* HANDLER TASK DETAIL */
+
+  // HANDLER TASK DETAIL
+
+  getTaskItem(target) {
+    return target.closest(".task-item-container");
+  }
 
   bindTaskDetail(handleUpdate, handleFind) {
     document.body.addEventListener("click", async (e) => {
-      // eslint-disable-next-line sonarjs/no-duplicate-string
-      const taskItem = e.target.closest(".task-item-container");
+      const taskItem = this.getTaskItem(e.target);
 
-      if(e.target.closest('.delete')) {
-        return
+      if (e.target.closest(".delete")) {
+        return;
       }
 
       if (taskItem) {
@@ -131,7 +134,7 @@ export default class TaskListView {
     });
   }
 
-  /* HANDLE DRAG DROP */
+  //  HANDLE DRAG DROP 
 
   updateDraggableTasks() {
     // Add event listeners for each task item
@@ -176,32 +179,32 @@ export default class TaskListView {
     }
   };
 
-  /* HANDLE DELETE */
-  
+  //  HANDLE DELETE 
+
   bindDelete(handleDelete) {
     document.body.addEventListener("click", async (e) => {
       const deleteButton = e.target.closest(".delete");
-      if (deleteButton) {
-        const taskItem = deleteButton.closest(".task-item-container");
-        if (taskItem) {
-          const taskId = taskItem.dataset.id;
-          
-          const userConfirmed = confirm("Are you sure you want to delete this task?");
-          
-          if (userConfirmed) {
-            try {
-              await handleDelete(taskId);
-              taskItem.remove();
-            } catch (error) {
-              alert(error);
-            }
+      const taskItem = this.getTaskItem(deleteButton);
+      if (deleteButton && taskItem) {
+        const taskId = taskItem.dataset.id;
+
+        const userConfirmed = confirm(
+          "Are you sure you want to delete this task?"
+        );
+
+        if (userConfirmed) {
+          try {
+            await handleDelete(taskId);
+            taskItem.remove();
+          } catch (error) {
+            alert(error);
           }
         }
       }
     });
   }
-  
-  /* HANDLER SEARCH TASK */
+
+  //  HANDLER SEARCH TASK 
 
   async searchTasks(searchTerm) {
     const filteredTasks = this.tasks.filter(

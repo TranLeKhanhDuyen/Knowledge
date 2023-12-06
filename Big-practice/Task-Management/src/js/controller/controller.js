@@ -35,7 +35,6 @@ export default class Controller {
         return this.taskListView.showTaskItem();
       } catch (e) {
         this.showError(e.message);
-        console.log(e);
       }
     });
   };
@@ -49,32 +48,20 @@ export default class Controller {
     });
   };
 
-  handleTaskDetail = () => {
+  handleTaskDetail() {
     this.taskListView.bindTaskDetail(this.handleUpdateTask, (id) =>
-      this.handleFindTask(id)
+      this.taskListModel.find(id)
     );
-  };
-
-  handleFindTask = (id) => {
-    return this.taskListModel.find(id);
-  };
+  }
 
   handleUpdateTask = () => {
-    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
-      try {
-        await this.taskListModel.edit(id, updateData);
+    this.taskDetailView.bindUpdateTask(this.handleEditAndComment);
+    this.taskDetailView.bindComments(this.handleEditAndComment);
+  };
 
-        return { data: await this.taskListModel.find(id) };
-      } catch (e) {
-        console.error(e);
-      }
-    });
-
-    this.taskDetailView.bindComments(async (id, updateData) => {
-      await this.taskListModel.edit(id, updateData);
-
-      return await this.taskListModel.find(id);
-    });
+  handleEditAndComment = async (id, updateData) => {
+    await this.taskListModel.edit(id, updateData);
+    return this.taskListModel.find(id);
   };
 
   handleSearch() {

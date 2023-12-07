@@ -1,16 +1,20 @@
-import { API_TASKS } from "../constants/url";
+import { API_URL } from "../constants/url";
 import APIHelper from "./helper";
 
-export default class APITask {
+export default class API {
+  constructor(apiPath = "/tasks") {
+    this.apiPath = apiPath;
+  }
   /**
    * Adds a new task to the API
    *
    * @param {string} taskName - The name of the task to add
    * @
    * */
+
   async addTask(taskName) {
     const response = await fetch(
-      API_TASKS,
+      `${API_URL}${this.apiPath}`,
       APIHelper.sendRequest("POST", taskName)
     );
     const result = await response.json();
@@ -27,7 +31,7 @@ export default class APITask {
    */
 
   async getTask() {
-    const response = await fetch(API_TASKS);
+    const response = await fetch(`${API_URL}${this.apiPath}`);
     const result = await response.json();
 
     return {
@@ -43,7 +47,7 @@ export default class APITask {
    */
 
   async findTask(id) {
-    const response = await fetch(`${API_TASKS}/${id}`);
+    const response = await fetch(`${API_URL}${this.apiPath}/${id}`);
     const result = await response.json();
 
     return {
@@ -54,7 +58,7 @@ export default class APITask {
 
   async edit(id, updateData) {
     const response = await fetch(
-      `${API_TASKS}/${id}`,
+      `${API_URL}${this.apiPath}/${id}`,
       APIHelper.sendRequest("PATCH", updateData)
     );
 
@@ -65,7 +69,7 @@ export default class APITask {
 
   async delete(id) {
     const response = await fetch(
-      `${API_TASKS}/${id}`,
+      `${API_URL}${this.apiPath}/${id}`,
       APIHelper.sendRequest("DELETE")
     );
 

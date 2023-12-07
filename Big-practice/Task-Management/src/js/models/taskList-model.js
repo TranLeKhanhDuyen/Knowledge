@@ -1,11 +1,11 @@
-import APITask from "../services/task";
+import API from "../services/task";
 import TaskModel from "./task-model";
 import { ERROR_CODE } from "../constants/message";
 import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskListModel {
   constructor() {
-    this.apiTask = new APITask();
+    this.apiTask = new API();
     this.tasks = [];
   }
 

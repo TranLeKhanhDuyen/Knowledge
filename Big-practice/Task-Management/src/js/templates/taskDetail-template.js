@@ -6,6 +6,7 @@ import date from "../utilities/date";
 
 export default class TaskDetailTemplate {
   static renderTaskDetail(data) {
+    const commentItems = this.renderComments(data);
     return `
     <div class="detail-task-container" data-id="${data.id}">
     <div class="detail-header text-xl text-bold">
@@ -42,12 +43,19 @@ export default class TaskDetailTemplate {
     <div class="comments-container">
       <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
-      <ul class="comment-list"></ul>
+      <ul class="comment-list">${commentItems}</ul>
     </div>
   </div>
   `;
   }
   
+  static renderComments(selectedTasks) {
+    if (selectedTasks.comments) {
+      return TaskDetailTemplate.renderComment(selectedTasks);
+    }
+    return ''; 
+  }
+
   static renderComment(data) {
     return `
       <li class="commenters">

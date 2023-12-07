@@ -48,11 +48,11 @@ export default class Controller {
     });
   };
 
-  handleTaskDetail() {
+  handleTaskDetail = () => {
     this.taskListView.bindTaskDetail(this.handleUpdateTask, (id) =>
       this.taskListModel.find(id)
     );
-  }
+  };
 
   handleUpdateTask = () => {
     this.taskDetailView.bindUpdateTask(this.handleEditAndComment);
@@ -64,9 +64,9 @@ export default class Controller {
     return this.taskListModel.find(id);
   };
 
-  handleSearch() {
+  handleSearch = () => {
     this.taskListView.bindSearchTask(async (searchTerm) => {
       this.taskListView.searchTasks(searchTerm);
     });
-  }
+  };
 }

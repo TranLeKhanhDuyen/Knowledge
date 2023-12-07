@@ -16,8 +16,8 @@ export default class TaskListView {
   }
 
   async syncTasks() {
-    this.tasks =
-      (await new APITask("/tasks").getTask().then((res) => res.data)) || [];
+    const response = await new APITask("/tasks").getTask();
+    this.tasks = response.data || [];
   }
 
   resetForm() {

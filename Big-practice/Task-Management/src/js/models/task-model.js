@@ -1,7 +1,7 @@
 import date from "../utilities/date";
 import STATUS from "../constants/status";
 
-const createTaskModel = (taskName) => ({
+const TaskModel = (taskName) => ({
   taskName,
   description: "",
   dueDate: date.getDueDate(),
@@ -10,4 +10,4 @@ const createTaskModel = (taskName) => ({
   status: STATUS.TODO,
 });
 
-export default createTaskModel;
+export default TaskModel;

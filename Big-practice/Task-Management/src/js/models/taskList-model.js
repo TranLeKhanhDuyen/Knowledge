@@ -9,8 +9,8 @@ export default class TaskListModel {
     this.tasks = [];
   }
 
-  bindError(callback) {
-    this.showError = callback;
+  showError(errorMessage) {
+    console.error(errorMessage);
   }
 
   createTask(taskName) {

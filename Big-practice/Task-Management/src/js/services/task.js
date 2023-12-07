@@ -1,7 +1,7 @@
 import { API_URL } from "../constants/url";
 import APIHelper from "./helper";
 
-export default class APITask {
+export default class API {
   constructor(apiPath = "/tasks") {
     this.apiPath = apiPath;
   }
@@ -11,7 +11,7 @@ export default class APITask {
    * @param {string} taskName - The name of the task to add
    * @
    * */
-  
+
   async addTask(taskName) {
     const response = await fetch(
       `${API_URL}${this.apiPath}`,

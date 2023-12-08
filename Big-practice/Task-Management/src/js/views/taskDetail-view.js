@@ -15,62 +15,83 @@ export default class TaskDetailView {
   bindUpdateTask(handle) {
     const addDesc = document.querySelector(".add-description");
     const editIcon = document.querySelector(".edit-icon");
+    const dueDateInput = document.querySelector(".date-select");
+
     if (addDesc && editIcon) {
       editIcon.addEventListener("click", (e) => {
         e.preventDefault();
-        addDesc.focus();
-
-        //Move the mouse pointer to the end of the content
-        const range = document.createRange();
-        range.selectNodeContents(addDesc);
-        range.collapse(false);
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
+        this.focusEditDescripton(addDesc);
       });
 
       addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
-        const description = addDesc.textContent;
-        const id = this.getId();
-        const { data } = handle(id, { description });
-        try {
-          this.updateData = { ...this.updateData, ...data };
-        } catch (error) {
-          alert(ERROR_MESSAGE.ADD_FAIL);
-        }
+        this.editDescription(handle);
       });
     }
 
-    // HANDLER DATE
-    const dueDateInput = document.querySelector(".date-select");
-
     if (dueDateInput) {
       dueDateInput.addEventListener("change", (e) => {
-        const id = this.getId();
-        const newDueDate = date.formatDate(e.target.value);
-
-        const { data } = handle(id, { dueDate: newDueDate });
-
-        // Update the due date in updateData
-        this.updateData = { ...this.updateData, ...data };
-
-        // Update the task item's due date
-        const taskItem = document.querySelector(
-          `.task-item-container[data-id="${id}"]`
-        );
-
-        if (taskItem) {
-          const dueDateElement = taskItem.querySelector(".due-date");
-          if (dueDateElement) {
-            dueDateElement.innerHTML = date.diffTime(
-              newDueDate,
-              Math.round,
-              "left"
-            );
-          }
-        }
+        this.changeDueDate(handle, e);
       });
+    }
+  }
+
+  // Event for icon edit
+  focusEditDescripton(element) {
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    range.collapse(false);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  // Event when click to input
+  editDescription(handle) {
+    const addDesc = document.querySelector(".add-description");
+    const description = addDesc.textContent;
+    const id = this.getId();
+    const { data } = handle(id, { description });
+
+    try {
+      this.updateData = { ...this.updateData, ...data };
+    } catch (error) {
+      alert(ERROR_MESSAGE.ADD_FAIL);
+    }
+  }
+
+  //Event when change date
+  changeDueDate(handle, event) {
+    const id = this.getId();
+    const newDueDate = date.formatDate(event.target.value);
+    const { data } = handle(id, { dueDate: newDueDate });
+
+    this.updateData = { ...this.updateData, ...data };
+
+    const taskItem = document.querySelector(
+      `.task-item-container[data-id="${id}"]`
+    );
+
+    // Update date for task item
+    if (taskItem) {
+      const dueDateElement = taskItem.querySelector(".due-date");
+      if (dueDateElement) {
+        dueDateElement.innerHTML = date.diffTime(
+          newDueDate,
+          Math.round,
+          "left"
+        );
+      }
+    }
+
+    // Update date for task detail
+    const daysRemainingElement = document.querySelector(".daysRemaining");
+    if (daysRemainingElement) {
+      daysRemainingElement.innerHTML = date.diffTime(
+        newDueDate,
+        Math.ceil,
+        "left"
+      );
     }
   }
 

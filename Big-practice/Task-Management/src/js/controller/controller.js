@@ -32,7 +32,6 @@ export default class Controller {
       try {
         await this.taskListModel.delete(id);
         await this.taskListView.syncTasks();
-        return this.taskListView.showTaskItem();
       } catch (e) {
         this.showError(e.message);
       }

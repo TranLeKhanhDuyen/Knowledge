@@ -30,11 +30,11 @@ export default class TaskListTemplate {
           <p class="date-ago">${date.diffTime(item.createdDate)}</p>
           <div class="date-left text-sm">
             <img src="${iconClock}" class="clock-icon">
-            <p class ="due-date">${date.diffTime(
+            <date class ="due-date">${date.diffTime(
               item.dueDate,
               Math.ceil,
               "left"
-            )}</p>
+            )}</date>
           </div>
         </div>
       </li>

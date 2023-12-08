@@ -10,19 +10,19 @@ export default class TaskDetailTemplate {
     return `
     <div class="detail-task-container" data-id="${data.id}">
     <div class="detail-header text-xl text-bold">
-      <span class="task-title">${data.taskName}
+      <div class="task-title">${data.taskName}
         <select class="option">
           <option value="New">New</option>
           <option value="Old">Old</option>
         </select>
-      </span>
+      </div>
       <img class="close-icon cursor" src="${iconClose}" alt="close icon">
     </div>
 
     <div class="edit-task-container">
-      <span class="title detail-title">Description
+      <figure class="title detail-title">Description
         <img class="edit-icon" src="${iconEdit}" alt="edit icon">
-      </span>
+      </figure>
         <div contenteditable="true" class="add-description">${
           data.description
         }</div> 
@@ -33,11 +33,11 @@ export default class TaskDetailTemplate {
       <input class="date-select text-lg" type="date"  value="${date.convertDateInput(
         data.dueDate
       )}" id= "due-date">
-      <p class="daysRemaining">${date.diffTime(
+      <date class="daysRemaining">${date.diffTime(
         data.dueDate,
         Math.ceil,
         "left"
-      )}</p>
+      )}</date>
     </div>
 
     <div class="comments-container">
@@ -48,12 +48,12 @@ export default class TaskDetailTemplate {
   </div>
   `;
   }
-  
+
   static renderComments(selectedTasks) {
     if (selectedTasks.comments) {
       return TaskDetailTemplate.renderComment(selectedTasks);
     }
-    return ''; 
+    return "";
   }
 
   static renderComment(data) {

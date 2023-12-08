@@ -1,13 +1,15 @@
 import date from "../utilities/date";
 import STATUS from "../constants/status";
 
-export default class TaskModel {
-  constructor(taskName) {
-    this.taskName = taskName;
-    this.description = "";
-    this.dueDate = date.getDueDate();
-    this.createdDate = date.getCurrentDate();
-    this.comments = "";
-    this.status = STATUS.TODO;
-  }
-}
+const TaskModel = (taskName) => {
+  return {
+    taskName: taskName,
+    description: "",
+    dueDate: date.getDueDate(),
+    createdDate: date.getCurrentDate(),
+    comments: [],
+    status: STATUS.TODO,
+  };
+};
+
+export default TaskModel;

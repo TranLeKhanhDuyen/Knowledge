@@ -14,7 +14,7 @@ export default class TaskListModel {
   }
 
   createTask(taskName) {
-    const newTask = new TaskModel(taskName);
+    const newTask = TaskModel(taskName);
     this.tasks.push(newTask);
     return newTask;
   }

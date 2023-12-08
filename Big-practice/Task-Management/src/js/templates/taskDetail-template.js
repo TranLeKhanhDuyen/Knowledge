@@ -21,7 +21,7 @@ export default class TaskDetailTemplate {
 
     <div class="edit-task-container">
       <figure class="title detail-title">Description
-        <img class="edit-icon" src="${iconEdit}" alt="edit icon">
+        <img class="edit-icon cursor" src="${iconEdit}" alt="edit icon">
       </figure>
         <div contenteditable="true" class="add-description">${
           data.description

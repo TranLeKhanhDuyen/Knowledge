@@ -14,11 +14,25 @@ export default class TaskDetailView {
 
   bindUpdateTask(handle) {
     const addDesc = document.querySelector(".add-description");
-    if (addDesc) {
+    const editIcon = document.querySelector(".edit-icon");
+    if (addDesc && editIcon) {
+      editIcon.addEventListener("click", (e) => {
+        e.preventDefault();
+        addDesc.focus();
+
+        //Move the mouse pointer to the end of the content
+        const range = document.createRange();
+        range.selectNodeContents(addDesc);
+        range.collapse(false);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+      });
+
       addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
         const description = addDesc.textContent;
-        const id = this.getId()
+        const id = this.getId();
         const { data } = handle(id, { description });
         try {
           this.updateData = { ...this.updateData, ...data };
@@ -28,12 +42,12 @@ export default class TaskDetailView {
       });
     }
 
-    // HANDLER DATE 
+    // HANDLER DATE
     const dueDateInput = document.querySelector(".date-select");
 
     if (dueDateInput) {
       dueDateInput.addEventListener("change", (e) => {
-        const id = this.getId()
+        const id = this.getId();
         const newDueDate = date.formatDate(e.target.value);
 
         const { data } = handle(id, { dueDate: newDueDate });
@@ -60,7 +74,7 @@ export default class TaskDetailView {
     }
   }
 
-  // HANDLER COMMENTS 
+  // HANDLER COMMENTS
 
   bindComments(handle) {
     const inputComment = document.querySelector(".comments-input");
@@ -69,7 +83,7 @@ export default class TaskDetailView {
         if (e.key === "Enter") {
           e.preventDefault();
           const comments = inputComment.value.trim();
-          const id = this.getId()
+          const id = this.getId();
           const data = await handle(id, { comments });
           if (comments !== "") {
             this.updateData = { ...this.updateData, ...data };

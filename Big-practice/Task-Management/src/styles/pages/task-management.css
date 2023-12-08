@@ -28,9 +28,9 @@
   border-radius: 4px 4px 0px 0px;
   background: var(--secondary-color);
   padding-bottom: 50px;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 30%;
+  top: 150px;
 }
 
 .detail-header {

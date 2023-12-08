@@ -68,11 +68,10 @@ export default class TaskDetailView {
 
     this.updateData = { ...this.updateData, ...data };
 
+    // Update date for task item
     const taskItem = document.querySelector(
       `.task-item-container[data-id="${id}"]`
     );
-
-    // Update date for task item
     if (taskItem) {
       const dueDateElement = taskItem.querySelector(".due-date");
       if (dueDateElement) {

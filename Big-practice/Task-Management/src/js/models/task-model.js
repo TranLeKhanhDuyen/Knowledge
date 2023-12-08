@@ -7,7 +7,7 @@ const TaskModel = (taskName) => {
     description: "",
     dueDate: date.getDueDate(),
     createdDate: date.getCurrentDate(),
-    comments: [],
+    comments: "",
     status: STATUS.TODO,
   };
 };

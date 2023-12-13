@@ -11,10 +11,6 @@ export default class TaskDetailTemplate {
     <div class="detail-task-container" data-id="${data.id}">
     <div class="detail-header text-xl text-bold">
       <div class="task-title">${data.taskName}
-        <select class="option">
-          <option value="New">New</option>
-          <option value="Old">Old</option>
-        </select>
       </div>
       <img class="close-icon cursor" src="${iconClose}" alt="close icon">
     </div>

@@ -47,13 +47,6 @@
   gap: 10px;
 }
 
-.option {
-  padding: 3px 18px 3px 5px;
-  color: var(--blue-select-color);
-  border: 1px solid var(--blue-select-color);
-  border-radius: 4px;
-}
-
 .edit-task-container {
   padding: 0 20px;
   margin-top: 17px;

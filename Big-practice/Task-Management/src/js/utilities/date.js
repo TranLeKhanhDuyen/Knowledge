@@ -4,8 +4,11 @@ const getCurrentDate = () => {
 };
 
 const getDueDate = () => {
-  const date = new Date();
-  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  const currentDate = new Date();
+  const dueDate = new Date(currentDate.getTime() + 10 * 24 * 60 * 60 * 1000);
+  return `${
+    dueDate.getMonth() + 1
+  }/${dueDate.getDate()}/${dueDate.getFullYear()}`;
 };
 
 const diffTime = (date, method = Math.floor, adverb = "ago", unit = "day") => {
@@ -49,5 +52,5 @@ export default {
   getDueDate,
   diffTime,
   convertDateInput,
-  formatDate
+  formatDate,
 };

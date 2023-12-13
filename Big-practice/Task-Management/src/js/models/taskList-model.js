@@ -42,6 +42,18 @@ export default class TaskListModel {
     }
   }
 
+  async deleteComment(commentId) {
+    console.log(commentId)
+    try {
+      const { status } = await this.apiTask.deleteComment(commentId);
+
+      if (status !== 200) return this.showError(ERROR_CODE[status]);
+      return status;
+    } catch (error) {
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
+    }
+  }
+
   async getTask(taskId) {
     try {
       // Call the API to get task detail by ID

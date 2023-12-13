@@ -1,4 +1,4 @@
-import { API_URL } from "../constants/url";
+import { API_COMMENTS, API_URL } from "../constants/url";
 import APIHelper from "./helper";
 
 export default class API {
@@ -70,6 +70,15 @@ export default class API {
   async delete(id) {
     const response = await fetch(
       `${API_URL}${this.apiPath}/${id}`,
+      APIHelper.sendRequest("DELETE")
+    );
+    return { status: response.status };
+  }
+
+  async deleteComment(commentId) {
+    console.log(commentId);
+    const response = await fetch(
+      `${API_COMMENTS}/${commentId}`,
       APIHelper.sendRequest("DELETE")
     );
 

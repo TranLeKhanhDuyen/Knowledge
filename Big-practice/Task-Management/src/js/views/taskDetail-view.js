@@ -125,4 +125,29 @@ export default class TaskDetailView {
       commentDisplay.innerHTML += renderedComment;
     }
   }
+
+  deleteComment(handleDelete) {
+    document.body.addEventListener("click", async (e) => {
+      const deleteComment = e.target.closest(".delete-icon");
+      if (deleteComment) {
+        const commentItem = e.target.closest(".commenters");
+        if (commentItem) {
+          const commentId = commentItem.dataset.id;
+          console.log(commentId);
+          const userConfirmed = confirm(
+            "Are you sure you want to delete this comment?"
+          );
+
+          if (userConfirmed) {
+            try {
+              await handleDelete(commentId);
+              commentItem.remove();
+            } catch (error) {
+              alert(error);
+            }
+          }
+        }
+      }
+    });
+  }
 }

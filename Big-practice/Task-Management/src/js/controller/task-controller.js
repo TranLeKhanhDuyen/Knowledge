@@ -56,6 +56,13 @@ export default class Controller {
   handleUpdateTask = () => {
     this.taskDetailView.bindUpdateTask(this.handleEditAndComment);
     this.taskDetailView.bindComments(this.handleEditAndComment);
+    this.taskDetailView.deleteComment(async (commentId) => {
+      try {
+        await this.taskListModel.deleteComment(commentId);
+      } catch (error) {
+        alert(error);
+      }
+    });
   };
 
   handleEditAndComment = async (id, updateData) => {

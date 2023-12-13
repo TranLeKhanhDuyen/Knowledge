@@ -54,7 +54,7 @@ export default class TaskDetailTemplate {
 
   static renderComment(data) {
     return `
-      <li class="commenters">
+      <li class="commenters" data-id="${data.id}">
         <div class="commenter">
           <figure class="user">
             <img class="user-avatar" src="${userAvatar}" alt="avatar">

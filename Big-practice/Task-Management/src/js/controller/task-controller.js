@@ -60,13 +60,18 @@ export default class Controller {
 
   handleInitTaskDetailEvent = () => {
     // Edit desciption handler
-    this.taskDetailView.bindUpdateTask(this.handleEditAndComment);
-
+    this.handleDescription();
     // Edit desciption handler
     this.handeAddComment();
-
     // Delete
     this.handleDeleteComment();
+  };
+
+  handleDescription = () => {
+    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
+      await this.taskListModel.edit(id, updateData);
+      return this.taskListModel.find(id);
+    });
   };
 
   handeAddComment = () => {
@@ -79,11 +84,6 @@ export default class Controller {
     this.taskDetailView.deleteComment(async (commentId) =>
       this.commentListModel.deleteComment(commentId)
     );
-  };
-
-  handleEditAndComment = async (id, updateData) => {
-    await this.taskListModel.edit(id, updateData);
-    return this.taskListModel.find(id);
   };
 
   handleSearch = () => {

@@ -1,5 +1,5 @@
 import { ERROR_MESSAGE } from "../constants/message";
-import TaskDetailTemplate from "../template/taskDetail-template";
+import TaskDetailTemplate from "../templates/taskDetail-template";
 import date from "../utilities/date";
 
 export default class TaskDetailView {

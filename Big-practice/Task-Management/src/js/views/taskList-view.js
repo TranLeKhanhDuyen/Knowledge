@@ -1,6 +1,6 @@
-import TaskListTemplate from "../template/taskList-template";
+import TaskListTemplate from "../templates/taskList-template";
 import { ERROR_MESSAGE } from "../constants/message";
-import TaskDetailTemplate from "../template/taskDetail-template";
+import TaskDetailTemplate from "../templates/taskDetail-template";
 import STATUS from "../constants/status";
 
 export default class TaskListView {

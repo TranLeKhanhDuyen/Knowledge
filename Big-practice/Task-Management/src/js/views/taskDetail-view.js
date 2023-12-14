@@ -103,9 +103,10 @@ export default class TaskDetailView {
     inputComment.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
+
         const commentValue = inputComment.value.trim();
         const taskId = this.getId();
-        console.log(commentValue !== "");
+
         if (commentValue !== "") {
           const data = await handleAddComment(commentValue, +taskId);
 

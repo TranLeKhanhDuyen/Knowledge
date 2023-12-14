@@ -73,14 +73,4 @@ export default class API {
     );
     return { status: response.status };
   }
-
-  async deleteComment(commentId) {
-    console.log(commentId);
-    const response = await fetch(
-      `${API_URL}/${commentId}`,
-      APIHelper.sendRequest("DELETE")
-    );
-
-    return { status: response.status };
-  }
 }

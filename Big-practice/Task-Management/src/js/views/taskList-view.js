@@ -179,24 +179,26 @@ export default class TaskListView {
   bindDelete(handleDelete) {
     document.body.addEventListener("click", async (e) => {
       const deleteButton = e.target.closest(".delete");
-      if (deleteButton) {
-        const taskItem = this.getTaskItem(deleteButton);
-        if (taskItem) {
-          const taskId = taskItem.dataset.id;
+      if (!deleteButton) return;
 
-          const userConfirmed = confirm(
-            "Are you sure you want to delete this task?"
-          );
+      const taskItem = this.getTaskItem(deleteButton);
 
-          if (userConfirmed) {
-            try {
-              await handleDelete(taskId);
-              taskItem.remove();
-            } catch (error) {
-              alert(error);
-            }
-          }
-        }
+      if (!taskItem) return;
+      const taskId = taskItem.dataset.id;
+
+      const userConfirmed = confirm(
+        "Are you sure you want to delete this task?"
+      );
+
+      if (!userConfirmed) return;
+      try {
+        const status = await handleDelete(taskId);
+
+        if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
+
+        taskItem.remove();
+      } catch (error) {
+        alert(error);
       }
     });
   }

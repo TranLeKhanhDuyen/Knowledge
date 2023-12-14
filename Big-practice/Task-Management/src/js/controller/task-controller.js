@@ -8,17 +8,12 @@ export default class Controller {
   }
 
   async init() {
-    // await this.taskListView.getTasks();
-    await this.handleShowTask(); // Block
-    // Mount(Read): Model -> Controller -> View
-    // CUD: View -> COntroller -> Model
+    await this.handleShowTask();
     this.handleAddTask();
     this.handleDelete();
     this.handleDragDropBoard();
     this.handleTaskDetail();
     this.handleSearch();
-    // this.handleUpdateTask();
-    // this.handeAddComment();
   }
 
   // Mount(Read): Model -> Controller -> View
@@ -27,6 +22,7 @@ export default class Controller {
     this.taskListView.showTaskItem(tasks);
   };
 
+  //View -> Controller -> Model
   handleAddTask = () => {
     this.taskListView.bindAddTask(
       async (task) => {
@@ -41,7 +37,7 @@ export default class Controller {
   handleDelete = () => {
     this.taskListView.bindDelete(async (id) => {
       await this.taskListModel.delete(id);
-      await this.taskListView.getTasks();
+      await this.taskListView.getTaskItem();
     });
   };
 
@@ -56,12 +52,11 @@ export default class Controller {
 
   handleTaskDetail = () => {
     this.taskListView.bindTaskDetail(
-      this.handleInitTaskDetailEvent, // Include events init after render Detail component
+      this.handleInitTaskDetailEvent,
       (id) => this.taskListModel.find(id),
       // Get all comments base on taskId
       async (taskId) => this.commentListModel.getComment(taskId)
     );
-    // Param 3(get comments): (id) => this.commentModel.get(`localhost:3000/comments?taskId=${id}`)
   };
 
   handleInitTaskDetailEvent = () => {

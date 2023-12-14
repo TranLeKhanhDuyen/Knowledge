@@ -13,6 +13,13 @@ export default class TaskListModel {
     console.error(errorMessage);
   }
 
+  async getTasks() {
+    const response = await this.apiTask.getTask();
+    this.tasks = response.data || [];
+
+    return this.tasks;
+  }
+
   createTask(taskName) {
     const newTask = TaskModel(taskName);
     this.tasks.push(newTask);
@@ -34,18 +41,6 @@ export default class TaskListModel {
   async delete(id) {
     try {
       const { status } = await this.apiTask.delete(id);
-
-      if (status !== 200) return this.showError(ERROR_CODE[status]);
-      return status;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
-    }
-  }
-
-  async deleteComment(commentId) {
-    console.log(commentId)
-    try {
-      const { status } = await this.apiTask.deleteComment(commentId);
 
       if (status !== 200) return this.showError(ERROR_CODE[status]);
       return status;

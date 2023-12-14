@@ -1,12 +1,8 @@
 .task-item-container {
   min-width: 425px;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
   border-radius: 4px;
   background: var(--secondary-color);
-  gap: 16px;
-  cursor: pointer;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.12),
     0px 0px 1px 0px rgba(0, 0, 0, 0.48);
 }
@@ -15,6 +11,10 @@
 .task-date {
   display: flex;
   justify-content: space-between;
+}
+
+.task-date{
+  margin-top: 10px;
 }
 
 .task-list {

@@ -107,7 +107,18 @@ export default class TaskListView {
   }
 
   renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+
+    document.body.insertBefore(
+      overlay,
+      document.querySelector(".detail-container")
+    );
+
     const detailContainer = document.querySelector(".detail-container");
+
+    overlay.style.display = "block";
+
     detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(
       selectedTasks,
       comments
@@ -121,9 +132,12 @@ export default class TaskListView {
     const detailContainers = document.querySelectorAll(
       ".detail-task-container"
     );
+    const overlay = document.querySelector(".overlay");
+    
     detailContainers.forEach((detailContainer) => {
       if (detailContainer) {
         detailContainer.classList.add("hidden");
+        overlay.style.display = "none";
       }
     });
   }

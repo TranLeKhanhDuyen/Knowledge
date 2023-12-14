@@ -16,7 +16,7 @@ export default class TaskListTemplate {
       return data
         .map((item) => {
           return `
-      <li class="task-item-container" draggable="true" data-id="${
+      <li class="task-item-container cursor" draggable="true" data-id="${
         item.id
       }" data-status="${item.status}">
         <div class="task-content text-md">

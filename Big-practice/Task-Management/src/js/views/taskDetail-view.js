@@ -107,13 +107,12 @@ export default class TaskDetailView {
         const commentValue = inputComment.value.trim();
         const taskId = this.getId();
 
-        if (commentValue !== "") {
+        if (!commentValue) {
+          alert(ERROR_MESSAGE.COMMENT_EMPTY);
+        } else {
           const data = await handleAddComment(commentValue, +taskId);
-
           this.showComments(data);
           inputComment.value = "";
-        } else {
-          alert(ERROR_MESSAGE.COMMENT_EMPTY);
         }
       }
     });

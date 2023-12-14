@@ -13,7 +13,7 @@
       "description": "",
       "dueDate": "12/24/2023",
       "createdDate": "12/14/2023",
-      "status": "todo",
+      "status": null,
       "id": 5
     },
     {
@@ -29,7 +29,7 @@
       "description": "",
       "dueDate": "12/24/2023",
       "createdDate": "12/14/2023",
-      "status": "todo",
+      "status": null,
       "id": 7
     },
     {
@@ -39,6 +39,22 @@
       "createdDate": "12/14/2023",
       "status": "todo",
       "id": 8
+    },
+    {
+      "taskName": "kh drop duoc khi add task moi",
+      "description": "",
+      "dueDate": "12/24/2023",
+      "createdDate": "12/14/2023",
+      "status": null,
+      "id": 9
+    },
+    {
+      "taskName": "hihi",
+      "description": "",
+      "dueDate": "12/24/2023",
+      "createdDate": "12/14/2023",
+      "status": null,
+      "id": 10
     }
   ],
   "comments": [
@@ -48,6 +64,20 @@
       "timeStamp": 1702525994292,
       "timeAgo": "Now",
       "id": 1
+    },
+    {
+      "comment": "ok",
+      "taskId": 10,
+      "timeStamp": 1702547065437,
+      "timeAgo": "Now",
+      "id": 2
+    },
+    {
+      "comment": "ok",
+      "taskId": 10,
+      "timeStamp": 1702547066461,
+      "timeAgo": "Now",
+      "id": 3
     }
   ]
 }

@@ -102,10 +102,6 @@ export default class TaskListView {
     });
   }
 
-  revalidateTasks(tasks) {
-    this.tasks = tasks;
-  }
-
   renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
     const overlay = document.querySelector(".overlay");
 

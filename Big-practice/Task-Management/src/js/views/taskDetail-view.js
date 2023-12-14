@@ -1,5 +1,5 @@
 import { ERROR_MESSAGE } from "../constants/message";
-import TaskDetailTemplate from "../templates/taskDetail-template";
+import TaskDetailTemplate from "../template/taskDetail-template";
 import date from "../utilities/date";
 
 export default class TaskDetailView {
@@ -96,57 +96,57 @@ export default class TaskDetailView {
 
   // HANDLER COMMENTS
 
-  bindComments(handle) {
+  bindComments(handleAddComment) {
     const inputComment = document.querySelector(".comments-input");
-    if (inputComment) {
-      inputComment.addEventListener("keydown", async (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          const comments = inputComment.value.trim();
-          const id = this.getId();
-          const data = await handle(id, { comments });
-          if (comments !== "") {
-            this.updateData = { ...this.updateData, ...data };
-            this.showComments();
-            inputComment.value = "";
-          } else {
-            alert(ERROR_MESSAGE.COMMENT_EMPTY);
-          }
+    if (!inputComment) return;
+
+    inputComment.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const commentValue = inputComment.value.trim();
+        const taskId = this.getId();
+        console.log(commentValue !== "");
+        if (commentValue !== "") {
+          const data = await handleAddComment(commentValue, +taskId);
+
+          this.showComments(data);
+          inputComment.value = "";
+        } else {
+          alert(ERROR_MESSAGE.COMMENT_EMPTY);
         }
-      });
-    }
+      }
+    });
   }
 
-  showComments() {
-    const commentDisplay = document.querySelector(".comment-list");
-    commentDisplay.innerHTML = "";
-    if (this.updateData) {
-      const renderedComment = TaskDetailTemplate.renderComment(this.updateData);
-      commentDisplay.innerHTML += renderedComment;
-    }
+  // showComments(data: Comments)
+  showComments(data) {
+    const commentList = document.querySelector(".comment-list");
+    commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
   }
 
   deleteComment(handleDelete) {
     document.body.addEventListener("click", async (e) => {
       const deleteComment = e.target.closest(".delete-icon");
-      if (deleteComment) {
-        const commentItem = e.target.closest(".commenters");
-        if (commentItem) {
-          const commentId = commentItem.dataset.id;
-          console.log(commentId);
-          const userConfirmed = confirm(
-            "Are you sure you want to delete this comment?"
-          );
+      if (!deleteComment) return;
 
-          if (userConfirmed) {
-            try {
-              await handleDelete(commentId);
-              commentItem.remove();
-            } catch (error) {
-              alert(error);
-            }
-          }
-        }
+      const commentItem = e.target.closest(".commenters");
+      if (!commentItem) return;
+
+      // Save id item
+      const commentId = commentItem.dataset.id;
+      const userConfirmed = confirm(
+        "Are you sure you want to delete this comment?"
+      );
+
+      if (!userConfirmed) return;
+      try {
+        const status = await handleDelete(commentId);
+
+        if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
+
+        commentItem.remove();
+      } catch (error) {
+        alert(error);
       }
     });
   }

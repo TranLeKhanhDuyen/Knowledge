@@ -1,7 +1,6 @@
-import TaskListTemplate from "../templates/taskList-template";
+import TaskListTemplate from "../template/taskList-template";
 import { ERROR_MESSAGE } from "../constants/message";
-import TaskDetailTemplate from "../templates/taskDetail-template";
-import APITask from "../services/task";
+import TaskDetailTemplate from "../template/taskDetail-template";
 import STATUS from "../constants/status";
 
 export default class TaskListView {
@@ -13,19 +12,23 @@ export default class TaskListView {
     this.listProgress = document.querySelector("#progress");
     this.listDone = document.querySelector("#done");
     this.listArchived = document.querySelector("#archived");
-  }
 
-  async syncTasks() {
-    const response = await new APITask("/tasks").getTask();
-    this.tasks = response.data || [];
+    this.tasks = [];
   }
-
   resetForm() {
     this.taskInput.parentElement.reset();
   }
 
+  /**
+   * Render all tasks from the API
+   * @param {Array<Task>} tasks
+   * @returns {void}
+   */
   showTaskItem(tasks) {
-    if (!tasks) tasks = this.tasks;
+    if (!tasks.length) return;
+
+    this.tasks = tasks;
+
     // Get task list area
     this.listTodo.innerHTML = "";
     this.listProgress.innerHTML = "";
@@ -34,35 +37,31 @@ export default class TaskListView {
 
     const taskStatus = Object.values(STATUS);
 
-    if (tasks) {
-      Array.from([
-        this.listTodo,
-        this.listProgress,
-        this.listDone,
-        this.listArchived,
-      ]).forEach((listElement, index) => {
-        const filterTasks = tasks.filter(
-          (task) => task.status === taskStatus[index]
-        );
-        listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks);
-      });
-    }
+    [
+      this.listTodo,
+      this.listProgress,
+      this.listDone,
+      this.listArchived,
+    ].forEach((listElement, index) => {
+      const filterTasks = tasks.filter(
+        (task) => task.status === taskStatus[index]
+      );
+      listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks);
+    });
 
     this.updateDraggableTasks();
   }
 
   bindAddTask(handle) {
-    this.showTaskItem();
     this.formAddTask.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
         const newTaskName = this.taskInput.value;
-        const newTask = await handle(newTaskName);
         try {
-          this.tasks = [...this.tasks, newTask];
-          // Show the tasks
-          this.showTaskItem();
-          // Reset the form
+          const newTask = await handle(newTaskName);
+          this.listTodo.innerHTML =
+            TaskListTemplate.renderTaskList([newTask]) +
+            this.listTodo.innerHTML;
           this.resetForm();
         } catch (error) {
           alert(ERROR_MESSAGE.ADD_FAIL);
@@ -77,7 +76,7 @@ export default class TaskListView {
     return target.closest(".task-item-container");
   }
 
-  bindTaskDetail(handleUpdate, handleFind) {
+  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
     document.body.addEventListener("click", async (e) => {
       const taskItem = this.getTaskItem(e.target);
 
@@ -88,9 +87,10 @@ export default class TaskListView {
       if (taskItem) {
         const taskId = taskItem.dataset.id;
         const selectedTask = await handleFind(taskId);
+        const comments = await handleGetAllComments(+taskId);
 
-        if (handleUpdate) {
-          this.renderTaskDetail(selectedTask, handleUpdate);
+        if (handleInitEvent) {
+          this.renderTaskDetail(selectedTask, comments, handleInitEvent);
 
           const closeIcons = document.querySelectorAll(".close-icon");
           closeIcons.forEach((closeIcon) => {
@@ -107,12 +107,15 @@ export default class TaskListView {
     this.tasks = tasks;
   }
 
-  renderTaskDetail(selectedTasks, handleUpdateTask) {
+  renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
     const detailContainer = document.querySelector(".detail-container");
-    detailContainer.innerHTML =
-      TaskDetailTemplate.renderTaskDetail(selectedTasks);
+    detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(
+      selectedTasks,
+      comments
+    );
 
-    handleUpdateTask();
+    //Init all event for task detail
+    handleInitTaskDetailEvent();
   }
 
   closeTaskDetail() {
@@ -198,21 +201,29 @@ export default class TaskListView {
     });
   }
 
-  //  HANDLER SEARCH TASK
-
-  async searchTasks(searchTerm) {
-    const filteredTasks = this.tasks.filter(
-      (task) =>
-        task.taskName && task.taskName.toLowerCase().includes(searchTerm)
-    );
-    this.showTaskItem(filteredTasks);
-  }
-
-  bindSearchTask(handleSearch) {
+  bindSearchTask() {
     const searchInput = document.querySelector(".search-input");
+    const taskElements = document.getElementsByClassName("task-item-container");
+
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
-      handleSearch(searchTerm);
+      const filteredTasks = this.tasks.filter(
+        (task) =>
+          task.taskName && task.taskName.toLowerCase().includes(searchTerm)
+      );
+
+      Array.from(taskElements).forEach((task) => {
+        const isInSearchArr = filteredTasks.some(
+          (item) => item.id === +task.dataset.id
+        );
+
+        if (isInSearchArr) {
+          task.style.display = "block";
+          return;
+        }
+
+        task.style.display = "none";
+      });
     });
   }
 }

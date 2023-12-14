@@ -47,10 +47,29 @@ const formatDate = (date) => {
   return [month, day, year].join("/");
 };
 
+const timeAgo = (timeStamp) => {
+  const diffInMinutes = Math.floor((Date.now() - timeStamp) / (1000 * 60));
+
+  switch (true) {
+    case diffInMinutes === 0:
+      return "Now";
+
+    case diffInMinutes === 1:
+      return `${diffInMinutes} minute ago`;
+
+    case diffInMinutes < 60:
+      return `${diffInMinutes} minutes ago`;
+
+    default:
+      return diffTime(timeStamp, Math.ceil, "ago", "minute");
+  }
+};
+
 export default {
   getCurrentDate,
   getDueDate,
   diffTime,
   convertDateInput,
   formatDate,
+  timeAgo,
 };

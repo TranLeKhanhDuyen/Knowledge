@@ -1,7 +1,6 @@
 import TaskListTemplate from "../templates/taskList-template";
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
-import APITask from "../services/task";
 import STATUS from "../constants/status";
 
 export default class TaskListView {
@@ -15,17 +14,16 @@ export default class TaskListView {
     this.listArchived = document.querySelector("#archived");
   }
 
-  async syncTasks() {
-    const response = await new APITask("/tasks").getTask();
-    this.tasks = response.data || [];
-  }
-
-  resetForm() {
-    this.taskInput.parentElement.reset();
-  }
-
+  /**
+   * Render all tasks from the API
+   * @param {Array<Task>} tasks
+   * @returns {void}
+   */
   showTaskItem(tasks) {
-    if (!tasks) tasks = this.tasks;
+    if (!tasks.length) return;
+
+    this.tasks = tasks;
+
     // Get task list area
     this.listTodo.innerHTML = "";
     this.listProgress.innerHTML = "";
@@ -34,35 +32,31 @@ export default class TaskListView {
 
     const taskStatus = Object.values(STATUS);
 
-    if (tasks) {
-      Array.from([
-        this.listTodo,
-        this.listProgress,
-        this.listDone,
-        this.listArchived,
-      ]).forEach((listElement, index) => {
-        const filterTasks = tasks.filter(
-          (task) => task.status === taskStatus[index]
-        );
-        listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks);
-      });
-    }
+    [
+      this.listTodo,
+      this.listProgress,
+      this.listDone,
+      this.listArchived,
+    ].forEach((listElement, index) => {
+      const filterTasks = tasks.filter(
+        (task) => task.status === taskStatus[index]
+      );
+      listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks);
+    });
 
     this.updateDraggableTasks();
   }
 
   bindAddTask(handle) {
-    this.showTaskItem();
     this.formAddTask.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
         const newTaskName = this.taskInput.value;
-        const newTask = await handle(newTaskName);
         try {
-          this.tasks = [...this.tasks, newTask];
-          // Show the tasks
-          this.showTaskItem();
-          // Reset the form
+          const newTask = await handle(newTaskName);
+          this.listTodo.innerHTML =
+            TaskListTemplate.renderTaskList([newTask]) +
+            this.listTodo.innerHTML;
           this.resetForm();
         } catch (error) {
           alert(ERROR_MESSAGE.ADD_FAIL);
@@ -71,13 +65,17 @@ export default class TaskListView {
     });
   }
 
+  resetForm() {
+    this.taskInput.parentElement.reset();
+  }
+
   // HANDLER TASK DETAIL
 
   getTaskItem(target) {
     return target.closest(".task-item-container");
   }
 
-  bindTaskDetail(handleUpdate, handleFind) {
+  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
     document.body.addEventListener("click", async (e) => {
       const taskItem = this.getTaskItem(e.target);
 
@@ -88,9 +86,10 @@ export default class TaskListView {
       if (taskItem) {
         const taskId = taskItem.dataset.id;
         const selectedTask = await handleFind(taskId);
+        const comments = await handleGetAllComments(+taskId);
 
-        if (handleUpdate) {
-          this.renderTaskDetail(selectedTask, handleUpdate);
+        if (handleInitEvent) {
+          this.renderTaskDetail(selectedTask, comments, handleInitEvent);
 
           const closeIcons = document.querySelectorAll(".close-icon");
           closeIcons.forEach((closeIcon) => {
@@ -107,12 +106,15 @@ export default class TaskListView {
     this.tasks = tasks;
   }
 
-  renderTaskDetail(selectedTasks, handleUpdateTask) {
+  renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
     const detailContainer = document.querySelector(".detail-container");
-    detailContainer.innerHTML =
-      TaskDetailTemplate.renderTaskDetail(selectedTasks);
+    detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(
+      selectedTasks,
+      comments
+    );
 
-    handleUpdateTask();
+    //Init all event for task detail
+    handleInitTaskDetailEvent();
   }
 
   closeTaskDetail() {
@@ -176,43 +178,53 @@ export default class TaskListView {
   bindDelete(handleDelete) {
     document.body.addEventListener("click", async (e) => {
       const deleteButton = e.target.closest(".delete");
-      if (deleteButton) {
-        const taskItem = this.getTaskItem(deleteButton);
-        if (taskItem) {
-          const taskId = taskItem.dataset.id;
+      if (!deleteButton) return;
 
-          const userConfirmed = confirm(
-            "Are you sure you want to delete this task?"
-          );
+      const taskItem = this.getTaskItem(deleteButton);
 
-          if (userConfirmed) {
-            try {
-              await handleDelete(taskId);
-              taskItem.remove();
-            } catch (error) {
-              alert(error);
-            }
-          }
-        }
+      if (!taskItem) return;
+      const taskId = taskItem.dataset.id;
+
+      const userConfirmed = confirm(
+        "Are you sure you want to delete this task?"
+      );
+
+      if (!userConfirmed) return;
+      try {
+        const status = await handleDelete(taskId);
+
+        if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
+
+        taskItem.remove();
+      } catch (error) {
+        alert(error);
       }
     });
   }
 
-  //  HANDLER SEARCH TASK
-
-  async searchTasks(searchTerm) {
-    const filteredTasks = this.tasks.filter(
-      (task) =>
-        task.taskName && task.taskName.toLowerCase().includes(searchTerm)
-    );
-    this.showTaskItem(filteredTasks);
-  }
-
-  bindSearchTask(handleSearch) {
+  bindSearchTask() {
     const searchInput = document.querySelector(".search-input");
+    const taskElements = document.getElementsByClassName("task-item-container");
+
     searchInput.addEventListener("input", () => {
       const searchTerm = searchInput.value.toLowerCase();
-      handleSearch(searchTerm);
+      const filteredTasks = this.tasks.filter(
+        (task) =>
+          task.taskName && task.taskName.toLowerCase().includes(searchTerm)
+      );
+
+      Array.from(taskElements).forEach((task) => {
+        const isInSearchArr = filteredTasks.some(
+          (item) => item.id === +task.dataset.id
+        );
+
+        if (isInSearchArr) {
+          task.style.display = "block";
+          return;
+        }
+
+        task.style.display = "none";
+      });
     });
   }
 }

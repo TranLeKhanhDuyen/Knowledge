@@ -1,21 +1,28 @@
 export default class Controller {
-  constructor(taskListModel, taskListView, taskDetailView) {
+  constructor(taskListModel, taskListView, taskDetailView, commentListModel) {
     this.taskListModel = taskListModel;
     this.taskListView = taskListView;
     this.taskDetailView = taskDetailView;
+    this.commentListModel = commentListModel;
     this.init();
   }
 
   async init() {
-    await this.taskListView.syncTasks();
+    await this.handleShowTask();
     this.handleAddTask();
     this.handleDelete();
     this.handleDragDropBoard();
     this.handleTaskDetail();
     this.handleSearch();
-    this.handleUpdateTask();
   }
 
+  // Mount(Read): Model -> Controller -> View
+  handleShowTask = async () => {
+    const tasks = await this.taskListModel.getTasks();
+    this.taskListView.showTaskItem(tasks);
+  };
+
+  //View -> Controller -> Model
   handleAddTask = () => {
     this.taskListView.bindAddTask(
       async (task) => {
@@ -29,12 +36,7 @@ export default class Controller {
 
   handleDelete = () => {
     this.taskListView.bindDelete(async (id) => {
-      try {
-        await this.taskListModel.delete(id);
-        await this.taskListView.syncTasks();
-      } catch (e) {
-        this.showError(e.message);
-      }
+      return await this.taskListModel.delete(id);
     });
   };
 
@@ -48,14 +50,35 @@ export default class Controller {
   };
 
   handleTaskDetail = () => {
-    this.taskListView.bindTaskDetail(this.handleUpdateTask, (id) =>
-      this.taskListModel.find(id)
+    this.taskListView.bindTaskDetail(
+      this.handleInitTaskDetailEvent,
+      (id) => this.taskListModel.find(id),
+      // Get all comments base on taskId
+      async (taskId) => this.commentListModel.getComment(taskId)
     );
   };
 
-  handleUpdateTask = () => {
+  handleInitTaskDetailEvent = () => {
+    // Edit desciption handler
     this.taskDetailView.bindUpdateTask(this.handleEditAndComment);
-    this.taskDetailView.bindComments(this.handleEditAndComment);
+
+    // Edit desciption handler
+    this.handeAddComment();
+
+    // Delete
+    this.handleDeleteComment();
+  };
+
+  handeAddComment = () => {
+    this.taskDetailView.bindComments(async (content, taskId) =>
+      this.commentListModel.addComment(content, taskId)
+    );
+  };
+
+  handleDeleteComment = () => {
+    this.taskDetailView.deleteComment(async (commentId) =>
+      this.commentListModel.deleteComment(commentId)
+    );
   };
 
   handleEditAndComment = async (id, updateData) => {
@@ -64,8 +87,6 @@ export default class Controller {
   };
 
   handleSearch = () => {
-    this.taskListView.bindSearchTask(async (searchTerm) => {
-      this.taskListView.searchTasks(searchTerm);
-    });
+    this.taskListView.bindSearchTask();
   };
 }

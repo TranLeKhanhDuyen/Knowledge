@@ -5,8 +5,9 @@ import userAvatar from "../../assets/images/user.svg";
 import date from "../utilities/date";
 
 export default class TaskDetailTemplate {
-  static renderTaskDetail(data) {
-    const commentItems = this.renderComments(data);
+  static renderTaskDetail(data, comments) {
+    const commentItems = this.renderComments(comments);
+
     return `
     <div class="detail-task-container" data-id="${data.id}">
     <div class="detail-header text-xl text-bold">
@@ -39,32 +40,35 @@ export default class TaskDetailTemplate {
     <div class="comments-container">
       <h3 class="title detail-title">Comments</h3>
       <input class="comments-input" type="text" placeholder="Enter new comment...">
-      <ul class="comment-list">${commentItems}</ul>
+      <ul class="comment-list">${commentItems || ""}</ul>
     </div>
   </div>
   `;
   }
 
-  static renderComments(selectedTasks) {
-    if (selectedTasks.comments) {
-      return TaskDetailTemplate.renderComment(selectedTasks);
-    }
-    return "";
+  static renderComments(comments) {
+    if (!comments.length) return;
+
+    return TaskDetailTemplate.renderComment(comments);
   }
 
   static renderComment(data) {
-    return `
-      <li class="commenters">
+    return data
+      .map((item) => {
+        return `
+      <li class="commenters" data-id="${item.id}">
         <div class="commenter">
           <figure class="user">
             <img class="user-avatar" src="${userAvatar}" alt="avatar">
             <span class="user-name text-bold">Sara M.</span> 
-            <p class="time-ago text-sm"></p>
+            <p class="time-ago text-sm">${date.timeAgo(item.timeStamp)}</p>
          </figure>
          <img class="delete-icon cursor" src="${iconDelete}" alt="delete icon">
         </div>
-        <p class="comment-content">${data.comments}</p>
+        <p class="comment-content">${item.comment}</p>
       </li>
   `;
+      })
+      .join(" ");
   }
 }

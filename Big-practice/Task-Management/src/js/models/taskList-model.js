@@ -13,6 +13,13 @@ export default class TaskListModel {
     console.error(errorMessage);
   }
 
+  async getTasks() {
+    const response = await this.apiTask.getTask();
+    this.tasks = response.data || [];
+
+    return this.tasks;
+  }
+
   createTask(taskName) {
     const newTask = TaskModel(taskName);
     this.tasks.push(newTask);

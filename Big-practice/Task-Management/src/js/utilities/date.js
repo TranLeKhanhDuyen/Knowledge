@@ -1,37 +1,53 @@
 const getCurrentDate = () => {
   const date = new Date();
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 };
 
 const getDueDate = () => {
   const date = new Date();
-  date.setMonth(date.getMonth() + 2);
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 };
 
-const diffTime = (date, method = Math.floor, adverb = "ago") => {
+const diffTime = (date, method = Math.floor, adverb = "ago", unit = "day") => {
   const convertDate = new Date(date);
-  const day = 1000 * 60 * 60 * 24;
-  const diff = method(Math.abs(convertDate - Date.now()) / day);
+  const unitMillis = {
+    day: 1000 * 60 * 60 * 24,
+    hour: 1000 * 60 * 60,
+    minute: 1000 * 60,
+    second: 1000,
+  };
+  const diff = method(Math.abs(convertDate - Date.now()) / unitMillis[unit]);
 
   switch (diff) {
     case 0:
       return "Today";
 
     case 1:
-      return `${diff} day ${adverb}`;
-
-    case 2:
-    case 3:
-      return `${diff} days ${adverb}`;
+      return `${diff} ${unit} ${adverb}`;
 
     default:
-      return date;
+      return `${diff} ${unit}s ${adverb}`;
   }
+};
+
+const convertDateInput = (dateStr) => {
+  const [month, day, year] = dateStr.split("/");
+  const date = new Date(+year, +month - 1, +day + 1);
+  const [dateValue] = date.toISOString().split("T");
+
+  return dateValue;
+};
+
+const formatDate = (date) => {
+  const [year, month, day] = date.split("-");
+
+  return [month, day, year].join("/");
 };
 
 export default {
   getCurrentDate,
   getDueDate,
-  diffTime
+  diffTime,
+  convertDateInput,
+  formatDate
 };

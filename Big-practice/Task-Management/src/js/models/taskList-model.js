@@ -5,12 +5,16 @@ import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskListModel {
   constructor() {
-    this.tasks = [];
     this.apiTask = new APITask("/tasks");
+    this.tasks = [];
   }
 
   bindError(callback) {
     this.showError = callback;
+  }
+
+  async syncTasks() {
+    return (await this.apiTask.getTask().then((res) => res.data)) || [];
   }
 
   createTask(taskName) {
@@ -28,6 +32,17 @@ export default class TaskListModel {
       return apiResponse.data;
     } catch (error) {
       throw new Error("Error occurred in adding process");
+    }
+  }
+
+  async delete(id) {
+    try {
+      const { status } = await this.apiTask.delete(id);
+
+      if (status !== 200) return this.showError(ERROR_CODE[status]);
+      return status;
+    } catch (error) {
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
     }
   }
 
@@ -54,25 +69,12 @@ export default class TaskListModel {
     }
   }
 
-  async edit(id, newStatus) {
+  async edit(id, payload) {
     try {
-      const updateData = { status: newStatus };
-
-      const response = await this.apiTask.edit(id, updateData); //destructring
+      const response = await this.apiTask.edit(id, payload);
 
       if (response.status !== 200)
         return this.showError(ERROR_CODE[response.status]);
-
-      // Update state in tasks
-      const updatedTasks = this.tasks.map((task) => {
-        if (task.id === id) {
-          task.status = newStatus;
-        }
-        return task;
-      });
-
-      this.tasks = updatedTasks;
-      return response;
     } catch (error) {
       return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }

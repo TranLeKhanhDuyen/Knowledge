@@ -6,16 +6,46 @@ export default class Controller {
     this.init();
   }
 
-  init() {
+  async init() {
+    await this.taskItemView.syncTasks();
     this.handleAddTask();
+    this.handleDelete();
+    this.handleDragDropBoard();
     this.handleTaskDetail();
+    this.handleSearch();
     this.handleUpdateTask();
-    this.handleUpdateTaskStatus();
   }
 
   handleAddTask = () => {
-    this.taskItemView.bindAddTask(async (task) => {
-      return this.taskListModel.addTask(task);
+    this.taskItemView.bindAddTask(
+      async (task) => {
+        return await this.taskListModel.addTask(task);
+      },
+      async (taskId, newStatus) => {
+        return await this.taskListModel.edit(taskId, newStatus);
+      }
+    );
+  };
+
+  handleDelete = () => {
+    this.taskItemView.bindDelete(async (id) => {
+      try {
+        await this.taskListModel.delete(id);
+        await this.taskItemView.syncTasks();
+        return this.taskItemView.showTaskItem();
+      } catch (e) {
+        this.showError(e.message);
+        alert(e.message);
+      }
+    });
+  };
+
+  handleDragDropBoard = () => {
+    this.taskItemView.addBoardEvent(async (taskId, newStatus) => {
+      const task = await this.taskListModel.edit(taskId, newStatus);
+      const tasks = await this.taskListModel.getTask();
+      this.taskItemView.revalidateTasks(tasks);
+      return task;
     });
   };
 
@@ -30,12 +60,26 @@ export default class Controller {
   };
 
   handleUpdateTask = () => {
-    this.taskDetailView.bindUpdateTask((id, updateData) => {
-      return this.taskListModel.edit(id, updateData);
+    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
+      try {
+        await this.taskListModel.edit(id, updateData);
+
+        return { data: await this.taskListModel.find(id) };
+      } catch (e) {
+        alert('Error updating task: ' + e.message);
+      }
+    });
+
+    this.taskDetailView.bindComments(async (id, updateData) => {
+      await this.taskListModel.edit(id, updateData);
+
+      return await this.taskListModel.find(id);
     });
   };
 
-  handleUpdateTaskStatus = (taskId, newStatus) => {
-    return this.taskListModel.updateTaskStatus(taskId, newStatus);
-  };
+  handleSearch() {
+    this.taskItemView.bindSearchTask(async (searchTerm) => {
+      this.taskItemView.searchTasks(searchTerm);
+    });
+  }
 }

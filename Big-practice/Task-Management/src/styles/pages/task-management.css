@@ -16,6 +16,11 @@
   background: var(--grey-light-color);
 }
 
+.delete {
+  border: none;
+  background-color: var(--secondary-color);
+}
+
 /* TASK-DETAIL */
 
 .detail-task-container {
@@ -24,7 +29,6 @@
   background: var(--secondary-color);
   padding-bottom: 50px;
   position: fixed;
-  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

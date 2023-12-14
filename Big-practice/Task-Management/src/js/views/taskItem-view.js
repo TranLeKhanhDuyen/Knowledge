@@ -1,35 +1,59 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import TaskItemTemplate from "../template/taskItem-template";
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../template/taskDetail-template";
+import APITask from "../services/task";
+import STATUS from "../constants/status";
 
 export default class TaskItemView {
   constructor() {
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
-    this.taskDetail = document.querySelector(".detail-task-container");
+    this.taskList = document.querySelector(".task-list");
+    this.listTodo = document.querySelector("#todo");
+    this.listProgress = document.querySelector("#progress");
+    this.listDone = document.querySelector("#done");
+    this.listArchived = document.querySelector("#archived");
+  }
 
-    this.tasks = [];
-    this.updateDraggableTasks();
+  async syncTasks() {
+    this.tasks =
+      (await new APITask("/tasks").getTask().then((res) => res.data)) || [];
   }
 
   resetForm() {
     this.taskInput.parentElement.reset();
   }
 
-  showTaskItem() {
-    // Get task list area
-    const taskListDisplay = document.querySelector(".task-list");
-    taskListDisplay.innerHTML = "";
+  showTaskItem(tasks) {
 
-    this.tasks.forEach((task) => {
-      taskListDisplay.innerHTML += TaskItemTemplate.renderTaskItem([task]);
-    });
+    if(!tasks) tasks = this.tasks
+    // Get task list area
+    this.listTodo.innerHTML = "";
+    this.listProgress.innerHTML = "";
+    this.listDone.innerHTML = "";
+    this.listArchived.innerHTML = "";
+
+    const taskStatus = Object.values(STATUS);
+
+    if (tasks) {
+      Array.from([
+        this.listTodo,
+        this.listProgress,
+        this.listDone,
+        this.listArchived,
+      ]).forEach((listElement, index) => {
+        const filterTasks = tasks.filter(
+          (task) => task.status === taskStatus[index]
+        );
+        listElement.innerHTML += TaskItemTemplate.renderTaskItem(filterTasks);
+      });
+    }
 
     this.updateDraggableTasks();
   }
 
   bindAddTask(handle) {
+    this.showTaskItem();
     this.formAddTask.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -47,32 +71,51 @@ export default class TaskItemView {
       }
     });
   }
-
   /* HANDLER TASK DETAIL */
 
   bindTaskDetail(handleUpdate, handleFind) {
-    const taskList = document.querySelector(".task-list");
-    taskList.addEventListener("click", async (e) => {
+    document.body.addEventListener("click", async (e) => {
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       const taskItem = e.target.closest(".task-item-container");
-      const taskId = taskItem.dataset.id;
-      const selectedTask = await handleFind(taskId);
-      if (handleUpdate) {
-        this.renderTaskDetail([selectedTask], handleUpdate);
 
-        const closeIcons = document.querySelectorAll(".close-icon");
-        closeIcons.forEach((closeIcon) => {
-          closeIcon.addEventListener("click", () => {
-            this.closeTaskDetail();
+      if(e.target.closest('.delete')) {
+        return
+      }
+
+      if (taskItem) {
+        const taskId = taskItem.dataset.id;
+        const selectedTask = await handleFind(taskId);
+
+        if (handleUpdate) {
+          this.renderTaskDetail(selectedTask, handleUpdate);
+
+          const closeIcons = document.querySelectorAll(".close-icon");
+          closeIcons.forEach((closeIcon) => {
+            closeIcon.addEventListener("click", () => {
+              this.closeTaskDetail();
+            });
           });
-        });
+        }
       }
     });
   }
 
-  renderTaskDetail(selectedTask, handleUpdateTask) {
+  revalidateTasks(tasks) {
+    this.tasks = tasks;
+  }
+
+  renderTaskDetail(selectedTasks, handleUpdateTask) {
     const detailContainer = document.querySelector(".detail-container");
     detailContainer.innerHTML =
-      TaskDetailTemplate.renderTaskDetail(selectedTask);
+      TaskDetailTemplate.renderTaskDetail(selectedTasks);
+
+    const commentContainer = detailContainer.querySelector(".comment-list");
+    if (selectedTasks.comments) {
+      commentContainer.insertAdjacentHTML(
+        "beforeend",
+        TaskDetailTemplate.renderComment(selectedTasks)
+      );
+    }
     // Add event update task
     handleUpdateTask();
   }
@@ -88,95 +131,91 @@ export default class TaskItemView {
     });
   }
 
-  /* HANFLE DRAG DROP */
+  /* HANDLE DRAG DROP */
 
   updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll(".task-item-container");
     todos.forEach((task) => {
       task.addEventListener("dragstart", this.dragStart.bind(this));
-      task.addEventListener("dragend", this.dragEnd.bind(this));
     });
+  }
 
+  addBoardEvent(handler) {
     const taskBoards = document.querySelectorAll(".task-board");
     taskBoards.forEach((board) => {
       board.addEventListener("dragover", this.dragOver.bind(this));
-      board.addEventListener("drop", this.dragDrop.bind(this));
+      board.addEventListener("drop", (e) => this.dragDrop(e, handler));
     });
   }
 
   dragStart(e) {
     e.dataTransfer.setData("text/plain", e.target.dataset.id);
-    console.log(e.target.dataset); //OK
-
-    console.log("dragStart status:", e.target.dataset.statusS); //OK
-    // Stores the current state
-    e.target.dataset.oldStatus = e.target.dataset.status;
-    console.log("oldStatus:", e.target.dataset.oldStatus); //OK
-
     // Add class to represent drag
     e.target.classList.add("dragged-task");
-  }
-
-  dragEnd() {
-    // Remove the class when dragging ends
-    const draggedTask = document.querySelector(".dragged-task");
-    console.log("draggedTask", draggedTask); //OK
-    if (draggedTask) {
-      draggedTask.classList.remove(".dragged-task");
-    }
   }
 
   dragOver(e) {
     e.preventDefault();
   }
 
-  dragDrop(e) {
+  dragDrop = async (e, handler) => {
     e.preventDefault();
     const taskId = e.dataTransfer.getData("text/plain");
-    console.log("taskId:", taskId); //OK
     const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
-    console.log("draggedTask: ", draggedTask); //OK
     const targetBoard = e.target.closest(".task-board");
-    console.log("targetBoard:", targetBoard);
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || "js-default";
-      console.log("targetBoardId: ", targetBoardId);
-
-      if (targetBoardId.startsWith("js-")) {
-        const newStatus = targetBoardId.split("js-")[1] || null; //OK
-        console.log("newStatus:", newStatus);
-      } else {
-        console.error("Not work:", targetBoardId);
-      }
-
-      const newStatus = targetBoardId.split("js-")[1] || null; //OK
-      console.log("newStatus:", newStatus);
-
-      const oldStatus = draggedTask.dataset.oldStatus; //FAIL
-      console.log("oldStatus:", oldStatus);
-
-      // Update status for item of this.tasks
-      const updateTasks = this.tasks.map((task) => {
-        console.log(targetBoard);
-        if (task.id === taskId) {
-          task.status = newStatus;
-          console.log(newStatus);
-        }
-        console.log(newStatus);
-        return task;
-      });
-
-      this.tasks = updateTasks;
-
+      const newStatus = targetBoardId.split("js-")[1] || null;
+      handler(taskId, { status: newStatus });
       // Move taskItem to new state
       draggedTask.parentNode.removeChild(draggedTask);
       targetBoard.querySelector(".task-list").appendChild(draggedTask);
-
-      // Delete taskItem from its old state
-      this.tasks = this.tasks.filter((task) => task.status !== oldStatus);
     }
+  };
+
+  /* HANDLE DELETE */
+  
+  bindDelete(handleDelete) {
+    document.body.addEventListener("click", async (e) => {
+      const deleteButton = e.target.closest(".delete");
+      if (deleteButton) {
+        const taskItem = deleteButton.closest(".task-item-container");
+        if (taskItem) {
+          const taskId = taskItem.dataset.id;
+          
+          const userConfirmed = confirm("Are you sure you want to delete this task?");
+          
+          if (userConfirmed) {
+            try {
+              await handleDelete(taskId);
+              taskItem.remove();
+            } catch (error) {
+              alert(error);
+            }
+          }
+        }
+      }
+    });
+  }
+  
+  /* HANDLER SEARCH TASK */
+
+  async searchTasks(searchTerm) {
+    const filteredTasks = this.tasks.filter(
+      (task) =>
+        task.taskName && task.taskName.toLowerCase().includes(searchTerm)
+    );
+    this.showTaskItem(filteredTasks);
+  }
+
+  bindSearchTask(handleSearch) {
+    const searchInput = document.querySelector(".search-input");
+    searchInput.addEventListener("input", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      handleSearch(searchTerm);
+    });
   }
 }

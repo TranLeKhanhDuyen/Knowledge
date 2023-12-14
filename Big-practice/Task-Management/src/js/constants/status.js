@@ -1,6 +1,6 @@
 const STATUS = {
   TODO: "todo",
-  IN_PROGRESS: "in-progress",
+  IN_PROGRESS: "inprogress",
   DONE: "done",
   ARCHIVED: "archived",
 };

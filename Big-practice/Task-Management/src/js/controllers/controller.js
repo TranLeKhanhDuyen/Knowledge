@@ -10,6 +10,7 @@ export default class Controller {
     this.handleAddTask();
     this.handleTaskDetail();
     this.handleUpdateTask();
+    this.handleUpdateTaskStatus();
   }
 
   handleAddTask = () => {
@@ -32,5 +33,9 @@ export default class Controller {
     this.taskDetailView.bindUpdateTask((id, updateData) => {
       return this.taskListModel.edit(id, updateData);
     });
+  };
+
+  handleUpdateTaskStatus = (taskId, newStatus) => {
+    return this.taskListModel.updateTaskStatus(taskId, newStatus);
   };
 }

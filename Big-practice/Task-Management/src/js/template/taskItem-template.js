@@ -18,8 +18,10 @@ export default class TaskItemTemplate {
     if (Array.isArray(data)) {
       return data
         .map(
-          (item) => `
-      <li class="task-item-container" data-id="${item.id}">
+          (item)  => {
+            console.log("item.status:", item.status);
+          return`
+      <li class="task-item-container" draggable="true" data-id="${item.id}" data-status="${item.status}">
         <div class="task-content text-md">
           <h3 class="task-title">${item.taskName}</h3>       
           <img src="${iconDelete}" alt="delete icon" class="delete-icon">
@@ -33,6 +35,7 @@ export default class TaskItemTemplate {
         </div>
       </li>
       `
+          }
         )
         .join(" ");
     } else {

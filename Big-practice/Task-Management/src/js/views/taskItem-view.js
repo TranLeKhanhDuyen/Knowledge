@@ -1,18 +1,16 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import TaskItemTemplate from "../template/taskItem-template";
 import { ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../template/taskDetail-template";
 
 export default class TaskItemView {
   constructor() {
-    this.taskList = document.querySelector(".task-list");
     this.formAddTask = document.querySelector("form.add-task");
     this.taskInput = document.querySelector(".task-input");
-    this.taskItem = document.querySelector(".task-item-container");
     this.taskDetail = document.querySelector(".detail-task-container");
 
-    this.board = document.querySelector(".task-board");
-    // Get tasks from API
     this.tasks = [];
+    this.updateDraggableTasks();
   }
 
   resetForm() {
@@ -27,6 +25,8 @@ export default class TaskItemView {
     this.tasks.forEach((task) => {
       taskListDisplay.innerHTML += TaskItemTemplate.renderTaskItem([task]);
     });
+
+    this.updateDraggableTasks();
   }
 
   bindAddTask(handle) {
@@ -51,7 +51,8 @@ export default class TaskItemView {
   /* HANDLER TASK DETAIL */
 
   bindTaskDetail(handleUpdate, handleFind) {
-    this.taskList.addEventListener("click", async (e) => {
+    const taskList = document.querySelector(".task-list");
+    taskList.addEventListener("click", async (e) => {
       const taskItem = e.target.closest(".task-item-container");
       const taskId = taskItem.dataset.id;
       const selectedTask = await handleFind(taskId);
@@ -85,5 +86,97 @@ export default class TaskItemView {
         detailContainer.classList.add("hidden");
       }
     });
+  }
+
+  /* HANFLE DRAG DROP */
+
+  updateDraggableTasks() {
+    // Add event listeners for each task item
+    const todos = document.querySelectorAll(".task-item-container");
+    todos.forEach((task) => {
+      task.addEventListener("dragstart", this.dragStart.bind(this));
+      task.addEventListener("dragend", this.dragEnd.bind(this));
+    });
+
+    const taskBoards = document.querySelectorAll(".task-board");
+    taskBoards.forEach((board) => {
+      board.addEventListener("dragover", this.dragOver.bind(this));
+      board.addEventListener("drop", this.dragDrop.bind(this));
+    });
+  }
+
+  dragStart(e) {
+    e.dataTransfer.setData("text/plain", e.target.dataset.id);
+    console.log(e.target.dataset); //OK
+
+    console.log("dragStart status:", e.target.dataset.statusS); //OK
+    // Stores the current state
+    e.target.dataset.oldStatus = e.target.dataset.status;
+    console.log("oldStatus:", e.target.dataset.oldStatus); //OK
+
+    // Add class to represent drag
+    e.target.classList.add("dragged-task");
+  }
+
+  dragEnd() {
+    // Remove the class when dragging ends
+    const draggedTask = document.querySelector(".dragged-task");
+    console.log("draggedTask", draggedTask); //OK
+    if (draggedTask) {
+      draggedTask.classList.remove(".dragged-task");
+    }
+  }
+
+  dragOver(e) {
+    e.preventDefault();
+  }
+
+  dragDrop(e) {
+    e.preventDefault();
+    const taskId = e.dataTransfer.getData("text/plain");
+    console.log("taskId:", taskId); //OK
+    const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
+    console.log("draggedTask: ", draggedTask); //OK
+    const targetBoard = e.target.closest(".task-board");
+    console.log("targetBoard:", targetBoard);
+
+    if (targetBoard && draggedTask) {
+      // Check and set default value for targetBoard.id
+      const targetBoardId = targetBoard.id || "js-default";
+      console.log("targetBoardId: ", targetBoardId);
+
+      if (targetBoardId.startsWith("js-")) {
+        const newStatus = targetBoardId.split("js-")[1] || null; //OK
+        console.log("newStatus:", newStatus);
+      } else {
+        console.error("Not work:", targetBoardId);
+      }
+
+      const newStatus = targetBoardId.split("js-")[1] || null; //OK
+      console.log("newStatus:", newStatus);
+
+      const oldStatus = draggedTask.dataset.oldStatus; //FAIL
+      console.log("oldStatus:", oldStatus);
+
+      // Update status for item of this.tasks
+      const updateTasks = this.tasks.map((task) => {
+        console.log(targetBoard);
+        if (task.id === taskId) {
+          task.status = newStatus;
+          console.log(newStatus);
+        }
+        console.log(newStatus);
+        return task;
+      });
+
+      this.tasks = updateTasks;
+
+      // Move taskItem to new state
+      draggedTask.parentNode.removeChild(draggedTask);
+      targetBoard.querySelector(".task-list").appendChild(draggedTask);
+
+      // Delete taskItem from its old state
+      this.tasks = this.tasks.filter((task) => task.status !== oldStatus);
+    }
   }
 }

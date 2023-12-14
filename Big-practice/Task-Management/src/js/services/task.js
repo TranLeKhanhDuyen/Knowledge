@@ -57,10 +57,20 @@ export default class APITask {
       `${API_TASKS}/${id}`,
       APIHelper.sendRequest("PATCH", updateData)
     );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error: ${errorData.message}`);
+    }
+
     const result = await response.json();
     return {
       status: response.status,
       data: result,
     };
+  }
+  catch(error) {
+    console.error("Error editing task:", error);
+    throw new Error("Error editing task");
   }
 }

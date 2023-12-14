@@ -11,7 +11,6 @@ export default class TaskListTemplate {
    * @param {string} data.task.createDate - The task's creation date.
    * @param {string} data.task.dueDate - The task's due date.
    */
-
   static renderTaskList(data) {
     if (Array.isArray(data)) {
       return data

@@ -19,7 +19,7 @@ export default class TaskListView {
    * @param {Array<Task>} tasks
    * @returns {void}
    */
-  showTaskItem(tasks) {
+  showTasks(tasks) {
     if (!tasks.length) return;
 
     this.tasks = tasks;
@@ -169,11 +169,12 @@ export default class TaskListView {
     const taskId = e.dataTransfer.getData("text/plain");
     const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
     const targetBoard = e.target.closest(".task-board");
+    console.log(draggedTask, targetBoard);
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || "js-default";
-      const newStatus = targetBoardId.split("js-")[1] || null;
+      const newStatus = targetBoardId.split("js-")[0] || null;
       handler(taskId, { status: newStatus });
       // Move taskItem to new state
       draggedTask.parentNode.removeChild(draggedTask);

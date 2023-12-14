@@ -19,7 +19,7 @@ export default class Controller {
   // Mount(Read): Model -> Controller -> View
   handleShowTask = async () => {
     const tasks = await this.taskListModel.getTasks();
-    this.taskListView.showTaskItem(tasks);
+    this.taskListView.showTasks(tasks);
   };
 
   //View -> Controller -> Model

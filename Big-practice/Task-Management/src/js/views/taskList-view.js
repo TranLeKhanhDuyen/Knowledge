@@ -12,11 +12,6 @@ export default class TaskListView {
     this.listProgress = document.querySelector("#progress");
     this.listDone = document.querySelector("#done");
     this.listArchived = document.querySelector("#archived");
-
-    this.tasks = [];
-  }
-  resetForm() {
-    this.taskInput.parentElement.reset();
   }
 
   /**
@@ -68,6 +63,10 @@ export default class TaskListView {
         }
       }
     });
+  }
+
+  resetForm() {
+    this.taskInput.parentElement.reset();
   }
 
   // HANDLER TASK DETAIL

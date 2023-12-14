@@ -36,8 +36,7 @@ export default class Controller {
 
   handleDelete = () => {
     this.taskListView.bindDelete(async (id) => {
-      await this.taskListModel.delete(id);
-      await this.taskListView.getTaskItem();
+      return await this.taskListModel.delete(id);
     });
   };
 

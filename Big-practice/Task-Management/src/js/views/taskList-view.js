@@ -175,7 +175,6 @@ export default class TaskListView {
     const taskId = e.dataTransfer.getData("text/plain");
     const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
     const targetBoard = e.target.closest(".task-board");
-    console.log(draggedTask, targetBoard);
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id

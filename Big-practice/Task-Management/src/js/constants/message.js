@@ -6,15 +6,17 @@ export const ERROR_MESSAGE = {
   SERVER_ERROR: "Server Error! Please try again later",
   ADD_FAIL: "Task is empty",
   COMMENT_EMPTY: "Comment cannot be empty",
-  DELETE_FAIL: "Dete fail",
+  DELETE_FAIL: "Delete is fail",
 };
 
 /**
  * Message for alert if the action be done successfully.
  */
 export const SUCCESS_MESSAGE = {
-  ADD_TASK: "Add task successfully",
-  DELETE_TASK: "Delete task successfully",
+  ADD_SUCCESS: "Add is successfully",
+  DELETE_SUCCESS: "Delete is successfully",
+  GET_SUCCESS: "Get is successfully",
+  UPDATE_SUCCESS: "Update is successfully",
 };
 
 export const ERROR_CODE = {

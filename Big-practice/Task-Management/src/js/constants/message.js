@@ -8,6 +8,7 @@ export const ERROR_MESSAGE = {
   COMMENT_EMPTY: "Comment cannot be empty",
   TASK_EMPTY: "Task cannot be empty",
   DELETE_FAIL: "Delete is fail",
+  INTERNET_ERROR: "No Internet Connection",
 };
 
 /**

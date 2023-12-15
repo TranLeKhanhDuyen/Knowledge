@@ -9,10 +9,20 @@ export default class API {
 
   async addTask(taskName) {
     try {
+      // Check internet
+      if (!navigator.onLine) {
+        return {
+          status: 0, // value when no internet connection
+          message: ERROR_MESSAGE.INTERNET_ERROR,
+          data: null,
+        };
+      }
+
       const response = await fetch(
         `${API_URL}${this.apiPath}`,
         APIHelper.sendRequest("POST", taskName)
       );
+
       const result = await response.json();
 
       return {

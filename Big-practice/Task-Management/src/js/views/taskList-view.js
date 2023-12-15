@@ -51,7 +51,13 @@ export default class TaskListView {
     this.formAddTask.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        const newTaskName = this.taskInput.value;
+        const newTaskName = this.taskInput.value.trim();
+
+        if (!newTaskName) {
+          alert(ERROR_MESSAGE.TASK_EMPTY);
+          return;
+        }
+        
         try {
           const newTask = await handle(newTaskName);
           this.listTodo.innerHTML =

@@ -6,6 +6,7 @@ export const ERROR_MESSAGE = {
   SERVER_ERROR: "Server Error! Please try again later",
   ADD_FAIL: "Task is empty",
   COMMENT_EMPTY: "Comment cannot be empty",
+  TASK_EMPTY: "Task cannot be empty",
   DELETE_FAIL: "Delete is fail",
 };
 

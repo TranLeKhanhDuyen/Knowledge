@@ -174,7 +174,7 @@ export default class TaskListView {
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || "js-default";
-      const newStatus = targetBoardId.split("js-")[1] || null;
+      const newStatus = targetBoardId.split("js-")[1] || "todo";
       handler(taskId, { status: newStatus });
       // Move taskItem to new state
       draggedTask.parentNode.removeChild(draggedTask);

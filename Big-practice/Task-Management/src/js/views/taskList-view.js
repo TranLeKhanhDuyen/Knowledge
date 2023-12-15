@@ -57,7 +57,7 @@ export default class TaskListView {
           alert(ERROR_MESSAGE.TASK_EMPTY);
           return;
         }
-        
+
         try {
           const newTask = await handle(newTaskName);
           this.listTodo.innerHTML =
@@ -175,6 +175,9 @@ export default class TaskListView {
     const taskId = e.dataTransfer.getData("text/plain");
     const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
     const targetBoard = e.target.closest(".task-board");
+
+    console.log(taskId);
+    console.log(draggedTask, targetBoard);
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id

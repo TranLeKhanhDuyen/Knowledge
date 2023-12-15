@@ -60,9 +60,7 @@ export default class TaskListView {
 
         try {
           const newTask = await handle(newTaskName);
-          this.listTodo.innerHTML =
-            TaskListTemplate.renderTaskList([newTask]) +
-            this.listTodo.innerHTML;
+          this.listTodo.innerHTML += TaskListTemplate.renderTaskList([newTask]);
           this.resetForm();
         } catch (error) {
           alert(ERROR_MESSAGE.ADD_FAIL);
@@ -175,9 +173,6 @@ export default class TaskListView {
     const taskId = e.dataTransfer.getData("text/plain");
     const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
     const targetBoard = e.target.closest(".task-board");
-
-    console.log(taskId);
-    console.log(draggedTask, targetBoard);
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id

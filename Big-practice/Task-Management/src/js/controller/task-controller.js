@@ -24,8 +24,8 @@ export default class Controller {
 
   //View -> Controller -> Model
   handleAddTask = () => {
-    this.taskListView.bindAddTask(async (task) => {
-      return await this.taskListModel.addTask(task);
+    this.taskListView.bindAddTask((task) => {
+      return this.taskListModel.addTask(task);
     });
   };
 

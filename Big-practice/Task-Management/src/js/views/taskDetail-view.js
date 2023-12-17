@@ -101,20 +101,17 @@ export default class TaskDetailView {
     if (!inputComment) return;
 
     inputComment.addEventListener("keydown", async (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
+      if (e.key !== "Enter") e.preventDefault();
 
-        const commentValue = inputComment.value.trim();
-        const taskId = this.getId();
+      const commentValue = inputComment.value.trim();
+      const taskId = this.getId();
 
-        if (!commentValue) {
-          alert(ERROR_MESSAGE.COMMENT_EMPTY);
-        } else {
-          const data = await handleAddComment(commentValue, +taskId);
-          this.showComments(data);
-          inputComment.value = "";
-        }
-      }
+      if (!commentValue) return alert(ERROR_MESSAGE.COMMENT_EMPTY);
+
+      const data = await handleAddComment(commentValue, +taskId);
+
+      this.showComments(data);
+      inputComment.value = "";
     });
   }
 

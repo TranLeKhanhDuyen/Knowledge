@@ -1,11 +1,9 @@
-import { ERROR_MESSAGE } from "../constants/message";
+import { CONFIRM_MESSAGE, ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import date from "../utilities/date";
 
 export default class TaskDetailView {
-  constructor() {
-    this.updateData = {};
-  }
+  constructor() {}
 
   getId() {
     const detailContainer = document.querySelector(".detail-task-container");
@@ -101,7 +99,8 @@ export default class TaskDetailView {
     if (!inputComment) return;
 
     inputComment.addEventListener("keydown", async (e) => {
-      if (e.key !== "Enter") e.preventDefault();
+      if (e.key !== "Enter") return;
+      e.preventDefault();
 
       const commentValue = inputComment.value.trim();
       const taskId = this.getId();
@@ -131,9 +130,7 @@ export default class TaskDetailView {
 
       // Save id item
       const commentId = commentItem.dataset.id;
-      const userConfirmed = confirm(
-        "Are you sure you want to delete this comment?"
-      );
+      const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_COMMENT);
 
       if (!userConfirmed) return;
       try {

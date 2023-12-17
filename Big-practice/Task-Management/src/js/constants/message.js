@@ -11,6 +11,11 @@ export const ERROR_MESSAGE = {
   INTERNET_ERROR: "No Internet Connection",
 };
 
+export const CONFIRM_MESSAGE = {
+  DELETE_COMMENT: "Are you sure you want to delete this comment?",
+  DELETE_TASK: "Are you sure you want to delete this task?",
+};
+
 /**
  * Message for alert if the action be done successfully.
  */

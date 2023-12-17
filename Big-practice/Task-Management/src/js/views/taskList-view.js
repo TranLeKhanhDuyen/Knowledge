@@ -1,5 +1,5 @@
 import TaskListTemplate from "../templates/taskList-template";
-import { ERROR_MESSAGE } from "../constants/message";
+import { CONFIRM_MESSAGE, ERROR_MESSAGE } from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import STATUS from "../constants/status";
 
@@ -208,9 +208,7 @@ export default class TaskListView {
       if (!taskItem) return;
       const taskId = taskItem.dataset.id;
 
-      const userConfirmed = confirm(
-        "Are you sure you want to delete this task?"
-      );
+      const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_TASK);
 
       if (!userConfirmed) return;
       try {

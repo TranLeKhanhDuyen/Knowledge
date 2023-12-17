@@ -60,8 +60,19 @@ export default class TaskListView {
 
         try {
           const newTask = await handle(newTaskName);
-          this.listTodo.innerHTML += TaskListTemplate.renderTaskList([newTask]);
+
+          this.listTodo.insertAdjacentHTML(
+            "beforeend",
+            TaskListTemplate.renderTaskList([newTask])
+          );
+
           this.resetForm();
+
+          const taskElement = document.querySelector(
+            ".task-item-container:last-child"
+          );
+
+          taskElement.addEventListener("dragstart", this.dragStart.bind(this));
         } catch (error) {
           alert(ERROR_MESSAGE.ADD_FAIL);
         }

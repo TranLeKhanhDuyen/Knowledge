@@ -11,7 +11,7 @@ export default class TaskDetailTemplate {
     return `
     <div class="detail-task-container" data-id="${data.id}">
     <div class="detail-header text-xl text-bold">
-      <div class="task-title">${data.taskName}
+      <div class="task-title" >${data.taskName}
       </div>
       <img class="close-icon cursor" src="${iconClose}" alt="close icon">
     </div>
@@ -32,7 +32,7 @@ export default class TaskDetailTemplate {
       )}" id= "due-date">
       <date class="daysRemaining">${date.diffTime(
         data.dueDate,
-        Math.ceil,
+        Math.round,
         "left"
       )}</date>
     </div>

@@ -88,7 +88,7 @@ export default class TaskDetailView {
     if (daysRemainingElement) {
       daysRemainingElement.innerHTML = date.diffTime(
         newDueDate,
-        Math.ceil,
+        Math.round,
         "left"
       );
     }

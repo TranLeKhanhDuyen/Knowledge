@@ -32,7 +32,7 @@ export default class TaskDetailTemplate {
       )}" id= "due-date">
       <date class="daysRemaining">${date.diffTime(
         data.dueDate,
-        Math.round,
+        Math.ceil,
         "left"
       )}</date>
     </div>

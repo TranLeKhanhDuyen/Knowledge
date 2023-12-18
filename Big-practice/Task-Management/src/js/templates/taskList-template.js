@@ -31,7 +31,7 @@ export default class TaskListTemplate {
             <img src="${iconClock}" class="clock-icon">
             <date class ="due-date">${date.diffTime(
               item.dueDate,
-              Math.round,
+              Math.ceil,
               "left"
             )}</date>
           </div>

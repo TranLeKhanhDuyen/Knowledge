@@ -1,6 +1,11 @@
-import { CONFIRM_MESSAGE, ERROR_MESSAGE } from "../constants/message";
+import {
+  CONFIRM_MESSAGE,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
+} from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import date from "../utilities/date";
+import showSuccessMessage from "../utilities/showMessage";
 
 export default class TaskDetailView {
   constructor() {}
@@ -105,12 +110,17 @@ export default class TaskDetailView {
       const commentValue = inputComment.value.trim();
       const taskId = this.getId();
 
-      if (!commentValue) return alert(ERROR_MESSAGE.COMMENT_EMPTY);
+      if (!commentValue) {
+        alert(ERROR_MESSAGE.COMMENT_EMPTY);
+        return;
+      }
 
       const data = await handleAddComment(commentValue, +taskId);
 
       this.showComments(data);
       inputComment.value = "";
+
+      showSuccessMessage(SUCCESS_MESSAGE.COMMENT_SUCCESS);
     });
   }
 
@@ -142,6 +152,8 @@ export default class TaskDetailView {
       } catch (error) {
         alert(error);
       }
+
+      showSuccessMessage(SUCCESS_MESSAGE.DELETE_COMMENT_SUCCESS);
     });
   }
 }

@@ -80,7 +80,7 @@ export default class TaskDetailView {
       if (dueDateElement) {
         dueDateElement.innerHTML = date.diffTime(
           newDueDate,
-          Math.round,
+          Math.ceil,
           "left"
         );
       }
@@ -91,7 +91,7 @@ export default class TaskDetailView {
     if (daysRemainingElement) {
       daysRemainingElement.innerHTML = date.diffTime(
         newDueDate,
-        Math.round,
+        Math.ceil,
         "left"
       );
     }

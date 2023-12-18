@@ -21,9 +21,11 @@ export const CONFIRM_MESSAGE = {
  */
 export const SUCCESS_MESSAGE = {
   ADD_SUCCESS: "Add is successfully",
-  DELETE_SUCCESS: "Delete is successfully",
+  DELETE_TASK_SUCCESS: "Delete task is successfully",
   GET_SUCCESS: "Get is successfully",
   UPDATE_SUCCESS: "Update is successfully",
+  COMMENT_SUCCESS: "Comment added successfully",
+  DELETE_COMMENT_SUCCESS: "Delete comment is successfully",
 };
 
 export const ERROR_CODE = {

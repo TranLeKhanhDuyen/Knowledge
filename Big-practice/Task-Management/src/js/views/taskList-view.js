@@ -53,10 +53,7 @@ export default class TaskListView {
         e.preventDefault();
         const newTaskName = this.taskInput.value.trim();
 
-        if (!newTaskName) {
-          alert(ERROR_MESSAGE.TASK_EMPTY);
-          return;
-        }
+        if (!newTaskName) return alert(ERROR_MESSAGE.TASK_EMPTY);
 
         try {
           const newTask = await handle(newTaskName);
@@ -90,67 +87,6 @@ export default class TaskListView {
     return target.closest(".task-item-container");
   }
 
-  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
-    document.body.addEventListener("click", async (e) => {
-      const taskItem = this.getTaskItem(e.target);
-
-      if (e.target.closest(".delete")) {
-        return;
-      }
-
-      if (taskItem) {
-        const taskId = taskItem.dataset.id;
-        const selectedTask = await handleFind(taskId);
-        const comments = await handleGetAllComments(+taskId);
-
-        if (handleInitEvent) {
-          this.renderTaskDetail(selectedTask, comments, handleInitEvent);
-
-          const closeIcons = document.querySelectorAll(".close-icon");
-          closeIcons.forEach((closeIcon) => {
-            closeIcon.addEventListener("click", () => {
-              this.closeTaskDetail();
-            });
-          });
-        }
-      }
-    });
-  }
-
-  renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
-    const overlay = document.querySelector(".overlay");
-
-    document.body.insertBefore(
-      overlay,
-      document.querySelector(".detail-container")
-    );
-
-    const detailContainer = document.querySelector(".detail-container");
-
-    overlay.style.display = "block";
-
-    detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(
-      selectedTasks,
-      comments
-    );
-
-    //Init all event for task detail
-    handleInitTaskDetailEvent();
-  }
-
-  closeTaskDetail() {
-    const detailContainers = document.querySelectorAll(
-      ".detail-task-container"
-    );
-    const overlay = document.querySelector(".overlay");
-
-    detailContainers.forEach((detailContainer) => {
-      if (!detailContainer) return;
-      detailContainer.classList.add("hidden");
-      overlay.style.display = "none";
-    });
-  }
-
   //  HANDLE DRAG DROP
 
   updateDraggableTasks() {
@@ -161,18 +97,18 @@ export default class TaskListView {
     });
   }
 
+  dragStart(e) {
+    e.dataTransfer.setData("text/plain", e.target.dataset.id);
+    // Add class to represent drag
+    e.target.classList.add("dragged-task");
+  }
+
   addBoardEvent(handler) {
     const taskBoards = document.querySelectorAll(".task-board");
     taskBoards.forEach((board) => {
       board.addEventListener("dragover", this.dragOver.bind(this));
       board.addEventListener("drop", (e) => this.dragDrop(e, handler));
     });
-  }
-
-  dragStart(e) {
-    e.dataTransfer.setData("text/plain", e.target.dataset.id);
-    // Add class to represent drag
-    e.target.classList.add("dragged-task");
   }
 
   dragOver(e) {
@@ -246,6 +182,65 @@ export default class TaskListView {
 
         task.style.display = "none";
       });
+    });
+  }
+
+  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
+    document.body.addEventListener("click", async (e) => {
+      const taskItem = this.getTaskItem(e.target);
+
+      if (e.target.closest(".delete")) {
+        return;
+      }
+
+      if (!taskItem) return;
+      const taskId = taskItem.dataset.id;
+      const selectedTask = await handleFind(taskId);
+      const comments = await handleGetAllComments(+taskId);
+
+      if (!handleInitEvent) return;
+      this.renderTaskDetail(selectedTask, comments, handleInitEvent);
+
+      const closeIcons = document.querySelectorAll(".close-icon");
+      closeIcons.forEach((closeIcon) => {
+        closeIcon.addEventListener("click", () => {
+          this.closeTaskDetail();
+        });
+      });
+    });
+  }
+
+  renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
+    const overlay = document.querySelector(".overlay");
+
+    document.body.insertBefore(
+      overlay,
+      document.querySelector(".detail-container")
+    );
+
+    const detailContainer = document.querySelector(".detail-container");
+
+    overlay.style.display = "block";
+
+    detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(
+      selectedTasks,
+      comments
+    );
+
+    //Init all event for task detail
+    handleInitTaskDetailEvent();
+  }
+
+  closeTaskDetail() {
+    const detailContainers = document.querySelectorAll(
+      ".detail-task-container"
+    );
+    const overlay = document.querySelector(".overlay");
+
+    detailContainers.forEach((detailContainer) => {
+      if (!detailContainer) return;
+      detailContainer.classList.add("hidden");
+      overlay.style.display = "none";
     });
   }
 }

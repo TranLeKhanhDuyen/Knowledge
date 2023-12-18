@@ -1,7 +1,12 @@
 import TaskListTemplate from "../templates/taskList-template";
-import { CONFIRM_MESSAGE, ERROR_MESSAGE } from "../constants/message";
+import {
+  CONFIRM_MESSAGE,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
+} from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import STATUS from "../constants/status";
+import showSuccessMessage from "../utilities/showMessage";
 
 export default class TaskListView {
   constructor() {
@@ -62,6 +67,8 @@ export default class TaskListView {
             "beforeend",
             TaskListTemplate.renderTaskList([newTask])
           );
+
+          showSuccessMessage(SUCCESS_MESSAGE.ADD_SUCCESS);
 
           this.resetForm();
 
@@ -156,6 +163,8 @@ export default class TaskListView {
       } catch (error) {
         alert(error);
       }
+
+      showSuccessMessage(SUCCESS_MESSAGE.DELETE_SUCCESS);
     });
   }
 

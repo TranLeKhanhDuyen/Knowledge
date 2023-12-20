@@ -8,22 +8,22 @@ export default class API {
   }
 
   async addComment(comment) {
-    const url = `${API_URL}${this.apiPath}`;
-    const { response, result } = await APIHelper.createRequest(
-      url,
-      "POST",
-      comment
-    );
+    try {
+      const url = `${API_URL}${this.apiPath}`;
+      const { response, result } = await APIHelper.createRequest(
+        url,
+        "POST",
+        comment
+      );
 
-    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.ADD_SUCCESS,
         data: result,
       };
-    } else {
+    } catch (error) {
       return {
-        status: response.status,
+        status: error.status,
         message: ERROR_MESSAGE.ADD_FAIL,
         data: null,
       };
@@ -31,18 +31,18 @@ export default class API {
   }
 
   async getComment(taskId) {
-    const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
-    const { response, result } = await APIHelper.createRequest(url, "GET");
+    try {
+      const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
+      const { response, result } = await APIHelper.createRequest(url, "GET");
 
-    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.GET_SUCCESS,
         data: result,
       };
-    } else {
+    } catch (error) {
       return {
-        status: response.status,
+        status: error.status,
         message: ERROR_MESSAGE.LOAD_ERROR,
         data: null,
       };
@@ -50,17 +50,17 @@ export default class API {
   }
 
   async deleteComment(commentId) {
-    const url = `${API_URL}${this.apiPath}/${commentId}`;
-    const { response } = await APIHelper.createRequest(url, "DELETE");
+    try {
+      const url = `${API_URL}${this.apiPath}/${commentId}`;
+      const { response } = await APIHelper.createRequest(url, "DELETE");
 
-    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.DELETE_SUCCESS,
       };
-    } else {
+    } catch (error) {
       return {
-        status: response.status,
+        status: error.status,
         message: ERROR_MESSAGE.DELETE_FAIL,
       };
     }

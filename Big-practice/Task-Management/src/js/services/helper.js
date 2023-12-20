@@ -1,5 +1,10 @@
 export default class APIHelper {
-  static async createRequest(url, method, data, contentType = "application/json") {
+  static async createRequest(
+    url,
+    method,
+    data,
+    contentType = "application/json"
+  ) {
     try {
       const response = await fetch(url, {
         method,
@@ -8,6 +13,11 @@ export default class APIHelper {
           "Content-Type": contentType,
         },
       });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
       const result = await response.json();
 
       return { response, result };

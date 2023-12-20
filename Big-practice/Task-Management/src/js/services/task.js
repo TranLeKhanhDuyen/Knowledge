@@ -8,21 +8,23 @@ export default class API {
   }
 
   async addTask(taskName) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}`,
-        APIHelper.sendRequest("POST", taskName)
-      );
-      const result = await response.json();
+    const url = `${API_URL}${this.apiPath}`;
+    const { response, result } = await APIHelper.createRequest(
+      url,
+      "POST",
+      taskName
+    );
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.ADD_SUCCESS,
         data: result,
       };
-    } catch (error) {
+    } else {
+      const status = response.status;
       return {
-        status: 500, // Internal Server Error
+        status,
         message: ERROR_MESSAGE.ADD_FAIL,
         data: null,
       };
@@ -30,18 +32,19 @@ export default class API {
   }
 
   async getTask() {
-    try {
-      const response = await fetch(`${API_URL}${this.apiPath}`);
-      const result = await response.json();
+    const url = `${API_URL}${this.apiPath}`;
+    const { response, result } = await APIHelper.createRequest(url, "GET");
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.GET_SUCCESS,
         data: result,
       };
-    } catch (error) {
+    } else {
+      const status = response.status;
       return {
-        status: 500,
+        status,
         message: ERROR_MESSAGE.LOAD_ERROR,
         data: null,
       };
@@ -49,17 +52,18 @@ export default class API {
   }
 
   async findTask(id) {
-    try {
-      const response = await fetch(`${API_URL}${this.apiPath}/${id}`);
-      const result = await response.json();
+    const url = `${API_URL}${this.apiPath}/${id}`;
+    const { response, result } = await APIHelper.createRequest(url, "GET");
 
+    if (response) {
       return {
         status: response.status,
         data: result,
       };
-    } catch (error) {
+    } else {
+      const status = response.status;
       return {
-        status: 500,
+        status,
         message: ERROR_MESSAGE.SERVER_ERROR,
         data: null,
       };
@@ -67,38 +71,40 @@ export default class API {
   }
 
   async edit(id, updateData) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}/${id}`,
-        APIHelper.sendRequest("PATCH", updateData)
-      );
+    const url = `${API_URL}${this.apiPath}/${id}`;
+    const { response } = await APIHelper.createRequest(
+      url,
+      "PATCH",
+      updateData
+    );
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.UPDATE_SUCCESS,
       };
-    } catch (error) {
+    } else {
+      const status = response.status;
       return {
-        status: 500,
+        status,
         message: ERROR_MESSAGE.SERVER_ERROR,
       };
     }
   }
 
   async delete(id) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}/${id}`,
-        APIHelper.sendRequest("DELETE")
-      );
+    const url = `${API_URL}${this.apiPath}/${id}`;
+    const { response } = await APIHelper.createRequest(url, "DELETE");
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.DELETE_SUCCESS,
       };
-    } catch (error) {
+    } else {
+      const status = response.status;
       return {
-        status: 500,
+        status,
         message: ERROR_MESSAGE.DELETE_FAIL,
       };
     }

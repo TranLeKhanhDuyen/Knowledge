@@ -8,21 +8,22 @@ export default class API {
   }
 
   async addComment(comment) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}`,
-        APIHelper.sendRequest("POST", comment)
-      );
-      const result = await response.json();
+    const url = `${API_URL}${this.apiPath}`;
+    const { response, result } = await APIHelper.createRequest(
+      url,
+      "POST",
+      comment
+    );
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.ADD_SUCCESS,
         data: result,
       };
-    } catch (error) {
+    } else {
       return {
-        status: 500, // Internal Server Error
+        status: response.status,
         message: ERROR_MESSAGE.ADD_FAIL,
         data: null,
       };
@@ -30,20 +31,18 @@ export default class API {
   }
 
   async getComment(taskId) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}?taskId=${taskId}`
-      );
-      const result = await response.json();
+    const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
+    const { response, result } = await APIHelper.createRequest(url, "GET");
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.GET_SUCCESS,
         data: result,
       };
-    } catch (error) {
+    } else {
       return {
-        status: 500,
+        status: response.status,
         message: ERROR_MESSAGE.LOAD_ERROR,
         data: null,
       };
@@ -51,19 +50,17 @@ export default class API {
   }
 
   async deleteComment(commentId) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}/${commentId}`,
-        APIHelper.sendRequest("DELETE")
-      );
+    const url = `${API_URL}${this.apiPath}/${commentId}`;
+    const { response } = await APIHelper.createRequest(url, "DELETE");
 
+    if (response) {
       return {
         status: response.status,
         message: SUCCESS_MESSAGE.DELETE_SUCCESS,
       };
-    } catch (error) {
+    } else {
       return {
-        status: 500,
+        status: response.status,
         message: ERROR_MESSAGE.DELETE_FAIL,
       };
     }

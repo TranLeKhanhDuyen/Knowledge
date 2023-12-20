@@ -2,9 +2,7 @@ import iconDelete from "../../assets/icons/delete.svg";
 import iconClock from "../../assets/icons/clock.svg";
 import date from "../utilities/date";
 
-export default class TaskItemTemplate {
-  constructor() {}
-
+export default class TaskListTemplate {
   /**
    * Create an HTML template string to display a task item.
    *
@@ -13,13 +11,12 @@ export default class TaskItemTemplate {
    * @param {string} data.task.createDate - The task's creation date.
    * @param {string} data.task.dueDate - The task's due date.
    */
-
-  static renderTaskItem(data) {
+  static renderTaskList(data) {
     if (Array.isArray(data)) {
       return data
         .map((item) => {
           return `
-      <li class="task-item-container" draggable="true" data-id="${
+      <li class="task-item-container cursor" draggable="true" data-id="${
         item.id
       }" data-status="${item.status}">
         <div class="task-content text-md">
@@ -32,11 +29,11 @@ export default class TaskItemTemplate {
           <p class="date-ago">${date.diffTime(item.createdDate)}</p>
           <div class="date-left text-sm">
             <img src="${iconClock}" class="clock-icon">
-            <p class ="due-date">${date.diffTime(
+            <date class ="due-date">${date.diffTime(
               item.dueDate,
               Math.ceil,
               "left"
-            )}</p>
+            )}</date>
           </div>
         </div>
       </li>

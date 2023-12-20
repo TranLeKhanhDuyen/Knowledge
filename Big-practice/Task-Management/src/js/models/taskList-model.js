@@ -1,26 +1,36 @@
-import APITask from "../services/task";
+import API from "../services/task";
 import TaskModel from "./task-model";
 import { ERROR_CODE } from "../constants/message";
 import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskListModel {
   constructor() {
-    this.apiTask = new APITask("/tasks");
+    this.apiTask = new API();
     this.tasks = [];
   }
 
-  bindError(callback) {
-    this.showError = callback;
+  showError(errorMessage) {
+    console.error(errorMessage);
   }
 
-  async syncTasks() {
-    return (await this.apiTask.getTask().then((res) => res.data)) || [];
+  async getTasks() {
+    try {
+      const response = await this.apiTask.getTask();
+      this.tasks = response.data || [];
+      return this.tasks;
+    } catch (error) {
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
+    }
   }
 
   createTask(taskName) {
-    const newTask = new TaskModel(taskName);
-    this.tasks.push(newTask);
-    return newTask;
+    try {
+      const newTask = TaskModel(taskName);
+      this.tasks.push(newTask);
+      return newTask;
+    } catch (error) {
+      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
+    }
   }
 
   async addTask(taskName) {
@@ -31,7 +41,7 @@ export default class TaskListModel {
       // Assuming data property holds the new task
       return apiResponse.data;
     } catch (error) {
-      throw new Error("Error occurred in adding process");
+      return this.showError(ERROR_MESSAGE.ADD_FAIL);
     }
   }
 
@@ -42,7 +52,7 @@ export default class TaskListModel {
       if (status !== 200) return this.showError(ERROR_CODE[status]);
       return status;
     } catch (error) {
-      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
+      return this.showError(ERROR_MESSAGE.DELETE_FAIL);
     }
   }
 
@@ -54,7 +64,7 @@ export default class TaskListModel {
       // Assuming data property holds the task detail
       return apiResponse.data;
     } catch (error) {
-      throw new Error("Error occurred in getting task detail");
+      return this.showError(ERROR_MESSAGE.LOAD_ERROR);
     }
   }
 
@@ -65,7 +75,7 @@ export default class TaskListModel {
       if (status !== 200) return this.showError(ERROR_CODE[status]);
       return data;
     } catch (error) {
-      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
+      return this.showError(ERROR_MESSAGE.LOAD_ERROR);
     }
   }
 
@@ -76,7 +86,7 @@ export default class TaskListModel {
       if (response.status !== 200)
         return this.showError(ERROR_CODE[response.status]);
     } catch (error) {
-      return this.showError(ERROR_MESSAGE.ADD_FAIL);
+      return this.showError(ERROR_MESSAGE.LOAD_ERROR);
     }
   }
 }

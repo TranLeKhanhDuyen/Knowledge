@@ -1,2 +1,1 @@
-export const API_URL = `http://localhost:3000`;
-export const API_TASKS = `${API_URL}/tasks`;
+export const API_URL = "https://task-025l.onrender.com";

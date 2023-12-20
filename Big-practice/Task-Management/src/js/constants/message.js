@@ -6,14 +6,26 @@ export const ERROR_MESSAGE = {
   SERVER_ERROR: "Server Error! Please try again later",
   ADD_FAIL: "Task is empty",
   COMMENT_EMPTY: "Comment cannot be empty",
+  TASK_EMPTY: "Task cannot be empty",
+  DELETE_FAIL: "Delete is fail",
+  INTERNET_ERROR: "No Internet Connection",
+};
+
+export const CONFIRM_MESSAGE = {
+  DELETE_COMMENT: "Are you sure you want to delete this comment?",
+  DELETE_TASK: "Are you sure you want to delete this task?",
 };
 
 /**
  * Message for alert if the action be done successfully.
  */
 export const SUCCESS_MESSAGE = {
-  ADD_TASK: "Add task successfully",
-  DELETE_TASK: "Delete task successfully",
+  ADD_SUCCESS: "Add is successfully",
+  DELETE_SUCCESS: "Delete task is successfully",
+  GET_SUCCESS: "Get is successfully",
+  UPDATE_SUCCESS: "Update is successfully",
+  COMMENT_SUCCESS: "Comment added successfully",
+  DELETE_COMMENT_SUCCESS: "Delete comment is successfully",
 };
 
 export const ERROR_CODE = {

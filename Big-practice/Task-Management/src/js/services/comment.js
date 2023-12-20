@@ -3,15 +3,15 @@ import { API_URL } from "../constants/url";
 import APIHelper from "./helper";
 
 export default class API {
-  constructor(apiPath = "/tasks") {
+  constructor(apiPath = "/comments") {
     this.apiPath = apiPath;
   }
 
-  async addTask(taskName) {
+  async addComment(comment) {
     try {
       const response = await fetch(
         `${API_URL}${this.apiPath}`,
-        APIHelper.sendRequest("POST", taskName)
+        APIHelper.sendRequest("POST", comment)
       );
       const result = await response.json();
 
@@ -29,9 +29,11 @@ export default class API {
     }
   }
 
-  async getTask() {
+  async getComment(taskId) {
     try {
-      const response = await fetch(`${API_URL}${this.apiPath}`);
+      const response = await fetch(
+        `${API_URL}${this.apiPath}?taskId=${taskId}`
+      );
       const result = await response.json();
 
       return {
@@ -48,47 +50,10 @@ export default class API {
     }
   }
 
-  async findTask(id) {
-    try {
-      const response = await fetch(`${API_URL}${this.apiPath}/${id}`);
-      const result = await response.json();
-
-      return {
-        status: response.status,
-        data: result,
-      };
-    } catch (error) {
-      return {
-        status: 500,
-        message: ERROR_MESSAGE.SERVER_ERROR,
-        data: null,
-      };
-    }
-  }
-
-  async edit(id, updateData) {
+  async deleteComment(commentId) {
     try {
       const response = await fetch(
-        `${API_URL}${this.apiPath}/${id}`,
-        APIHelper.sendRequest("PATCH", updateData)
-      );
-
-      return {
-        status: response.status,
-        message: SUCCESS_MESSAGE.UPDATE_SUCCESS,
-      };
-    } catch (error) {
-      return {
-        status: 500,
-        message: ERROR_MESSAGE.SERVER_ERROR,
-      };
-    }
-  }
-
-  async delete(id) {
-    try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}/${id}`,
+        `${API_URL}${this.apiPath}/${commentId}`,
         APIHelper.sendRequest("DELETE")
       );
 

@@ -1,7 +1,6 @@
 import API from "../services/task";
 import TaskModel from "./task-model";
 import { ERROR_CODE } from "../constants/message";
-import { ERROR_MESSAGE } from "../constants/message";
 
 export default class TaskListModel {
   constructor() {
@@ -14,79 +13,50 @@ export default class TaskListModel {
   }
 
   async getTasks() {
-    try {
-      const response = await this.apiTask.getTask();
-      this.tasks = response.data || [];
-      return this.tasks;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
-    }
+    const response = await this.apiTask.getTask();
+    this.tasks = response.data || [];
+    return this.tasks;
   }
 
   createTask(taskName) {
-    try {
-      const newTask = TaskModel(taskName);
-      this.tasks.push(newTask);
-      return newTask;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.SERVER_ERROR);
-    }
+    const newTask = TaskModel(taskName);
+    this.tasks.push(newTask);
+    return newTask;
   }
 
   async addTask(taskName) {
-    try {
-      const newTask = this.createTask(taskName);
-      const apiResponse = await this.apiTask.addTask(newTask);
+    const newTask = this.createTask(taskName);
+    const apiResponse = await this.apiTask.addTask(newTask);
 
-      // Assuming data property holds the new task
-      return apiResponse.data;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.ADD_FAIL);
-    }
+    // Assuming data property holds the new task
+    return apiResponse.data;
   }
 
   async delete(id) {
-    try {
-      const { status } = await this.apiTask.delete(id);
+    const { status } = await this.apiTask.delete(id);
 
-      if (status !== 200) return this.showError(ERROR_CODE[status]);
-      return status;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.DELETE_FAIL);
-    }
+    if (status !== 200) return this.showError(ERROR_CODE[status]);
+    return status;
   }
 
   async getTask(taskId) {
-    try {
-      // Call the API to get task detail by ID
-      const apiResponse = await this.apiTask.getTask(taskId);
+    // Call the API to get task detail by ID
+    const apiResponse = await this.apiTask.getTask(taskId);
 
-      // Assuming data property holds the task detail
-      return apiResponse.data;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.LOAD_ERROR);
-    }
+    // Assuming data property holds the task detail
+    return apiResponse.data;
   }
 
   async find(id) {
-    try {
-      const { status, data } = await this.apiTask.findTask(id);
+    const { status, data } = await this.apiTask.findTask(id);
 
-      if (status !== 200) return this.showError(ERROR_CODE[status]);
-      return data;
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.LOAD_ERROR);
-    }
+    if (status !== 200) return this.showError(ERROR_CODE[status]);
+    return data;
   }
 
   async edit(id, payload) {
-    try {
-      const response = await this.apiTask.edit(id, payload);
+    const response = await this.apiTask.edit(id, payload);
 
-      if (response.status !== 200)
-        return this.showError(ERROR_CODE[response.status]);
-    } catch (error) {
-      return this.showError(ERROR_MESSAGE.LOAD_ERROR);
-    }
+    if (response.status !== 200) return;
   }
 }

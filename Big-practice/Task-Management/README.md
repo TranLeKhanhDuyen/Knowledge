@@ -8,8 +8,8 @@
 ### TIMELINE
 
 - Start date: 2023/10/20
-- End date: 2023/12/04
-- Total: 23 days
+- End date: 2023/12/15
+- Total: 25 days
 
 ### TEAMSIZE
 

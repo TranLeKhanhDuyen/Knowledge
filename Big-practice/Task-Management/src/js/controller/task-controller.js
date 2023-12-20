@@ -19,19 +19,14 @@ export default class Controller {
   // Mount(Read): Model -> Controller -> View
   handleShowTask = async () => {
     const tasks = await this.taskListModel.getTasks();
-    this.taskListView.showTaskItem(tasks);
+    this.taskListView.showTasks(tasks);
   };
 
   //View -> Controller -> Model
   handleAddTask = () => {
-    this.taskListView.bindAddTask(
-      async (task) => {
-        return await this.taskListModel.addTask(task);
-      },
-      async (taskId, newStatus) => {
-        return await this.taskListModel.edit(taskId, newStatus);
-      }
-    );
+    this.taskListView.bindAddTask((task) => {
+      return this.taskListModel.addTask(task);
+    });
   };
 
   handleDelete = () => {
@@ -43,9 +38,7 @@ export default class Controller {
   handleDragDropBoard = () => {
     this.taskListView.addBoardEvent(async (taskId, newStatus) => {
       const task = await this.taskListModel.edit(taskId, newStatus);
-      const tasks = await this.taskListModel.getTask();
-      this.taskListView.revalidateTasks(tasks);
-      return task;
+      this.taskListModel.getTask(task);
     });
   };
 
@@ -60,13 +53,18 @@ export default class Controller {
 
   handleInitTaskDetailEvent = () => {
     // Edit desciption handler
-    this.taskDetailView.bindUpdateTask(this.handleEditAndComment);
-
+    this.handleDescription();
     // Edit desciption handler
     this.handeAddComment();
-
     // Delete
     this.handleDeleteComment();
+  };
+
+  handleDescription = () => {
+    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
+      await this.taskListModel.edit(id, updateData);
+      return this.taskListModel.find(id);
+    });
   };
 
   handeAddComment = () => {
@@ -76,14 +74,9 @@ export default class Controller {
   };
 
   handleDeleteComment = () => {
-    this.taskDetailView.deleteComment(async (commentId) =>
+    this.taskDetailView.deleteComment((commentId) =>
       this.commentListModel.deleteComment(commentId)
     );
-  };
-
-  handleEditAndComment = async (id, updateData) => {
-    await this.taskListModel.edit(id, updateData);
-    return this.taskListModel.find(id);
   };
 
   handleSearch = () => {

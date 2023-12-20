@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE, SUCCESS_MESSAGE } from "../constants/message";
 import { API_URL } from "../constants/url";
 import APIHelper from "./helper";
 
@@ -5,72 +6,101 @@ export default class API {
   constructor(apiPath = "/tasks") {
     this.apiPath = apiPath;
   }
-  
-  /**
-   * Adds a new task to the API
-   *
-   * @param {string} taskName - The name of the task to add
-   * @
-   * */
+
   async addTask(taskName) {
-    const response = await fetch(
-      `${API_URL}${this.apiPath}`,
-      APIHelper.sendRequest("POST", taskName)
-    );
-    const result = await response.json();
-    return {
-      status: response.status,
-      data: result,
-    };
+    try {
+      const response = await fetch(
+        `${API_URL}${this.apiPath}`,
+        APIHelper.sendRequest("POST", taskName)
+      );
+      const result = await response.json();
+
+      return {
+        status: response.status,
+        message: SUCCESS_MESSAGE.ADD_SUCCESS,
+        data: result,
+      };
+    } catch (error) {
+      return {
+        status: 500, // Internal Server Error
+        message: ERROR_MESSAGE.ADD_FAIL,
+        data: null,
+      };
+    }
   }
 
-  /**
-   * Gets all tasks from the API
-   *
-   * @returns {Promise<{status: number, data: Array}>} - A promise that resolves to an object containing the status code and an array of tasks from the API response
-   */
   async getTask() {
-    const response = await fetch(`${API_URL}${this.apiPath}`);
-    const result = await response.json();
+    try {
+      const response = await fetch(`${API_URL}${this.apiPath}`);
+      const result = await response.json();
 
-    return {
-      status: response.status,
-      data: result,
-    };
+      return {
+        status: response.status,
+        message: SUCCESS_MESSAGE.GET_SUCCESS,
+        data: result,
+      };
+    } catch (error) {
+      return {
+        status: 500,
+        message: ERROR_MESSAGE.LOAD_ERROR,
+        data: null,
+      };
+    }
   }
 
-  /**
-   * Finds a specific task by ID
-   *
-   * @param {number} id - The ID of the task to find
-   * @returns {Promise<{status: number, data: Object}>} - A promise that resolves to an object containing the status code and the task data from the API response
-   */
   async findTask(id) {
-    const response = await fetch(`${API_URL}${this.apiPath}/${id}`);
-    const result = await response.json();
+    try {
+      const response = await fetch(`${API_URL}${this.apiPath}/${id}`);
+      const result = await response.json();
 
-    return {
-      status: response.status,
-      data: result,
-    };
+      return {
+        status: response.status,
+        data: result,
+      };
+    } catch (error) {
+      return {
+        status: 500,
+        message: ERROR_MESSAGE.SERVER_ERROR,
+        data: null,
+      };
+    }
   }
 
   async edit(id, updateData) {
-    const response = await fetch(
-      `${API_URL}${this.apiPath}/${id}`,
-      APIHelper.sendRequest("PATCH", updateData)
-    );
+    try {
+      const response = await fetch(
+        `${API_URL}${this.apiPath}/${id}`,
+        APIHelper.sendRequest("PATCH", updateData)
+      );
 
-    return {
-      status: response.status,
-    };
+      return {
+        status: response.status,
+        message: SUCCESS_MESSAGE.UPDATE_SUCCESS,
+      };
+    } catch (error) {
+      return {
+        status: 500,
+        message: ERROR_MESSAGE.SERVER_ERROR,
+      };
+    }
   }
 
   async delete(id) {
-    const response = await fetch(
-      `${API_URL}${this.apiPath}/${id}`,
-      APIHelper.sendRequest("DELETE")
-    );
-    return { status: response.status };
+    try {
+      const response = await fetch(
+        `${API_URL}${this.apiPath}/${id}`,
+        APIHelper.sendRequest("DELETE")
+      );
+
+      return {
+        status: response.status,
+        message: SUCCESS_MESSAGE.DELETE_SUCCESS,
+      };
+    } catch (error) {
+      return {
+        status: 500,
+        message: ERROR_MESSAGE.DELETE_FAIL,
+      };
+    }
   }
 }

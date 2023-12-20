@@ -1,11 +1,14 @@
-import { ERROR_MESSAGE } from "../constants/message";
+import {
+  CONFIRM_MESSAGE,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
+} from "../constants/message";
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import date from "../utilities/date";
+import showSuccessMessage from "../utilities/showMessage";
 
 export default class TaskDetailView {
-  constructor() {
-    this.updateData = {};
-  }
+  constructor() {}
 
   getId() {
     const detailContainer = document.querySelector(".detail-task-container");
@@ -77,7 +80,7 @@ export default class TaskDetailView {
       if (dueDateElement) {
         dueDateElement.innerHTML = date.diffTime(
           newDueDate,
-          Math.round,
+          Math.ceil,
           "left"
         );
       }
@@ -101,21 +104,23 @@ export default class TaskDetailView {
     if (!inputComment) return;
 
     inputComment.addEventListener("keydown", async (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
+      if (e.key !== "Enter") return;
+      e.preventDefault();
 
-        const commentValue = inputComment.value.trim();
-        const taskId = this.getId();
+      const commentValue = inputComment.value.trim();
+      const taskId = this.getId();
 
-        if (commentValue !== "") {
-          const data = await handleAddComment(commentValue, +taskId);
-
-          this.showComments(data);
-          inputComment.value = "";
-        } else {
-          alert(ERROR_MESSAGE.COMMENT_EMPTY);
-        }
+      if (!commentValue) {
+        alert(ERROR_MESSAGE.COMMENT_EMPTY);
+        return;
       }
+
+      const data = await handleAddComment(commentValue, +taskId);
+
+      this.showComments(data);
+      inputComment.value = "";
+
+      showSuccessMessage(SUCCESS_MESSAGE.COMMENT_SUCCESS);
     });
   }
 
@@ -135,9 +140,7 @@ export default class TaskDetailView {
 
       // Save id item
       const commentId = commentItem.dataset.id;
-      const userConfirmed = confirm(
-        "Are you sure you want to delete this comment?"
-      );
+      const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_COMMENT);
 
       if (!userConfirmed) return;
       try {
@@ -149,6 +152,8 @@ export default class TaskDetailView {
       } catch (error) {
         alert(error);
       }
+
+      showSuccessMessage(SUCCESS_MESSAGE.DELETE_COMMENT_SUCCESS);
     });
   }
 }

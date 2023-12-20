@@ -4,7 +4,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "server": "json-server --watch server/db.json"
+    "server": "json-server --watch json-server/db.json"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
@@ -12,7 +12,9 @@
     "eslint": "^8.52.0",
     "eslint-plugin-sonarjs": "^0.21.0",
     "husky": "^8.0.3",
-    "parcel": "^2.10.1",
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
     "json-server": "^0.17.4"
   }
 }

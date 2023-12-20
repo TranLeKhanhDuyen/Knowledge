@@ -2,9 +2,11 @@
   "name": "my-project",
   "source": "src/index.html",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "server": "json-server --watch json-server/db.json"
+    "server": "json-server --watch json-server/db.json",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
@@ -16,5 +18,10 @@
   },
   "dependencies": {
     "json-server": "^0.17.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
   }
 }

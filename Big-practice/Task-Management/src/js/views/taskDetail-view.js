@@ -8,52 +8,51 @@ import date from "../utilities/date";
 import showSuccessMessage from "../utilities/showMessage";
 
 export default class TaskDetailView {
-  constructor() {}
+  constructor() {
+    this.detailContainer = document.querySelector(".detail-task-container");
+    this.addDesc = document.querySelector(".add-description");
+    this.editIcon = document.querySelector(".edit-icon");
+    this.dueDateInput = document.querySelector(".date-select");
+    this.commentInput = document.querySelector(".comments-input");
+    this.commentList = document.querySelector(".comment-list");
 
-  getId() {
-    const detailContainer = document.querySelector(".detail-task-container");
-    return detailContainer ? detailContainer.dataset.id : null;
+    this.bindUpdateTask();
   }
 
   bindUpdateTask(handle) {
-    const addDesc = document.querySelector(".add-description");
-    const editIcon = document.querySelector(".edit-icon");
-    const dueDateInput = document.querySelector(".date-select");
-
-    if (addDesc && editIcon) {
-      editIcon.addEventListener("click", (e) => {
+    if (this.addDesc && this.editIcon) {
+      this.editIcon.addEventListener("click", (e) => {
         e.preventDefault();
-        this.focusEditDescripton(addDesc);
+        this.focusEditDescripton();
       });
 
-      addDesc.addEventListener("blur", (e) => {
+      this.addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
         this.editDescription(handle);
       });
     }
 
-    if (dueDateInput) {
-      dueDateInput.addEventListener("change", (e) => {
+    if (this.dueDateInput) {
+      this.dueDateInput.addEventListener("change", (e) => {
         this.changeDueDate(handle, e);
       });
     }
   }
 
-  // Event for icon edit
-  focusEditDescripton(element) {
+  focusEditDescripton() {
     const range = document.createRange();
-    range.selectNodeContents(element);
+    range.selectNodeContents(this.addDesc);
     range.collapse(false);
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
   }
 
-  // Event when click to input
   editDescription(handle) {
-    const addDesc = document.querySelector(".add-description");
-    const description = addDesc.textContent;
-    const id = this.getId();
+    const description = this.addDesc.textContent;
+    console.log(description);
+    const id = this.detailContainer.dataset.id;
+    console.log(id);
     const { data } = handle(id, { description });
 
     try {
@@ -63,30 +62,23 @@ export default class TaskDetailView {
     }
   }
 
-  //Event when change date
   changeDueDate(handle, event) {
-    const id = this.getId();
+    const id = this.detailContainer.dataset.id;
     const newDueDate = date.formatDate(event.target.value);
     const { data } = handle(id, { dueDate: newDueDate });
 
     this.updateData = { ...this.updateData, ...data };
 
-    // Update date for task item
     const taskItem = document.querySelector(
       `.task-item-container[data-id="${id}"]`
     );
     if (taskItem) {
       const dueDateElement = taskItem.querySelector(".due-date");
       if (dueDateElement) {
-        dueDateElement.innerHTML = date.diffTime(
-          newDueDate,
-          Math.ceil,
-          "left"
-        );
+        dueDateElement.innerHTML = date.diffTime(newDueDate, Math.ceil, "left");
       }
     }
 
-    // Update date for task detail
     const daysRemainingElement = document.querySelector(".daysRemaining");
     if (daysRemainingElement) {
       daysRemainingElement.innerHTML = date.diffTime(
@@ -97,18 +89,15 @@ export default class TaskDetailView {
     }
   }
 
-  // HANDLER COMMENTS
-
   bindComments(handleAddComment) {
-    const inputComment = document.querySelector(".comments-input");
-    if (!inputComment) return;
+    if (!this.commentInput) return;
 
-    inputComment.addEventListener("keydown", async (e) => {
+    this.commentInput.addEventListener("keydown", async (e) => {
       if (e.key !== "Enter") return;
       e.preventDefault();
 
-      const commentValue = inputComment.value.trim();
-      const taskId = this.getId();
+      const commentValue = this.commentInput.value.trim();
+      const taskId = this.detailContainer.dataset.id;
 
       if (!commentValue) {
         alert(ERROR_MESSAGE.COMMENT_EMPTY);
@@ -118,16 +107,15 @@ export default class TaskDetailView {
       const data = await handleAddComment(commentValue, +taskId);
 
       this.showComments(data);
-      inputComment.value = "";
+      this.commentInput.value = "";
 
       showSuccessMessage(SUCCESS_MESSAGE.COMMENT_SUCCESS);
     });
   }
 
-  // showComments(data: Comments)
   showComments(data) {
-    const commentList = document.querySelector(".comment-list");
-    commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
+    const commentHTML = TaskDetailTemplate.renderComment([data]);
+    this.commentList.innerHTML += commentHTML;
   }
 
   deleteComment(handleDelete) {
@@ -138,7 +126,6 @@ export default class TaskDetailView {
       const commentItem = e.target.closest(".commenters");
       if (!commentItem) return;
 
-      // Save id item
       const commentId = commentItem.dataset.id;
       const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_COMMENT);
 

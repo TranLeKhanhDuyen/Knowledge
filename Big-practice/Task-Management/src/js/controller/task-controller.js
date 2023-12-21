@@ -31,7 +31,7 @@ export default class Controller {
 
   handleDelete = () => {
     this.taskListView.bindDelete(async (id) => {
-      return await this.taskListModel.delete(id);
+      return this.taskListModel.delete(id);
     });
   };
 
@@ -74,9 +74,9 @@ export default class Controller {
   };
 
   handleDeleteComment = () => {
-    this.taskDetailView.deleteComment((commentId) =>
-      this.commentListModel.deleteComment(commentId)
-    );
+    this.taskDetailView.deleteComment(async (commentId) => {
+       this.commentListModel.deleteComment(commentId);
+    });
   };
 
   handleSearch = () => {

@@ -16,10 +16,9 @@ export default class TaskDetailView {
     this.commentInput = document.querySelector(".comments-input");
     this.commentList = document.querySelector(".comment-list");
 
-    this.bindUpdateTask();
   }
 
-  bindUpdateTask(handle) {
+  bindUpdateTask(handleUpdateTask) {
     if (this.addDesc && this.editIcon) {
       this.editIcon.addEventListener("click", (e) => {
         e.preventDefault();
@@ -28,13 +27,13 @@ export default class TaskDetailView {
 
       this.addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
-        this.editDescription(handle);
+        this.editDescription();
       });
     }
 
     if (this.dueDateInput) {
       this.dueDateInput.addEventListener("change", (e) => {
-        this.changeDueDate(handle, e);
+        this.changeDueDate(handleUpdateTask, e);
       });
     }
   }
@@ -48,13 +47,14 @@ export default class TaskDetailView {
     selection.addRange(range);
   }
 
-  editDescription(handle) {
+  editDescription(handleUpdateTask) {
+    console.log(handleUpdateTask);
     const description = this.addDesc.textContent;
     console.log(description);
     const id = this.detailContainer.dataset.id;
     console.log(id);
-    const { data } = handle(id, { description });
-
+    const { data } = handleUpdateTask(id, { description });
+    console.log(data);
     try {
       this.updateData = { ...this.updateData, ...data };
     } catch (error) {

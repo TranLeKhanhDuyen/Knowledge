@@ -7,6 +7,7 @@ import {
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import STATUS from "../constants/status";
 import showSuccessMessage from "../utilities/showMessage";
+import TaskDetailView from "./taskDetail-view";
 
 export default class TaskListView {
   constructor() {
@@ -196,27 +197,41 @@ export default class TaskListView {
     });
   }
 
-  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
-    this.taskList.forEach((taskList) => {
-      taskList.addEventListener("click", async (e) => {
-        const taskItem = this.getTaskItem(e.target);
+  bindTaskDetail(
+    handleInitEvent,
+    handleFind,
+    handleGetAllComments,
+    handleUpdateTask,
+    handleAddComment,
+    handleDeleteComment
+  ) {
+    document.body.addEventListener("click", async (e) => {
+      const taskItem = this.getTaskItem(e.target);
 
-        if (e.target.closest(".delete")) return;
+      if (e.target.closest(".delete")) {
+        return;
+      }
 
-        if (!taskItem) return;
-        
-        const taskId = taskItem.dataset.id;
-        const selectedTask = await handleFind(taskId);
-        const comments = await handleGetAllComments(+taskId);
+      if (!taskItem) return;
+      const taskId = taskItem.dataset.id;
+      const selectedTask = await handleFind(taskId);
+      const comments = await handleGetAllComments(+taskId);
 
-        if (!handleInitEvent) return;
-        this.renderTaskDetail(selectedTask, comments, handleInitEvent);
+      if (!handleInitEvent) return;
+      this.renderTaskDetail(selectedTask, comments, handleInitEvent);
 
-        const closeIcons = document.querySelectorAll(".close-icon");
-        closeIcons.forEach((closeIcon) => {
-          closeIcon.addEventListener("click", () => {
-            this.closeTaskDetail();
-          });
+      const taskDetailView = new TaskDetailView();
+   
+      taskDetailView.bindUpdateTask(
+        handleUpdateTask,
+        handleAddComment,
+        handleDeleteComment
+      );
+
+      const closeIcons = document.querySelectorAll(".close-icon");
+      closeIcons.forEach((closeIcon) => {
+        closeIcon.addEventListener("click", () => {
+          this.closeTaskDetail();
         });
       });
     });

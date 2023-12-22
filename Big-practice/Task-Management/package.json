@@ -13,10 +13,18 @@
     "@commitlint/config-conventional": "^18.0.0",
     "eslint": "^8.52.0",
     "eslint-plugin-sonarjs": "^0.21.0",
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "parcel": "^2.10.3"
   },
   "dependencies": {
     "json-server": "^0.17.4"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint",
+      "npm run format",
+      "git add ."
+    ]
   }
 }

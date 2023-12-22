@@ -1,6 +1,5 @@
 import API from "../services/task";
 import TaskModel from "./task-model";
-import { ERROR_CODE } from "../constants/message";
 
 export default class TaskListModel {
   constructor() {
@@ -35,7 +34,7 @@ export default class TaskListModel {
   async delete(id) {
     const { status } = await this.apiTask.delete(id);
 
-    if (status !== 200) return this.showError(ERROR_CODE[status]);
+    if (status !== 200) return;
     return status;
   }
 
@@ -50,7 +49,7 @@ export default class TaskListModel {
   async find(id) {
     const { status, data } = await this.apiTask.findTask(id);
 
-    if (status !== 200) return this.showError(ERROR_CODE[status]);
+    if (status !== 200) return;
     return data;
   }
 

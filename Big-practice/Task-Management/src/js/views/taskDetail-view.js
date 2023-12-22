@@ -89,14 +89,13 @@ export default class TaskDetailView {
   // HANDLER COMMENTS
 
   bindComments(handleAddComment) {
-    const inputComment = document.querySelector(".comments-input");
-    if (!inputComment) return;
+    if (!this.inputComment) return;
 
-    inputComment.addEventListener("keydown", async (e) => {
+    this.inputComment.addEventListener("keydown", async (e) => {
       if (e.key !== "Enter") return;
       e.preventDefault();
 
-      const commentValue = inputComment.value.trim();
+      const commentValue = this.inputComment.value.trim();
       const taskId = this.detailContainer.dataset.id;
 
       if (!commentValue) return alert(ERROR_MESSAGE.COMMENT_EMPTY);
@@ -104,7 +103,7 @@ export default class TaskDetailView {
       const data = await handleAddComment(commentValue, +taskId);
 
       this.showComments(data);
-      inputComment.value = "";
+      this.inputComment.value = "";
 
       showSuccessMessage(SUCCESS_MESSAGE.COMMENT_SUCCESS);
     });
@@ -112,12 +111,11 @@ export default class TaskDetailView {
 
   // showComments(data: Comments)
   showComments(data) {
-    const commentList = document.querySelector(".comment-list");
-    commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
+    this.commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
   }
 
   deleteComment(handleDelete) {
-    document.body.addEventListener("click", async (e) => {
+    this.commentList.addEventListener("click", async (e) => {
       const deleteComment = e.target.closest(".delete-icon");
       if (!deleteComment) return;
 

@@ -30,8 +30,8 @@ export default class Controller {
   };
 
   handleDelete = () => {
-    this.taskListView.bindDelete(async (id) => {
-      return await this.taskListModel.delete(id);
+    this.taskListView.bindDelete((id) => {
+      return this.taskListModel.delete(id);
     });
   };
 
@@ -68,14 +68,15 @@ export default class Controller {
   };
 
   handeAddComment = () => {
-    this.taskDetailView.bindComments(async (content, taskId) =>
-      this.commentListModel.addComment(content, taskId)
+    this.taskDetailView.bindComments(
+      async (content, taskId) =>
+        await this.commentListModel.addComment(content, taskId)
     );
   };
 
   handleDeleteComment = () => {
-    this.taskDetailView.deleteComment((commentId) =>
-      this.commentListModel.deleteComment(commentId)
+    this.taskDetailView.deleteComment(
+      async (commentId) => await this.commentListModel.deleteComment(commentId)
     );
   };
 

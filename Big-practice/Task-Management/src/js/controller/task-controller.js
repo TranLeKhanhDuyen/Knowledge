@@ -74,9 +74,9 @@ export default class Controller {
   };
 
   handleDeleteComment = () => {
-    this.taskDetailView.deleteComment(async (commentId) => {
-       this.commentListModel.deleteComment(commentId);
-    });
+    this.taskDetailView.deleteComment(async (commentId) =>
+      this.commentListModel.deleteComment(commentId)
+    );
   };
 
   handleSearch = () => {

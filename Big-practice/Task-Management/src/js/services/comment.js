@@ -9,11 +9,12 @@ export default class API {
 
   async addComment(comment) {
     try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}`,
-        APIHelper.sendRequest("POST", comment)
+      const url = `${API_URL}${this.apiPath}`;
+      const { response, result } = await APIHelper.createRequest(
+        url,
+        "POST",
+        comment
       );
-      const result = await response.json();
 
       return {
         status: response.status,
@@ -22,7 +23,7 @@ export default class API {
       };
     } catch (error) {
       return {
-        status: 500, // Internal Server Error
+        status: error.status,
         message: ERROR_MESSAGE.ADD_FAIL,
         data: null,
       };
@@ -31,10 +32,8 @@ export default class API {
 
   async getComment(taskId) {
     try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}?taskId=${taskId}`
-      );
-      const result = await response.json();
+      const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
+      const { response, result } = await APIHelper.createRequest(url, "GET");
 
       return {
         status: response.status,
@@ -43,7 +42,7 @@ export default class API {
       };
     } catch (error) {
       return {
-        status: 500,
+        status: error.status,
         message: ERROR_MESSAGE.LOAD_ERROR,
         data: null,
       };
@@ -52,10 +51,8 @@ export default class API {
 
   async deleteComment(commentId) {
     try {
-      const response = await fetch(
-        `${API_URL}${this.apiPath}/${commentId}`,
-        APIHelper.sendRequest("DELETE")
-      );
+      const url = `${API_URL}${this.apiPath}/${commentId}`;
+      const { response } = await APIHelper.createRequest(url, "DELETE");
 
       return {
         status: response.status,
@@ -63,7 +60,7 @@ export default class API {
       };
     } catch (error) {
       return {
-        status: 500,
+        status: error.status,
         message: ERROR_MESSAGE.DELETE_FAIL,
       };
     }

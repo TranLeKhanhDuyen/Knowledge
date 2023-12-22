@@ -11,8 +11,8 @@ import showSuccessMessage from "../utilities/showMessage";
 export default class TaskListView {
   constructor() {
     this.formAddTask = document.querySelector("form.add-task");
-    this.taskInput = document.querySelector(".task-input");
-    this.taskList = document.querySelector(".task-list");
+    this.taskInput = this.formAddTask.querySelector(".task-input");
+    this.taskList = document.querySelectorAll(".task-list");
     this.listTodo = document.querySelector("#todo");
     this.listProgress = document.querySelector("#progress");
     this.listDone = document.querySelector("#done");
@@ -142,29 +142,31 @@ export default class TaskListView {
   //  HANDLE DELETE
 
   bindDelete(handleDelete) {
-    document.body.addEventListener("click", async (e) => {
-      const deleteButton = e.target.closest(".delete");
-      if (!deleteButton) return;
+    this.taskList.forEach((taskList) => {
+      taskList.addEventListener("click", async (e) => {
+        const deleteButton = e.target.closest(".delete");
+        if (!deleteButton) return;
 
-      const taskItem = this.getTaskItem(deleteButton);
+        const taskItem = this.getTaskItem(deleteButton);
 
-      if (!taskItem) return;
-      const taskId = taskItem.dataset.id;
+        if (!taskItem) return;
+        const taskId = taskItem.dataset.id;
 
-      const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_TASK);
+        const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_TASK);
 
-      if (!userConfirmed) return;
-      try {
-        const status = await handleDelete(taskId);
+        if (!userConfirmed) return;
+        try {
+          const status = await handleDelete(taskId);
 
-        if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
+          if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
 
-        taskItem.remove();
-      } catch (error) {
-        alert(error);
-      }
-
-      showSuccessMessage(SUCCESS_MESSAGE.DELETE_SUCCESS);
+          taskItem.remove();
+          
+          showSuccessMessage(SUCCESS_MESSAGE.DELETE_SUCCESS);
+        } catch (error) {
+          alert(error);
+        }
+      });
     });
   }
 
@@ -195,25 +197,27 @@ export default class TaskListView {
   }
 
   bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
-    document.body.addEventListener("click", async (e) => {
-      const taskItem = this.getTaskItem(e.target);
+    this.taskList.forEach((taskList) => {
+      taskList.addEventListener("click", async (e) => {
+        const taskItem = this.getTaskItem(e.target);
 
-      if (e.target.closest(".delete")) {
-        return;
-      }
+        if (e.target.closest(".delete")) return;
 
-      if (!taskItem) return;
-      const taskId = taskItem.dataset.id;
-      const selectedTask = await handleFind(taskId);
-      const comments = await handleGetAllComments(+taskId);
+        if (!taskItem) return;
 
-      if (!handleInitEvent) return;
-      this.renderTaskDetail(selectedTask, comments, handleInitEvent);
+        const taskId = taskItem.dataset.id;
+        const selectedTask = await handleFind(taskId);
+        const comments = await handleGetAllComments(+taskId);
 
-      const closeIcons = document.querySelectorAll(".close-icon");
-      closeIcons.forEach((closeIcon) => {
-        closeIcon.addEventListener("click", () => {
-          this.closeTaskDetail();
+        if (!handleInitEvent) return;
+
+        this.renderTaskDetail(selectedTask, comments, handleInitEvent);
+
+        const closeIcons = document.querySelectorAll(".close-icon");
+        closeIcons.forEach((closeIcon) => {
+          closeIcon.addEventListener("click", () => {
+            this.closeTaskDetail();
+          });
         });
       });
     });

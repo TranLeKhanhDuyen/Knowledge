@@ -10,11 +10,11 @@ import showSuccessMessage from "../utilities/showMessage";
 export default class TaskDetailView {
   bindUpdateTask(handle) {
     this.detailContainer = document.querySelector(".detail-task-container");
-    this.addDesc = document.querySelector(".add-description");
-    this.editIcon = document.querySelector(".edit-icon");
-    this.dueDateInput = document.querySelector(".date-select");
-    this.inputComment = document.querySelector(".comments-input");
-    this.commentList = document.querySelector(".comment-list");
+    this.addDesc = this.detailContainer.querySelector(".add-description");
+    this.editIcon = this.detailContainer.querySelector(".edit-icon");
+    this.dueDateInput = this.detailContainer.querySelector(".date-select");
+    this.inputComment = this.detailContainer.querySelector(".comments-input");
+    this.commentList = this.detailContainer.querySelector(".comment-list");
 
     if (this.addDesc && this.editIcon) {
       this.editIcon.addEventListener("click", (e) => {

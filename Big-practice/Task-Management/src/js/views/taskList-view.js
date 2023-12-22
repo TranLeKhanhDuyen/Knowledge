@@ -7,6 +7,7 @@ import {
 import TaskDetailTemplate from "../templates/taskDetail-template";
 import STATUS from "../constants/status";
 import showSuccessMessage from "../utilities/showMessage";
+import TaskDetailView from "./taskDetail-view";
 
 export default class TaskListView {
   constructor() {
@@ -195,8 +196,15 @@ export default class TaskListView {
       });
     });
   }
-  6;
-  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
+
+  bindTaskDetail(
+    handleInitEvent,
+    handleFind,
+    handleGetAllComments,
+    handeUpdateTask,
+    handleAddComment,
+    handleDeleteComment
+  ) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener("click", async (e) => {
         const taskItem = this.getTaskItem(e.target);
@@ -212,6 +220,14 @@ export default class TaskListView {
         if (!handleInitEvent) return;
 
         this.renderTaskDetail(selectedTask, comments, handleInitEvent);
+
+        const taskDetailView = new TaskDetailView();
+
+        taskDetailView.bindUpdateTask(
+          // handleUpdateTask,
+          handleAddComment,
+          handleDeleteComment
+        );
 
         const closeIcons = document.querySelectorAll(".close-icon");
         closeIcons.forEach((closeIcon) => {

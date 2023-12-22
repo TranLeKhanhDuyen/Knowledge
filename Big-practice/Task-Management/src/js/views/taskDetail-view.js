@@ -8,32 +8,39 @@ import date from "../utilities/date";
 import showSuccessMessage from "../utilities/showMessage";
 
 export default class TaskDetailView {
-  constructor() {}
-
-  getId() {
-    const detailContainer = document.querySelector(".detail-task-container");
-    return detailContainer ? detailContainer.dataset.id : null;
+  constructor() {
+    this.detailContainer = document.querySelector(".detail-task-container");
+    this.addDesc = document.querySelector(".add-description");
+    this.editIcon = document.querySelector(".edit-icon");
+    this.dueDateInput = document.querySelector(".date-select");
+    this.commentInput = document.querySelector(".comments-input");
+    this.commentList = document.querySelector(".comment-list");
   }
 
-  bindUpdateTask(handle) {
-    const addDesc = document.querySelector(".add-description");
-    const editIcon = document.querySelector(".edit-icon");
-    const dueDateInput = document.querySelector(".date-select");
+  // getId() {
+  //   const detailContainer = document.querySelector(".detail-task-container");
+  //   return detailContainer ? detailContainer.dataset.id : null;
+  // }
 
-    if (addDesc && editIcon) {
-      editIcon.addEventListener("click", (e) => {
+  bindUpdateTask(handle) {
+    // const addDesc = document.querySelector(".add-description");
+    // const editIcon = document.querySelector(".edit-icon");
+    // const dueDateInput = document.querySelector(".date-select");
+    if (this.addDesc && this.editIcon) {
+      console.log(this.addDesc)
+      this.editIcon.addEventListener("click", (e) => {
         e.preventDefault();
-        this.focusEditDescripton(addDesc);
+        this.focusEditDescripton(this.addDesc);
       });
 
-      addDesc.addEventListener("blur", (e) => {
+      this.addDesc.addEventListener("blur", (e) => {
         e.preventDefault();
         this.editDescription(handle);
       });
     }
 
-    if (dueDateInput) {
-      dueDateInput.addEventListener("change", (e) => {
+    if (this.dueDateInput) {
+      this.dueDateInput.addEventListener("change", (e) => {
         this.changeDueDate(handle, e);
       });
     }
@@ -51,9 +58,10 @@ export default class TaskDetailView {
 
   // Event when click to input
   editDescription(handle) {
-    const addDesc = document.querySelector(".add-description");
-    const description = addDesc.textContent;
-    const id = this.getId();
+    // const addDesc = document.querySelector(".add-description");
+    const description = this.addDesc.textContent;
+    const id = this.detailContainer.dataset.id;
+    console.log(handle)
     const { data } = handle(id, { description });
 
     try {
@@ -78,11 +86,7 @@ export default class TaskDetailView {
     if (taskItem) {
       const dueDateElement = taskItem.querySelector(".due-date");
       if (dueDateElement) {
-        dueDateElement.innerHTML = date.diffTime(
-          newDueDate,
-          Math.ceil,
-          "left"
-        );
+        dueDateElement.innerHTML = date.diffTime(newDueDate, Math.ceil, "left");
       }
     }
 

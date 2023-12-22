@@ -8,26 +8,15 @@ import date from "../utilities/date";
 import showSuccessMessage from "../utilities/showMessage";
 
 export default class TaskDetailView {
-  constructor() {
+  bindUpdateTask(handle) {
     this.detailContainer = document.querySelector(".detail-task-container");
     this.addDesc = document.querySelector(".add-description");
     this.editIcon = document.querySelector(".edit-icon");
     this.dueDateInput = document.querySelector(".date-select");
-    this.commentInput = document.querySelector(".comments-input");
+    this.inputComment = document.querySelector(".comments-input");
     this.commentList = document.querySelector(".comment-list");
-  }
 
-  // getId() {
-  //   const detailContainer = document.querySelector(".detail-task-container");
-  //   return detailContainer ? detailContainer.dataset.id : null;
-  // }
-
-  bindUpdateTask(handle) {
-    // const addDesc = document.querySelector(".add-description");
-    // const editIcon = document.querySelector(".edit-icon");
-    // const dueDateInput = document.querySelector(".date-select");
     if (this.addDesc && this.editIcon) {
-      console.log(this.addDesc)
       this.editIcon.addEventListener("click", (e) => {
         e.preventDefault();
         this.focusEditDescripton(this.addDesc);
@@ -58,10 +47,8 @@ export default class TaskDetailView {
 
   // Event when click to input
   editDescription(handle) {
-    // const addDesc = document.querySelector(".add-description");
     const description = this.addDesc.textContent;
     const id = this.detailContainer.dataset.id;
-    console.log(handle)
     const { data } = handle(id, { description });
 
     try {
@@ -73,7 +60,7 @@ export default class TaskDetailView {
 
   //Event when change date
   changeDueDate(handle, event) {
-    const id = this.getId();
+    const id = this.detailContainer.dataset.id;
     const newDueDate = date.formatDate(event.target.value);
     const { data } = handle(id, { dueDate: newDueDate });
 
@@ -83,22 +70,20 @@ export default class TaskDetailView {
     const taskItem = document.querySelector(
       `.task-item-container[data-id="${id}"]`
     );
-    if (taskItem) {
-      const dueDateElement = taskItem.querySelector(".due-date");
-      if (dueDateElement) {
-        dueDateElement.innerHTML = date.diffTime(newDueDate, Math.ceil, "left");
-      }
-    }
+
+    if (!taskItem) return;
+    const dueDateElement = taskItem.querySelector(".due-date");
+    if (!dueDateElement) return;
+    dueDateElement.innerHTML = date.diffTime(newDueDate, Math.ceil, "left");
 
     // Update date for task detail
     const daysRemainingElement = document.querySelector(".daysRemaining");
-    if (daysRemainingElement) {
-      daysRemainingElement.innerHTML = date.diffTime(
-        newDueDate,
-        Math.ceil,
-        "left"
-      );
-    }
+    if (!daysRemainingElement) return;
+    daysRemainingElement.innerHTML = date.diffTime(
+      newDueDate,
+      Math.ceil,
+      "left"
+    );
   }
 
   // HANDLER COMMENTS
@@ -112,12 +97,9 @@ export default class TaskDetailView {
       e.preventDefault();
 
       const commentValue = inputComment.value.trim();
-      const taskId = this.getId();
+      const taskId = this.detailContainer.dataset.id;
 
-      if (!commentValue) {
-        alert(ERROR_MESSAGE.COMMENT_EMPTY);
-        return;
-      }
+      if (!commentValue) return alert(ERROR_MESSAGE.COMMENT_EMPTY);
 
       const data = await handleAddComment(commentValue, +taskId);
 
@@ -153,11 +135,10 @@ export default class TaskDetailView {
         if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
 
         commentItem.remove();
+        showSuccessMessage(SUCCESS_MESSAGE.DELETE_COMMENT_SUCCESS);
       } catch (error) {
         alert(error);
       }
-
-      showSuccessMessage(SUCCESS_MESSAGE.DELETE_COMMENT_SUCCESS);
     });
   }
 }

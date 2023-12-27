@@ -17,6 +17,12 @@ export default class TaskListView {
     this.listProgress = document.querySelector('#progress');
     this.listDone = document.querySelector('#done');
     this.listArchived = document.querySelector('#archived');
+
+    window.addEventListener('offline', this.handleOfflineStatus.bind(this));
+  }
+
+  handleOfflineStatus() {
+    alert(ERROR_MESSAGE.INTERNET_ERROR);
   }
 
   /**

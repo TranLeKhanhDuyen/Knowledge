@@ -1,13 +1,13 @@
 const showSuccessMessage = (message) => {
-  const successMessage = document.createElement('div')
-  successMessage.className = 'success-message'
-  successMessage.textContent = message
+  const successMessage = document.createElement('div');
+  successMessage.className = 'success-message';
+  successMessage.textContent = message;
 
-  document.body.appendChild(successMessage)
+  document.body.appendChild(successMessage);
 
   setTimeout(() => {
-    successMessage.remove()
-  }, 1500)
-}
+    successMessage.remove();
+  }, 1500);
+};
 
-export default showSuccessMessage
+export default showSuccessMessage;

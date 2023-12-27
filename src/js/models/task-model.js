@@ -1,5 +1,5 @@
-import date from '../utilities/date'
-import STATUS from '../constants/status'
+import date from '../utilities/date';
+import STATUS from '../constants/status';
 
 const TaskModel = (taskName) => {
   return {
@@ -8,7 +8,7 @@ const TaskModel = (taskName) => {
     dueDate: date.getDueDate(),
     createdDate: date.getCurrentDate(),
     status: STATUS.TODO
-  }
-}
+  };
+};
 
-export default TaskModel
+export default TaskModel;

@@ -78,7 +78,7 @@ export default class TaskListView {
 
           taskElement.addEventListener('dragstart', this.dragStart.bind(this));
         } catch (error) {
-          alert(ERROR_MESSAGE.ADD_FAIL);
+          alert(ERROR_MESSAGE.SERVER_ERROR);
         }
       }
     });

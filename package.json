@@ -22,10 +22,11 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "parcel": "^2.10.3",
-    "prettier": "3.1.1"
+    "prettier": "^3.1.1"
   },
   "dependencies": {
-    "json-server": "^0.17.4"
+    "json-server": "^0.17.4",
+    "save-dev": "^0.0.1-security"
   },
   "lint-staged": {
     "*.ts": [
@@ -34,13 +35,12 @@
       "git add ."
     ],
     "*.{js,jsx,ts,tsx,json,html,css,scss}": [
-      "npm run format",
       "git add ."
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run format"
+      "pre-commit": "lint-staged"
     }
   },
   "description": "- This document provides planning for Javascript practice - Task Management App.\r - GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/big-practice)",

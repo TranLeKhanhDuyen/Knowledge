@@ -1,22 +1,22 @@
-import TaskListTemplate from '../templates/taskList-template'
+import TaskListTemplate from '../templates/taskList-template';
 import {
   CONFIRM_MESSAGE,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
-} from '../constants/message'
-import TaskDetailTemplate from '../templates/taskDetail-template'
-import STATUS from '../constants/status'
-import showSuccessMessage from '../utilities/showMessage'
+} from '../constants/message';
+import TaskDetailTemplate from '../templates/taskDetail-template';
+import STATUS from '../constants/status';
+import showSuccessMessage from '../utilities/showMessage';
 
 export default class TaskListView {
   constructor() {
-    this.formAddTask = document.querySelector('form.add-task')
-    this.taskInput = this.formAddTask.querySelector('.task-input')
-    this.taskList = document.querySelectorAll('.task-list')
-    this.listTodo = document.querySelector('#todo')
-    this.listProgress = document.querySelector('#progress')
-    this.listDone = document.querySelector('#done')
-    this.listArchived = document.querySelector('#archived')
+    this.formAddTask = document.querySelector('form.add-task');
+    this.taskInput = this.formAddTask.querySelector('.task-input');
+    this.taskList = document.querySelectorAll('.task-list');
+    this.listTodo = document.querySelector('#todo');
+    this.listProgress = document.querySelector('#progress');
+    this.listDone = document.querySelector('#done');
+    this.listArchived = document.querySelector('#archived');
   }
 
   /**
@@ -25,19 +25,19 @@ export default class TaskListView {
    * @returns {void}
    */
   showTasks(tasks) {
-    if (!tasks.length) return
+    if (!tasks.length) return;
 
-    this.tasks = tasks
+    this.tasks = tasks;
 
     // Get task list area
-    this.listTodo.innerHTML = ''
-    this.listProgress.innerHTML = ''
-    this.listDone.innerHTML = ''
-    this.listArchived.innerHTML = ''
+    this.listTodo.innerHTML = '';
+    this.listProgress.innerHTML = '';
+    this.listDone.innerHTML = '';
+    this.listArchived.innerHTML = '';
 
-    const taskStatus = Object.values(STATUS)
+    const taskStatus = Object.values(STATUS);
 
-    ;[
+    [
       this.listTodo,
       this.listProgress,
       this.listDone,
@@ -45,213 +45,215 @@ export default class TaskListView {
     ].forEach((listElement, index) => {
       const filterTasks = tasks.filter(
         (task) => task.status === taskStatus[index]
-      )
-      listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks)
-    })
+      );
+      listElement.innerHTML += TaskListTemplate.renderTaskList(filterTasks);
+    });
 
-    this.updateDraggableTasks()
+    this.updateDraggableTasks();
   }
 
   bindAddTask(handle) {
     this.formAddTask.addEventListener('keydown', async (e) => {
       if (e.key === 'Enter') {
-        e.preventDefault()
-        const newTaskName = this.taskInput.value.trim()
+        e.preventDefault();
+        const newTaskName = this.taskInput.value.trim();
 
-        if (!newTaskName) return alert(ERROR_MESSAGE.TASK_EMPTY)
+        if (!newTaskName) return alert(ERROR_MESSAGE.TASK_EMPTY);
 
         try {
-          const newTask = await handle(newTaskName)
+          const newTask = await handle(newTaskName);
 
           this.listTodo.insertAdjacentHTML(
             'beforeend',
             TaskListTemplate.renderTaskList([newTask])
-          )
+          );
 
-          showSuccessMessage(SUCCESS_MESSAGE.ADD_SUCCESS)
+          showSuccessMessage(SUCCESS_MESSAGE.ADD_SUCCESS);
 
-          this.resetForm()
+          this.resetForm();
 
           const taskElement = document.querySelector(
             '.task-item-container:last-child'
-          )
+          );
 
-          taskElement.addEventListener('dragstart', this.dragStart.bind(this))
+          taskElement.addEventListener('dragstart', this.dragStart.bind(this));
         } catch (error) {
-          alert(ERROR_MESSAGE.ADD_FAIL)
+          alert(ERROR_MESSAGE.ADD_FAIL);
         }
       }
-    })
+    });
   }
 
   resetForm() {
-    this.taskInput.parentElement.reset()
+    this.taskInput.parentElement.reset();
   }
 
   // HANDLER TASK DETAIL
 
   getTaskItem(target) {
-    return target.closest('.task-item-container')
+    return target.closest('.task-item-container');
   }
 
   //  HANDLE DRAG DROP
 
   updateDraggableTasks() {
     // Add event listeners for each task item
-    const todos = document.querySelectorAll('.task-item-container')
+    const todos = document.querySelectorAll('.task-item-container');
     todos.forEach((task) => {
-      task.addEventListener('dragstart', this.dragStart.bind(this))
-    })
+      task.addEventListener('dragstart', this.dragStart.bind(this));
+    });
   }
 
   dragStart(e) {
-    e.dataTransfer.setData('text/plain', e.target.dataset.id)
+    e.dataTransfer.setData('text/plain', e.target.dataset.id);
     // Add class to represent drag
-    e.target.classList.add('dragged-task')
+    e.target.classList.add('dragged-task');
   }
 
   addBoardEvent(handler) {
-    const taskBoards = document.querySelectorAll('.task-board')
+    const taskBoards = document.querySelectorAll('.task-board');
     taskBoards.forEach((board) => {
-      board.addEventListener('dragover', this.dragOver.bind(this))
-      board.addEventListener('drop', (e) => this.dragDrop(e, handler))
-    })
+      board.addEventListener('dragover', this.dragOver.bind(this));
+      board.addEventListener('drop', (e) => this.dragDrop(e, handler));
+    });
   }
 
   dragOver(e) {
-    e.preventDefault()
+    e.preventDefault();
   }
 
   dragDrop = async (e, handler) => {
-    e.preventDefault()
-    const taskId = e.dataTransfer.getData('text/plain')
-    const draggedTask = document.querySelector(`[data-id="${taskId}"]`)
-    const targetBoard = e.target.closest('.task-board')
+    e.preventDefault();
+    const taskId = e.dataTransfer.getData('text/plain');
+    const draggedTask = document.querySelector(`[data-id="${taskId}"]`);
+    const targetBoard = e.target.closest('.task-board');
 
     if (targetBoard && draggedTask) {
       // Check and set default value for targetBoard.id
-      const targetBoardId = targetBoard.id || 'js-default'
-      const newStatus = targetBoardId.split('js-')[1] || 'todo'
-      handler(taskId, { status: newStatus })
+      const targetBoardId = targetBoard.id || 'js-default';
+      const newStatus = targetBoardId.split('js-')[1] || 'todo';
+      handler(taskId, { status: newStatus });
       // Move taskItem to new state
-      draggedTask.parentNode.removeChild(draggedTask)
-      targetBoard.querySelector('.task-list').appendChild(draggedTask)
+      draggedTask.parentNode.removeChild(draggedTask);
+      targetBoard.querySelector('.task-list').appendChild(draggedTask);
     }
-  }
+  };
 
   //  HANDLE DELETE
 
   bindDelete(handleDelete) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
-        const deleteButton = e.target.closest('.delete')
-        if (!deleteButton) return
+        const deleteButton = e.target.closest('.delete');
+        if (!deleteButton) return;
 
-        const taskItem = this.getTaskItem(deleteButton)
+        const taskItem = this.getTaskItem(deleteButton);
 
-        if (!taskItem) return
-        const taskId = taskItem.dataset.id
+        if (!taskItem) return;
+        const taskId = taskItem.dataset.id;
 
-        const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_TASK)
+        const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_TASK);
 
-        if (!userConfirmed) return
+        if (!userConfirmed) return;
         try {
-          const status = await handleDelete(taskId)
+          const status = await handleDelete(taskId);
 
-          if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL)
+          if (status !== 200) return alert(ERROR_MESSAGE.DELETE_FAIL);
 
-          taskItem.remove()
+          taskItem.remove();
 
-          showSuccessMessage(SUCCESS_MESSAGE.DELETE_SUCCESS)
+          showSuccessMessage(SUCCESS_MESSAGE.DELETE_SUCCESS);
         } catch (error) {
-          alert(error)
+          alert(error);
         }
-      })
-    })
+      });
+    });
   }
 
   bindSearchTask() {
-    const searchInput = document.querySelector('.search-input')
-    const taskElements = document.getElementsByClassName('task-item-container')
+    const searchInput = document.querySelector('.search-input');
+    const taskElements = document.getElementsByClassName('task-item-container');
 
     searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase()
+      const searchTerm = searchInput.value.toLowerCase();
       const filteredTasks = this.tasks.filter(
         (task) =>
           task.taskName && task.taskName.toLowerCase().includes(searchTerm)
-      )
+      );
 
       Array.from(taskElements).forEach((task) => {
         const isInSearchArr = filteredTasks.some(
           (item) => item.id === +task.dataset.id
-        )
+        );
 
         if (isInSearchArr) {
-          task.style.display = 'block'
-          return
+          task.style.display = 'block';
+          return;
         }
 
-        task.style.display = 'none'
-      })
-    })
+        task.style.display = 'none';
+      });
+    });
   }
 
   bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
-        const taskItem = this.getTaskItem(e.target)
+        const taskItem = this.getTaskItem(e.target);
 
-        if (e.target.closest('.delete')) return
+        if (e.target.closest('.delete')) return;
 
-        if (!taskItem) return
+        if (!taskItem) return;
 
-        const taskId = taskItem.dataset.id
-        const selectedTask = await handleFind(taskId)
-        const comments = await handleGetAllComments(+taskId)
+        const taskId = taskItem.dataset.id;
+        const selectedTask = await handleFind(taskId);
+        const comments = await handleGetAllComments(+taskId);
 
-        if (!handleInitEvent) return
+        if (!handleInitEvent) return;
 
-        this.renderTaskDetail(selectedTask, comments, handleInitEvent)
+        this.renderTaskDetail(selectedTask, comments, handleInitEvent);
 
-        const closeIcons = document.querySelectorAll('.close-icon')
+        const closeIcons = document.querySelectorAll('.close-icon');
         closeIcons.forEach((closeIcon) => {
           closeIcon.addEventListener('click', () => {
-            this.closeTaskDetail()
-          })
-        })
-      })
-    })
+            this.closeTaskDetail();
+          });
+        });
+      });
+    });
   }
 
   renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
-    const overlay = document.querySelector('.overlay')
+    const overlay = document.querySelector('.overlay');
 
     document.body.insertBefore(
       overlay,
       document.querySelector('.detail-container')
-    )
+    );
 
-    const detailContainer = document.querySelector('.detail-container')
+    const detailContainer = document.querySelector('.detail-container');
 
-    overlay.style.display = 'block'
+    overlay.style.display = 'block';
 
     detailContainer.innerHTML = TaskDetailTemplate.renderTaskDetail(
       selectedTasks,
       comments
-    )
+    );
 
     //Init all event for task detail
-    handleInitTaskDetailEvent()
+    handleInitTaskDetailEvent();
   }
 
   closeTaskDetail() {
-    const detailContainers = document.querySelectorAll('.detail-task-container')
-    const overlay = document.querySelector('.overlay')
+    const detailContainers = document.querySelectorAll(
+      '.detail-task-container'
+    );
+    const overlay = document.querySelector('.overlay');
 
     detailContainers.forEach((detailContainer) => {
-      if (!detailContainer) return
-      detailContainer.classList.add('hidden')
-      overlay.style.display = 'none'
-    })
+      if (!detailContainer) return;
+      detailContainer.classList.add('hidden');
+      overlay.style.display = 'none';
+    });
   }
 }

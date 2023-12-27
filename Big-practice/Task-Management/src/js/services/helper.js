@@ -12,17 +12,17 @@ export default class APIHelper {
         headers: {
           'Content-Type': contentType
         }
-      })
+      });
 
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`)
+        throw new Error(`Request failed with status ${response.status}`);
       }
 
-      const result = await response.json()
+      const result = await response.json();
 
-      return { response, result }
+      return { response, result };
     } catch (error) {
-      return { error }
+      return { error };
     }
   }
 }

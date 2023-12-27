@@ -9,12 +9,12 @@ export const ERROR_MESSAGE = {
   TASK_EMPTY: 'Task cannot be empty',
   DELETE_FAIL: 'Delete is fail',
   INTERNET_ERROR: 'No Internet Connection'
-}
+};
 
 export const CONFIRM_MESSAGE = {
   DELETE_COMMENT: 'Are you sure you want to delete this comment?',
   DELETE_TASK: 'Are you sure you want to delete this task?'
-}
+};
 
 /**
  * Message for alert if the action be done successfully.
@@ -26,7 +26,7 @@ export const SUCCESS_MESSAGE = {
   UPDATE_SUCCESS: 'Update is successfully',
   COMMENT_SUCCESS: 'Comment added successfully',
   DELETE_COMMENT_SUCCESS: 'Delete comment is successfully'
-}
+};
 
 export const ERROR_CODE = {
   // 4xx Client Error
@@ -43,4 +43,4 @@ export const ERROR_CODE = {
   502: 'Bad Gateway',
   503: 'Service Unavailable',
   504: 'Gateway Timeout'
-}
+};

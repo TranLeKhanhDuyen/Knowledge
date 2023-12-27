@@ -1,12 +1,12 @@
-import iconEdit from '../../assets/icons/edit.svg'
-import iconClose from '../../assets/icons/close.svg'
-import iconDelete from '../../assets/icons/delete.svg'
-import userAvatar from '../../assets/images/user.svg'
-import date from '../utilities/date'
+import iconEdit from '../../assets/icons/edit.svg';
+import iconClose from '../../assets/icons/close.svg';
+import iconDelete from '../../assets/icons/delete.svg';
+import userAvatar from '../../assets/images/user.svg';
+import date from '../utilities/date';
 
 export default class TaskDetailTemplate {
   static renderTaskDetail(data, comments) {
-    const commentItems = this.renderComments(comments)
+    const commentItems = this.renderComments(comments);
 
     return `
     <div class="detail-task-container" data-id="${data.id}">
@@ -43,13 +43,13 @@ export default class TaskDetailTemplate {
       <ul class="comment-list">${commentItems || ''}</ul>
     </div>
   </div>
-  `
+  `;
   }
 
   static renderComments(comments) {
-    if (!comments.length) return
+    if (!comments.length) return;
 
-    return TaskDetailTemplate.renderComment(comments)
+    return TaskDetailTemplate.renderComment(comments);
   }
 
   static renderComment(data) {
@@ -67,8 +67,8 @@ export default class TaskDetailTemplate {
         </div>
         <p class="comment-content">${item.comment}</p>
       </li>
-  `
+  `;
       })
-      .join(' ')
+      .join(' ');
   }
 }

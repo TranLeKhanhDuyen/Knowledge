@@ -3,6 +3,6 @@ const STATUS = {
   IN_PROGRESS: 'inprogress',
   DONE: 'done',
   ARCHIVED: 'archived'
-}
+};
 
-export default STATUS
+export default STATUS;

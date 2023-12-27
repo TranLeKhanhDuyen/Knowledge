@@ -6,7 +6,7 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
     "server": "json-server --watch json-server/db.json",
-    "prepare": "husky install"
+    "prepare": "npx husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

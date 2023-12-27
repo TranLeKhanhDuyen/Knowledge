@@ -82,3 +82,17 @@ npm run server
 ```
 npm start
 ```
+
+### STEPS SETUP PRETTIER, ESLINT and HUSKY
+
+- Step 01: Setup Prettier
+
+```
+npm install --save-dev --save-exact prettier
+```
+
+- Step 02: Setup Husky and Lint-staged
+
+```
+npm install --save-dev husky lint-staged
+```

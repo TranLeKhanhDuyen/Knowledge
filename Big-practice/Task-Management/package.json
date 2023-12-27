@@ -28,6 +28,10 @@
       "npm run lint",
       "npm run format",
       "git add ."
+    ],
+    "*.{js,jsx,ts,tsx,json,html,css,scss}": [
+      "npm run format",
+      "git add ."
     ]
   },
   "husky": {

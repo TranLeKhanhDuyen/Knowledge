@@ -17,6 +17,12 @@ export default class TaskListView {
     this.listProgress = document.querySelector('#progress');
     this.listDone = document.querySelector('#done');
     this.listArchived = document.querySelector('#archived');
+
+    window.addEventListener('offline', this.handleOfflineStatus.bind(this));
+  }
+
+  handleOfflineStatus() {
+    alert(ERROR_MESSAGE.INTERNET_ERROR);
   }
 
   /**
@@ -78,7 +84,7 @@ export default class TaskListView {
 
           taskElement.addEventListener('dragstart', this.dragStart.bind(this));
         } catch (error) {
-          alert(ERROR_MESSAGE.ADD_FAIL);
+          alert(ERROR_MESSAGE.SERVER_ERROR);
         }
       }
     });

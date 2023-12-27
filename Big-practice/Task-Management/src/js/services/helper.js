@@ -3,26 +3,26 @@ export default class APIHelper {
     url,
     method,
     data,
-    contentType = "application/json"
+    contentType = 'application/json'
   ) {
     try {
       const response = await fetch(url, {
         method,
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": contentType,
-        },
-      });
+          'Content-Type': contentType
+        }
+      })
 
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+        throw new Error(`Request failed with status ${response.status}`)
       }
 
-      const result = await response.json();
+      const result = await response.json()
 
-      return { response, result };
+      return { response, result }
     } catch (error) {
-      return { error };
+      return { error }
     }
   }
 }

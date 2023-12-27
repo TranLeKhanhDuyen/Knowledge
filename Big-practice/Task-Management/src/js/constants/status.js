@@ -1,8 +1,8 @@
 const STATUS = {
-  TODO: "todo",
-  IN_PROGRESS: "inprogress",
-  DONE: "done",
-  ARCHIVED: "archived",
-};
+  TODO: 'todo',
+  IN_PROGRESS: 'inprogress',
+  DONE: 'done',
+  ARCHIVED: 'archived'
+}
 
-export default STATUS;
+export default STATUS

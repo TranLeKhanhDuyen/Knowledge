@@ -9,17 +9,17 @@
   --fw-semibold: 500;
   --fw-normal: 400;
 
-  --primary-color: #F0F0F1;
-  --secondary-color: #FFF;
-  --tertiary-color: #292A31;
-  --blue-title-color: #4A90E2;
-  --blue-select-color: #40A9FF;
-  --grey-color: #D2D2D6;
+  --primary-color: #f0f0f1;
+  --secondary-color: #fff;
+  --tertiary-color: #292a31;
+  --blue-title-color: #4a90e2;
+  --blue-select-color: #40a9ff;
+  --grey-color: #d2d2d6;
   --grey-light-color: #f8f8f8;
-  --green-color: #43A047;
-  --yellow-color: #FFB41F;
-  --grey-rgb-color: #E1E1E3;
-  --dark-grey-color: #9696A0;
+  --green-color: #43a047;
+  --yellow-color: #ffb41f;
+  --grey-rgb-color: #e1e1e3;
+  --dark-grey-color: #9696a0;
   --faint-color: #787885;
-  --subtle-grey-color: #5A5B6A;
+  --subtle-grey-color: #5a5b6a;
 }

@@ -1,6 +1,6 @@
-import iconDelete from "../../assets/icons/delete.svg";
-import iconClock from "../../assets/icons/clock.svg";
-import date from "../utilities/date";
+import iconDelete from '../../assets/icons/delete.svg'
+import iconClock from '../../assets/icons/clock.svg'
+import date from '../utilities/date'
 
 export default class TaskListTemplate {
   /**
@@ -32,16 +32,16 @@ export default class TaskListTemplate {
             <date class ="due-date">${date.diffTime(
               item.dueDate,
               Math.ceil,
-              "left"
+              'left'
             )}</date>
           </div>
         </div>
       </li>
-      `;
+      `
         })
-        .join(" ");
+        .join(' ')
     } else {
-      return "";
+      return ''
     }
   }
 }

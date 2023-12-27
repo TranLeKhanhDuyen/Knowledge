@@ -1,0 +1,46 @@
+{
+  "name": "my-project",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "server": "json-server --watch json-server/db.json",
+    "prepare": "husky install",
+    "lint": "eslint --fix",
+    "lint-staged": "lint-staged",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-sonarjs": "^0.21.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "parcel": "^2.10.3",
+    "prettier": "3.1.1"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint",
+      "npm run format",
+      "git add ."
+    ],
+    "*.{js,jsx,ts,tsx,json,html,css,scss}": [
+      "npm run format",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run format"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.date-container {
+  padding: 0 20px;
+  margin-top: 58px;
+}
+
+.date-select {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+}
+
+.date-select:focus {
+  outline-color: var(--faint-color);
+}
+
+.date-left {
+  display: flex;
+  color: var(--faint-color);
+  align-items: center;
+}
+
+.date-ago {
+  font-size: var(--font-sm);
+}
+
+.time-ago {
+  color: var(--faint-color);
+  font-style: italic;
+  margin-left: 15px;
+}

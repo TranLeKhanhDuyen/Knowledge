@@ -1,0 +1,25 @@
+.task-status {
+  width: 453px;
+  height: 62px;
+  padding: 20px 21px 15px;
+  border-radius: 3px 3px 0px 0px;
+  text-transform: uppercase;
+}
+
+.todo {
+  background-color: var(--blue-select-color);
+  color: var(--primary-color);
+}
+
+.done {
+  background-color: var(--green-color);
+  color: var(--primary-color);
+}
+
+.inprogress {
+  background-color: var(--yellow-color);
+}
+
+.archived {
+  background-color: var(--grey-rgb-color);
+}

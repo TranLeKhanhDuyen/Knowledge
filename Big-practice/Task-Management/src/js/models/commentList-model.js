@@ -1,5 +1,5 @@
 import API from '../services/comment';
-import CommentModel from '../models/comment-model';
+import createCommentModel from '../models/comment-model';
 
 export default class CommentListModel {
   constructor() {
@@ -11,7 +11,7 @@ export default class CommentListModel {
   }
 
   async addComment(content, taskId) {
-    const comment = CommentModel(content, taskId);
+    const comment = createCommentModel(content, taskId);
 
     const apiResponse = await this.apiComment.addComment(comment);
 

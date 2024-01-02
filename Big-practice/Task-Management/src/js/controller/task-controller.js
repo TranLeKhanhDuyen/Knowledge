@@ -37,8 +37,7 @@ export default class Controller {
 
   handleDragDropBoard = () => {
     this.taskListView.addBoardEvent(async (taskId, newStatus) => {
-      const task = await this.taskListModel.edit(taskId, newStatus);
-      this.taskListModel.getTask(task);
+      await this.taskListModel.edit(taskId, newStatus);
     });
   };
 

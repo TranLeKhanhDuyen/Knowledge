@@ -1,20 +1,18 @@
 import date from '../utilities/date';
 import STATUS from '../constants/status';
 
-interface TaskModel {
-  taskName: number;
+export interface TaskModel {
+  taskName: string;
   description: string;
   dueDate: string;
   createdDate: string;
   status: string;
 }
 
-const createTaskModel = (taskName: number): TaskModel => ({
+export const createTaskModel = (taskName: string): TaskModel => ({
   taskName: taskName,
   description: '',
   dueDate: date.getDueDate(),
   createdDate: date.getCurrentDate(),
   status: STATUS.TODO
 });
-
-export default createTaskModel;

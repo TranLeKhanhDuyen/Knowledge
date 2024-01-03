@@ -7,10 +7,6 @@ export default class TaskListModel {
     this.tasks = [];
   }
 
-  showError(errorMessage) {
-    console.error(errorMessage);
-  }
-
   async getTasks() {
     const response = await this.apiTask.getTask();
     this.tasks = response.data || [];

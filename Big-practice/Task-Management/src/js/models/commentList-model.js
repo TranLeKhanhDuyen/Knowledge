@@ -6,10 +6,6 @@ export default class CommentListModel {
     this.apiComment = new API();
   }
 
-  showError(errorMessage) {
-    console.error(errorMessage);
-  }
-
   async addComment(content, taskId) {
     const comment = CommentModel(content, taskId);
 

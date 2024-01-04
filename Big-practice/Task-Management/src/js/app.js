@@ -1,4 +1,4 @@
-import Controller from './controller/task-controller.js';
+import Controller from './controller/task-controller.ts';
 import TaskListModel from './models/taskList-model.ts';
 import TaskListView from './views/taskList-view.js';
 import TaskDetailView from './views/taskDetail-view.js';

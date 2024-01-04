@@ -65,8 +65,13 @@ cd Big-practice/Task-Management
 npm install
 ```
 
+- Step 04: Install prettier, husky, lint-staged:
 
-- Step 04: Install json server:
+```
+npm install --save-dev prettier husky lint-staged 
+```
+
+- Step 05: Install json server:
 
 ```
 npm install -g json-server
@@ -83,4 +88,3 @@ npm run server
 ```
 npm start
 ```
-

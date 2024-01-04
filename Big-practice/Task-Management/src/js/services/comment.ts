@@ -1,12 +1,11 @@
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../constants/message';
 import { API_URL } from '../constants/url';
 import APIHelper from './helper';
 
-interface ApiResponse {
-  status: number;
-  message: string;
-  data: any;
-}
+const handleResponse = ({ status, message }, data = null) => ({
+  status,
+  message,
+  data,
+});
 
 export default class API {
   private apiPath: string;
@@ -24,17 +23,9 @@ export default class API {
         comment
       );
 
-      return {
-        status: response?.status || 500,
-        message: SUCCESS_MESSAGE.ADD_SUCCESS,
-        data: result
-      };
+      return handleResponse(response, result);
     } catch (error) {
-      return {
-        status: error.status || 500,
-        message: ERROR_MESSAGE.ADD_FAIL,
-        data: null
-      };
+      return handleResponse(error);
     }
   }
 
@@ -47,17 +38,9 @@ export default class API {
         null
       );
 
-      return {
-        status: response?.status || 500,
-        message: SUCCESS_MESSAGE.GET_SUCCESS,
-        data: result
-      };
+      return handleResponse(response, result);
     } catch (error) {
-      return {
-        status: error.status || 500,
-        message: ERROR_MESSAGE.LOAD_ERROR,
-        data: null
-      };
+      return handleResponse(error);
     }
   }
 
@@ -66,17 +49,9 @@ export default class API {
       const url = `${API_URL}${this.apiPath}/${commentId}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE', null);
 
-      return {
-        status: response?.status || 500,
-        message: SUCCESS_MESSAGE.DELETE_SUCCESS,
-        data: null
-      };
+      return handleResponse(response);
     } catch (error) {
-      return {
-        status: error.status || 500,
-        message: ERROR_MESSAGE.DELETE_FAIL,
-        data: null
-      };
+      return handleResponse(error);
     }
   }
 }

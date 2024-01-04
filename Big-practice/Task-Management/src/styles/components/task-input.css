@@ -1,0 +1,16 @@
+.task-input-container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.task-input {
+  border: none;
+  border-bottom: 1px solid var(--dark-grey-color);
+  background-color: var(--grey-light-color);
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.task-input:focus {
+  outline: none;
+}

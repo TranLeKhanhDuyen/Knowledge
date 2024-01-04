@@ -1,0 +1,40 @@
+.text-sm {
+  font-size: var(--font-sm);
+}
+
+.text-md {
+  font-size: var(--font-md);
+}
+
+.text-lg {
+  font-size: var(--font-lg);
+}
+
+.text-xl {
+  font-size: var(--font-xl);
+}
+
+.text-xxl {
+  font-size: var(--font-xxl);
+}
+
+.text-semibold {
+  font-weight: var(--fw-semibold);
+}
+
+.text-bold {
+  font-weight: var(--fw-bold);
+}
+
+.title {
+  font-size: var(--font-lg);
+  font-style: normal;
+  font-weight: var(--fw-bold);
+  line-height: normal;
+  display: flex;
+  align-items: center;
+}
+
+.detail-title {
+  color: var(--faint-color);
+}

@@ -2,9 +2,9 @@ export default class APIHelper {
   static async createRequest(
     url: string,
     method: string,
-    data: any, // Kiểm tra kiểu dữ liệu của tham số 'data'
+    data: any,
     contentType: string = 'application/json'
-  ) {
+  ): Promise<{ response: Response; result?: any; error?: Error }> {
     try {
       const response = await fetch(url, {
         method,
@@ -22,7 +22,7 @@ export default class APIHelper {
 
       return { response, result };
     } catch (error) {
-      return { error };
+      return { response: new Response(), error };
     }
   }
 }

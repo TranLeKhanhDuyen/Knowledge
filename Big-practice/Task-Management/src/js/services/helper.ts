@@ -22,6 +22,7 @@ export default class APIHelper {
 
       return { response, result };
     } catch (error) {
+      // If there is an error, response is set to new Response() and error is returned.
       return { response: new Response(), error };
     }
   }

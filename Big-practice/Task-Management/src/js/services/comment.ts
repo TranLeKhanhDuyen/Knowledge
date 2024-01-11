@@ -1,11 +1,11 @@
 import { API_URL } from '../constants/url';
 import APIHelper from './helper';
 
-const handleResponse = ({ status, message }, data = null) => ({
-  status,
-  message,
-  data,
-});
+interface ApiResponse {
+  status: number;
+  message: string;
+  data?: any;
+}
 
 export default class API {
   private apiPath: string;
@@ -23,9 +23,9 @@ export default class API {
         comment
       );
 
-      return handleResponse(response, result);
+      return this.handleResponse(response, result);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
   }
 
@@ -34,24 +34,31 @@ export default class API {
       const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
       const { response, result } = await APIHelper.createRequest(
         url,
-        'GET',
-        null
+        'GET'
       );
 
-      return handleResponse(response, result);
+      return this.handleResponse(response, result);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
   }
 
   async deleteComment(commentId: string): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${commentId}`;
-      const { response } = await APIHelper.createRequest(url, 'DELETE', null);
+      const { response } = await APIHelper.createRequest(url, 'DELETE');
 
-      return handleResponse(response);
+      return this.handleResponse(response);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
+  }
+
+  private handleResponse(response: Response, result?: any): ApiResponse {
+    const { status } = response;
+    const message = response.ok
+      ? 'Success'
+      : `Request failed with status ${status}`;
+    return { status, message, data: result };
   }
 }

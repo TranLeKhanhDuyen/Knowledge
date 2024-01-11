@@ -7,12 +7,6 @@ interface ApiResponse {
   data?: any;
 }
 
-const handleResponse = ({ status, message, data }: ApiResponse): ApiResponse => ({
-  status,
-  message,
-  data,
-});
-
 export default class API {
   private apiPath: string;
 
@@ -23,55 +17,70 @@ export default class API {
   async addTask(taskName: string): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest(url, 'POST', taskName);
+      const { response, result } = await APIHelper.createRequest(
+        url,
+        'POST',
+        taskName
+      );
 
-      return handleResponse(response, result);
+      return this.handleResponse(response, result);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
   }
-
-  async getTask(): Promise<ApiResponse> {
+  async getTask() {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest(url, 'GET', null);
+      const { response, result } = await APIHelper.createRequest(url, 'GET');
 
-      return handleResponse(response, result);
+      return this.handleResponse(response, result);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
   }
 
-  async findTask(id: string): Promise<ApiResponse> {
+  async findTask(id: number): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response, result } = await APIHelper.createRequest(url, 'GET', null);
+      const { response, result } = await APIHelper.createRequest(url, 'GET');
 
-      return handleResponse(response, result);
+      return this.handleResponse(response, result);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
   }
 
-  async edit(id: string, updateData: any): Promise<ApiResponse> {
+  async edit(id: number, updateData: any): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response } = await APIHelper.createRequest(url, 'PATCH', updateData);
+      const { response } = await APIHelper.createRequest(
+        url,
+        'PATCH',
+        updateData
+      );
 
-      return handleResponse(response);
+      return this.handleResponse(response);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
   }
 
-  async delete(id: string): Promise<ApiResponse> {
+  async delete(id: number): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response } = await APIHelper.createRequest(url, 'DELETE', null);
+      const { response } = await APIHelper.createRequest(url, 'DELETE', id);
 
-      return handleResponse(response);
+      return this.handleResponse(response);
     } catch (error) {
-      return handleResponse(error);
+      return this.handleResponse(error);
     }
+  }
+
+  private handleResponse(response: Response, result?: any): ApiResponse {
+    const { status } = response;
+    const message = response.ok
+      ? 'Success'
+      : `Request failed with status ${status}`;
+    return { status, message, data: result };
   }
 }

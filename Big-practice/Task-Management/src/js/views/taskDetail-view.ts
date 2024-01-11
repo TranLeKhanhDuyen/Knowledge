@@ -8,35 +8,43 @@ import date from '../utilities/date';
 import showSuccessMessage from '../utilities/showMessage';
 
 export default class TaskDetailView {
-  bindUpdateTask(handle) {
-    this.detailContainer = document.querySelector('.detail-task-container');
-    this.addDesc = this.detailContainer.querySelector('.add-description');
-    this.editIcon = this.detailContainer.querySelector('.edit-icon');
-    this.dueDateInput = this.detailContainer.querySelector('.date-select');
-    this.inputComment = this.detailContainer.querySelector('.comments-input');
-    this.commentList = this.detailContainer.querySelector('.comment-list');
+  private detailContainer: HTMLElement;
+  private addDesc: HTMLElement;
+  private editIcon: HTMLElement;
+  private dueDateInput: HTMLElement;
+  private inputComment: HTMLElement;
+  private commentList: HTMLElement;
+  private updateData: any;
+
+  public bindUpdateTask(handle: any): void {
+    this.detailContainer = document.querySelector('.detail-task-container') as HTMLElement;
+    this.addDesc = this.detailContainer.querySelector('.add-description') as HTMLElement;
+    this.editIcon = this.detailContainer.querySelector('.edit-icon') as HTMLElement;
+    this.dueDateInput = this.detailContainer.querySelector('.date-select') as HTMLElement;
+    this.inputComment = this.detailContainer.querySelector('.comments-input') as HTMLElement;
+    this.commentList = this.detailContainer.querySelector('.comment-list') as HTMLElement;
 
     if (this.addDesc && this.editIcon) {
-      this.editIcon.addEventListener('click', (e) => {
+      this.editIcon.addEventListener('click', (e: Event) => {
         e.preventDefault();
         this.focusEditDescripton(this.addDesc);
       });
 
-      this.addDesc.addEventListener('blur', (e) => {
+      this.addDesc.addEventListener('blur', (e: Event) => {
         e.preventDefault();
         this.editDescription(handle);
       });
     }
 
     if (this.dueDateInput) {
-      this.dueDateInput.addEventListener('change', (e) => {
+      this.dueDateInput.addEventListener('change', (e: Event) => {
         this.changeDueDate(handle, e);
       });
     }
   }
 
   // Event for icon edit
-  focusEditDescripton(element) {
+  private focusEditDescripton(element: HTMLElement): void {
     const range = document.createRange();
     range.selectNodeContents(element);
     range.collapse(false);
@@ -46,7 +54,7 @@ export default class TaskDetailView {
   }
 
   // Event when click to input
-  editDescription(handle) {
+  private editDescription(handle: any): void {
     const description = this.addDesc.textContent;
     const id = this.detailContainer.dataset.id;
     const { data } = handle(id, { description });
@@ -58,27 +66,31 @@ export default class TaskDetailView {
     }
   }
 
-  //Event when change date
-  changeDueDate(handle, event) {
+  // Event when change date
+  private changeDueDate(handle: any, event: Event): void {
     const id = this.detailContainer.dataset.id;
-    const newDueDate = date.formatDate(event.target.value);
+    const newDueDate = date.formatDate((event.target as HTMLInputElement).value);
     const { data } = handle(id, { dueDate: newDueDate });
-
     this.updateData = { ...this.updateData, ...data };
 
     // Update date for task item
     const taskItem = document.querySelector(
       `.task-item-container[data-id="${id}"]`
-    );
+    ) as HTMLElement;
 
     if (!taskItem) return;
-    const dueDateElement = taskItem.querySelector('.due-date');
+
+    const dueDateElement = taskItem.querySelector('.due-date') as HTMLElement;
+
     if (!dueDateElement) return;
+
     dueDateElement.innerHTML = date.diffTime(newDueDate, Math.ceil, 'left');
 
     // Update date for task detail
-    const daysRemainingElement = document.querySelector('.daysRemaining');
+    const daysRemainingElement = document.querySelector('.daysRemaining') as HTMLElement;
+
     if (!daysRemainingElement) return;
+
     daysRemainingElement.innerHTML = date.diffTime(
       newDueDate,
       Math.ceil,
@@ -87,11 +99,10 @@ export default class TaskDetailView {
   }
 
   // HANDLER COMMENTS
-
-  bindComments(handleAddComment) {
+  public bindComments(handleAddComment: any): void {
     if (!this.inputComment) return;
 
-    this.inputComment.addEventListener('keydown', async (e) => {
+    this.inputComment.addEventListener('keydown', async (e: KeyboardEvent) => {
       if (e.key !== 'Enter') return;
       e.preventDefault();
 
@@ -101,25 +112,25 @@ export default class TaskDetailView {
       if (!commentValue) return alert(ERROR_MESSAGE.COMMENT_EMPTY);
 
       const data = await handleAddComment(commentValue, +taskId);
-
       this.showComments(data);
       this.inputComment.value = '';
-
       showSuccessMessage(SUCCESS_MESSAGE.COMMENT_SUCCESS);
     });
   }
 
   // showComments(data: Comments)
-  showComments(data) {
+  private showComments(data: any): void {
     this.commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
   }
 
-  deleteComment(handleDelete) {
-    this.commentList.addEventListener('click', async (e) => {
-      const deleteComment = e.target.closest('.delete-icon');
+  public deleteComment(handleDelete: any): void {
+    this.commentList.addEventListener('click', async (e: Event) => {
+      const deleteComment = (e.target as HTMLElement).closest('.delete-icon');
+
       if (!deleteComment) return;
 
-      const commentItem = e.target.closest('.commenters');
+      const commentItem = (e.target as HTMLElement).closest('.commenters');
+
       if (!commentItem) return;
 
       // Save id item
@@ -127,6 +138,7 @@ export default class TaskDetailView {
       const userConfirmed = confirm(CONFIRM_MESSAGE.DELETE_COMMENT);
 
       if (!userConfirmed) return;
+
       try {
         const status = await handleDelete(commentId);
 
@@ -140,3 +152,5 @@ export default class TaskDetailView {
     });
   }
 }
+
+

@@ -4,10 +4,10 @@ import TaskListView from '../views/taskList-view';
 import TaskDetailView from '../views/taskDetail-view';
 
 export default class Controller {
-  taskListModel: TaskListModel;
-  taskListView: TaskListView;
-  taskDetailView: TaskDetailView;
-  commentListModel: CommentListModel;
+  private taskListModel: TaskListModel;
+  private taskListView: TaskListView;
+  private taskDetailView: TaskDetailView;
+  private commentListModel: CommentListModel;
 
   constructor(
     taskListModel: TaskListModel,
@@ -22,7 +22,7 @@ export default class Controller {
     this.init();
   }
 
-  async init(): Promise<void> {
+  private async init() {
     await this.handleShowTask();
     this.handleAddTask();
     this.handleDelete();
@@ -32,69 +32,70 @@ export default class Controller {
   }
 
   // Mount(Read): Model -> Controller -> View
-  async handleShowTask(): Promise<void> {
+  private handleShowTask = async () => {
     const tasks = await this.taskListModel.getTasks();
     this.taskListView.showTasks(tasks);
-  }
+  };
 
   // View -> Controller -> Model
-  handleAddTask(): void {
+  private handleAddTask = () => {
     this.taskListView.bindAddTask((task) => {
       return this.taskListModel.addTask(task);
     });
-  }
+  };
 
-  handleDelete(): void {
-    this.taskListView.bindDelete((id) => {
+  private handleDelete = () => {
+    this.taskListView.bindDelete((id: number) => {
       return this.taskListModel.delete(id);
     });
-  }
+  };
 
-  handleDragDropBoard(): void {
-    this.taskListView.addBoardEvent(async (taskId, newStatus) => {
-      await this.taskListModel.edit(taskId, newStatus);
+  private handleDragDropBoard = () => {
+    this.taskListView.addBoardEvent(async (taskId: number, newStatus: string) => {
+      const task = await this.taskListModel.edit(taskId, newStatus);
+      this.taskListModel.getTasks();
     });
-  }
+  };
 
-  handleTaskDetail(): void {
+  private handleTaskDetail = () => {
     this.taskListView.bindTaskDetail(
       this.handleInitTaskDetailEvent,
-      (id) => this.taskListModel.find(id),
-      // Get all comments base on taskId
-      async (taskId) => this.commentListModel.getComment(taskId)
+      (id: number) => this.taskListModel.find(id),
+      // Get all comments based on taskId
+      async (taskId: string) => this.commentListModel.getComment(taskId)
     );
-  }
+  };
 
-  handleInitTaskDetailEvent(): void {
+  private handleInitTaskDetailEvent = () => {
     // Edit description handler
     this.handleDescription();
     // Add comment handler
     this.handleAddComment();
     // Delete comment handler
     this.handleDeleteComment();
-  }
+  };
 
-  handleDescription(): void {
-    this.taskDetailView.bindUpdateTask(async (id, updateData) => {
+  private handleDescription = () => {
+    this.taskDetailView.bindUpdateTask(async (id: number, updateData: any) => {
       await this.taskListModel.edit(id, updateData);
       return this.taskListModel.find(id);
     });
-  }
+  };
 
-  handleAddComment(): void {
+  private handleAddComment = () => {
     this.taskDetailView.bindComments(
-      async (content, taskId) =>
+      async (content: string, taskId: string) =>
         await this.commentListModel.addComment(content, taskId)
     );
-  }
+  };
 
-  handleDeleteComment(): void {
+  private handleDeleteComment = () => {
     this.taskDetailView.deleteComment(
-      async (commentId) => await this.commentListModel.deleteComment(commentId)
+      async (commentId: string) => await this.commentListModel.deleteComment(commentId)
     );
-  }
+  };
 
-  handleSearch(): void {
+  private handleSearch = () => {
     this.taskListView.bindSearchTask();
-  }
+  };
 }

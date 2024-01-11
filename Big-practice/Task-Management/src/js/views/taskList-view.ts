@@ -5,10 +5,8 @@ import {
   SUCCESS_MESSAGE
 } from '../constants/message';
 import TaskDetailTemplate from '../templates/taskDetail-template';
-import STATUS from '../constants/status';
+import {STATUS} from '../constants/status';
 import showSuccessMessage from '../utilities/showMessage';
-
-interface Task {}
 
 export default class TaskListView {
   private formAddTask: HTMLFormElement;

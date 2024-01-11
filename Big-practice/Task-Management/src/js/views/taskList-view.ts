@@ -8,21 +8,29 @@ import TaskDetailTemplate from '../templates/taskDetail-template';
 import STATUS from '../constants/status';
 import showSuccessMessage from '../utilities/showMessage';
 
+interface Task {}
+
 export default class TaskListView {
+  private formAddTask: HTMLFormElement;
+  private taskInput: HTMLInputElement;
+  private taskList: NodeListOf<Element>;
+  private listTodo: HTMLElement;
+  private listProgress: HTMLElement;
+  private listDone: HTMLElement;
+  private listArchived: HTMLElement;
+
   constructor() {
-    this.formAddTask = document.querySelector('form.add-task');
-    this.taskInput = this.formAddTask.querySelector('.task-input');
+    this.formAddTask = document.querySelector(
+      'form.add-task'
+    ) as HTMLFormElement;
+    this.taskInput = this.formAddTask.querySelector(
+      '.task-input'
+    ) as HTMLInputElement;
     this.taskList = document.querySelectorAll('.task-list');
-    this.listTodo = document.querySelector('#todo');
-    this.listProgress = document.querySelector('#progress');
-    this.listDone = document.querySelector('#done');
-    this.listArchived = document.querySelector('#archived');
-
-    window.addEventListener('offline', () => this.handleOfflineStatus());
-  }
-
-  handleOfflineStatus() {
-    alert(ERROR_MESSAGE.INTERNET_ERROR);
+    this.listTodo = document.querySelector('#todo') as HTMLElement;
+    this.listProgress = document.querySelector('#progress') as HTMLElement;
+    this.listDone = document.querySelector('#done') as HTMLElement;
+    this.listArchived = document.querySelector('#archived') as HTMLElement;
   }
 
   /**
@@ -30,7 +38,7 @@ export default class TaskListView {
    * @param {Array<Task>} tasks
    * @returns {void}
    */
-  showTasks(tasks) {
+  public showTasks(tasks: Task[]): void {
     if (!tasks.length) return;
 
     this.tasks = tasks;
@@ -58,7 +66,7 @@ export default class TaskListView {
     this.updateDraggableTasks();
   }
 
-  bindAddTask(handle) {
+  public bindAddTask(handle: (newTaskName: string) => Promise<Task>): void {
     this.formAddTask.addEventListener('keydown', async (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -93,19 +101,19 @@ export default class TaskListView {
     });
   }
 
-  resetForm() {
+  private resetForm() {
     this.taskInput.parentElement.reset();
   }
 
   // HANDLER TASK DETAIL
 
-  getTaskItem(target) {
+  private getTaskItem(target) {
     return target.closest('.task-item-container');
   }
 
   //  HANDLE DRAG DROP
 
-  updateDraggableTasks() {
+  private updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll('.task-item-container');
     todos.forEach((task) => {
@@ -113,13 +121,15 @@ export default class TaskListView {
     });
   }
 
-  dragStart(e) {
+  private dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.dataset.id);
     // Add class to represent drag
     e.target.classList.add('dragged-task');
   }
 
-  addBoardEvent(handler) {
+  private addBoardEvent(
+    handler: (taskId: string, options: { status: string }) => void
+  ) {
     const taskBoards = document.querySelectorAll('.task-board');
     taskBoards.forEach((board) => {
       board.addEventListener('dragover', this.dragOver.bind(this));
@@ -127,11 +137,11 @@ export default class TaskListView {
     });
   }
 
-  dragOver(e) {
+  private dragOver(e) {
     e.preventDefault();
   }
 
-  dragDrop = async (e, handler) => {
+  private dragDrop = async (e, handler) => {
     e.preventDefault();
 
     if (!navigator.onLine) return alert(ERROR_MESSAGE.INTERNET_ERROR);
@@ -153,7 +163,7 @@ export default class TaskListView {
 
   //  HANDLE DELETE
 
-  bindDelete(handleDelete) {
+  public bindDelete(handleDelete) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
         const deleteButton = e.target.closest('.delete');
@@ -185,7 +195,7 @@ export default class TaskListView {
     });
   }
 
-  bindSearchTask() {
+  public bindSearchTask() {
     const searchInput = document.querySelector('.search-input');
     const taskElements = document.getElementsByClassName('task-item-container');
 
@@ -211,7 +221,7 @@ export default class TaskListView {
     });
   }
 
-  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
+  public bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
         const taskItem = this.getTaskItem(e.target);
@@ -240,7 +250,7 @@ export default class TaskListView {
     });
   }
 
-  renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
+  public renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
     const overlay = document.querySelector('.overlay');
 
     document.body.insertBefore(
@@ -261,7 +271,7 @@ export default class TaskListView {
     handleInitTaskDetailEvent();
   }
 
-  closeTaskDetail() {
+  public closeTaskDetail() {
     const detailContainers = document.querySelectorAll(
       '.detail-task-container'
     );

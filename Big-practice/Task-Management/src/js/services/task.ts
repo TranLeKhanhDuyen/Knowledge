@@ -28,10 +28,15 @@ export default class API {
       return this.handleResponse(error);
     }
   }
-  async getTask(id) {
+  
+  async getTask(id: number) {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest(url, 'GET', id);
+      const { response, result } = await APIHelper.createRequest(
+        url,
+        'GET',
+        id
+      );
 
       return this.handleResponse(response, result);
     } catch (error) {
@@ -42,7 +47,7 @@ export default class API {
   async findTask(id: number): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response, result } = await APIHelper.createRequest(url, 'GET', id);
+      const { response, result } = await APIHelper.createRequest(url, 'GET');
 
       return this.handleResponse(response, result);
     } catch (error) {
@@ -65,7 +70,7 @@ export default class API {
     }
   }
 
-  async delete(id: string): Promise<ApiResponse> {
+  async delete(id: number): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE');

@@ -22,7 +22,7 @@ export default class TaskListModel {
     return newTask;
   }
 
-  async addTask(taskName: string): Promise<any> {
+  async addTask(taskName: string): Promise<string> {
     const newTask = this.createTask(taskName);
     const apiResponse = await this.apiTask.addTask(newTask);
 

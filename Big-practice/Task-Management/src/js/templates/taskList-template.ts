@@ -11,7 +11,7 @@ export default class TaskListTemplate {
    * @param {string} data.task.createDate - The task's creation date.
    * @param {string} data.task.dueDate - The task's due date.
    */
-  static renderTaskList(data) {
+  static renderTaskList(data: { id: string, status: string, taskName: string, createdDate: string, dueDate: string }[] | any): string {
     if (Array.isArray(data)) {
       return data
         .map((item) => {

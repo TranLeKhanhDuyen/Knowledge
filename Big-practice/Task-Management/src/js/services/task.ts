@@ -29,7 +29,7 @@ export default class API {
     }
   }
 
-  async getTask(id: number) {
+  async getTask(id: string) {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
@@ -44,7 +44,7 @@ export default class API {
     }
   }
 
-  async findTask(id: number): Promise<ApiResponse> {
+  async findTask(id: string): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response, result } = await APIHelper.createRequest(
@@ -59,7 +59,7 @@ export default class API {
     }
   }
 
-  async edit(id: number, updateData: any): Promise<ApiResponse> {
+  async edit(id: string, updateData: any): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(

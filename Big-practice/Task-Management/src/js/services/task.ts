@@ -28,7 +28,7 @@ export default class API {
       return this.handleResponse(error);
     }
   }
-  
+
   async getTask(id: number) {
     try {
       const url = `${API_URL}${this.apiPath}`;
@@ -47,7 +47,11 @@ export default class API {
   async findTask(id: number): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response, result } = await APIHelper.createRequest(url, 'GET', {});
+      const { response, result } = await APIHelper.createRequest(
+        url,
+        'GET',
+        undefined
+      );
 
       return this.handleResponse(response, result);
     } catch (error) {

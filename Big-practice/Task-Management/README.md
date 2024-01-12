@@ -1,15 +1,15 @@
-# BIG PRACTICE - JAVASCRIPT 
+# PRACTICE - TYPESCRIPT 
 
 ### OVERVIEW
 
-- This document provides planning for Javascript practice - Task Management App.
+- This document provides planning for apply TypeScript to previous JavaScript practice.
 - GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/big-practice)
 
 ### TIMELINE
 
-- Start date: 2023/10/20
-- End date: 2023/12/15
-- Total: 25 days
+- Start date: 2024/01/05
+- End date: 2023/01/12
+- Total: 3 days
 
 ### TEAMSIZE
 
@@ -19,9 +19,9 @@
 
 - HTML5
 - CSS3
-- JS6
 - Dom
 - MVC
+- TypeScript
 
 ### SUPPORTED BROWSER
 
@@ -33,24 +33,15 @@
 
 ### REQUIMENTS
 
-- Understand & apply knowledge HTML/CSS/JavaScript (with ES6 syntax).
-- Apply MVC.
-- DOM manipulation, form validation.
-- Understand how asynchronous code work & apply in practice (API call or any place we can as mock API in code).
-- Get familiar with DevTools (e.g. Google Chrome DevTools) for debugging issues (breakpoint, log, etc..).
-
-### TARGET
-
-- DOM manipulation.
-- Structure project following Module pattern.
-- ES6 features.
+- Understand & apply knowledge Typescript.
+.
 
 ### STEPS INSTALL AND RUN CODE
 
 - Step 01: Clone repository:
 
 ```
-git clone -b feat/big-practice <https://github.com/TranLeKhanhDuyen/intern-agility.git>
+git clone -b feat/apply-typescript <https://github.com/TranLeKhanhDuyen/intern-agility.git>
 ```
 
 - Step 02: Move to folder Task-Management:
@@ -65,19 +56,9 @@ cd Big-practice/Task-Management
 npm install
 ```
 
-- Step 04: Install json server:
+- Step 04: Start the JSON server on "onrender" by clicking the link: <https://task-025l.onrender.com/>
 
-```
-npm install -g json-server
-```
-
-- Step 05: Split terminal and run json server:
-
-```
-npm run server
-```
-
-- Step 06: Finally run with:
+- Step 05: Finally run with:
 
 ```
 npm start

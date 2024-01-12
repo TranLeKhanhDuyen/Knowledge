@@ -45,16 +45,18 @@ export default class Controller {
   };
 
   private handleDelete = () => {
-    this.taskListView.bindDelete((id: number) => {
+    this.taskListView.bindDelete((id: string) => {
       return this.taskListModel.delete(id);
     });
   };
 
   private handleDragDropBoard = () => {
-    this.taskListView.addBoardEvent(async (taskId: number, newStatus: string) => {
-      const task = await this.taskListModel.edit(taskId, newStatus);
-      this.taskListModel.getTasks();
-    });
+    this.taskListView.addBoardEvent(
+      async (taskId: number, newStatus: string) => {
+        await this.taskListModel.edit(taskId, newStatus);
+        return this.taskListModel.getTasks();
+      }
+    );
   };
 
   private handleTaskDetail = () => {
@@ -91,7 +93,8 @@ export default class Controller {
 
   private handleDeleteComment = () => {
     this.taskDetailView.deleteComment(
-      async (commentId: string) => await this.commentListModel.deleteComment(commentId)
+      async (commentId: string) =>
+        await this.commentListModel.deleteComment(commentId)
     );
   };
 

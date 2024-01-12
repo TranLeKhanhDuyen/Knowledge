@@ -70,7 +70,7 @@ export default class API {
     }
   }
 
-  async delete(id: number): Promise<ApiResponse> {
+  async delete(id: string): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE');

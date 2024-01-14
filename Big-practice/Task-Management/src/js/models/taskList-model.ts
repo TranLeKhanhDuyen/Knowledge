@@ -21,13 +21,13 @@ export default class TaskListModel {
     this.tasks.push(newTask);
     return newTask;
   }
- 
+
   async addTask(taskName: string): Promise<string> {
-    const newTask = this.createTask(taskName);                                                                                       
-    const apiResponse = await this.apiTask.addTask(newTask);
+    const newTask = this.createTask(taskName);
+    const response = await this.apiTask.addTask(newTask);
 
     // Assuming data property holds the new task
-    return apiResponse.data;
+    return response.data;
   }
 
   async delete(id: string): Promise<number | undefined> {
@@ -37,14 +37,14 @@ export default class TaskListModel {
     return status;
   }
 
-  async find(id: number): Promise<any> {
+  async find(id: string): Promise<any> {
     const { status, data } = await this.apiTask.findTask(id);
 
     if (status !== 200) return;
     return data;
   }
 
-  async edit(id: number, payload: any): Promise<void> {
+  async edit(id: string, payload: any): Promise<void> {
     const response = await this.apiTask.edit(id, payload);
 
     if (response.status !== 200) return;

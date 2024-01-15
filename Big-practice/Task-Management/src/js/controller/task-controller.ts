@@ -52,7 +52,7 @@ export default class Controller {
 
   private handleDragDropBoard = () => {
     this.taskListView.addBoardEvent(
-      async (taskId: number, newStatus: string) => {
+      async (taskId: string, newStatus: string) => {
         await this.taskListModel.edit(taskId, newStatus);
         return this.taskListModel.getTasks();
       }
@@ -62,7 +62,7 @@ export default class Controller {
   private handleTaskDetail = () => {
     this.taskListView.bindTaskDetail(
       this.handleInitTaskDetailEvent,
-      (id: number) => this.taskListModel.find(id),
+      (id: string) => this.taskListModel.find(id),
       // Get all comments based on taskId
       async (taskId: string) => this.commentListModel.getComment(taskId)
     );
@@ -78,7 +78,7 @@ export default class Controller {
   };
 
   private handleDescription = () => {
-    this.taskDetailView.bindUpdateTask(async (id: number, updateData: any) => {
+    this.taskDetailView.bindUpdateTask(async (id: string, updateData: any) => {
       await this.taskListModel.edit(id, updateData);
       return this.taskListModel.find(id);
     });

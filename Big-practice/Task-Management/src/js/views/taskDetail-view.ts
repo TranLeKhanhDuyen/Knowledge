@@ -17,12 +17,24 @@ export default class TaskDetailView {
   private updateData: any;
 
   public bindUpdateTask(handle: any): void {
-    this.detailContainer = document.querySelector('.detail-task-container') as HTMLElement;
-    this.addDesc = this.detailContainer.querySelector('.add-description') as HTMLElement;
-    this.editIcon = this.detailContainer.querySelector('.edit-icon') as HTMLElement;
-    this.dueDateInput = this.detailContainer.querySelector('.date-select') as HTMLElement;
-    this.inputComment = this.detailContainer.querySelector('.comments-input') as HTMLElement;
-    this.commentList = this.detailContainer.querySelector('.comment-list') as HTMLElement;
+    this.detailContainer = document.querySelector(
+      '.detail-task-container'
+    ) as HTMLElement;
+    this.addDesc = this.detailContainer.querySelector(
+      '.add-description'
+    ) as HTMLElement;
+    this.editIcon = this.detailContainer.querySelector(
+      '.edit-icon'
+    ) as HTMLElement;
+    this.dueDateInput = this.detailContainer.querySelector(
+      '.date-select'
+    ) as HTMLElement;
+    this.inputComment = this.detailContainer.querySelector(
+      '.comments-input'
+    ) as HTMLElement;
+    this.commentList = this.detailContainer.querySelector(
+      '.comment-list'
+    ) as HTMLElement;
 
     if (this.addDesc && this.editIcon) {
       this.editIcon.addEventListener('click', (e: Event) => {
@@ -49,8 +61,8 @@ export default class TaskDetailView {
     range.selectNodeContents(element);
     range.collapse(false);
     const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
+    selection?.removeAllRanges();
+    selection?.addRange(range);
   }
 
   // Event when click to input
@@ -69,7 +81,9 @@ export default class TaskDetailView {
   // Event when change date
   private changeDueDate(handle: any, event: Event): void {
     const id = this.detailContainer.dataset.id;
-    const newDueDate = date.formatDate((event.target as HTMLInputElement).value);
+    const newDueDate = date.formatDate(
+      (event.target as HTMLInputElement).value
+    );
     const { data } = handle(id, { dueDate: newDueDate });
     this.updateData = { ...this.updateData, ...data };
 
@@ -87,7 +101,9 @@ export default class TaskDetailView {
     dueDateElement.innerHTML = date.diffTime(newDueDate, Math.ceil, 'left');
 
     // Update date for task detail
-    const daysRemainingElement = document.querySelector('.daysRemaining') as HTMLElement;
+    const daysRemainingElement = document.querySelector(
+      '.daysRemaining'
+    ) as HTMLElement;
 
     if (!daysRemainingElement) return;
 
@@ -106,14 +122,14 @@ export default class TaskDetailView {
       if (e.key !== 'Enter') return;
       e.preventDefault();
 
-      const commentValue = this.inputComment.value.trim();
-      const taskId = this.detailContainer.dataset.id;
+      const commentValue = (this.inputComment as HTMLInputElement).value.trim();
+      const taskId = this.detailContainer.dataset.id || ' ';
 
       if (!commentValue) return alert(ERROR_MESSAGE.COMMENT_EMPTY);
 
       const data = await handleAddComment(commentValue, +taskId);
       this.showComments(data);
-      this.inputComment.value = '';
+      (this.inputComment as HTMLInputElement).value = '';
       showSuccessMessage(SUCCESS_MESSAGE.COMMENT_SUCCESS);
     });
   }
@@ -129,7 +145,9 @@ export default class TaskDetailView {
 
       if (!deleteComment) return;
 
-      const commentItem = (e.target as HTMLElement).closest('.commenters');
+      const commentItem = (e.target as HTMLElement).closest(
+        '.commenters'
+      ) as HTMLElement;
 
       if (!commentItem) return;
 

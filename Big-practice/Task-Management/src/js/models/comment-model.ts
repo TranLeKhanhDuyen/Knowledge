@@ -3,7 +3,7 @@ import date from '../utilities/date';
 // Defined data type
 interface CommentModel {
   comment: string;
-  taskId: string | number;
+  taskId: string;
   timeStamp: number;
   timeAgo: string;
 }

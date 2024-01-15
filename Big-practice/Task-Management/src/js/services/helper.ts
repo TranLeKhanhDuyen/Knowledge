@@ -1,10 +1,10 @@
 export default class APIHelper {
   static async createRequest(
-    url,
-    method,
-    data,
-    contentType = 'application/json'
-  ) {
+    url: string,
+    method: string,
+    data: any,
+    contentType: string = 'application/json'
+  ): Promise<{ response: Response; result?: any; error?: Error }> {
     try {
       const response = await fetch(url, {
         method,
@@ -22,7 +22,8 @@ export default class APIHelper {
 
       return { response, result };
     } catch (error) {
-      return { error };
+      // If there is an error, response is set to new Response() and error is returned.
+      return { response: new Response(), error };
     }
   }
 }

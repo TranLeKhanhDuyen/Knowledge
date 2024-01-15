@@ -1,55 +1,50 @@
 import API from '../services/task';
-import TaskModel from './task-model';
+import { TaskModel, createTaskModel } from './task-model';
 
 export default class TaskListModel {
+  private apiTask: API;
+  private tasks: TaskModel[];
+
   constructor() {
     this.apiTask = new API();
     this.tasks = [];
   }
 
-  async getTasks() {
+  async getTasks(): Promise<TaskModel[]> {
     const response = await this.apiTask.getTask();
     this.tasks = response.data || [];
     return this.tasks;
   }
 
-  createTask(taskName) {
-    const newTask = TaskModel(taskName);
+  private createTask(taskName: string): TaskModel {
+    const newTask = createTaskModel(taskName);
     this.tasks.push(newTask);
     return newTask;
   }
 
-  async addTask(taskName) {
+  async addTask(taskName: string): Promise<string> {
     const newTask = this.createTask(taskName);
-    const apiResponse = await this.apiTask.addTask(newTask);
+    const response = await this.apiTask.addTask(newTask);
 
     // Assuming data property holds the new task
-    return apiResponse.data;
+    return response.data;
   }
 
-  async delete(id) {
+  async delete(id: string): Promise<number | undefined> {
     const { status } = await this.apiTask.delete(id);
 
     if (status !== 200) return;
     return status;
   }
 
-  async getTask(taskId) {
-    // Call the API to get task detail by ID
-    const apiResponse = await this.apiTask.getTask(taskId);
-
-    // Assuming data property holds the task detail
-    return apiResponse.data;
-  }
-
-  async find(id) {
+  async find(id: string): Promise<any> {
     const { status, data } = await this.apiTask.findTask(id);
 
     if (status !== 200) return;
     return data;
   }
 
-  async edit(id, payload) {
+  async edit(id: string, payload: any): Promise<void> {
     const response = await this.apiTask.edit(id, payload);
 
     if (response.status !== 200) return;

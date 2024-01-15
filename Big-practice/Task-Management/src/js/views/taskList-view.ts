@@ -1,3 +1,4 @@
+import { TaskModel } from './../models/task-model';
 import TaskListTemplate from '../templates/taskList-template';
 import {
   CONFIRM_MESSAGE,
@@ -5,24 +6,31 @@ import {
   SUCCESS_MESSAGE
 } from '../constants/message';
 import TaskDetailTemplate from '../templates/taskDetail-template';
-import STATUS from '../constants/status';
+import { STATUS } from '../constants/status';
 import showSuccessMessage from '../utilities/showMessage';
 
 export default class TaskListView {
+  private formAddTask: HTMLFormElement;
+  private taskInput: HTMLInputElement;
+  private taskList: NodeListOf<Element>;
+  private listTodo: HTMLElement;
+  private listProgress: HTMLElement;
+  private listDone: HTMLElement;
+  private listArchived: HTMLElement;
+  private tasks: TaskModel[]; // Declare tasks property
+
   constructor() {
-    this.formAddTask = document.querySelector('form.add-task');
-    this.taskInput = this.formAddTask.querySelector('.task-input');
+    this.formAddTask = document.querySelector(
+      'form.add-task'
+    ) as HTMLFormElement;
+    this.taskInput = this.formAddTask.querySelector(
+      '.task-input'
+    ) as HTMLInputElement;
     this.taskList = document.querySelectorAll('.task-list');
-    this.listTodo = document.querySelector('#todo');
-    this.listProgress = document.querySelector('#progress');
-    this.listDone = document.querySelector('#done');
-    this.listArchived = document.querySelector('#archived');
-
-    window.addEventListener('offline', () => this.handleOfflineStatus());
-  }
-
-  handleOfflineStatus() {
-    alert(ERROR_MESSAGE.INTERNET_ERROR);
+    this.listTodo = document.querySelector('#todo') as HTMLElement;
+    this.listProgress = document.querySelector('#progress') as HTMLElement;
+    this.listDone = document.querySelector('#done') as HTMLElement;
+    this.listArchived = document.querySelector('#archived') as HTMLElement;
   }
 
   /**
@@ -30,7 +38,7 @@ export default class TaskListView {
    * @param {Array<Task>} tasks
    * @returns {void}
    */
-  showTasks(tasks) {
+  public showTasks(tasks: TaskModel[]): void {
     if (!tasks.length) return;
 
     this.tasks = tasks;
@@ -58,7 +66,7 @@ export default class TaskListView {
     this.updateDraggableTasks();
   }
 
-  bindAddTask(handle) {
+  public bindAddTask(handle: (newTaskName: string) => Promise<string>): void {
     this.formAddTask.addEventListener('keydown', async (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -85,7 +93,8 @@ export default class TaskListView {
             '.task-item-container:last-child'
           );
 
-          taskElement.addEventListener('dragstart', this.dragStart.bind(this));
+          // Check if taskElement is not null before adding the event listener
+          taskElement?.addEventListener('dragstart', this.dragStart.bind(this));
         } catch (error) {
           alert(ERROR_MESSAGE.SERVER_ERROR);
         }
@@ -93,19 +102,22 @@ export default class TaskListView {
     });
   }
 
-  resetForm() {
-    this.taskInput.parentElement.reset();
+  private resetForm() {
+    const formElement = this.taskInput.parentElement;
+    if (formElement instanceof HTMLFormElement) {
+      formElement.reset();
+    }
   }
 
   // HANDLER TASK DETAIL
 
-  getTaskItem(target) {
+  private getTaskItem(target) {
     return target.closest('.task-item-container');
   }
 
   //  HANDLE DRAG DROP
 
-  updateDraggableTasks() {
+  private updateDraggableTasks() {
     // Add event listeners for each task item
     const todos = document.querySelectorAll('.task-item-container');
     todos.forEach((task) => {
@@ -113,13 +125,13 @@ export default class TaskListView {
     });
   }
 
-  dragStart(e) {
+  private dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.dataset.id);
     // Add class to represent drag
     e.target.classList.add('dragged-task');
   }
 
-  addBoardEvent(handler) {
+  public addBoardEvent(handler: (taskId: string, newStatus: string) => void) {
     const taskBoards = document.querySelectorAll('.task-board');
     taskBoards.forEach((board) => {
       board.addEventListener('dragover', this.dragOver.bind(this));
@@ -127,11 +139,11 @@ export default class TaskListView {
     });
   }
 
-  dragOver(e) {
+  private dragOver(e) {
     e.preventDefault();
   }
 
-  dragDrop = async (e, handler) => {
+  private dragDrop = async (e, handler) => {
     e.preventDefault();
 
     if (!navigator.onLine) return alert(ERROR_MESSAGE.INTERNET_ERROR);
@@ -146,17 +158,19 @@ export default class TaskListView {
       const newStatus = targetBoardId.split('js-')[1] || 'todo';
       handler(taskId, { status: newStatus });
       // Move taskItem to new state
-      draggedTask.parentNode.removeChild(draggedTask);
+      draggedTask.parentNode?.removeChild(draggedTask);
       targetBoard.querySelector('.task-list').appendChild(draggedTask);
     }
   };
 
   //  HANDLE DELETE
 
-  bindDelete(handleDelete) {
+  public bindDelete(handleDelete) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
-        const deleteButton = e.target.closest('.delete');
+        if (!e.target) return;
+
+        const deleteButton = (e.target as Element).closest('.delete');
 
         if (!deleteButton) return;
 
@@ -185,11 +199,15 @@ export default class TaskListView {
     });
   }
 
-  bindSearchTask() {
-    const searchInput = document.querySelector('.search-input');
-    const taskElements = document.getElementsByClassName('task-item-container');
+  public bindSearchTask() {
+    const searchInput = document.querySelector(
+      '.search-input'
+    ) as HTMLInputElement | null;
+    const taskElements = document.getElementsByClassName(
+      'task-item-container'
+    ) as HTMLCollectionOf<HTMLDivElement>;
 
-    searchInput.addEventListener('input', () => {
+    searchInput?.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
       const filteredTasks = this.tasks.filter(
         (task) =>
@@ -211,12 +229,12 @@ export default class TaskListView {
     });
   }
 
-  bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
+  public bindTaskDetail(handleInitEvent, handleFind, handleGetAllComments) {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
         const taskItem = this.getTaskItem(e.target);
 
-        if (e.target.closest('.delete')) return;
+        if ((e.target as Element).closest('.delete')) return;
 
         if (!taskItem) return;
 
@@ -240,15 +258,15 @@ export default class TaskListView {
     });
   }
 
-  renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
-    const overlay = document.querySelector('.overlay');
+  public renderTaskDetail(selectedTasks, comments, handleInitTaskDetailEvent) {
+    const overlay = document.querySelector('.overlay') as HTMLElement;
+    const detailContainer = document.querySelector(
+      '.detail-container'
+    ) as HTMLElement;
 
-    document.body.insertBefore(
-      overlay,
-      document.querySelector('.detail-container')
-    );
+    if (!overlay || !detailContainer) return;
 
-    const detailContainer = document.querySelector('.detail-container');
+    document.body.insertBefore(overlay, detailContainer);
 
     overlay.style.display = 'block';
 
@@ -257,18 +275,18 @@ export default class TaskListView {
       comments
     );
 
-    //Init all event for task detail
+    // Init all event for task detail
     handleInitTaskDetailEvent();
   }
 
-  closeTaskDetail() {
+  public closeTaskDetail() {
     const detailContainers = document.querySelectorAll(
       '.detail-task-container'
     );
-    const overlay = document.querySelector('.overlay');
+    const overlay = document.querySelector('.overlay') as HTMLElement;
 
     detailContainers.forEach((detailContainer) => {
-      if (!detailContainer) return;
+      if (!detailContainer || !overlay) return;
       detailContainer.classList.add('hidden');
       overlay.style.display = 'none';
     });

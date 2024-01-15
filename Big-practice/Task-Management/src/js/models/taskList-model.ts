@@ -10,8 +10,8 @@ export default class TaskListModel {
     this.tasks = [];
   }
 
-  async getTasks(id): Promise<TaskModel[]> {
-    const response = await this.apiTask.getTask(id);
+  async getTasks(): Promise<TaskModel[]> {
+    const response = await this.apiTask.getTask();
     this.tasks = response.data || [];
     return this.tasks;
   }

@@ -14,7 +14,7 @@ export default class API {
     this.apiPath = apiPath;
   }
 
-  async addTask(taskName: string): Promise<ApiResponse> {
+  async addTask(taskName: any): Promise<ApiResponse> {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
@@ -29,13 +29,13 @@ export default class API {
     }
   }
 
-  async getTask(id: string) {
+  async getTask() {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
         url,
         'GET',
-        id
+        undefined
       );
 
       return this.handleResponse(response, result);

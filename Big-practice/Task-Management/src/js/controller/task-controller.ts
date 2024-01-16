@@ -39,7 +39,7 @@ export default class Controller {
 
   // View -> Controller -> Model
   private handleAddTask = () => {
-    this.taskListView.bindAddTask((task) => {
+    this.taskListView.bindAddTask((task: string) => {
       return this.taskListModel.addTask(task);
     });
   };
@@ -64,7 +64,7 @@ export default class Controller {
       this.handleInitTaskDetailEvent,
       (id: string) => this.taskListModel.find(id),
       // Get all comments based on taskId
-      async (taskId: string) => this.commentListModel.getComment(taskId)
+      async (taskId: string) => await this.commentListModel.getComment(taskId)
     );
   };
 

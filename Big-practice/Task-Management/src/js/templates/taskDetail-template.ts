@@ -5,7 +5,7 @@ import userAvatar from '../../assets/images/user.svg';
 import date from '../utilities/date';
 
 export default class TaskDetailTemplate {
-  static renderTaskDetail(data: any, comments: string[]) {
+  static renderTaskDetail(data: string[] | any, comments: string[]) {
     const commentItems = this.renderComments(comments);
 
     return `

@@ -8,7 +8,7 @@ interface CommentModel {
   timeAgo: string;
 }
 
-const createCommentModel = (commentValue: string, taskId): CommentModel => ({
+const createCommentModel = (commentValue: string, taskId: string): CommentModel => ({
   comment: commentValue,
   taskId,
   timeStamp: Date.now(),

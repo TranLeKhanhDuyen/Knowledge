@@ -3,7 +3,7 @@
 ### OVERVIEW
 
 - This document provides planning for applying TypeScript to the previous Javascript practice - Task Management App.
-- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/blob/feat/apply-typescript)
+- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility)
 
 ### TIMELINE
 

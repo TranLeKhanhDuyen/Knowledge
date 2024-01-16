@@ -1,11 +1,11 @@
 import iconEdit from '../../assets/icons/edit.svg';
 import iconClose from '../../assets/icons/close.svg';
 import iconDelete from '../../assets/icons/delete.svg';
-import userAvatar from "../../assets/images/user.svg"
+import userAvatar from '../../assets/images/user.svg';
 import date from '../utilities/date';
 
 export default class TaskDetailTemplate {
-  static renderTaskDetail(data: any, comments: string[]): string {
+  static renderTaskDetail(data: any, comments: string[]) {
     const commentItems = this.renderComments(comments);
 
     return `
@@ -52,7 +52,7 @@ export default class TaskDetailTemplate {
     return TaskDetailTemplate.renderComment(comments);
   }
 
-  static renderComment(data: any[]): string {
+  static renderComment(data: any[]) {
     return data
       .map((item) => {
         return `

@@ -36,8 +36,8 @@ export default class TaskListModel {
     if (status !== 200) return;
     return status;
   }
-
-  async find(id: string): Promise<any> {
+  
+  async find(id: string): Promise<string | undefined> {
     const { status, data } = await this.apiTask.findTask(id);
 
     if (status !== 200) return;

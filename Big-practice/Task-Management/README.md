@@ -1,15 +1,15 @@
-# BIG PRACTICE - JAVASCRIPT 
+# PRACTICE - TYPESCRIPT 
 
 ### OVERVIEW
 
-- This document provides planning for Javascript practice - Task Management App.
-- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/big-practice)
+- This document provides planning for applying TypeScript to the previous Javascript practice - Task Management App.
+- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/blob/feat/apply-typescript)
 
 ### TIMELINE
 
-- Start date: 2023/10/20
-- End date: 2023/12/15
-- Total: 25 days
+- Start date: 2024/01/11
+- End date: 2024/01/15
+- Total: 3 days
 
 ### TEAMSIZE
 
@@ -20,6 +20,7 @@
 - HTML5
 - CSS3
 - JS6
+- TypeScript
 - Dom
 - MVC
 
@@ -33,24 +34,15 @@
 
 ### REQUIMENTS
 
-- Understand & apply knowledge HTML/CSS/JavaScript (with ES6 syntax).
-- Apply MVC.
-- DOM manipulation, form validation.
-- Understand how asynchronous code work & apply in practice (API call or any place we can as mock API in code).
-- Get familiar with DevTools (e.g. Google Chrome DevTools) for debugging issues (breakpoint, log, etc..).
+- Understand & apply knowledge TypeScript.
 
-### TARGET
-
-- DOM manipulation.
-- Structure project following Module pattern.
-- ES6 features.
 
 ### STEPS INSTALL AND RUN CODE
 
 - Step 01: Clone repository:
 
 ```
-git clone -b feat/big-practice <https://github.com/TranLeKhanhDuyen/intern-agility.git>
+git clone -b feat/apply-typescript <https://github.com/TranLeKhanhDuyen/intern-agility.git>
 ```
 
 - Step 02: Move to folder Task-Management:
@@ -71,11 +63,8 @@ npm install
 npm install -g json-server
 ```
 
-- Step 05: Split terminal and run json server:
+- Step 05: Click on the link to initialize the json server: https://task-025l.onrender.com
 
-```
-npm run server
-```
 
 - Step 06: Finally run with:
 

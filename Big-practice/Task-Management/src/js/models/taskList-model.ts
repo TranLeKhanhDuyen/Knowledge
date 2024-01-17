@@ -1,18 +1,18 @@
 import API from '../services/task';
 import { TaskModel, createTaskModel } from './task-model';
 
-export default class TaskListModel {
-  private apiTask: API;
+export default class TaskListModel<T>{
+  private apiTask: API<T>;
   private tasks: TaskModel[];
 
   constructor() {
-    this.apiTask = new API();
+    this.apiTask = new API<T>();
     this.tasks = [];
   }
 
-  async getTasks(): Promise<TaskModel[]> {
-    const response = await this.apiTask.getTask();
-    this.tasks = response.data || [];
+  async getTasks(data: T): Promise<TaskModel[]> {
+    const response = await this.apiTask.getTask(data);
+    this.tasks = Array.isArray(response.data) ? response.data : [];
     return this.tasks;
   }
 

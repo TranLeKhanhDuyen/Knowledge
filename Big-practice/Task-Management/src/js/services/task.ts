@@ -1,23 +1,23 @@
 import { API_URL } from '../constants/url';
 import APIHelper from './helper';
 
-interface ApiResponse {
+interface ApiResponse<T> {
   status: number;
   message: string;
-  data?: any;
+  data?: T;
 }
 
-export default class API {
+export default class API<T> {
   private apiPath: string;
 
   constructor(apiPath = '/tasks') {
     this.apiPath = apiPath;
   }
 
-  async addTask(taskName: any): Promise<ApiResponse> {
+  async addTask(taskName: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest(
+      const { response, result } = await APIHelper.createRequest<T>(
         url,
         'POST',
         taskName
@@ -29,13 +29,13 @@ export default class API {
     }
   }
 
-  async getTask() {
+  async getTask(data:T) {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest(
+      const { response, result } = await APIHelper.createRequest<T>(
         url,
         'GET',
-        undefined
+        data
       );
 
       return this.handleResponse(response, result);
@@ -44,13 +44,13 @@ export default class API {
     }
   }
 
-  async findTask(id: string): Promise<ApiResponse> {
+  async findTask(id: string, data:T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response, result } = await APIHelper.createRequest(
+      const { response, result } = await APIHelper.createRequest<T>(
         url,
         'GET',
-        undefined
+        data
       );
 
       return this.handleResponse(response, result);
@@ -59,10 +59,10 @@ export default class API {
     }
   }
 
-  async edit(id: string, updateData: any): Promise<ApiResponse> {
+  async edit(id: string, updateData: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response } = await APIHelper.createRequest(
+      const { response } = await APIHelper.createRequest<T>(
         url,
         'PATCH',
         updateData
@@ -74,7 +74,7 @@ export default class API {
     }
   }
 
-  async delete(id: string): Promise<ApiResponse> {
+  async delete(id: string): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE', {});
@@ -85,7 +85,7 @@ export default class API {
     }
   }
 
-  private handleResponse(response: Response, result?: any): ApiResponse {
+  private handleResponse(response: Response, result?: T): ApiResponse<T> {
     const { status } = response;
     const message = response.ok
       ? 'Success'

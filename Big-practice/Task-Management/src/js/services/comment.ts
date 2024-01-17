@@ -1,23 +1,23 @@
 import { API_URL } from '../constants/url';
 import APIHelper from './helper';
 
-interface ApiResponse {
+interface ApiResponse<T> {
   status: number;
   message: string;
-  data?: any;
+  data?: T;
 }
 
-export default class API {
+export default class API<T> {
   private apiPath: string;
 
   constructor(apiPath: string = '/comments') {
     this.apiPath = apiPath;
   }
 
-  async addComment(comment: any): Promise<ApiResponse> {
+  async addComment(comment: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest(
+      const { response, result } = await APIHelper.createRequest<T>(
         url,
         'POST',
         comment
@@ -29,13 +29,13 @@ export default class API {
     }
   }
 
-  async getComment(taskId: string): Promise<ApiResponse> {
+  async getComment(taskId: string, data: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
-      const { response, result } = await APIHelper.createRequest(
+      const { response, result } = await APIHelper.createRequest<T>(
         url,
         'GET',
-        undefined
+        data
       );
 
       return this.handleResponse(response, result);
@@ -44,13 +44,13 @@ export default class API {
     }
   }
 
-  async deleteComment(commentId: string): Promise<ApiResponse> {
+  async deleteComment(commentId: string, data: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${commentId}`;
-      const { response } = await APIHelper.createRequest(
+      const { response } = await APIHelper.createRequest<T>(
         url,
         'DELETE',
-        undefined
+        data
       );
 
       return this.handleResponse(response);
@@ -59,7 +59,7 @@ export default class API {
     }
   }
 
-  private handleResponse(response: Response, result?: any): ApiResponse {
+  private handleResponse(response: Response, result?: T): ApiResponse<T> {
     const { status } = response;
     const message = response.ok
       ? 'Success'

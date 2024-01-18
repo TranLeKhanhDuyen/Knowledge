@@ -5,13 +5,13 @@ import TaskListView from '../views/taskList-view';
 import TaskDetailView from '../views/taskDetail-view';
 
 export default class Controller {
-  private taskListModel: TaskListModel<TaskModel>;
+  private taskListModel: TaskListModel;
   private taskListView: TaskListView;
   private taskDetailView: TaskDetailView;
   private commentListModel: CommentListModel;
 
   constructor(
-    taskListModel: TaskListModel<TaskModel>,
+    taskListModel: TaskListModel,
     taskListView: TaskListView,
     taskDetailView: TaskDetailView,
     commentListModel: CommentListModel

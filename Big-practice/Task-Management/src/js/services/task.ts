@@ -17,7 +17,7 @@ export default class API<T> {
   async addTask(taskName: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest<T>(
+      const { response, result } = await APIHelper.createRequest(
         url,
         'POST',
         taskName
@@ -62,7 +62,7 @@ export default class API<T> {
   async edit(id: string, updateData: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response } = await APIHelper.createRequest<T>(
+      const { response } = await APIHelper.createRequest(
         url,
         'PATCH',
         updateData

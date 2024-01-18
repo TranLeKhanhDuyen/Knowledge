@@ -22,7 +22,7 @@ export default class TaskListModel<T extends TaskModel> {
     return newTask;
   }
 
-  async addTask(taskName: string): Promise<T | undefined | string> {
+  async addTask(taskName: string): Promise<T | undefined> {
     const newTask = this.createTask(taskName);
     const response = await this.apiTask.addTask(newTask as T);
 
@@ -44,7 +44,7 @@ export default class TaskListModel<T extends TaskModel> {
     return data;
   }
 
-  async edit(id: string, payload: T): Promise<void> {
+  async edit(id: string, payload:T): Promise<void> {
     const response = await this.apiTask.edit(id, payload);
 
     if (response.status !== 200) return;

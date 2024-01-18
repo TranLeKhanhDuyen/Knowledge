@@ -4,7 +4,7 @@ import CommentListModel from '../models/commentList-model';
 import TaskListView from '../views/taskList-view';
 import TaskDetailView from '../views/taskDetail-view';
 
-export default class Controller{
+export default class Controller {
   private taskListModel: TaskListModel<TaskModel>;
   private taskListView: TaskListView;
   private taskDetailView: TaskDetailView;
@@ -44,8 +44,6 @@ export default class Controller{
       return this.taskListModel.addTask(task);
     });
   };
-
-  
 
   private handleDelete = () => {
     this.taskListView.bindDelete((id: string) => {

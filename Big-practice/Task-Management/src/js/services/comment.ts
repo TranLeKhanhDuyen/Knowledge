@@ -17,7 +17,7 @@ export default class API<T> {
   async addComment(comment: T): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest<T>(
+      const { response, result } = await APIHelper.createRequest(
         url,
         'POST',
         comment
@@ -29,13 +29,13 @@ export default class API<T> {
     }
   }
 
-  async getComment(taskId: string, data: T): Promise<ApiResponse<T>> {
+  async getComment(taskId: string): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
-      const { response, result } = await APIHelper.createRequest<T>(
+      const { response, result } = await APIHelper.createRequest(
         url,
         'GET',
-        data
+        undefined
       );
 
       return this.handleResponse(response, result);
@@ -44,13 +44,13 @@ export default class API<T> {
     }
   }
 
-  async deleteComment(commentId: string, data: T): Promise<ApiResponse<T>> {
+  async deleteComment(commentId: string): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${commentId}`;
-      const { response } = await APIHelper.createRequest<T>(
+      const { response } = await APIHelper.createRequest(
         url,
         'DELETE',
-        data
+        undefined
       );
 
       return this.handleResponse(response);

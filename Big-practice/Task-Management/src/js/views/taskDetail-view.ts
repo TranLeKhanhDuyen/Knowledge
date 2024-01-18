@@ -14,9 +14,9 @@ export default class TaskDetailView {
   private dueDateInput: HTMLElement;
   private inputComment: HTMLElement;
   private commentList: HTMLElement;
-  private updateData: any;
+  private updateData: Record<string | number, string | number> = {};
 
-  public bindUpdateTask(handle: any): void {
+  public bindUpdateTask(handle: string): void {
     this.detailContainer = document.querySelector(
       '.detail-task-container'
     ) as HTMLElement;

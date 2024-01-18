@@ -112,8 +112,8 @@ export default class TaskListView {
 
   // HANDLER TASK DETAIL
 
-  private getTaskItem(target: EventTarget): HTMLElement | null {
-    return (target as HTMLElement).closest('.task-item-container');
+  private getTaskItem(target): HTMLElement {
+    return target.closest('.task-item-container');
   }
 
   //  HANDLE DRAG DROP
@@ -212,7 +212,7 @@ export default class TaskListView {
   public bindSearchTask(): void {
     const searchInput = document.querySelector(
       '.search-input'
-    ) as HTMLInputElement | null;
+    ) as HTMLInputElement;
     const taskElements = document.getElementsByClassName(
       'task-item-container'
     ) as HTMLCollectionOf<HTMLDivElement>;

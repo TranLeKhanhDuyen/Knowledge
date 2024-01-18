@@ -29,13 +29,13 @@ export default class API<T> {
     }
   }
 
-  async getTask(data:T) {
+  async getTask() {
     try {
       const url = `${API_URL}${this.apiPath}`;
-      const { response, result } = await APIHelper.createRequest<T>(
+      const { response, result } = await APIHelper.createRequest(
         url,
         'GET',
-        data
+        undefined
       );
 
       return this.handleResponse(response, result);
@@ -44,13 +44,13 @@ export default class API<T> {
     }
   }
 
-  async findTask(id: string, data:T): Promise<ApiResponse<T>> {
+  async findTask(id: string): Promise<ApiResponse<T>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
-      const { response, result } = await APIHelper.createRequest<T>(
+      const { response, result } = await APIHelper.createRequest(
         url,
         'GET',
-        data
+        undefined
       );
 
       return this.handleResponse(response, result);

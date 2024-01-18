@@ -2,15 +2,16 @@ import TaskListModel from '../models/taskList-model';
 import CommentListModel from '../models/commentList-model';
 import TaskListView from '../views/taskList-view';
 import TaskDetailView from '../views/taskDetail-view';
+import { TaskModel } from '../models/task-model';
 
-export default class Controller {
-  private taskListModel: TaskListModel;
+export default class Controller<T> {
+  private taskListModel: TaskListModel<TaskModel>;
   private taskListView: TaskListView;
   private taskDetailView: TaskDetailView;
   private commentListModel: CommentListModel;
 
   constructor(
-    taskListModel: TaskListModel,
+    taskListModel: TaskListModel<TaskModel>,
     taskListView: TaskListView,
     taskDetailView: TaskDetailView,
     commentListModel: CommentListModel

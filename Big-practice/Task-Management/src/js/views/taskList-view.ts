@@ -132,7 +132,7 @@ export default class TaskListView {
     e.target.classList.add('dragged-task');
   }
 
-  public addBoardEvent(handler: (taskId: string, newStatus: string | {}) => void): void {
+  public addBoardEvent(handler: (taskId: string, newStatus: {status: string}) => void): void {
     const taskBoards = document.querySelectorAll('.task-board');
     taskBoards.forEach((board) => {
       board.addEventListener('dragover', this.dragOver.bind(this));
@@ -148,7 +148,7 @@ export default class TaskListView {
 
   private dragDrop = async (
     e: DragEvent,
-    handler: (taskId: string, newStatus: string | {}) => void
+    handler: (taskId: string, newStatus: { status: string }) => void
   ): Promise<void> => {
     e.preventDefault();
 
@@ -166,7 +166,7 @@ export default class TaskListView {
       // Check and set default value for targetBoard.id
       const targetBoardId = targetBoard.id || 'js-default';
       const newStatus = targetBoardId.split('js-')[1] || 'todo  ';
-      handler(taskId, { status: newStatus });
+      handler(taskId, {status: newStatus} );
       // Move taskItem to new state
       draggedTask.parentNode?.removeChild(draggedTask);
       targetBoard.querySelector('.task-list')?.appendChild(draggedTask);

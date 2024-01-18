@@ -3,9 +3,12 @@ import iconClose from '../../assets/icons/close.svg';
 import iconDelete from '../../assets/icons/delete.svg';
 import userAvatar from '../../assets/images/user.svg';
 import date from '../utilities/date';
+import { TaskModel } from '../models/task-model';
+import { CommentModel } from '../models/comment-model';
+
 
 export default class TaskDetailTemplate {
-  static renderTaskDetail(data: string[] | any, comments: string[]): string {
+  static renderTaskDetail(data: TaskModel, comments: CommentModel[]): string {
     const commentItems = this.renderComments(comments);
 
     return `
@@ -46,13 +49,13 @@ export default class TaskDetailTemplate {
   `;
   }
 
-  static renderComments(comments: string[]): string | undefined {
+  static renderComments(comments: CommentModel[]): string | undefined {
     if (!comments.length) return;
 
     return TaskDetailTemplate.renderComment(comments);
   }
-
-  static renderComment(data: string[]|undefined[]): string {
+  
+  static renderComment(data: CommentModel[]): string {
     return data
       .map((item) => {
         return `

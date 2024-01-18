@@ -6,14 +6,17 @@ export type CommentModel = {
   taskId: string;
   timeStamp: number;
   timeAgo: string;
+  id: string
 }
 
 export const createCommentModel = (
   commentValue: string,
-  taskId: string
+  taskId: string,
+  id: string
 ): CommentModel => ({
   comment: commentValue,
   taskId,
   timeStamp: Date.now(),
-  timeAgo: date.timeAgo(Date.now())
+  timeAgo: date.timeAgo(Date.now()),
+  id
 });

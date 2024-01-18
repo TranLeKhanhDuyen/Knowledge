@@ -46,13 +46,13 @@ export default class TaskDetailTemplate {
   `;
   }
 
-  static renderComments(comments: string[]) {
+  static renderComments(comments: string[]): string | undefined {
     if (!comments.length) return;
 
     return TaskDetailTemplate.renderComment(comments);
   }
 
-  static renderComment(data: any[]) {
+  static renderComment(data: string[]|undefined[]): string {
     return data
       .map((item) => {
         return `

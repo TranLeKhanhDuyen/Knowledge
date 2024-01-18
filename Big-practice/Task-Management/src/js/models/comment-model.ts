@@ -1,7 +1,7 @@
 import date from '../utilities/date';
 
 // Defined data type
-export interface CommentModel {
+export type CommentModel = {
   comment: string;
   taskId: string;
   timeStamp: number;

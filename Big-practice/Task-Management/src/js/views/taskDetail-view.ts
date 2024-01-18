@@ -3,6 +3,7 @@ import {
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
 } from '../constants/message';
+import { TaskModel } from '../models/task-model';
 import TaskDetailTemplate from '../templates/taskDetail-template';
 import date from '../utilities/date';
 import showSuccessMessage from '../utilities/showMessage';
@@ -14,9 +15,11 @@ export default class TaskDetailView {
   private dueDateInput: HTMLElement;
   private inputComment: HTMLElement;
   private commentList: HTMLElement;
-  private updateData: Record<string | number, string | number> = {};
+  private updateData: TaskModel;
 
-  public bindUpdateTask(handle: string): void {
+  public bindUpdateTask(
+    handle: (id: string, updateData: TaskModel) => void
+  ): void {
     this.detailContainer = document.querySelector(
       '.detail-task-container'
     ) as HTMLElement;

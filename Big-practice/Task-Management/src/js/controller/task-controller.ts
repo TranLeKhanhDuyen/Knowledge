@@ -79,7 +79,7 @@ export default class Controller {
   };
 
   private handleDescription = (): void => {
-    this.taskDetailView.bindUpdateTask(async (id: string, updateData: any) => {
+    this.taskDetailView.bindUpdateTask(async (id: string, updateData: TaskModel) => {
       await this.taskListModel.edit(id, updateData);
       return this.taskListModel.find(id);
     });

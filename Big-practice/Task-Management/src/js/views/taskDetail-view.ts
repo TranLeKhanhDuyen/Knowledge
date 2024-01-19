@@ -69,7 +69,7 @@ export default class TaskDetailView {
   }
 
   // Event when click to input
-  private editDescription(handle: any): void {
+  private editDescription(handle): void {
     const description = this.addDesc.textContent;
     const id = this.detailContainer.dataset.id;
     const { data } = handle(id, { description });
@@ -82,7 +82,7 @@ export default class TaskDetailView {
   }
 
   // Event when change date
-  private changeDueDate(handle: any, event: Event): void {
+  private changeDueDate(handle, event: Event): void {
     const id = this.detailContainer.dataset.id;
     const newDueDate = date.formatDate(
       (event.target as HTMLInputElement).value
@@ -118,7 +118,7 @@ export default class TaskDetailView {
   }
 
   // HANDLER COMMENTS
-  public bindComments(handleAddComment: any): void {
+  public bindComments(handleAddComment): void {
     if (!this.inputComment) return;
 
     this.inputComment.addEventListener('keydown', async (e: KeyboardEvent) => {
@@ -138,11 +138,11 @@ export default class TaskDetailView {
   }
 
   // showComments(data: Comments)
-  private showComments(data: any): void {
+  private showComments(data): void {
     this.commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
   }
 
-  public deleteComment(handleDelete: any): void {
+  public deleteComment(handleDelete): void {
     this.commentList.addEventListener('click', async (e: Event) => {
       const deleteComment = (e.target as HTMLElement).closest('.delete-icon');
 

@@ -16,14 +16,14 @@ export default class TaskListModel {
     return this.tasks;
   }
 
-  private createTask(taskName: string, id: string): TaskModel {
-    const newTask = createTaskModel(taskName, id);
+  private createTask(taskName: string): TaskModel {
+    const newTask = createTaskModel(taskName);
     this.tasks.push(newTask);
     return newTask;
   }
 
-  async addTask(taskName: string, id: string): Promise<TaskModel | undefined> {
-    const newTask = this.createTask(taskName, id);
+  async addTask(taskName: string): Promise<TaskModel | undefined> {
+    const newTask = this.createTask(taskName);
     const response = await this.apiTask.addTask(newTask);
 
     // Assuming data property holds the new task

@@ -10,10 +10,9 @@ export default class CommentListModel {
 
   async addComment(
     content: string,
-    taskId: string,
-    id: string
+    taskId: string
   ): Promise<CommentModel | undefined> {
-    const comment = createCommentModel(content, taskId, id);
+    const comment = createCommentModel(content, taskId);
 
     const apiResponse = await this.apiComment.addComment(comment);
 

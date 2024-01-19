@@ -10,8 +10,8 @@ export interface TaskModel {
   id: string;
 }
 
-export const createTaskModel = (taskName: string, id: string): TaskModel => ({
-  id,
+export const createTaskModel = (taskName: string): TaskModel => ({
+  id: '',
   taskName: taskName,
   description: '',
   dueDate: date.getDueDate(),

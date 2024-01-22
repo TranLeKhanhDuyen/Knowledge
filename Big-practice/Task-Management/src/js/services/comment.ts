@@ -1,6 +1,6 @@
 import { API_URL } from '@constants/url';
 import APIHelper from '@services/helper';
-import { ApiResponse } from './common';
+import { ApiResponse } from '@services/common';
 
 export default class API {
   private apiPath: string;

@@ -2,7 +2,18 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@*": ["src/js/*"]
+      // JS
+      "@models/*": ["src/js/models/*"],
+      "@views/*": ["src/js/views/*"],
+      "@controller/*": ["src/js/controller/*"],
+      "@constants/*": ["src/js/constants/*"],
+      "@services/*": ["src/js/services/*"],
+      "@templates/*": ["src/js/templates/*"],
+      "@utilities/*": ["src/js/utilities/*"],
+
+      // CSS
+      "@icons/*": ["src/assets/icons/*"],
+      "@images/*": ["src/assets/images/*"]
     }
   }
 }

@@ -1,7 +1,7 @@
-import iconEdit from '@assets/icons/edit.svg';
-import iconClose from '@assets/icons/close.svg';
-import iconDelete from '@assets/icons/delete.svg';
-import userAvatar from '@assets/images/user.svg';
+import iconEdit from '@icons/edit.svg';
+import iconClose from '@icons/close.svg';
+import iconDelete from '@icons/delete.svg';
+import userAvatar from '@images/user.svg';
 import date from '@utilities/date';
 import { TaskModel } from '@models/task-model';
 import { CommentModel } from '@models/comment-model';

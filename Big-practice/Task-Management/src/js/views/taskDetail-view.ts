@@ -19,7 +19,7 @@ export default class TaskDetailView {
   private updateData: TaskModel;
 
   public bindUpdateTask(
-    handle: (id: string, updateData: TaskModel) => Promise<TaskModel>
+    handle: (id: string, updateData: Partial<TaskModel>) => Promise<TaskModel>
   ): void {
     this.detailContainer = document.querySelector(
       '.detail-task-container'
@@ -160,11 +160,13 @@ export default class TaskDetailView {
   }
 
   // showComments(data: Comments)
-  private showComments(data): void {
+  private showComments(data: CommentModel): void {
     this.commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
   }
 
-  public deleteComment(handleDelete): void {
+  public deleteComment(
+    handleDelete: (commentId: string) => Promise<number>
+  ): void {
     this.commentList.addEventListener('click', async (e: Event) => {
       const deleteComment = (e.target as HTMLElement).closest('.delete-icon');
 

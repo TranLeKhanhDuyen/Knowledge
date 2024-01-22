@@ -1,4 +1,4 @@
-import API from '../services/comment';
+import API from '@js/services/comment';
 import { CommentModel, createCommentModel } from './comment-model';
 
 export default class CommentListModel {

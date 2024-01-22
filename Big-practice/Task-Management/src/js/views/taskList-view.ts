@@ -1,14 +1,13 @@
-import { TaskModel } from './../models/task-model';
-import TaskListTemplate from '../templates/taskList-template';
+import { TaskModel } from '@js/models/task-model';
+import TaskListTemplate from '@js/templates/taskList-template';
 import {
   CONFIRM_MESSAGE,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
-} from '../constants/message';
-import TaskDetailTemplate from '../templates/taskDetail-template';
-import { STATUS } from '../constants/status';
-import showSuccessMessage from '../utilities/showMessage';
-import TaskDetailView from './taskDetail-view';
+} from '@js/constants/message';
+import TaskDetailTemplate from '@js/templates/taskDetail-template';
+import { STATUS } from '@js/constants/status';
+import showSuccessMessage from '@js/utilities/showMessage';
 
 export default class TaskListView {
   private formAddTask: HTMLFormElement;

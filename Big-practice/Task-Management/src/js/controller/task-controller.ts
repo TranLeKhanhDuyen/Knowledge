@@ -1,8 +1,7 @@
-import { TaskModel } from './../models/task-model';
-import TaskListModel from '../models/taskList-model';
-import CommentListModel from '../models/commentList-model';
-import TaskListView from '../views/taskList-view';
-import TaskDetailView from '../views/taskDetail-view';
+import TaskListModel from '@js/models/taskList-model';
+import CommentListModel from '@js/models/commentList-model';
+import TaskListView from '@js/views/taskList-view';
+import TaskDetailView from '@js/views/taskDetail-view';
 
 export default class Controller {
   private taskListModel: TaskListModel;
@@ -79,7 +78,7 @@ export default class Controller {
   };
 
   private handleDescription = (): void => {
-    this.taskDetailView.bindUpdateTask(async (id: string, updateData: TaskModel) => {
+    this.taskDetailView.bindUpdateTask(async (id: string, updateData: TaskModel.description) => {
       await this.taskListModel.edit(id, updateData);
       return this.taskListModel.find(id);
     });

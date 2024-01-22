@@ -1,5 +1,5 @@
-import { API_URL } from '../constants/url';
-import APIHelper from './helper';
+import { API_URL } from '@js/constants/url';
+import APIHelper from '@js/services/helper';
 
 interface ApiResponse<T> {
   status: number;

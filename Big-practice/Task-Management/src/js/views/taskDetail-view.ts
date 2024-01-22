@@ -2,11 +2,12 @@ import {
   CONFIRM_MESSAGE,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
-} from '../constants/message';
-import { TaskModel } from '../models/task-model';
-import TaskDetailTemplate from '../templates/taskDetail-template';
-import date from '../utilities/date';
-import showSuccessMessage from '../utilities/showMessage';
+} from '@js/constants/message';
+import { CommentModel } from '@js/models/comment-model';
+import { TaskModel } from '@js/models/task-model';
+import TaskDetailTemplate from '@js/templates/taskDetail-template';
+import date from '@js/utilities/date';
+import showSuccessMessage from '@js/utilities/showMessage';
 
 export default class TaskDetailView {
   private detailContainer: HTMLElement;
@@ -18,7 +19,7 @@ export default class TaskDetailView {
   private updateData: TaskModel;
 
   public bindUpdateTask(
-    handle: (id: string, updateData: TaskModel) => void
+    handle: (id: string, updateData: Partial<TaskModel>) => Promise<TaskModel>
   ): void {
     this.detailContainer = document.querySelector(
       '.detail-task-container'
@@ -69,12 +70,22 @@ export default class TaskDetailView {
   }
 
   // Event when click to input
-  private editDescription(handle): void {
-    const description = this.addDesc.textContent;
+  private editDescription(
+    handle: (
+      id: string,
+      updateData: { description: string }
+    ) => Promise<TaskModel>
+  ): void {
+    const description = this.addDesc?.textContent || '';
+
+    if (!description) return;
+
     const id = this.detailContainer.dataset.id;
-    const { data } = handle(id, { description });
+
+    if (!id) return;
 
     try {
+      const data = handle(id, { description });
       this.updateData = { ...this.updateData, ...data };
     } catch (error) {
       alert(ERROR_MESSAGE.ADD_FAIL);
@@ -82,12 +93,18 @@ export default class TaskDetailView {
   }
 
   // Event when change date
-  private changeDueDate(handle, event: Event): void {
-    const id = this.detailContainer.dataset.id;
+  private changeDueDate(
+    handle: (id: string, updateData: { dueDate: string }) => Promise<TaskModel>,
+    event: Event
+  ): void {
+    const id = this.detailContainer.dataset.id || '';
+
+    if (id!) return;
+
     const newDueDate = date.formatDate(
       (event.target as HTMLInputElement).value
     );
-    const { data } = handle(id, { dueDate: newDueDate });
+    const data = handle(id, { dueDate: newDueDate });
     this.updateData = { ...this.updateData, ...data };
 
     // Update date for task item
@@ -118,7 +135,12 @@ export default class TaskDetailView {
   }
 
   // HANDLER COMMENTS
-  public bindComments(handleAddComment): void {
+  public bindComments(
+    handleAddComment: (
+      commentValue: string,
+      taskId: string | number
+    ) => Promise<CommentModel>
+  ): void {
     if (!this.inputComment) return;
 
     this.inputComment.addEventListener('keydown', async (e: KeyboardEvent) => {
@@ -138,11 +160,13 @@ export default class TaskDetailView {
   }
 
   // showComments(data: Comments)
-  private showComments(data): void {
+  private showComments(data: CommentModel): void {
     this.commentList.innerHTML += TaskDetailTemplate.renderComment([data]);
   }
 
-  public deleteComment(handleDelete): void {
+  public deleteComment(
+    handleDelete: (commentId: string) => Promise<number>
+  ): void {
     this.commentList.addEventListener('click', async (e: Event) => {
       const deleteComment = (e.target as HTMLElement).closest('.delete-icon');
 

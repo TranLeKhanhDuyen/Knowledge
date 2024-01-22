@@ -1,13 +1,13 @@
-import { TaskModel } from '@js/models/task-model';
-import TaskListTemplate from '@js/templates/taskList-template';
+import { TaskModel } from '@models/task-model';
+import TaskListTemplate from '@templates/taskList-template';
 import {
   CONFIRM_MESSAGE,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
-} from '@js/constants/message';
-import TaskDetailTemplate from '@js/templates/taskDetail-template';
-import { STATUS } from '@js/constants/status';
-import showSuccessMessage from '@js/utilities/showMessage';
+} from '@constants/message';
+import TaskDetailTemplate from '@templates/taskDetail-template';
+import { STATUS } from '@constants/status';
+import showSuccessMessage from '@utilities/showMessage';
 
 export default class TaskListView {
   private formAddTask: HTMLFormElement;
@@ -178,7 +178,9 @@ export default class TaskListView {
 
   //  HANDLE DELETE
 
-  public bindDelete(handleDelete: (id: string) => Promise<number | undefined>): void {
+  public bindDelete(
+    handleDelete: (id: string) => Promise<number | undefined>
+  ): void {
     this.taskList.forEach((taskList) => {
       taskList.addEventListener('click', async (e) => {
         if (!e.target) return;

@@ -1,4 +1,4 @@
-import date from '@js/utilities/date';
+import date from '@utilities/date';
 
 // Defined data type
 export type CommentModel = {

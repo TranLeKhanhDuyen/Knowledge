@@ -2,9 +2,9 @@ import iconEdit from '@assets/icons/edit.svg';
 import iconClose from '@assets/icons/close.svg';
 import iconDelete from '@assets/icons/delete.svg';
 import userAvatar from '@assets/images/user.svg';
-import date from '@js/utilities/date';
-import { TaskModel } from '@js/models/task-model';
-import { CommentModel } from '@js/models/comment-model';
+import date from '@utilities/date';
+import { TaskModel } from '@models/task-model';
+import { CommentModel } from '@models/comment-model';
 
 export default class TaskDetailTemplate {
   static renderTaskDetail(data: TaskModel, comments: CommentModel[]): string {

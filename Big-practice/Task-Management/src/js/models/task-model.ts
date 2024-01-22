@@ -1,5 +1,5 @@
-import date from '@js/utilities/date';
-import { STATUS } from '@js/constants/status';
+import date from '@utilities/date';
+import { STATUS } from '@constants/status';
 
 export interface TaskModel {
   taskName: string;

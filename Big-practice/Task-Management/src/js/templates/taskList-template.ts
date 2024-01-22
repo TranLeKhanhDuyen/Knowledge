@@ -1,6 +1,6 @@
-import iconDelete from '@js/assets/icons/delete.svg';
-import iconClock from '@js/assets/icons/clock.svg';
-import date from '@js/utilities/date';
+import iconDelete from '@assets/icons/delete.svg';
+import iconClock from '@assets/icons/clock.svg';
+import date from '@utilities/date';
 
 export default class TaskListTemplate {
   /**

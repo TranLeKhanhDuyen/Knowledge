@@ -2,12 +2,12 @@ import {
   CONFIRM_MESSAGE,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE
-} from '@js/constants/message';
-import { CommentModel } from '@js/models/comment-model';
-import { TaskModel } from '@js/models/task-model';
-import TaskDetailTemplate from '@js/templates/taskDetail-template';
-import date from '@js/utilities/date';
-import showSuccessMessage from '@js/utilities/showMessage';
+} from '@constants/message';
+import { CommentModel } from '@models/comment-model';
+import { TaskModel } from '@models/task-model';
+import TaskDetailTemplate from '@templates/taskDetail-template';
+import date from '@utilities/date';
+import showSuccessMessage from '@utilities/showMessage';
 
 export default class TaskDetailView {
   private detailContainer: HTMLElement;

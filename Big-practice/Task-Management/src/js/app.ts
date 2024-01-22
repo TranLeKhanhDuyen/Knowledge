@@ -1,8 +1,8 @@
-import Controller from '@js/controller/task-controller.ts';
-import TaskListModel from '@js/models/taskList-model.ts';
-import TaskListView from '@js/views/taskList-view.ts';
-import TaskDetailView from '@js/views/taskDetail-view.ts';
-import CommentListModel from '@js/models/commentList-model.ts';
+import Controller from '@controller/task-controller';
+import TaskListModel from '@models/taskList-model';
+import TaskListView from '@views/taskList-view';
+import TaskDetailView from '@views/taskDetail-view';
+import CommentListModel from '@models/commentList-model';
 
 new Controller(
   new TaskListModel(),

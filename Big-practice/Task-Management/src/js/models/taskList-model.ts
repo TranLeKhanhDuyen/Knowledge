@@ -1,5 +1,5 @@
-import API from '../services/task';
-import { TaskModel, createTaskModel } from './task-model';
+import API from '@js/services/task';
+import { TaskModel, createTaskModel } from '@js/task-model';
 
 export default class TaskListModel {
   private apiTask: API<TaskModel>;

@@ -1,20 +1,15 @@
 import { API_URL } from '@constants/url';
 import APIHelper from '@services/helper';
+import { ApiResponse } from './common';
 
-interface ApiResponse<T> {
-  status: number;
-  message: string;
-  data?: T;
-}
-
-export default class API<T> {
+export default class API {
   private apiPath: string;
 
   constructor(apiPath: string = '/comments') {
     this.apiPath = apiPath;
   }
 
-  async addComment(comment: T): Promise<ApiResponse<T>> {
+  async addComment(comment: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
@@ -29,7 +24,7 @@ export default class API<T> {
     }
   }
 
-  async getComment(taskId: string): Promise<ApiResponse<T>> {
+  async getComment(taskId: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
       const { response, result } = await APIHelper.createRequest(
@@ -44,7 +39,7 @@ export default class API<T> {
     }
   }
 
-  async deleteComment(commentId: string): Promise<ApiResponse<T>> {
+  async deleteComment(commentId: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${commentId}`;
       const { response } = await APIHelper.createRequest(
@@ -59,7 +54,10 @@ export default class API<T> {
     }
   }
 
-  private handleResponse(response: Response, result?: T): ApiResponse<T> {
+  private handleResponse(
+    response: Response,
+    result?: string
+  ): ApiResponse<string> {
     const { status } = response;
     const message = response.ok
       ? 'Success'

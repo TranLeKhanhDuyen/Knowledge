@@ -1,20 +1,15 @@
 import { API_URL } from '@constants/url';
 import APIHelper from '@services/helper';
+import { ApiResponse } from '@services/common';
 
-interface ApiResponse<T> {
-  status: number;
-  message: string;
-  data?: T;
-}
-
-export default class API<T> {
+export default class API {
   private apiPath: string;
 
   constructor(apiPath = '/tasks') {
     this.apiPath = apiPath;
   }
 
-  async addTask(taskName: T): Promise<ApiResponse<T>> {
+  async addTask(taskName: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
@@ -44,7 +39,7 @@ export default class API<T> {
     }
   }
 
-  async findTask(id: string): Promise<ApiResponse<T>> {
+  async findTask(id: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response, result } = await APIHelper.createRequest(
@@ -59,7 +54,7 @@ export default class API<T> {
     }
   }
 
-  async edit(id: string, updateData: T): Promise<ApiResponse<T>> {
+  async edit(id: string, updateData: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(
@@ -74,7 +69,7 @@ export default class API<T> {
     }
   }
 
-  async delete(id: string): Promise<ApiResponse<T>> {
+  async delete(id: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE', {});
@@ -85,7 +80,10 @@ export default class API<T> {
     }
   }
 
-  private handleResponse(response: Response, result?: T): ApiResponse<T> {
+  private handleResponse(
+    response: Response,
+    result?: string
+  ): ApiResponse<string> {
     const { status } = response;
     const message = response.ok
       ? 'Success'

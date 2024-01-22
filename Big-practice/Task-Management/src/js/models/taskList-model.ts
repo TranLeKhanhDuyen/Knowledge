@@ -2,11 +2,11 @@ import API from '@services/task';
 import { TaskModel, createTaskModel } from '@models/task-model';
 
 export default class TaskListModel {
-  private apiTask: API<TaskModel>;
+  private apiTask: API;
   private tasks: TaskModel[];
 
   constructor() {
-    this.apiTask = new API<TaskModel>();
+    this.apiTask = new API();
     this.tasks = [];
   }
 
@@ -22,7 +22,7 @@ export default class TaskListModel {
     return newTask;
   }
 
-  async addTask(taskName: string): Promise<TaskModel | undefined> {
+  async addTask(taskName: string): Promise<string> {
     const newTask = this.createTask(taskName);
     const response = await this.apiTask.addTask(newTask);
 
@@ -36,14 +36,14 @@ export default class TaskListModel {
     return status;
   }
 
-  async find(id: string): Promise<TaskModel | undefined> {
+  async find(id: string): Promise<string | undefined> {
     const { status, data } = await this.apiTask.findTask(id);
 
     if (status !== 200) return;
     return data;
   }
 
-  async edit(id: string, payload: TaskModel): Promise<void> {
+  async edit(id: string, payload: string): Promise<void> {
     const response = await this.apiTask.edit(id, payload);
 
     if (response.status !== 200) return;

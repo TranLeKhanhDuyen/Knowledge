@@ -1,9 +1,15 @@
 import { API_URL } from '@constants/url';
 import APIHelper from '@services/helper';
-import { ApiResponse } from '@services/common';
+import { ApiResponse, handleResponse } from '@services/common';
 
 export default class API {
   private apiPath: string;
+  private handleResponse(
+    response: Response,
+    result?: string
+  ): ApiResponse<string> {
+    return handleResponse(response, result);
+  }
 
   constructor(apiPath: string = '/comments') {
     this.apiPath = apiPath;
@@ -52,16 +58,5 @@ export default class API {
     } catch (error) {
       return this.handleResponse(error);
     }
-  }
-
-  private handleResponse(
-    response: Response,
-    result?: string
-  ): ApiResponse<string> {
-    const { status } = response;
-    const message = response.ok
-      ? 'Success'
-      : `Request failed with status ${status}`;
-    return { status, message, data: result };
   }
 }

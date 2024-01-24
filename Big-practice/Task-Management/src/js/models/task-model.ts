@@ -1,5 +1,5 @@
-import date from '../utilities/date';
-import {STATUS} from '../constants/status';
+import date from '@utilities/date';
+import { STATUS } from '@constants/status';
 
 export interface TaskModel {
   taskName: string;
@@ -7,9 +7,11 @@ export interface TaskModel {
   dueDate: string;
   createdDate: string;
   status: string;
+  id: string;
 }
 
 export const createTaskModel = (taskName: string): TaskModel => ({
+  id: '',
   taskName: taskName,
   description: '',
   dueDate: date.getDueDate(),

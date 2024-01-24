@@ -1,11 +1,6 @@
-import { API_URL } from '../constants/url';
-import APIHelper from './helper';
-
-interface ApiResponse {
-  status: number;
-  message: string;
-  data?: any;
-}
+import { API_URL } from '@constants/url';
+import APIHelper from '@services/helper';
+import { ApiResponse, handleResponse } from '@services/common';
 
 export default class API {
   private apiPath: string;
@@ -14,7 +9,7 @@ export default class API {
     this.apiPath = apiPath;
   }
 
-  async addComment(comment: any): Promise<ApiResponse> {
+  async addComment(comment: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
@@ -23,13 +18,13 @@ export default class API {
         comment
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
-  async getComment(taskId: string): Promise<ApiResponse> {
+  async getComment(taskId: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}?taskId=${taskId}`;
       const { response, result } = await APIHelper.createRequest(
@@ -38,13 +33,13 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
-  async deleteComment(commentId: string): Promise<ApiResponse> {
+  async deleteComment(commentId: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${commentId}`;
       const { response } = await APIHelper.createRequest(
@@ -53,17 +48,9 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
-  }
-
-  private handleResponse(response: Response, result?: any): ApiResponse {
-    const { status } = response;
-    const message = response.ok
-      ? 'Success'
-      : `Request failed with status ${status}`;
-    return { status, message, data: result };
   }
 }

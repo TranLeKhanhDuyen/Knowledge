@@ -1,18 +1,21 @@
-import date from '../utilities/date';
+import date from '@utilities/date';
 
 // Defined data type
-interface CommentModel {
+export type CommentModel = {
   comment: string;
   taskId: string;
   timeStamp: number;
   timeAgo: string;
-}
+  id: string;
+};
 
-const createCommentModel = (commentValue: string, taskId: string): CommentModel => ({
+export const createCommentModel = (
+  commentValue: string,
+  taskId: string
+): CommentModel => ({
   comment: commentValue,
   taskId,
   timeStamp: Date.now(),
-  timeAgo: date.timeAgo(Date.now())
+  timeAgo: date.timeAgo(Date.now()),
+  id: ''
 });
-
-export default createCommentModel;

@@ -1,6 +1,7 @@
-import iconDelete from '../../assets/icons/delete.svg';
-import iconClock from '../../assets/icons/clock.svg';
-import date from '../utilities/date';
+import iconDelete from '@icons/delete.svg';
+import iconClock from '@icons/clock.svg';
+import date from '@utilities/date';
+import { TaskModel } from '@models/task-model';
 
 export default class TaskListTemplate {
   /**
@@ -11,7 +12,7 @@ export default class TaskListTemplate {
    * @param {string} data.task.createDate - The task's creation date.
    * @param {string} data.task.dueDate - The task's due date.
    */
-  static renderTaskList(data: string[] | any): string {
+  static renderTaskList(data: TaskModel[]): string {
     if (Array.isArray(data)) {
       return data
         .map((item) => {

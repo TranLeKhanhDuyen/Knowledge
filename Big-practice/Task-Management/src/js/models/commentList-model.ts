@@ -1,5 +1,5 @@
-import API from '../services/comment';
-import createCommentModel from './comment-model';
+import API from '@services/comment';
+import { createCommentModel } from '@models/comment-model';
 
 export default class CommentListModel {
   private apiComment: API;
@@ -25,7 +25,7 @@ export default class CommentListModel {
     return apiResponse.data;
   }
 
-  async deleteComment(commentId: string): Promise<number | undefined> {
+  async deleteComment(commentId: string): Promise<number | string> {
     const { status } = await this.apiComment.deleteComment(commentId);
 
     if (status !== 200) return;

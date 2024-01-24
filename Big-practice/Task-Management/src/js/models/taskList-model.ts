@@ -1,5 +1,5 @@
-import API from '../services/task';
-import { TaskModel, createTaskModel } from './task-model';
+import API from '@services/task';
+import { TaskModel, createTaskModel } from '@models/task-model';
 
 export default class TaskListModel {
   private apiTask: API;
@@ -12,7 +12,7 @@ export default class TaskListModel {
 
   async getTasks(): Promise<TaskModel[]> {
     const response = await this.apiTask.getTask();
-    this.tasks = response.data || [];
+    this.tasks = Array.isArray(response.data) ? response.data : [];
     return this.tasks;
   }
 
@@ -32,11 +32,10 @@ export default class TaskListModel {
 
   async delete(id: string): Promise<number | undefined> {
     const { status } = await this.apiTask.delete(id);
-
     if (status !== 200) return;
     return status;
   }
-  
+
   async find(id: string): Promise<string | undefined> {
     const { status, data } = await this.apiTask.findTask(id);
 
@@ -44,7 +43,7 @@ export default class TaskListModel {
     return data;
   }
 
-  async edit(id: string, payload: any): Promise<void> {
+  async edit(id: string, payload: string): Promise<void> {
     const response = await this.apiTask.edit(id, payload);
 
     if (response.status !== 200) return;

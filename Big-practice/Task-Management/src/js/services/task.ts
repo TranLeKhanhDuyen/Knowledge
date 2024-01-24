@@ -1,20 +1,15 @@
-import { API_URL } from '../constants/url';
-import APIHelper from './helper';
-
-interface ApiResponse {
-  status: number;
-  message: string;
-  data?: any;
-}
+import { API_URL } from '@constants/url';
+import APIHelper from '@services/helper';
+import { ApiResponse, handleResponse } from '@services/common';
 
 export default class API {
   private apiPath: string;
-
+  
   constructor(apiPath = '/tasks') {
     this.apiPath = apiPath;
   }
 
-  async addTask(taskName: any): Promise<ApiResponse> {
+  async addTask(taskName: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}`;
       const { response, result } = await APIHelper.createRequest(
@@ -23,9 +18,9 @@ export default class API {
         taskName
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -38,13 +33,13 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
-  async findTask(id: string): Promise<ApiResponse> {
+  async findTask(id: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response, result } = await APIHelper.createRequest(
@@ -53,13 +48,13 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
-  async edit(id: string, updateData: any): Promise<ApiResponse> {
+  async edit(id: string, updateData: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(
@@ -68,28 +63,20 @@ export default class API {
         updateData
       );
 
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
-  async delete(id: string): Promise<ApiResponse> {
+  async delete(id: string): Promise<ApiResponse<string>> {
     try {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE', {});
 
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
-  }
-
-  private handleResponse(response: Response, result?: any): ApiResponse {
-    const { status } = response;
-    const message = response.ok
-      ? 'Success'
-      : `Request failed with status ${status}`;
-    return { status, message, data: result };
   }
 }

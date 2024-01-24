@@ -4,12 +4,7 @@ import { ApiResponse, handleResponse } from '@services/common';
 
 export default class API {
   private apiPath: string;
-  private handleResponse(
-    response: Response,
-    result?: string
-  ): ApiResponse<string> {
-    return handleResponse(response, result);
-  }
+  
   constructor(apiPath = '/tasks') {
     this.apiPath = apiPath;
   }
@@ -23,9 +18,9 @@ export default class API {
         taskName
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -38,9 +33,9 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -53,9 +48,9 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -68,9 +63,9 @@ export default class API {
         updateData
       );
 
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -79,9 +74,9 @@ export default class API {
       const url = `${API_URL}${this.apiPath}/${id}`;
       const { response } = await APIHelper.createRequest(url, 'DELETE', {});
 
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 }

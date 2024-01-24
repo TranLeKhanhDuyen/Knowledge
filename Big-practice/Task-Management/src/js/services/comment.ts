@@ -4,12 +4,6 @@ import { ApiResponse, handleResponse } from '@services/common';
 
 export default class API {
   private apiPath: string;
-  private handleResponse(
-    response: Response,
-    result?: string
-  ): ApiResponse<string> {
-    return handleResponse(response, result);
-  }
 
   constructor(apiPath: string = '/comments') {
     this.apiPath = apiPath;
@@ -24,9 +18,9 @@ export default class API {
         comment
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -39,9 +33,9 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response, result);
+      return handleResponse(response, result);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 
@@ -54,9 +48,9 @@ export default class API {
         undefined
       );
 
-      return this.handleResponse(response);
+      return handleResponse(response);
     } catch (error) {
-      return this.handleResponse(error);
+      return handleResponse(error);
     }
   }
 }

@@ -5,6 +5,8 @@ export default function State() {
   const [index, setIndex] = useState(0);
   const [showMore, setShowMore] = useState(false);
 
+  const totalSculptures = sculptureList.length;
+
   const handleNextClick = () => {
     setIndex(index + 1);
   };
@@ -13,10 +15,25 @@ export default function State() {
     setShowMore(!showMore);
   };
 
+  const handlePreviousClick = () => {
+    if (index > 0) {
+      setIndex(index - 1);
+    }
+  };
+
   let sculpture = sculptureList[index];
   return (
     <>
-      <button onClick={handleNextClick}>Next</button>
+      <button onClick={handlePreviousClick} disabled={index === 0}>
+        Previous
+      </button>
+
+      <button
+        onClick={handleNextClick}
+        disabled={index === totalSculptures - 1}
+      >
+        Next
+      </button>
       <h2>
         <i>{sculpture.name}</i> by {sculpture.artist}
       </h2>

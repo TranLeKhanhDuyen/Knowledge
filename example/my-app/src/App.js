@@ -5,6 +5,7 @@ import State from "./components/Sate-variable/state";
 import Form from "./components/Sate-variable/form";
 import FeedbackForm from "./components/Sate-variable/feebackForm";
 import VideoPlayerApp from "./components/effect/VideoPlayer";
+import MyInputForm from "./components/effect/MyInput";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Form />
       <FeedbackForm />
       <VideoPlayerApp />
+      <MyInputForm/>
     </div>
   );
 }

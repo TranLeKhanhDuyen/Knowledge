@@ -4,6 +4,7 @@ import Gallery from "./components/Props/Profile";
 import State from "./components/Sate-variable/state";
 import Form from "./components/Sate-variable/form";
 import FeedbackForm from "./components/Sate-variable/feebackForm";
+import VideoPlayerApp from "./components/effect/VideoPlayer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <State />
       <Form />
       <FeedbackForm />
+      <VideoPlayerApp />
     </div>
   );
 }

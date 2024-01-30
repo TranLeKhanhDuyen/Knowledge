@@ -3,6 +3,7 @@ import "./components/style.css";
 import Gallery from "./components/Props/Profile";
 import State from "./components/Sate-variable/state";
 import Form from "./components/Sate-variable/form";
+import FeedbackForm from "./components/Sate-variable/feebackForm";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Gallery />
       <State />
       <Form />
+      <FeedbackForm />
     </div>
   );
 }

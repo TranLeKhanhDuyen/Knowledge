@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 
-function MyInput({ value, onChange }) {
+const MyInput = ({ value, onChange }) => {
   const ref = useRef(null);
 
   useEffect(() => {

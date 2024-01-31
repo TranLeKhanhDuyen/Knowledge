@@ -9,6 +9,7 @@ import MyInputForm from "./components/effect/MyInput";
 import PackingList from "./components/ConditionalReander/PackingList";
 import DrinkList from "./components/ConditionalReander/DrinkList";
 import Counter from "./components/UseSate/Counter";
+import MyInput from "./components/UseSate/MyInput";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <PackingList />
       <DrinkList />
       <Counter />
+      <MyInput />
     </div>
   );
 }

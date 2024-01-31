@@ -10,6 +10,7 @@ import PackingList from "./components/ConditionalReander/PackingList";
 import DrinkList from "./components/ConditionalReander/DrinkList";
 import Counter from "./components/UseSate/Counter";
 import MyInput from "./components/UseSate/MyInput";
+import FormSate from "./components/UseSate/Form";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <DrinkList />
       <Counter />
       <MyInput />
+      <FormSate />
     </div>
   );
 }

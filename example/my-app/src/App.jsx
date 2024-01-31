@@ -8,6 +8,7 @@ import VideoPlayerApp from "./components/effect/VideoPlayer";
 import MyInputForm from "./components/effect/MyInput";
 import PackingList from "./components/ConditionalReander/PackingList";
 import DrinkList from "./components/ConditionalReander/DrinkList";
+import Counter from "./components/UseSate/Counter";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <MyInputForm />
       <PackingList />
       <DrinkList />
+      <Counter />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import FeedbackForm from "./components/Sate-variable/feebackForm";
 import VideoPlayerApp from "./components/effect/VideoPlayer";
 import MyInputForm from "./components/effect/MyInput";
 import PackingList from "./components/ConditionalReander/PackingList";
+import DrinkList from "./components/ConditionalReander/DrinkList";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <VideoPlayerApp />
       <MyInputForm />
       <PackingList />
+      <DrinkList />
     </div>
   );
 }

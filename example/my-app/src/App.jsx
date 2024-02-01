@@ -12,6 +12,7 @@ import Counter from "./components/UseSate/Counter";
 import MyInput from "./components/UseSate/MyInput";
 import FormSate from "./components/UseSate/Form";
 import ChatRoomApp from "./components/UseEffect/ChatRoom";
+import Todo from "./components/Todo/Todo";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <MyInput />
       <FormSate />
       <ChatRoomApp />
+      <Todo />
     </div>
   );
 }

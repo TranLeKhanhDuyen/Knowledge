@@ -11,6 +11,7 @@ import DrinkList from "./components/ConditionalReander/DrinkList";
 import Counter from "./components/UseSate/Counter";
 import MyInput from "./components/UseSate/MyInput";
 import FormSate from "./components/UseSate/Form";
+import ChatRoomApp from "./components/UseEffect/ChatRoom";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Counter />
       <MyInput />
       <FormSate />
+      <ChatRoomApp />
     </div>
   );
 }

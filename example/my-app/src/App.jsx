@@ -15,6 +15,7 @@ import ChatRoomApp from "./components/UseEffect/ChatRoom";
 import Todo from "./components/Todo/Todo";
 
 import { Routes, Route, Link, BrowserRouter as Router } from "react-router-dom";
+import DataFetching from "./components/UseEffect/DataFetching";
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
           </Link>
           <Link to="/useeffect">
             <p>UseEffect</p>
+          </Link>
+          <Link to="/datafecth">
+            <p>datafecth</p>
           </Link>
         </>
 
@@ -83,6 +87,7 @@ function App() {
           />
           <Route path="/useeffect" element={<ChatRoomApp />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/datafecth" element={<DataFetching />} />
         </Routes>
       </Router>
     </>

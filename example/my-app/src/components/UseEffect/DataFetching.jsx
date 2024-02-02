@@ -6,7 +6,7 @@ const DataFetching = () => {
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(1);
 
-  // useEffect sẽ chạy khi component được mount và mỗi khi userId thay đổi
+  // useEffect run wwhen component mounted và wwhen userId change
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -31,9 +31,9 @@ const DataFetching = () => {
       }
     };
 
-    fetchData(); // Gọi hàm fetchData khi userId thay đổi hoặc component được mount
+    fetchData(); // call fetchData when userId change or component mounted
 
-    // Cleanup function (chỉ chạy khi component unmount hoặc userId thay đổi)
+    // Cleanup function (run when component unmount or userId change)
     return () => {
       console.log("Cleanup - component unmount or userId change");
     };

@@ -7,11 +7,24 @@ export default function FormSate() {
     email: "bhepworth@sculpture.com",
   });
 
+  const containerStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  };
+
+  const inputStyle = {
+    margin: "10px",
+    padding: "8px",
+    fontSize: "16px",
+  };
+
   return (
-    <>
+    <div style={containerStyle}>
       <label>
         First name:
         <input
+          style={inputStyle}
           value={form.firstName}
           onChange={(e) => {
             setForm({
@@ -24,6 +37,7 @@ export default function FormSate() {
       <label>
         Last name:
         <input
+          style={inputStyle}
           value={form.lastName}
           onChange={(e) => {
             setForm({
@@ -36,6 +50,7 @@ export default function FormSate() {
       <label>
         Email:
         <input
+          style={inputStyle}
           value={form.email}
           onChange={(e) => {
             setForm({
@@ -48,6 +63,6 @@ export default function FormSate() {
       <p>
         {form.firstName} {form.lastName} ({form.email})
       </p>
-    </>
+    </div>
   );
 }

@@ -2,9 +2,9 @@ import { useState } from "react";
 
 export default function FormSate() {
   const [form, setForm] = useState({
-    firstName: "Barbara",
-    lastName: "Hepworth",
-    email: "bhepworth@sculpture.com",
+    firstName: "",
+    lastName: "",
+    email: "",
   });
 
   const containerStyle = {

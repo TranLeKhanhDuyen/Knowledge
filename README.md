@@ -3,7 +3,7 @@
 ### OVERVIEW
 
 - This document provides planning for ReactJS practice - BookingCare.
-- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/practice)
+- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/practice-react)
 
 ### TIMELINE
 

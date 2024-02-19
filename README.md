@@ -1,17 +1,34 @@
-# INTERN - AGILITY
+# PRACTICE - REACT 
 
-## Overview
-This repository contains the knowledge and experience I learned during my internship at Company Agility. It covers various skills and technologies in web development, focusing on:
-* Git
-* HTML/CSS
-* JavaScript
-* TypeScript
-* React
-* Other Technologies ...
+### OVERVIEW
 
-## Usage
+- This document provides planning for ReactJS practice - BookingCare.
+- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/practice)
 
-1. Clone this repository to your machine.
-2. Check out the branch and navigate to the corresponding directory you want to view.
-3. If you have any questions or suggestions, please raise the issue or contact me directly.
+### TIMELINE
 
+- Start date: 2023/02/19
+- End date: 2023/03/01
+- Total: 10 days
+
+### TEAMSIZE
+
+- 1 dev
+
+### TECHNICAL
+
+- HTML5
+- CSS3
+- ReactJS
+
+### SUPPORTED BROWSER
+
+- Google Chrome: Version 121.0.6167.185 
+ (64-bit)
+
+### EDITOR
+
+- Visual Studio Code
+
+
+### STEPS INSTALL AND RUN CODE *(update later)*

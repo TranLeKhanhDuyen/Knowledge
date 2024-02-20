@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../styles/sections/header.css';
 
-export default class Header extends Component {
+export default class Header {
   render() {
     return (
       <header className='header-container'>

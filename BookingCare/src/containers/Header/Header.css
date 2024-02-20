@@ -1,3 +1,5 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -14,6 +16,9 @@
 
 .left-content {
   width: 25%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .center-content {
@@ -30,17 +35,22 @@
 
 .right-content {
   width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .header-logo {
   background: url('../../assets/logo.png');
   background-repeat: no-repeat;
+  background-size: 200px 43px;
   height: 100%;
   width: 100%;
+  margin-top: 18px;
 }
 
 .subs-title {
   color: gray;
   margin: 2px;
 }
-

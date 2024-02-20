@@ -7,7 +7,7 @@ export default class Header extends Component {
       <header className='header-container'>
         <div className='header-content'>
           <div className='left-content'>
-            <i class='fas fa-bars'></i>
+            <i className='fas fa-bars'></i>
             <div className='header-logo'></div>
           </div>
 
@@ -31,7 +31,8 @@ export default class Header extends Component {
           </nav>
 
           <div className='right-content'>
-            <i class='fa-regular fa-circle-question'>Support</i>
+            <i className='fa-regular fa-circle-question'></i>
+            <p>Support</p>
           </div>
         </div>
       </header>

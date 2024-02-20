@@ -14,12 +14,10 @@
 
 .left-content {
   width: 25%;
-  border: 1px solid green
 }
 
 .center-content {
   width: 50%;
-  border: 1px solid red;
   display: flex;
   gap: 10px;
   justify-content: space-between;
@@ -32,7 +30,6 @@
 
 .right-content {
   width: 25%;
-  border: 1px solid rgb(77, 77, 61)
 }
 
 .header-logo {
@@ -47,7 +44,3 @@
   margin: 2px;
 }
 
-.logo {
-  width: 200px;
-  height: 50px;
-}

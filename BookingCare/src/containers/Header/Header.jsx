@@ -10,6 +10,7 @@ export default class Header extends Component {
             <i class='fas fa-bars'></i>
             <div className='header-logo'></div>
           </div>
+
           <nav className='center-content'>
             <div className='child-content'>
               <b>Specialist</b>
@@ -17,7 +18,6 @@ export default class Header extends Component {
             </div>
             <div className='child-content'>
               <b>Health facilities</b>
-
               <p className='subs-title'>Choose a hospital or clinic</p>
             </div>
             <div className='child-content'>

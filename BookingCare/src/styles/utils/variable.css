@@ -1,6 +1,4 @@
 :root {
-
-  /* 14 18 10 12 24 20 16 32 */
   --font-sm: 10px;
   --font-md: 12px;
   --font-lg: 14px;
@@ -9,7 +7,6 @@
   --font-xxxl: 20px;
   --font-4xl: 24px;
   --font-5xl: 32px;
-
 
   --fw-bold: 700;
   --fw-semibold: 500;

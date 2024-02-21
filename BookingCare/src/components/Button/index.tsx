@@ -1,27 +1,30 @@
 import React from 'react';
-import './Button.css';
+import './PageLink.css';
 
-export interface IButtonItem {
+export interface IPageLinkItem {
   title: string;
-  onClick?: () => void;
   imagePath: string;
 }
 
-interface IButton {
-  items: IButtonItem[];
+interface IPageLink {
+  items: IPageLinkItem[];
 }
 
-const Button = ({ items }: IButton) => {
-  return items.map((item) => (
-      <button className='btn-secondary' onClick={item.onClick}>
-        <img
-          className='img-btn-secondary'
-          src={item.imagePath}
-          alt={`Image for ${item.title}`}
-        />
-        <p>{item.title}</p>
-      </button>
-  ));
+const PageLink = ({ items }: IPageLink) => {
+  return (
+    <div className='link-secondary-container'>
+      {items.map((item) => (
+        <a className='link-secondary'>
+          <img
+            className='img-link-secondary'
+            src={item.imagePath}
+            alt={`Image for ${item.title}`}
+          />
+          <p>{item.title}</p>
+        </a>
+      ))}
+    </div>
+  );
 };
 
-export default Button;
+export default PageLink;

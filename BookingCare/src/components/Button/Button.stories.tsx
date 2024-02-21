@@ -7,14 +7,14 @@ import general from '../../assets/icons/ic-general.png';
 import medicalTest from '../../assets/icons/ic-medical-tests.png';
 import mentealHeath from '../../assets/icons/ic-mental-health.png';
 
-import Button from '.';
+import PageLink from '.';
 
 export default {
   title: 'Components/Button',
-  component: Button
+  component: PageLink
 } as Meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof PageLink>;
 
 export const Default: Story = {
   args: {

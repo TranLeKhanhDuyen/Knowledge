@@ -4,6 +4,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .banner-title {
@@ -35,6 +37,16 @@
   font-size: 14px;
 }
 
-.search-icon{
+.search-icon {
   margin-left: 20px;
+}
+
+.content-up {
+  border: 1px solid red;
+  height: 50%;
+}
+
+.content-down {
+  border: 1px solid rgb(11, 34, 235);
+  height: 50%;
 }

@@ -1,24 +1,25 @@
 import React from 'react';
-// import './PageLink.css';
+
 type TItemLink = 'service' | 'specialist' | 'facilities';
-interface ItemLink {
+
+interface IItemLink {
   imagePath: string;
   title: string;
   onClick?: () => void;
 }
 
 interface ListLink {
-  items: ItemLink[];
+  items: IItemLink[];
   type: TItemLink;
 }
 
-const PageLink = ({ items, type }: ListLink) => {
+const ItemLink = ({ items, type }: ListLink) => {
   return (
     <div>
       {items.map((item) => (
-        <a className={`abc ${type}`} onClick={item.onClick}>
+        <a className={`item-link-container ${type}`} onClick={item.onClick}>
           <img
-            className='img-link-secondary'
+            className='img-link'
             src={item.imagePath}
             alt={`Image for ${item.title}`}
           />
@@ -29,4 +30,4 @@ const PageLink = ({ items, type }: ListLink) => {
   );
 };
 
-export default PageLink;
+export default ItemLink;

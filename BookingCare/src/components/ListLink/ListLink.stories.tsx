@@ -127,7 +127,7 @@ export const Facilities: Story = {
       },
       {
         imagePath: doctorcheck,
-        title: 'DOctor Check - Screeing for Diseases to Live Longer'
+        title: 'Doctor Check - Screeing for Diseases to Live Longer'
       },
       {
         imagePath: medicineAndPharmacy,

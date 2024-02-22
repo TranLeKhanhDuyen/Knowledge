@@ -1,4 +1,5 @@
 import React from 'react';
+import '../ListLink.css'
 
 type TItemLink = 'service' | 'specialist' | 'facilities';
 

@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Banner>;
 
 export const Default: Story = {
   args: {
-    title: 'abc',
+    title: 'HEALTHCARE MEDICAL FOUNDATION',
     textField: 'Find doctors by specialty'
   }
 };

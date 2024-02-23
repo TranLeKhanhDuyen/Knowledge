@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './banner.css';
+import './Banner.css';
 
 export interface IBannerItem {
   title: string;

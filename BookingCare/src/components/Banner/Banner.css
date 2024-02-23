@@ -29,6 +29,14 @@
   margin-top: 50px;
 }
 
+.search-icon {
+  background: url('../../assets/icons/ic-search.svg');
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+
 .search-input {
   border: none;
   padding: 10px;
@@ -36,8 +44,4 @@
   outline: none;
   width: 100%;
   font-size: 14px;
-}
-
-.search-icon {
-  margin-left: 20px;
 }

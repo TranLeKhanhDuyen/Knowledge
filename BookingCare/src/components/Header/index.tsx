@@ -1,8 +1,6 @@
-import React from 'react';
 import './header.css';
 import Navbar, { INavItem } from './Navbar/index';
 import Contact from './Contact/index';
-import Banner from '@containers/Banner';
 
 interface IHeader {
   title: string;

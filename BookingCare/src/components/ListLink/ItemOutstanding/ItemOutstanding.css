@@ -1,0 +1,35 @@
+.outstanding-container {
+  background: url('../../../assets/backgrounds/background-outstanding.png');
+  height: 100%;
+  width: 100%;
+  inset: 0px;
+  object-fit: cover;
+}
+
+.outstanding-wrapper {
+  width: 1208px;
+  display: flex;
+}
+
+.item-oustanding-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 4px 20px;
+  ;
+  text-align: center;
+}
+
+.img-outstanding {
+  height: 220px;
+  width: 220px;
+  inset: 0px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.describe-oustainding {
+  font-size: 16px;
+  color: rgb(98, 98, 98);
+}

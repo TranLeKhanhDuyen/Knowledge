@@ -1,20 +1,19 @@
-import React from 'react';
 import './ItemLink.css'
 
 type TItemLink = 'service' | 'specialist' | 'facilities';
 
-interface IItemLink {
+export interface IItemLink {
   imagePath: string;
   title: string;
   onClick?: () => void;
 }
 
-interface ListLink {
+export interface IListLink {
   items: IItemLink[];
   type: TItemLink;
 }
 
-const ItemLink = ({ items, type }: ListLink) => {
+const ItemLink = ({ items, type }: IListLink) => {
   return (
     <div>
       {items.map((item) => (

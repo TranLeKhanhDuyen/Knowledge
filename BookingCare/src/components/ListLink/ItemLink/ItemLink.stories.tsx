@@ -14,9 +14,9 @@ import musculoskeletal from '@assets/icons/ic-musculoskeletal.png';
 import nerve from '@assets/icons/ic-nerve.png';
 import digestion from '@assets/icons/ic-digestion.png';
 import heart from '@assets/icons/ic-heart.png';
-import earNoseThroat from '@assets/icons/ic-earNoseThroat.png';
+import earNoseThroat from '@assets/icons/ic-ear-nose-throat.png';
 import spine from '@assets/icons/ic-spine.png';
-import traditional from '@assets/icons/ic-traditionalMedicine.png';
+import traditional from '@assets/icons/ic-traditional-medicine.png';
 import acupuncture from '@assets/icons/ic-acupincture.png';
 
 //facilities images

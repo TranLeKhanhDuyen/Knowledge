@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ItemOutstanding from './index';
 
-import doctor1 from '../../../assets/doctors/kieu-dinh.png';
-import doctor2 from '../../../assets/doctors/tra-anh-duy.jpg';
-import doctor3 from '../../../assets/doctors/pham-chi-lang.jpg';
-import doctor4 from '../../../assets/doctors/nguyen-van-lieu.jpg';
-import doctor5 from '../../../assets/doctors/nguyen-tien-lang.png';
-import doctor6 from '../../../assets/doctors/hua-thuy-vi.jpg';
-import doctor7 from '../../../assets/doctors/nguyen-tien-thanh.png.png';
-import doctor8 from '../../../assets/doctors/vu-thai-ha.jpg';
-import doctor9 from '../../../assets/doctors/le-hong-anh.jpg';
-import doctor10 from '../../../assets/doctors/nguyen-tuong-vu.png';
-import doctor11 from '../../../assets/doctors/phan-vuong-huy.jpg';
-import doctor12 from '../../../assets/doctors/nguyen-trong-hung.jpg';
+import doctor1 from '@assets/doctors/kieu-dinh.png';
+import doctor2 from '@assets/doctors/tra-anh-duy.jpg';
+import doctor3 from '@assets/doctors/pham-chi-lang.jpg';
+import doctor4 from '@assets/doctors/nguyen-van-lieu.jpg';
+import doctor5 from '@assets/doctors/nguyen-tien-lang.png';
+import doctor6 from '@assets/doctors/hua-thuy-vi.jpg';
+import doctor7 from '@assets/doctors/nguyen-tien-thanh.png.png';
+import doctor8 from '@assets/doctors/vu-thai-ha.jpg';
+import doctor9 from '@assets/doctors/le-hong-anh.jpg';
+import doctor10 from '@assets/doctors/nguyen-tuong-vu.png';
+import doctor11 from '@assets/doctors/phan-vuong-huy.jpg';
+import doctor12 from '@assets/doctors/nguyen-trong-hung.jpg';
 
 // service images
 

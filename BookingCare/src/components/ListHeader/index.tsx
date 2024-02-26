@@ -15,11 +15,11 @@ export interface IListHeader {
 
 const ItemHeader = ({ items, type }: IListHeader) => {
   return (
-    <div className={`item-header-container ${type}`}>
+    <div className={`item-header-container container ${type}`}>
       {items.map((item) => (
         <>
-          <h3>{item.title}</h3>
-          <a className={`item-header-wrapper`} onClick={item.onClick}>
+          <h3 className='text-bold text-xl'>{item.title}</h3>
+          <a className={` text-xl item-header-wrapper`} onClick={item.onClick}>
             <p className='btn-primary'>see more</p>
           </a>
         </>

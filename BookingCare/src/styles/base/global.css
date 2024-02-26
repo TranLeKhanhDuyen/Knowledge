@@ -11,3 +11,7 @@ html {
 .cursor {
   cursor: pointer;
 }
+
+.container {
+  margin: 0 164px;
+}

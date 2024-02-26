@@ -15,7 +15,7 @@ export interface IListLink {
 
 const ItemLink = ({ items, type }: IListLink) => {
   return (
-    <div className={`item-link-wrapper ${type}`}>
+    <div className={`container item-link-wrapper ${type}`}>
       {items.map((item) => (
         <a className={`item-link-container`} onClick={item.onClick}>
           <img
@@ -23,7 +23,7 @@ const ItemLink = ({ items, type }: IListLink) => {
             src={item.imagePath}
             alt={`Image for ${item.title}`}
           />
-          <p className='title-link'>{item.title}</p>
+          <p className='text-bold text-xl title-link'>{item.title}</p>
         </a>
       ))}
     </div>

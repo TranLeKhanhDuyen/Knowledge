@@ -9,7 +9,7 @@ interface IHeader {
 
 const Header = ({ title, items }: IHeader) => {
   return (
-    <header className='header-container'>
+    <header className='container header-container'>
       <div className='header-content'>
 
         <span className='header-logo'></span>

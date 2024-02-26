@@ -19,7 +19,7 @@ export interface IListOutstanding {
 const ItemOutstanding = ({ items, type }: IListOutstanding) => {
   return (
     <div className='outstanding-container'>
-      <div className='outstanding-wrapper'>
+      <div className='container outstanding-wrapper'>
         {items.map((item) => (
           <a
             className={`item-oustanding-container ${type}`}

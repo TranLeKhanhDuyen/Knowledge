@@ -1,3 +1,5 @@
+import '@main'
+
 export default class App {
   render() {
     return (

@@ -1,4 +1,4 @@
-.outstanding-container { 
+.outstanding-container {
   height: 100%;
   width: 100%;
   inset: 0px;
@@ -6,7 +6,6 @@
 }
 
 .outstanding-wrapper {
-  width: 1208px;
   display: flex;
 }
 

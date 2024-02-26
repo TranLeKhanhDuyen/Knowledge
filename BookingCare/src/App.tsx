@@ -16,7 +16,7 @@ const App = () => {
     <>
       <Header title="" items={LIST_NAV} />
       <Banner title={BANNER[0].title} textField={BANNER[0].textField} />
-      <h3>Comprehensive service</h3>
+      <h3 className='container text-bold text-lg'>Comprehensive service</h3>
       <ItemLink items={LIST_LINK[0].items} type="service" />
       <ItemHeader items={LIST_HEADER[0].items} type='specialist' />
       <ItemLink items={LIST_LINK[1].items} type="specialist" />

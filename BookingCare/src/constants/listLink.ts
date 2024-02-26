@@ -11,21 +11,22 @@ import musculoskeletal from '@assets/icons/ic-musculoskeletal.png';
 import nerve from '@assets/icons/ic-nerve.png';
 import digestion from '@assets/icons/ic-digestion.png';
 import heart from '@assets/icons/ic-heart.png';
-import earNoseThroat from '@assets/icons/ic-earNoseThroat.png';
+import earNoseThroat from '@assets/icons/ic-ear-nose-throat.png';
 import spine from '@assets/icons/ic-spine.png';
-import traditional from '@assets/icons/ic-traditionalMedicine.png';
+import traditional from '@assets/icons/ic-traditional-medicine.png';
 import acupuncture from '@assets/icons/ic-acupincture.png';
 
 //facilities images
-import centalMilitary from '@assets/facilities/centalMilitary.jpg';
-import choray from '@assets/facilities/choray.jpg';
+import centalMilitary from '@assets/facilities/cental-military.jpg';
+import choray from '@assets/facilities/cho-ray.jpg';
 import diag from '@assets/facilities/diag.png';
-import doctorcheck from '@assets/facilities/doctorcheck.png';
-import hungviet from '@assets/facilities/hungviet.jpg';
-import medicineAndPharmacy from '@assets/facilities/medicineAndPharmacy.jpg';
+import doctorcheck from '@assets/facilities/doctor-check.png';
+import hungviet from '@assets/facilities/hung-viet.jpg';
+import medicineAndPharmacy from '@assets/facilities/medicine-and-pharmacy.jpg';
 import medlatec from '@assets/facilities/medlatec.png';
-import thucuc from '@assets/facilities/thucuc.png';
-import vietduc from '@assets/facilities/vietduc.jpg';
+import thucuc from '@assets/facilities/thu-cuc.png';
+import vietduc from '@assets/facilities/viet-duc.jpg';
+
 import { IItemLink, IListLink } from '@components/ListLink/ItemLink';
 
 export const LIST_LINK: IListLink[] = [

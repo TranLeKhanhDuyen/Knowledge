@@ -1,17 +1,17 @@
 import { IListOutstanding } from '../components/ListLink/ItemOutstanding/index';
 
-import doctor1 from '@assets/doctors/KieuDing.png';
-import doctor2 from '@assets/doctors/TraAnhDuy.jpg';
-import doctor3 from '@assets/doctors/PhamChiLang.jpg';
-import doctor4 from '@assets/doctors/NguyenVanLieu.jpg';
-import doctor5 from '@assets/doctors/NguyenTienLang.png';
-import doctor6 from '@assets/doctors/HuaThuyVi.jpg';
-import doctor7 from '@assets/doctors/NguyenTienLang.png';
-import doctor8 from '@assets/doctors/VuThaiha.jpg';
-import doctor9 from '@assets/doctors/LeHongAnh.jpg';
-import doctor10 from '@assets/doctors/NguyenTuongVu.png';
-import doctor11 from '@assets/doctors/PhanVuongHuy.jpg';
-import doctor12 from '@assets/doctors/NguyenTrongHung.jpg';
+import doctor1 from '@assets/doctors/kieu-dinh.png';
+import doctor2 from '@assets/doctors/tra-anh-duy.jpg';
+import doctor3 from '@assets/doctors/pham-chi-lang.jpg';
+import doctor4 from '@assets/doctors/nguyen-van-lieu.jpg';
+import doctor5 from '@assets/doctors/nguyen-tien-lang.png';
+import doctor6 from '@assets/doctors/hua-thuy-vi.jpg';
+import doctor7 from '@assets/doctors/nguyen-tien-thanh.png.png';
+import doctor8 from '@assets/doctors/vu-thai-ha.jpg';
+import doctor9 from '@assets/doctors/le-hong-anh.jpg';
+import doctor10 from '@assets/doctors/nguyen-tuong-vu.png';
+import doctor11 from '@assets/doctors/phan-vuong-huy.jpg';
+import doctor12 from '@assets/doctors/nguyen-trong-hung.jpg';
 
 export const LIST_OUTSTANDING: IListOutstanding[] = [
   {

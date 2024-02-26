@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ItemHandbook from './index';
 
-import handbook1 from '../../../assets/handbook/darkeye.png';
+import handbook1 from '../../../assets/handbook/dark-eye.png';
 import handbook2 from '../../../assets/handbook/melasmacost.png';
 import handbook3 from '../../../assets/handbook/injection.png';
-import handbook4 from '../../../assets/handbook/darkeye2.png';
-import handbook5 from '../../../assets/handbook/hifuupgrade.png';
-import handbook6 from '../../../assets/handbook/hifuupgrade2.png';
+import handbook4 from '../../../assets/handbook/dark-eye2.png';
+import handbook5 from '../../../assets/handbook/hifu-upgrade.png';
+import handbook6 from '../../../assets/handbook/hifu-upgrade2.png';
 import handbook7 from '../../../assets/handbook/skin-rejuvenation.png';
-import handbook8 from '../../../assets/handbook/top7melasma.png';
-import handbook9 from '../../../assets/handbook/top7rejuvenation.png';
+import handbook8 from '../../../assets/handbook/top7-melasma.png';
+import handbook9 from '../../../assets/handbook/top7-rejuvenation.png';
 
 // service images
 

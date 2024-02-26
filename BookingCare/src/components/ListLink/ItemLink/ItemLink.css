@@ -1,0 +1,48 @@
+.item-link-container {
+  border: 2px solid rgb(241, 241, 241);
+  align-items: center;
+  font-weight: 700;
+}
+
+.img-link {
+  height: 100%;
+  width: 100%;
+  inset: 0px;
+  object-fit: contain;
+  color: transparent;
+}
+
+.service {
+  border-radius: 30px;
+  background: url(../../../assets/backgrounds/background-item1.png);
+  width: 40%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.service .img-link {
+  width: 56px;
+  height: 56px;
+}
+
+.specialist {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 40px;
+  margin-left: 40px;
+  width: 375px;
+}
+
+.facilities {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  margin-left: 40px;
+  width: 375px;
+  padding: 20px;
+  text-align: center;
+}

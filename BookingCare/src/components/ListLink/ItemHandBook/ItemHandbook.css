@@ -1,0 +1,15 @@
+.handbook-container {
+  display: flex;
+}
+
+.item-handbook-container{
+  margin-left: 40px;
+}
+
+.img-handbook {
+  border-radius: 8px;
+  border: 1px solid rgb(221, 221, 221);
+  height: 151px;
+  object-fit: cover;
+  color: transparent;
+}

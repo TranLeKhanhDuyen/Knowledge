@@ -15,15 +15,15 @@ export interface IListLink {
 
 const ItemLink = ({ items, type }: IListLink) => {
   return (
-    <div>
+    <div className={`item-link-wrapper ${type}`}>
       {items.map((item) => (
-        <a className={`item-link-container ${type}`} onClick={item.onClick}>
+        <a className={`item-link-container`} onClick={item.onClick}>
           <img
             className='img-link'
             src={item.imagePath}
             alt={`Image for ${item.title}`}
           />
-          <p>{item.title}</p>
+          <p className='title-link'>{item.title}</p>
         </a>
       ))}
     </div>

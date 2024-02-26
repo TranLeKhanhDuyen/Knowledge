@@ -11,12 +11,12 @@ interface IItemOutstanding {
   onClick?: () => void;
 }
 
-interface ListOutstanding {
+export interface IListOutstanding {
   items: IItemOutstanding[];
   type: TItemOutstanding;
 }
 
-const ItemOutstanding = ({ items, type }: ListOutstanding) => {
+const ItemOutstanding = ({ items, type }: IListOutstanding) => {
   return (
     <div className='outstanding-container'>
       <div className='outstanding-wrapper'>

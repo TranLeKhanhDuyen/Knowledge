@@ -1,26 +1,26 @@
 import React from 'react';
 import './ListHeader.css';
 
-type TListHeader = 'service' | 'facilities' | 'oustanding' | 'handbook';
+type TListHeader = 'specialist' | 'facilities' | 'outstanding' | 'handbook';
 
-interface IListHeader {
+interface IItemHeader {
   title: string;
   onClick?: () => void;
 }
 
-interface ListHeader {
-  items: IListHeader[];
+export interface IListHeader {
+  items: IItemHeader[];
   type: TListHeader;
 }
 
-const ItemHeader = ({ items, type }: ListHeader) => {
+const ItemHeader = ({ items, type }: IListHeader) => {
   return (
-    <div className='item-header-container'>
+    <div className={`item-header-container ${type}`}>
       {items.map((item) => (
         <>
           <h3>{item.title}</h3>
           <a className={`item-header-wrapper`} onClick={item.onClick}>
-            <p className={`${type}`}>see more</p>
+            <p className='btn-primary'>see more</p>
           </a>
         </>
       ))}

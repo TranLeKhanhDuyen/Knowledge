@@ -7,7 +7,7 @@ import doctor3 from '@assets/doctors/pham-chi-lang.jpg';
 import doctor4 from '@assets/doctors/nguyen-van-lieu.jpg';
 import doctor5 from '@assets/doctors/nguyen-tien-lang.png';
 import doctor6 from '@assets/doctors/hua-thuy-vi.jpg';
-import doctor7 from '@assets/doctors/nguyen-tien-thanh.png.png';
+import doctor7 from '@assets/doctors/nguyen-tien-thanh.png';
 import doctor8 from '@assets/doctors/vu-thai-ha.jpg';
 import doctor9 from '@assets/doctors/le-hong-anh.jpg';
 import doctor10 from '@assets/doctors/nguyen-tuong-vu.png';

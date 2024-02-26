@@ -1,14 +1,21 @@
 :root {
+  --primary-font: 'roboto';
+
   --font-sm: 10px;
   --font-md: 12px;
   --font-lg: 14px;
   --font-xl: 16px;
   --font-xxl: 18px;
-  --font-xxxl: 20px;
+  --font-3xl: 20px;
   --font-4xl: 24px;
   --font-5xl: 32px;
 
   --fw-bold: 700;
   --fw-semibold: 500;
   --fw-normal: 400;
+
+  --turquoise-color: rgb(52, 146, 158);
+  --turquoise-light-color: rgb(218, 243, 246);
+  --turquoise-dark-color: rgb(69, 195, 210);
+  --light-gray-color: rgb(241, 241, 241);
 }

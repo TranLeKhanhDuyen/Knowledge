@@ -1,4 +1,5 @@
 import './ItemLink.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 type TItemLink = 'service' | 'specialist' | 'facilities';
 

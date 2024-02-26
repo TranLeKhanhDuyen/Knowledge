@@ -1,5 +1,6 @@
 import React from 'react';
 import './ItemOutstanding.css';
+import Slider from "react-slick";
 
 type TItemOutstanding = 'doctor';
 

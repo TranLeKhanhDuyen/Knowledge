@@ -15,7 +15,7 @@ const Footer = ({ items }: IListFooter) => {
   return (
     <footer className='footer-container'>
       <div className='container footer-wrapper'>
-        <span className='turquoise-light-color copy-right'>
+        <span className='text-turquoise-light copy-right'>
           &copy; 2024 BookingCare
         </span>
         <div className='list-link-footer'>

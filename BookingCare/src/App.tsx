@@ -12,6 +12,7 @@ import { LIST_LINK } from '@constants/listLink';
 import { LIST_NAV } from '@constants/listNav';
 import { LIST_OUTSTANDING } from '@constants/listOutstanding';
 import Footer from '@components/Footer';
+import { LIST_FOOTER } from '@constants/footer';
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
         <ItemOutstanding items={LIST_OUTSTANDING[0].items} type='doctor' />
       </div>
         <Media />
-        <Footer />
+        <Footer items={LIST_FOOTER.items}/>
     </>
   );
 };

@@ -1,5 +1,6 @@
 .footer-container {
-  background-color: var(--turquoise-dark-color);
+  background-color: var(--light--azure);
+  padding: 20px;
 }
 
 .footer-wrapper {

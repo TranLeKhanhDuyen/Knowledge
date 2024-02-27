@@ -1,4 +1,4 @@
-import '../Media.css'
+import '../Media.css';
 
 export interface IVideoMedia {
   title: string;
@@ -8,14 +8,13 @@ export interface IVideoMedia {
 
 export const MediaVideo = ({ title, link, onClick }: IVideoMedia) => {
   return (
-      <div className='content-left' onClick={onClick}>
-          <iframe
-            className='video-embed'
-            src={link}
-            title={title}
-            allowFullScreen
-          ></iframe>
-      </div>
-
+    <div className='media-video-container' onClick={onClick}>
+      <iframe
+        className='video-embed'
+        src={link}
+        title={title}
+        allowFullScreen
+      ></iframe>
+    </div>
   );
 };

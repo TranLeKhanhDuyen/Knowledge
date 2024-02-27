@@ -11,7 +11,7 @@ export interface IMedia {
 const Media = ({ title, link, items }: IMedia) => {
   return (
     <div className='media-container'>
-      <h3 className='container text-bold media-title'>
+      <h3 className='text-bold text-5xl media-title'>
         Media talks about BookingCare
       </h3>
       <div className='container media-wrapper'>

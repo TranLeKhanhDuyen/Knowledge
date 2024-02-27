@@ -45,6 +45,11 @@ export const LIST_MEDIA: IListMedia[] = [
         link: 'https://dantri.com.vn/nhan-tai-dat-viet/san-pham-nen-tang-dat-kham-booking-care-201908201625624751.htm',
         imagePath: dantri,
         title: 'dantri'
+      },
+      {
+        link: 'https://vtv.vn/video/ca-phe-khoi-nghiep-14-11-2018-334894.html',
+        imagePath: vtv1,
+        title: 'vtv1'
       }
     ]
   }
@@ -52,7 +57,8 @@ export const LIST_MEDIA: IListMedia[] = [
 
 export const MEDIA_VIDEO: IVideoMedia[] = [
   {
-    link: 'https://youtu.be/FyDQljKtWnI',
+    link: 'https://www.youtube.com/embed/FyDQljKtWnI?si=mg6VMSm1mRjSxFhg',
     title: 'vtv1'
   }
 ];
+

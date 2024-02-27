@@ -41,11 +41,11 @@
 }
 
 .item-link-wrapper.specialist {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
+  display: flex !important;
+  gap: 50px;
   margin-bottom: 50px;
   margin-top: 50px;
+  gap: 20px;
 }
 
 .specialist .item-link-container {
@@ -57,15 +57,25 @@
 
 .item-link-wrapper.facilities {
   display: flex;
-  overflow-x: auto;
   gap: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
 .facilities .item-link-container {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   border-radius: 16px;
-  padding: 40px;
+  padding: 20px;
+  width: 375px;
+  height: 312px;
+}
+
+.facilities .title-link {
+  margin-top: 50px;
+}
+
+.facilities .img-link {
+  max-width: 332px;
+  max-height: 158px;
 }

@@ -2,3 +2,8 @@
   background: url('./assets/backgrounds/background-outstanding.png');
   background-repeat: repeat-x;
 }
+
+.media-title {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}

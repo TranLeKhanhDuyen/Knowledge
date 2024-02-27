@@ -1,0 +1,38 @@
+.media-container{
+  background: url('../../assets/backgrounds/background-outstanding.png');
+}
+
+.item-link-media {
+  height: 65px;
+  display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.video-embed {
+  width: 50%;
+  height: 400px;
+  frameBorder: 0;
+}
+
+.media-wrapper {
+  display: flex;
+}
+
+.img-media-link {
+  max-width: 160px;
+  max-height: 45px;
+}
+
+.media-item-container {
+  display: flex;
+  width: 49%;
+  flex-flow: wrap;
+  justify-content: flex-start;
+}

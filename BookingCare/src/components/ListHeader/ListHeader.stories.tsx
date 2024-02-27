@@ -40,7 +40,7 @@ export const Oustanding: Story = {
         title: 'Oustanding doctor'
       }
     ],
-    type: 'oustanding'
+    type: 'outstanding'
   }
 };
 

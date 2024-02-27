@@ -1,5 +1,6 @@
 import React from 'react';
 import './ItemHandbook.css';
+import Slider from 'react-slick';
 
 type TItemHandbook = 'handbook';
 
@@ -9,14 +10,22 @@ interface IItemHandbook {
   onClick?: () => void;
 }
 
-interface ListHandbook {
+export interface IListHandbook {
   items: IItemHandbook[];
   type: TItemHandbook;
 }
 
-const ItemHanbook = ({ items, type }: ListHandbook) => {
+const ItemHanbook = ({ items, type }: IListHandbook) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4
+  };
+
   return (
-    <div className='handbook-container'>
+    <Slider {...settings} className='container handbook-container'>
       {items.map((item) => (
         <a className={`item-handbook-container ${type}`} onClick={item.onClick}>
           <img
@@ -24,10 +33,10 @@ const ItemHanbook = ({ items, type }: ListHandbook) => {
             src={item.imagePath}
             alt={`Image for ${item.title}`}
           />
-          <h4>{item.title}</h4>
+          <h4 className='text-bold'>{item.title}</h4>
         </a>
       ))}
-    </div>
+    </Slider>
   );
 };
 

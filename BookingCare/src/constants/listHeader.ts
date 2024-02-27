@@ -28,7 +28,7 @@ export const LIST_HEADER: IListHeader[] = [
   {
     items: [
       {
-        title: 'handbook'
+        title: 'Handbook'
       }
     ],
     type: 'handbook'

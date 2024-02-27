@@ -14,6 +14,8 @@ import Footer from '@components/Footer';
 import { LIST_FOOTER } from '@constants/footer';
 import Media from '@components/Media/index';
 import { LIST_MEDIA, MEDIA_VIDEO } from '@constants/media';
+import { LIST_HANDBOOK } from '@constants/listHandBook';
+import ItemHanbook from '@components/ListLink/ItemHandBook';
 
 const App = () => {
   return (
@@ -30,7 +32,13 @@ const App = () => {
         <ItemHeader items={LIST_HEADER[2].items} type='outstanding' />
         <ItemOutstanding items={LIST_OUTSTANDING[0].items} type='doctor' />
       </div>
-      <Media title={MEDIA_VIDEO[0].title} link={MEDIA_VIDEO[0].link} items={LIST_MEDIA[0].items}/>
+      <ItemHeader items={LIST_HEADER[3].items} type='handbook' />
+      <ItemHanbook items={LIST_HANDBOOK[0].items} type='handbook' />
+      <Media
+        title={MEDIA_VIDEO[0].title}
+        link={MEDIA_VIDEO[0].link}
+        items={LIST_MEDIA[0].items}
+      />
       <Footer items={LIST_FOOTER.items} />
     </>
   );

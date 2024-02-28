@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export interface IContact {
-  title: string;
+  title?: string;
 }
 
 const Contact = ({ title }: IContact) => {

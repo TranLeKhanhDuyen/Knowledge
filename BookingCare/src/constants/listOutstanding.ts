@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import ItemOutstanding from './index';
+import { IListOutstanding } from '../components/ListLink/ItemOutstanding/index';
 
 import doctor1 from '@assets/doctors/kieu-dinh.png';
 import doctor2 from '@assets/doctors/tra-anh-duy.jpg';
@@ -14,17 +13,8 @@ import doctor10 from '@assets/doctors/nguyen-tuong-vu.png';
 import doctor11 from '@assets/doctors/phan-vuong-huy.jpg';
 import doctor12 from '@assets/doctors/nguyen-trong-hung.jpg';
 
-// service images
-
-export default {
-  title: 'Components/ItemOutstanding',
-  component: ItemOutstanding
-} as Meta;
-
-type Story = StoryObj<typeof ItemOutstanding>;
-
-export const DoctorOutstanding: Story = {
-  args: {
+export const LIST_OUTSTANDING: IListOutstanding[] = [
+  {
     items: [
       {
         imagePath: doctor1,
@@ -86,6 +76,7 @@ export const DoctorOutstanding: Story = {
         title: 'Doctor, SpeciaList II Tra Anh Duy',
         describe: 'Andrology, Nephrology - Urology'
       }
-    ]
+    ],
+    type: 'doctor'
   }
-};
+];

@@ -1,8 +1,6 @@
-import React from 'react';
 import './header.css';
 import Navbar, { INavItem } from './Navbar/index';
 import Contact from './Contact/index';
-import Banner from '@containers/Banner';
 
 interface IHeader {
   title: string;
@@ -11,7 +9,7 @@ interface IHeader {
 
 const Header = ({ title, items }: IHeader) => {
   return (
-    <header className='header-container'>
+    <header className='container header-container'>
       <div className='header-content'>
 
         <span className='header-logo'></span>

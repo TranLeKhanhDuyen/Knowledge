@@ -9,14 +9,14 @@ export default {
 type Story = StoryObj<typeof ItemHeader>;
 
 export const Service: Story = {
-  name: 'Service',
+  name: 'Specialist',
   args: {
     items: [
       {
         title: 'Specialist Examnination'
       }
     ],
-    type: 'service'
+    type: 'specialist'
   }
 };
 
@@ -40,7 +40,7 @@ export const Oustanding: Story = {
         title: 'Oustanding doctor'
       }
     ],
-    type: 'oustanding'
+    type: 'outstanding'
   }
 };
 

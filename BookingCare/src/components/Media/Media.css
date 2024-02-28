@@ -1,0 +1,49 @@
+.media-container {
+  background: url('../../assets/backgrounds/background-outstanding.png');
+  margin-top: 50px;
+}
+
+.media-title {
+  text-align: center;
+  padding: 50px;
+}
+
+.item-link-media {
+  display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.media-video-container {
+  width: 50%;
+  padding-bottom: 100px;
+}
+
+.video-embed {
+  width: 100%;
+  height: 400px;
+}
+
+.media-wrapper {
+  display: flex;
+}
+
+.media-item-container {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+
+.item-link-media {
+  width: 48%;
+  margin-bottom: 16px;
+}
+
+.img-media-link {
+ min-width: 165px;
+ min-height: 39px;
+}

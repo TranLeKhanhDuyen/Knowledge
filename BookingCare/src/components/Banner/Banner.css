@@ -6,14 +6,16 @@
   height: 600px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .banner-title {
   margin: 0;
   text-align: center;
   text-shadow: 1px 1px 1px #333;
-  color: rgb(250, 247, 247);
-  font-size: 30px;
+  color: var(--turquoise-light-color);
+  font-size: var(--font-5xl);
+  font-weight: var(--fw-bold);
   padding-top: 100px;
 }
 

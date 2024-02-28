@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
   args: {
-    title: 'Contact',
+    title: 'ListNav',
     items: [
       {
         title: 'Specialist',

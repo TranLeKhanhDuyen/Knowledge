@@ -1,18 +1,12 @@
 import React, { Component, Fragment } from 'react';
+import Login from './Auth/Login';
 
-interface AppProps {
-  persistor: any; // Add the correct type for persistor
-  onBeforeLift?: () => void; // Add the correct type for onBeforeLift
-  isLoggedIn: boolean;
-}
+import { path } from '@utils/constant'
 
-interface AppState {
-  bootstrapped: boolean;
-}
+// import Login from '../routes/Login';
 
-class App extends Component {
-}
-
-
+const App = () => {
+  return <Login />;
+};
 
 export default App;

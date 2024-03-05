@@ -9,8 +9,8 @@ interface ILoginState {
 
 const Login = () => {
   const [state, setState] = useState<ILoginState>({
-    username: 'Duyen tran',
-    password: '11111',
+    username: '',
+    password: '',
     isShowPassword: false
   });
 

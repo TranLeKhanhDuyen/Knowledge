@@ -10,11 +10,19 @@ const Login = () => {
             <div className='login-title text-5xl text-bold'>Login</div>
             <div className='form-input'>
               <label>Username</label>
-              <input type='text' className='username text-field' />
+              <input
+                type='text'
+                className='username text-field'
+                placeholder='Enter your username'
+              />
             </div>
             <div className='form-input'>
               <label>Password</label>
-              <input type='text' className='password text-field' />
+              <input
+                type='text'
+                className='password text-field'
+                placeholder='Enter your password'
+              />
             </div>
             <button className='login-button text-bold'>Login</button>
             <span className='forgot-password'>Forgot your password?</span>

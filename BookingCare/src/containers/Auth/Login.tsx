@@ -1,17 +1,20 @@
 import React, { ChangeEvent, useState } from 'react';
 import './Login.css';
+import handleLoginAPi from '../../services/userService';
 
 interface ILoginState {
   username: string;
   password: string;
   isShowPassword: boolean;
+  isLoading: boolean; //
 }
 
 const Login = () => {
   const [state, setState] = useState<ILoginState>({
     username: '',
     password: '',
-    isShowPassword: false
+    isShowPassword: false,
+    isLoading: false, //
   });
 
   const handleOnChangeUsername = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,10 +31,23 @@ const Login = () => {
     });
   };
 
-  const handleLogin = () => {
-    console.log('username: ', state.password);
+  const handleLogin = async () => {
+    console.log('username: ', state.username);
     console.log('password: ', state.password);
     console.log('all state: ', state);
+
+    try {
+      setState({
+        ...state,
+        isLoading: true,
+      });
+      console.log("dohfuwefhwiufh")
+      const res = await handleLoginAPi(state.username, state.password)
+      console.log("res: ", res)
+    } catch (e) {
+      console.error("Error during login:", e);
+    }
+
   };
 
   const handleShowHidePassword = () => {
@@ -66,9 +82,8 @@ const Login = () => {
                   onChange={(event) => handleOnChangePassword(event)}
                 />
                 <span
-                  className={`eye cursor ${
-                    state.isShowPassword ? 'hide-eye' : 'show-eye'
-                  }`}
+                  className={`eye cursor ${state.isShowPassword ? 'hide-eye' : 'show-eye'
+                    }`}
                   onClick={handleShowHidePassword}
                 ></span>
               </div>

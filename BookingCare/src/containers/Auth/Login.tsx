@@ -6,7 +6,6 @@ interface ILoginState {
   username: string;
   password: string;
   isShowPassword: boolean;
-  isLoading: boolean; //
 }
 
 const Login = () => {
@@ -14,7 +13,6 @@ const Login = () => {
     username: '',
     password: '',
     isShowPassword: false,
-    isLoading: false, //
   });
 
   const handleOnChangeUsername = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +37,6 @@ const Login = () => {
     try {
       setState({
         ...state,
-        isLoading: true,
       });
       console.log("dohfuwefhwiufh")
       const res = await handleLoginAPi(state.username, state.password)
@@ -47,7 +44,6 @@ const Login = () => {
     } catch (e) {
       console.error("Error during login:", e);
     }
-
   };
 
   const handleShowHidePassword = () => {

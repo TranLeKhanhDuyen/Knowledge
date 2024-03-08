@@ -1,7 +1,6 @@
-import axios from "axios";
+import axios from "../axios";
 
 const handleLoginAPi = async (email: string, password: string) => {
-  console.log("ok uerservice handleLoginApi")
   try {
     const res = await axios.post('/api/login', { email, password });
     console.log("res: ", res);

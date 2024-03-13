@@ -1,0 +1,32 @@
+.header-manager-container {
+  background-color: var(--turquoise-color);
+  width: 100vw;
+}
+
+.header-manager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+}
+
+.select-manager {
+  border: none;
+  background-color: var(--turquoise-color);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logout-manager {
+  background-image: url(../../../assets/icons/ic-logout.svg);
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+}

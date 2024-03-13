@@ -1,0 +1,15 @@
+.textfield-input {
+  outline: none;
+}
+
+.textfield-input:focus {
+  border: 1px solid var(--turquoise-color);
+}
+
+.select {
+  outline: none;
+}
+
+.select:focus {
+  border: 1px solid var(--turquoise-color);
+}

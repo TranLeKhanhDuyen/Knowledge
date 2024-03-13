@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ItemHeader from './index';
+import ItemHeader from './ItemHeader';
 
 export default {
   title: 'Components/ListHeader',

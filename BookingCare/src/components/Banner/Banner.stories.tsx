@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import Banner from '.';
+import Banner from './Banner';
 
 export default {
   title: 'Components/Banner',

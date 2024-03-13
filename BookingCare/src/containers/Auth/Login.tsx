@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 import './Login.css';
-import handleLoginAPi from '../../services/userService';
 import { useNavigate } from 'react-router-dom';
 
 interface ILoginState {

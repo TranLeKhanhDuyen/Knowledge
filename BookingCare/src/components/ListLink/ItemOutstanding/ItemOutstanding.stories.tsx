@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ItemOutstanding from './index';
+import ItemOutstanding from './ItemOutstanding';
 
 import doctor1 from '@assets/doctors/kieu-dinh.png';
 import doctor2 from '@assets/doctors/tra-anh-duy.jpg';

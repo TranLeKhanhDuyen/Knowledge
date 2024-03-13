@@ -16,12 +16,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@*": ["*"],
-      "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
-      "@assets/*": ["src/assets/*"]
+      "@*": ["*"]
+      // "@components/*": ["src/components/*"],
+      // "@constants/*": ["src/constants/*"],
+      // "@assets/*": ["src/assets/*"]
     },
 
     "esModuleInterop": true,

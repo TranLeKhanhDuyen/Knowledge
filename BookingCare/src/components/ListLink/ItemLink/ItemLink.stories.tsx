@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ItemLink from './index';
+import ItemLink from './ItemLink';
 
 // service images
 import specialist from '@assets/icons/ic-specialist.png';

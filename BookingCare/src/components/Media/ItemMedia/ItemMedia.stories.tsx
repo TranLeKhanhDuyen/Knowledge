@@ -6,8 +6,8 @@ import vtcnews from '@assets/media/vtcnews.png';
 import cuccntt from '@assets/media/cuccntt.png';
 import infonet from '@assets/media/infonet.png';
 import dantri from '@assets/media/dantri.png';
-import Media from '../index';
-import ItemMedia from './index';
+import Media from '../Media';
+import ItemMedia from './ItemMedia';
 
 export default {
   title: 'Components/ItemMedia',

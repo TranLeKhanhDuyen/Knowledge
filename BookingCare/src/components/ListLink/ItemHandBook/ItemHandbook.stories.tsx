@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ItemHandbook from './index';
+import ItemHandbook from './ItemHandBook';
 
 import handbook1 from '@assets/handbook/dark-eye.png';
 import handbook2 from '@assets/handbook/melasmacost.png';

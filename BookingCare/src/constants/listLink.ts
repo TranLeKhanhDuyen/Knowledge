@@ -1,31 +1,31 @@
 // service images
-import specialist from '@assets/icons/ic-specialist.png';
-import remote from '@assets/icons/ic-remote.png';
-import dental from '@assets/icons/ic-dental.png';
-import general from '@assets/icons/ic-general.png';
-import medicalTest from '@assets/icons/ic-medical-tests.png';
-import mentealHeath from '@assets/icons/ic-mental-health.png';
+import specialist from '../assets/icons/ic-specialist.png';
+import remote from '../assets/icons/ic-remote.png';
+import dental from '../assets/icons/ic-dental.png';
+import general from '../assets/icons/ic-general.png';
+import medicalTest from '../assets/icons/ic-medical-tests.png';
+import mentealHeath from '../assets/icons/ic-mental-health.png';
 
 // specicalist images
-import musculoskeletal from '@assets/icons/ic-musculoskeletal.png';
-import nerve from '@assets/icons/ic-nerve.png';
-import digestion from '@assets/icons/ic-digestion.png';
-import heart from '@assets/icons/ic-heart.png';
-import earNoseThroat from '@assets/icons/ic-ear-nose-throat.png';
-import spine from '@assets/icons/ic-spine.png';
-import traditional from '@assets/icons/ic-traditional-medicine.png';
-import acupuncture from '@assets/icons/ic-acupincture.png';
+import musculoskeletal from '../assets/icons/ic-musculoskeletal.png';
+import nerve from '../assets/icons/ic-nerve.png';
+import digestion from '../assets/icons/ic-digestion.png';
+import heart from '../assets/icons/ic-heart.png';
+import earNoseThroat from '../assets/icons/ic-ear-nose-throat.png';
+import spine from '../assets/icons/ic-spine.png';
+import traditional from '../assets/icons/ic-traditional-medicine.png';
+import acupuncture from '../assets/icons/ic-acupincture.png';
 
 //facilities images
-import centalMilitary from '@assets/facilities/cental-military.jpg';
-import choray from '@assets/facilities/cho-ray.jpg';
-import diag from '@assets/facilities/diag.png';
-import doctorcheck from '@assets/facilities/doctor-check.png';
-import hungviet from '@assets/facilities/hung-viet.jpg';
-import medicineAndPharmacy from '@assets/facilities/medicine-and-pharmacy.jpg';
-import medlatec from '@assets/facilities/medlatec.png';
-import thucuc from '@assets/facilities/thu-cuc.png';
-import vietduc from '@assets/facilities/viet-duc.jpg';
+import centalMilitary from '../assets/facilities/cental-military.jpg';
+import choray from '../assets/facilities/cho-ray.jpg';
+import diag from '../assets/facilities/diag.png';
+import doctorcheck from '../assets/facilities/doctor-check.png';
+import hungviet from '../assets/facilities/hung-viet.jpg';
+import medicineAndPharmacy from '../assets/facilities/medicine-and-pharmacy.jpg';
+import medlatec from '../assets/facilities/medlatec.png';
+import thucuc from '../assets/facilities/thu-cuc.png';
+import vietduc from '../assets/facilities/viet-duc.jpg';
 
 import { IItemLink, IListLink } from '@components/ListLink/ItemLink';
 

@@ -1,20 +1,23 @@
 import { ChangeEvent, useState } from 'react';
 import './Login.css';
 import handleLoginAPi from '../../services/userService';
+import { useNavigate } from 'react-router-dom';
 
 interface ILoginState {
   username: string;
   password: string;
   isShowPassword: boolean;
-  errMessage: string,
+  errMessage: string;
 }
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [state, setState] = useState<ILoginState>({
     username: '',
     password: '',
     isShowPassword: false,
-    errMessage: '',
+    errMessage: ''
   });
 
   const handleOnChangeUsername = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,35 +37,11 @@ const Login = () => {
   const handleLogin = async () => {
     setState({
       ...state,
-      errMessage: '' // clear error code
+      errMessage: ''
     });
 
-    try {
-      const response = await handleLoginAPi(state.username, state.password);
-      const data: { errCode: number; message: string; user: any } = response.data; // access data property
-      console.log("check data:", data);
-
-      if (data && data.errCode !== 0) {
-        setState({
-          ...state,
-          errMessage: data.message
-        });
-      }
-      if (data && data.errCode === 0) {
-        console.log("Login successfully");
-      }
-
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        setState({
-          ...state,
-          errMessage: error.response.data.message
-        });
-      }
-      console.log("Error during login:", error);
-    }
+    navigate('/');
   };
-
   const handleShowHidePassword = () => {
     setState({
       ...state,
@@ -95,14 +74,15 @@ const Login = () => {
                   onChange={(event) => handleOnChangePassword(event)}
                 />
                 <span
-                  className={`eye cursor ${state.isShowPassword ? 'hide-eye' : 'show-eye'
-                    }`}
+                  className={`eye cursor ${
+                    state.isShowPassword ? 'hide-eye' : 'show-eye'
+                  }`}
                   onClick={handleShowHidePassword}
                 ></span>
               </div>
             </div>
 
-            <div className="col-12" style={{ color: "red" }}>
+            <div className='col-12' style={{ color: 'red' }}>
               {state.errMessage}
             </div>
 
@@ -124,5 +104,4 @@ const Login = () => {
     </>
   );
 };
-
 export default Login;

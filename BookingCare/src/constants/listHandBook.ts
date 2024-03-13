@@ -1,12 +1,12 @@
-import handbook1 from '@assets/handbook/dark-eye.png';
-import handbook2 from '@assets/handbook/melasmacost.png';
-import handbook3 from '@assets/handbook/injection.png';
-import handbook4 from '@assets/handbook/dark-eye2.png';
-import handbook5 from '@assets/handbook/hifu-upgrade.png';
-import handbook6 from '@assets/handbook/hifu-upgrade2.png';
-import handbook7 from '@assets/handbook/skin-rejuvenation.png';
-import handbook8 from '@assets/handbook/top7-melasma.png';
-import handbook9 from '@assets/handbook/top7-rejuvenation.png';
+import handbook1 from '../assets/handbook/dark-eye.png';
+import handbook2 from '../assets/handbook/melasmacost.png';
+import handbook3 from '../assets/handbook/injection.png';
+import handbook4 from '../assets/handbook/dark-eye2.png';
+import handbook5 from '../assets/handbook/hifu-upgrade.png';
+import handbook6 from '../assets/handbook/hifu-upgrade2.png';
+import handbook7 from '../assets/handbook/skin-rejuvenation.png';
+import handbook8 from '../assets/handbook/top7-melasma.png';
+import handbook9 from '../assets/handbook/top7-rejuvenation.png';
 import { IListHandbook } from '@components/ListLink/ItemHandBook';
 
 export const LIST_HANDBOOK: IListHandbook[] = [

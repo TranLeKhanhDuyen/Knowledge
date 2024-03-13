@@ -1,10 +1,10 @@
-import vtv1 from '@assets/media/vtv1.png';
-import ictnews from '@assets/media/ictnews.png';
-import vnexpress from '@assets/media/vnexpress.png';
-import vtcnews from '@assets/media/vtcnews.png';
-import cuccntt from '@assets/media/cuccntt.png';
-import infonet from '@assets/media/infonet.png';
-import dantri from '@assets/media/dantri.png';
+import vtv1 from '../assets/media/vtv1.png';
+import ictnews from '../assets/media/ictnews.png';
+import vnexpress from '../assets/media/vnexpress.png';
+import vtcnews from '../assets/media/vtcnews.png';
+import cuccntt from '../assets/media/cuccntt.png';
+import infonet from '../assets/media/infonet.png';
+import dantri from '../assets/media/dantri.png';
 import { IListMedia } from '@components/Media/ItemMedia';
 import { IVideoMedia } from '@components/Media/Video';
 
@@ -61,4 +61,3 @@ export const MEDIA_VIDEO: IVideoMedia[] = [
     title: 'vtv1'
   }
 ];
-

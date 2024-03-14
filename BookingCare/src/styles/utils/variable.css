@@ -19,5 +19,7 @@
   --turquoise-dark-color: rgb(69, 195, 210);
   --light--azure: rgb(100 185 229);
   --light-gray-color: rgb(241, 241, 241);
-  --white-color: #FFF;
+  --white-color: #fff;
+  --dark-gray-color: rgb(51, 51, 51);
+  --very-light-gray: rgb(241, 241, 241);
 }

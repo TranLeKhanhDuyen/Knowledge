@@ -1,11 +1,11 @@
 .outstanding-container {
   object-fit: cover;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .outstanding-wrapper {
   display: flex;
-  padding-bottom: 50px;
 }
 
 .item-oustanding-container {
@@ -14,12 +14,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 4px 20px;
+  margin-left: 20px;
 }
 
 .img-outstanding {
-  height: 220px;
-  width: 220px;
+  width: 80%;
   inset: 0px;
   object-fit: cover;
   border-radius: 50%;

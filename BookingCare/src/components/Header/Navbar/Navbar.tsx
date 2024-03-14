@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface INavItem {
   title: string;
   subsTitle: string;
@@ -13,9 +11,9 @@ interface INavbar {
 const Navbar = ({ items }: INavbar) => {
   return items.map((item) => (
     <nav className='center-content' onClick={item.navigation}>
-      <div className='child-content'>
-        <b>{item.title}</b>
-        <p className='subs-title'>{item.subsTitle}</p>
+      <div className='cursor child-content'>
+        <p className='text-turquoise-dark text-bold'>{item.title}</p>
+        <p className=' subs-title text-dark-gray'>{item.subsTitle}</p>
       </div>
     </nav>
   ));

@@ -19,8 +19,8 @@ const ItemHeader = ({ items, type }: IListHeader) => {
       {items.map((item) => (
         <>
           <h3 className='text-bold text-xl'>{item.title}</h3>
-          <a className={` text-xl item-header-wrapper`} onClick={item.onClick}>
-            <p className='btn-primary'>see more</p>
+          <a className={` text-xl text-turquoise cursor item-header-wrapper`} onClick={item.onClick}>
+            <p className='btn-primary'>See more</p>
           </a>
         </>
       ))}

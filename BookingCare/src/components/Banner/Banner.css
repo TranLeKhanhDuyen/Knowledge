@@ -1,12 +1,12 @@
 .banner {
-  background: url('../../assets/banner.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 600px;
   display: flex;
   flex-direction: column;
+  background: url('../../assets/banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
   margin-bottom: 50px;
+  opacity: 0.85;
 }
 
 .banner-title {

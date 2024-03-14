@@ -23,7 +23,7 @@ const Footer = ({ items }: IListFooter) => {
             <a
               target='blank'
               href={item.link}
-              className={`item-footer`}
+              className={` cursor item-footer`}
               onClick={item.onClick}
             >
               <img

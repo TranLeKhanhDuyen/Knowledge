@@ -1,5 +1,5 @@
 import React from 'react';
-import './ListHeader.css';
+import './ItemHeader.css';
 
 type TListHeader = 'specialist' | 'facilities' | 'outstanding' | 'handbook';
 

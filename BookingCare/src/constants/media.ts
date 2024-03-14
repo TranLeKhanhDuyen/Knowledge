@@ -5,8 +5,8 @@ import vtcnews from '../assets/media/vtcnews.png';
 import cuccntt from '../assets/media/cuccntt.png';
 import infonet from '../assets/media/infonet.png';
 import dantri from '../assets/media/dantri.png';
-import { IListMedia } from '@components/Media/ItemMedia';
-import { IVideoMedia } from '@components/Media/Video';
+import { IListMedia } from '@components/Media/ItemMedia/ItemMedia';
+import { IVideoMedia } from '@components/Media/Video/Video';
 
 export const LIST_MEDIA: IListMedia[] = [
   {

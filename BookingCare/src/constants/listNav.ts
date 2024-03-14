@@ -1,4 +1,4 @@
-import { INavItem } from '@components/Header/Navbar';
+import { INavItem } from "@components/Header/Navbar/Navbar";
 
 export const LIST_NAV: INavItem[] = [
   {

@@ -26,8 +26,8 @@ import medicineAndPharmacy from '../assets/facilities/medicine-and-pharmacy.jpg'
 import medlatec from '../assets/facilities/medlatec.png';
 import thucuc from '../assets/facilities/thu-cuc.png';
 import vietduc from '../assets/facilities/viet-duc.jpg';
+import { IListLink } from '@components/ListLink/ItemLink/ItemLink';
 
-import { IItemLink, IListLink } from '@components/ListLink/ItemLink';
 
 export const LIST_LINK: IListLink[] = [
   {

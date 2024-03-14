@@ -1,17 +1,26 @@
-import { BANNER } from '@constants/banner';
-import { LIST_HEADER } from '@constants/listHeader';
-import { LIST_LINK } from '@constants/listLink';
-import { LIST_NAV } from '@constants/listNav';
-import { LIST_OUTSTANDING } from '@constants/listOutstanding';
-import { LIST_FOOTER } from '@constants/footer';
-import { LIST_MEDIA, MEDIA_VIDEO } from '@constants/media';
-import { LIST_HANDBOOK } from '@constants/listHandBook';
-
-
+//constans
 import {
-  Banner, Header, ItemLink, ItemOutstanding, ItemHeader, Footer, ItemHanbook
+  BANNER,
+  LIST_HEADER,
+  LIST_LINK,
+  LIST_NAV,
+  LIST_OUTSTANDING,
+  LIST_FOOTER,
+  LIST_MEDIA,
+  MEDIA_VIDEO,
+  LIST_HANDBOOK
+} from '@constants'
+
+//components
+import {
+  Banner,
+  Header,
+  ItemLink,
+  ItemOutstanding,
+  ItemHeader, Footer,
+  ItemHanbook, Media
 } from '@components';
-import Media from '@components/Media/Media';
+
 
 const HomePage = () => {
   return (

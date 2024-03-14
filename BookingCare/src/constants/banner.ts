@@ -1,4 +1,4 @@
-import { IBannerItem } from "@components/Banner";
+import { IBannerItem } from "@components/Banner/Banner";
 
 export const BANNER: IBannerItem[] = [
   {
@@ -6,3 +6,4 @@ export const BANNER: IBannerItem[] = [
     textField: 'Find doctors by specialty'
   }
 ];
+

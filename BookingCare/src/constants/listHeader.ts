@@ -1,4 +1,4 @@
-import { IListHeader } from '@components/ListHeader';
+import { IListHeader } from "@components/ListHeader/ItemHeader";
 
 export const LIST_HEADER: IListHeader[] = [
   {

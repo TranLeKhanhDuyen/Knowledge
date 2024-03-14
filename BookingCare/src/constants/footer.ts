@@ -1,7 +1,7 @@
+import { IListFooter } from '@components/Footer/Footer';
 import facebook from '../assets/icons/ic-facebook.svg';
 import tiktok from '../assets/icons/ic-tiktok.svg';
 import youtube from '../assets/icons/ic-youtube.svg';
-import { IListFooter } from '@components/Footer';
 
 export const LIST_FOOTER: IListFooter = {
   items: [

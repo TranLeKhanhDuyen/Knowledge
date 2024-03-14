@@ -1,4 +1,4 @@
-import { IListTextField } from '@src/components/TextField/TextField';
+import { IListTextField } from '@components/TextField/TextField';
 
 export const TEXT_FIELD: IListTextField[] = [
   {

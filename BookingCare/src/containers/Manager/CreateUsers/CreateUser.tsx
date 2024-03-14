@@ -1,6 +1,6 @@
-import TextField from '@src/components/TextField/TextField';
+import { TextField } from "@components";
+import { TEXT_FIELD } from "@constants/textfield";
 import './CreateUser.css'
-import { TEXT_FIELD } from '@src/constants/textfield';
 
 const CreateUser = () => {
 
@@ -15,7 +15,7 @@ const CreateUser = () => {
         {TEXT_FIELD.map((field, index) => (
           <TextField key={index} items={field.items} />
         ))}
-          <button className="btn-create-users" type="submit">Save User</button>
+        <button className="btn-create-users" type="submit">Save User</button>
       </form>
     </>
   )

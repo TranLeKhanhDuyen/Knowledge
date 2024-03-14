@@ -7,7 +7,7 @@ import handbook6 from '../assets/handbook/hifu-upgrade2.png';
 import handbook7 from '../assets/handbook/skin-rejuvenation.png';
 import handbook8 from '../assets/handbook/top7-melasma.png';
 import handbook9 from '../assets/handbook/top7-rejuvenation.png';
-import { IListHandbook } from '@components/ListLink/ItemHandBook';
+import { IListHandbook } from '@components/ListLink/ItemHandBook/ItemHandBook';
 
 export const LIST_HANDBOOK: IListHandbook[] = [
   {

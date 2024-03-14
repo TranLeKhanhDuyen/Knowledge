@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MediaVideo } from './Video';
+import MediaVideo from './Video';
 
 export default {
   title: 'Components/MediaVideo',

@@ -1,4 +1,3 @@
-import React from 'react';
 import './ItemHeader.css';
 
 type TListHeader = 'specialist' | 'facilities' | 'outstanding' | 'handbook';

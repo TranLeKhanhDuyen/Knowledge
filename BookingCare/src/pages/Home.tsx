@@ -20,8 +20,6 @@ import {
   ItemHeader, Footer,
   ItemHanbook, Media
 } from '@components';
-import React from 'react';
-
 
 const HomePage = () => {
   return (

@@ -1,8 +1,8 @@
-import './Header.css';
+import '@containers/Manager/Header/Header.css';
 
 interface HeaderManagerProps {
   onSelectOption: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  selectedOption: string; // Accept selectedOption as prop
+  selectedOption: string;
 }
 
 const HeaderManager: React.FC<HeaderManagerProps> = ({ onSelectOption, selectedOption }) => {

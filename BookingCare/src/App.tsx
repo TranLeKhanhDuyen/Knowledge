@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/Home';
-import Login from './containers/Auth/Login';
-import Manager from './containers/Manager/Manager';
+import HomePage from '@pages/Home';
+import { Login } from '@containers';
+import Manager from '@containers/Manager/Manager';
 
 const App = () => {
   return (

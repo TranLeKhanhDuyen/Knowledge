@@ -1,8 +1,6 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useState } from 'react'; // Import useState hook
-import HeaderManager from './Header/Header';
-import AllUsers from './AllUsers/AllUsers';
-import CreateUser from './CreateUsers/CreateUser';
+import { useState } from 'react';
+import { HeaderManager, AllUsers, CreateUser } from '@containers';
 
 const Manager = () => {
   const navigate = useNavigate();
@@ -24,7 +22,7 @@ const Manager = () => {
 
   return (
     <>
-      <HeaderManager onSelectOption={handleSelectOption} selectedOption={selectedOption} /> {/* Pass selectedOption state to HeaderManager */}
+      <HeaderManager onSelectOption={handleSelectOption} selectedOption={selectedOption} />
       <Routes>
         <Route path="/all-users" element={<AllUsers />} />
         <Route path="/create-users" element={<CreateUser />} />

@@ -1,5 +1,4 @@
-import React from 'react';
-import './ItemOutstanding.css';
+import '@components/ListLink/ItemOutstanding/ItemOutstanding.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -35,7 +34,7 @@ const ItemOutstanding = ({ items, type }: IListOutstanding) => {
       <Slider {...settings} className='container outstanding-wrapper'>
         {items.map((item) => (
           <a
-            className={`item-oustanding-container ${type}`}
+            className={`cursor item-oustanding-container ${type}`}
             onClick={item.onClick}
           >
             <img
@@ -44,7 +43,7 @@ const ItemOutstanding = ({ items, type }: IListOutstanding) => {
               alt={`Image for ${item.title}`}
             />
             <h4 className='text-3xl'>{item.title}</h4>
-            <p className='text-xl describe-oustainding'>{item.describe}</p>
+            <p className='text-xl text-dark-gray describe-oustainding'>{item.describe}</p>
           </a>
         ))}
       </Slider>

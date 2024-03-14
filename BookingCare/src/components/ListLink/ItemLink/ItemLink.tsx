@@ -28,7 +28,7 @@ const ItemLink = ({ items, type }: IListLink) => {
     return (
       <div className={`container item-link-wrapper ${type}`}>
         {items.map((item) => (
-          <a className={`item-link-container`} onClick={item.onClick}>
+          <a className={`cursor item-link-container`} onClick={item.onClick}>
             <img
               className='img-link'
               src={item.imagePath}
@@ -46,7 +46,7 @@ const ItemLink = ({ items, type }: IListLink) => {
       <Slider  {...settings} className={`container item-link-wrapper ${type}`}>
         {items.map((item) => (
           <div className='item-link-slider'>
-            <a className={`item-link-container`} onClick={item.onClick}>
+            <a className={`cursor item-link-container`} onClick={item.onClick}>
               <img
                 className='img-link'
                 src={item.imagePath}

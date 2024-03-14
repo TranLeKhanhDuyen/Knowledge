@@ -26,7 +26,7 @@ const ItemHanbook = ({ items, type }: IListHandbook) => {
   return (
     <Slider {...settings} className='container handbook-container'>
       {items.map((item) => (
-        <a className={`item-handbook-container ${type}`} onClick={item.onClick}>
+        <a className={`cursor item-handbook-container ${type}`} onClick={item.onClick}>
           <img
             className='img-handbook'
             src={item.imagePath}

@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.item-link-container:hover {
+  border: 2px solid var(--turquoise-dark-color);
+}
+
 .img-link {
   height: 100%;
   width: 100%;

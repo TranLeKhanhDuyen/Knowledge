@@ -1,6 +1,7 @@
 .login-background {
-  background: rgb(34, 193, 195);
-  background: linear-gradient(135deg, rgb(157, 190, 190) 0%, rgb(45, 194, 253) 100%);
+  background: url('../../assets/backgrounds/login-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   padding-top: 50px;
@@ -13,8 +14,9 @@
   width: 30%;
   height: auto;
   margin: 100px auto;
-  background-color: #FFFFFF;
+  background-color: var(--white-color);
   border-radius: 25px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .login-content {
@@ -26,7 +28,7 @@
 
 .login-title {
   text-align: center;
-  padding: 30px
+  padding: 30px;
 }
 
 .form-input {
@@ -58,7 +60,7 @@
   width: 15px;
   position: absolute;
   right: 15px;
-  top: 28px
+  top: 28px;
 }
 
 .hide-eye {
@@ -75,7 +77,11 @@
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgb(157, 190, 190) 0%, rgb(45, 194, 253) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(157, 190, 190) 0%,
+    rgb(45, 194, 253) 100%
+  );
 }
 
 .afternative-login {
@@ -102,5 +108,4 @@
   min-height: 50px;
   display: block;
   padding: 20px;
-
 }

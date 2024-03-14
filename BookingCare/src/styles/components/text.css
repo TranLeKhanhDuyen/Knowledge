@@ -68,5 +68,9 @@ li {
 }
 
 .text-white {
-  color: var(--white-color)
+  color: var(--white-color);
+}
+
+.text-dark-gray {
+  color: var(--dark-gray-color);
 }

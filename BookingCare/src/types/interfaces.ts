@@ -40,3 +40,10 @@ export interface ISearchBarProps {
   placeholder?: string;
   onChange?: (value: string) => void;
 }
+
+export interface IImageProps {
+  width?: number
+  height?: number
+  src: string
+  alt?: string
+}

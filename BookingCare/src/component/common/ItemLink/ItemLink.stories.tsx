@@ -1,10 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Button from './Button'
-import './Button.css'
+import './ItemLink.css'
+import ItemLink from './ItemLink';
+import image from '../../../assets/facilities/cental-military.jpg'
 
 export default {
-  title: 'Button',
-  component: Button,
+  title: 'ItemLink',
+  component: ItemLink,
   tags: ['autodocs'],
   argTypes: {
     title: {
@@ -15,20 +16,30 @@ export default {
     },
     size: {
       defaultValue: 'small',
-      description: 'Change size of the button',
+      description: 'Change size of the item link',
     },
     variant: {
       defaultValue: 'primary',
-      description: 'Change color of the button',
+      description: 'Change color of the item link',
+    },
+    description: {
+      defaultValue: '',
+      description: 'Change description of the item link',
+    },
+    image: {
+      defaultValue: '',
+      description: 'Image URL for the item link',
     },
   },
-} as Meta<typeof Button>
+} as Meta
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof ItemLink>;
 
 export const Default: Story = {
   args: {
-    title: 'See more'
+    image: image,
+    title: 'D',
+    description: 'D'
   }
 }
 
@@ -55,3 +66,4 @@ export const Large: Story = {
     variant: 'secondary',
   }
 }
+

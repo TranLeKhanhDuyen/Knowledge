@@ -1,3 +1,4 @@
+import { HTMLInputTypeAttribute } from 'react';
 import {
   TButtonSize,
   TButtonVariant,
@@ -25,4 +26,16 @@ export interface IItemLinkProps {
 export interface INavItemProps {
   title: string;
   subsTitle: string;
+}
+
+export interface IInputProps {
+  type?: HTMLInputTypeAttribute
+  placeholder?: string
+}
+
+
+export interface ISearchBarProps {
+  icon?: string;
+  placeholder?: string;
+  onChange?: (value: string) => void;
 }

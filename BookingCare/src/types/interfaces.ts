@@ -21,3 +21,8 @@ export interface IItemLinkProps {
   additionalClass?: string;
   onClick?: () => void;
 }
+
+export interface INavItemProps {
+  title: string;
+  subsTitle: string;
+}

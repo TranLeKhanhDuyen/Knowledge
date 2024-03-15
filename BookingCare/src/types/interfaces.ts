@@ -31,8 +31,9 @@ export interface INavItemProps {
 export interface IInputProps {
   type?: HTMLInputTypeAttribute
   placeholder?: string
+  name?: string
+  value?: string
 }
-
 
 export interface ISearchBarProps {
   icon?: string;

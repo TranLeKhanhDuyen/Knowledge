@@ -1,5 +1,4 @@
 import { INavItemProps } from "@types"
-import './ItemNav.css'
 
 const ItemNav = ({ title, subsTitle }: INavItemProps) => {
   return (

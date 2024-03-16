@@ -29,10 +29,10 @@ export interface INavItemProps {
 }
 
 export interface IInputProps {
-  type?: HTMLInputTypeAttribute
-  placeholder?: string
-  name?: string
-  value?: string
+  type?: HTMLInputTypeAttribute;
+  placeholder?: string;
+  name?: string;
+  value?: string;
 }
 
 export interface ISearchBarProps {
@@ -42,8 +42,13 @@ export interface ISearchBarProps {
 }
 
 export interface IImageProps {
-  width?: number
-  height?: number
-  src: string
-  alt?: string
+  width?: number;
+  height?: number;
+  src: string;
+  alt?: string;
+}
+
+export interface IItemFooterProps {
+  link?: string;
+  text: string;
 }

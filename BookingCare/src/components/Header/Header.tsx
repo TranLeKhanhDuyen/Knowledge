@@ -1,4 +1,4 @@
-import './Header.css';
+import './header.css';
 import Navbar, { INavItem } from './Navbar/Navbar';
 import Contact from './Contact/Contact';
 

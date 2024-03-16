@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo_v3.png'
 import  Image from './Image'
 
 export default {
@@ -28,6 +28,7 @@ type Story = StoryObj<typeof Image>;
 
 export const Default: Story = {
   args: {
-
+    src: logo,
+    alt: 'img ogo'
   }
 }

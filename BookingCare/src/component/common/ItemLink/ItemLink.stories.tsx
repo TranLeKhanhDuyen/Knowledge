@@ -4,7 +4,7 @@ import ItemLink from './ItemLink';
 import image from '../../../assets/facilities/cental-military.jpg'
 
 export default {
-  title: 'ItemLink',
+  title: 'Commons/ItemLink',
   component: ItemLink,
   tags: ['autodocs'],
   argTypes: {

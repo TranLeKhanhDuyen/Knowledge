@@ -3,7 +3,7 @@ import Button from './Button'
 import './Button.css'
 
 export default {
-  title: 'Button',
+  title: 'Commons/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {

@@ -3,7 +3,7 @@ import './Input.css'
 import Input from './Input';
 
 export default {
-  title: 'Input',
+  title: 'Commons/Input',
   component: Input,
   tags: ['autodocs'],
   argTypes: {

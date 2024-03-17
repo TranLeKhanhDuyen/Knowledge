@@ -3,7 +3,7 @@ import logo from '../../../assets/logo_v3.png'
 import  Image from './Image'
 
 export default {
-  title: 'Image',
+  title: 'Commons/Image',
   component: Image,
   argTypes: {
     src: {

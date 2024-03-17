@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Label from "./Label";
 
 export default {
-  title: 'Label',
+  title: 'Commons/Label',
   component: Label,
   tags: ['autodocs'],
   argTypes: {

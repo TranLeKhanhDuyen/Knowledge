@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Option from "./Option";
 
 export default {
-  title: 'Option',
+  title: 'Commons/Option',
   component: Option,
   tags: ['autodocs'],
   argTypes: {

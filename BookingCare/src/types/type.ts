@@ -10,3 +10,6 @@ export type TButtonVariant = TVariant;
 // ItemLink related types
 export type TItemLinkSize = TSize;
 export type TItemLinkVariant = TVariant;
+
+//Input
+export type TInputVariant = 'search' | 'text'

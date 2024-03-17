@@ -1,7 +1,7 @@
-import { HTMLInputTypeAttribute } from 'react';
 import {
   TButtonSize,
   TButtonVariant,
+  TInputVariant,
   TItemLinkSize,
   TItemLinkVariant
 } from './type';
@@ -29,7 +29,7 @@ export interface INavItemProps {
 }
 
 export interface IInputProps {
-  type?: HTMLInputTypeAttribute;
+  type?: TInputVariant;
   placeholder?: string;
   name?: string;
   value?: string;
@@ -66,3 +66,18 @@ export interface ITableProps {
     [key: string]: string;
   };
 }
+
+export interface IHeaderProps {
+  header: THeader;
+}
+
+export type THeader = {
+  width?: number;
+  height?: number;
+  image: string;
+  alt?: string;
+  items: {
+    title: string;
+    subtitle: string;
+  }[];
+};

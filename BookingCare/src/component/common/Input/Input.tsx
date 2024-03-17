@@ -1,9 +1,15 @@
 import './Input.css'
 import { IInputProps } from '@types'
 
-const Input = ({ type, placeholder, name, value }: IInputProps) => (
+const Input = ({
+  type,
+  placeholder,
+  name,
+  value,
+  additionalClass
+}: IInputProps) => (
   <input
-    className="input"
+    className={`input ${additionalClass}`}
     type={type}
     placeholder={placeholder}
     name={name}

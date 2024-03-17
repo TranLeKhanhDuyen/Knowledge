@@ -52,3 +52,17 @@ export interface IItemFooterProps {
   link?: string;
   text: string;
 }
+
+export interface ITableProps {
+  data: {
+    rows: {
+      firstname?: string;
+      lastname?: string;
+      email?: string;
+      address?: string;
+    }[];
+  };
+  columnTitles: {
+    [key: string]: string;
+  };
+}

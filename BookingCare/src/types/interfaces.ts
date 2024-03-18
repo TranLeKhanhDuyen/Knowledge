@@ -1,7 +1,10 @@
-import { TButtonSize, TButtonVariant } from "@component/common/Button/Button";
-import { TImageVariant } from "@component/common/Image/Image";
-import { TInputVariant } from "@component/common/Input/Input";
-import { TItemLinkSize, TItemLinkVariant } from "@component/common/ItemLink/ItemLink";
+import { TButtonSize, TButtonVariant } from '@components/common/Button/Button';
+import { TImageVariant } from '@components/common/Image/Image';
+import { TInputVariant } from '@components/common/Input/Input';
+import {
+  TItemLinkSize,
+  TItemLinkVariant
+} from '@components/common/ItemLink/ItemLink';
 
 export interface IButtonProps {
   title: string;
@@ -30,17 +33,12 @@ export interface IInputProps {
   placeholder?: string;
   name?: string;
   value?: string;
-  additionalClass?: string
-}
-
-export interface ISearchBarProps {
-  icon?: string;
-  placeholder?: string;
-  onChange?: (value: string) => void;
+  additionalClass?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface IImageProps {
-  variant?: TImageVariant
+  variant?: TImageVariant;
   width?: number;
   height?: number;
   src: string;
@@ -70,7 +68,7 @@ export interface IHeaderProps {
   navbarData: THeader;
 }
 
-export type THeader = {
+export interface THeader {
   width?: number;
   height?: number;
   image: string;
@@ -80,4 +78,4 @@ export type THeader = {
     title: string;
     subtitle: string;
   }[];
-};
+}

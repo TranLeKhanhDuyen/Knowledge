@@ -80,6 +80,7 @@ export type THeader = {
   image: string;
   alt?: string;
   items: {
+    id: string;
     title: string;
     subtitle: string;
   }[];

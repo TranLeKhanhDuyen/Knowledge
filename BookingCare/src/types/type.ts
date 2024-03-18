@@ -15,4 +15,4 @@ export type TItemLinkVariant = TVariant;
 export type TInputVariant = 'search' | 'text';
 
 //Image
-export type TImageVariant = 'round' | 'rectangular';
+// export type TImageVariant = 'round' | 'rectangular';

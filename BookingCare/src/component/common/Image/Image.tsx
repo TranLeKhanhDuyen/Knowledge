@@ -1,4 +1,5 @@
 import { IImageProps } from '@types'
+export type TImageVariant = 'round' | 'rectangular';
 
 const Image = ({ width, height, src, alt, variant }: IImageProps) => {
   return (

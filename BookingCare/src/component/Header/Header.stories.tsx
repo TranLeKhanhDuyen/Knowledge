@@ -29,8 +29,6 @@ export const Default: StoryType = (args) => <Header {...args} />;
 
 Default.args = {
   header: {
-    width: 200,
-    height: 43,
     image: logo,
     alt: 'Logo',
     items: [

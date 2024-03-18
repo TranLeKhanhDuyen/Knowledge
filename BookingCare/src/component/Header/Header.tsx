@@ -8,8 +8,8 @@ const Header = ({ header }: IHeaderProps) => {
   return (
     <header className="header">
       <Image
-        width={header.width}
-        height={header.height}
+        width={200}
+        height={43}
         src={header.image}
         alt={header.alt}
       />

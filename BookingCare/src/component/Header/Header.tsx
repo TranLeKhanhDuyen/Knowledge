@@ -3,24 +3,24 @@ import ItemNav from "@component/common/ItemNav/ItemNav";
 import { IHeaderProps } from "@types";
 import './Header.css'
 
-const Header = ({ header }: IHeaderProps) => {
+const Header = ({ navbarData }: IHeaderProps) => {
 
   return (
     <header className="header">
       <Image
         width={200}
         height={43}
-        src={header.image}
-        alt={header.alt}
+        src={navbarData.image}
+        alt={navbarData.alt}
       />
       <nav className="navbar">
-      {header.items.map((item) => (
-        <ItemNav
-          key={item.id}
-          title={item.title}
-          subsTitle={item.subtitle}
-        />
-      ))}
+        {navbarData.items.map((item) => (
+          <ItemNav
+            key={item.id}
+            title={item.title}
+            subsTitle={item.subtitle}
+          />
+        ))}
       </nav>
     </header>
   );

@@ -67,7 +67,7 @@ export interface ITableProps {
 }
 
 export interface IHeaderProps {
-  header: THeader;
+  navbarData: THeader;
 }
 
 export type THeader = {

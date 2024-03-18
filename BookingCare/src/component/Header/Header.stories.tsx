@@ -28,7 +28,7 @@ type StoryType = Story<typeof Header>;
 export const Default: StoryType = (args) => <Header {...args} />;
 
 Default.args = {
-  header: {
+  navbarData: {
     image: logo,
     alt: 'Logo',
     items: [

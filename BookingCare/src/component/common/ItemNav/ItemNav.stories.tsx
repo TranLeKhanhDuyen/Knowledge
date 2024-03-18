@@ -23,7 +23,7 @@ type Story = StoryObj<typeof ItemNav>;
 
 export const Default: Story = {
   args: {
-    title: 'Handbook',
-    subsTitle: 'Handbookgn'
+    title: 'Specialist',
+    subsTitle: 'Find doctors by specialty'
   }
 }

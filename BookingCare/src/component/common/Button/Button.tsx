@@ -1,5 +1,8 @@
-import { IButtonProps } from '../../../types/type';
+import { IButtonProps } from '@types';
 import './Button.css';
+
+export type TButtonSize = 'small' | 'medium' | 'large';
+export type TButtonVariant = 'primary' | 'secondary';
 
 const Button = ({
   title,

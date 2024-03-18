@@ -1,13 +1,7 @@
-// import {
-//   TButtonSize,
-//   TButtonVariant,
-//   TImageVariant,
-//   TInputVariant,
-//   TItemLinkSize,
-//   TItemLinkVariant
-// } from './type';
-
+import { TButtonSize, TButtonVariant } from "@component/common/Button/Button";
 import { TImageVariant } from "@component/common/Image/Image";
+import { TInputVariant } from "@component/common/Input/Input";
+import { TItemLinkSize, TItemLinkVariant } from "@component/common/ItemLink/ItemLink";
 
 export interface IButtonProps {
   title: string;

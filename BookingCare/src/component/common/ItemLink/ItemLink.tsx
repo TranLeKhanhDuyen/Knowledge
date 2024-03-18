@@ -1,5 +1,8 @@
-import { IItemLinkProps } from "../../../types/type"
+import { IItemLinkProps } from '@types';
 import './ItemLink.css'
+
+export type TItemLinkSize = 'small' | 'medium' | 'large';
+export type TItemLinkVariant = 'primary' | 'secondary';
 
 const ItemLink = ({
   title,

@@ -1,6 +1,8 @@
 import './Input.css'
 import { IInputProps } from '@types'
 
+export type TInputVariant = 'search' | 'text';
+
 const Input = ({
   variant,
   placeholder,

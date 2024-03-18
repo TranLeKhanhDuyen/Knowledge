@@ -1,5 +1,5 @@
-import Image from "@component/common/Image/Image";
-import ItemNav from "@component/common/ItemNav/ItemNav";
+import Image from "@components/common/Image/Image";
+import ItemNav from "@components/common/ItemNav/ItemNav";
 import { IHeaderProps } from "@types";
 import './Header.css'
 

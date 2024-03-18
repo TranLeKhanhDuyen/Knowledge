@@ -1,6 +1,6 @@
 import Header from './Header';
 import { Meta, Story } from '@storybook/react';
-import logo from '../../assets/logo_v3.png';
+import logo from '../../assets/logo-v3.png';
 
 export default {
   title: 'Header',

@@ -3,8 +3,8 @@ import './ItemLink.css'
 
 const ItemLink = ({
   title,
-  size = 'medium',
-  variant = 'primary',
+  size,
+  variant,
   description,
   image,
   additionalClass,

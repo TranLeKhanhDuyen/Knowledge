@@ -8,7 +8,7 @@ const Table = ({ data, columnTitles }: ITableProps) => {
     <table className="table">
       <thead>
         <tr>
-          {Object.keys(data.rows[0]).map((key, index) => (
+          {Object.keys(columnTitles).map((key, index) => (
             <th className="text-bold text-white table-column table-head" key={index}>{columnTitles[key]}</th>
           ))}
         </tr>

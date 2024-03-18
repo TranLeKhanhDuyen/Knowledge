@@ -6,3 +6,10 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [react(), tsconfigPaths()]
 });
+
+// vite.config.js or vite.config.ts
+// import ViteReactPlugin from '@vitejs/plugin-react';
+
+// export default {
+//   plugins: [ViteReactPlugin()]
+// };

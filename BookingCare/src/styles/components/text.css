@@ -66,3 +66,11 @@ li {
 .text-light-gray {
   color: var(--light-gray-color);
 }
+
+.text-white {
+  color: var(--white-color);
+}
+
+.text-dark-gray {
+  color: var(--dark-gray-color);
+}

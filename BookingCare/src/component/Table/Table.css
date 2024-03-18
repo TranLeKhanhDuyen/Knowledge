@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-column {
+  border: 1px solid var(--dark-gray-color);
+  padding: 15px;
+}
+
+.table-head {
+  background-color: var(--turquoise-color);
+
+}
+
+.table-tr:nth-child(odd) {
+  background-color: var(--white-color);
+}
+
+.table-tr:nth-child(even) {
+  background-color: var(--gray-color);
+}
+
+.table-tr:hover {
+  background-color: var(--turquoise-dark-color);
+}

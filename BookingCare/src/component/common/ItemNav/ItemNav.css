@@ -1,0 +1,22 @@
+.item-nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 30px;
+  position: relative;
+}
+
+.item-nav::before {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--turquoise-dark-color);
+  transition: width 0.3s ease;
+}
+
+.item-nav:hover::before {
+  width: 100%;
+}

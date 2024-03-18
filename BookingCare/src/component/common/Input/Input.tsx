@@ -5,12 +5,10 @@ const Input = ({
   type,
   placeholder,
   name,
-  value,
-  additionalClass
+  value
 }: IInputProps) => (
   <input
-    className={`input ${additionalClass}`}
-    type={type}
+    className={`input-${type}`}
     placeholder={placeholder}
     name={name}
     value={value}

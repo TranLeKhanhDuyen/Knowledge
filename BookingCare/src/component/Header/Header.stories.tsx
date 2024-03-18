@@ -5,11 +5,20 @@ import logo from '../../assets/logo_v3.png';
 export default {
   title: 'Header',
   component: Header,
+  tags: ['autodocs'],
   argTypes: {
     header: {
       control: {
-        type: 'object',
+        type: 'string',
       },
+    },
+    title: {
+      defaultValue: '',
+      description: 'Change title of the navbar item',
+    },
+    subsTitle: {
+      defaultValue: '',
+      description: 'Change title of the navbar item',
     },
   },
 } as Meta;

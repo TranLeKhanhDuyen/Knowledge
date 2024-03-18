@@ -4,18 +4,17 @@ import { IHeaderProps } from "@types";
 import './Header.css'
 
 const Header = ({ header }: IHeaderProps) => {
-  const { width, height, image, alt, items } = header;
 
   return (
     <header className="header">
       <Image
-        width={width}
-        height={height}
-        src={image}
-        alt={alt}
+        width={header.width}
+        height={header.height}
+        src={header.image}
+        alt={header.alt}
       />
       <nav className="navbar">
-      {items.map((item, index) => (
+      {header.items.map((item, index) => (
         <ItemNav
           key={index}
           title={item.title}
@@ -23,7 +22,6 @@ const Header = ({ header }: IHeaderProps) => {
         />
       ))}
       </nav>
-
     </header>
   );
 }

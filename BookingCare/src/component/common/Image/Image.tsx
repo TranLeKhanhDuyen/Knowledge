@@ -1,9 +1,9 @@
 import { IImageProps } from '@types'
 
-const Image = ({ width, height, src, alt }: IImageProps) => {
+const Image = ({ width, height, src, alt, variant }: IImageProps) => {
   return (
     <>
-      <img width={width} height={height} src={src} alt={alt} />
+      <img className={`image -${variant}`} width={width} height={height} src={src} alt={alt} />
     </>
   )
 }

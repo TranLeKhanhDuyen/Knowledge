@@ -1,6 +1,7 @@
 import {
   TButtonSize,
   TButtonVariant,
+  TImageVariant,
   TInputVariant,
   TItemLinkSize,
   TItemLinkVariant
@@ -43,6 +44,7 @@ export interface ISearchBarProps {
 }
 
 export interface IImageProps {
+  variant?: TImageVariant
   width?: number;
   height?: number;
   src: string;

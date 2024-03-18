@@ -12,4 +12,7 @@ export type TItemLinkSize = TSize;
 export type TItemLinkVariant = TVariant;
 
 //Input
-export type TInputVariant = 'search' | 'text'
+export type TInputVariant = 'search' | 'text';
+
+//Image
+export type TImageVariant = 'round' | 'rectangular';

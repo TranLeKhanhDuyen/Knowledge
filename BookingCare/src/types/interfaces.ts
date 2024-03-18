@@ -65,10 +65,10 @@ export interface ITableProps {
 }
 
 export interface IHeaderProps {
-  navbarData: THeader;
+  navbarData: IHeader;
 }
 
-export interface THeader {
+export interface IHeader {
   width?: number;
   height?: number;
   image: string;

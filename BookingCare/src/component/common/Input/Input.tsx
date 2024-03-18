@@ -2,13 +2,13 @@ import './Input.css'
 import { IInputProps } from '@types'
 
 const Input = ({
-  type,
+  variant,
   placeholder,
   name,
   value
 }: IInputProps) => (
   <input
-    className={`input-${type}`}
+    className={`input-${variant}`}
     placeholder={placeholder}
     name={name}
     value={value}

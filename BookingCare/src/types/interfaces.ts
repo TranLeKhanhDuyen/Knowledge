@@ -29,7 +29,7 @@ export interface INavItemProps {
 }
 
 export interface IInputProps {
-  type?: TInputVariant;
+  variant?: TInputVariant;
   placeholder?: string;
   name?: string;
   value?: string;

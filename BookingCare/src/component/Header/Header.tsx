@@ -14,9 +14,9 @@ const Header = ({ header }: IHeaderProps) => {
         alt={header.alt}
       />
       <nav className="navbar">
-      {header.items.map((item, index) => (
+      {header.items.map((item) => (
         <ItemNav
-          key={index}
+          key={item.id}
           title={item.title}
           subsTitle={item.subtitle}
         />

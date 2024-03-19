@@ -1,24 +1,32 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Option from "./Option";
+import OptionList from './Option';
 
 export default {
   title: 'Commons/Option',
-  component: Option,
+  component: OptionList,
   tags: ['autodocs'],
   argTypes: {
-    title: {
-      type: {
-        name: 'string',
-        required: true,
+    items: {
+      control: {
+        type: 'array'
       }
     }
   }
 } as Meta
 
-type Story = StoryObj<typeof Option>;
+type Story = StoryObj<typeof OptionList>;
 
 export const Default: Story = {
   args: {
-    title: 'Handbook',
+    items: [
+      {
+        id: '1',
+        value: 'doctor'
+      },
+      {
+        id: '2',
+        value: 'admin'
+      },
+    ]
   }
 }

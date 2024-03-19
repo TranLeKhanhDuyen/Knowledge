@@ -45,25 +45,22 @@ export const Default: Story = {
 
 export const Small: Story = {
   args: {
-    ...Default,
+    ...Default.args,
     size: 'small',
-    variant: 'primary',
   }
 }
 
 export const Medium: Story = {
   args: {
-    ...Default,
+    ...Default.args,
     size: 'medium',
-    variant: 'primary',
   }
 }
 
 export const Large: Story = {
   args: {
-    ...Default,
+    ...Default.args,
     size: 'large',
-    variant: 'secondary',
   }
 }
 

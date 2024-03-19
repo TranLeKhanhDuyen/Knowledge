@@ -1,5 +1,6 @@
 import { IItemLinkProps } from '@types';
 import './ItemLink.css'
+import Image, { TImageVariant } from '../Image/Image';
 
 export type TItemLinkSize = 'small' | 'medium' | 'large';
 export type TItemLinkVariant = 'primary' | 'secondary';
@@ -10,7 +11,6 @@ const ItemLink = ({
   variant,
   description,
   image,
-  additionalClass,
   onClick
 }: IItemLinkProps) => {
   return (
@@ -18,8 +18,8 @@ const ItemLink = ({
       className={`itemlink itemlink-${size} itemlink-${variant}`}
       onClick={onClick}
     >
-      <img
-        className={`img-link ${additionalClass}`}
+      <Image
+        variant={variant as TImageVariant}
         src={image}
         alt={`Image for ${title}`}
       />
@@ -27,7 +27,6 @@ const ItemLink = ({
       <p>{description}</p>
     </a>
   )
-
 }
 
 export default ItemLink

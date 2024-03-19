@@ -1,4 +1,4 @@
-import './Option.css'
+import './Options.css'
 
 interface IOptionsProps {
   items: {

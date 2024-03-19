@@ -37,7 +37,6 @@ type Story = StoryObj<typeof ItemLink>;
 
 export const Default: Story = {
   args: {
-    image: image,
     title: 'D',
     description: 'D'
   }

@@ -9,14 +9,14 @@ export interface IImageProps {
 export type TImageVariant = 'round' | 'rectangular';
 
 const Image = ({
-  width,
-  height,
+  width = '100%',
+  height = 'auto',
   src,
   alt,
   variant = 'rectangular'
 }: IImageProps) => (
   <img
-    className={`img-${variant}`}
+    className={`img img-${variant}`}
     width={width}
     height={height}
     src={src}

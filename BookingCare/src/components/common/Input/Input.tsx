@@ -2,20 +2,19 @@ import './Input.css'
 
 export interface IInputProps {
   variant?: TInputVariant;
-  placeholder?: string;
+  placeholder: string;
   name?: string;
   value?: string;
-  additionalClass?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export type TInputVariant = 'search' | 'text';
 
 const Input = ({
-  variant,
+  variant = 'text',
   placeholder,
-  name,
-  value,
+  name = '',
+  value = '',
   onChange
 }: IInputProps) => (
   <input

@@ -1,16 +1,25 @@
-import { IItemLinkProps } from '@types';
 import './ItemLink.css'
 import Image, { TImageVariant } from '../Image/Image';
+import img1 from '@assets/facilities/cho-ray.jpg'
 
 export type TItemLinkSize = 'small' | 'medium' | 'large';
 export type TItemLinkVariant = 'primary' | 'secondary';
 
+export interface IItemLinkProps {
+  title?: string;
+  size?: TItemLinkSize;
+  variant?: TItemLinkVariant;
+  description?: string;
+  image?: string;
+  onClick?: () => void;
+}
+
 const ItemLink = ({
-  title,
-  size,
-  variant,
-  description,
-  image,
+  title = 'Title',
+  size = 'medium',
+  variant = 'primary',
+  description = 'Description',
+  image = img1,
   onClick
 }: IItemLinkProps) => {
   return (

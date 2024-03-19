@@ -4,9 +4,9 @@ export interface IItemFooterProps {
 }
 
 const ItemFooter = ({ text, link }: IItemFooterProps) => (
-    <a href={link} className="item-footer">
-      <p>{text}</p>
-    </a>
+  <a href={link} className="item-footer">
+    <p>{text}</p>
+  </a>
 )
 
 export default ItemFooter

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import OptionList from './Option';
+import OptionList from './Options';
 
 export default {
   title: 'Commons/Option',

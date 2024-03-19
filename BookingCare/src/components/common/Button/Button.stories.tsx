@@ -36,7 +36,6 @@ export const Small: Story = {
   args: {
     ...Default,
     size: 'small',
-    variant: 'primary',
   }
 }
 
@@ -44,7 +43,6 @@ export const Medium: Story = {
   args: {
     ...Default,
     size: 'medium',
-    variant: 'primary',
   }
 }
 
@@ -52,6 +50,19 @@ export const Large: Story = {
   args: {
     ...Default,
     size: 'large',
+  }
+}
+
+export const Primary: Story = {
+  args: {
+    ...Default,
+    variant: 'primary',
+  }
+}
+
+export const secondary: Story = {
+  args: {
+    ...Default,
     variant: 'secondary',
   }
 }

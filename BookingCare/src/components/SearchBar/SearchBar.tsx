@@ -6,18 +6,17 @@ import { Image } from "@components/common"
 const SearchBar = ({ value, onChange }: IInputProps) => {
   return (
     <div className='search-container'>
+      <Image
+        width='15'
+        height='15'
+        src={searchIcon}
+        alt="Search Icon"
+      />
       <Input
         variant="search"
         placeholder="Enter you keyword ... "
         value={value}
         onChange={onChange}
-      />
-      <Image
-        variant="rectangular"
-        width='10'
-        height='10'
-        src={searchIcon}
-        alt="Search Icon"
       />
     </div>
   )

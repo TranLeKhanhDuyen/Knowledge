@@ -4,9 +4,7 @@ import Header from "@components/Header/Header";
 
 const HomePage = () => {
   return (
-    <>
       <Header items={LIST_NAV.items} />
-    </>
   );
 };
 

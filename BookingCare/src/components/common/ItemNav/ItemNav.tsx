@@ -5,9 +5,9 @@ export interface INavItemProps {
   subsTitle?: string;
 }
 
-const ItemNav = ({ title, subsTitle='subtitle'}: INavItemProps) => {
+const ItemNav = ({ title, subsTitle = 'subtitle' }: INavItemProps) => {
   return (
-    <div className="item-nav">
+    <div className="cursor item-nav">
       <p className='text-turquoise-dark text-bold title-nav'>{title}</p>
       <p className='text-dark-gray subs-title-nav'>{subsTitle}</p>
     </div>

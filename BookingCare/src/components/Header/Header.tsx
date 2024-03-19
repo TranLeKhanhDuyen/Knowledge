@@ -2,6 +2,7 @@ import './Header.css';
 import logo from '@assets/logo-v3.png';
 import supportIcon from '@assets/icons/ic-support.svg'
 import { Image, ItemLink, ItemNav } from "@components/common";
+import SearchBar from '@components/SearchBar/SearchBar';
 
 export interface IHeaderProps {
   items: {
@@ -12,8 +13,9 @@ export interface IHeaderProps {
 }
 
 const Header = ({ items }: IHeaderProps) => {
+  const handleSearchChange = () => { };
   return (
-    <header className="header">
+    <header className="container header">
       <Image
         src={logo}
         width='200'
@@ -29,6 +31,10 @@ const Header = ({ items }: IHeaderProps) => {
           />
         ))}
       </nav>
+      <SearchBar
+        onChange={handleSearchChange}
+        placeholder='Search'
+      />
       <ItemLink
         variant='tertiary'
         width='30'
@@ -36,6 +42,7 @@ const Header = ({ items }: IHeaderProps) => {
         image={supportIcon}
         title='Support'
       />
+
     </header>
   );
 }

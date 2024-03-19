@@ -1,6 +1,7 @@
 import './Header.css';
-import logo from '../../assets/logo-v3.png';
-import { Image, ItemNav } from "@components/common";
+import logo from '@assets/logo-v3.png';
+import supportIcon from '@assets/icons/ic-support.svg'
+import { Image, ItemLink, ItemNav } from "@components/common";
 
 export interface IHeaderProps {
   items: {
@@ -28,6 +29,13 @@ const Header = ({ items }: IHeaderProps) => {
           />
         ))}
       </nav>
+      <ItemLink
+        variant='tertiary'
+        width='30'
+        height='30'
+        image={supportIcon}
+        title='Support'
+      />
     </header>
   );
 }

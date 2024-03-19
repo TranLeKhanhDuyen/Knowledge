@@ -1,22 +1,18 @@
 export interface IImageProps {
-  variant?: TImageVariant;
   width?: string;
   height?: string;
   src: string;
   alt?: string;
 }
 
-export type TImageVariant = 'round' | 'rectangular';
-
 const Image = ({
   width = '100%',
   height = 'auto',
   src,
   alt,
-  variant = 'rectangular'
 }: IImageProps) => (
   <img
-    className={`img img-${variant}`}
+    className={`img`}
     width={width}
     height={height}
     src={src}

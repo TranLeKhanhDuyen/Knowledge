@@ -1,13 +1,11 @@
-import { Header } from "@components/common";
 import { LIST_NAV } from "@mockdata";
 import './home.css'
-import Slider from "react-slick";
+import Header from "@components/Header/Header";
 
 const HomePage = () => {
   return (
     <>
-      <Header navbarData={LIST_NAV} />
-      <Slider />
+      <Header items={LIST_NAV.items} />
     </>
   );
 };

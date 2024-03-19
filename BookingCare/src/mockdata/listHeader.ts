@@ -1,34 +1,26 @@
-import { IHeaderProps } from '@types';
-import logo from '../assets/logo-v3.png';
-import { IHeader } from '@types';
+import { IHeaderProps } from '@components/Header/Header';
 
-export const LIST_NAV: IHeader = {
-
-    width: 200,
-    height: 43,
-    image: logo,
-    alt: 'Logo',
-    items: [
-      {
-        id: '1',
-        title: 'Specialist',
-        subtitle: 'Find doctors by specialty'
-      },
-      {
-        id: '2',
-        title: 'Health facilities',
-        subtitle: 'Choose a hospital or clinic'
-      },
-      {
-        id: '3',
-        title: 'Doctor',
-        subtitle: 'Choose a doctor'
-      },
-      {
-        id: '4',
-        title: 'Examination package',
-        subtitle: 'General examination'
-      }
-    ]
-
+export const LIST_NAV: IHeaderProps = {
+  items: [
+    {
+      id: '1',
+      title: 'Specialist',
+      subsTitle: 'Find doctors by specialty'
+    },
+    {
+      id: '2',
+      title: 'Health facilities',
+      subsTitle: 'Choose a hospital or clinic'
+    },
+    {
+      id: '3',
+      title: 'Doctor',
+      subsTitle: 'Choose a doctor'
+    },
+    {
+      id: '4',
+      title: 'Examination package',
+      subsTitle: 'General examination'
+    }
+  ]
 };

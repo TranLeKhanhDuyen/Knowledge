@@ -1,9 +1,9 @@
 import './ItemLink.css'
-import Image, { TImageVariant } from '../Image/Image';
+import Image from '../Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
 
 export type TItemLinkSize = 'small' | 'medium' | 'large';
-export type TItemLinkVariant = 'primary' | 'secondary';
+export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary';
 
 export interface IItemLinkProps {
   title?: string;
@@ -11,24 +11,29 @@ export interface IItemLinkProps {
   variant?: TItemLinkVariant;
   description?: string;
   image?: string;
+  width?: string;
+  height?: string;
   onClick?: () => void;
 }
 
 const ItemLink = ({
   title = 'Title',
-  size = 'medium',
+  size = 'small',
   variant = 'primary',
-  description = 'Description',
+  width = '100%',
+  height = 'auto',
+  description = '',
   image = img1,
   onClick
 }: IItemLinkProps) => {
   return (
     <a
-      className={`itemlink itemlink-${size} itemlink-${variant}`}
+      className={`cursor itemlink itemlink-${size} itemlink-${variant}`}
       onClick={onClick}
     >
       <Image
-        variant={variant as TImageVariant}
+        width={width}
+        height={height}
         src={image}
         alt={`Image for ${title}`}
       />

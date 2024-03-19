@@ -25,8 +25,20 @@
   border-radius: 16px;
 }
 
+.itemlink-tertiary {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemlink-tertiary:hover {
+  border-color: transparent;
+  color: var(--turquoise-dark-color);
+}
+
 .itemlink-small {
-  max-width: 240px;
+  width: fit-content;
+  border-color: transparent;
+  max-height: 49px;
 }
 
 .itemlink-medium {

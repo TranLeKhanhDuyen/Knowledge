@@ -1,6 +1,18 @@
-import { ITableProps } from "@types";
 import './Table.css';
 
+export interface ITableProps {
+  data: {
+    rows: {
+      firstname?: string;
+      lastname?: string;
+      email?: string;
+      address?: string;
+    }[];
+  };
+  columnTitles: {
+    [key: string]: string;
+  };
+}
 
 const Table = ({ data, columnTitles }: ITableProps) => {
 

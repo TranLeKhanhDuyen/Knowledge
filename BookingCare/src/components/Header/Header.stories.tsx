@@ -27,7 +27,7 @@ type StoryType = Story<typeof Header>;
 export const Default: StoryType = (args) => <Header {...args} />;
 
 Default.args = {
-  navbarData: [
+  items: [
     {
       id: '1',
       title: 'Specialist',

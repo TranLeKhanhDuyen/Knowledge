@@ -18,10 +18,8 @@
 
     "baseUrl": "./src",
     "paths": {
-      "@*": ["*"]
-      // "@components/*": ["src/components/*"],
-      // "@constants/*": ["src/constants/*"],
-      // "@assets/*": ["src/assets/*"]
+      "@*": ["*"],
+      "@components/": ["/components/"],
     },
 
     "esModuleInterop": true,

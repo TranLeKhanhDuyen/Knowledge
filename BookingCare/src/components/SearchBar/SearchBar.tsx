@@ -1,8 +1,7 @@
-import Image from "@components/common/Image/Image"
-import Input from "@components/common/Input/Input"
-import { IInputProps } from "@types"
-import searchIcon from '../../assets/icons/ic-search.svg'
+import Input, { IInputProps } from '@components/common/Input/Input'
+import searchIcon from '@assets/icons/ic-search.svg'
 import './SearchBar.css'
+import { Image } from "@components/common"
 
 const SearchBar = ({ value, onChange }: IInputProps) => {
   return (
@@ -15,8 +14,8 @@ const SearchBar = ({ value, onChange }: IInputProps) => {
       />
       <Image
         variant="rectangular"
-        width={10}
-        height={10}
+        width='10'
+        height='10'
         src={searchIcon}
         alt="Search Icon"
       />

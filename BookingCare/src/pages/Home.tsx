@@ -1,4 +1,4 @@
-import { Header } from "@components";
+import { Header } from "@components/common";
 import { LIST_NAV } from "@mockdata";
 import './home.css'
 import Slider from "react-slick";

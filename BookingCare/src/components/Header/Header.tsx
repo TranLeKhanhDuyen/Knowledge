@@ -1,37 +1,30 @@
-import Image from "@components/common/Image/Image";
-import ItemNav from "@components/common/ItemNav/ItemNav";
 import './Header.css';
 import logo from '../../assets/logo-v3.png';
+import { Image, ItemNav } from "@components/common";
 
 export interface IHeaderProps {
-  navbarData: IHeader[];
-}
-
-export interface IHeader {
-  width?: string;
-  height?: string;
-  image: string;
-  alt?: string;
   items: {
     id: string;
     title: string;
-    subtitle: string;
+    subsTitle: string;
   }[];
 }
 
-const Header = ({ navbarData }: IHeaderProps) => {
+const Header = ({ items }: IHeaderProps) => {
   return (
     <header className="header">
       <Image
-        src={logo || ''}
+        src={logo}
+        width='200'
+        height='43'
         alt={'logo'}
       />
       <nav className="navbar">
-        {navbarData.map((items) => (
+        {items.map((item) => (
           <ItemNav
-            key={items.id}
-            title={items.title}
-            subsTitle={items.subtitle}
+            key={item.id}
+            title={item.title}
+            subsTitle={item.subsTitle}
           />
         ))}
       </nav>

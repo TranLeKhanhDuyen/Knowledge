@@ -2,10 +2,10 @@ import './ItemNav.css'
 
 export interface INavItemProps {
   title: string;
-  subsTitle: string;
+  subsTitle?: string;
 }
 
-const ItemNav = ({ title, subsTitle }: INavItemProps) => {
+const ItemNav = ({ title, subsTitle='subtitle'}: INavItemProps) => {
   return (
     <div className="item-nav">
       <p className='text-turquoise-dark text-bold title-nav'>{title}</p>

@@ -1,6 +1,5 @@
 import Header from './Header';
 import { Meta, Story } from '@storybook/react';
-import logo from '../../assets/logo-v3.png';
 
 export default {
   title: 'Header',
@@ -28,30 +27,26 @@ type StoryType = Story<typeof Header>;
 export const Default: StoryType = (args) => <Header {...args} />;
 
 Default.args = {
-  navbarData: {
-    image: logo,
-    alt: 'Logo',
-    items: [
-      {
-        id: '1',
-        title: 'Specialist',
-        subtitle: 'Find doctors by specialty',
-      },
-      {
-        id: '2',
-        title: 'Health facilities',
-        subtitle: 'Choose a hospital or clinic',
-      },
-      {
-        id: '3',
-        title: 'Doctor',
-        subtitle: 'Choose a doctor',
-      },
-      {
-        id: '4',
-        title: 'Examination package',
-        subtitle: 'General examination',
-      },
-    ],
-  },
+  navbarData: [
+    {
+      id: '1',
+      title: 'Specialist',
+      subsTitle: 'Find doctors by specialty',
+    },
+    {
+      id: '2',
+      title: 'Health facilities',
+      subsTitle: 'Choose a hospital or clinic',
+    },
+    {
+      id: '3',
+      title: 'Doctor',
+      subsTitle: 'Choose a doctor',
+    },
+    {
+      id: '4',
+      title: 'Examination package',
+      subsTitle: 'General examination',
+    },
+  ]
 };

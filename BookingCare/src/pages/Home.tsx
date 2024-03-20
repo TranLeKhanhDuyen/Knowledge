@@ -9,12 +9,13 @@ const HomePage = () => {
       <header className="container">
         <Header items={LIST_NAV.items} />
       </header>
-
       <main>
         <div className="container banner">
-          <CustomSlider items={LIST_LINKS.banner} types="banner" />
+          <CustomSlider
+            items={LIST_LINKS.banner}
+            types="banner"
+          />
         </div>
-
         <div className="container list-secondary">
           {LIST_LINKS.service.map((item) => (
             <ItemLink

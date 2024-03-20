@@ -16,13 +16,23 @@ const Button = ({
   size = 'small',
   variant = 'primary',
   onClick
-}: IButtonProps) => (
-  <button
-    className={`btn btn-${size} btn-${variant}`}
-    onClick={onClick}
-  >
-    {title}
-  </button>
-)
+}: IButtonProps) => {
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    alert("click ok");
+    onClick()
+  }
+
+  return (
+    <>
+      <button
+        className={`btn btn-${size} btn-${variant}`}
+        onClick={handleClick}
+      >
+        {title}
+      </button>
+    </>
+  )
+}
 
 export default Button;

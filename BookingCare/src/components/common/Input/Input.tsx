@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import './Input.css'
 
 export interface IInputProps {
@@ -16,14 +17,17 @@ const Input = ({
   name = '',
   value = '',
   onChange
-}: IInputProps) => (
+}: IInputProps) => {
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange(event)
+  };
   <input
     className={`input-${variant}`}
     placeholder={placeholder}
     name={name}
     value={value}
-    onChange={onChange}
+    onChange={handleOnChange}
   />
-)
+}
 
 export default Input

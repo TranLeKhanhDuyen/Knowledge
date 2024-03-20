@@ -2,13 +2,11 @@ import './ItemLink.css'
 import Image from '@components/common/Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
 
-export type TItemLinkSize = 'small' | 'medium' | 'large';
 export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary';
 export type TItemLinkType = 'service' | 'specialist' | 'facilities' | 'doctor' | 'handbook';
 
 export interface IItemLinkProps {
   title?: string;
-  size?: TItemLinkSize;
   variant?: TItemLinkVariant;
   description?: string;
   image?: string;
@@ -19,7 +17,6 @@ export interface IItemLinkProps {
 
 const ItemLink = ({
   title = 'Title',
-  size = 'small',
   variant = 'primary',
   width = '100%',
   height = 'auto',
@@ -29,7 +26,7 @@ const ItemLink = ({
 }: IItemLinkProps) => {
   return (
     <a
-      className={`cursor itemlink ${size ? `itemlink-${size}` : ''} ${variant ? `itemlink-${variant}` : ''}`}
+      className={`cursor itemlink ${variant ? `itemlink-${variant}` : ''}`}
       onClick={onClick}
     >
       <Image

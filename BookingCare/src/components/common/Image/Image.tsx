@@ -1,3 +1,5 @@
+import './Image.css'
+
 export interface IImageProps {
   width?: string;
   height?: string;

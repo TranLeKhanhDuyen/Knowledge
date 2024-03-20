@@ -1,8 +1,5 @@
 .itemlink {
   border: 2px solid var(--gray-color);
-  align-items: center;
-  text-align: center;
-  width: 100%;
 }
 
 .itemlink:hover {
@@ -12,14 +9,15 @@
 .itemlink-primary {
   display: flex;
   flex-direction: column;
+  align-items: center;
   border-radius: 16px;
   padding: 40px;
   margin-left: 30px;
+  width: fit-content;
 }
 
 .itemlink-secondary {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 30px;
   margin-bottom: 50px;
   border-radius: 16px;
@@ -33,50 +31,4 @@
 .itemlink-tertiary:hover {
   border-color: transparent;
   color: var(--turquoise-dark-color);
-}
-
-.itemlink-small {
-  width: fit-content;
-  border-color: transparent;
-  max-height: 49px;
-}
-
-.itemlink-medium {
-  max-width: 240px;
-}
-
-.itemlink-large {
-  min-height: 312px;
-}
-
-.img-link {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  color: transparent;
-}
-
-.img-service {
-  width: 56px;
-  height: 56px;
-}
-
-.img-specialist {
-}
-
-.img-facilities {
-  max-width: 332px;
-  max-height: 158px;
-}
-
-.img-outstanding {
-  width: 80%;
-  border-radius: 50%;
-  border: 1px solid var(--very-light-gray);
-}
-
-.img-handbook {
-  border-radius: 8px;
-  max-height: 151px;
-  margin-bottom: 15px;
 }

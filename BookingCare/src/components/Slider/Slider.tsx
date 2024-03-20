@@ -1,37 +1,37 @@
 import ItemLink, { IItemLinkProps } from '@components/ItemLink/ItemLink';
-import { useEffect, useState } from 'react';
-import Slider from 'react-slick';
+import React, { useState } from 'react';
+import './Slider.css'
 
 interface ISliderProps {
   items: IItemLinkProps[];
 }
 
-const CustomSlider = ({ items }: ISliderProps) => {
-  const [key, setKey] = useState(0);
+const Slider = ({ items }: ISliderProps) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    setKey(prevKey => prevKey + 1);
-  }, [items]);
+  const goToNextSlide = () => {
+    const newIndex = (currentIndex + 1) % items.length;
+    setCurrentIndex(newIndex);
+  };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+  const goToPrevSlide = () => {
+    const newIndex = (currentIndex - 1 + items.length) % items.length;
+    setCurrentIndex(newIndex);
   };
 
   return (
     <div className="slider">
-      <Slider key={key} {...settings}>
-        {items.map((item, id) => (
-          <div key={id}>
+      <div className="slider-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        {items.map((item, index) => (
+          <div key={index} className="slide">
             <ItemLink {...item} />
           </div>
         ))}
-      </Slider>
+      </div>
+      <button onClick={goToPrevSlide}>Previous</button>
+      <button onClick={goToNextSlide}>Next</button>
     </div>
   );
 };
 
-export default CustomSlider;
+export default Slider;

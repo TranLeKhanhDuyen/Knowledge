@@ -29,8 +29,8 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     },
     {
       image: image3,
-      title: 'Service 2',
-      description: 'Description 2 for Service 2'
+      title: 'Service 3',
+      description: 'Description 3 for Service 3'
     }
   ],
   specialist: [
@@ -46,15 +46,15 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     },
     {
       image: image6,
-      title: 'Specialist 2',
-      description: 'Description 2 for Specialist 2'
+      title: 'Specialist 3',
+      description: 'Description 3 for Specialist 3'
     }
   ],
   facilities: [
     {
       image: image7,
       title: 'Facility 1',
-      description: 'Description 1 for Facility 1'
+      description: 'Description 1 for Facility 1',
     },
     {
       image: image8,
@@ -63,8 +63,8 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     },
     {
       image: image9,
-      title: 'Facility 2',
-      description: 'Description 2 for Facility 2'
+      title: 'Facility 3',
+      description: 'Description 3 for Facility 3'
     }
   ],
   doctor: [
@@ -80,8 +80,8 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     },
     {
       image: image12,
-      title: 'Doctor 2',
-      description: 'Description 2 for Doctor 2'
+      title: 'Doctor 3',
+      description: 'Description 3 for Doctor 3'
     }
   ],
   handbook: [
@@ -97,8 +97,8 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     },
     {
       image: image15,
-      title: 'Handbook 2',
-      description: 'Description 2 for Handbook 2'
+      title: 'Handbook 3',
+      description: 'Description 3 for Handbook 3'
     }
   ]
 };

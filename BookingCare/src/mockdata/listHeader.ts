@@ -23,7 +23,7 @@ export const LIST_HEADER: IListHeaderProps[] = [
         text: 'Outstanding Doctor'
       }
     ],
-    type: 'outstanding'
+    type: 'doctor'
   },
   {
     items: [

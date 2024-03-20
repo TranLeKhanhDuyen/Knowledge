@@ -38,6 +38,23 @@ const HomePage = () => {
           <ListHeader items={LIST_HEADER[0].items} type="specialist" />
           <CustomSlider items={LIST_LINKS.specialist} types="specialist" />
           <ListHeader items={LIST_HEADER[1].items} type="facilities" />
+          <CustomSlider items={LIST_LINKS.facilities} types="facilities" />
+          <ListHeader items={LIST_HEADER[1].items} type="doctor" />
+          <CustomSlider items={LIST_LINKS.doctor} types="doctor" />
+        </div>
+        <div className="media">
+          <div className="container list-Media">
+            {LIST_LINKS.media.map((item) => (
+              <ItemLink
+                image={item.image}
+                title={item.title}
+                description={item.description}
+                width="150"
+                // height="56"
+                variant="secondary"
+              />
+            ))}
+          </div>
         </div>
 
       </main>

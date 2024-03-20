@@ -1,7 +1,7 @@
 import { Button, Label } from "@components/common"
 import './ListHeader.css'
 
-type TListHeadeType = 'specialist' | 'facilities' | 'outstanding' | 'handbook';
+type TListHeadeType = 'specialist' | 'facilities' | 'doctor' | 'handbook';
 
 interface IItemHeaderProps {
   text: string;

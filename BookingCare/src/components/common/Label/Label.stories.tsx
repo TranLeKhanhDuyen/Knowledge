@@ -15,10 +15,10 @@ export default {
   }
 } as Meta
 
-type Story = StoryObj<{ title: string }>;
+type Story = StoryObj<{ text: string }>;
 
 export const Default: Story = {
   args: {
-    title: 'Handbook'
+    text: 'Handbook'
   }
 }

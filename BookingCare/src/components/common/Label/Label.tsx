@@ -1,6 +1,6 @@
-const Label = ({ title }: { title: string }) => {
+const Label = ({ text }: { text: string }) => {
   return (
-    <h3 className="text-bold text-xl label">{title}</h3>
+    <h3 className="text-bold text-xl label">{text}</h3>
   )
 }
 

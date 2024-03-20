@@ -2,6 +2,9 @@ import { LIST_NAV } from "@mockdata";
 import './home.css'
 import { CustomSlider, Header, ItemLink } from "@components";
 import { LIST_LINKS } from "@mockdata/listLinks";
+import { LIST_HEADER } from "@mockdata/listHeader";
+import { Label } from "@components/common";
+import ListHeader from "@components/ListHeader/ListHeader";
 
 const HomePage = () => {
   return (
@@ -16,7 +19,10 @@ const HomePage = () => {
             types="banner"
           />
         </div>
-        <div className="container list-secondary">
+        <span className="container">
+          <Label text='service' />
+        </span>
+        <div className=" list-secondary">
           {LIST_LINKS.service.map((item) => (
             <ItemLink
               image={item.image}
@@ -28,6 +34,12 @@ const HomePage = () => {
             />
           ))}
         </div>
+        <div className="container">
+          <ListHeader items={LIST_HEADER[0].items} type="specialist" />
+          <CustomSlider items={LIST_LINKS.specialist} types="specialist" />
+          <ListHeader items={LIST_HEADER[1].items} type="facilities" />
+        </div>
+
       </main>
       <div>
       </div>

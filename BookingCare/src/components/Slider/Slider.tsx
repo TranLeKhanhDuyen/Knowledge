@@ -1,37 +1,69 @@
-import ItemLink, { IItemLinkProps } from '@components/ItemLink/ItemLink';
-import React, { useState } from 'react';
+import ItemLink, { IItemLinkProps, TItemLinkType } from '@components/ItemLink/ItemLink';
 import './Slider.css'
+import { useEffect, useState } from 'react';
 
 interface ISliderProps {
   items: IItemLinkProps[];
+  types: TItemLinkType
 }
 
-const Slider = ({ items }: ISliderProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToNextSlide = () => {
-    const newIndex = (currentIndex + 1) % items.length;
-    setCurrentIndex(newIndex);
+
+const CustomSlider = ({ types, items }: ISliderProps) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  useEffect(() => {
+    if (types === 'banner') {
+      const interval = setInterval(() => {
+        setCurrentIndex(prevIndex =>
+          prevIndex === items.length - 1 ? 0 : prevIndex + 1
+        );
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [types, items]);
+
+  const handlePrev = () => {
+    setCurrentIndex(prevIndex =>
+      prevIndex === 0 ? items.length - 1 : prevIndex - 1
+    );
   };
 
-  const goToPrevSlide = () => {
-    const newIndex = (currentIndex - 1 + items.length) % items.length;
-    setCurrentIndex(newIndex);
+  const handleNext = () => {
+    setCurrentIndex(prevIndex =>
+      prevIndex === items.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const renderSliderItems = () => {
+    if (types === 'banner') {
+      return (
+        <div className="slider-items">
+          <ItemLink {...items[currentIndex]} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="slider-items">
+          {items.map((item, index) => (
+            <ItemLink key={index} {...item} />
+          ))}
+        </div>
+      );
+    }
   };
 
   return (
-    <div className="slider">
-      <div className="slider-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-        {items.map((item, index) => (
-          <div key={index} className="slide">
-            <ItemLink {...item} />
-          </div>
-        ))}
-      </div>
-      <button onClick={goToPrevSlide}>Previous</button>
-      <button onClick={goToNextSlide}>Next</button>
+    <div className="slider-container">
+      {renderSliderItems()}
+      {types !== 'banner' && (
+        <div className="slider-controls">
+          <button onClick={handlePrev}>Prev</button>
+          <button onClick={handleNext}>Next</button>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Slider;
+export default CustomSlider;

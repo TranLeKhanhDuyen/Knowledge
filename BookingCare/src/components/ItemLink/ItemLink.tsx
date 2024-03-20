@@ -29,7 +29,7 @@ const ItemLink = ({
 }: IItemLinkProps) => {
   return (
     <a
-      className={`cursor itemlink itemlink-${size} itemlink-${variant}`}
+      className={`cursor itemlink ${size ? `itemlink-${size}` : ''} ${variant ? `itemlink-${variant}` : ''}`}
       onClick={onClick}
     >
       <Image

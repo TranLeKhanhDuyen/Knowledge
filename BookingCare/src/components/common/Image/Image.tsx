@@ -2,7 +2,7 @@ export interface IImageProps {
   width?: string;
   height?: string;
   src: string;
-  alt?: string;
+  alt: string;
 }
 
 const Image = ({

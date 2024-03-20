@@ -19,6 +19,13 @@ import banner4 from '@assets/banners/banner-4.png';
 import banner5 from '@assets/banners/banner-5.png';
 import banner6 from '@assets/banners/banner-6.jpg';
 
+import specialist from '../assets/icons/ic-specialist.png';
+import remote from '../assets/icons/ic-remote.png';
+import dental from '../assets/icons/ic-dental.png';
+import general from '../assets/icons/ic-general.png';
+import medicalTest from '../assets/icons/ic-medical-tests.png';
+import mentealHeath from '../assets/icons/ic-mental-health.png';
+
 export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   banner: [
     { image: banner1 },
@@ -30,19 +37,34 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   ],
   service: [
     {
-      image: image1,
-      title: 'Service 1',
-      description: 'Description 1 for Service 1'
+      image: specialist,
+      title: 'Specialist Examnination',
+      onClick: () => {}
     },
     {
-      image: image2,
-      title: 'Service 2',
-      description: 'Description 2 for Service 2'
+      image: remote,
+      title: 'Remote Examnination',
+      onClick: () => {}
     },
     {
-      image: image3,
-      title: 'Service 3',
-      description: 'Description 3 for Service 3'
+      image: dental,
+      title: 'Dental Examnination',
+      onClick: () => {}
+    },
+    {
+      image: general,
+      title: 'General Examnination',
+      onClick: () => {}
+    },
+    {
+      image: medicalTest,
+      title: 'Medical tests',
+      onClick: () => {}
+    },
+    {
+      image: mentealHeath,
+      title: 'Mental heath',
+      onClick: () => {}
     }
   ],
   specialist: [

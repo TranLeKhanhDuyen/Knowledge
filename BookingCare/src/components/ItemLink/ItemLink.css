@@ -1,24 +1,24 @@
 .itemlink {
-  /* border: 2px solid var(--gray-color); */
-  /* display: flex; */
-  /* align-items: center; */
-}
-
-/* .itemlink:hover {
-  border: 2px solid var(--turquoise-dark-color);
-} */
-
-.itemlink-primary {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
+.itemlink-primary {
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid transparent; */
+}
+
 .itemlink-secondary {
-  display: flex;
   gap: 30px;
-  margin-bottom: 50px;
-  border-radius: 16px;
+  background: url('../../assets//backgrounds/background-item1.png');
+  border: 1px solid var(--gray-color);
+  padding: 20px 40px;
+  border-radius: 25px;
+}
+
+.itemlink-secondary:hover {
+  border: 1px solid var(--turquoise-dark-color);
 }
 
 .itemlink-tertiary {

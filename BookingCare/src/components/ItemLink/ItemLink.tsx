@@ -18,7 +18,7 @@ export interface IItemLinkProps {
 const ItemLink = ({
   title = '',
   variant = 'primary',
-  width = '100%',
+  width = 'fit-content',
   height = 'auto',
   description = '',
   image = img1,
@@ -35,8 +35,10 @@ const ItemLink = ({
         src={image}
         alt={`Image for ${title}`}
       />
-      <h4 className='text-bold text-xl title-link'>{title}</h4>
-      <p>{description}</p>
+      <div className='content'>
+        <h4 className='text-bold text-xl title-link'>{title}</h4>
+        <p>{description}</p>
+      </div>
     </a>
   )
 }

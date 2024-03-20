@@ -1,0 +1,7 @@
+.list-secondary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 50px;
+  gap: 30px;
+  margin-bottom: 50px;
+}

@@ -3,7 +3,7 @@ import Image from '@components/common/Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
 
 export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary';
-export type TItemLinkType = 'service' | 'specialist' | 'facilities' | 'doctor' | 'handbook';
+export type TItemLinkType = 'banner' | 'service' | 'specialist' | 'facilities' | 'doctor' | 'handbook';
 
 export interface IItemLinkProps {
   title?: string;
@@ -16,7 +16,7 @@ export interface IItemLinkProps {
 }
 
 const ItemLink = ({
-  title = 'Title',
+  title = '',
   variant = 'primary',
   width = '100%',
   height = 'auto',

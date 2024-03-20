@@ -1,5 +1,5 @@
 import './ItemLink.css'
-import Image from '../common/Image/Image';
+import Image from '@components/common/Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
 
 export type TItemLinkSize = 'small' | 'medium' | 'large';

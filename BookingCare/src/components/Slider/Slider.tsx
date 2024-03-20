@@ -1,5 +1,4 @@
-import { ItemLink } from '@components/common';
-import { IItemLinkProps } from '@components/ItemLink/ItemLink';
+import ItemLink, { IItemLinkProps } from '@components/ItemLink/ItemLink';
 import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 

@@ -1,8 +1,10 @@
 import './Header.css';
 import logo from '@assets/logo-v3.png';
 import supportIcon from '@assets/icons/ic-support.svg'
-import { Image, ItemLink, ItemNav } from "@components/common";
 import SearchBar from '@components/SearchBar/SearchBar';
+import { Image } from '@components/common';
+import ItemNav from '@components/ItemNav/ItemNav';
+import ItemLink from '@components/ItemLink/ItemLink';
 
 export interface IHeaderProps {
   items: {

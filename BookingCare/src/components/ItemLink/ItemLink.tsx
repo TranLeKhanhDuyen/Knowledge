@@ -1,9 +1,10 @@
 import './ItemLink.css'
-import Image from '../Image/Image';
+import Image from '../common/Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
 
 export type TItemLinkSize = 'small' | 'medium' | 'large';
 export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary';
+export type TItemLinkType = 'service' | 'specialist' | 'facilities' | 'doctor' | 'handbook';
 
 export interface IItemLinkProps {
   title?: string;

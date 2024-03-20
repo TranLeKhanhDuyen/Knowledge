@@ -1,10 +1,19 @@
 import { LIST_NAV } from "@mockdata";
 import './home.css'
-import Header from "@components/Header/Header";
+import { CustomSlider, Header } from "@components";
 
 const HomePage = () => {
   return (
-      <Header items={LIST_NAV.items} />
+    <>
+      <header className="container">
+        <Header items={LIST_NAV.items} />
+      </header>
+      <main className="banner">
+        <CustomSlider items={LIST_NAV.items} />
+      </main>
+      <div>
+      </div>
+    </>
   );
 };
 

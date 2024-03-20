@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import ItemNav from "./ItemNav";
 
 export default {
-  title: 'Commons/ItemNav',
+  title: 'Components/ItemNav',
   component: ItemNav,
   tags: ['autodocs'],
   argTypes: {

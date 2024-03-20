@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import './SearchBar.css'
 
 export default {
-  title: 'SearchBar',
+  title: 'Components/SearchBar',
   component: SearchBar,
 } as Meta;
 

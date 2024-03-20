@@ -4,7 +4,7 @@ import image1 from '@assets/facilities/cho-ray.jpg'
 import image2 from '@assets/facilities/diag.png'
 
 export default {
-  title: 'CustomSlider',
+  title: 'Components/CustomSlider',
   component: CustomSlider,
   tags: ['autodocs'],
 } as Meta

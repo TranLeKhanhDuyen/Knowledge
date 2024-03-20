@@ -2,7 +2,7 @@ import Header from './Header';
 import { Meta, Story } from '@storybook/react';
 
 export default {
-  title: 'Header',
+  title: 'Components/Header',
   component: Header,
   tags: ['autodocs'],
   argTypes: {

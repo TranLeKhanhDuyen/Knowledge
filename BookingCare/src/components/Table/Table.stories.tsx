@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Table from "./Table";
 
 export default {
-  title: 'Table',
+  title: 'Components/Table',
   component: Table,
   tags: ['autodocs'],
   argTypes: {
@@ -29,7 +29,7 @@ export const Default: Story = {
         { firstname: "Jane", lastname: "Smith", email: "jane@example.com", address: "456 Elm St" },
         { firstname: "Sara", lastname: "Smith", email: "jane@example.com", address: "456 Elm St" },
         { firstname: "John", lastname: "Doe", email: "john@example.com", address: "123 Main St" },
-      
+
       ]
     },
     columnTitles: {

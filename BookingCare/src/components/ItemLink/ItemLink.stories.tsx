@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
 import './ItemLink.css'
 import ItemLink from './ItemLink';
-import image from '../../../assets/facilities/cental-military.jpg'
 
 export default {
-  title: 'Commons/ItemLink',
+  title: 'Components/ItemLink',
   component: ItemLink,
   tags: ['autodocs'],
   argTypes: {

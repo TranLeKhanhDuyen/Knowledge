@@ -3,7 +3,7 @@ import './ItemFooter.css'
 import ItemFooter from './ItemFooter';
 
 export default {
-  title: 'Commons/ItemFooter',
+  title: 'Components/ItemFooter',
   component: ItemFooter,
   tags: ['autodocs'],
   argTypes: {

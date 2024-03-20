@@ -7,8 +7,6 @@ interface ISliderProps {
   types: TItemLinkType
 }
 
-
-
 const CustomSlider = ({ types, items }: ISliderProps) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 

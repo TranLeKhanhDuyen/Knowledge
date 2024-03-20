@@ -17,7 +17,7 @@ export interface IHeaderProps {
 const Header = ({ items }: IHeaderProps) => {
   const handleSearchChange = () => { };
   return (
-    <header className="container header">
+    <header className="header">
       <Image
         src={logo}
         width='200'

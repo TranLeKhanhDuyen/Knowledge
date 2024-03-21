@@ -16,11 +16,11 @@ export interface IItemLinkProps {
 }
 
 const ItemLink = ({
-  title = '',
-  variant = 'primary',
+  title,
+  variant,
   width = 'fit-content',
   height = 'auto',
-  description = '',
+  description,
   image = img1,
   onClick
 }: IItemLinkProps) => {

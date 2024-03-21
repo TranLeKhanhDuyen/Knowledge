@@ -21,13 +21,15 @@ const Input = ({
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event)
   };
-  <input
-    className={`input-${variant}`}
-    placeholder={placeholder}
-    name={name}
-    value={value}
-    onChange={handleOnChange}
-  />
+  return (
+    <input
+      className={`input-${variant}`}
+      placeholder={placeholder}
+      name={name}
+      value={value}
+      onChange={handleOnChange}
+    />
+  )
 }
 
 export default Input

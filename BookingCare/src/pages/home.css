@@ -5,3 +5,30 @@
   gap: 30px;
   margin-bottom: 50px;
 }
+
+.media {
+  background: url('../assets/backgrounds/background-outstanding.png');
+}
+
+.media-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10%;
+}
+
+.media-title {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.list-media {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 50%;
+}
+
+.embed-video {
+  width: 100%;
+}

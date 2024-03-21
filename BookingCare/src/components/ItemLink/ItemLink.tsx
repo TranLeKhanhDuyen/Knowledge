@@ -2,7 +2,7 @@ import './ItemLink.css'
 import Image from '@components/common/Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
 
-export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary';
+export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary' | 'quaternary';
 export type TItemLinkType = 'banner' | 'service' | 'specialist' | 'facilities' | 'doctor' | 'handbook' | 'media';
 
 export interface IItemLinkProps {
@@ -15,7 +15,7 @@ export interface IItemLinkProps {
   onClick?: () => void;
 }
 
-export interface IListLinkProps{
+export interface IListLinkProps {
   items: IItemLinkProps[],
   type: TItemLinkType
 }

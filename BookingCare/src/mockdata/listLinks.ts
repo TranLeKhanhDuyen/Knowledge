@@ -253,28 +253,36 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   handbook: [],
   media: [
     {
-      image: vtv1,
+      variant: 'quaternary',
+      image: vtv1
     },
     {
-      image: ictnews,
+      variant: 'quaternary',
+      image: ictnews
     },
     {
-      image: vnexpress,
+      variant: 'quaternary',
+      image: vnexpress
     },
     {
-      image: vtcnews,
+      variant: 'quaternary',
+      image: vtcnews
     },
     {
-      image: cuccntt,
+      variant: 'quaternary',
+      image: cuccntt
     },
     {
-      image: infonet,
+      variant: 'quaternary',
+      image: infonet
     },
     {
-      image: dantri,
+      variant: 'quaternary',
+      image: dantri
     },
     {
-      image: vtv1,
+      variant: 'quaternary',
+      image: vtv1
     }
   ]
 };

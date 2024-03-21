@@ -5,6 +5,7 @@ import { LIST_LINKS } from "@mockdata/listLinks";
 import { LIST_HEADER } from "@mockdata/listHeader";
 import { Label } from "@components/common";
 import ListHeader from "@components/ListHeader/ListHeader";
+import EmbedVideo from "@components/EmbedVideo/EmbedVideo";
 
 const HomePage = () => {
   return (
@@ -44,21 +45,35 @@ const HomePage = () => {
           <ListHeader items={LIST_HEADER[1].items} type="doctor" />
           <CustomSlider items={LIST_LINKS.doctor} types="doctor" />
         </div>
+
         <div className="media">
-          <div className="container list-Media">
-            {LIST_LINKS.media.map((item) => (
-              <ItemLink
-                image={item.image}
-                title={item.title}
-                description={item.description}
-                width="150"
-                // height="56"
-                variant="secondary"
+          <h3 className="text-5xl media-title">
+            <Label text='MEDIA TALK ABOUT BOOKINGCARE' />
+          </h3>
+          <div className="container media-container">
+            <div className="embed-video">
+              <EmbedVideo
+                link="https://www.youtube.com/embed/FyDQljKtWnI?si=mg6VMSm1mRjSxFhg"
+                alt="vtv1"
               />
-            ))}
+            </div>
+            <div className="list-media">
+              {LIST_LINKS.media.map((item) => (
+                <ItemLink
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  width="150"
+                  height="56"
+                  variant={item.variant}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
+        <footer>
+        </footer>
       </main>
       <div>
       </div>

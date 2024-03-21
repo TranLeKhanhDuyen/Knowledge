@@ -19,10 +19,12 @@ const HomePage = () => {
             types="banner"
           />
         </div>
-        <span className="container">
-          <Label text='service' />
-        </span>
-        <div className=" list-secondary">
+
+        <div className="container">
+          <Label text='Service' />
+        </div>
+
+        <div className="container list-secondary">
           {LIST_LINKS.service.map((item) => (
             <ItemLink
               image={item.image}

@@ -108,41 +108,41 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: musculoskeletal,
       title: 'Musculoskeletal',
-      variant: 'secondary'
+      variant: 'primary'
     },
     {
       image: nerve,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Nerve'
     },
     {
       image: digestion,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Digestion'
     },
     {
       image: heart,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Heart'
     },
     {
       image: spine,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Spine'
     },
     {
       image: earNoseThroat,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Ear, nose, throat'
     },
     {
       image: traditional,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Traditional medicine'
     },
     {
       image: acupuncture,
-      variant: 'secondary',
+      variant: 'primary',
       title: 'Acupuncture'
     }
   ],

@@ -1,38 +1,46 @@
 import './ItemLink.css'
-import Image from '@components/common/Image/Image';
+import Image, { TImage } from '@components/common/Image/Image';
 import img1 from '@assets/facilities/cho-ray.jpg'
+import Text from '@components/common/Text/Text';
 
-export type TItemLinkVariant = 'primary' | 'secondary' | 'tertiary' | 'quaternary';
-export type TItemLinkType = 'banner' | 'service' | 'specialist' | 'facilities' | 'doctor' | 'handbook' | 'media';
+
+export type TItemLinkType =
+  | 'banner'
+  | 'service'
+  | 'specialist'
+  | 'facilities'
+  | 'doctor'
+  | 'handbook'
+  | 'media'
+  | 'icon';
 
 export interface IItemLinkProps {
   title?: string;
-  variant?: TItemLinkVariant;
+  subsTitle?: string;
+  type?: TItemLinkType;
   description?: string;
   image?: string;
   width?: string;
   height?: string;
+  typeImage?: TImage;
   onClick?: () => void;
-}
-
-export interface IListLinkProps {
-  items: IItemLinkProps[],
-  type: TItemLinkType
 }
 
 const ItemLink = ({
   title,
-  variant,
-  width = 'fit-content',
-  height = 'auto',
+  subsTitle,
+  type,
+  width,
+  height,
   description,
   image = img1,
+  typeImage,
   onClick
 }: IItemLinkProps) => {
   return (
     <div className={`itemlink-container`}>
       <a
-        className={`cursor itemlink ${variant ? `itemlink-${variant}` : ''}`}
+        className={`cursor itemlink ${type ? `itemlink-${type}` : ''}`}
         onClick={onClick}
       >
         <Image
@@ -40,12 +48,14 @@ const ItemLink = ({
           height={height}
           src={image}
           alt={`Image for ${title}`}
-          type='circle'
+          type={typeImage}
         />
-        <div className='content'>
-          <h4 className='text-bold text-xl title-link'>{title}</h4>
-          <p>{description}</p>
-        </div>
+        <Text
+          title={title}
+          subsTitle={subsTitle}
+          description={description}
+
+        />
       </a>
     </div>
   )

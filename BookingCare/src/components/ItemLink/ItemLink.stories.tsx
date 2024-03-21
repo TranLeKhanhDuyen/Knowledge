@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import './ItemLink.css'
 import ItemLink from './ItemLink';
+import choray from '@assets/facilities/cho-ray.jpg';
 
 export default {
   title: 'Components/ItemLink',
@@ -37,28 +38,29 @@ type Story = StoryObj<typeof ItemLink>;
 export const Default: Story = {
   args: {
     title: 'D',
-    description: 'D'
+    description: 'D',
+    image: choray
   }
 }
 
 export const Small: Story = {
   args: {
     ...Default.args,
-    variant: 'primary',
+    type: 'media',
   }
 }
 
 export const Medium: Story = {
   args: {
     ...Default.args,
-    variant: 'secondary',
+    type: 'service',
   }
 }
 
 export const Large: Story = {
   args: {
     ...Default.args,
-    variant: 'tertiary',
+    type: 'handbook',
   }
 }
 

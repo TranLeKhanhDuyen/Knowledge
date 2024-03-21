@@ -1,8 +1,9 @@
 import { Button } from "@components/common"
 import './ListHeader.css'
 import Text from "@components/common/Text/Text";
+import { TItemLinkType } from "@components/ItemLink/ItemLink";
 
-type TListHeadeType = 'specialist' | 'facilities' | 'doctor' | 'handbook';
+type TListHeaderType = TItemLinkType
 
 interface IItemHeaderProps {
   text: string;
@@ -11,8 +12,9 @@ interface IItemHeaderProps {
 
 export interface IListHeaderProps {
   items: IItemHeaderProps[];
-  type: TListHeadeType;
+  type: TListHeaderType;
 }
+
 const ListHeader = ({ items, type }: IListHeaderProps) => {
   const handleClick = () => {
     alert("click ok");
@@ -22,7 +24,7 @@ const ListHeader = ({ items, type }: IListHeaderProps) => {
     <div className={`item-header-container ${type}`}>
       {items.map((item) => (
         <>
-        <Text title={item.text}/>
+          <Text title={item.text}/>
           <Button title='See more' onClick={handleClick} />
         </>
       ))}

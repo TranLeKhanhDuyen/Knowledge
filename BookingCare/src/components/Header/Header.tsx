@@ -1,10 +1,9 @@
 import './Header.css';
 import logo from '@assets/logo-v3.png';
-import supportIcon from '@assets/icons/ic-support.svg'
 import SearchBar from '@components/SearchBar/SearchBar';
 import { Image } from '@components/common';
-import ItemNav from '@components/ItemNav/ItemNav';
 import ItemLink from '@components/ItemLink/ItemLink';
+import Text from '@components/common/Text/Text';
 
 export interface IHeaderProps {
   items: {
@@ -12,10 +11,15 @@ export interface IHeaderProps {
     title: string;
     subsTitle: string;
   }[];
+  icon: string
 }
 
-const Header = ({ items }: IHeaderProps) => {
+const Header = ({
+  items,
+  icon
+}: IHeaderProps) => {
   const handleSearchChange = () => { };
+
   return (
     <header className="header">
       <Image
@@ -26,10 +30,11 @@ const Header = ({ items }: IHeaderProps) => {
       />
       <nav className="navbar">
         {items.map((item) => (
-          <ItemNav
+          <Text
             key={item.id}
             title={item.title}
             subsTitle={item.subsTitle}
+            additionalClass="item-nav"
           />
         ))}
       </nav>
@@ -38,13 +43,12 @@ const Header = ({ items }: IHeaderProps) => {
         placeholder='Search'
       />
       <ItemLink
-        variant='tertiary'
+        type='icon'
         width='30'
         height='30'
-        image={supportIcon}
+        image={icon}
         title='Support'
       />
-
     </header>
   );
 }

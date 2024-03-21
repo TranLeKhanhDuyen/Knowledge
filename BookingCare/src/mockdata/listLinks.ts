@@ -27,7 +27,6 @@ import traditional from '@assets/icons/ic-traditional-medicine.png';
 import acupuncture from '@assets/icons/ic-acupincture.png';
 
 //doctor outstanding
-
 import doctor1 from '@assets/doctors/kieu-dinh.png';
 import doctor2 from '@assets/doctors/tra-anh-duy.jpg';
 import doctor3 from '@assets/doctors/pham-chi-lang.jpg';
@@ -42,24 +41,24 @@ import doctor11 from '@assets/doctors/phan-vuong-huy.jpg';
 import doctor12 from '@assets/doctors/nguyen-trong-hung.jpg';
 
 //facilities images
-import centalMilitary from '../assets/facilities/cental-military.jpg';
-import choray from '../assets/facilities/cho-ray.jpg';
-import diag from '../assets/facilities/diag.png';
-import doctorcheck from '../assets/facilities/doctor-check.png';
-import hungviet from '../assets/facilities/hung-viet.jpg';
-import medicineAndPharmacy from '../assets/facilities/medicine-and-pharmacy.jpg';
-import medlatec from '../assets/facilities/medlatec.png';
-import thucuc from '../assets/facilities/thu-cuc.png';
-import vietduc from '../assets/facilities/viet-duc.jpg';
+import centalMilitary from '@assets/facilities/cental-military.jpg';
+import choray from '@assets/facilities/cho-ray.jpg';
+import diag from '@assets/facilities/diag.png';
+import doctorcheck from '@assets/facilities/doctor-check.png';
+import hungviet from '@assets/facilities/hung-viet.jpg';
+import medicineAndPharmacy from '@assets/facilities/medicine-and-pharmacy.jpg';
+import medlatec from '@assets/facilities/medlatec.png';
+import thucuc from '@assets/facilities/thu-cuc.png';
+import vietduc from '@assets/facilities/viet-duc.jpg';
 
 //media
-import vtv1 from '../assets/media/vtv1.png';
-import ictnews from '../assets/media/ictnews.png';
-import vnexpress from '../assets/media/vnexpress.png';
-import vtcnews from '../assets/media/vtcnews.png';
-import cuccntt from '../assets/media/cuccntt.png';
-import infonet from '../assets/media/infonet.png';
-import dantri from '../assets/media/dantri.png';
+import vtv1 from '@assets/media/vtv1.png';
+import ictnews from '@assets/media/ictnews.png';
+import vnexpress from '@assets/media/vnexpress.png';
+import vtcnews from '@assets/media/vtcnews.png';
+import cuccntt from '@assets/media/cuccntt.png';
+import infonet from '@assets/media/infonet.png';
+import dantri from '@assets/media/dantri.png';
 
 export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   banner: [
@@ -107,42 +106,34 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   specialist: [
     {
       image: musculoskeletal,
-      title: 'Musculoskeletal',
-      variant: 'primary'
-    },
+      title: 'Musculoskeletal'
+  },
     {
       image: nerve,
-      variant: 'primary',
       title: 'Nerve'
     },
     {
       image: digestion,
-      variant: 'primary',
       title: 'Digestion'
     },
     {
       image: heart,
-      variant: 'primary',
       title: 'Heart'
     },
     {
       image: spine,
-      variant: 'primary',
       title: 'Spine'
     },
     {
       image: earNoseThroat,
-      variant: 'primary',
       title: 'Ear, nose, throat'
     },
     {
       image: traditional,
-      variant: 'primary',
       title: 'Traditional medicine'
     },
     {
       image: acupuncture,
-      variant: 'primary',
       title: 'Acupuncture'
     }
   ],
@@ -251,37 +242,38 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   ],
 
   handbook: [],
+  icon: [],
   media: [
     {
-      variant: 'quaternary',
+      type: 'media',
       image: vtv1
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: ictnews
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: vnexpress
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: vtcnews
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: cuccntt
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: infonet
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: dantri
     },
     {
-      variant: 'quaternary',
+      type: 'media',
       image: vtv1
     }
   ]

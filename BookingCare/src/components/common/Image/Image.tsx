@@ -1,11 +1,13 @@
 import './Image.css'
 
+export type TImage = 'circle' | 'square'
+
 export interface IImageProps {
   width?: string;
   height?: string;
   src: string;
   alt: string;
-  type: 'circle' | 'square'
+  type?: TImage
 }
 
 const Image = ({

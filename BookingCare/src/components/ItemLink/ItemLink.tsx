@@ -15,6 +15,11 @@ export interface IItemLinkProps {
   onClick?: () => void;
 }
 
+export interface IListLinkProps{
+  items: IItemLinkProps[],
+  type: TItemLinkType
+}
+
 const ItemLink = ({
   title,
   variant,
@@ -25,21 +30,23 @@ const ItemLink = ({
   onClick
 }: IItemLinkProps) => {
   return (
-    <a
-      className={`cursor itemlink ${variant ? `itemlink-${variant}` : ''}`}
-      onClick={onClick}
-    >
-      <Image
-        width={width}
-        height={height}
-        src={image}
-        alt={`Image for ${title}`}
-      />
-      <div className='content'>
-        <h4 className='text-bold text-xl title-link'>{title}</h4>
-        <p>{description}</p>
-      </div>
-    </a>
+    <div className={`itemlink-container`}>
+      <a
+        className={`cursor itemlink ${variant ? `itemlink-${variant}` : ''}`}
+        onClick={onClick}
+      >
+        <Image
+          width={width}
+          height={height}
+          src={image}
+          alt={`Image for ${title}`}
+        />
+        <div className='content'>
+          <h4 className='text-bold text-xl title-link'>{title}</h4>
+          <p>{description}</p>
+        </div>
+      </a>
+    </div>
   )
 }
 

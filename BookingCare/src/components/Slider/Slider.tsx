@@ -1,6 +1,10 @@
 import ItemLink, { IItemLinkProps, TItemLinkType } from '@components/ItemLink/ItemLink';
 import './Slider.css'
 import { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 interface ISliderProps {
   items: IItemLinkProps[];
@@ -8,6 +12,14 @@ interface ISliderProps {
 }
 
 const CustomSlider = ({ types, items }: ISliderProps) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 4
+  }
+
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
@@ -21,18 +33,6 @@ const CustomSlider = ({ types, items }: ISliderProps) => {
     }
   }, [types, items]);
 
-  const handlePrev = () => {
-    setCurrentIndex(prevIndex =>
-      prevIndex === 0 ? items.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex(prevIndex =>
-      prevIndex === items.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
   const renderSliderItems = () => {
     if (types === 'banner') {
       return (
@@ -42,11 +42,11 @@ const CustomSlider = ({ types, items }: ISliderProps) => {
       );
     } else {
       return (
-        <div className="slider-items">
-          {items.map((item, index) => (
-            <ItemLink key={index} {...item} />
+        <Slider  {...settings}>
+          {items.map(() => (
+            <ItemLink />
           ))}
-        </div>
+        </Slider>
       );
     }
   };
@@ -54,12 +54,6 @@ const CustomSlider = ({ types, items }: ISliderProps) => {
   return (
     <div className="slider-container">
       {renderSliderItems()}
-      {types !== 'banner' && (
-        <div className="slider-controls">
-          <button onClick={handlePrev}>Prev</button>
-          <button onClick={handleNext}>Next</button>
-        </div>
-      )}
     </div>
   );
 };

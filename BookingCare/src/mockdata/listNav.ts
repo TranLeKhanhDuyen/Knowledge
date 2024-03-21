@@ -1,3 +1,4 @@
+import supportIcon from '@assets/icons/ic-support.svg';
 import { IHeaderProps } from '@components/Header/Header';
 
 export const LIST_NAV: IHeaderProps = {
@@ -22,5 +23,6 @@ export const LIST_NAV: IHeaderProps = {
       title: 'Examination package',
       subsTitle: 'General examination'
     }
-  ]
+  ],
+  icon: supportIcon
 };

@@ -11,7 +11,7 @@ export interface IHeaderProps {
     title: string;
     subsTitle: string;
   }[];
-  icon: string
+  icon?: string
 }
 
 const Header = ({
@@ -34,7 +34,7 @@ const Header = ({
             key={item.id}
             title={item.title}
             subsTitle={item.subsTitle}
-            additionalClass="item-nav"
+            additionalClass="cursor item-nav"
           />
         ))}
       </nav>

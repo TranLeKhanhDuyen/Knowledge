@@ -40,6 +40,7 @@ const ItemLink = ({
           height={height}
           src={image}
           alt={`Image for ${title}`}
+          type='circle'
         />
         <div className='content'>
           <h4 className='text-bold text-xl title-link'>{title}</h4>

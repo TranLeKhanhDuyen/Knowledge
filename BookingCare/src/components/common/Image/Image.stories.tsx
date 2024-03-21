@@ -1,10 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react'
 import logo from '../../../assets/logo-v3.png'
-import  Image from './Image'
+import Image from './Image'
 
 export default {
   title: 'Commons/Image',
   component: Image,
+  tags: ['autodocs'],
   argTypes: {
     src: {
       type: {

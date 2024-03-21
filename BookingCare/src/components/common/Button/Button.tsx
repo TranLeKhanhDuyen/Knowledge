@@ -17,8 +17,7 @@ const Button = ({
   variant = 'primary',
   onClick
 }: IButtonProps) => {
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleClick = () => {
     alert("click ok");
     onClick()
   }

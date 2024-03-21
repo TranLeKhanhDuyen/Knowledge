@@ -6,6 +6,7 @@ import { LIST_HEADER } from "@mockdata/listHeader";
 import { Label } from "@components/common";
 import ListHeader from "@components/ListHeader/ListHeader";
 import EmbedVideo from "@components/EmbedVideo/EmbedVideo";
+import Text from "@components/common/Text/Text";
 
 const HomePage = () => {
   return (
@@ -72,7 +73,10 @@ const HomePage = () => {
           </div>
         </div>
 
-        <footer>
+        <footer className="footer">
+          <div className="footer-container">
+            <Text title="hhu" />
+          </div>
         </footer>
       </main>
       <div>

@@ -11,6 +11,7 @@ const SearchBar = ({ value, onChange }: IInputProps) => {
         height='15'
         src={searchIcon}
         alt="Search Icon"
+        type='square'
       />
       <Input
         variant="search"

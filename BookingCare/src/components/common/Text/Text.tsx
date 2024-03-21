@@ -5,11 +5,13 @@ export interface ITextProps {
 }
 
 const Text = ({ title, susTitle, description }: ITextProps) => {
-  <>
-    <p className="text-title">{title}</p>
-    <p className="text-substitle">{susTitle}</p>
-    <p className="text-description">{description}</p>
-  </>
+  return (
+    <div className="text-container">
+      <p className="text-title">{title}</p>
+      <p className="text-substitle">{susTitle}</p>
+      <p className="text-description">{description}</p>
+    </div>
+  )
 }
 
-export default Text
+export default Text;

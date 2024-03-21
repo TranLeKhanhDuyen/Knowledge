@@ -1,11 +1,11 @@
 import './Image.css'
 
-
 export interface IImageProps {
   width?: string;
   height?: string;
   src: string;
   alt: string;
+  type: 'circle' | 'square'
 }
 
 const Image = ({
@@ -13,9 +13,10 @@ const Image = ({
   height = 'auto',
   src,
   alt,
+  type
 }: IImageProps) => (
   <img
-    className={`img`}
+    className={`img img-${type}`}
     width={width}
     height={height}
     src={src}

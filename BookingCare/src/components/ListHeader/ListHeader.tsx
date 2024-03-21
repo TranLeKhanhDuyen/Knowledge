@@ -1,5 +1,6 @@
-import { Button, Label } from "@components/common"
+import { Button } from "@components/common"
 import './ListHeader.css'
+import Text from "@components/common/Text/Text";
 
 type TListHeadeType = 'specialist' | 'facilities' | 'doctor' | 'handbook';
 
@@ -21,7 +22,7 @@ const ListHeader = ({ items, type }: IListHeaderProps) => {
     <div className={`item-header-container ${type}`}>
       {items.map((item) => (
         <>
-          <Label text={item.text} />
+        <Text title={item.text}/>
           <Button title='See more' onClick={handleClick} />
         </>
       ))}

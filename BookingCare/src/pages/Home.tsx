@@ -3,7 +3,6 @@ import './home.css'
 import { CustomSlider, Header, ItemLink } from "@components";
 import { LIST_LINKS } from "@mockdata/listLinks";
 import { LIST_HEADER } from "@mockdata/listHeader";
-import { Label } from "@components/common";
 import ListHeader from "@components/ListHeader/ListHeader";
 import EmbedVideo from "@components/EmbedVideo/EmbedVideo";
 import Text from "@components/common/Text/Text";
@@ -23,7 +22,7 @@ const HomePage = () => {
         </div>
 
         <div className="container">
-          <Label text='Service' />
+          <Text title='Service' />
         </div>
 
         <div className="container list-secondary">
@@ -49,7 +48,7 @@ const HomePage = () => {
 
         <div className="media">
           <h3 className="text-5xl media-title">
-            <Label text='MEDIA TALK ABOUT BOOKINGCARE' />
+            <Text title='MEDIA TALK ABOUT BOOKINGCARE' />
           </h3>
           <div className="container media-container">
             <div className="embed-video">

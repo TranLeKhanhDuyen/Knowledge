@@ -3,7 +3,7 @@
   align-items: center;
 }
 
-.itemlink-primary {
+.itemlink-specialist {
   flex-direction: column;
   align-items: center;
   border: 2px solid var(--gray-color);
@@ -11,7 +11,7 @@
   padding: 20px;
 }
 
-.itemlink-secondary {
+.itemlink-service {
   gap: 30px;
   background: url('../../assets//backgrounds/background-item1.png');
   border: 1px solid var(--gray-color);

@@ -43,8 +43,8 @@ const CustomSlider = ({ types, items }: ISliderProps) => {
     } else {
       return (
         <Slider  {...settings}>
-          {items.map(() => (
-            <ItemLink />
+          {items.map((item) => (
+            <ItemLink image={item.image}/>
           ))}
         </Slider>
       );

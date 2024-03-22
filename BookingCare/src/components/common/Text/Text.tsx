@@ -1,3 +1,5 @@
+import './Text.css'
+
 export interface ITextProps {
   title?: string,
   subsTitle?: string,

@@ -12,7 +12,8 @@ export type TItemLinkType =
   | 'doctor'
   | 'handbook'
   | 'media'
-  | 'icon';
+  | 'icon'
+  | 'footer'
 
 export interface IItemLinkProps {
   title?: string;
@@ -54,7 +55,6 @@ const ItemLink = ({
           title={title}
           subsTitle={subsTitle}
           description={description}
-
         />
       </a>
     </div>

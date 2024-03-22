@@ -6,12 +6,13 @@ import { LIST_HEADER } from "@mockdata/listHeader";
 import ListHeader from "@components/ListHeader/ListHeader";
 import EmbedVideo from "@components/EmbedVideo/EmbedVideo";
 import Text from "@components/common/Text/Text";
+import supportIcon from "../assets/icons/ic-support.svg"
 
 const HomePage = () => {
   return (
     <>
       <header className="container">
-        <Header items={LIST_NAV.items} />
+        <Header items={LIST_NAV.items} icon={supportIcon} />
       </header>
       <main>
         <div className="container banner">
@@ -20,12 +21,10 @@ const HomePage = () => {
             types="banner"
           />
         </div>
-
         <div className="container">
           <Text title='Service' />
         </div>
-
-        <div className="container list-secondary">
+        <div className="container list-link">
           {LIST_LINKS.service.map((item) => (
             <ItemLink
               image={item.image}
@@ -33,23 +32,20 @@ const HomePage = () => {
               description={item.description}
               width="56"
               height="56"
-              variant="secondary"
+              type="service"
             />
           ))}
         </div>
-        <div className="container">
-          <ListHeader items={LIST_HEADER[0].items} type="specialist" />
+        <div className="container list-slider">
+          <ListHeader text={LIST_HEADER.specialist[0].text} type="specialist" />
           <CustomSlider items={LIST_LINKS.specialist} types="specialist" />
-          <ListHeader items={LIST_HEADER[1].items} type="facilities" />
+          <ListHeader text={LIST_HEADER.facilities[0].text} type="facilities" />
           <CustomSlider items={LIST_LINKS.facilities} types="facilities" />
-          <ListHeader items={LIST_HEADER[1].items} type="doctor" />
+          <ListHeader text={LIST_HEADER.doctor[0].text} type="doctor" />
           <CustomSlider items={LIST_LINKS.doctor} types="doctor" />
         </div>
-
         <div className="media">
-          <h3 className="text-5xl media-title">
-            <Text title='MEDIA TALK ABOUT BOOKINGCARE' />
-          </h3>
+          <Text title='Media talks about BookingCare' />
           <div className="container media-container">
             <div className="embed-video">
               <EmbedVideo
@@ -65,16 +61,24 @@ const HomePage = () => {
                   description={item.description}
                   width="150"
                   height="56"
-                  variant={item.variant}
+                  type={item.type}
                 />
               ))}
             </div>
           </div>
         </div>
-
         <footer className="footer">
-          <div className="footer-container">
-            <Text title="hhu" />
+          <div className=" container footer-container">
+            <Text title="@BookingCare 2024" />
+            {LIST_LINKS.footer.map((item) => (
+              <ItemLink
+                image={item.image}
+                width="56"
+                height="56"
+                
+                type={item.type}
+              />
+            ))}
           </div>
         </footer>
       </main>

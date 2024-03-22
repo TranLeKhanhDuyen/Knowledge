@@ -5,29 +5,24 @@ import { TItemLinkType } from "@components/ItemLink/ItemLink";
 
 type TListHeaderType = TItemLinkType
 
-interface IItemHeaderProps {
+export interface IItemHeaderProps {
   text: string;
   onClick?: () => void;
+  type?: TListHeaderType;
+
 }
 
-export interface IListHeaderProps {
-  items: IItemHeaderProps[];
-  type: TListHeaderType;
-}
-
-const ListHeader = ({ items, type }: IListHeaderProps) => {
+const ListHeader = ({ text, type }: IItemHeaderProps) => {
   const handleClick = () => {
     alert("click ok");
   }
 
   return (
     <div className={`item-header-container ${type}`}>
-      {items.map((item) => (
-        <>
-          <Text title={item.text}/>
-          <Button title='See more' onClick={handleClick} />
-        </>
-      ))}
+      <>
+        <Text title={text} />
+        <Button title='See more' onClick={handleClick} />
+      </>
     </div>
   );
 }

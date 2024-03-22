@@ -60,6 +60,11 @@ import cuccntt from '@assets/media/cuccntt.png';
 import infonet from '@assets/media/infonet.png';
 import dantri from '@assets/media/dantri.png';
 
+//footer
+import tiktok from '@assets/icons/ic-tiktok.svg';
+import facebook from '@assets/icons/ic-facebook.svg';
+import youtube from '@assets/icons/ic-youtube.svg';
+
 export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   banner: [
     { image: banner1 },
@@ -107,7 +112,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: musculoskeletal,
       title: 'Musculoskeletal'
-  },
+    },
     {
       image: nerve,
       title: 'Nerve'
@@ -240,9 +245,24 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       description: 'Andrology, Nephrology - Urology'
     }
   ],
+  icon: [
 
+  ],
   handbook: [],
-  icon: [],
+  footer: [
+    {
+      type: 'footer',
+      image: tiktok
+    },
+    {
+      type: 'footer',
+      image: facebook
+    },
+    {
+      type: 'footer',
+      image: youtube
+    }
+  ],
   media: [
     {
       type: 'media',

@@ -21,7 +21,6 @@ const Header = ({
   const handleSearchChange = () => { };
 
   return (
-
     <header className="header">
       <div className='container header-container'>
         <Image

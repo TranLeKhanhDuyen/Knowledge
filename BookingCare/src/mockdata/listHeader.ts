@@ -51,9 +51,9 @@ import { IItemHeaderProps } from '@components/ListHeader/ListHeader';
 const headerTexts: Record<TItemLinkType, string> = {
   banner: 'Specialist',
   service: 'Service',
-  specialist: 'Specialist',
-  facilities: 'Facilities',
-  doctor: 'Doctor',
+  specialist: 'Chuyên khoa',
+  facilities: 'Cơ sở y tế',
+  doctor: 'Bác sĩ',
   handbook: 'Handbook',
   icon: '',
   footer: '',

@@ -22,7 +22,7 @@ const HomePage = () => {
           />
         </div>
         <div className="container">
-          <Text title='Service' />
+          <Text title='Dịch vụ toàn diện' />
         </div>
         <div className="container list-link">
           {LIST_LINKS.service.map((item) => (
@@ -46,7 +46,7 @@ const HomePage = () => {
         </div>
 
         <div className="media">
-          <Text title='Media talks about BookingCare' />
+          <Text title='Truyền thông nói về BookingCare' />
           <div className="container media-container">
             <div className="embed-video">
               <EmbedVideo

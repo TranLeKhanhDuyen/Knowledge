@@ -5,23 +5,23 @@ export const LIST_NAV: IHeaderProps = {
   items: [
     {
       id: '1',
-      title: 'Specialist',
-      subsTitle: 'Find doctors by specialty'
+      title: 'Chuyên khoa',
+      subsTitle: 'Tìm bác sĩ theo chuyên khoa'
     },
     {
       id: '2',
-      title: 'Health facilities',
+      title: 'Cơ sở y tế',
       subsTitle: 'Choose a hospital or clinic'
     },
     {
       id: '3',
-      title: 'Doctor',
-      subsTitle: 'Choose a doctor'
+      title: 'Bác sĩ',
+      subsTitle: 'Chọn bác sĩ'
     },
     {
       id: '4',
-      title: 'Examination package',
-      subsTitle: 'General examination'
+      title: 'Cẩm nang',
+      subsTitle: 'Tham khảo cẩm nang'
     }
   ],
   icon: supportIcon

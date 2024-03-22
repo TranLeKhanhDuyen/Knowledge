@@ -2,9 +2,9 @@ import './Image.css'
 
 export type TImage = 'circle' | 'square'
 
-export interface IImageProps {
-  width?: string;
-  height?: string;
+export interface IImageProps { //TImageComponent
+  width?: string; //
+  height?: string; //
   src: string;
   alt?: string;
   type?: TImage

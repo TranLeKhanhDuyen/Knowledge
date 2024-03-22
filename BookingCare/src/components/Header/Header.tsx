@@ -21,34 +21,37 @@ const Header = ({
   const handleSearchChange = () => { };
 
   return (
+
     <header className="header">
-      <Image
-        src={logo}
-        width='200'
-        height='43'
-        alt={'logo'}
-      />
-      <nav className="navbar">
-        {items.map((item) => (
-          <Text
-            key={item.id}
-            title={item.title}
-            subsTitle={item.subsTitle}
-            additionalClass="cursor item-nav"
-          />
-        ))}
-      </nav>
-      <SearchBar
-        onChange={handleSearchChange}
-        placeholder='Search'
-      />
-      <ItemLink
-        type='icon'
-        width='30'
-        height='30'
-        image={icon}
-        title='Support'
-      />
+      <div className='container header-container'>
+        <Image
+          src={logo}
+          width='200'
+          height='43'
+          alt={'logo'}
+        />
+        <nav className="navbar">
+          {items.map((item) => (
+            <Text
+              key={item.id}
+              title={item.title}
+              subsTitle={item.subsTitle}
+              additionalClass="cursor item-nav"
+            />
+          ))}
+        </nav>
+        <SearchBar
+          onChange={handleSearchChange}
+          placeholder='Search'
+        />
+        <ItemLink
+          type='icon'
+          width='30'
+          height='30'
+          image={icon}
+          title='Support'
+        />
+      </div>
     </header>
   );
 }

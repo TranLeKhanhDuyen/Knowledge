@@ -1,10 +1,13 @@
 .header {
+  background-color: #edfffa;
+}
+
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
   gap: 20px;
-  background-color: #edfffa;
 }
 
 .navbar {

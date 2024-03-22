@@ -18,7 +18,6 @@ const Button = ({
   onClick
 }: IButtonProps) => {
   const handleClick = () => {
-    alert("click ok");
     onClick()
   }
 

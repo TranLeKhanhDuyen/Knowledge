@@ -11,7 +11,7 @@ import supportIcon from "../assets/icons/ic-support.svg"
 const HomePage = () => {
   return (
     <>
-      <header className="container">
+      <header>
         <Header items={LIST_NAV.items} icon={supportIcon} />
       </header>
       <main className="main-homepage">

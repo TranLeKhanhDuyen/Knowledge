@@ -1,3 +1,45 @@
 .desc-list {
   list-style: disc;
 }
+
+.doctor-container {
+  padding-top: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.doctor-summary {
+  display: flex;
+  gap: 2%;
+}
+
+.examination-schedule {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.schedule-time {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-focus {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 20px;
+}
+
+.address-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px
+}

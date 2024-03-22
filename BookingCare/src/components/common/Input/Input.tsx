@@ -3,14 +3,16 @@ import './Input.css'
 
 export interface IInputProps {
   variant?: 'search' | 'text';
-  placeholder: string;
+  type: 'text'| 'checkbox'|'email'|'password'|'date';
+  placeholder?: string;
   name?: string;
   value?: string;
   onChange: (value: string) => void;
+  required?: boolean
 }
 
 const Input = ({
-  variant = 'text',
+  variant ,
   placeholder,
   name,
   value,

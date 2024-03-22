@@ -5,6 +5,7 @@
   border-radius: 15px;
   width: fit-content;
   padding: 10px;
+  background-color: var(--white-color);
 }
 
 .search-container:focus-within {

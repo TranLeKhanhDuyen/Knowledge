@@ -14,7 +14,7 @@ const HomePage = () => {
       <header className="container">
         <Header items={LIST_NAV.items} icon={supportIcon} />
       </header>
-      <main>
+      <main className="main-homepage">
         <div className="container banner">
           <CustomSlider
             items={LIST_LINKS.banner}
@@ -36,14 +36,15 @@ const HomePage = () => {
             />
           ))}
         </div>
-        <div className="container list-slider">
-          <ListHeader text={LIST_HEADER.specialist[0].text} type="specialist" />
-          <CustomSlider items={LIST_LINKS.specialist} types="specialist" />
-          <ListHeader text={LIST_HEADER.facilities[0].text} type="facilities" />
-          <CustomSlider items={LIST_LINKS.facilities} types="facilities" />
+        <ListHeader text={LIST_HEADER.specialist[0].text} type="specialist" />
+        <CustomSlider items={LIST_LINKS.specialist} types="specialist" />
+        <ListHeader text={LIST_HEADER.facilities[0].text} type="facilities" />
+        <CustomSlider items={LIST_LINKS.facilities} types="facilities" />
+        <div className="slider-doctor">
           <ListHeader text={LIST_HEADER.doctor[0].text} type="doctor" />
           <CustomSlider items={LIST_LINKS.doctor} types="doctor" typeImage='circle' />
         </div>
+
         <div className="media">
           <Text title='Media talks about BookingCare' />
           <div className="container media-container">

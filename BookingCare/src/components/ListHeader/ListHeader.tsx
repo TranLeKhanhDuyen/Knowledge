@@ -18,7 +18,7 @@ const ListHeader = ({ text, type }: IItemHeaderProps) => {
   }
 
   return (
-    <div className={`item-header-container ${type}`}>
+    <div className={`container item-header-container ${type}`}>
       <>
         <Text title={text} />
         <Button title='See more' onClick={handleClick} />

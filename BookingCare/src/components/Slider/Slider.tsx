@@ -62,7 +62,7 @@ const CustomSlider = ({ types, items, typeImage }: ISliderProps) => {
   };
 
   return (
-    <div className="slider-container">
+    <div className="container slider-container">
       {renderSliderItems()}
     </div>
   );

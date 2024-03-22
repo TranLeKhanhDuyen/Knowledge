@@ -6,6 +6,20 @@
   margin-bottom: 50px;
 }
 
+.main-homepage {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.list-slider {
+}
+
+.slider-doctor {
+  background: url('../assets/backgrounds/background-outstanding.png');
+  padding: 50px 0;
+}
+
 .media {
   background: url('../assets/backgrounds/background-outstanding.png');
 }

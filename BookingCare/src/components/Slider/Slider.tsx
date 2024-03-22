@@ -5,13 +5,15 @@ import Slider from 'react-slick';
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { TImage } from '@components/common/Image/Image';
 
 interface ISliderProps {
   items: IItemLinkProps[];
-  types: TItemLinkType
+  types: TItemLinkType,
+  typeImage?: TImage
 }
 
-const CustomSlider = ({ types, items }: ISliderProps) => {
+const CustomSlider = ({ types, items, typeImage }: ISliderProps) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -31,7 +33,7 @@ const CustomSlider = ({ types, items }: ISliderProps) => {
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [types, items]);
+  }, [types, items, typeImage]);
 
   const renderSliderItems = () => {
     if (types === 'banner') {
@@ -44,7 +46,15 @@ const CustomSlider = ({ types, items }: ISliderProps) => {
       return (
         <Slider  {...settings}>
           {items.map((item) => (
-            <ItemLink image={item.image}/>
+            <ItemLink
+              type={item.type}
+              image={item.image}
+              typeImage={typeImage}
+              title={item.title}
+              subsTitle={item.subsTitle}
+              description={item.description}
+              onClick={item.onClick}
+            />
           ))}
         </Slider>
       );

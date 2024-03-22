@@ -3,6 +3,7 @@
   align-items: center;
 }
 
+/* SPECIALIST */
 .itemlink-specialist {
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,7 @@
   padding: 20px;
 }
 
+/* SERVICE */
 .itemlink-service {
   gap: 30px;
   background: url('../../assets//backgrounds/background-item1.png');
@@ -19,14 +21,38 @@
   border-radius: 25px;
 }
 
-.itemlink-secondary:hover {
+.itemlink-service:hover {
   border: 1px solid var(--turquoise-dark-color);
 }
 
-.itemlink-tertiary {
+/* SPECIALIST */
+.itemlink-specialist {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  width: 373px;
+  height: 321px;
+  padding: 20px;
+  border: 1px solid var(--turquoise-dark-color);
+}
+
+/* DOCTOR */
+.itemlink-doctor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.itemlink-doctor .text-title {
+  font-weight: var(--fw-bold);
+  color: var(--turquoise-dark-color);
+}
+
+.itemlink-doctor .img-circle {
+  width: 218px;
+  height: 218px;
 }
 
 .itemlink-tertiary:hover {

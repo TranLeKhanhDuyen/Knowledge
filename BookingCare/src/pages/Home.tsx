@@ -42,7 +42,7 @@ const HomePage = () => {
           <ListHeader text={LIST_HEADER.facilities[0].text} type="facilities" />
           <CustomSlider items={LIST_LINKS.facilities} types="facilities" />
           <ListHeader text={LIST_HEADER.doctor[0].text} type="doctor" />
-          <CustomSlider items={LIST_LINKS.doctor} types="doctor" />
+          <CustomSlider items={LIST_LINKS.doctor} types="doctor" typeImage='circle' />
         </div>
         <div className="media">
           <Text title='Media talks about BookingCare' />
@@ -75,7 +75,7 @@ const HomePage = () => {
                 image={item.image}
                 width="56"
                 height="56"
-                
+
                 type={item.type}
               />
             ))}

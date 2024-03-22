@@ -56,6 +56,7 @@ const headerTexts: Record<TItemLinkType, string> = {
   doctor: 'Doctor',
   handbook: 'Handbook',
   icon: '',
+  footer: '',
   media: 'Media'
 };
 

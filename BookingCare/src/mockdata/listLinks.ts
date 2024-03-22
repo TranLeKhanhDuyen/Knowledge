@@ -111,35 +111,43 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   specialist: [
     {
       image: musculoskeletal,
-      title: 'Musculoskeletal'
+      title: 'Musculoskeletal',
+      type: 'specialist'
     },
     {
       image: nerve,
-      title: 'Nerve'
+      title: 'Nerve',
+      type: 'specialist'
     },
     {
       image: digestion,
-      title: 'Digestion'
+      title: 'Digestion',
+      type: 'specialist'
     },
     {
       image: heart,
-      title: 'Heart'
+      title: 'Heart',
+      type: 'specialist'
     },
     {
       image: spine,
-      title: 'Spine'
+      title: 'Spine',
+      type: 'specialist'
     },
     {
       image: earNoseThroat,
-      title: 'Ear, nose, throat'
+      title: 'Ear, nose, throat',
+      type: 'specialist'
     },
     {
       image: traditional,
-      title: 'Traditional medicine'
+      title: 'Traditional medicine',
+      type: 'specialist'
     },
     {
       image: acupuncture,
-      title: 'Acupuncture'
+      title: 'Acupuncture',
+      type: 'specialist'
     }
   ],
 
@@ -187,67 +195,77 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor1,
       title: 'Associate Professor, Dr. Kieu Dinh Hung',
-      description: 'Neurology, Spine, Neurosurgery'
+      description: 'Neurology, Spine, Neurosurgery',
+      type: 'doctor'
     },
     {
       image: doctor2,
       title: 'Doctor, SpeciaList II Tra Anh Duy',
-      description: 'Andrology, Nephrology - Urology'
+      description: 'Andrology, Nephrology - Urology',
+      type: 'doctor'
     },
     {
       image: doctor3,
       title: 'Doctor, Doctor Pham Chi Lang',
-      description: 'Musculoskeletal, Orthopedic trauma'
+      description: 'Musculoskeletal, Orthopedic trauma',
+      type: 'doctor'
     },
     {
       image: doctor4,
       title: 'Associate Professor, PhD, Doctor Nguyen Van Lieu',
-      description: 'Nerve'
+      description: 'Nerve',
+      type: 'doctor'
     },
     {
       image: doctor5,
       title: 'Excellent Physicican, Doctor CKII Nguyen Tien Lang',
-      description: 'Diabetes - Endocrinilogy, Oncology, Thyroid'
+      description: 'Diabetes - Endocrinilogy, Oncology, Thyroid',
+      type: 'doctor'
     },
     {
       image: doctor6,
       title: 'Master, Doctor Hua Thuy Vi',
-      description: 'Digestion, hepatitis'
+      description: 'Digestion, hepatitis',
+      type: 'doctor'
     },
     {
       image: doctor7,
       title: 'Specialist II Doctor Nguyen Tien Thanh',
-      description: 'Dermatology, Cosmetic dermatology'
+      description: 'Dermatology, Cosmetic dermatology',
+      type: 'doctor'
     },
     {
       image: doctor8,
       title: 'Doctor, Doctor Vu Thai Ha',
-      description: 'Dermatology, Cosmetic dermatology'
+      description: 'Dermatology, Cosmetic dermatology',
+      type: 'doctor'
     },
     {
       image: doctor9,
       title: 'Specialist Doctor I Nguyen Tuong Vu',
-      description: 'Neurology, Neurosurgery'
+      description: 'Neurology, Neurosurgery',
+      type: 'doctor'
     },
     {
       image: doctor10,
       title: 'SpeciaList Doctor I Phan Vuong Huy Dong',
-      description: 'Musculoskeletal, Orthopedic trauma'
+      description: 'Musculoskeletal, Orthopedic trauma',
+      type: 'doctor'
     },
     {
       image: doctor11,
       title: 'Associate Professor, PhD, Doctor Nguyen Trong Hung',
-      description: 'Nerve'
+      description: 'Nerve',
+      type: 'doctor'
     },
     {
       image: doctor12,
       title: 'Doctor, SpeciaList II Tra Anh Duy',
-      description: 'Andrology, Nephrology - Urology'
+      description: 'Andrology, Nephrology - Urology',
+      type: 'doctor'
     }
   ],
-  icon: [
-
-  ],
+  icon: [],
   handbook: [],
   footer: [
     {

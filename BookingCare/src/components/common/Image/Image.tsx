@@ -1,29 +1,14 @@
 import './Image.css'
 
-export type TImage = 'circle' | 'square'
+export type TImageVariant = 'circle' | 'square'
 
-export interface IImageProps { //TImageComponent
-  width?: string; //
-  height?: string; //
-  src: string;
-  alt?: string;
-  type?: TImage
+export interface IImageProps extends React.HTMLProps<HTMLImageElement> {
+  src: string
+  variant?: TImageVariant
 }
 
-const Image = ({
-  width = '100%',
-  height = 'auto',
-  src,
-  alt,
-  type
-}: IImageProps) => (
-  <img
-    className={`img img-${type}`}
-    width={width}
-    height={height}
-    src={src}
-    alt={alt}
-  />
+const Image = ({ src, variant, size, ...props }: IImageProps) => (
+  <img className={`img img-${variant}`} src={src} {...props} />
 )
 
 export default Image

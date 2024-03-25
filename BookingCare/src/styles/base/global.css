@@ -1,11 +1,11 @@
 * {
-  font-family: roboto;
+  font-family: 'Roboto';
   box-sizing: border-box;
   padding: 0;
 }
 
 html {
-  font-family: roboto;
+  font-family: 'Roboto';
 }
 
 .cursor {
@@ -13,5 +13,5 @@ html {
 }
 
 .container {
-  margin: 0 164px;
+  margin: 0 168px;
 }

@@ -1,92 +1,110 @@
-import { LIST_NAV } from "@mockdata";
+import { LIST_NAV } from '@mockdata'
 import './home.css'
-import { CustomSlider, Header, ItemLink } from "@components";
-import { LIST_LINKS } from "@mockdata/listLinks";
-import { LIST_HEADER } from "@mockdata/listHeader";
-import ListHeader from "@components/ListHeader/ListHeader";
-import EmbedVideo from "@components/EmbedVideo/EmbedVideo";
-import Text from "@components/common/Text/Text";
-import supportIcon from "../assets/icons/ic-support.svg"
+import { CustomSlider, Header, ItemLink } from '@components'
+import { LIST_LINKS } from '@mockdata/listLinks'
+import { LIST_HEADER } from '@mockdata/listHeader'
+import ListHeader from '@components/ListHeader/ListHeader'
+import EmbedVideo from '@components/EmbedVideo/EmbedVideo'
+import Text from '@components/common/Text/Text'
+import supportIcon from '@assets/icons/ic-support.svg'
+import { Heading } from '@components/common'
 
 const HomePage = () => {
   return (
     <>
-      <header>
-        <Header items={LIST_NAV.items} icon={supportIcon} />
-      </header>
-      <main className="main-homepage">
-        <div className="container banner">
-          <CustomSlider
-            items={LIST_LINKS.banner}
-            types="banner"
+      <Header items={LIST_NAV[0].items} icon={supportIcon} />
+      <div className='background'>
+        <CustomSlider items={LIST_LINKS.banner} types='banner' />
+      </div>
+      <main className='main-homepage'>
+        <div className='container'>
+          <Heading
+            variant='h2'
+            content='Dịch vụ toàn diện'
+            className='container'
           />
         </div>
-        <div className="container">
-          <Text title='Dịch vụ toàn diện' />
-        </div>
-        <div className="container list-link">
-          {LIST_LINKS.service.map((item) => (
+        <div className='container list-link'>
+          {LIST_LINKS.service.map(({ image, headingProps, path }) => (
             <ItemLink
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              width="56"
-              height="56"
-              type="service"
+              image={image}
+              headingProps={headingProps}
+              path={path}
+              type='service'
             />
           ))}
         </div>
-        <ListHeader text={LIST_HEADER.specialist[0].text} type="specialist" />
-        <CustomSlider items={LIST_LINKS.specialist} types="specialist" />
-        <ListHeader text={LIST_HEADER.facilities[0].text} type="facilities" />
-        <CustomSlider items={LIST_LINKS.facilities} types="facilities" />
-        <div className="slider-doctor">
-          <ListHeader text={LIST_HEADER.doctor[0].text} type="doctor" />
-          <CustomSlider items={LIST_LINKS.doctor} types="doctor" typeImage='circle' />
+        <ListHeader
+          content={LIST_HEADER.specialist[0].content}
+          type='specialist'
+        />
+        <CustomSlider items={LIST_LINKS.specialist} types='specialist' />
+        <ListHeader
+          content={LIST_HEADER.facilities[0].content}
+          type='facilities'
+        />
+        <CustomSlider items={LIST_LINKS.facilities} types='facilities' />
+        <div className='slider-doctor'>
+          <ListHeader content={LIST_HEADER.doctor[0].content} type='doctor' />
+          <CustomSlider items={LIST_LINKS.doctor} types='doctor' />
+        </div>
+        <div className='slider-handbook'>
+          <ListHeader
+            content={LIST_HEADER.handbook[0].content}
+            type='handbook'
+          />
+          <CustomSlider items={LIST_LINKS.handbook} types='handbook' />
         </div>
 
-        <div className="media">
-          <Text title='Truyền thông nói về BookingCare' />
-          <div className="container media-container">
-            <div className="embed-video">
+        <div className='media'>
+          <div className='container heading-media'>
+            <Heading
+              variant='h2'
+              content='Truyền thông nói về BookingCare'
+              className='media'
+            />
+          </div>
+          <div className='container media-container'>
+            <div className='embed-video'>
               <EmbedVideo
-                link="https://www.youtube.com/embed/FyDQljKtWnI?si=mg6VMSm1mRjSxFhg"
-                alt="vtv1"
+                link='https://www.youtube.com/embed/FyDQljKtWnI?si=mg6VMSm1mRjSxFhg'
+                alt='vtv1'
               />
             </div>
-            <div className="list-media">
+            <div className='list-media'>
               {LIST_LINKS.media.map((item) => (
                 <ItemLink
                   image={item.image}
-                  title={item.title}
-                  description={item.description}
-                  width="150"
-                  height="56"
+                  headingProps={item.headingProps}
+                  textProps={item.textProps}
                   type={item.type}
+                  path={item.path}
                 />
               ))}
             </div>
           </div>
         </div>
-        <footer className="footer">
-          <div className=" container footer-container">
-            <Text title="@BookingCare 2024" />
+      </main>
+      <footer className='footer'>
+        <div className=' container footer-container'>
+          <div className='copy-right'>
+            <Text content='@BookingCare 2024' />
+          </div>
+          <div className='contact'>
             {LIST_LINKS.footer.map((item) => (
               <ItemLink
                 image={item.image}
-                width="56"
-                height="56"
-
+                width='30'
+                height='30'
+                path={item.path}
                 type={item.type}
               />
             ))}
           </div>
-        </footer>
-      </main>
-      <div>
-      </div>
+        </div>
+      </footer>
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

@@ -3,3 +3,7 @@ export { default as Table } from '@components/Table/Table';
 export { default as CustomSlider } from '@components/Slider/Slider';
 export { default as Header } from '@components/Header/Header';
 export { default as ItemLink } from '@components/ItemLink/ItemLink';
+export { default as EmbedVideo } from '@components/EmbedVideo/EmbedVideo';
+export { default as Form } from '@components/Form/Form';
+export { default as ListHeader } from '@components/ListHeader/ListHeader';
+export { default as Slider } from '@components/Slider/Slider';

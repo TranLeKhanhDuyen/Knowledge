@@ -1,4 +1,10 @@
-export { default as Button } from '@components/common/Button/Button';
-export { default as Image } from '@components/common/Image/Image';
-export { default as Input } from '@components/common/Input/Input';
-export { default as Options } from '@components/common/Options/Options';
+export * from '@components/common/Button/Button'
+export { default as Button } from '@components/common/Button/Button'
+export * from '@components/common/Image/Image'
+export { default as Image } from '@components/common/Image/Image'
+export * from '@components/common/Input/Input'
+export { default as Input } from '@components/common/Input/Input'
+export * from '@components/common/Options/Options'
+export { default as Options } from '@components/common/Options/Options'
+export * from '@components/common/Heading/Heading'
+export { default as Heading } from '@components/common/Heading/Heading'

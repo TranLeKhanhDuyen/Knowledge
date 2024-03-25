@@ -1,58 +1,44 @@
-import './Header.css';
-import logo from '@assets/logo-v3.png';
-import SearchBar from '@components/SearchBar/SearchBar';
-import { Image } from '@components/common';
-import ItemLink from '@components/ItemLink/ItemLink';
-import Text from '@components/common/Text/Text';
+import './Header.css'
+import logo from '@assets/logo-v3.png'
+import { Heading, Image } from '@components/common'
+import { THeadingVariant } from '@components/common/Heading/Heading'
+import Text from '@components/common/Text/Text'
+import ItemLink from '@components/ItemLink/ItemLink'
+import SearchBar from '@components/SearchBar/SearchBar'
 
 export interface IHeaderProps {
   items: {
-    id: string;
-    title: string;
-    subsTitle: string;
-  }[];
+    variant: THeadingVariant
+    heading: string
+    text: string
+  }[]
   icon?: string
 }
 
-const Header = ({
-  items,
-  icon
-}: IHeaderProps) => {
-  const handleSearchChange = () => { };
-
+const Header = ({ icon, items }: IHeaderProps) => {
   return (
-    <header className="header">
+    <header className='header'>
       <div className='container header-container'>
-        <Image
-          src={logo}
-          width='200'
-          height='43'
-          alt={'logo'}
-        />
-        <nav className="navbar">
-          {items.map((item) => (
-            <Text
-              key={item.id}
-              title={item.title}
-              subsTitle={item.subsTitle}
-              additionalClass="cursor item-nav"
-            />
+        <Image src={logo} width='200' height='43' alt={'logo'} />
+        <nav className='navbar'>
+          {items.map((item, index) => (
+            <div className='navbar-item' key={index}>
+              <Heading variant={item.variant} content={item.heading} />
+              <Text content={item.text} />
+            </div>
           ))}
         </nav>
-        <SearchBar
-          onChange={handleSearchChange}
-          placeholder='Search'
-        />
+        <SearchBar />
         <ItemLink
           type='icon'
           width='30'
           height='30'
           image={icon}
-          title='Support'
+          alt='Support'
         />
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

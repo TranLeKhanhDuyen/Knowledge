@@ -1,30 +1,27 @@
-import { Button } from "@components/common"
+import { Button } from '@components/common'
 import './ListHeader.css'
-import Text from "@components/common/Text/Text";
-import { TItemLinkType } from "@components/ItemLink/ItemLink";
+import { TItemLinkType } from '@components/ItemLink/ItemLink'
+import Heading, { IHeadingProps } from '@components/common/Heading/Heading'
 
 type TListHeaderType = TItemLinkType
 
 export interface IItemHeaderProps {
-  text: string;
-  onClick?: () => void;
-  type?: TListHeaderType;
-
+  content: string
+  onClick?: () => void
+  type?: TListHeaderType
 }
 
-const ListHeader = ({ text, type }: IItemHeaderProps) => {
+const ListHeader = ({ content, type }: IItemHeaderProps) => {
   const handleClick = () => {
-    alert("click ok");
+    alert('click ok')
   }
 
   return (
     <div className={`container item-header-container ${type}`}>
-      <>
-        <Text title={text} />
+        <Heading variant='h2' content={content} />
         <Button title='See more' onClick={handleClick} />
-      </>
     </div>
-  );
+  )
 }
 
 export default ListHeader

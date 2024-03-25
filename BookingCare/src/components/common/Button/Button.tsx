@@ -1,36 +1,21 @@
-import './Button.css';
+import './Button.css'
 
-export interface IButtonProps {
-  title: string;
-  size?: TButtonSize;
-  variant?: TButtonVariant;
-  onClick: () => void;
+export interface IButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  title: string
+  variant?: TButtonVariant
 }
 
-export type TButtonSize = 'small' | 'medium' | 'large';
-
-export type TButtonVariant = 'primary' | 'secondary';
+export type TButtonVariant = 'primary' | 'secondary'
 
 const Button = ({
   title = 'See more',
-  size = 'small',
   variant = 'primary',
-  onClick
-}: IButtonProps) => {
-  const handleClick = () => {
-    onClick()
-  }
+  ...props
+}: IButtonProps) => (
+  <button className={`btn btn-${variant}`} {...props}>
+    {title}
+  </button>
+)
 
-  return (
-    <>
-      <button
-        className={`btn btn-${size} btn-${variant}`}
-        onClick={handleClick}
-      >
-        {title}
-      </button>
-    </>
-  )
-}
-
-export default Button;
+export default Button

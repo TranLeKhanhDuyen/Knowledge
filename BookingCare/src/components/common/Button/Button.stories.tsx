@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 import Button from './Button'
 import './Button.css'
 
@@ -13,10 +14,6 @@ export default {
         required: true,
       }
     },
-    size: {
-      defaultValue: 'small',
-      description: 'Change size of the button',
-    },
     variant: {
       defaultValue: 'primary',
       description: 'Change color of the button',
@@ -28,28 +25,8 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    title: 'See more'
-  }
-}
-
-export const Small: Story = {
-  args: {
-    ...Default,
-    size: 'small',
-  }
-}
-
-export const Medium: Story = {
-  args: {
-    ...Default,
-    size: 'medium',
-  }
-}
-
-export const Large: Story = {
-  args: {
-    ...Default,
-    size: 'large',
+    title: 'See more',
+    onClick: fn()
   }
 }
 

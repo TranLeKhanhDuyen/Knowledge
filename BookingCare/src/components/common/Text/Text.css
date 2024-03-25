@@ -1,3 +1,5 @@
-.text-title{
-  font-weight: var(--fw-bold);
+.text {
+  font-weight: var(--fw-normal);
+  font-size: var(--font-md);
+  color: var(--black-color);
 }

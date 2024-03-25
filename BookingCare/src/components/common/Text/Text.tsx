@@ -1,26 +1,13 @@
 import './Text.css'
 
-export interface ITextProps {
-  title?: string,
-  subsTitle?: string,
-  description?: string,
-  additionalClass?: string
+export interface ITextProps extends React.HTMLProps<HTMLParagraphElement> {
+  content: string
 }
 
-const Text = ({
-  title,
-  subsTitle,
-  description,
-  additionalClass
-}: ITextProps) => {
-  return (
-    <div className={`text-container ${additionalClass}`}>
-      <p className="text-title">{title}</p>
-      <p className="text-substitle">{subsTitle}</p>
-      <p className="text-description">{description}</p>
-    </div>
-  )
-}
+const Text = ({ content, className, ...props }: ITextProps) => (
+  <p className={`text ${className}`} {...props}>
+    {content}
+  </p>
+)
 
-export default Text;
-
+export default Text

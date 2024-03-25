@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom'
+import Image, { TImageVariant } from '@components/common/Image/Image'
+import placeholderImage from '@assets/facilities/cho-ray.jpg'
+import Text, { ITextProps } from '@components/common/Text/Text'
 import './ItemLink.css'
-import Image, { TImage } from '@components/common/Image/Image';
-import img1 from '@assets/facilities/cho-ray.jpg'
-import Text from '@components/common/Text/Text';
-import { useNavigate } from 'react-router-dom';
+import { Heading } from '@components/common'
+import { IHeadingProps } from '@components/common/Heading/Heading'
 
 export type TItemLinkType =
   | 'banner'
@@ -16,68 +18,45 @@ export type TItemLinkType =
   | 'footer'
 
 export interface IItemLinkProps {
-  title?: string;
-  subsTitle?: string;
-  type?: TItemLinkType;
-  description?: string;
-  image?: string;
-  width?: string;
-  height?: string;
-  typeImage?: TImage;
-  onClick?: () => void;
+  type?: TItemLinkType
+  headingProps?: IHeadingProps
+  textProps?: ITextProps
+  image?: string
+  alt?: string
+  width?: string
+  height?: string
+  typeImage?: TImageVariant
+  path?: string
 }
 
 const ItemLink = ({
-  title,
-  subsTitle,
   type,
+  headingProps,
+  textProps,
   width,
   height,
-  description,
-  image = img1,
+  image = placeholderImage,
+  path = '',
   typeImage,
+  alt
 }: IItemLinkProps) => {
-  const navigate = useNavigate();
-
-  const handleOnClick = () => {
-    if (type) {
-      switch (type) {
-        case 'doctor':
-          navigate('/doctor');
-          break;
-        case 'service':
-          navigate('/service-page');
-          break;
-        case 'specialist':
-          navigate('/specialist-page');
-          break;
-        default:
-          throw new Error(`Unhandled action type: ${type}`);
-      }
-    } else {
-      console.log("error type")
-    }
-  };
-
   return (
     <div className={`itemlink-container`}>
-      <a
+      <Link
         className={`cursor itemlink ${type ? `itemlink-${type}` : ''}`}
-        onClick={handleOnClick}
+        to={path}
       >
         <Image
+          className={`img-${type}`}
           width={width}
           height={height}
           src={image}
-          alt={`Image for ${title}`}
-          type={typeImage}
+          alt={`Image for ${alt}`}
+          variant={typeImage}
         />
-        <Text
-          title={title}
-          subsTitle={subsTitle}
-          description={description}
-        />
-      </a>
+        {headingProps && <Heading {...headingProps} />}
+        {textProps && <Text {...textProps} />}
+      </Link>
     </div>
   )
 }

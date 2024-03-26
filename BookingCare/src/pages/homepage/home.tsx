@@ -1,13 +1,14 @@
-import { LIST_NAV } from '@mockdata'
-import './home.css'
-import { CustomSlider, Header, ItemLink } from '@components'
-import { LIST_LINKS } from '@mockdata/listLinks'
-import { LIST_HEADER } from '@mockdata/listHeader'
-import ListHeader from '@components/ListHeader/ListHeader'
-import EmbedVideo from '@components/EmbedVideo/EmbedVideo'
-import Text from '@components/common/Text/Text'
+import { LIST_HEADER, LIST_LINKS, LIST_NAV } from '@mockdata'
+import {
+  CustomSlider,
+  EmbedVideo,
+  Header,
+  ItemLink,
+  ListHeader
+} from '@components'
 import supportIcon from '@assets/icons/ic-support.svg'
-import { Heading } from '@components/common'
+import { Heading, Text } from '@components/common'
+import './home.css'
 
 const HomePage = () => {
   return (

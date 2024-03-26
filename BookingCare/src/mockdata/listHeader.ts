@@ -13,11 +13,13 @@ const headerTexts: Record<TItemLinkType, string> = {
   media: 'Media'
 }
 
-export const LIST_HEADER: Record<TItemLinkType, IItemHeaderProps[]> =
-  Object.keys(headerTexts).reduce(
-    (acc, key) => {
-      acc[key as TItemLinkType] = [{ content: headerTexts[key as TItemLinkType] }]
-      return acc
-    },
-    {} as Record<TItemLinkType, IItemHeaderProps[]>
-  )
+const LIST_HEADER: Record<TItemLinkType, IItemHeaderProps[]> = Object.keys(
+  headerTexts
+).reduce(
+  (acc, key) => {
+    acc[key as TItemLinkType] = [{ content: headerTexts[key as TItemLinkType] }]
+    return acc
+  },
+  {} as Record<TItemLinkType, IItemHeaderProps[]>
+)
+export default LIST_HEADER

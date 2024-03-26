@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
-import './login.css'
 import { useNavigate } from 'react-router-dom'
+import './login.css'
 
 interface ILoginState {
   username: string

@@ -1,7 +1,7 @@
-import { Heading } from '@components/common'
 import { Table } from '@components'
-import './allusers.css'
+import { Heading } from '@components/common'
 import { ALL_USERS, IUser } from '@mockdata'
+import './allusers.css'
 
 const AllUsers = () => {
   const columnTitles = {

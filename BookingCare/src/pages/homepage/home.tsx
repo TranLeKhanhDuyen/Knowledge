@@ -6,8 +6,8 @@ import {
   ItemLink,
   ListHeader
 } from '@components'
-import supportIcon from '@assets/icons/ic-support.svg'
 import { Heading, Text } from '@components/common'
+import supportIcon from '@assets/icons/ic-support.svg'
 import './home.css'
 
 const HomePage = () => {

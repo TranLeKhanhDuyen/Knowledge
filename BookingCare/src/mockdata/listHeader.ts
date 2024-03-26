@@ -2,7 +2,7 @@ import { TItemLinkType } from '@components/ItemLink/ItemLink'
 import { IItemHeaderProps } from '@components/ListHeader/ListHeader'
 
 const headerTexts: Record<TItemLinkType, string> = {
-  banner: 'Specialist',
+  banner: '',
   service: 'Service',
   specialist: 'Chuyên khoa',
   facilities: 'Cơ sở y tế',

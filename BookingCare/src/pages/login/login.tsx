@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react' // Import React
+import { ChangeEvent, useState } from 'react'
 import './login.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -43,7 +43,7 @@ const Login = () => {
   const handleLogin = async () => {
     setState({
       ...state,
-      errMessage: '' // clear error code
+      errMessage: ''
     })
 
     navigate('/')

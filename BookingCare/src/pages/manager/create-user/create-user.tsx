@@ -1,7 +1,7 @@
-import { Form } from '@components'
-import './create-user.css'
-import { Heading, Input } from '@components/common'
 import { useState } from 'react'
+import { Form } from '@components'
+import { Heading, Input } from '@components/common'
+import './create-user.css'
 
 const CreateUser = () => {
   const [fullName, setFullName] = useState('')

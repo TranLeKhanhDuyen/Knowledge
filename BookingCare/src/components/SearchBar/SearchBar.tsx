@@ -1,8 +1,7 @@
-import Input from '@components/common/Input/Input'
-import searchIcon from '@assets/icons/ic-search.svg'
-import './SearchBar.css'
-import { Image } from '@components/common'
 import { useState } from 'react'
+import searchIcon from '@assets/icons/ic-search.svg'
+import { Image, Input } from '@components/common'
+import './SearchBar.css'
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState<string>('')
@@ -21,7 +20,7 @@ const SearchBar = () => {
         type='square'
       />
       <Input
-        placeholder='Enter you keyword ... '
+        placeholder='Nhập từ khóa ... '
         value={searchValue}
         onChangeValue={handleSearchChange}
         additionalClass='search'

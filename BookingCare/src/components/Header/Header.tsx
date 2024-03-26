@@ -1,10 +1,7 @@
-import './Header.css'
 import logo from '@assets/logo-v3.png'
-import { Heading, Image } from '@components/common'
-import { THeadingVariant } from '@components/common/Heading/Heading'
-import Text from '@components/common/Text/Text'
-import ItemLink from '@components/ItemLink/ItemLink'
-import SearchBar from '@components/SearchBar/SearchBar'
+import { ItemLink, SearchBar } from '@components'
+import { Heading, Text, THeadingVariant } from '@components/common'
+import './Header.css'
 
 export interface IHeaderProps {
   items: {

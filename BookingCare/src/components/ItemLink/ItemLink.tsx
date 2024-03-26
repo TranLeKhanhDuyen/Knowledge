@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
-import Image, { TImageVariant } from '@components/common/Image/Image'
 import placeholderImage from '@assets/facilities/cho-ray.jpg'
-import Text, { ITextProps } from '@components/common/Text/Text'
+import {
+  Heading,
+  IHeadingProps,
+  Image,
+  ITextProps,
+  Text,
+  TImageVariant
+} from '@components/common'
 import './ItemLink.css'
-import { Heading } from '@components/common'
-import { IHeadingProps } from '@components/common/Heading/Heading'
 
 export type TItemLinkType =
   | 'banner'

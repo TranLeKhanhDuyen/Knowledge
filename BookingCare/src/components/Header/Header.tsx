@@ -19,7 +19,7 @@ const Header = ({ icon, items }: IHeaderProps) => {
   return (
     <header className='header'>
       <div className='container header-container'>
-        <Image src={logo} width='200' height='43' alt={'logo'} />
+        <ItemLink image={logo} width='200' height='43' path='/' />
         <nav className='navbar'>
           {items.map((item, index) => (
             <div className='navbar-item' key={index}>

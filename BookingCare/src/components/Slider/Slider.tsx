@@ -8,7 +8,6 @@ import ItemLink, {
   TItemLinkType
 } from '@components/ItemLink/ItemLink'
 import { TImageVariant } from '@components/common/Image/Image'
-import './Slider.css'
 
 interface ISliderProps {
   items: IItemLinkProps[]
@@ -18,7 +17,13 @@ interface ISliderProps {
   height?: string
 }
 
-const CustomSlider = ({ types, items, typeImage, width, height }: ISliderProps) => {
+const CustomSlider = ({
+  types,
+  items,
+  typeImage,
+  width,
+  height
+}: ISliderProps) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -51,11 +56,7 @@ const CustomSlider = ({ types, items, typeImage, width, height }: ISliderProps) 
       return (
         <Slider {...settings} className={`slider slider-${types}`}>
           {items.map((item) => (
-            <ItemLink
-              {...item}
-              width={width}
-              height={height}
-            />
+            <ItemLink {...item} width={width} height={height} />
           ))}
         </Slider>
       )

@@ -44,8 +44,10 @@ const DoctorDetailPage = () => {
         <div className='container  doctor-container'>
           <div className='doctor-summary'>
             <Image type='circle' src={doctor1} width='120' height='120' />
-            <Heading content={DOCTOR.name} className='heading-doctor' />
-            <Text content={DOCTOR.description} className='text-description' />
+            <div className='doctor-name'>
+              <Heading content={DOCTOR.name} className='heading-doctor' />
+              <Text content={DOCTOR.description} className='text-description' />
+            </div>
           </div>
 
           <div className='examination-schedule'>

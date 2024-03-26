@@ -1,8 +1,7 @@
 .input {
   outline: none;
-  padding: 4px;
 }
 
 .input:focus {
-  border: 1px solid var(--turquoise-color);
+  outline: none;
 }

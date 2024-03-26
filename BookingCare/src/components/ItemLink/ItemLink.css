@@ -4,6 +4,11 @@
 }
 
 /* BANNER */
+.itemlink-banner {
+  display: flex;
+  justify-content: space-around;
+}
+
 .img-banner {
   object-fit: cover;
   color: transparent;

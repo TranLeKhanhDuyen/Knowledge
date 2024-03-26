@@ -1,14 +1,16 @@
+import { SelectHTMLAttributes } from 'react'
 import './Options.css'
 
-interface IOptionsProps extends React.HTMLProps<HTMLOptionElement> {
+interface IOptionsProps extends SelectHTMLAttributes<HTMLSelectElement> {
   items: {
     id: string
     value: string
   }[]
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-const OptionList = ({ items }: IOptionsProps) => (
-  <select className='cursor select'>
+const OptionList = ({ items, onChange, ...props }: IOptionsProps) => (
+  <select className='cursor select' onChange={onChange} {...props}>
     {items.map((option) => (
       <option key={option.id} value={option.value}>
         {option.value}

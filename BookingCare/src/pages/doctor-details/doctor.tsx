@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import doctor1 from '@assets/doctors/hua-thuy-vi.jpg'
-import supportIcon from '../assets/icons/ic-support.svg'
+import supportIcon from '@assets/icons/ic-support.svg'
 import { Form, Header } from '@components'
 import { Button, Heading, Image, Input, Text } from '@components/common'
 import { LIST_NAV, DOCTOR } from '@mockdata'
@@ -126,12 +126,12 @@ const DoctorDetailPage = () => {
             />
 
             <div className='button-booking'>
-              <Button title='Submit' type='submit' />
               <Button
-                title='Close'
+                title='Cancel'
                 type='button'
                 onClick={handleCloseButtonClick}
               />
+              <Button title='Submit' type='submit' variant='secondary' />
             </div>
           </Form>
         </div>

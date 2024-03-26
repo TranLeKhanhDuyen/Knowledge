@@ -1,5 +1,5 @@
-import DoctorDetailPage from '@pages/doctor';
-import HomePage from '@pages/home';
+import DoctorDetailPage from '@pages/doctor-details/doctor';
+import HomePage from '@pages/homepage/home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {

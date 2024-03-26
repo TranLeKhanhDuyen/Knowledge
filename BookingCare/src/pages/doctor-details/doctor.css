@@ -75,7 +75,7 @@
   left: 0;
   width: 30%;
   height: auto;
-  background-color: var(--turquoise-color);
+  background-color:var(--turquoise-color);
   border: 1px solid var(--turquoise-color);
   border-radius: 10px;
   display: flex;

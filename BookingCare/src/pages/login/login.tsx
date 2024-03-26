@@ -53,9 +53,9 @@ const Login = () => {
     <div className='login-background'>
       <div className='login-container'>
         <div className='login-content '>
-          <div className='login-title text-5xl text-bold'>Login</div>
+          <div className='login-title text-5xl text-bold'>Đăng nhập</div>
           <div className='form-input'>
-            <label>Username</label>
+            <label>Tên</label>
             <input
               type='text'
               className='username text-field'
@@ -63,7 +63,7 @@ const Login = () => {
               value={state.username}
               onChange={(event) => handleOnChangeUsername(event)}
             />
-            <label>Password</label>
+            <label>Mật khẩu</label>
             <div className='password-container'>
               <input
                 className='password text-field'
@@ -91,8 +91,8 @@ const Login = () => {
           >
             Login
           </button>
-          <span className='forgot-password'>Forgot your password?</span>
-          <span className='option-text'>Or Login with: </span>
+          <span className='forgot-password'>Quên mật khẩu?</span>
+          <span className='option-text'>Hoặc đăng nhập với: </span>
           <div className='afternative-login'>
             <a href='#' className='login-google'></a>
             <a href='#' className='login-facebook'></a>

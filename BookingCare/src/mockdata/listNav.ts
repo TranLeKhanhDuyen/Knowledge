@@ -1,6 +1,6 @@
 import { IHeaderProps } from '@components/Header/Header'
 
-export const LIST_NAV: IHeaderProps[] = [
+const LIST_NAV: IHeaderProps[] = [
   {
     items: [
       {
@@ -23,6 +23,8 @@ export const LIST_NAV: IHeaderProps[] = [
         heading: 'Cẩm nang',
         text: 'Danh sách cẩm nang'
       }
-    ],
+    ]
   }
 ]
+
+export default LIST_NAV

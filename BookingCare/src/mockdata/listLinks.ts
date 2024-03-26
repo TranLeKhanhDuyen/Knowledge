@@ -76,7 +76,7 @@ import tiktok from '@assets/icons/ic-tiktok.svg'
 import facebook from '@assets/icons/ic-facebook.svg'
 import youtube from '@assets/icons/ic-youtube.svg'
 
-export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
+const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   banner: [
     { image: banner1, path: '', type: 'banner' },
     { image: banner2, path: '', type: 'banner' },
@@ -89,42 +89,42 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: specialist,
       headingProps: {
-        content: 'Specialist Examnination'
+        content: 'Khám chuyên khoa'
       },
       path: 'service'
     },
     {
       image: remote,
       headingProps: {
-        content: 'Remote Examnination'
+        content: 'Khám từ xa'
       },
       path: 'service'
     },
     {
       image: dental,
       headingProps: {
-        content: 'Dental Examnination'
+        content: 'Khám nha khoa'
       },
       path: 'service'
     },
     {
       image: general,
       headingProps: {
-        content: 'General Examnination'
+        content: 'Khám tổng quát'
       },
       path: 'service'
     },
     {
       image: medicalTest,
       headingProps: {
-        content: 'Medical tests'
+        content: 'Xét nghiệm y tế'
       },
       path: 'service'
     },
     {
       image: mentealHeath,
       headingProps: {
-        content: 'Mental heath'
+        content: 'Sức khỏe tinh thần'
       },
       path: 'service'
     }
@@ -134,7 +134,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: musculoskeletal,
       headingProps: {
-        content: 'Musculoskeletal'
+        content: 'Cơ xương khớp'
       },
       type: 'specialist',
       path: ''
@@ -142,7 +142,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: nerve,
       headingProps: {
-        content: 'Nerve'
+        content: 'Thần kinh'
       },
       type: 'specialist',
       path: ''
@@ -150,7 +150,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: digestion,
       headingProps: {
-        content: 'Digestion'
+        content: 'Tiêu hóa'
       },
       type: 'specialist',
       path: ''
@@ -158,7 +158,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: heart,
       headingProps: {
-        content: 'Heart'
+        content: 'Tim'
       },
       type: 'specialist',
       path: ''
@@ -166,7 +166,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: spine,
       headingProps: {
-        content: 'Spine'
+        content: 'Cột sống'
       },
       type: 'specialist',
       path: ''
@@ -174,7 +174,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: earNoseThroat,
       headingProps: {
-        content: 'Ear, nose, throat'
+        content: 'Tai, Mũi, Họng'
       },
       type: 'specialist',
       path: ''
@@ -182,7 +182,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: traditional,
       headingProps: {
-        content: 'Traditional medicine'
+        content: 'Y học cổ truyền'
       },
       type: 'specialist',
       path: ''
@@ -190,7 +190,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: acupuncture,
       headingProps: {
-        content: 'Acupuncture'
+        content: 'Châm cứu'
       },
       type: 'specialist',
       path: ''
@@ -201,7 +201,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: vietduc,
       headingProps: {
-        content: 'Viet Duc Friendship Hosptital'
+        content: 'Bệnh viện Hữu nghị Việt Đức'
       },
       type: 'facilities',
       path: ''
@@ -209,7 +209,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: choray,
       headingProps: {
-        content: 'Cho Ray Hospital'
+        content: 'Bệnh viện Chợ Rẫy'
       },
       type: 'facilities',
       path: ''
@@ -217,7 +217,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctorcheck,
       headingProps: {
-        content: 'Doctor Check - Screeing for Diseases to Live Longer'
+        content: 'Doctor Check - Tầm Soát Bệnh Viện Để Sống Thọ Hơn'
       },
       type: 'facilities',
       path: ''
@@ -225,7 +225,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: medicineAndPharmacy,
       headingProps: {
-        content: 'Clinic of University of Midicine and Pharmacy Hospital'
+        content: 'Phòng khám Bệnh viện Đại học Y Dược 1'
       },
       type: 'facilities',
       path: ''
@@ -233,7 +233,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: hungviet,
       headingProps: {
-        content: 'Hung Viet Oncology Hospital'
+        content: 'Bệnh viện Ung bướu Hưng Việt'
       },
       type: 'facilities',
       path: ''
@@ -241,7 +241,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: medlatec,
       headingProps: {
-        content: 'MEDLATEC medical system'
+        content: 'Hệ thống y tế MEDLATEC'
       },
       type: 'facilities',
       path: ''
@@ -249,7 +249,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: diag,
       headingProps: {
-        content: 'Diag Laboratories testing center'
+        content: 'Trung tâm xét nghiệm Diag Laboratories '
       },
       type: 'facilities',
       path: ''
@@ -257,7 +257,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: thucuc,
       headingProps: {
-        content: 'Thu Cuc TCI Health System'
+        content: 'Hệ thống Y tế Thu Cúc TCI'
       },
       type: 'facilities',
       path: ''
@@ -265,8 +265,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: centalMilitary,
       headingProps: {
-        content:
-          'Center for Periodic Health Examnination, 108 Cental Military Hospital'
+        content: 'Bệnh viện Nam học và Hiến muộn Hà nội'
       },
       type: 'facilities',
       path: ''
@@ -277,10 +276,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor1,
       headingProps: {
-        content: 'Associate Professor, Dr. Kieu Dinh Hung'
+        content: 'Phó Giáo sư, Tiến sĩ Kiều Đình Hùng'
       },
       textProps: {
-        content: 'Neurology, Spine, Neurosurgery'
+        content: 'Thần kinh, cột sống, phẫu thuật thần kinh'
       },
       type: 'doctor',
       path: 'doctor'
@@ -288,10 +287,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor2,
       headingProps: {
-        content: 'Doctor, SpeciaList II Tra Anh Duy'
+        content: 'Bác sĩ, Chuyên khoa II Trà Anh Duy'
       },
       textProps: {
-        content: 'Andrology, Nephrology - Urology'
+        content: 'Nam khoa, Thận - Tiết niệu'
       },
       type: 'doctor',
       path: 'doctor'
@@ -299,10 +298,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor3,
       headingProps: {
-        content: 'Doctor, Doctor Pham Chi Lang'
+        content: 'Bác sĩ, bác sĩ Phạm Chi Lăng'
       },
       textProps: {
-        content: 'Musculoskeletal, Orthopedic trauma'
+        content: 'Chấn thương cơ xương, chỉnh hình'
       },
       type: 'doctor',
       path: 'doctor'
@@ -310,10 +309,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor4,
       headingProps: {
-        content: 'Associate Professor, PhD, Doctor Nguyen Van Lieu'
+        content: 'Phó Giáo sư, Tiến sĩ, Tiến sĩ Nguyễn Văn Liễu'
       },
       textProps: {
-        content: 'Nerve'
+        content: 'Thần kinh'
       },
       type: 'doctor',
       path: 'doctor'
@@ -321,10 +320,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor5,
       headingProps: {
-        content: 'Excellent Physicican, Doctor CKII Nguyen Tien Lang'
+        content: 'Thầy thuốc ưu tú, bác sĩ CKII Nguyễn Tiến Lãng'
       },
       textProps: {
-        content: 'Diabetes - Endocrinilogy, Oncology, Thyroid'
+        content: 'Tiểu đường - Nội tiết, Ung thư, Tuyến giáp'
       },
       type: 'doctor',
       path: 'doctor'
@@ -332,7 +331,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor6,
       headingProps: {
-        content: 'Master, Doctor Hua Thuy Vi'
+        content: 'Thạc sĩ, bác sĩ Hứa Thúy Vi'
       },
       textProps: {
         content: 'Digestion, hepatitis'
@@ -343,10 +342,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor7,
       headingProps: {
-        content: 'Specialist II Doctor Nguyen Tien Thanh'
+        content: 'Bác sĩ chuyên khoa II Nguyễn Tiến Thành'
       },
       textProps: {
-        content: 'Dermatology, Cosmetic dermatology'
+        content: 'Da liễu, Da liễu thẩm mỹ'
       },
       type: 'doctor',
       path: 'doctor'
@@ -354,10 +353,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor8,
       headingProps: {
-        content: 'Doctor, Doctor Vu Thai Ha'
+        content: 'Bác sĩ, bác sĩ Vũ Thái Hà'
       },
       textProps: {
-        content: 'Dermatology, Cosmetic dermatology'
+        content: 'Da liễu, Da liễu thẩm mỹ'
       },
       type: 'doctor',
       path: 'doctor'
@@ -365,10 +364,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor9,
       headingProps: {
-        content: 'Specialist Doctor I Nguyen Tuong Vu'
+        content: 'Bác sĩ chuyên khoa I Nguyễn Tường Vũ'
       },
       textProps: {
-        content: 'Neurology, Neurosurgery'
+        content: 'Thần kinh, Phẫu thuật thần kinh'
       },
       type: 'doctor',
       path: 'doctor'
@@ -376,10 +375,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor10,
       headingProps: {
-        content: 'SpeciaList Doctor I Phan Vuong Huy Dong'
+        content: 'Bác sĩ chuyên khoa I Phan Vương Huy Đông'
       },
       textProps: {
-        content: 'Musculoskeletal, Orthopedic trauma'
+        content: 'Chấn thương cơ xương, chỉnh hình'
       },
       type: 'doctor',
       path: 'doctor'
@@ -387,10 +386,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor11,
       headingProps: {
-        content: 'Associate Professor, PhD, Doctor Nguyen Trong Hung'
+        content: 'Phó Giáo sư, Tiến sĩ, Tiến sĩ Nguyễn Trọng Hùng'
       },
       textProps: {
-        content: 'Nerve'
+        content: 'Thần kinh'
       },
       type: 'doctor',
       path: 'doctor'
@@ -398,10 +397,10 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     {
       image: doctor12,
       headingProps: {
-        content: 'Doctor, SpeciaList II Tra Anh Duy'
+        content: 'Bác sĩ, Chuyên khoa II Trà Anh Duy'
       },
       textProps: {
-        content: 'Andrology, Nephrology - Urology'
+        content: 'Nam khoa, Thận - Tiết niệu'
       },
       type: 'doctor',
       path: 'doctor'
@@ -413,7 +412,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       image: handbook1,
       headingProps: {
         content:
-          'How much does it cost to permanently remove dark eye circles? Service price list of 5 good addresses in Hanoi'
+          'Mất bao nhiêu tiền để loại bỏ vĩnh viễn quầng thâm quanh mắt? Bảng giá dịch vụ 5 địa chỉ tốt ở Hà Nội'
       },
       type: 'handbook'
     },
@@ -421,7 +420,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       image: handbook2,
       headingProps: {
         content:
-          'How much does laser treatment of melasma cost? Price list at 6 reputable addresses in Hanoi'
+          'Chi phí điều trị nám bằng laser bao nhiêu tiền? Bảng giá tại 6 địa chỉ uy tín tại Hà Nội'
       },
       type: 'handbook'
     },
@@ -429,15 +428,14 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       image: handbook3,
       headingProps: {
         content:
-          'How much does Profhilo injection cost? Cost of Profhilo injection at 3 reputable addresses in Hanoi'
+          'Tiêm Profhilo giá bao nhiêu? Chi phí tiêm Profhilo tại 3 địa chỉ uy tín tại Hà Nội'
       },
       type: 'handbook'
     },
     {
       image: handbook4,
       headingProps: {
-        content:
-          'How much does it cost to remove dark eye circles in Ho Chi Minh City?'
+        content: 'Xóa thâm quầng mắt ở TP.HCM giá bao nhiêu?'
       },
       type: 'handbook'
     },
@@ -445,7 +443,7 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       image: handbook5,
       headingProps: {
         content:
-          'Is HiFu facelift expensive? HiFu upgrade costs at 5 reputable addresses in Hanoi'
+          'HiFu căng da mặt có đắt không? Chi phí nâng cấp HiFu tại 5 địa chỉ uy tín tại Hà Nội'
       },
       type: 'handbook'
     },
@@ -453,29 +451,28 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       image: handbook6,
       headingProps: {
         content:
-          'How much does Hifu lift cost? Costs at 6 reputable addresses in Ho Chi Minh City'
+          'Thang máy Hifu giá bao nhiêu? Chi phí tại 6 địa chỉ uy tín tại TP.HCM'
       },
       type: 'handbook'
     },
     {
       image: handbook7,
       headingProps: {
-        content: 'Top 6 reputable skin rejuvenation addresses in Hanoi'
+        content: 'Top 6 địa chỉ trẻ hóa da uy tín tại Hà Nội'
       },
       type: 'handbook'
     },
     {
       image: handbook8,
       headingProps: {
-        content: 'Top 7 good places to treat melasma in Hanoi'
+        content: 'Top 7 địa chỉ trị nám tốt ở Hà Nội'
       },
       type: 'handbook'
     },
     {
       image: handbook9,
       headingProps: {
-        content:
-          'Top 7 reputable skin rejuvenation addresses in Ho Chi Minh City'
+        content: 'Top 7 địa chỉ trẻ hóa da uy tín tại TP.HCM'
       },
       type: 'handbook'
     }
@@ -541,3 +538,5 @@ export const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
     }
   ]
 }
+
+export default LIST_LINKS

@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    title: 'See more',
+    title: 'Xem thêm',
     onClick: fn()
   }
 }

@@ -9,7 +9,7 @@ export interface IButtonProps
 export type TButtonVariant = 'primary' | 'secondary'
 
 const Button = ({
-  title = 'See more',
+  title = 'Xem thêm',
   variant = 'primary',
   ...props
 }: IButtonProps) => (

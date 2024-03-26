@@ -1,3 +1,5 @@
 export { LIST_NAV } from './listNav'
 export * from './doctor'
 export { default as DOCTOR } from './doctor'
+export * from './allUsers'
+export { default as ALL_USERS } from './allUsers'

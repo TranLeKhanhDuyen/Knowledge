@@ -1,18 +1,18 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios'
 
 const createAxiosInstance = (): AxiosInstance => {
   const instance = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
     withCredentials: false
-  });
+  })
 
-  instance.interceptors.response.use((response: any) => {
-    return response;
-  });
+  instance.interceptors.response.use((response) => {
+    return response
+  })
 
-  return instance;
-};
+  return instance
+}
 
-const axiosInstance: AxiosInstance = createAxiosInstance();
+const axiosInstance: AxiosInstance = createAxiosInstance()
 
-export default axiosInstance;
+export default axiosInstance

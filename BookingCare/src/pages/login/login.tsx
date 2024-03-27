@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import './login.css'
+import handleLoginAPi from '@services/userService'
 
 interface ILoginState {
   username: string
@@ -38,15 +38,38 @@ const Login = () => {
     })
   }
 
-  const navigate = useNavigate()
-
   const handleLogin = async () => {
     setState({
       ...state,
       errMessage: ''
     })
 
-    navigate('/')
+    try {
+      const response = await handleLoginAPi(state.username, state.password)
+      const data: { errCode: number; message: string; user: any } =
+        response.data // access data property
+      console.log('check data:', data)
+
+      if (data && data.errCode !== 0) {
+        setState({
+          ...state,
+          errMessage: data.message
+        })
+      }
+      if (data && data.errCode === 0) {
+        // props.userLoginSuccess(data.user)
+        console.log('Login successfully')
+
+      }
+    } catch (error: any) {
+      if (error.response && error.response.data) {
+        setState({
+          ...state,
+          errMessage: error.response.data.message
+        })
+      }
+      console.log('Error during login:', error)
+    }
   }
 
   return (

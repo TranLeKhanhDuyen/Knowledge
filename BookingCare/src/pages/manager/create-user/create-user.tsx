@@ -37,10 +37,10 @@ const CreateUser = () => {
         encType='multipart/form-data'
       >
         <div>
-          <label htmlFor='fullName'>Họ và tên (bắt buộc)</label>
+          <label htmlFor='fullName'>Họ và tên</label>
           <Input
             type='text'
-            placeholder='Họ và tên (bắt buộc)'
+            placeholder='Họ và tên'
             value={fullName}
             onChangeValue={setFullName}
             required
@@ -59,10 +59,10 @@ const CreateUser = () => {
           />
         </div>
         <div>
-          <label htmlFor='phoneNumber'>Số điện thoại liên hệ (bắt buộc)</label>
+          <label htmlFor='phoneNumber'>Số điện thoại liên hệ</label>
           <Input
             type='number'
-            placeholder='Số điện thoại liên hệ (bắt buộc)'
+            placeholder='Số điện thoại liên hệ'
             value={phoneNumber}
             onChangeValue={setPhoneNumber}
             required

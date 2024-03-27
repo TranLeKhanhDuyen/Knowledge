@@ -82,7 +82,7 @@ const BookingForm = ({ onCloseForm }: { onCloseForm: () => void }) => {
         <Input
           additionalClass='bookingform'
           type='text'
-          placeholder='Họ tên bệnh nhân (bắt buộc)'
+          placeholder='Họ tên bệnh nhân'
           value={fullName}
           onChangeValue={(value) => setFullName(value)}
           required
@@ -90,7 +90,7 @@ const BookingForm = ({ onCloseForm }: { onCloseForm: () => void }) => {
         <Input
           additionalClass='bookingform'
           type='number'
-          placeholder='Số điện thoại liên hệ (bắt buộc)'
+          placeholder='Số điện thoại liên hệ'
           value={phoneNumber}
           onChangeValue={(value) => setPhoneNumber(value)}
           required

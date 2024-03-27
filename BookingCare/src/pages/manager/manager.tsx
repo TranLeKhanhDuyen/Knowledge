@@ -14,9 +14,9 @@ const Manager = () => {
     switch (optionValue) {
       case '':
         return navigate('/manager')
-      case 'All User':
+      case 'Tất cả người dùng':
         return navigate('/manager/all-users')
-      case 'Create User':
+      case 'Tạo người dùng':
         return navigate('/manager/create-users')
       default:
     }

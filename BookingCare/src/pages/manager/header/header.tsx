@@ -21,10 +21,9 @@ const HeaderManager = ({
           <OptionList
             className='optionlist'
             items={[
-              { id: '1', value: 'All User' },
-              { id: '2', value: 'Create User' },
-              { id: '3', value: 'Manage Doctor' },
-              { id: '4', value: 'Manage Admin' }
+              { id: '1', value: 'Tất cả người dùng' },
+              { id: '2', value: 'Tạo người dùng' },
+              { id: '3', value: 'Quản lý bác sĩ' }
             ]}
             onChange={onSelectOption}
             value={selectedOption}

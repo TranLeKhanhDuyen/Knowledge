@@ -5,7 +5,8 @@ import AvatarUpload from '@components/AvatarUploader/AvatarUploader'
 import './create-user.css'
 
 const CreateUser = () => {
-  const [fullName, setFullName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [address, setAddress] = useState('')
@@ -17,7 +18,8 @@ const CreateUser = () => {
     event.preventDefault()
 
     const formData = new FormData()
-    formData.append('fullName', fullName)
+    formData.append('firstName', firstName)
+    formData.append('lastName', lastName)
     formData.append('email', email)
     formData.append('phoneNumber', phoneNumber)
     formData.append('address', address)
@@ -37,14 +39,25 @@ const CreateUser = () => {
         encType='multipart/form-data'
       >
         <div>
-          <label htmlFor='fullName'>Họ và tên</label>
+          <label htmlFor='lastName'>Họ</label>
           <Input
             type='text'
-            placeholder='Họ và tên'
-            value={fullName}
-            onChangeValue={setFullName}
+            placeholder='Họ'
+            value={lastName}
+            onChangeValue={setLastName}
             required
-            id='fullName'
+            id='lastName'
+          />
+        </div>
+        <div>
+          <label htmlFor='firstName'>Tên</label>
+          <Input
+            type='text'
+            placeholder='Tên'
+            value={firstName}
+            onChangeValue={setFirstName}
+            required
+            id='firstName'
           />
         </div>
         <div>

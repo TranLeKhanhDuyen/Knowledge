@@ -70,10 +70,10 @@ const CreateUser = () => {
           />
         </div>
         <div>
-          <label htmlFor='password'>Nhập password</label>
+          <label htmlFor='password'>Nhập mật khẩu</label>
           <Input
             type='password'
-            placeholder='Nhập password'
+            placeholder='Nhập mật khẩu'
             value={password}
             onChangeValue={setPassword}
             required
@@ -97,6 +97,17 @@ const CreateUser = () => {
             items={[
               { id: '1', value: 'Nam' },
               { id: '2', value: 'Nữ' }
+            ]}
+            onChange={(event) => setGender(event.target.value)}
+            defaultValue='Chọn'
+          />
+        </div>
+        <div>
+          <label htmlFor='role'>Phân quyền</label>
+          <OptionList
+            items={[
+              { id: '1', value: 'Bác sĩ' },
+              { id: '2', value: 'Bệnh nhân' }
             ]}
             onChange={(event) => setGender(event.target.value)}
             defaultValue='Chọn'

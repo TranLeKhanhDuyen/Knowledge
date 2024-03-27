@@ -21,9 +21,12 @@ const AllUsers = () => {
   }))
 
   return (
-    <div className='user-manager-container'>
+    <div className=' container user-manager-container'>
       <Heading variant='h1' content='ALL USERS' />
-      <Table data={{ rows: usersData }} columnTitles={columnTitles} />
+      <Table
+        data={{ rows: usersData }}
+        columnTitles={columnTitles}
+      />
     </div>
   )
 }

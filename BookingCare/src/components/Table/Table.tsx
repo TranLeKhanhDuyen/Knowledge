@@ -1,43 +1,48 @@
-import './Table.css';
+import './Table.css'
 
 export interface ITableProps {
   data: {
     rows: {
-      firstname?: string;
-      lastname?: string;
-      email?: string;
-      address?: string;
-    }[];
-  };
+      firstname?: string
+      lastname?: string
+      email?: string
+      address?: string
+    }[]
+  }
   columnTitles: {
-    [key: string]: string;
-  };
+    [key: string]: string
+  }
+  additionalClass?: string
 }
 
-const Table = ({ data, columnTitles }: ITableProps) => {
-
+const Table = ({ data, columnTitles, additionalClass }: ITableProps) => {
   return (
-    <table className="table">
+    <table className={`table ${additionalClass}`}>
       <thead>
         <tr>
           {Object.keys(columnTitles).map((key, index) => (
-            <th className="text-bold text-white table-column table-head" key={index}>{columnTitles[key]}</th>
+            <th
+              className='text-bold text-white table-column table-head'
+              key={index}
+            >
+              {columnTitles[key]}
+            </th>
           ))}
         </tr>
       </thead>
-      <tbody className="table-tbody">
+      <tbody className='table-tbody'>
         {data.rows.map((row, rowIndex) => (
-          <tr className="table-tr" key={rowIndex}>
+          <tr className='table-tr' key={rowIndex}>
             {Object.keys(row).map((key, colIndex) => (
-              <td className="table-column" key={colIndex}>
-                {row.hasOwnProperty(key) ? (row as any)[key] : ""}
+              <td className='table-column' key={colIndex}>
+                {row.hasOwnProperty(key) ? (row as any)[key] : ''}
               </td>
             ))}
           </tr>
         ))}
       </tbody>
     </table>
-  );
+  )
 }
 
-export default Table;
+export default Table

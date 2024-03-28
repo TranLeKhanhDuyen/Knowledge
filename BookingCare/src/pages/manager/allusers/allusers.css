@@ -53,3 +53,10 @@
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
+.heading-user-form {
+  font-size: var(--font-4xl);
+  color: var(--turquoise-color);
+  text-align: center;
+  padding: 2%;
+}

@@ -7,9 +7,16 @@ interface IUserFormProps {
   onSubmit: (formData: FormData) => void
   onClose?: () => void
   mode?: any
+  heading?: string
 }
 
-const UserForm = ({ onSubmit, onClose, mode, ...props }: IUserFormProps) => {
+const UserForm = ({
+  onSubmit,
+  onClose,
+  heading,
+  mode,
+  ...props
+}: IUserFormProps) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')

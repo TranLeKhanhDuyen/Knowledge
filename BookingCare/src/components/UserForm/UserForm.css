@@ -19,12 +19,10 @@
 }
 
 .btn-update-user {
-  width: 30%;
   margin: 0 auto;
 }
 
 .btn-close-form {
-  width: 30%;
   margin: 0 auto;
 }
 
@@ -42,5 +40,9 @@
   .btn-create-user {
     width: 30%;
     grid-column: 1 / span 2;
+  }
+
+  .btn-close-form {
+    width: 50%;
   }
 }

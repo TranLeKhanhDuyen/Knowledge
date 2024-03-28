@@ -66,11 +66,15 @@ const AllUsers = () => {
       />
 
       {showEditForm && (
-        <UserForm
-          onSubmit={handleSubmit}
-          onClose={handleCloseForm}
-          mode='update'
-        />
+        <div className='overlay'>
+          <div className='form-container'>
+          <UserForm
+            onSubmit={handleSubmit}
+            onClose={handleCloseForm}
+            mode='update'
+            />
+            </div>
+        </div>
       )}
     </div>
   )

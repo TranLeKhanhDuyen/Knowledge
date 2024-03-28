@@ -16,7 +16,10 @@ const Heading = ({
   const HeadingTag = variant
 
   return (
-    <HeadingTag className={`heading heading-${variant} heading-${className}`} {...props}>
+    <HeadingTag
+      className={`heading heading-${variant} heading-${className}`}
+      {...props}
+    >
       {content}
     </HeadingTag>
   )

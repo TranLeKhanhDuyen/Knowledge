@@ -1,3 +1,6 @@
+import { Button, Image } from '@components/common'
+import deleteIcon from '@assets/icons/ic-delete.svg'
+import editIcon from '@assets/icons/ic-edit.svg'
 import './Table.css'
 
 export interface ITableProps {
@@ -7,15 +10,26 @@ export interface ITableProps {
       lastname?: string
       email?: string
       address?: string
+      phoneNumber?: string
+      gender?: string
+      birthday?: string
     }[]
   }
   columnTitles: {
     [key: string]: string
   }
   additionalClass?: string
+  onEdit?: () => void
+  onDelete?: () => void
 }
 
-const Table = ({ data, columnTitles, additionalClass }: ITableProps) => {
+const Table = ({
+  data,
+  columnTitles,
+  additionalClass,
+  onDelete,
+  onEdit
+}: ITableProps) => {
   return (
     <table className={`table ${additionalClass}`}>
       <thead>
@@ -38,6 +52,19 @@ const Table = ({ data, columnTitles, additionalClass }: ITableProps) => {
                 {row.hasOwnProperty(key) ? (row as any)[key] : ''}
               </td>
             ))}
+            <td className='table-column '>
+              <div className='action'>
+                <button className='btn-action edit' onClick={() => onEdit?.()}>
+                  <Image src={editIcon} alt='Edit' width='23px' />
+                </button>
+                <button
+                  className='btn-action delete'
+                  onClick={() => onDelete?.()}
+                >
+                  <Image src={deleteIcon} alt='Delete' width='20px' />
+                </button>
+              </div>
+            </td>
           </tr>
         ))}
       </tbody>

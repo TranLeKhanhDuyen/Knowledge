@@ -2,7 +2,7 @@ import './Button.css'
 
 export interface IButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  title: string
+  title?: string
   variant?: TButtonVariant
   additionalClass?: string
 }

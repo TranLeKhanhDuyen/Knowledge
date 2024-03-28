@@ -9,7 +9,7 @@ import ItemLink, {
 } from '@components/ItemLink/ItemLink'
 import { TImageVariant } from '@components/common/Image/Image'
 
-interface ISliderProps {
+export interface ISliderProps {
   items: IItemLinkProps[]
   types: TItemLinkType
   typeImage?: TImageVariant

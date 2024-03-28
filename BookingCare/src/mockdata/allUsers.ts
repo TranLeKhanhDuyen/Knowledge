@@ -3,7 +3,10 @@ export interface IUser {
   firstName: string
   lastName: string
   email: string
+  birthday: string
   address: string
+  phoneNumber: string
+  gender: string
 }
 
 const ALL_USERS: IUser[] = [
@@ -12,6 +15,9 @@ const ALL_USERS: IUser[] = [
     firstName: 'John',
     lastName: 'Doe',
     email: 'john@example.com',
+    phoneNumber: '2023456789',
+    gender: 'Nam',
+    birthday: '1/2/2000',
     address: '123 Main St'
   },
   {
@@ -19,6 +25,9 @@ const ALL_USERS: IUser[] = [
     firstName: 'Jane',
     lastName: 'Smith',
     email: 'jane@example.com',
+    phoneNumber: '2023456789',
+    gender: 'Nam',
+    birthday: '1/2/2000',
     address: '456 Elm St'
   },
   {
@@ -26,6 +35,9 @@ const ALL_USERS: IUser[] = [
     firstName: 'Sara',
     lastName: 'Smith',
     email: 'sara@example.com',
+    phoneNumber: '2023456789',
+    gender: 'Nam',
+    birthday: '1/2/2000',
     address: '789 Oak St'
   },
   {
@@ -33,6 +45,9 @@ const ALL_USERS: IUser[] = [
     firstName: 'Michael',
     lastName: 'Johnson',
     email: 'michael@example.com',
+    phoneNumber: '2023456789',
+    gender: 'Nam',
+    birthday: '1/2/2000',
     address: '987 Pine St'
   }
 ]

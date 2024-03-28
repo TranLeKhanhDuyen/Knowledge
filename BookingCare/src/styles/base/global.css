@@ -8,6 +8,10 @@ html {
   font-family: 'Roboto';
 }
 
+.button {
+  cursor: pointer;
+}
+
 .cursor {
   cursor: pointer;
 }

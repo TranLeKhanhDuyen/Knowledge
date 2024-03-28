@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 import './login.css'
-import handleLoginAPi from '@services/userService'
+import { handleLoginApi } from '@services/userService'
 
 interface ILoginState {
   username: string
@@ -45,7 +45,7 @@ const Login = () => {
     })
 
     try {
-      const response = await handleLoginAPi(state.username, state.password)
+      const response = await handleLoginApi(state.username, state.password)
       const data: { errCode: number; message: string; user: any } =
         response.data // access data property
       console.log('check data:', data)

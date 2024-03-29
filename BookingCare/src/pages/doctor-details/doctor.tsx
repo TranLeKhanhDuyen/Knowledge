@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import doctor1 from '@assets/doctors/hua-thuy-vi.jpg'
 import supportIcon from '@assets/icons/ic-support.svg'
 import { Form, Header } from '@components'
@@ -7,11 +7,33 @@ import { LIST_NAV, DOCTOR } from '@mockdata'
 import './doctor.css'
 
 const DoctorDetailPage = () => {
+  const [doctor, setDoctor] = useState([])
   const [isShowForm, setShowForm] = useState(false)
 
   const toggleForm = () => {
     setShowForm(!isShowForm)
     document.body.classList.toggle('overlay-active')
+  }
+
+  useEffect(() => {
+    fetchDoctorData()
+  }, [])
+
+  const fetchDoctorData = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/doctors')
+      if (!response.ok) {
+        throw new Error('Failed to fetch doctor data')
+      }
+      const data = await response.json()
+      setDoctor(data)
+    } catch (error) {
+      console.error('Error fetching doctor data:', error)
+    }
+  }
+
+  if (!doctor) {
+    return <div>Loading...</div>
   }
 
   return (
@@ -46,13 +68,13 @@ const DoctorDetailPage = () => {
               <Text content={DOCTOR.price} className='text-price' />
             </div>
           </div>
-
-          {/* Description list */}
-          <ul className='desc-list'>
-            <Heading content='Phó Giáo sư, Tiến sĩ Nguyn Thi Hoai An' />
-            <li>
-              <Text content='Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng' />
-            </li>
+          <ul>
+            {doctorList.map((doctor) => (
+              <li key={doctor.id}>
+                <h2>{doctor.name}</h2>
+                <p>{doctor.description}</p>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

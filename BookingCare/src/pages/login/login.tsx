@@ -57,9 +57,7 @@ const Login = () => {
         })
       }
       if (data && data.errCode === 0) {
-        // props.userLoginSuccess(data.user)
         console.log('Login successfully')
-
       }
     } catch (error: any) {
       if (error.response && error.response.data) {

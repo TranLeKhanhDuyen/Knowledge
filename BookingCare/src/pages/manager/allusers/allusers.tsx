@@ -1,11 +1,30 @@
-import { useState } from 'react'
-import { Table } from '@components'
+import { useEffect, useState } from 'react'
+import { Table, UserForm } from '@components'
 import { Heading } from '@components/common'
 import { ALL_USERS, IUser } from '@mockdata'
+import { getAllUsers } from '@services/userService'
+
 import './allusers.css'
-import UserForm from '@components/UserForm/UserForm'
 
 const AllUsers = () => {
+  const [arrUsers, setArrUsers] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAllUsers('ALL')
+        if (response && response.data && response.data.errCode === 0) {
+          setArrUsers(response.data.users)
+          console.log('check state user: ', response.data)
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
   const columnTitles = {
     id: 'ID',
     lastName: 'Họ',
@@ -68,7 +87,11 @@ const AllUsers = () => {
       {showEditForm && (
         <div className='overlay'>
           <div className='form-container'>
-            <Heading className='user-form' variant='h2' content='CẬP NHẬT THÔNG TIN' />
+            <Heading
+              className='user-form'
+              variant='h2'
+              content='CẬP NHẬT THÔNG TIN'
+            />
             <UserForm
               onSubmit={handleSubmit}
               onClose={handleCloseForm}

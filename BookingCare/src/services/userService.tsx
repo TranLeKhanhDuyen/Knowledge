@@ -11,7 +11,7 @@ export const handleLoginApi = async (email: string, password: string) => {
   }
 }
 
-export const getAllUser = (inputId: string) => {
+export const getAllUsers = (inputId: string) => {
   return axios.get(`/api/get-all-users?id=${inputId}`)
 }
 

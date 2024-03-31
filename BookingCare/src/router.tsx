@@ -1,11 +1,11 @@
 import DoctorDetailPage from '@pages/doctor-details/doctor'
 import HomePage from '@pages/homepage/home'
 import Login from '@pages/login/login'
-import AllUsers from '@pages/manager/allusers/allusers'
-import CreateUser from '@pages/manager/create-user/create-user'
-import Manager from '@pages/manager/manager'
+import AllUsers from '@pages/manage/allusers/allusers'
+import CreateUser from '@pages/manage/create-user/create-user'
 import { FC } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
+import Manager from '@pages/manage/manage';
 
 const Router: FC = () => {
   return useRoutes([
@@ -22,12 +22,12 @@ const Router: FC = () => {
       element: <Login />
     },
     {
-      path: 'manager',
+      path: 'manage',
       element: <Manager />,
       children: [
         {
           index: true,
-          element: <Navigate to='/manager/all-users' replace />
+          element: <Navigate to='/manage/all-users' replace />
         },
         {
           path: 'all-users',

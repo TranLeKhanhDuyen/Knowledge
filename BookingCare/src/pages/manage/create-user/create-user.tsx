@@ -10,7 +10,7 @@ const CreateUser = () => {
   return (
     <>
       <Heading className='allusers' variant='h1' content='TẠO NGƯỜI DÙNG' />
-      <UserForm onSubmit={handleSubmit} mode='create'/>
+      <UserForm onSubmit={handleSubmit} mode='create' />
     </>
   )
 }

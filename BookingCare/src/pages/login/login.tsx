@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react'
 import './login.css'
 import { authService } from '@services/authService'
+import { UserRole } from '@services/models/user-role'
 
 interface ILoginState {
   username: string
@@ -49,7 +50,16 @@ const Login = () => {
         email: state.username,
         password: state.password
       })
-      const { accessToken, user } = response // access data property
+      // const { accessToken, user } = response
+      console.log(response)
+
+      if (response.user.role === UserRole.ADMIN) {
+        window.location.href = '/manage'
+      } else if (response.user.role === UserRole.DOCTOR) {
+        window.location.href = '/manage/all-users'
+      } else {
+        window.location.href = '/'
+      }
     } catch (error: any) {
       if (error.response && error.response.data) {
         setState({

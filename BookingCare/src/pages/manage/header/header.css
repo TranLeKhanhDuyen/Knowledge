@@ -1,9 +1,9 @@
-.header-manager-container {
+.header-manage-container {
   background-color: var(--turquoise-color);
   width: 100vw;
 }
 
-.header-manager {
+.header-manage {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,7 +11,7 @@
   padding: 0 10%;
 }
 
-.select-manager {
+.select-manage {
   border: none;
   background-color: var(--turquoise-color);
 }
@@ -29,7 +29,7 @@
   outline: none;
 }
 
-.logout-manager {
+.logout-manage {
   background-image: url(../../../assets/icons/ic-logout.svg);
   background-repeat: no-repeat;
   width: 18px;

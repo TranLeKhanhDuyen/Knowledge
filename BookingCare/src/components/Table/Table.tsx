@@ -1,7 +1,8 @@
-import { Button, Image } from '@components/common'
+import { Image } from '@components/common'
 import deleteIcon from '@assets/icons/ic-delete.svg'
 import editIcon from '@assets/icons/ic-edit.svg'
 import './Table.css'
+import { IUser } from '@mockdata'
 
 export interface ITableProps {
   data: {
@@ -19,7 +20,7 @@ export interface ITableProps {
     [key: string]: string
   }
   additionalClass?: string
-  onEdit?: () => void
+  onEdit?: (user: IUser) => void
   onDelete?: () => void
 }
 
@@ -54,7 +55,10 @@ const Table = ({
             ))}
             <td className='table-column '>
               <div className='action'>
-                <button className='btn-action edit' onClick={() => onEdit?.()}>
+                <button
+                  className='btn-action edit'
+                  onClick={() => (onEdit ? data.rows : null)}
+                >
                   <Image src={editIcon} alt='Edit' width='23px' />
                 </button>
                 <button

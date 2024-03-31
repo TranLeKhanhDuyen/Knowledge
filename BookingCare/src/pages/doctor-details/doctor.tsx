@@ -68,13 +68,11 @@ const DoctorDetailPage = () => {
               <Text content={DOCTOR.price} className='text-price' />
             </div>
           </div>
-          <ul>
-            {doctorList.map((doctor) => (
-              <li key={doctor.id}>
-                <h2>{doctor.name}</h2>
-                <p>{doctor.description}</p>
-              </li>
-            ))}
+          <ul className='desc-list'>
+            <Heading content='Phó Giáo sư, Tiến sĩ Nguyn Thi Hoai An' />
+            <li>
+              <Text content='Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng' />
+            </li>
           </ul>
         </div>
       </div>

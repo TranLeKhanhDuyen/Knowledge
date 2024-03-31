@@ -66,7 +66,7 @@ const AllUsers = () => {
   }
 
   return (
-    <div className=' container user-manager-container'>
+    <div className=' container user-manage-container'>
       <Heading
         variant='h1'
         content='TẤT CẢ NGƯỜI DÙNG'

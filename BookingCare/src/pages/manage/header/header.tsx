@@ -1,29 +1,28 @@
 import OptionList from '@components/common/Options/Options'
 import './header.css'
 
-interface IHeaderManagerProps {
+interface IHeadermanageProps {
   onSelectOption: (event: React.ChangeEvent<HTMLSelectElement>) => void
   selectedOption: string
 }
 
-const HeaderManager = ({
+const Headermanage = ({
   onSelectOption,
   selectedOption
-}: IHeaderManagerProps) => {
+}: IHeadermanageProps) => {
   const handleLogout = () => {
     alert('Logout Success')
   }
 
   return (
-    <header className='header-manager-container'>
-      <nav className='text-white header-manager'>
+    <header className='header-manage-container'>
+      <nav className='text-white header-manage'>
         <div className='nav-left'>
           <OptionList
             className='optionlist'
             items={[
               { id: '1', value: 'Tất cả người dùng' },
-              { id: '2', value: 'Tạo người dùng' },
-              { id: '3', value: 'Quản lý bác sĩ' }
+              { id: '2', value: 'Tạo người dùng' }
             ]}
             onChange={onSelectOption}
             value={selectedOption}
@@ -32,7 +31,7 @@ const HeaderManager = ({
         <div className='nav-right'>
           <span>Welcome User</span>
           <button
-            className='cursor logout-manager'
+            className='cursor logout-manage'
             onClick={handleLogout}
           ></button>
         </div>
@@ -41,4 +40,4 @@ const HeaderManager = ({
   )
 }
 
-export default HeaderManager
+export default Headermanage

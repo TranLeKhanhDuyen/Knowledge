@@ -1,8 +1,6 @@
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import HeaderManager from './header/header'
-import AllUsers from './allusers/allusers'
-import CreateUser from './create-user/create-user'
 
 const Manager = () => {
   const navigate = useNavigate()
@@ -28,10 +26,7 @@ const Manager = () => {
         onSelectOption={handleSelectOption}
         selectedOption={selectedOption}
       />
-      <Routes>
-        <Route path='/all-users' element={<AllUsers />} />
-        <Route path='/create-users' element={<CreateUser />} />
-      </Routes>
+      <Outlet />
     </>
   )
 }

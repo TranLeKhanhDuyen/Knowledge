@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "server": "json-server --watch json-server/db.json"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -23,7 +24,8 @@
     "react-slider": "^2.0.6",
     "slick-carousel": "^1.8.1",
     "slider": "^1.0.4",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.1",

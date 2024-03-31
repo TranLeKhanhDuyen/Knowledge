@@ -1,18 +1,22 @@
+import { BASE_URL } from '@config'
 import axios, { AxiosInstance } from 'axios'
 
-const createAxiosInstance = (): AxiosInstance => {
+const createAxiosInstance = (baseURL: string): AxiosInstance => {
   const instance = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
+    baseURL,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     withCredentials: false
   })
 
   instance.interceptors.response.use((response) => {
-    return response
+    return response.data
   })
 
   return instance
 }
 
-const axiosInstance: AxiosInstance = createAxiosInstance()
+const axiosInstance: AxiosInstance = createAxiosInstance(BASE_URL)
 
 export default axiosInstance

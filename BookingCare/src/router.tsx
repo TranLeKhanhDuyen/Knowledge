@@ -5,7 +5,8 @@ import AllUsers from '@pages/manage/allusers/allusers'
 import CreateUser from '@pages/manage/create-user/create-user'
 import { FC } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
-import Manager from '@pages/manage/manage';
+import Manager from '@pages/manage/manage'
+import Register from '@pages/authen/register'
 
 const Router: FC = () => {
   return useRoutes([
@@ -20,6 +21,10 @@ const Router: FC = () => {
     {
       path: 'login',
       element: <Login />
+    },
+    {
+      path: 'register',
+      element: <Register />
     },
     {
       path: 'manage',

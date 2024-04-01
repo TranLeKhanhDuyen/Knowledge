@@ -1,4 +1,4 @@
-.login-background {
+.authen-background {
   background: rgb(34, 193, 195);
   background: linear-gradient(
     135deg,
@@ -10,27 +10,38 @@
   padding-top: 50px;
 }
 
-.login-container {
+.authen-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   min-width: 300px;
-  width: 30%;
   height: auto;
-  margin: 100px auto;
+  margin: 0 auto;
   background-color: var(--white-color);
   border-radius: 25px;
+  font-weight: var(--fw-bold);
 }
 
-.login-title {
-  text-align: center;
-  padding: 30px;
+.sign-in-container {
+  width: 30%;
 }
 
-.form-input {
+.register-container {
+  width: 50%;
+}
+
+.sign-in-form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.register-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .text-field {
@@ -57,7 +68,7 @@
   width: 15px;
   position: absolute;
   right: 15px;
-  top: 28px;
+  top: 42px;
 }
 
 .hide-eye {
@@ -66,19 +77,18 @@
 
 .show-eye {
   background-image: url(../../assets/icons/ic-eye-slash.svg);
+  height: 16px;
+  width: 16px;
 }
 
-.login-button {
-  width: 70%;
+.btn-login {
+  width: 90%;
   margin: 0 auto;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(
-    135deg,
-    rgb(157, 190, 190) 0%,
-    rgb(45, 194, 253) 100%
-  );
+}
+
+.btn-register {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .afternative-login {

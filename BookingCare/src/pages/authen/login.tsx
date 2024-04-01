@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { authService } from '@services/authService'
 import { UserRole } from '@services/models/user-role'
-import { Button, Heading, Input, Text } from '@components/common'
+import { Button, Heading, Text } from '@components/common'
 import { Form, ItemLink } from '@components'
 import facebookIcon from '@assets/icons/ic-facebook.svg'
 import googleIcon from '@assets/icons/ic-google.svg'
-import './login.css'
+import './authen.css'
+import InputField from '@components/common/InputField/InputField'
 
-interface ILoginState {
+interface ILoginProps {
   username: string
   password: string
   isShowPassword: boolean
@@ -15,7 +16,7 @@ interface ILoginState {
 }
 
 const Login = () => {
-  const [state, setState] = useState<ILoginState>({
+  const [state, setState] = useState<ILoginProps>({
     username: '',
     password: '',
     isShowPassword: false,
@@ -76,8 +77,8 @@ const Login = () => {
   }
 
   return (
-    <div className='login-background'>
-      <div className='login-container '>
+    <div className='authen-background'>
+      <div className='authen-container sign-in-container'>
         <Heading
           variant='h1'
           content='ĐĂNG NHẬP'
@@ -88,21 +89,22 @@ const Login = () => {
           }}
         />
 
-        <Form className='form-input'>
-          <label>Tên</label>
-          <Input
+        <Form className='form-input sign-in-form'>
+          <InputField
+            label='Tên'
             type='text'
             className='username text-field'
-            placeholder='Enter your username'
+            placeholder='Nhập tên hoặc email'
             value={state.username}
             onChangeValue={handleOnChangeUsername}
           />
-          <label>Mật khẩu</label>
+
           <div className='password-container'>
-            <Input
+            <InputField
+              label='Mật khẩu'
               className='password text-field'
               type={state.isShowPassword ? 'text' : 'password'}
-              placeholder='Enter your password'
+              placeholder='Nhập mật khẩu'
               value={state.password}
               onChangeValue={handleOnChangePassword}
             />
@@ -120,13 +122,26 @@ const Login = () => {
         </div>
 
         <Button
-          className='login-button text-bold cursor'
-          onClick={handleLogin}
           title='Đăng nhập'
+          variant='secondary'
+          additionalClass='sign-in'
         />
 
-        <Text className='forgot-password' content='Quên mật khẩu' />
+        <Text
+          className='forgot-password'
+          content='Quên mật khẩu?'
+          style={{ textAlign: 'center' }}
+        />
+
+        <Button
+          title='Đăng ký tài khoản'
+          variant='primary'
+          additionalClass='register'
+          onClick={() => (window.location.href = '/register')}
+        />
+
         <Text className='option-text' content='Hoặc đăng nhập với:' />
+
         <div className='afternative-login'>
           <ItemLink
             path='#'

@@ -5,12 +5,6 @@
 - This document provides planning for ReactJS practice - BookingCare.
 - GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/practice-react)
 
-### TIMELINE
-
-- Start date: 2023/02/19
-- End date: 2023/03/01
-- Total: 10 days
-
 ### TEAMSIZE
 
 - 1 dev

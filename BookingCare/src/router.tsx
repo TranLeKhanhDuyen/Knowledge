@@ -1,6 +1,6 @@
 import DoctorDetailPage from '@pages/doctor-details/doctor'
 import HomePage from '@pages/homepage/home'
-import Login from '@pages/login/login'
+import Login from '@pages/authen/login'
 import AllUsers from '@pages/manage/allusers/allusers'
 import CreateUser from '@pages/manage/create-user/create-user'
 import { FC } from 'react'

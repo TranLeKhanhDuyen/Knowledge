@@ -5,8 +5,8 @@ import { Button, Heading, Text } from '@components/common'
 import { Form, ItemLink } from '@components'
 import facebookIcon from '@assets/icons/ic-facebook.svg'
 import googleIcon from '@assets/icons/ic-google.svg'
-import './authen.css'
 import InputField from '@components/common/InputField/InputField'
+import './authen.css'
 
 interface ILoginProps {
   username: string
@@ -56,12 +56,10 @@ const Login = () => {
         password: state.password
       })
       // const { accessToken, user } = response
-      console.log(response)
-
       if (response.user.role === UserRole.ADMIN) {
         window.location.href = '/manage'
       } else if (response.user.role === UserRole.DOCTOR) {
-        window.location.href = '/manage/all-users'
+        window.location.href = '/manage/doctor-schedule'
       } else {
         window.location.href = '/'
       }

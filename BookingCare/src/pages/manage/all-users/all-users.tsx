@@ -4,7 +4,7 @@ import { Heading } from '@components/common'
 import { ALL_USERS, IUser } from '@mockdata'
 import { getAllUsers } from '@services/userService'
 
-import './allusers.css'
+import './all-users.css'
 
 const AllUsers = () => {
   const [arrUsers, setArrUsers] = useState([])

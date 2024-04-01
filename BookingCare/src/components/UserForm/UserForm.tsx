@@ -25,7 +25,7 @@ const UserForm = ({
   const [gender, setGender] = useState('')
   const [avatar, setAvatar] = useState<File | null>(null)
   const [password, setPassword] = useState('')
-  const [birthday, setBirthday] = useState('')
+  const [dob, setdob] = useState('')
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -38,7 +38,7 @@ const UserForm = ({
     formData.append('address', address)
     formData.append('gender', gender)
     formData.append('password', password)
-    formData.append('birthday', birthday)
+    formData.append('dob', dob)
     formData.append('avatar', avatar as File)
 
     onSubmit(formData)
@@ -108,13 +108,13 @@ const UserForm = ({
         />
       </div>
       <div>
-        <label htmlFor='birthday'>Ngày sinh</label>
+        <label htmlFor='dob'>Ngày sinh</label>
         <Input
-          type='birthday'
-          value={birthday}
-          onChangeValue={setBirthday}
+          type='date'
+          value={dob}
+          onChangeValue={setdob}
           required
-          id='birthday'
+          id='dob'
         />
       </div>
       <div>
@@ -156,19 +156,26 @@ const UserForm = ({
       </div>
 
       {mode === 'create' ? (
-        <Button variant='secondary' additionalClass='create-user' title='Tạo' />
+        <Button
+          variant='secondary'
+          additionalClass='create-user'
+          title='Tạo'
+          style={{ padding: '10px' }}
+        />
       ) : (
         <>
+          <Button
+            variant='primary'
+            additionalClass='close-form'
+            onClick={onClose}
+            title='Đóng form'
+            style={{ width: '40%' }}
+          />
           <Button
             variant='secondary'
             additionalClass='update-user'
             title='Cập nhật'
-          />
-          <Button
-            variant='secondary'
-            additionalClass='close-form'
-            onClick={onClose}
-            title='Đóng form'
+            style={{ width: '40%' }}
           />
         </>
       )}

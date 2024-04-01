@@ -31,6 +31,7 @@ export interface IItemLinkProps {
   height?: string
   typeImage?: TImageVariant
   path?: string
+  additionalClass?: string
 }
 
 const ItemLink = ({
@@ -42,12 +43,13 @@ const ItemLink = ({
   image = placeholderImage,
   path = '',
   typeImage,
-  alt
+  alt,
+  additionalClass
 }: IItemLinkProps) => {
   return (
     <div className={`itemlink-container`}>
       <Link
-        className={`cursor itemlink ${type ? `itemlink-${type}` : ''}`}
+        className={`cursor itemlink ${type ? `itemlink-${type}` : ''} ${additionalClass}`}
         to={path}
       >
         <Image

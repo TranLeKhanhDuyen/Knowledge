@@ -1,7 +1,11 @@
-import { ChangeEvent, useState } from 'react'
-import './login.css'
+import { useState } from 'react'
 import { authService } from '@services/authService'
 import { UserRole } from '@services/models/user-role'
+import { Button, Heading, Input, Text } from '@components/common'
+import { Form, ItemLink } from '@components'
+import facebookIcon from '@assets/icons/ic-facebook.svg'
+import googleIcon from '@assets/icons/ic-google.svg'
+import './login.css'
 
 interface ILoginState {
   username: string
@@ -18,17 +22,17 @@ const Login = () => {
     errMessage: ''
   })
 
-  const handleOnChangeUsername = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeUsername = (value: string) => {
     setState({
       ...state,
-      username: event.target.value
+      username: value
     })
   }
 
-  const handleOnChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangePassword = (value: string) => {
     setState({
       ...state,
-      password: event.target.value
+      password: value
     })
   }
 
@@ -73,52 +77,67 @@ const Login = () => {
 
   return (
     <div className='login-background'>
-      <div className='login-container'>
-        <div className='login-content '>
-          <div className='login-title text-5xl text-bold'>Đăng nhập</div>
-          <div className='form-input'>
-            <label>Tên</label>
-            <input
-              type='text'
-              className='username text-field'
-              placeholder='Enter your username'
-              value={state.username}
-              onChange={(event) => handleOnChangeUsername(event)}
+      <div className='login-container '>
+        <Heading
+          variant='h1'
+          content='ĐĂNG NHẬP'
+          style={{
+            fontSize: 'var(--font-5xl)',
+            textAlign: 'center',
+            color: 'var(--turquoise-color)'
+          }}
+        />
+
+        <Form className='form-input'>
+          <label>Tên</label>
+          <Input
+            type='text'
+            className='username text-field'
+            placeholder='Enter your username'
+            value={state.username}
+            onChangeValue={handleOnChangeUsername}
+          />
+          <label>Mật khẩu</label>
+          <div className='password-container'>
+            <Input
+              className='password text-field'
+              type={state.isShowPassword ? 'text' : 'password'}
+              placeholder='Enter your password'
+              value={state.password}
+              onChangeValue={handleOnChangePassword}
             />
-            <label>Mật khẩu</label>
-            <div className='password-container'>
-              <input
-                className='password text-field'
-                type={state.isShowPassword ? 'text' : 'password'}
-                placeholder='Enter your password'
-                value={state.password}
-                onChange={(event) => handleOnChangePassword(event)}
-              />
-              <span
-                className={`eye cursor ${
-                  state.isShowPassword ? 'hide-eye' : 'show-eye'
-                }`}
-                onClick={handleShowHidePassword}
-              ></span>
-            </div>
+            <span
+              className={`eye cursor ${
+                state.isShowPassword ? 'hide-eye' : 'show-eye'
+              }`}
+              onClick={handleShowHidePassword}
+            ></span>
           </div>
+        </Form>
 
-          <div className='col-12' style={{ color: 'red' }}>
-            {state.errMessage}
-          </div>
+        <div className='col-12' style={{ color: 'red' }}>
+          {state.errMessage}
+        </div>
 
-          <button
-            className='login-button text-bold cursor'
-            onClick={handleLogin}
-          >
-            Login
-          </button>
-          <span className='forgot-password'>Quên mật khẩu?</span>
-          <span className='option-text'>Hoặc đăng nhập với: </span>
-          <div className='afternative-login'>
-            <a href='#' className='login-google'></a>
-            <a href='#' className='login-facebook'></a>
-          </div>
+        <Button
+          className='login-button text-bold cursor'
+          onClick={handleLogin}
+          title='Đăng nhập'
+        />
+
+        <Text className='forgot-password' content='Quên mật khẩu' />
+        <Text className='option-text' content='Hoặc đăng nhập với:' />
+        <div className='afternative-login'>
+          <ItemLink
+            path='#'
+            additionalClass='login-google'
+            image={facebookIcon}
+          />
+          <ItemLink
+            path='#'
+            additionalClass='login-facebook'
+            image={googleIcon}
+          />
         </div>
       </div>
     </div>

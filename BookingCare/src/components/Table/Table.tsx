@@ -13,7 +13,7 @@ export interface ITableProps {
       address?: string
       phoneNumber?: string
       gender?: string
-      birthday?: string
+      dob?: string
     }[]
   }
   columnTitles: {
@@ -57,7 +57,7 @@ const Table = ({
               <div className='action'>
                 <button
                   className='btn-action edit'
-                  onClick={() => (onEdit ? data.rows : null)}
+                  onClick={() => onEdit && onEdit(row as IUser)}
                 >
                   <Image src={editIcon} alt='Edit' width='23px' />
                 </button>

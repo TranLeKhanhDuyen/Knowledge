@@ -125,6 +125,7 @@ const Login = () => {
           title='Đăng nhập'
           variant='secondary'
           additionalClass='sign-in'
+          onClick={handleLogin}
         />
 
         <Text

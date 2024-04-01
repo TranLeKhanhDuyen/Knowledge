@@ -11,10 +11,9 @@ export interface RegisterRequest {
   lastName?: string
   phoneNumber?: string
   address?: string
-  birthday?: string
+  dob?: string
   gender?: string
   avatar?: string
   role?: string
   title?: string
-
 }

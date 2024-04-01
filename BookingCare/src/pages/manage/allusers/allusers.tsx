@@ -33,7 +33,8 @@ const AllUsers = () => {
     address: 'Địa chỉ',
     gender: 'Giới tính',
     phoneNumber: 'Số điện thoại',
-    birthday: 'Ngày sinh',
+    dob: 'Ngày sinh',
+    role: 'Vai trò',
     action: 'Chỉnh sửa'
   }
 
@@ -45,7 +46,8 @@ const AllUsers = () => {
     address: user.address,
     gender: user.gender,
     phoneNumber: user.phoneNumber,
-    birthday: user.birthday
+    dob: user.dob,
+    role: user.role
   }))
 
   const [showEditForm, setShowEditForm] = useState(false)

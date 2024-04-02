@@ -1,13 +1,15 @@
+import { AuthGuard, GuestGuard, RoleBasedGuard } from '@guards'
+import Login from '@pages/authen/login'
+import Register from '@pages/authen/register'
 import DoctorDetailPage from '@pages/doctor-details/doctor'
 import HomePage from '@pages/homepage/home'
-import Login from '@pages/authen/login'
 import AllUsers from '@pages/manage/all-users/all-users'
 import CreateUser from '@pages/manage/create-user/create-user'
+import DoctorSchedule from '@pages/manage/doctor-schedule/doctor-schedule'
+import Manager from '@pages/manage/manage'
+import { UserRole } from '@services/models/user-role'
 import { FC } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
-import Manager from '@pages/manage/manage'
-import Register from '@pages/authen/register'
-import DoctorSchedule from '@pages/manage/doctor-schedule/doctor-schedule'
 
 const Router: FC = () => {
   return useRoutes([
@@ -20,32 +22,85 @@ const Router: FC = () => {
       element: <DoctorDetailPage />
     },
     {
-      path: 'login',
-      element: <Login />
-    },
-    {
-      path: 'register',
-      element: <Register />
+      path: 'auth',
+      children: [
+        {
+          path: 'login',
+          element: (
+            <GuestGuard>
+              <Login />
+            </GuestGuard>
+          )
+        },
+        {
+          path: 'register',
+          element: (
+            <GuestGuard>
+              <Register />
+            </GuestGuard>
+          )
+        }
+      ]
     },
     {
       path: 'manage',
-      element: <Manager />,
+      element: (
+        <AuthGuard>
+          <RoleBasedGuard
+            accessibleRoles={[
+              UserRole.ADMIN,
+              UserRole.SUPER_ADMIN,
+              UserRole.DOCTOR
+            ]}
+          >
+            <Manager />
+          </RoleBasedGuard>
+        </AuthGuard>
+      ),
       children: [
         {
           index: true,
-          element: <Navigate to='/manage/all-users' replace />
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <Navigate to='/manage/all-users' replace />
+            </RoleBasedGuard>
+          )
         },
         {
           path: 'all-users',
-          element: <AllUsers />
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <AllUsers />
+            </RoleBasedGuard>
+          )
         },
         {
           path: 'create-users',
-          element: <CreateUser />
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <CreateUser />
+            </RoleBasedGuard>
+          )
         },
         {
           path: 'doctor-schedule',
-          element: <DoctorSchedule />
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[
+                UserRole.ADMIN,
+                UserRole.SUPER_ADMIN,
+                UserRole.DOCTOR
+              ]}
+            >
+              <DoctorSchedule />
+            </RoleBasedGuard>
+          )
         }
       ]
     }

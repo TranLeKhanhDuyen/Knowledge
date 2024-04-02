@@ -1,6 +1,7 @@
 import { OptionList } from '@components/common'
 import { UserRole } from '@services/models/user-role'
 import './header.css'
+import { useAuthStore } from '@store/auth-store'
 
 interface IHeadermanageProps {
   onSelectOption?: (event: React.ChangeEvent<HTMLSelectElement>) => void
@@ -13,11 +14,7 @@ const Headermanage = ({
   selectedOption,
   role
 }: IHeadermanageProps) => {
-  const handleLogout = () => {
-    alert('Logout Success')
-  }
-
-  console.log('role', role)
+  const { signOut, user } = useAuthStore()
 
   return (
     <header className='header-manage-container'>
@@ -54,11 +51,10 @@ const Headermanage = ({
           )} */}
         </div>
         <div className='nav-right'>
-          <span>Welcome User</span>
-          <button
-            className='cursor logout-manage'
-            onClick={handleLogout}
-          ></button>
+          <span>
+            Welcome {user?.firstName} {user?.lastName}
+          </span>
+          <button className='cursor logout-manage' onClick={signOut}></button>
         </div>
       </nav>
     </header>

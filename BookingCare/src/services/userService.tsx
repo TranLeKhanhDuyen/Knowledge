@@ -1,4 +1,5 @@
 import axios from '../axios'
+import { User } from './models/user'
 
 export const handleLoginApi = (email: string, password: string) => {
   return axios.post('/api/login', { email, password })
@@ -23,3 +24,9 @@ export const DeleteUserServiceAPI = (userId: string) => {
 export const EditUserServiceAPI = (dataEdit: string) => {
   return axios.put('/api/edit-user', dataEdit)
 }
+
+const getProfile = async (): Promise<User> => {
+  return axios.get(`/api/v1/users/me`)
+}
+
+export const userService = { getProfile }

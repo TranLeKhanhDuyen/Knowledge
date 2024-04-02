@@ -1,78 +1,20 @@
-import { useState } from 'react'
-import { authService } from '@services/authService'
-import { UserRole } from '@services/models/user-role'
-import { Button, Heading, Text } from '@components/common'
-import { Form, ItemLink } from '@components'
 import facebookIcon from '@assets/icons/ic-facebook.svg'
 import googleIcon from '@assets/icons/ic-google.svg'
-import InputField from '@components/common/InputField/InputField'
+import { ItemLink } from '@components'
+import FormProvider from '@components/HookFormFields/FormProvider'
+import RHFTextField from '@components/HookFormFields/RHFTextField'
+import { Button, Heading, Text } from '@components/common'
+import { useNavigate } from 'react-router-dom'
 import './authen.css'
-
-interface ILoginProps {
-  username: string
-  password: string
-  isShowPassword: boolean
-  errMessage: string
-}
+import { useSignIn } from './use-sign-in'
 
 const Login = () => {
-  const [state, setState] = useState<ILoginProps>({
-    username: '',
-    password: '',
-    isShowPassword: false,
-    errMessage: ''
-  })
-
-  const handleOnChangeUsername = (value: string) => {
-    setState({
-      ...state,
-      username: value
-    })
-  }
-
-  const handleOnChangePassword = (value: string) => {
-    setState({
-      ...state,
-      password: value
-    })
-  }
-
-  const handleShowHidePassword = () => {
-    setState({
-      ...state,
-      isShowPassword: !state.isShowPassword
-    })
-  }
-
-  const handleLogin = async () => {
-    setState({
-      ...state,
-      errMessage: ''
-    })
-
-    try {
-      const response = await authService.signIn({
-        email: state.username,
-        password: state.password
-      })
-      // const { accessToken, user } = response
-      if (response.user.role === UserRole.ADMIN) {
-        window.location.href = '/manage'
-      } else if (response.user.role === UserRole.DOCTOR) {
-        window.location.href = '/manage/doctor-schedule'
-      } else {
-        window.location.href = '/'
-      }
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        setState({
-          ...state,
-          errMessage: error.response.data.message
-        })
-      }
-      console.log('Error during login:', error)
-    }
-  }
+  const navigate = useNavigate()
+  const { handleSignIn, methods } = useSignIn()
+  const {
+    handleSubmit,
+    formState: { isSubmitting }
+  } = methods
 
   return (
     <div className='authen-background'>
@@ -87,44 +29,20 @@ const Login = () => {
           }}
         />
 
-        <Form className='form-input sign-in-form'>
-          <InputField
-            label='Tên'
-            type='text'
-            className='username text-field'
-            placeholder='Nhập tên hoặc email'
-            value={state.username}
-            onChangeValue={handleOnChangeUsername}
+        <FormProvider methods={methods} onSubmit={handleSubmit(handleSignIn)}>
+          <RHFTextField name='email' label='Email' />
+          <br />
+          <RHFTextField name='password' label='Password' type='password' />
+          <br />
+          <Button
+            disabled={isSubmitting}
+            title='Đăng nhập'
+            type='submit'
+            variant='secondary'
+            additionalClass='sign-in'
+            style={{ width: '100%' }}
           />
-
-          <div className='password-container'>
-            <InputField
-              label='Mật khẩu'
-              className='password text-field'
-              type={state.isShowPassword ? 'text' : 'password'}
-              placeholder='Nhập mật khẩu'
-              value={state.password}
-              onChangeValue={handleOnChangePassword}
-            />
-            <span
-              className={`eye cursor ${
-                state.isShowPassword ? 'hide-eye' : 'show-eye'
-              }`}
-              onClick={handleShowHidePassword}
-            ></span>
-          </div>
-        </Form>
-
-        <div className='col-12' style={{ color: 'red' }}>
-          {state.errMessage}
-        </div>
-
-        <Button
-          title='Đăng nhập'
-          variant='secondary'
-          additionalClass='sign-in'
-          onClick={handleLogin}
-        />
+        </FormProvider>
 
         <Text
           className='forgot-password'
@@ -136,7 +54,9 @@ const Login = () => {
           title='Đăng ký tài khoản'
           variant='primary'
           additionalClass='register'
-          onClick={() => (window.location.href = '/register')}
+          onClick={() => {
+            navigate('/register')
+          }}
         />
 
         <Text className='option-text' content='Hoặc đăng nhập với:' />

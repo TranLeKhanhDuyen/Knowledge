@@ -1,8 +1,10 @@
+import { BaseModel } from './base-model'
+import { Clinic } from './clinic'
 import { Gender } from './gender'
+import { Specialty } from './specialty'
 import { UserRole } from './user-role'
 
-export interface User {
-  id: number
+export interface User extends BaseModel {
   firstName: string
   lastName: string
   email: string
@@ -14,6 +16,7 @@ export interface User {
   gender: Gender
   avatar?: string
   specialtyId?: number
-  createdAt: Date
-  updatedAt: Date
+  specialty?: Specialty
+  clinic?: Clinic
+  description?: string
 }

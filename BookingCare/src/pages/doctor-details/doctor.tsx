@@ -5,10 +5,17 @@ import { Form, Header } from '@components'
 import { Button, Heading, Image, Input, Text } from '@components/common'
 import { LIST_NAV, DOCTOR } from '@mockdata'
 import './doctor.css'
+import { useCreateAppointment } from './use-create-appointment'
+import FormProvider from '@components/HookFormFields/FormProvider'
+import RHFTextField from '@components/HookFormFields/RHFTextField'
+import { useGetDoctorDetails } from './use-get-doctor-details'
+import Avatar from '@components/Avatar'
+import { fCurrency } from '@utils/number-formatter'
 
 const DoctorDetailPage = () => {
   const [doctor, setDoctor] = useState([])
   const [isShowForm, setShowForm] = useState(false)
+  const { doctorDetails } = useGetDoctorDetails()
 
   const toggleForm = () => {
     setShowForm(!isShowForm)
@@ -43,10 +50,20 @@ const DoctorDetailPage = () => {
         <div className='container  doctor-container'>
           {/* Doctor summary */}
           <div className='doctor-summary'>
-            <Image variant='circle' src={doctor1} width='120' height='120' />
+            <Avatar
+              src={doctorDetails?.avatar}
+              alt={doctorDetails?.firstName}
+              size={120}
+            />
             <div className='doctor-name'>
-              <Heading content={DOCTOR.name} className='heading-doctor' />
-              <Text content={DOCTOR.description} className='text-description' />
+              <Heading
+                content={`${doctorDetails?.firstName} ${doctorDetails?.lastName}`}
+                className='heading-doctor'
+              />
+              <Text
+                content={doctorDetails?.title ?? ''}
+                className='text-description'
+              />
             </div>
           </div>
 
@@ -63,17 +80,24 @@ const DoctorDetailPage = () => {
 
             <div className='address-container'>
               <Heading content='ĐỊA CHỈ KHÁM' />
-              <Text content={DOCTOR.address} className='text-address' />
+              <Text
+                content={doctorDetails?.clinic?.address ?? ''}
+                className='text-address'
+              />
               <Heading content='GIÁ KHÁM' />
-              <Text content={DOCTOR.price} className='text-price' />
+              <Text
+                content={fCurrency(doctorDetails?.clinic?.fee ?? 0) ?? ''}
+                className='text-price'
+              />
             </div>
           </div>
-          <ul className='desc-list'>
+          <Text content={doctorDetails?.description ?? ''} />
+          {/* <ul className='desc-list'>
             <Heading content='Phó Giáo sư, Tiến sĩ Nguyn Thi Hoai An' />
             <li>
               <Text content='Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng' />
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
 
@@ -84,67 +108,60 @@ const DoctorDetailPage = () => {
 }
 
 const BookingForm = ({ onCloseForm }: { onCloseForm: () => void }) => {
-  const [fullName, setFullName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [date, setDate] = useState('')
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    alert('Form submitted!')
-    onCloseForm()
-  }
+  const { methods, handleCreateAppointment } = useCreateAppointment(onCloseForm)
+  const {
+    handleSubmit,
+    formState: { isSubmitting }
+  } = methods
 
   return (
     <div className='overlay'>
-      <Form className='booking-form' onSubmit={handleSubmit}>
-        <Heading className='booking' content='ĐẶT LỊCH KHÁM BỆNH' />
-        <Input
-          additionalClass='bookingform'
-          type='text'
-          placeholder='Họ tên bệnh nhân'
-          value={fullName}
-          onChangeValue={(value) => setFullName(value)}
-          required
-        />
-        <Input
-          additionalClass='bookingform'
-          type='number'
-          placeholder='Số điện thoại liên hệ'
-          value={phoneNumber}
-          onChangeValue={(value) => setPhoneNumber(value)}
-          required
-        />
-        <Input
-          additionalClass='bookingform'
-          type='date'
-          placeholder='Ngày tháng năm sinh'
-          value={date}
-          onChangeValue={(value) => setDate(value)}
-          required
-        />
-        <Input
-          additionalClass='bookingform'
-          type='text'
-          placeholder='Nghề nghiệp'
-          value={date}
-          onChangeValue={(value) => setDate(value)}
-          required
-        />
-        <Input
-          additionalClass='bookingform'
-          type='email'
-          placeholder='Nhập địa chỉ email (nếu có)'
-          value={email}
-          onChangeValue={(value) => setEmail(value)}
-          required
-        />
-
-        <div className='button-booking'>
-          <Button title='Cancel' type='button' onClick={onCloseForm} />
-          <Button title='Submit' type='submit' variant='secondary' />
+      <FormProvider
+        methods={methods}
+        onSubmit={handleSubmit(handleCreateAppointment)}
+      >
+        <div className='booking-form'>
+          <Heading className='booking' content='ĐẶT LỊCH KHÁM BỆNH' />
+          <RHFTextField
+            name='fullName'
+            label='Full name'
+            placeholder='Full name'
+          />
+          <RHFTextField
+            name='phoneNumber'
+            label='Phone number'
+            placeholder='Phone number'
+          />
+          <RHFTextField name='email' label='Email' placeholder='Email' />
+          <RHFTextField
+            name='dob'
+            label='Date of birth'
+            placeholder='Date of birth'
+            type='date'
+          />
+          <RHFTextField
+            name='date'
+            label='Date'
+            placeholder='Date'
+            type='date'
+          />
+          <RHFTextField
+            name='reasonForMedicalExam'
+            label='Reason for Medical examination'
+            placeholder='Reason for Medical examination'
+            multiple
+          />
+          <div className='button-booking'>
+            <Button title='Cancel' type='button' onClick={onCloseForm} />
+            <Button
+              title='Submit'
+              disabled={isSubmitting}
+              type='submit'
+              variant='secondary'
+            />
+          </div>
         </div>
-      </Form>
+      </FormProvider>
     </div>
   )
 }

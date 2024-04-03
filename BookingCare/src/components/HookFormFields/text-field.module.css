@@ -34,7 +34,7 @@
 }
 
 .base-input::placeholder {
-  color: var(--black-color);
+  color: var(--text-color-400);
 }
 
 .base-input-state-default {

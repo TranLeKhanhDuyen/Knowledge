@@ -25,4 +25,11 @@
   --yellow-color: rgb(255, 145, 0);
   --yellow-light-color: rgb(240, 165, 103);
   --black-color: #000;
+
+  --text-color-400: #999ba8;
+  --icon-default-color: #9a9db2;
+  --success-color: 51, 183, 107; /*#33b76b; */
+  --warning-color: 245, 188, 51; /*#f5bc33*/
+  --error-color: 236, 60, 54; /*#ff4842 */
+  --info-color: 24, 144, 255/*#1890ff; */
 }

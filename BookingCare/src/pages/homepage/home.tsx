@@ -9,6 +9,7 @@ import {
 import { Heading, Text } from '@components/common'
 import supportIcon from '@assets/icons/ic-support.svg'
 import './home.css'
+import Doctors from './doctors'
 
 const HomePage = () => {
   return (
@@ -45,10 +46,7 @@ const HomePage = () => {
           type='facilities'
         />
         <CustomSlider items={LIST_LINKS.facilities} types='facilities' />
-        <div className='slider-doctor'>
-          <ListHeader content={LIST_HEADER.doctor[0].content} type='doctor' />
-          <CustomSlider items={LIST_LINKS.doctor} types='doctor' />
-        </div>
+        <Doctors />
         <div className='slider-handbook'>
           <ListHeader
             content={LIST_HEADER.handbook[0].content}

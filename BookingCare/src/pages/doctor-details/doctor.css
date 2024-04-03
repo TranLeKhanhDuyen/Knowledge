@@ -48,8 +48,8 @@
 .booking-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 50%;
+  gap: 16px;
+  width: 512px;
   padding: 5%;
   background-color: white;
   border-radius: 10px;

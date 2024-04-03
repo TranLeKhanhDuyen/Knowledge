@@ -1,62 +1,32 @@
-import { useEffect, useState } from 'react'
-import { Table, UserForm } from '@components'
+import { UserForm } from '@components'
 import { Heading } from '@components/common'
-import { ALL_USERS, IUser } from '@mockdata'
-import { getAllUsers } from '@services/userService'
+import { useState } from 'react'
 
+import Card from '@components/Card'
+import Pagination from '@components/Pagination'
+import TableBody from '@components/Table/TableBody'
+import TableCell from '@components/Table/TableCell'
+import TableHead, { XTable } from '@components/Table/TableHead'
+import TableRow from '@components/Table/TableRow'
+import { usePagination } from '@hooks/use-pagination'
+import { User } from '@services/models/user'
 import './all-users.css'
+import { useGetUsers } from './use-get-users'
+import UserTableRow from './user-table-row'
 
 const AllUsers = () => {
-  const [arrUsers, setArrUsers] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getAllUsers('ALL')
-        if (response && response.data && response.data.errCode === 0) {
-          setArrUsers(response.data.users)
-          console.log('check state user: ', response.data)
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
-    }
-
-    fetchData()
-  }, [])
-
-  const columnTitles = {
-    id: 'ID',
-    lastName: 'Họ',
-    firstName: 'Tên',
-    email: 'Email',
-    address: 'Địa chỉ',
-    gender: 'Giới tính',
-    phoneNumber: 'Số điện thoại',
-    dob: 'Ngày sinh',
-    role: 'Vai trò',
-    action: 'Chỉnh sửa'
-  }
-
-  const usersData = ALL_USERS.map((user: IUser) => ({
-    id: user.id,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    email: user.email,
-    address: user.address,
-    gender: user.gender,
-    phoneNumber: user.phoneNumber,
-    dob: user.dob,
-    role: user.role
-  }))
+  const { page, limit, onPageChange } = usePagination()
+  const { data, pagination } = useGetUsers({ page, limit })
 
   const [showEditForm, setShowEditForm] = useState(false)
-  const [selectedUser, setSelectedUser] = useState<IUser | null>(null)
+  const [selectedUser, setSelectedUser] = useState<User | null>(null)
 
-  const handleEdit = (user: IUser) => {
+  const handleEdit = (user: User) => {
     setSelectedUser(user)
     setShowEditForm(true)
   }
+
+  const handleDelete = (userId: number) => {}
 
   const handleCloseForm = () => {
     setShowEditForm(false)
@@ -80,12 +50,6 @@ const AllUsers = () => {
           fontSize: 'var(--font-3xl)'
         }}
       />
-      <Table
-        data={{ rows: usersData }}
-        columnTitles={columnTitles}
-        onEdit={handleEdit}
-      />
-
       {showEditForm && (
         <div className='overlay'>
           <div className='form-container'>
@@ -103,6 +67,58 @@ const AllUsers = () => {
           </div>
         </div>
       )}
+
+      <Card style={{ overflowX: 'auto' }}>
+        <XTable
+          style={{
+            width: '100%',
+            borderBottom: 'solid 1px gray'
+          }}
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell elType='th'>Name</TableCell>
+              <TableCell elType='th'>Job Title</TableCell>
+              <TableCell elType='th'>Email</TableCell>
+              <TableCell elType='th'>Dob</TableCell>
+              <TableCell elType='th'>Gender</TableCell>
+              <TableCell elType='th'>Phone number</TableCell>
+              <TableCell elType='th'>Address</TableCell>
+              <TableCell elType='th' textAlign='center'>
+                Role
+              </TableCell>
+              <TableCell elType='th' />
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map((user) => (
+              <UserTableRow
+                key={user.id}
+                user={user}
+                onEdit={() => {
+                  handleEdit(user)
+                }}
+                onDelete={() => {
+                  handleDelete(user.id)
+                }}
+              />
+            ))}
+          </TableBody>
+        </XTable>
+        <div
+          style={{
+            width: '100%',
+            margin: '16px',
+            position: 'relative'
+          }}
+        >
+          <Pagination
+            page={pagination.currentPage}
+            totalPage={pagination.lastPage}
+            onPageChange={onPageChange}
+          />
+        </div>
+      </Card>
     </div>
   )
 }

@@ -1,0 +1,11 @@
+.heading {
+  font-size: var(--font-lg);
+  font-family: 'Roboto';
+  font-weight: var(--fw-bold);
+  color: var(--black-color);
+}
+
+.heading-h2 {
+  font-size: var(--font-xxl);
+  color: var(--black-color);
+}

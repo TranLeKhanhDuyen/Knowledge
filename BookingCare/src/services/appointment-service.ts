@@ -3,14 +3,14 @@ import { CreateAppointmentRequest } from './requests/create-appointment-request'
 import { UpdateAppointmentRequest } from './requests/update-appointment-request'
 import { removeFalsy } from '@utils/object'
 
-async function create(data: CreateAppointmentRequest) {
+const create = async (data: CreateAppointmentRequest) => {
   return axiosInstance.post('/api/v1/appointments', data)
 }
 
-async function updateAppointment(
+const updateAppointment = async (
   patientId: number,
   data: UpdateAppointmentRequest
-) {
+) => {
   return axiosInstance.put(
     `/api/v1/appointments/${patientId}`,
     removeFalsy(data)

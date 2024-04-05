@@ -11,11 +11,11 @@ export interface FormProviderProps<T extends FieldValues> {
   methods: UseFormReturn<T>
 }
 
-export default function FormProvider<T extends FieldValues>({
+export const FormProvider = <T extends FieldValues>({
   children,
   onSubmit,
   methods
-}: FormProviderProps<T>) {
+}: FormProviderProps<T>) => {
   return (
     <RHFormProvider {...methods}>
       <form onSubmit={onSubmit} encType='multipart/form-data'>

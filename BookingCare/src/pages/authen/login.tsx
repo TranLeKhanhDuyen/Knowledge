@@ -1,12 +1,12 @@
 import facebookIcon from '@assets/icons/ic-facebook.svg'
 import googleIcon from '@assets/icons/ic-google.svg'
 import { ItemLink } from '@components'
-import FormProvider from '@components/HookFormFields/FormProvider'
-import RHFTextField from '@components/HookFormFields/RHFTextField'
 import { Button, Heading, Text } from '@components/common'
 import { useNavigate } from 'react-router-dom'
 import './authen.css'
 import { useSignIn } from './use-sign-in'
+import { FormProvider } from '@components/HookFormFields/FormProvider'
+import { RHFTextField } from '@components/HookFormFields/RHFTextField'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -30,9 +30,14 @@ const Login = () => {
         />
 
         <FormProvider methods={methods} onSubmit={handleSubmit(handleSignIn)}>
-          <RHFTextField name='email' label='Email' />
+          <RHFTextField name='email' label='Email' placeholder='Email' />
           <br />
-          <RHFTextField name='password' label='Password' type='password' />
+          <RHFTextField
+            name='password'
+            label='Password'
+            type='password'
+            placeholder='Mật khẩu'
+          />
           <br />
           <Button
             disabled={isSubmitting}

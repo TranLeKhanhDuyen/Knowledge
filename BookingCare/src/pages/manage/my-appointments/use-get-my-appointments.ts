@@ -4,7 +4,7 @@ import { IPagination } from '@services/responses/pagination'
 import { userService } from '@services/userService'
 import { useEffect, useState } from 'react'
 
-export function useGetMyAppointments({ page, limit }: Required<GetListParams>) {
+export const  useGetMyAppointments = ({ page, limit }: Required<GetListParams>) => {
   const [data, setData] = useState<Array<Appointment>>([])
   const [pagination, setPagination] = useState<IPagination>({
     total: 1,

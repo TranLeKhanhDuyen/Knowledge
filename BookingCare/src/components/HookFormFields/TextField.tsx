@@ -9,12 +9,12 @@ export interface TextFieldProps extends ComponentPropsWithRef<'input'> {
   helperText?: string
 }
 
-export default function TextField({
+export const TextField = ({
   name,
   label,
   helperText,
   ...other
-}: TextFieldProps) {
+}: TextFieldProps) => {
   return (
     <div className={className('field-container')}>
       {label && (

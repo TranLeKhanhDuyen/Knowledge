@@ -8,7 +8,7 @@ import {
   useOutletContext
 } from 'react-router-dom'
 
-export default function AuthGuard({ children }: { children: ReactNode }) {
+export const AuthGuard = ({ children }: { children: ReactNode }) => {
   const location = useLocation()
   const ctx = useOutletContext()
   const { isAuthenticated, isInitialized } = useAuthStore()

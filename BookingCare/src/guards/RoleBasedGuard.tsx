@@ -7,10 +7,10 @@ export interface RoleBasedGuardProps {
   children: ReactNode
 }
 
-export default function RoleBasedGuard({
+export const RoleBasedGuard = ({
   children,
   accessibleRoles
-}: RoleBasedGuardProps) {
+}: RoleBasedGuardProps) => {
   const { user } = useAuthStore()
 
   if (!accessibleRoles.includes(user!.role)) {

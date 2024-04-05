@@ -1,15 +1,15 @@
 import { Controller, useFormContext } from 'react-hook-form'
-import TextField, { TextFieldProps } from './TextField'
+import  { TextField, TextFieldProps } from './TextField'
 
 interface RHFTextFieldProps extends TextFieldProps {
   name: string
 }
 
-export default function RHFTextField({
+export const RHFTextField = ({
   name,
   label,
   ...other
-}: RHFTextFieldProps) {
+}: RHFTextFieldProps) => {
   const { control } = useFormContext()
 
   return (

@@ -1,7 +1,8 @@
-import { Form } from '@components'
 import { Button, Heading, OptionList } from '@components/common'
 import InputField from '@components/common/InputField/InputField'
 import { ChangeEvent, useState } from 'react'
+import { useRegister } from './use-register'
+import { FormProvider } from '@components/HookFormFields/FormProvider'
 
 interface IRegisterProps {
   firstName: string
@@ -18,6 +19,13 @@ interface IRegisterProps {
 }
 
 const Register = () => {
+  const { handleRegister, methods } = useRegister()
+
+  const {
+    handleSubmit,
+    formState: { isSubmitting }
+  } = methods
+
   const [state, setState] = useState<IRegisterProps>({
     firstName: '',
     lastName: '',
@@ -81,7 +89,7 @@ const Register = () => {
           }}
         />
 
-        <Form className='form-input register-form'>
+        <FormProvider methods={methods} onSubmit={handleSubmit(handleRegister)}>
           <InputField
             label='Tên'
             type='text'
@@ -172,13 +180,14 @@ const Register = () => {
               }}
             />
           </div>
-        </Form>
-
-        <Button
-          title='Đăng ký'
-          variant='secondary'
-          additionalClass='register'
-        />
+          {/* </Form> */}
+          <Button
+            disabled={isSubmitting}
+            title='Đăng ký'
+            variant='secondary'
+            additionalClass='register'
+          />
+        </FormProvider>
       </div>
     </div>
   )

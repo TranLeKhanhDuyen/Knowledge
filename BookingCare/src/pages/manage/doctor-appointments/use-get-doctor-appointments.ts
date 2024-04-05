@@ -5,10 +5,10 @@ import { userService } from '@services/userService'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-export function useGetDoctorAppointments({
+export const  useGetDoctorAppointments = ({
   page,
   limit
-}: Required<GetListParams>) {
+}: Required<GetListParams>) => {
   const { doctorId } = useParams()
   const [data, setData] = useState<Array<Appointment>>([])
   const [pagination, setPagination] = useState<IPagination>({

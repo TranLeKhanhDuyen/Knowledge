@@ -10,12 +10,12 @@ export interface RHFTextFieldProps extends ComponentPropsWithRef<'select'> {
   label?: string
 }
 
-export function RHFSelect({
+export const RHFSelect = ({
   name,
   label,
   children,
   ...other
-}: RHFTextFieldProps) {
+}: RHFTextFieldProps) => {
   const { control } = useFormContext()
 
   return (

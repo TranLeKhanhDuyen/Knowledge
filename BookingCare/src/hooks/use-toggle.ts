@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useToggle(init = false) {
+export const useToggle = (init = false) => {
   const [isOn, setIsOn] = useState(init)
 
   useEffect(() => {

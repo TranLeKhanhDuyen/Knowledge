@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 
 // ════════════════════════════════════════════
 
-export function useSignIn() {
+export const useSignIn = () => {
   const signInSchema = Yup.object().shape({
     email: Yup.string()
       .email('Email is invalid format')

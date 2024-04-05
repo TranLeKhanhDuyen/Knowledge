@@ -3,7 +3,7 @@ import './Options.css'
 
 interface IOptionsProps extends SelectHTMLAttributes<HTMLSelectElement> {
   items: {
-    id: string
+    id?: string
     value: string
   }[]
   defaultValue?: string

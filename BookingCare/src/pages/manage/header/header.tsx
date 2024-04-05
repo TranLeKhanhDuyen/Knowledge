@@ -3,17 +3,34 @@ import { UserRole } from '@services/models/user-role'
 import './header.css'
 import { useAuthStore } from '@store/auth-store'
 
-interface IHeadermanageProps {
+interface IHeaderManageProps {
   onSelectOption: (event: React.ChangeEvent<HTMLSelectElement>) => void
   selectedOption?: string
-  role: UserRole
+  role?: UserRole
 }
 
-const Headermanage = ({
+const HeaderManage = ({
   onSelectOption,
   selectedOption
-}: IHeadermanageProps) => {
+}: IHeaderManageProps) => {
   const { signOut, user } = useAuthStore()
+
+  const getUserRole = (): UserRole | undefined => {
+    return user?.role
+  }
+
+  const optionsForRole = (): { value: string }[] => {
+    const role = getUserRole()
+    switch (role) {
+      case UserRole.ADMIN:
+      case UserRole.SUPER_ADMIN:
+        return [{ value: 'Tất cả người dùng' }, { value: 'Tạo người dùng' }]
+      case UserRole.DOCTOR:
+        return [{ value: 'Danh sách lịch hẹn' }]
+      default:
+        return []
+    }
+  }
 
   return (
     <header className='header-manage-container'>
@@ -21,11 +38,7 @@ const Headermanage = ({
         <div className='nav-left'>
           <OptionList
             className='optionlist'
-            items={[
-              { id: '1', value: 'Tất cả người dùng' },
-              { id: '2', value: 'Tạo người dùng' },
-              { id: '3', value: 'Danh sách lịch hẹn' }
-            ]}
+            items={optionsForRole()}
             onChange={onSelectOption}
             value={selectedOption}
           />
@@ -41,4 +54,4 @@ const Headermanage = ({
   )
 }
 
-export default Headermanage
+export default HeaderManage

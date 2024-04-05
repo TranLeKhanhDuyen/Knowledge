@@ -1,13 +1,28 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Headermanage from './header/header'
 
-const Manage = () => {
+const Manage: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState('')
+  const navigate = useNavigate()
 
   const handleSelectOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const optionValue = event.target.value
     setSelectedOption(optionValue)
+
+    switch (optionValue) {
+      case 'Tạo người dùng':
+        navigate('/manage/create-users')
+        break
+      case 'Tất cả người dùng':
+        navigate('/manage/all-users')
+        break
+      case 'Danh sách lịch hẹn':
+        navigate('/manage/doctors/me/appointments')
+        break
+      default:
+        break
+    }
   }
 
   return (

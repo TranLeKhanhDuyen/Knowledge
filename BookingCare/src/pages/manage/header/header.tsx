@@ -15,18 +15,20 @@ const HeaderManage = ({
 }: IHeaderManageProps) => {
   const { signOut, user } = useAuthStore()
 
-  const optionsForRole = () => {
-    console.log('user?.role')
-    console.log(user?.role)
-    if (user?.role === UserRole.ADMIN || user?.role === UserRole.SUPER_ADMIN) {
-      return [
-        { id: '1', value: 'Tất cả người dùng' },
-        { id: '2', value: 'Tạo người dùng' }
-      ]
-    } else if (user?.role === UserRole.DOCTOR) {
-      return [{ id: '3', value: 'Danh sách lịch hẹn' }]
-    } else {
-      return []
+  const getUserRole = (): UserRole | undefined => {
+    return user?.role
+  }
+
+  const optionsForRole = (): { value: string }[] => {
+    const role = getUserRole()
+    switch (role) {
+      case UserRole.ADMIN:
+      case UserRole.SUPER_ADMIN:
+        return [{ value: 'Tất cả người dùng' }, { value: 'Tạo người dùng' }]
+      case UserRole.DOCTOR:
+        return [{ value: 'Danh sách lịch hẹn' }]
+      default:
+        return []
     }
   }
 

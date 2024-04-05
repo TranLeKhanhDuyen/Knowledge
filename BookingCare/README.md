@@ -32,7 +32,7 @@
 git clone <https://github.com/TranLeKhanhDuyen/intern-agility.git>
 ```
 
-- Step 02: Move to folder Task-Management:
+- Step 02: Move to folder BookingCare:
 
 ```
 cd BookingCare

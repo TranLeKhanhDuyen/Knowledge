@@ -1,4 +1,4 @@
-# PRACTICE - REACT 
+# PRACTICE - REACTJS
 
 ### OVERVIEW
 
@@ -14,11 +14,10 @@
 - HTML5
 - CSS3
 - ReactJS
-- TypeScript
 
 ### SUPPORTED BROWSER
 
-- Google Chrome: Version 121.0.6167.185 
+- Google Chrome: Version 121.0.6167.185
  (64-bit)
 
 ### EDITOR
@@ -26,4 +25,27 @@
 - Visual Studio Code
 
 
-### STEPS INSTALL AND RUN CODE *(update later)*
+### STEPS INSTALL AND RUN CODE
+- Step 01: Clone repository:
+
+```
+git clone <https://github.com/TranLeKhanhDuyen/intern-agility.git>
+```
+
+- Step 02: Move to folder Task-Management:
+
+```
+cd BookingCare
+```
+
+- Step 03: Install dependencies:
+
+```
+npm install
+```
+
+- Step 04: Finally run with:
+
+```
+npm run dev
+```

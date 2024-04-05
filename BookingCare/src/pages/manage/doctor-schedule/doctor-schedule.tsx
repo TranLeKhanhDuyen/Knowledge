@@ -2,10 +2,10 @@ import { Heading } from "@components/common"
 import AppointmentTable from '../doctor-appointments/appointment-table'
 import { usePagination } from '@hooks/use-pagination'
 import { useGetAppointmentsSchedule } from './use-get-appointments-schedule'
-import useToggle from '@hooks/use-toggle'
 import UpdateAppointmentModal from './update-appointment-modal'
 import { useState } from 'react'
 import { Appointment } from '@services/models/appointment'
+import { useToggle } from "@hooks/use-toggle"
 
 const DoctorSchedule = () => {
   const { page, limit, onPageChange } = usePagination()

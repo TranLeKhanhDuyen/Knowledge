@@ -13,7 +13,4 @@ export interface RegisterRequest {
   address?: string
   dob?: string
   gender?: string
-  avatar?: string
-  role?: string
-  title?: string
 }

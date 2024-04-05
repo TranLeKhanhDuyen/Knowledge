@@ -1,1 +1,1 @@
-export function useCreateUser() {}
+export const useCreateUser = () => {}

@@ -1,11 +1,11 @@
-import FormProvider from '@components/HookFormFields/FormProvider'
-import RHFTextField from '@components/HookFormFields/RHFTextField'
 import { Button, Heading } from '@components/common'
 import { Appointment } from '@services/models/appointment'
 import { FC } from 'react'
 import { useUpdateAppointment } from './use-update-appointment'
 import { RHFSelect } from '@components/HookFormFields/Select'
 import { AppointmentStatus } from '@services/models/appointment-status'
+import { RHFTextField } from '@components/HookFormFields/RHFTextField'
+import { FormProvider } from '@components/HookFormFields/FormProvider'
 
 export interface UpdateAppointmentModalProps {
   appointment: Appointment

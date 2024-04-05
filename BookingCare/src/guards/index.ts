@@ -1,3 +1,3 @@
-export { default as AuthGuard } from './AuthGuard';
-export { default as GuestGuard } from './GuestGuard';
-export { default as RoleBasedGuard } from './RoleBasedGuard';
+export { AuthGuard } from './AuthGuard'
+export { GuestGuard } from './GuestGuard'
+export { RoleBasedGuard } from './RoleBasedGuard'

@@ -4,15 +4,14 @@ import './header.css'
 import { useAuthStore } from '@store/auth-store'
 
 interface IHeadermanageProps {
-  onSelectOption?: (event: React.ChangeEvent<HTMLSelectElement>) => void
+  onSelectOption: (event: React.ChangeEvent<HTMLSelectElement>) => void
   selectedOption?: string
   role: UserRole
 }
 
 const Headermanage = ({
   onSelectOption,
-  selectedOption,
-  role
+  selectedOption
 }: IHeadermanageProps) => {
   const { signOut, user } = useAuthStore()
 
@@ -24,31 +23,12 @@ const Headermanage = ({
             className='optionlist'
             items={[
               { id: '1', value: 'Tất cả người dùng' },
-              { id: '2', value: 'Tạo người dùng' }
+              { id: '2', value: 'Tạo người dùng' },
+              { id: '3', value: 'Danh sách lịch hẹn' }
             ]}
             onChange={onSelectOption}
             value={selectedOption}
           />
-
-          {/* {role === UserRole.ADMIN && (
-            <OptionList
-              className='optionlist'
-              items={[
-                { id: '1', value: 'Tất cả người dùng' },
-                { id: '2', value: 'Tạo người dùng' }
-              ]}
-              onChange={onSelectOption}
-              value={selectedOption}
-            />
-          )}
-          {role === UserRole.DOCTOR && (
-            <OptionList
-              className='optionlist'
-              items={[{ id: '3', value: 'Danh sách lịch hẹn' }]}
-              onChange={onSelectOption}
-              value={selectedOption}
-            />
-          )} */}
         </div>
         <div className='nav-right'>
           <span>

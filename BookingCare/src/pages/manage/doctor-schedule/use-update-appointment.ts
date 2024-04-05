@@ -5,10 +5,10 @@ import { UpdateAppointmentRequest } from '@services/requests/update-appointment-
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 
-export function useUpdateAppointment(
+export const useUpdateAppointment = (
   appointment: Appointment,
   onCloseModal: VoidFunction
-) {
+) => {
   const schema = Yup.object().shape({
     status: Yup.string().required('Status is required'),
     diagnosis: Yup.string().optional(),
@@ -26,7 +26,7 @@ export function useUpdateAppointment(
     }
   })
 
-  async function handleUpdate(data: UpdateAppointmentRequest) {
+  const handleUpdate = async (data: UpdateAppointmentRequest) => {
     try {
       await appointmentService.updateAppointment(appointment.patientId, data)
       methods.reset()

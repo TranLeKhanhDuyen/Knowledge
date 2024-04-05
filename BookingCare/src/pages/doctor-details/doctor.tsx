@@ -1,46 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import doctor1 from '@assets/doctors/hua-thuy-vi.jpg'
+import { useEffect, useState } from 'react'
 import supportIcon from '@assets/icons/ic-support.svg'
-import { Form, Header } from '@components'
-import { Button, Heading, Image, Input, Text } from '@components/common'
+import { Header } from '@components'
+import { Button, Heading, Text } from '@components/common'
 import { LIST_NAV, DOCTOR } from '@mockdata'
-import './doctor.css'
 import { useCreateAppointment } from './use-create-appointment'
-import FormProvider from '@components/HookFormFields/FormProvider'
-import RHFTextField from '@components/HookFormFields/RHFTextField'
 import { useGetDoctorDetails } from './use-get-doctor-details'
 import Avatar from '@components/Avatar'
 import { fCurrency } from '@utils/number-formatter'
+import './doctor.css'
+import { FormProvider } from '@components/HookFormFields/FormProvider'
+import { RHFTextField } from '@components/HookFormFields/RHFTextField'
 
 const DoctorDetailPage = () => {
-  const [doctor, setDoctor] = useState([])
   const [isShowForm, setShowForm] = useState(false)
   const { doctorDetails } = useGetDoctorDetails()
 
   const toggleForm = () => {
     setShowForm(!isShowForm)
     document.body.classList.toggle('overlay-active')
-  }
-
-  useEffect(() => {
-    fetchDoctorData()
-  }, [])
-
-  const fetchDoctorData = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/doctors')
-      if (!response.ok) {
-        throw new Error('Failed to fetch doctor data')
-      }
-      const data = await response.json()
-      setDoctor(data)
-    } catch (error) {
-      console.error('Error fetching doctor data:', error)
-    }
-  }
-
-  if (!doctor) {
-    return <div>Loading...</div>
   }
 
   return (
@@ -92,12 +69,6 @@ const DoctorDetailPage = () => {
             </div>
           </div>
           <Text content={doctorDetails?.description ?? ''} />
-          {/* <ul className='desc-list'>
-            <Heading content='Phó Giáo sư, Tiến sĩ Nguyn Thi Hoai An' />
-            <li>
-              <Text content='Phó Giáo sư, Tiến sĩ chuyên ngành Tai Mũi Họng' />
-            </li>
-          </ul> */}
         </div>
       </div>
 

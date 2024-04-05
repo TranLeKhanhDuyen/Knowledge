@@ -3,7 +3,7 @@ import { useAuthStore } from '@store/auth-store'
 import { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 
-export default function GuestGuard({ children }: { children: ReactNode }) {
+export const GuestGuard = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated, isInitialized } = useAuthStore()
 
   if (!isInitialized) return <Loading />

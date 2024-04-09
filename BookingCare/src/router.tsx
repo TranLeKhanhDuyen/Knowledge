@@ -14,6 +14,9 @@ import MyAppointments from '@pages/manage/my-appointments/doctor-appointments'
 import { UserRole } from '@services/models/user-role'
 import { FC } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
+import SpecialistPage from '@pages/secondary-page/specialist-page'
+import HandbookPage from '@pages/secondary-page/handbook-page'
+import FacilitiesPage from '@pages/secondary-page/facilities-page'
 
 const Router: FC = () => {
   return useRoutes([
@@ -22,8 +25,20 @@ const Router: FC = () => {
       element: <HomePage />
     },
     {
+      path: 'specialist',
+      element: <SpecialistPage />
+    },
+    {
+      path: 'handbook',
+      element: <HandbookPage />
+    },
+    {
       path: 'doctor',
       element: <DoctorDetailPage />
+    },
+    {
+      path: 'facilities',
+      element: <FacilitiesPage />
     },
     {
       path: 'auth',

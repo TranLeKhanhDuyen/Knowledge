@@ -1,4 +1,5 @@
 import logo from '@assets/logo-v3.png'
+import supportIcon from '@assets/icons/ic-support.svg'
 import { ItemLink, SearchBar } from '@components'
 import { Heading, Text, THeadingVariant } from '@components/common'
 import './Header.css'
@@ -12,7 +13,7 @@ export interface IHeaderProps {
   icon?: string
 }
 
-const Header = ({ icon, items }: IHeaderProps) => {
+const Header = ({ icon = supportIcon, items }: IHeaderProps) => {
   return (
     <header className='header'>
       <div className='container header-container'>

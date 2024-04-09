@@ -1,3 +1,4 @@
+import HeaderManage from '@pages/manage/header/header'
 import { UserRole } from '@services/models/user-role'
 import { useAuthStore } from '@store/auth-store'
 import { ReactNode } from 'react'
@@ -20,19 +21,22 @@ export const RoleBasedGuard = ({
     return <>{children}</>
   }
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-    >
-      <div>
-        Permission Denied
-        <br />
-        You do not have permission to access this page
+    <>
+      <HeaderManage />
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <div>
+          Permission Denied
+          <br />
+          You do not have permission to access this page
+        </div>
       </div>
-    </div>
+    </>
   )
 }

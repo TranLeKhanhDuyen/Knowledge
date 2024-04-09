@@ -4,7 +4,7 @@ import './header.css'
 import { useAuthStore } from '@store/auth-store'
 
 interface IHeaderManageProps {
-  onSelectOption: (event: React.ChangeEvent<HTMLSelectElement>) => void
+  onSelectOption?: (event: React.ChangeEvent<HTMLSelectElement>) => void
   selectedOption?: string
   role?: UserRole
 }

@@ -1,10 +1,13 @@
 import UserForm from '@components/UserForm/UserForm'
 import { Heading } from '@components/common'
+import { createUsers } from '@services/usersService'
+import { useNavigate } from 'react-router-dom'
 import './create-user.css'
 
 const CreateUser = () => {
+  const navigate = useNavigate()
   const handleSubmit = (formData: any) => {
-    console.log(formData)
+    createUsers(formData).then(() => navigate('/manage/all-users'))
   }
 
   return (

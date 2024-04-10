@@ -1,4 +1,4 @@
-import { LIST_HEADER, LIST_LINKS, LIST_NAV } from '@mockdata'
+import supportIcon from '@assets/icons/ic-support.svg'
 import {
   CustomSlider,
   EmbedVideo,
@@ -7,9 +7,9 @@ import {
   ListHeader
 } from '@components'
 import { Heading, Text } from '@components/common'
-import supportIcon from '@assets/icons/ic-support.svg'
-import './home.css'
+import { LIST_HEADER, LIST_LINKS, LIST_NAV } from '@mockdata'
 import Doctors from './doctors'
+import './home.css'
 
 const HomePage = () => {
   return (

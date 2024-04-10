@@ -8,7 +8,7 @@ const InputField = ({ label, ...props }: InputFieldProps) => {
   return (
     <div className={`input-field input-field-${props.additionalClass}`}>
       <label>{label}</label>
-      <Input {...props} />
+      <input {...props} />
     </div>
   )
 }

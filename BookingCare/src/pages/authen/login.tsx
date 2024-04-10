@@ -60,7 +60,7 @@ const Login = () => {
           variant='primary'
           additionalClass='register'
           onClick={() => {
-            navigate('/register')
+            navigate('/auth/register')
           }}
         />
 

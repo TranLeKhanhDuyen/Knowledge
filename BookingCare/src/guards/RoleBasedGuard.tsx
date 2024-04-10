@@ -12,25 +12,27 @@ export const RoleBasedGuard = ({
   accessibleRoles
 }: RoleBasedGuardProps) => {
   const { user } = useAuthStore()
-
-  if (!accessibleRoles.includes(user!.role)) {
-    return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <div>
-          Permission Denied
-          <br />
-          You do not have permission to access this page
-        </div>
-      </div>
-    )
+  if (!user) {
+    return <></>
   }
 
-  return <>{children}</>
+  if (accessibleRoles.includes(user?.role)) {
+    return <>{children}</>
+  }
+  return (
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <div>
+        Permission Denied
+        <br />
+        You do not have permission to access this page
+      </div>
+    </div>
+  )
 }

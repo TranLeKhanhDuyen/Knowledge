@@ -4,8 +4,10 @@ import Register from '@pages/authen/register'
 import DoctorDetailPage from '@pages/doctor-details/doctor'
 import HomePage from '@pages/homepage/home'
 import AllUsers from '@pages/manage/all-users/all-users'
+import CreatePatient from '@pages/manage/create-patient/create-patient'
 import CreateUser from '@pages/manage/create-user/create-user'
 import DoctorAppointments from '@pages/manage/doctor-appointments/doctor-appointments'
+import AllPatients from '@pages/manage/all-patients/all-patients'
 import DoctorSchedule from '@pages/manage/doctor-schedule/doctor-schedule'
 import Manager from '@pages/manage/manage'
 import MyAppointments from '@pages/manage/my-appointments/doctor-appointments'
@@ -96,6 +98,26 @@ const Router: FC = () => {
               accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
             >
               <CreateUser />
+            </RoleBasedGuard>
+          )
+        },
+        {
+          path: 'patients',
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <AllPatients />
+            </RoleBasedGuard>
+          )
+        },
+        {
+          path: 'patients/create',
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <CreatePatient />
             </RoleBasedGuard>
           )
         },

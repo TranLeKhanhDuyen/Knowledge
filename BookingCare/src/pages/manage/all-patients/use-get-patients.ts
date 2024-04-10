@@ -1,14 +1,14 @@
 import { User } from '@services/models/user'
+import { getAllPatient } from '@services/patientService'
 import { IPagination } from '@services/responses/pagination'
-import { userService } from '@services/userService'
 import { useEffect, useState } from 'react'
 
-interface UseGetUsersParams {
+interface IUseGetPatients {
   page: number
   limit: number
 }
 
-export const useGetUsers = ({ page, limit }: UseGetUsersParams) => {
+export const useGetPatients = ({ page, limit }: IUseGetPatients) => {
   const [data, setData] = useState<Array<User>>([])
   const [reLoadData, setReLoadData] = useState(false)
   const [pagination, setPagination] = useState<IPagination>({
@@ -18,9 +18,9 @@ export const useGetUsers = ({ page, limit }: UseGetUsersParams) => {
     currentPage: page
   })
 
-  const getDoctors = async () => {
+  const getPatient = async () => {
     try {
-      const { items, pagination } = await userService.getDoctors({
+      const { items, pagination }: any = await getAllPatient({
         page,
         limit
       })
@@ -33,7 +33,7 @@ export const useGetUsers = ({ page, limit }: UseGetUsersParams) => {
   }
 
   useEffect(() => {
-    getDoctors()
+    getPatient()
   }, [page, limit, reLoadData])
 
   return { data, pagination, setReLoadData }

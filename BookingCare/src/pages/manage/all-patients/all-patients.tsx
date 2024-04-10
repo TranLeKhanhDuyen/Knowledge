@@ -1,61 +1,65 @@
-import { UserForm } from '@components'
-import { Heading, Input } from '@components/common'
+import { Heading } from '@components/common'
 import { useState } from 'react'
 
 import Card from '@components/Card'
 import Pagination from '@components/Pagination'
+import PatientForm from '@components/PatientForm/PatientForm'
 import TableBody from '@components/Table/TableBody'
 import TableCell from '@components/Table/TableCell'
 import TableHead, { XTable } from '@components/Table/TableHead'
 import TableRow from '@components/Table/TableRow'
 import { usePagination } from '@hooks/use-pagination'
-import { User } from '@services/models/user'
-import { deleteUsers, editUsers } from '@services/usersService'
-import './all-users.css'
-import { useGetUsers } from './use-get-users'
-import UserTableRow from './user-table-row'
+import { deletePatient, updatePatient } from '@services/patientService'
+import './all-patients.css'
+import PatientTableRow from './docter-table-row'
+import { useGetPatients } from './use-get-patients'
 
-const AllUsers = () => {
+const Patients = () => {
   const { page, limit, onPageChange } = usePagination()
-  const { data, pagination, setReLoadData } = useGetUsers({ page, limit })
-
+  const { data, pagination, setReLoadData } = useGetPatients({
+    page,
+    limit
+  })
   const [showEditForm, setShowEditForm] = useState({
     open: false,
-    user: {} as any
+    data: {} as any
   })
 
-  const handleEdit = (user: User) => {
+  const handleEdit = (patient: any) => {
+    console.log(patient, '[patient]')
     setShowEditForm({
       open: true,
-      user
+      data: patient
     })
   }
 
-  const handleDelete = (userId: number) => {
-    deleteUsers(userId).then(() => {
-      setReLoadData(true)
-    })
+  const handleDelete = (id: number) => {
+    deletePatient(id).then(() => setReLoadData(true))
   }
 
   const handleCloseForm = () => {
     setShowEditForm({
       open: false,
-      user: {}
+      data: {}
     })
   }
 
-  const handleSubmit = (formData: any) => {
-    editUsers(showEditForm?.user?.id!, formData).then(() => {
+  console.log(showEditForm, '[showEditForm]')
+
+  const handleSubmit = (values: any) => {
+    updatePatient(showEditForm?.data?.id, values).then(() => {
       handleCloseForm()
       setReLoadData(true)
     })
   }
 
+  console.log(showEditForm, '[showEditForm]')
+
   return (
     <div className=' container user-manage-container'>
       <Heading
         variant='h1'
-        content='TẤT CẢ NGƯỜI DÙNG'
+        content='TẤT CẢ LỊCH KHÁM CỦA BÁC SĨ'
         className='text-3xl text-turquoise'
         style={{
           margin: '30px 0',
@@ -64,7 +68,7 @@ const AllUsers = () => {
           fontSize: 'var(--font-3xl)'
         }}
       />
-      {showEditForm.open && (
+      {showEditForm.open === true && (
         <div className='overlay'>
           <div className='form-container'>
             <Heading
@@ -72,18 +76,16 @@ const AllUsers = () => {
               variant='h2'
               content='CẬP NHẬT THÔNG TIN'
             />
-            <UserForm
+            <PatientForm
               onSubmit={handleSubmit}
               onClose={handleCloseForm}
               mode='update'
               heading='Cập nhật thông tin'
-              dataEdit={showEditForm.user}
+              dataEdit={showEditForm.data}
             />
           </div>
         </div>
       )}
-
-      <Input />
 
       <Card style={{ overflowX: 'auto' }}>
         <XTable
@@ -94,29 +96,27 @@ const AllUsers = () => {
         >
           <TableHead>
             <TableRow>
-              <TableCell elType='th'>Name</TableCell>
-              <TableCell elType='th'>Job Title</TableCell>
+              <TableCell elType='th'>FullName</TableCell>
               <TableCell elType='th'>Email</TableCell>
-              <TableCell elType='th'>Dob</TableCell>
-              <TableCell elType='th'>Gender</TableCell>
               <TableCell elType='th'>Phone number</TableCell>
-              <TableCell elType='th'>Address</TableCell>
+              <TableCell elType='th'>Dob</TableCell>
+              <TableCell elType='th'>Status</TableCell>
               <TableCell elType='th' textAlign='center'>
-                Role
+                Reason For Medical Exam
               </TableCell>
               <TableCell elType='th' />
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((user) => (
-              <UserTableRow
-                key={user.id}
-                user={user}
+            {data.map((item) => (
+              <PatientTableRow
+                key={item.id}
+                patient={item}
                 onEdit={() => {
-                  handleEdit(user)
+                  handleEdit(item)
                 }}
                 onDelete={() => {
-                  handleDelete(user.id)
+                  handleDelete(item.id)
                 }}
               />
             ))}
@@ -140,4 +140,4 @@ const AllUsers = () => {
   )
 }
 
-export default AllUsers
+export default Patients

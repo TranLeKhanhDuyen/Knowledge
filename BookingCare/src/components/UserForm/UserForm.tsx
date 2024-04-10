@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
-import { Form, AvatarUpload } from '@components'
-import { Button, Input, OptionList } from '@components/common'
+import { AvatarUpload } from '@components'
+import { Button } from '@components/common'
+import { getDetailUsers } from '@services/usersService'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import './UserForm.css'
 
 interface IUserFormProps {
@@ -8,147 +11,125 @@ interface IUserFormProps {
   onClose?: () => void
   mode?: any
   heading?: string
+  dataEdit?: any
 }
 
 const UserForm = ({
-  onSubmit,
   onClose,
-  heading,
   mode,
-  ...props
+  onSubmit: handleSubmitProps,
+  dataEdit
 }: IUserFormProps) => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [address, setAddress] = useState('')
-  const [gender, setGender] = useState('')
   const [avatar, setAvatar] = useState<File | null>(null)
-  const [password, setPassword] = useState('')
-  const [dob, setdob] = useState('')
+  const { register, handleSubmit, setValue } = useForm()
+  const navigate = useNavigate()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  useEffect(() => {
+    if (!dataEdit) return
+    getDetailUsers(dataEdit?.id).then((res) => {
+      setValue('firstName', res.firstName)
+      setValue('lastName', res.lastName)
+      setValue('email', res.email)
+      setValue('phoneNumber', res.phoneNumber)
+      setValue('role', res.role)
+      setValue('address', res.address)
+      setValue('password', res.password)
+      setValue('dob', res.dob)
+      setValue('gender', res.gender)
+      setAvatar(res.avatar)
+    })
+  }, [setValue])
 
-    const formData = new FormData()
-    formData.append('firstName', firstName)
-    formData.append('lastName', lastName)
-    formData.append('email', email)
-    formData.append('phoneNumber', phoneNumber)
-    formData.append('address', address)
-    formData.append('gender', gender)
-    formData.append('password', password)
-    formData.append('dob', dob)
-    formData.append('avatar', avatar as File)
-
-    onSubmit(formData)
+  const onSubmit = (data: any) => {
+    handleSubmitProps({
+      ...data,
+      avatar: '',
+      role: data.role === '1' ? 'DOCTOR' : 'USER'
+    })
   }
 
   return (
-    <Form
-      {...props}
-      onSubmit={handleSubmit}
+    <form
       className='container form-create-user'
-      method='POST'
-      encType='multipart/form-data'
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <label htmlFor='lastName'>Họ</label>
-        <Input
+        <input
           type='text'
           placeholder='Họ'
-          value={lastName}
-          onChangeValue={setLastName}
           required
+          {...register('lastName')}
           id='lastName'
         />
       </div>
       <div>
         <label htmlFor='firstName'>Tên</label>
-        <Input
+        <input
           type='text'
           placeholder='Tên'
-          value={firstName}
-          onChangeValue={setFirstName}
+          {...register('firstName')}
           required
           id='firstName'
         />
       </div>
       <div>
         <label htmlFor='email'>Nhập Email</label>
-        <Input
+        <input
           type='email'
           placeholder='Nhập Email'
-          value={email}
-          onChangeValue={setEmail}
+          {...register('email')}
           required
           id='email'
         />
       </div>
       <div>
         <label htmlFor='phoneNumber'>Số điện thoại liên hệ</label>
-        <Input
+        <input
           type='number'
           placeholder='Số điện thoại liên hệ'
-          value={phoneNumber}
-          onChangeValue={setPhoneNumber}
+          {...register('phoneNumber')}
           required
           id='phoneNumber'
         />
       </div>
       <div>
         <label htmlFor='password'>Nhập mật khẩu</label>
-        <Input
+        <input
           type='password'
           placeholder='Nhập mật khẩu'
-          value={password}
-          onChangeValue={setPassword}
+          {...register('password')}
           required
           id='password'
         />
       </div>
       <div>
         <label htmlFor='dob'>Ngày sinh</label>
-        <Input
-          type='date'
-          value={dob}
-          onChangeValue={setdob}
-          required
-          id='dob'
-        />
+        <input type='date' {...register('dob')} required id='dob' />
       </div>
       <div>
         <label htmlFor='address'>Địa chỉ</label>
-        <Input
+        <input
           type='text'
           placeholder='Địa chỉ'
-          value={address}
-          onChangeValue={setAddress}
           required
           id='address'
+          {...register('address')}
         />
       </div>
       <div>
         <label htmlFor='gender'>Giới tính</label>
-        <OptionList
-          items={[
-            { id: '1', value: 'Nam' },
-            { id: '2', value: 'Nữ' }
-          ]}
-          onChange={(event) => setGender(event.target.value)}
-          defaultValue='Chọn'
-        />
+        <select {...register('gender')} defaultValue={1}>
+          <option value={1}>Nam</option>
+          <option value={2}>Nữ</option>
+        </select>
       </div>
       <div>
         <label htmlFor='role'>Phân quyền</label>
-        <OptionList
-          items={[
-            { id: '1', value: 'Bác sĩ' },
-            { id: '2', value: 'Bệnh nhân' }
-          ]}
-          onChange={(event) => setGender(event.target.value)}
-          defaultValue='Chọn'
-        />
+        <select {...register('role')} defaultValue={1}>
+          <option value={1}>Bác sĩ</option>
+          <option value={2}>Bệnh nhân</option>
+        </select>
       </div>
       <div>
         <label htmlFor='avatar'>Avatar</label>
@@ -161,17 +142,19 @@ const UserForm = ({
           additionalClass='create-user'
           title='Tạo'
           style={{ padding: '10px' }}
+          type='submit'
         />
       ) : (
         <>
           <Button
             variant='primary'
             additionalClass='close-form'
-            onClick={onClose}
+            onClick={() => onClose?.() || navigate(-1)}
             title='Đóng form'
             style={{ width: '40%' }}
           />
           <Button
+            type='submit'
             variant='secondary'
             additionalClass='update-user'
             title='Cập nhật'
@@ -179,7 +162,7 @@ const UserForm = ({
           />
         </>
       )}
-    </Form>
+    </form>
   )
 }
 

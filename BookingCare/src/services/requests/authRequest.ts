@@ -13,4 +13,6 @@ export interface RegisterRequest {
   address?: string
   dob?: string
   gender?: string
+  confirmPassword?: string
+  role?: any
 }

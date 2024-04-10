@@ -20,6 +20,9 @@ const Manage: React.FC = () => {
       case 'Danh sách lịch hẹn':
         navigate('/manage/doctors/me/appointments')
         break
+      case 'Danh sách lịch khám của bác sĨ':
+        navigate('doctor-examination-schedule/create')
+        break
       default:
         break
     }

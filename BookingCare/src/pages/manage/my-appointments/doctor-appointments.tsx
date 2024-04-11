@@ -29,7 +29,7 @@ const MyAppointments = () => {
     <div className='container'>
       <Heading
         variant='h1'
-        content='APPOINTMENTS HISTORY'
+        content='LỊCH KHÁM BỆNH'
         className='text-3xl text-turquoise'
         style={{
           margin: '30px 0',

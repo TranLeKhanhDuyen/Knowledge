@@ -17,7 +17,7 @@ const DoctorSchedule = () => {
     <div className='container'>
       <Heading
         variant='h1'
-        content='APPOINTMENTS SCHEDULE'
+        content='LỊCH HẸN'
         className='text-3xl text-turquoise'
         style={{
           margin: '30px 0',

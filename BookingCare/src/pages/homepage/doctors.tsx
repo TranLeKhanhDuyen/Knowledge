@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import Slider from 'react-slick'
 import styles from './doctors.module.css'
 import { useGetDoctors } from './use-get-doctors'
+import { hashCode, randomAvatar } from '@components/Avatar/random-avatar'
 
 const className = classNames.bind(styles)
 
@@ -21,7 +22,30 @@ const Doctors: FC<DoctorsProps> = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2
+        }
+      }
+    ]
   }
 
   return (
@@ -37,17 +61,20 @@ const Doctors: FC<DoctorsProps> = () => {
                 navigate(`/doctors/${doctor.id}`)
               }}
             >
-              <Avatar size={218} src={doctor.avatar} alt={doctor.firstName} />
-              {doctor.title && (
-                <Heading
-                  content={doctor.title}
-                  className={className('doctor-title')}
-                />
-              )}
+              <Avatar
+                size={218}
+                src={randomAvatar(hashCode(doctor?.email || ''))}
+                alt={doctor.firstName}
+              />
 
               <Text
                 content={doctor?.firstName + ' ' + doctor?.lastName}
                 className={className('doctor-specialty')}
+                style={{
+                  marginTop: '10px',
+                  fontSize: 'var(--font-xl)',
+                  fontWeight: 'var(--fw-bold)'
+                }}
               />
             </div>
           ))}

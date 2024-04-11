@@ -31,7 +31,7 @@ export const useUpdateAppointment = (
       await appointmentService.updateAppointment(appointment.patientId, data)
       methods.reset()
       onCloseModal(data)
-      alert('Appointment was updated Successfully')
+      alert('Cập nhập lịch khám thành công')
     } catch (error) {
       console.error(error)
     }

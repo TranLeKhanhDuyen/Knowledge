@@ -8,15 +8,14 @@ import CreatePatient from '@pages/manage/create-patient/create-patient'
 import CreateUser from '@pages/manage/create-user/create-user'
 import DoctorAppointments from '@pages/manage/doctor-appointments/doctor-appointments'
 import AllPatients from '@pages/manage/all-patients/all-patients'
-import DoctorSchedule from '@pages/manage/doctor-schedule/doctor-schedule'
 import Manager from '@pages/manage/manage'
-import MyAppointments from '@pages/manage/my-appointments/doctor-appointments'
 import { UserRole } from '@services/models/user-role'
 import { FC } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 import SpecialistPage from '@pages/secondary-page/specialist-page'
 import HandbookPage from '@pages/secondary-page/handbook-page'
 import FacilitiesPage from '@pages/secondary-page/facilities-page'
+import MyAppointments from '@pages/manage/my-appointments/doctor-appointments'
 
 const Router: FC = () => {
   return useRoutes([
@@ -146,12 +145,11 @@ const Router: FC = () => {
             </RoleBasedGuard>
           )
         },
-
         {
-          path: 'doctors/me/schedule',
+          path: 'doctors/me/appointments',
           element: (
             <RoleBasedGuard accessibleRoles={[UserRole.DOCTOR]}>
-              <DoctorSchedule />
+              <MyAppointments />
             </RoleBasedGuard>
           )
         }

@@ -15,7 +15,7 @@
   justify-content: center;
   text-align: center;
   gap: 5%;
-  width: 100%;
+  width: 50%;
 }
 
 .navbar-item {
@@ -57,4 +57,24 @@
 
 .item-nav .text-substitle {
   font-size: var(--font-sm);
+}
+
+.logout-home {
+  background-image: url(../../assets/icons/ic-login.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  font-size: var(--font-md);
+}
+
+.login-home {
+  background-image: url(../../assets/icons/ic-login.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  font-size: var(--font-md);
 }

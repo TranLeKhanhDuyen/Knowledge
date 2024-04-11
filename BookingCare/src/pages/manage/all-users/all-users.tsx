@@ -32,9 +32,11 @@ const AllUsers = () => {
   }
 
   const handleDelete = (id: string) => {
-    deleteUsers(id).then(() => {
-      setReLoadData(true)
-    })
+    if (window.confirm('Bạn có chắc chắn muốn xóa không?')) {
+      deleteUsers(id).then(() => {
+        setReLoadData(true)
+      })
+    }
   }
 
   const handleCloseForm = () => {
@@ -83,8 +85,6 @@ const AllUsers = () => {
         </div>
       )}
 
-      <Input />
-
       <Card style={{ overflowX: 'auto' }}>
         <XTable
           style={{
@@ -94,15 +94,18 @@ const AllUsers = () => {
         >
           <TableHead>
             <TableRow>
-              <TableCell elType='th'>Name</TableCell>
-              <TableCell elType='th'>Job Title</TableCell>
+              <TableCell elType='th'>Tên</TableCell>
+              <TableCell elType='th'>Chi tiết</TableCell>
               <TableCell elType='th'>Email</TableCell>
-              <TableCell elType='th'>Dob</TableCell>
-              <TableCell elType='th'>Gender</TableCell>
-              <TableCell elType='th'>Phone number</TableCell>
-              <TableCell elType='th'>Address</TableCell>
+              <TableCell elType='th'>Ngày sinh</TableCell>
+              <TableCell elType='th'>Giới tính</TableCell>
+              <TableCell elType='th'>Số điện thoại</TableCell>
+              <TableCell elType='th'>Địa chỉ</TableCell>
               <TableCell elType='th' textAlign='center'>
-                Role
+                Phân quyền
+              </TableCell>
+              <TableCell elType='th' textAlign='center'>
+                Chỉnh sửa
               </TableCell>
               <TableCell elType='th' />
             </TableRow>
@@ -116,7 +119,7 @@ const AllUsers = () => {
                   handleEdit(user)
                 }}
                 onDelete={() => {
-                  handleDelete(user.id.toString())
+                  handleDelete(user?.id?.toString() ?? '')
                 }}
               />
             ))}

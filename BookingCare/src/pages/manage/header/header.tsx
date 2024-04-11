@@ -27,6 +27,8 @@ const HeaderManage = ({
         return [{ value: 'Tất cả người dùng' }, { value: 'Tạo người dùng' }]
       case UserRole.DOCTOR:
         return [{ value: 'Danh sách lịch hẹn' }]
+      case UserRole.USER:
+        return [{ value: '' }]
       default:
         return []
     }

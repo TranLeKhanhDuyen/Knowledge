@@ -22,7 +22,7 @@ export const RoleBasedGuard = ({
   }
   return (
     <>
-      <HeaderManage />
+     {/* <HeaderManage /> */}
       <div
         style={{
           height: '100vh',

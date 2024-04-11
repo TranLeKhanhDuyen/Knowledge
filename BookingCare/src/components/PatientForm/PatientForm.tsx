@@ -107,7 +107,7 @@ const PatientForm = ({
             <Button
               variant='primary'
               additionalClass='close-form'
-              onClick={() => onClose?.() || navigate(-1)}
+              onClick={() => onClose?.()}
               title='Đóng form'
               style={{ width: '40%' }}
             />

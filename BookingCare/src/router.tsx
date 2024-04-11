@@ -146,14 +146,7 @@ const Router: FC = () => {
             </RoleBasedGuard>
           )
         },
-        {
-          path: 'doctors/me/appointments',
-          element: (
-            <RoleBasedGuard accessibleRoles={[UserRole.DOCTOR]}>
-              <MyAppointments />
-            </RoleBasedGuard>
-          )
-        },
+
         {
           path: 'doctors/me/schedule',
           element: (

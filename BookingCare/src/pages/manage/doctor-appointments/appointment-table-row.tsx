@@ -17,14 +17,14 @@ const AppointmentTableRow: FC<AppointmentTableRowProps> = ({
   return (
     <TableRow hover key={appointment.id}>
       <TableCell style={{ display: 'flex', alignItems: 'center' }}>
-        <p style={{ fontWeight: 'bold' }}>{appointment.patient.fullName}</p>
+        <p style={{ fontWeight: 'bold' }}>{appointment.patient.fullName?? '-'}</p>
       </TableCell>
-      <TableCell>{appointment.patient.email}</TableCell>
-      <TableCell>{appointment.patient.phoneNumber}</TableCell>
-      <TableCell>{fDate(appointment.patient.dob)}</TableCell>
-      <TableCell>{appointment.reasonForMedicalExam}</TableCell>
-      <TableCell>{fDate(appointment.date)}</TableCell>
-      <TableCell>{appointment.status}</TableCell>
+      <TableCell>{appointment.patient.email?? '-'}</TableCell>
+      <TableCell>{appointment.patient.phoneNumber?? '-'}</TableCell>
+      <TableCell>{fDate(appointment.patient.dob?? new Date())}</TableCell>
+      <TableCell>{appointment.reasonForMedicalExam?? '-'}</TableCell>
+      <TableCell>{fDate(appointment.date?? new Date())}</TableCell>
+      <TableCell>{appointment.status ?? '-'}</TableCell>
       <TableCell>{appointment.diagnosis ?? '_'}</TableCell>
       <TableCell>{appointment.prescription ?? '_'}</TableCell>
       <TableCell>{appointment.description ?? '_'}</TableCell>

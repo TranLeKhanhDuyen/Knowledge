@@ -4,7 +4,10 @@ import { IPagination } from '@services/responses/pagination'
 import { userService } from '@services/userService'
 import { useEffect, useState } from 'react'
 
-export const  useGetMyAppointments = ({ page, limit }: Required<GetListParams>) => {
+export const useGetMyAppointments = ({
+  page,
+  limit
+}: Required<GetListParams>) => {
   const [data, setData] = useState<Array<Appointment>>([])
   const [pagination, setPagination] = useState<IPagination>({
     total: 1,
@@ -30,5 +33,5 @@ export const  useGetMyAppointments = ({ page, limit }: Required<GetListParams>) 
     getDoctors()
   }, [page, limit])
 
-  return { data, pagination }
+  return { data, pagination, setData }
 }

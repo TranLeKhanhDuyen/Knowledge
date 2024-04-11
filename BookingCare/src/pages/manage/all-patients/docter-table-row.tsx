@@ -10,11 +10,13 @@ export interface PatientTableRowProps {
   onDelete: VoidFunction
 }
 
+
 const PatientTableRow: FC<PatientTableRowProps> = ({
   patient,
   onEdit,
   onDelete
 }) => {
+
   return (
     <TableRow hover key={patient.id}>
       <TableCell style={{ display: 'flex', alignItems: 'center' }}>

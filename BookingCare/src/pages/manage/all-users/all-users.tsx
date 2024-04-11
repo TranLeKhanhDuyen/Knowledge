@@ -12,12 +12,12 @@ import { usePagination } from '@hooks/use-pagination'
 import { User } from '@services/models/user'
 import { deleteUsers, editUsers } from '@services/usersService'
 import './all-users.css'
-import { useGetUsers } from './use-get-users'
+import { useGetAllUsers } from './use-get-users'
 import UserTableRow from './user-table-row'
 
 const AllUsers = () => {
   const { page, limit, onPageChange } = usePagination()
-  const { data, pagination, setReLoadData } = useGetUsers({ page, limit })
+  const { data, pagination, setReLoadData } = useGetAllUsers({ page, limit })
 
   const [showEditForm, setShowEditForm] = useState({
     open: false,
@@ -31,8 +31,8 @@ const AllUsers = () => {
     })
   }
 
-  const handleDelete = (userId: number) => {
-    deleteUsers(userId).then(() => {
+  const handleDelete = (id: string) => {
+    deleteUsers(id).then(() => {
       setReLoadData(true)
     })
   }
@@ -116,7 +116,7 @@ const AllUsers = () => {
                   handleEdit(user)
                 }}
                 onDelete={() => {
-                  handleDelete(user.id)
+                  handleDelete(user.id.toString())
                 }}
               />
             ))}

@@ -9,16 +9,12 @@ export const handleLoginApi = (email: string, password: string) => {
   return axios.post('/api/login', { email, password })
 }
 
-export const getAllUsers = (inputId: string) => {
-  return axios.get(`/api/get-all-users?id=${inputId}`)
-}
-
 export const CreateNewUserServiceAPI = (data: string) => {
   return axios.post('/api/create-new-user', data)
 }
 
 export const DeleteUserServiceAPI = (userId: string) => {
-  return axios.delete('/api/delete-user', {
+  return axios.delete('/api/v1/delete-user', {
     data: {
       id: userId
     }
@@ -26,7 +22,7 @@ export const DeleteUserServiceAPI = (userId: string) => {
 }
 
 export const EditUserServiceAPI = (dataEdit: string) => {
-  return axios.put('/api/edit-user', dataEdit)
+  return axios.put('/api/v1/edit-user', dataEdit)
 }
 
 const getProfile = async (): Promise<User> => {
@@ -37,6 +33,12 @@ const getDoctors = async (
   params: GetListParams
 ): Promise<GetListResponse<User>> => {
   return axios.get(`/api/v1/doctors`, { params })
+}
+
+const getAllUsers = async (
+  params: GetListParams
+): Promise<GetListResponse<User>> => {
+  return axios.get(`/api/v1/doctors/all`, { params })
 }
 
 const getDoctorDetails = (id: number): Promise<User> => {
@@ -51,7 +53,7 @@ const getDoctorAppointments = async (
   id: number,
   params: GetDoctorAppointmentsParams
 ): Promise<GetListResponse<Appointment>> => {
-  return axios.get(`/api/v1/doctors/${id}/appointments`, { params })
+  return await axios.get(`/api/v1/doctors/${id}/appointments`, { params })
 }
 
 const getDoctorAppointmentsSchedule = async (
@@ -68,9 +70,10 @@ const getMyAppointments = async (
 
 export const userService = {
   getProfile,
-  getDoctors,
+  getDoctors: getDoctors,
   getDoctorDetails,
   getMyAppointments,
   getDoctorAppointments,
-  getDoctorAppointmentsSchedule
+  getDoctorAppointmentsSchedule,
+  getAllUsers
 }

@@ -53,7 +53,7 @@ const AppointmentTable: FC<AppointmentTableProps> = ({
               key={appointment.id}
               appointment={appointment}
               onEdit={() => {
-                onEdit && onEdit(appointment)
+                onEdit?.(appointment)
               }}
             />
           ))}

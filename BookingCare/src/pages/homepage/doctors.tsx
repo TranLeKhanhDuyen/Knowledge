@@ -17,42 +17,11 @@ const Doctors: FC<DoctorsProps> = () => {
   const { doctors } = useGetDoctors()
 
   const settings = {
+    dots: false,
     infinite: true,
-    autoplay: true,
+    speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
-    swipeToSlide: true,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1700,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4
-        }
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      },
-      {
-        breakpoint: 813,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+    slidesToScroll: 4
   }
 
   return (
@@ -75,12 +44,11 @@ const Doctors: FC<DoctorsProps> = () => {
                   className={className('doctor-title')}
                 />
               )}
-              {doctor.specialty && (
-                <Text
-                  content={doctor!.specialty.name}
-                  className={className('doctor-specialty')}
-                />
-              )}
+
+              <Text
+                content={doctor?.firstName + ' ' + doctor?.lastName}
+                className={className('doctor-specialty')}
+              />
             </div>
           ))}
         </Slider>

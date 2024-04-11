@@ -6,21 +6,23 @@ import { RHFSelect } from '@components/HookFormFields/Select'
 import { AppointmentStatus } from '@services/models/appointment-status'
 import { RHFTextField } from '@components/HookFormFields/RHFTextField'
 import { FormProvider } from '@components/HookFormFields/FormProvider'
-
 export interface UpdateAppointmentModalProps {
   appointment: Appointment
   onClose: VoidFunction
+  onSubmitData: (data: Appointment) => void
 }
 
 const UpdateAppointmentModal: FC<UpdateAppointmentModalProps> = ({
   appointment,
-  onClose
+  onClose,
+  onSubmitData
 }) => {
   const { methods, handleUpdate } = useUpdateAppointment(appointment, onClose)
   const {
     handleSubmit,
     formState: { isSubmitting }
   } = methods
+
   return (
     <div className='overlay'>
       <FormProvider methods={methods} onSubmit={handleSubmit(handleUpdate)}>
@@ -59,6 +61,20 @@ const UpdateAppointmentModal: FC<UpdateAppointmentModalProps> = ({
             <Button
               title='Submit'
               disabled={isSubmitting}
+              onClick={() => {
+                const data = methods.getValues()
+
+                const newData: Appointment = {
+                  status: data.status as AppointmentStatus,
+                  diagnosis: data.diagnosis,
+                  prescription: data.prescription,
+                  description: data.description,
+                  patientId: appointment.patientId,
+                  patient: appointment.patient
+                }
+
+                onSubmitData(newData)
+              }}
               type='submit'
               variant='secondary'
             />

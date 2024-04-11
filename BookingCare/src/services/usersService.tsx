@@ -53,18 +53,12 @@ export const createUsers = async (payload: any) => {
 }
 
 export const editUsers = async (id: string, payload: any) => {
-  const rs = await axios.post(`/api/edit-user/${id}`, payload)
-  return rs.data
+  return await axios.put(`/api/v1/users/${id}`, payload)
 }
 export const getDetailUsers = async (id: string) => {
-  const res = await axios.get(`/api/users/id`)
-  return res.data
+  return await axios.get(`/api/v1/users/${id}`)
 }
 
-export const deleteUsers = (userId: number) => {
-  return axios.delete('/api/delete-user', {
-    data: {
-      id: userId
-    }
-  })
+export const deleteUsers =async (id: string) => {
+  return await axios.delete(`/api/v1/users/${id}`)
 }

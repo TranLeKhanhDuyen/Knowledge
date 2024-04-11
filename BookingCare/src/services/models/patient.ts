@@ -1,8 +1,8 @@
 import { BaseModel } from './base-model'
 
 export interface Patient extends BaseModel {
-  fullName: string
+  fullName?: string
   email?: string
-  phoneNumber: string
-  dob: Date
+  phoneNumber?: string
+  dob?: Date
 }

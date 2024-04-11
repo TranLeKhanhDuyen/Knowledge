@@ -45,13 +45,18 @@ const Header = ({ items }: IHeaderProps) => {
           </nav>
           <SearchBar />
           <div className='nav-right'>
-            <button className='cursor logout-manage' onClick={onLogin}>
-              Đăng nhập
-            </button>
+            <button className='cursor logout-home' onClick={onLogin}></button>
           </div>
         </div>
       </header>
     )
+  }
+
+  const onLogout = () => {
+    if (window.confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
+      signOut()
+      navigate('/')
+    }
   }
 
   return (
@@ -68,9 +73,10 @@ const Header = ({ items }: IHeaderProps) => {
         </nav>
         <SearchBar />
         <div className='nav-right'>
-          <button className='cursor logout-manage' onClick={signOut}>
-            Đăng xuất
-          </button>
+          <span>
+            {user?.firstName} {user?.lastName}
+          </span>
+          <button className='cursor logout-home' onClick={onLogout}></button>
         </div>
       </div>
     </header>

@@ -10,13 +10,13 @@ export const GuestGuard = ({ children }: { children: ReactNode }) => {
   if (!isInitialized) return <Loading />
 
   if (isAuthenticated && user?.role) {
-    if (
-      user.role === UserRole.ADMIN ||
-      user.role === UserRole.SUPER_ADMIN ||
-      user.role === UserRole.DOCTOR
-    ) {
-      return <Navigate to='/manage' replace />
+    if (user.role === UserRole.ADMIN || user.role === UserRole.SUPER_ADMIN) {
+      return <Navigate to='/manage' />
     }
+    if (user.role === UserRole.DOCTOR) {
+      return <Navigate to='/manage/doctors/me/appointments' />
+    }
+
     return <Navigate to='/' />
   }
 

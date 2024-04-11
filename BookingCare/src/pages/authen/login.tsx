@@ -34,7 +34,7 @@ const Login = () => {
           <br />
           <RHFTextField
             name='password'
-            label='Password'
+            label='Mật khẩu'
             type='password'
             placeholder='Mật khẩu'
           />

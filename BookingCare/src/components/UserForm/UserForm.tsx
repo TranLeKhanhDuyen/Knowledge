@@ -24,11 +24,11 @@ const UserForm = ({
   useEffect(() => {
     if (!dataEdit) return
     getDetailUsers(dataEdit?.id).then((res: any) => {
-      console.log(res)
       setValue('firstName', res['user']['firstName'])
       setValue('lastName', res['user']['lastName'])
       setValue('email', res['user']['email'])
       setValue('phoneNumber', res['user']['phoneNumber'])
+      setValue('title', res['user']['title'])
       setValue('role', res['user']['role'])
       setValue('address', res['user']['address'])
       setValue('password', res['user']['password'])
@@ -78,20 +78,34 @@ const UserForm = ({
     )
   }
 
-  const dayOfBirthUI = () => {
-    if (mode === 'create') return (
+  const descDoctorUI = () => {
+    return (
       <div>
-      <label htmlFor='dob'>Ngày sinh</label>
-      <input
-        type='date'
-        {...register('dob')}
-        id='dob'
-        defaultValue={moment(dataEdit?.dob ?? new Date()).format(
-          'YYYY-MM-DD'
-        )}
-      />
-    </div>
+        <label htmlFor='text'>Nhập chi tiết </label>
+        <input
+          type='text'
+          placeholder='Nhập chi tiết '
+          {...register('title')}
+        />
+      </div>
     )
+  }
+
+  const dayOfBirthUI = () => {
+    if (mode === 'create')
+      return (
+        <div>
+          <label htmlFor='dob'>Ngày sinh</label>
+          <input
+            type='date'
+            {...register('dob')}
+            id='dob'
+            defaultValue={moment(dataEdit?.dob ?? new Date()).format(
+              'YYYY-MM-DD'
+            )}
+          />
+        </div>
+      )
     return (
       <div>
         <label htmlFor='dob'>Ngày sinh</label>
@@ -133,6 +147,7 @@ const UserForm = ({
       </div>
 
       {emailUI()}
+
       <div>
         <label htmlFor='phoneNumber'>Số điện thoại liên hệ</label>
         <input
@@ -143,16 +158,9 @@ const UserForm = ({
           id='phoneNumber'
         />
       </div>
-      {
-        <div>
-          <label htmlFor='role'>Chính sửa</label>
-          <select {...register('role')} defaultValue={'DOCTOR'}>
-            <option value={'DOCTOR'}>Bác sĩ</option>
-            <option value={'USER'}>Bệnh nhân</option>
-          </select>
-        </div>
-      }
+
       {passwordUI()}
+
       {dayOfBirthUI()}
 
       <div>
@@ -165,6 +173,9 @@ const UserForm = ({
           {...register('address')}
         />
       </div>
+
+      {descDoctorUI()}
+
       <div>
         <label htmlFor='gender'>Giới tính</label>
         <select {...register('gender')} defaultValue={'FEMALE'}>

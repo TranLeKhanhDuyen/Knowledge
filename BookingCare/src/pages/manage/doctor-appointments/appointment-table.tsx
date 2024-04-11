@@ -32,19 +32,19 @@ const AppointmentTable: FC<AppointmentTableProps> = ({
       >
         <TableHead>
           <TableRow>
-            <TableCell elType='th'>Patient name</TableCell>
-            <TableCell elType='th'>Patient email</TableCell>
-            <TableCell elType='th'>Patient phone</TableCell>
-            <TableCell elType='th'>Patient Dob</TableCell>
-            <TableCell elType='th'>Reason</TableCell>
-            <TableCell elType='th'>Date</TableCell>
+            <TableCell elType='th'>Tên người khám</TableCell>
+            <TableCell elType='th'>Email</TableCell>
+            <TableCell elType='th'>Số điện thoại</TableCell>
+            <TableCell elType='th'>Ngày sinh</TableCell>
+            <TableCell elType='th'>Lý do khám bệnh</TableCell>
+            <TableCell elType='th'>Ngày hẹn</TableCell>
             <TableCell elType='th' textAlign='center'>
-              Status
+              Trạng thái
             </TableCell>
-            <TableCell elType='th'>Diagnosis</TableCell>
-            <TableCell elType='th'>Prescription</TableCell>
-            <TableCell elType='th'>Description</TableCell>
-            <TableCell elType='th' />
+            <TableCell elType='th'>Chẩn đoán</TableCell>
+            <TableCell elType='th'>Đơn thuốc</TableCell>
+            <TableCell elType='th'>Chi tiết</TableCell>
+            <TableCell elType='th'>Chỉnh sửa</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

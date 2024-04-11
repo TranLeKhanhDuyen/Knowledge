@@ -29,7 +29,7 @@ export const useCreateAppointment = (onCloseModal: VoidFunction) => {
       await appointmentService.create({ ...data, doctorId: parseInt(id!) })
       methods.reset()
       onCloseModal()
-      alert('Appointment was created Successfully')
+      alert('Đặt lịch khám bệnh thành công')
     } catch (error) {
       console.error(error)
     }

@@ -2,6 +2,7 @@ import { OptionList } from '@components/common'
 import { UserRole } from '@services/models/user-role'
 import './header.css'
 import { useAuthStore } from '@store/auth-store'
+import { useNavigate } from 'react-router-dom'
 
 interface IHeaderManageProps {
   onSelectOption?: (event: React.ChangeEvent<HTMLSelectElement>) => void
@@ -17,6 +18,15 @@ const HeaderManage = ({
 
   const getUserRole = (): UserRole | undefined => {
     return user?.role
+  }
+
+  const navigate = useNavigate()
+
+  const onLogout = () => {
+    if (window.confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
+      signOut()
+      navigate('/')
+    }
   }
 
   const optionsForRole = (): { value: string }[] => {
@@ -47,9 +57,9 @@ const HeaderManage = ({
         </div>
         <div className='nav-right'>
           <span>
-            Welcome {user?.firstName} {user?.lastName}
+            Xin chào {user?.firstName} {user?.lastName}
           </span>
-          <button className='cursor logout-manage' onClick={signOut}></button>
+          <button className='cursor logout-manage' onClick={onLogout}></button>
         </div>
       </nav>
     </header>

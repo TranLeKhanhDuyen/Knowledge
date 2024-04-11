@@ -27,50 +27,58 @@ const UpdateAppointmentModal: FC<UpdateAppointmentModalProps> = ({
     <div className='overlay'>
       <FormProvider methods={methods} onSubmit={handleSubmit(handleUpdate)}>
         <div className='booking-form'>
-          <Heading content='Update Appointment' />
-          <RHFSelect name='status' label='Status'>
+          <Heading content='QUẢN LÍ LỊCH KHÁM BỆNH' />
+          <RHFSelect name='status' label='Trạng thái'>
             {Object.values(AppointmentStatus).map((status) => (
               <option key={status} value={status}>
-                {status}
+                {status === 'PENDING'
+                  ? 'Chờ duyệt'
+                  : status === 'APPROVED'
+                    ? 'Đã duyệt'
+                    : status === 'CANCELLED'
+                      ? 'Từ chối'
+                      : 'Đã khám'}
               </option>
             ))}
           </RHFSelect>
           <RHFTextField
             name='diagnosis'
-            label='Diagnosis'
-            placeholder='Diagnosis'
+            label='Chuẩn đoán'
+            placeholder='Nhập chuẩn đoán'
           />
           <RHFTextField
             name='prescription'
-            label='Prescription'
-            placeholder='Prescription'
+            label='Đơn thuốc'
+            placeholder='Nhập đơn thuốc'
           />
           <RHFTextField
             name='description'
-            label='Description'
-            placeholder='Description'
+            label='Chi tiết'
+            placeholder='Nhập chi tiết'
           />
 
           <div style={{ marginLeft: 'auto' }}>
             <Button
-              title='Cancel'
+              title='Hủy'
               type='button'
               onClick={onClose}
               style={{ marginRight: 16 }}
             />
             <Button
-              title='Submit'
+              title='Cập nhật'
               disabled={isSubmitting}
               onClick={() => {
                 const data = methods.getValues()
 
                 const newData: Appointment = {
                   status: data.status as AppointmentStatus,
+                  date: appointment.date,
                   diagnosis: data.diagnosis,
                   prescription: data.prescription,
                   description: data.description,
                   patientId: appointment.patientId,
-                  patient: appointment.patient
+                  patient: appointment.patient,
+                  reasonForMedicalExam: appointment.reasonForMedicalExam
                 }
 
                 onSubmitData(newData)

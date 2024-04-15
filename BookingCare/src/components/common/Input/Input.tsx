@@ -3,13 +3,13 @@ import './Input.css'
 
 export interface IInputProps extends React.HTMLProps<HTMLInputElement> {
   additionalClass?: string
-  onChangeValue: (value: string) => void
+  onChangeValue?: (value: string) => void
   required?: boolean
 }
 
 const Input = ({ additionalClass, onChangeValue, ...props }: IInputProps) => {
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChangeValue(event.target.value)
+    onChangeValue?.(event.target.value)
   }
 
   return (

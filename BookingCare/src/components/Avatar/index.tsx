@@ -1,15 +1,19 @@
 import { ComponentPropsWithRef, FC } from 'react'
 
-interface AvatarProps extends ComponentPropsWithRef<'img'> {
+export interface AvatarProps extends ComponentPropsWithRef<'img'> {
   src?: string
   alt?: string
   size?: number
 }
 
+export interface Avatars {
+  item: AvatarProps[]
+}
+
 const Avatar: FC<AvatarProps> = ({ src, alt, size = 50, ...props }) => {
   return (
     <img
-      src={src || '/assets/images/default-avatar.avif'}
+      src={src }
       alt={alt}
       {...props}
       style={{

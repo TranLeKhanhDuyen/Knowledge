@@ -4,14 +4,18 @@ import Register from '@pages/authen/register'
 import DoctorDetailPage from '@pages/doctor-details/doctor'
 import HomePage from '@pages/homepage/home'
 import AllUsers from '@pages/manage/all-users/all-users'
+import CreatePatient from '@pages/manage/create-patient/create-patient'
 import CreateUser from '@pages/manage/create-user/create-user'
 import DoctorAppointments from '@pages/manage/doctor-appointments/doctor-appointments'
-import DoctorSchedule from '@pages/manage/doctor-schedule/doctor-schedule'
+import AllPatients from '@pages/manage/all-patients/all-patients'
 import Manager from '@pages/manage/manage'
-import MyAppointments from '@pages/manage/my-appointments/doctor-appointments'
 import { UserRole } from '@services/models/user-role'
 import { FC } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
+import SpecialistPage from '@pages/secondary-page/specialist-page'
+import HandbookPage from '@pages/secondary-page/handbook-page'
+import FacilitiesPage from '@pages/secondary-page/facilities-page'
+import MyAppointments from '@pages/manage/my-appointments/doctor-appointments'
 
 const Router: FC = () => {
   return useRoutes([
@@ -20,8 +24,20 @@ const Router: FC = () => {
       element: <HomePage />
     },
     {
+      path: 'specialist',
+      element: <SpecialistPage />
+    },
+    {
+      path: 'handbook',
+      element: <HandbookPage />
+    },
+    {
       path: 'doctor',
       element: <DoctorDetailPage />
+    },
+    {
+      path: 'facilities',
+      element: <FacilitiesPage />
     },
     {
       path: 'auth',
@@ -100,6 +116,26 @@ const Router: FC = () => {
           )
         },
         {
+          path: 'patients',
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <AllPatients />
+            </RoleBasedGuard>
+          )
+        },
+        {
+          path: 'patients/create',
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={[UserRole.ADMIN, UserRole.SUPER_ADMIN]}
+            >
+              <CreatePatient />
+            </RoleBasedGuard>
+          )
+        },
+        {
           path: 'doctors/:doctorId/appointments',
           element: (
             <RoleBasedGuard
@@ -114,14 +150,6 @@ const Router: FC = () => {
           element: (
             <RoleBasedGuard accessibleRoles={[UserRole.DOCTOR]}>
               <MyAppointments />
-            </RoleBasedGuard>
-          )
-        },
-        {
-          path: 'doctors/me/schedule',
-          element: (
-            <RoleBasedGuard accessibleRoles={[UserRole.DOCTOR]}>
-              <DoctorSchedule />
             </RoleBasedGuard>
           )
         }

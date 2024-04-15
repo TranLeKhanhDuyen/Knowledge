@@ -1,11 +1,12 @@
 import { format, formatDistanceToNow, getTime } from 'date-fns'
+import moment from 'moment'
 
 export const fDate = (date: Date) => {
-  return format(new Date(date), 'dd MMM yyyy')
+  return moment(date).format('DD/MM/YYYY')
 }
 
 export const fDateTime = (date: Date) => {
-  return format(new Date(date), 'dd MMM yyyy HH:mm')
+  return moment(date).format('DD/MM/YYYY HH:mm:ss')
 }
 
 export const fTimestamp = (date: Date) => {

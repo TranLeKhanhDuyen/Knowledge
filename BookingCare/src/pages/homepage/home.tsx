@@ -1,4 +1,4 @@
-import { LIST_HEADER, LIST_LINKS, LIST_NAV } from '@mockdata'
+import supportIcon from '@assets/icons/ic-support.svg'
 import {
   CustomSlider,
   EmbedVideo,
@@ -7,9 +7,9 @@ import {
   ListHeader
 } from '@components'
 import { Heading, Text } from '@components/common'
-import supportIcon from '@assets/icons/ic-support.svg'
-import './home.css'
+import { LIST_HEADER, LIST_LINKS, LIST_NAV } from '@mockdata'
 import Doctors from './doctors'
+import './home.css'
 
 const HomePage = () => {
   return (
@@ -27,11 +27,10 @@ const HomePage = () => {
           />
         </div>
         <div className='container list-link'>
-          {LIST_LINKS.service.map(({ image, headingProps, path }) => (
+          {LIST_LINKS.service.map(({ image, headingProps }) => (
             <ItemLink
               image={image}
               headingProps={headingProps}
-              path={path}
               type='service'
             />
           ))}
@@ -39,18 +38,26 @@ const HomePage = () => {
         <ListHeader
           content={LIST_HEADER.specialist[0].content}
           type='specialist'
+          linkTo='/specialist'
         />
         <CustomSlider items={LIST_LINKS.specialist} types='specialist' />
         <ListHeader
           content={LIST_HEADER.facilities[0].content}
           type='facilities'
+          linkTo='/facilities'
         />
         <CustomSlider items={LIST_LINKS.facilities} types='facilities' />
+        <ListHeader
+          content={LIST_HEADER.doctor[0].content}
+          type='facilities'
+          linkTo='/facilities'
+        />
         <Doctors />
         <div className='slider-handbook'>
           <ListHeader
             content={LIST_HEADER.handbook[0].content}
             type='handbook'
+            linkTo='/handbook'
           />
           <CustomSlider items={LIST_LINKS.handbook} types='handbook' />
         </div>

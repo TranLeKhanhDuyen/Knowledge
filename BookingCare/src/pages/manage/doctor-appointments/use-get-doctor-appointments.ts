@@ -38,5 +38,5 @@ export const  useGetDoctorAppointments = ({
     getDoctors()
   }, [page, limit])
 
-  return { data, pagination }
+  return { data, pagination, setData }
 }

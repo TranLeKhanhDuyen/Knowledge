@@ -194,10 +194,210 @@ const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
       },
       type: 'specialist',
       path: ''
+    },
+    {
+      image: musculoskeletal,
+      headingProps: {
+        content: 'Cơ xương khớp'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: nerve,
+      headingProps: {
+        content: 'Thần kinh'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: digestion,
+      headingProps: {
+        content: 'Tiêu hóa'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: heart,
+      headingProps: {
+        content: 'Tim'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: spine,
+      headingProps: {
+        content: 'Cột sống'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: earNoseThroat,
+      headingProps: {
+        content: 'Tai, Mũi, Họng'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: traditional,
+      headingProps: {
+        content: 'Y học cổ truyền'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: acupuncture,
+      headingProps: {
+        content: 'Châm cứu'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: musculoskeletal,
+      headingProps: {
+        content: 'Cơ xương khớp'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: nerve,
+      headingProps: {
+        content: 'Thần kinh'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: digestion,
+      headingProps: {
+        content: 'Tiêu hóa'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: heart,
+      headingProps: {
+        content: 'Tim'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: spine,
+      headingProps: {
+        content: 'Cột sống'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: earNoseThroat,
+      headingProps: {
+        content: 'Tai, Mũi, Họng'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: traditional,
+      headingProps: {
+        content: 'Y học cổ truyền'
+      },
+      type: 'specialist',
+      path: ''
+    },
+    {
+      image: acupuncture,
+      headingProps: {
+        content: 'Châm cứu'
+      },
+      type: 'specialist',
+      path: ''
     }
   ],
 
   facilities: [
+    {
+      image: vietduc,
+      headingProps: {
+        content: 'Bệnh viện Hữu nghị Việt Đức'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: choray,
+      headingProps: {
+        content: 'Bệnh viện Chợ Rẫy'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: doctorcheck,
+      headingProps: {
+        content: 'Doctor Check - Tầm Soát Bệnh Viện Để Sống Thọ Hơn'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: medicineAndPharmacy,
+      headingProps: {
+        content: 'Phòng khám Bệnh viện Đại học Y Dược 1'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: hungviet,
+      headingProps: {
+        content: 'Bệnh viện Ung bướu Hưng Việt'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: medlatec,
+      headingProps: {
+        content: 'Hệ thống y tế MEDLATEC'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: diag,
+      headingProps: {
+        content: 'Trung tâm xét nghiệm Diag Laboratories '
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: thucuc,
+      headingProps: {
+        content: 'Hệ thống Y tế Thu Cúc TCI'
+      },
+      type: 'facilities',
+      path: ''
+    },
+    {
+      image: centalMilitary,
+      headingProps: {
+        content: 'Bệnh viện Nam học và Hiến muộn Hà nội'
+      },
+      type: 'facilities',
+      path: ''
+    },
     {
       image: vietduc,
       headingProps: {
@@ -408,6 +608,74 @@ const LIST_LINKS: Record<TItemLinkType, IItemLinkProps[]> = {
   ],
   icon: [],
   handbook: [
+    {
+      image: handbook1,
+      headingProps: {
+        content:
+          'Mất bao nhiêu tiền để loại bỏ vĩnh viễn quầng thâm quanh mắt? Bảng giá dịch vụ 5 địa chỉ tốt ở Hà Nội'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook2,
+      headingProps: {
+        content:
+          'Chi phí điều trị nám bằng laser bao nhiêu tiền? Bảng giá tại 6 địa chỉ uy tín tại Hà Nội'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook3,
+      headingProps: {
+        content:
+          'Tiêm Profhilo giá bao nhiêu? Chi phí tiêm Profhilo tại 3 địa chỉ uy tín tại Hà Nội'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook4,
+      headingProps: {
+        content: 'Xóa thâm quầng mắt ở TP.HCM giá bao nhiêu?'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook5,
+      headingProps: {
+        content:
+          'HiFu căng da mặt có đắt không? Chi phí nâng cấp HiFu tại 5 địa chỉ uy tín tại Hà Nội'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook6,
+      headingProps: {
+        content:
+          'Thang máy Hifu giá bao nhiêu? Chi phí tại 6 địa chỉ uy tín tại TP.HCM'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook7,
+      headingProps: {
+        content: 'Top 6 địa chỉ trẻ hóa da uy tín tại Hà Nội'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook8,
+      headingProps: {
+        content: 'Top 7 địa chỉ trị nám tốt ở Hà Nội'
+      },
+      type: 'handbook'
+    },
+    {
+      image: handbook9,
+      headingProps: {
+        content: 'Top 7 địa chỉ trẻ hóa da uy tín tại TP.HCM'
+      },
+      type: 'handbook'
+    },
     {
       image: handbook1,
       headingProps: {

@@ -35,5 +35,6 @@ export const useAuthStore = create<AuthState>()((set) => ({
     localStorage.removeItem(ACCESS_STORAGE_KEY)
     delete axiosInstance.defaults.headers.common.Authorization
     set({ isAuthenticated: false, user: undefined })
+
   }
 }))

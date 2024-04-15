@@ -44,8 +44,9 @@ const ItemLink = ({
   path = '',
   typeImage,
   alt,
-  additionalClass
+  additionalClass,
 }: IItemLinkProps) => {
+
   return (
     <div className={`itemlink-container`}>
       <Link

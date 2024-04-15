@@ -16,23 +16,18 @@ const signIn = async (signInRequest: SignInRequest): Promise<AuthResponse> => {
   return data
 }
 
-const register = async (
-  registerRequest: RegisterRequest
-): Promise<AuthResponse> => {
-  const response = await axiosInstance.post(
-    '/api/v1/auth/register',
-    registerRequest
-  )
-  const data: AuthResponse = response.data
-
-  localStorage.setItem(ACCESS_STORAGE_KEY, data.accessToken)
-  axiosInstance.defaults.headers.common['Authorization'] =
-    `Bearer ${data.accessToken}`
-
-  return data
+const registerApi = async (data: RegisterRequest) => {
+  const { userName, confirmPassword, ...rest } = data
+  console.log(rest, '[rest]')
+  return axiosInstance
+    .post('/api/v1/auth/sign-up', {
+      ...rest,
+      role: rest.role === '1' ? 'DOCTOR' : 'USER'
+    })
+    .then((res) => res.data)
 }
 
 export const authService = {
   signIn,
-  register
+  registerApi
 }

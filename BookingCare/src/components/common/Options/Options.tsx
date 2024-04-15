@@ -7,7 +7,7 @@ interface IOptionsProps extends SelectHTMLAttributes<HTMLSelectElement> {
     value: string
   }[]
   defaultValue?: string
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
 const OptionList = ({

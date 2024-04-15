@@ -34,7 +34,7 @@ const Login = () => {
           <br />
           <RHFTextField
             name='password'
-            label='Password'
+            label='Mật khẩu'
             type='password'
             placeholder='Mật khẩu'
           />
@@ -60,7 +60,7 @@ const Login = () => {
           variant='primary'
           additionalClass='register'
           onClick={() => {
-            navigate('/register')
+            navigate('/auth/register')
           }}
         />
 

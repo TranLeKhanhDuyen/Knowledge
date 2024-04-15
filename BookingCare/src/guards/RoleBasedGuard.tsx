@@ -1,3 +1,4 @@
+
 import { UserRole } from '@services/models/user-role'
 import { useAuthStore } from '@store/auth-store'
 import { ReactNode } from 'react'
@@ -12,9 +13,16 @@ export const RoleBasedGuard = ({
   accessibleRoles
 }: RoleBasedGuardProps) => {
   const { user } = useAuthStore()
+  if (!user) {
+    return <></>
+  }
 
-  if (!accessibleRoles.includes(user!.role)) {
-    return (
+  if (accessibleRoles.includes(user?.role)) {
+    return <>{children}</>
+  }
+  return (
+    <>
+     {/* <HeaderManage /> */}
       <div
         style={{
           height: '100vh',
@@ -29,8 +37,6 @@ export const RoleBasedGuard = ({
           You do not have permission to access this page
         </div>
       </div>
-    )
-  }
-
-  return <>{children}</>
+    </>
+  )
 }

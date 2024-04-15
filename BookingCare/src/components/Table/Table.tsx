@@ -49,7 +49,11 @@ const Table = ({
         {data.rows.map((row, rowIndex) => (
           <tr className='table-tr' key={rowIndex}>
             {Object.keys(row).map((key, colIndex) => (
-              <td className='table-column' key={colIndex}>
+              <td
+                className='table-column'
+                key={colIndex}
+                style={{ textAlign: 'center' }}
+              >
                 {row.hasOwnProperty(key) ? (row as any)[key] : ''}
               </td>
             ))}

@@ -13,6 +13,9 @@ export const useRegister = () => {
     password: Yup.string()
       .required('Password is required')
       .min(6, 'Password must be more than 6 characters'),
+    confirmPassword: Yup.string()
+      .required('Password is required')
+      .min(6, 'Password must be more than 6 characters'),
     firstName: Yup.string().required('First name is required'),
     lastName: Yup.string().required('Last name is required'),
     phoneNumber: Yup.string().required('Phone number is required'),
@@ -30,7 +33,8 @@ export const useRegister = () => {
     phoneNumber: '',
     address: '',
     dob: '',
-    gender: ''
+    gender: '',
+    confirmPassword: ''
   }
 
   const methods = useForm<RegisterRequest>({

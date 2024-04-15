@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import Slider from 'react-slick'
 import styles from './doctors.module.css'
 import { useGetDoctors } from './use-get-doctors'
+import { hashCode, randomAvatar } from '@components/Avatar/random-avatar'
 
 const className = classNames.bind(styles)
 
@@ -17,39 +18,31 @@ const Doctors: FC<DoctorsProps> = () => {
   const { doctors } = useGetDoctors()
 
   const settings = {
+    dots: false,
     infinite: true,
-    autoplay: true,
+    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    swipeToSlide: true,
-    pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1700,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4
-        }
-      },
-      {
-        breakpoint: 1280,
+        breakpoint: 900,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3
         }
       },
       {
-        breakpoint: 813,
+        breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 400,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 2
         }
       }
     ]
@@ -68,19 +61,21 @@ const Doctors: FC<DoctorsProps> = () => {
                 navigate(`/doctors/${doctor.id}`)
               }}
             >
-              <Avatar size={218} src={doctor.avatar} alt={doctor.firstName} />
-              {doctor.title && (
-                <Heading
-                  content={doctor.title}
-                  className={className('doctor-title')}
-                />
-              )}
-              {doctor.specialty && (
-                <Text
-                  content={doctor!.specialty.name}
-                  className={className('doctor-specialty')}
-                />
-              )}
+              <Avatar
+                size={218}
+                src={randomAvatar(hashCode(doctor?.email || ''))}
+                alt={doctor.firstName}
+              />
+
+              <Text
+                content={doctor?.firstName + ' ' + doctor?.lastName}
+                className={className('doctor-specialty')}
+                style={{
+                  marginTop: '10px',
+                  fontSize: 'var(--font-xl)',
+                  fontWeight: 'var(--fw-bold)'
+                }}
+              />
             </div>
           ))}
         </Slider>

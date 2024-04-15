@@ -3,13 +3,13 @@ import { BaseModel } from './base-model'
 import { Patient } from './patient'
 
 export interface Appointment extends BaseModel {
-  doctorId: number
+  doctorId?: number
   patientId: number
   status: AppointmentStatus
-  date: Date
+  date?: Date
   diagnosis?: string
   prescription?: string
   description?: string
-  reasonForMedicalExam: string
+  reasonForMedicalExam?: string
   patient: Patient
 }

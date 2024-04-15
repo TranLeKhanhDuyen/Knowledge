@@ -1,81 +1,22 @@
-import { Button, Heading, OptionList } from '@components/common'
-import InputField from '@components/common/InputField/InputField'
-import { ChangeEvent, useState } from 'react'
-import { useRegister } from './use-register'
 import { FormProvider } from '@components/HookFormFields/FormProvider'
-
-interface IRegisterProps {
-  firstName: string
-  lastName: string
-  email: string
-  address: string
-  phoneNumber: string
-  dob: string
-  gender: string
-  password: string
-  confirmPassword: string
-  isShowPassword: boolean
-  errMessage: string
-}
+import { Button, Heading } from '@components/common'
+import { authService } from '@services/authService'
+import { useNavigate } from 'react-router-dom'
+import { useRegister } from './use-register'
 
 const Register = () => {
-  const { handleRegister, methods } = useRegister()
+  const { methods } = useRegister()
 
   const {
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
+    register
   } = methods
+  const navigate = useNavigate()
 
-  const [state, setState] = useState<IRegisterProps>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    phoneNumber: '',
-    dob: '',
-    gender: '',
-    password: '',
-    confirmPassword: '',
-    isShowPassword: false,
-    errMessage: ''
-  })
-
-  const handleOnChangeFirstName = (value: string) => {
-    setState({ ...state, firstName: value })
+  const onSubmit = (data: any) => {
+    authService.registerApi(data).then(() => navigate('/auth/login'))
   }
-
-  const handleOnChangeLastName = (value: string) => {
-    setState({ ...state, lastName: value })
-  }
-
-  const handleOnChangeEmail = (value: string) => {
-    setState({ ...state, email: value })
-  }
-
-  const handleOnChangeAddress = (value: string) => {
-    setState({ ...state, address: value })
-  }
-
-  const handleOnChangePhoneNumber = (value: string) => {
-    setState({ ...state, phoneNumber: value })
-  }
-
-  const handleOnChangeDob = (value: string) => {
-    setState({ ...state, dob: value })
-  }
-
-  const handleOnChangeGender = (event: ChangeEvent<HTMLSelectElement>) => {
-    setState({ ...state, gender: event.target.value })
-  }
-
-  const handleOnChangePassword = (value: string) => {
-    setState({ ...state, password: value })
-  }
-
-  const handleOnChangeConfirmPassword = (value: string) => {
-    setState({ ...state, confirmPassword: value })
-  }
-
   return (
     <div className='authen-background'>
       <div className='authen-container register-container'>
@@ -88,105 +29,138 @@ const Register = () => {
             color: 'var(--turquoise-color)'
           }}
         />
+        <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label htmlFor='lastName'>Họ</label>
+            <input
+              type='text'
+              placeholder='Nhập tên của bạn'
+              required
+              {...register('lastName')}
+              id='lastName'
+              className='firstName text-field'
+            />
+          </div>
+          <div>
+            <label htmlFor='firstName'>Tên</label>
+            <input
+              type='text'
+              placeholder='Nhập họ của bạn'
+              {...register('firstName')}
+              required
+              id='firstName'
+              className='firstName text-field'
+            />
+          </div>
+          <div>
+            <label htmlFor='email'>Nhập Email</label>
+            <input
+              type='email'
+              className='email text-field'
+              placeholder='Nhập email của bạn'
+              {...register('email')}
+            />
+          </div>
+          <div>
+            <label htmlFor='address'>Địa chỉ</label>
+            <input
+              type='text'
+              className='address text-field'
+              placeholder='Nhập địa chỉ của bạn'
+              {...register('address')}
+            />
+          </div>
+          <div>
+            <label htmlFor='phoneNumber'>Số điện thoại</label>
+            <input
+              type='number'
+              placeholder='Nhập số điện thoại của bạn'
+              {...register('phoneNumber')}
+              required
+              id='phoneNumber'
+              className='phoneNumber text-field'
+            />
+          </div>
+          <div>
+            <label htmlFor='dob'>Ngày sinh</label>
+            <input
+              type='date'
+              {...register('dob')}
+              required
+              id='dob'
+              className='dob text-field'
+            />
+          </div>
 
-        <FormProvider methods={methods} onSubmit={handleSubmit(handleRegister)}>
-          <InputField
-            label='Tên'
-            type='text'
-            className='firstName text-field'
-            placeholder='Nhập tên của bạn'
-            value={state.firstName}
-            onChangeValue={handleOnChangeFirstName}
-          />
+          <div>
+            <label htmlFor='password'>{'Đặt mật khẩu'}</label>
+            <input
+              type='password'
+              className='password text-field'
+              placeholder='Nhập số mật khẩu của bạn'
+              {...register('password')}
+            />
+          </div>
+          <div>
+            <label htmlFor='address'>{'Xác nhận mật khẩu'}</label>
+            <input
+              type='password'
+              className='password text-field'
+              placeholder='Nhập lại mật khẩu của bạn'
+              {...register('confirmPassword')}
+            />
+          </div>
 
-          <InputField
-            label='Họ'
-            type='text'
-            className='lastName text-field'
-            placeholder='Nhập họ của bạn'
-            value={state.lastName}
-            onChangeValue={handleOnChangeLastName}
-          />
-
-          <InputField
-            label='Email'
-            type='email'
-            className='email text-field'
-            placeholder='Nhập email của bạn'
-            value={state.email}
-            onChangeValue={handleOnChangeEmail}
-          />
-
-          <InputField
-            label='Địa chỉ'
-            type='text'
-            className='address text-field'
-            placeholder='Nhập địa chỉ của bạn'
-            value={state.address}
-            onChangeValue={handleOnChangeAddress}
-          />
-
-          <InputField
-            label='Số điện thoại'
-            type='tel'
-            className='phoneNumber text-field'
-            placeholder='Nhập số điện thoại của bạn'
-            value={state.phoneNumber}
-            onChangeValue={handleOnChangePhoneNumber}
-          />
-
-          <InputField
-            label='Ngày sinh'
-            type='date'
-            className='dob text-field'
-            value={state.dob}
-            onChangeValue={handleOnChangeDob}
-          />
-
-          <InputField
-            label='Đặt mật khẩu'
-            type='password'
-            className='password text-field'
-            placeholder='Nhập số mật khẩu của bạn'
-            value={state.password}
-            onChangeValue={handleOnChangePassword}
-          />
-
-          <InputField
-            label='Xác nhận mật khẩu'
-            type='password'
-            className='password text-field'
-            placeholder='Nhập lại mật khẩu của bạn'
-            value={state.confirmPassword}
-            onChangeValue={handleOnChangeConfirmPassword}
-          />
-
-          <div className='gender'>
-            <label>Giới tính</label>
-            <OptionList
-              className='optionlist'
-              items={[
-                { id: '1', value: 'Nam' },
-                { id: '2', value: 'Nữ' }
-              ]}
-              onChange={handleOnChangeGender}
-              value={state.gender}
+          <div className='role'>
+            <label htmlFor='role'>Phân quyền</label>
+            <select
+              {...register('role')}
               style={{
-                padding: '5px',
+                padding: '10px',
                 border: '1px solid var(--gray-color)',
                 borderRadius: '5px',
                 width: '100%',
                 margin: '15px 0'
               }}
+              defaultValue={1}
+            >
+              <option value={1}>Bác sĩ</option>
+              <option value={2}>Bệnh nhân</option>
+            </select>
+          </div>
+
+          <div className='gender'>
+            <label htmlFor='gender'>Giới tính</label>
+            <select
+              {...register('gender')}
+              style={{
+                padding: '10px',
+                border: '1px solid var(--gray-color)',
+                borderRadius: '5px',
+                width: '100%',
+                margin: '15px 0'
+              }}
+              defaultValue={1}
+            >
+              <option value={1}>Nam</option>
+              <option value={2}>Nữ</option>
+            </select>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '20px'
+            }}
+          >
+            <Button
+              disabled={isSubmitting}
+              title='Đăng ký'
+              variant='secondary'
+              additionalClass='register'
             />
           </div>
-          {/* </Form> */}
-          <Button
-            disabled={isSubmitting}
-            title='Đăng ký'
-            variant='secondary'
-            additionalClass='register'
-          />
         </FormProvider>
       </div>
     </div>

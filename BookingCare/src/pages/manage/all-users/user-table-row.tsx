@@ -1,4 +1,5 @@
 import Avatar from '@components/Avatar'
+import { hashCode, randomAvatar } from '@components/Avatar/random-avatar'
 import TableCell from '@components/Table/TableCell'
 import TableRow from '@components/Table/TableRow'
 import IconButton from '@components/common/Button/IconButton'
@@ -19,19 +20,38 @@ const UserTableRow: FC<UserTableRowProps> = ({ user, onEdit, onDelete }) => {
   return (
     <TableRow hover key={user.id}>
       <TableCell style={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar src={user.avatar} style={{ marginRight: 16 }} />
+        <Avatar
+          src={randomAvatar(hashCode(user?.email || ''))}
+          style={{ marginRight: 16 }}
+        />
         <p style={{ fontWeight: 'bold' }}>
           {user.firstName} {user.lastName}
         </p>
       </TableCell>
-      <TableCell>{user.title}</TableCell>
+      <TableCell
+        style={{
+          maxWidth: '200px',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden'
+        }}
+      >
+        {user.title}
+      </TableCell>
       <TableCell>{user.email}</TableCell>
       <TableCell>{user?.dob ? fDate(user!.dob) : '_'}</TableCell>
       <TableCell>{user.gender}</TableCell>
       <TableCell>{user.phoneNumber}</TableCell>
-      <TableCell>{user.address}</TableCell>
+      <TableCell
+        style={{
+          maxWidth: '200px',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden'
+        }}
+      >
+        {user.address}
+      </TableCell>
       <TableCell textAlign='center'>{user.role}</TableCell>
-      <TableCell textAlign='center'>
+      <TableCell textAlign='right'>
         {user.role === UserRole.DOCTOR && (
           <IconButton
             onClick={() => {

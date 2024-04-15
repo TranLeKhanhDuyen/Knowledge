@@ -1,5 +1,5 @@
 import { UserForm } from '@components'
-import { Heading } from '@components/common'
+import { Heading, Input } from '@components/common'
 import { useState } from 'react'
 
 import Card from '@components/Card'
@@ -10,31 +10,47 @@ import TableHead, { XTable } from '@components/Table/TableHead'
 import TableRow from '@components/Table/TableRow'
 import { usePagination } from '@hooks/use-pagination'
 import { User } from '@services/models/user'
+import { deleteUsers, editUsers } from '@services/usersService'
 import './all-users.css'
-import { useGetUsers } from './use-get-users'
+import { useGetAllUsers } from './use-get-users'
 import UserTableRow from './user-table-row'
 
 const AllUsers = () => {
   const { page, limit, onPageChange } = usePagination()
-  const { data, pagination } = useGetUsers({ page, limit })
+  const { data, pagination, setReLoadData } = useGetAllUsers({ page, limit })
 
-  const [showEditForm, setShowEditForm] = useState(false)
-  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+  const [showEditForm, setShowEditForm] = useState({
+    open: false,
+    user: {} as any
+  })
 
   const handleEdit = (user: User) => {
-    setSelectedUser(user)
-    setShowEditForm(true)
+    setShowEditForm({
+      open: true,
+      user
+    })
   }
 
-  const handleDelete = (userId: number) => {}
+  const handleDelete = (id: string) => {
+    if (window.confirm('Bạn có chắc chắn muốn xóa không?')) {
+      deleteUsers(id).then(() => {
+        setReLoadData(true)
+      })
+    }
+  }
 
   const handleCloseForm = () => {
-    setShowEditForm(false)
+    setShowEditForm({
+      open: false,
+      user: {}
+    })
   }
 
-  const handleSubmit = (formData: FormData) => {
-    console.log('Submitted form data:', formData)
-    setShowEditForm(false)
+  const handleSubmit = (formData: any) => {
+    editUsers(showEditForm?.user?.id!, formData).then(() => {
+      handleCloseForm()
+      setReLoadData(true)
+    })
   }
 
   return (
@@ -50,7 +66,7 @@ const AllUsers = () => {
           fontSize: 'var(--font-3xl)'
         }}
       />
-      {showEditForm && (
+      {showEditForm.open && (
         <div className='overlay'>
           <div className='form-container'>
             <Heading
@@ -63,6 +79,7 @@ const AllUsers = () => {
               onClose={handleCloseForm}
               mode='update'
               heading='Cập nhật thông tin'
+              dataEdit={showEditForm.user}
             />
           </div>
         </div>
@@ -77,15 +94,18 @@ const AllUsers = () => {
         >
           <TableHead>
             <TableRow>
-              <TableCell elType='th'>Name</TableCell>
-              <TableCell elType='th'>Job Title</TableCell>
+              <TableCell elType='th'>Tên</TableCell>
+              <TableCell elType='th'>Chi tiết</TableCell>
               <TableCell elType='th'>Email</TableCell>
-              <TableCell elType='th'>Dob</TableCell>
-              <TableCell elType='th'>Gender</TableCell>
-              <TableCell elType='th'>Phone number</TableCell>
-              <TableCell elType='th'>Address</TableCell>
+              <TableCell elType='th'>Ngày sinh</TableCell>
+              <TableCell elType='th'>Giới tính</TableCell>
+              <TableCell elType='th'>Số điện thoại</TableCell>
+              <TableCell elType='th'>Địa chỉ</TableCell>
               <TableCell elType='th' textAlign='center'>
-                Role
+                Phân quyền
+              </TableCell>
+              <TableCell elType='th' textAlign='center'>
+                Chỉnh sửa
               </TableCell>
               <TableCell elType='th' />
             </TableRow>
@@ -99,7 +119,7 @@ const AllUsers = () => {
                   handleEdit(user)
                 }}
                 onDelete={() => {
-                  handleDelete(user.id)
+                  handleDelete(user?.id?.toString() ?? '')
                 }}
               />
             ))}

@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 
 export const useUpdateAppointment = (
   appointment: Appointment,
-  onCloseModal: VoidFunction
+  onCloseModal: (appointment: UpdateAppointmentRequest) => void = () => {}
 ) => {
   const schema = Yup.object().shape({
     status: Yup.string().required('Status is required'),
@@ -19,7 +19,7 @@ export const useUpdateAppointment = (
   const methods = useForm<UpdateAppointmentRequest>({
     resolver: yupResolver(schema),
     defaultValues: {
-      // status: appointment.status,
+      status: appointment.status,
       diagnosis: appointment.diagnosis ?? '',
       prescription: appointment.prescription ?? '',
       description: appointment.description ?? ''
@@ -30,8 +30,8 @@ export const useUpdateAppointment = (
     try {
       await appointmentService.updateAppointment(appointment.patientId, data)
       methods.reset()
-      onCloseModal()
-      alert('Appointment was updated Successfully')
+      onCloseModal(data)
+      alert('Cập nhập lịch khám thành công')
     } catch (error) {
       console.error(error)
     }

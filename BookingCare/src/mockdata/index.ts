@@ -1,7 +1,0 @@
-export * from './doctor'
-export { default as DOCTOR } from './doctor'
-export * from './allUsers'
-export { default as ALL_USERS } from './allUsers'
-export { default as LIST_HEADER } from './listHeader'
-export { default as LIST_LINKS } from './listLinks'
-export { default as LIST_NAV } from './listNav'

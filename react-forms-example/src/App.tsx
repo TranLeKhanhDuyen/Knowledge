@@ -1,35 +1,101 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface IFormData {
+  username: string;
+  password: string;
+  loading?: boolean;
 }
 
-export default App
+interface IFormErrors {
+  username?: string;
+  password?: string;
+}
+
+const App: React.FC = () => {
+  const [formData, setFormData] = useState<IFormData>({
+    username: "",
+    password: "",
+  });
+
+  const [formErrors, setFormErrors] = useState<IFormErrors>({});
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormData({
+      ...formData,
+      loading: true,
+    });
+
+    setTimeout(() => {
+      console.log(formData);
+      setFormData({
+        ...formData,
+        loading: false,
+      });
+    }, 2000);
+
+    if (validateForm()) {
+      console.log(formData);
+    } else {
+      console.error("Form validation failed");
+    }
+  };
+
+  const validateForm = () => {
+    const errors: IFormErrors = {};
+    if (!formData.username.trim()) {
+      errors.username = "Username is required";
+    }
+    if (!formData.password.trim()) {
+      errors.password = "Password is required";
+    }
+
+    setFormErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Username:
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChangeInput}
+        />
+        {formErrors.username && (
+          <span style={{ color: "red" }} className="error">
+            {formErrors.username}
+          </span>
+        )}
+      </label>
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChangeInput}
+        />
+        {formErrors.password && (
+          <span style={{ color: "red" }} className="error">
+            {formErrors.password}
+          </span>
+        )}
+      </label>
+      <input type="submit" value="Submit" />
+      {formData.loading && (
+        <div style={{ marginTop: 5, fontWeight: "bold" }}>Loading...</div>
+      )}
+    </form>
+  );
+};
+
+export default App;

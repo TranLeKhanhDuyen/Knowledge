@@ -5,14 +5,14 @@ import '@components/ButtonIcon/ButtonIcon.css'
 type TButtonIconVariant = 'square' | 'circle'
 type TButtonSize = 'sm' | 'md' | 'lg'
 
-interface IButtonIconProps {
+export interface IButtonIconProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variants: TButtonIconVariant
   size: TButtonSize
   icon?: string
   additionalClass?: string
   width?: string
   height?: string
-  onClick?: () => void
 }
 
 const ButtonIcon = ({
@@ -22,7 +22,8 @@ const ButtonIcon = ({
   width,
   height,
   additionalClass,
-  onClick
+  onClick,
+  ...props
 }: IButtonIconProps) => {
   return (
     <button
@@ -31,6 +32,7 @@ const ButtonIcon = ({
         btn-${size}
         ${additionalClass || ''}
       `}
+      {...props}
       onClick={onClick}
     >
       {icon && (

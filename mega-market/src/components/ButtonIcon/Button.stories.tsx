@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import menuIcon from '@assets/images/icons/menu.svg'
 
 // Components
-import { Button } from '@components'
+import { ButtonIcon } from '@components'
 
 export default {
   title: 'Components/Button',
-  component: Button,
+  component: ButtonIcon,
   tags: ['autodocs'],
   argTypes: {
     variants: { description: 'The variants of button.' },
@@ -15,12 +16,14 @@ export default {
   }
 } as Meta
 
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof ButtonIcon>
 
 export const Default: Story = {
   args: {
-    variants: 'primary',
-    size: 'lg',
-    children: 'Save'
+    variants: 'square',
+    size: 'md',
+    icon: menuIcon,
+    width: '26px',
+    height: '18px'
   }
 }

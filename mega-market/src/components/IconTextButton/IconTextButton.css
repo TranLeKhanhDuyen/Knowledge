@@ -7,8 +7,16 @@
   gap: 6px;
 }
 
+.icontext-btn-container-right {
+  flex-direction: row-reverse;
+}
+
 .icontext-title {
   color: var(--text-secondary-color);
+}
+
+.select .icontext-title {
+  color: var(--black-color);
 }
 
 .icontext-title-sm {

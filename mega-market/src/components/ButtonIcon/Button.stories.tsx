@@ -5,7 +5,7 @@ import menuIcon from '@assets/images/icons/menu.svg'
 import { ButtonIcon } from '@components'
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/ButtonIcon',
   component: ButtonIcon,
   tags: ['autodocs'],
   argTypes: {

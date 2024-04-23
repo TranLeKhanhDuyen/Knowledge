@@ -11,12 +11,18 @@
   flex-direction: row-reverse;
 }
 
-.icontext-title {
-  color: var(--text-secondary-color);
+.select.icontext-btn-container {
+  background-color: var(--tertiary-color);
+  padding: 9px 14px;
+  border-radius: 18px;
 }
 
 .select .icontext-title {
   color: var(--black-color);
+}
+
+.icontext-title {
+  color: var(--text-secondary-color);
 }
 
 .icontext-title-sm {

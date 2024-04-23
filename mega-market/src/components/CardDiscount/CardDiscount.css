@@ -1,0 +1,17 @@
+.card-discount-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  width: fit-content;
+  padding: 11px 8px;
+  border-radius: 0px 16px 0px 16px;
+}
+
+.card-discount {
+  font-size: var(--font-md);
+  font-weight: var(--fw-bold);
+  color: var(--white-color);
+  text-transform: uppercase;
+}

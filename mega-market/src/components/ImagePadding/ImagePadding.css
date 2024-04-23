@@ -1,0 +1,32 @@
+.image-padding-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border: 1px solid transparent;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.image-padding-container:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-padding-container-circle {
+  padding: 20px;
+  border-radius: 50%;
+  max-width: 132px;
+  min-height: 132px;
+}
+
+.image-padding-container-square {
+  border-radius: 16px;
+  max-width: 187px;
+  min-height: 187px;
+}
+
+.image-padding {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

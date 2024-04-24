@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import IconTextButton, {
-  IIconTextButtonProps
-} from '@components/IconTextButton'
-import selectIcon from '@assets/images/icons/arrow-down-1.svg'
+
+import { arrowDownIconWhite } from '@assets/images'
+import { IconTextButton, IIconTextButtonProps } from '@components'
+
 import './Select.css'
 
 interface Option {
@@ -25,13 +25,17 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
     setIsOpen(false)
   }
 
+  const handleToggleSelect = () => {
+    setIsOpen(!isOpen)
+  }
+
   const selectButtonProps: IIconTextButtonProps = {
     size: 'sm',
-    icon: selectIcon || '',
+    icon: arrowDownIconWhite || '',
     title: selectedOption ? selectedOption.label : 'Groceries',
     iconPosition: 'right',
     additionalClass: 'select',
-    onClick: () => setIsOpen(!isOpen)
+    onClick: handleToggleSelect
   }
 
   return (

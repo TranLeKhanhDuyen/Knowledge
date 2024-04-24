@@ -18,9 +18,6 @@ const options = [
 
 export const Default: Story = {
   args: {
-    options: options,
-    onSelect: (value: string) => {
-      console.log('Groceries:', value)
-    }
+    options: options
   }
 }

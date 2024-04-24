@@ -1,7 +1,4 @@
-// CSS
 import '@components/HeadLine/HeadLine.css'
-
-// Types
 
 export interface IHeadline extends React.HTMLAttributes<HTMLDivElement> {
   title: string

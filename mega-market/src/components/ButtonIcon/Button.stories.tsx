@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import menuIcon from '@assets/images/icons/menu.svg'
-
-// Components
 import { ButtonIcon } from '@components'
 
 export default {

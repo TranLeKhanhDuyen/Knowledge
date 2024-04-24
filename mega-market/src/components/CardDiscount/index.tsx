@@ -1,4 +1,3 @@
-// CSS
 import '@components/CardDiscount/CardDiscount.css'
 
 interface ICardDiscountProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -1,7 +1,5 @@
-// CSS
 import '@components/ButtonIcon/ButtonIcon.css'
 
-// Types
 type TButtonIconVariant = 'square' | 'circle'
 type TButtonSize = 'sm' | 'md' | 'lg'
 

@@ -2,7 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 // Components
 import { IconTextButton } from '@components'
-import { arrowDownIconWhite, locationIcon, truckIcon } from '@assets/images'
+import arrowDownIconWhite from '@assets/images/icons/arrow-down-1.svg'
+import locationIcon from '@assets/images/icons/location.svg'
+import truckIcon from '@assets/images/icons/iconoir-delivery-truck.svg'
 
 export default {
   title: 'Components/IconTextButton',

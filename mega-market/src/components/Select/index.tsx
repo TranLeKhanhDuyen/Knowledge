@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { arrowDownIconWhite } from '@assets/images'
+import arrowDownIconWhite  from '@assets/images/icons/arrow-down-1.svg'
 import { IconTextButton, IIconTextButtonProps } from '@components'
 
 import './Select.css'

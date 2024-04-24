@@ -1,7 +1,8 @@
 import '@components/SearchBar/SearchBar.css'
 
 import { TextField } from '@components'
-import { listIcon, searchIcon } from '@assets/images'
+import listIcon  from '@assets/images/icons/list.svg'
+import searchIcon  from '@assets/images/icons/search.svg'
 
 interface ISearchBarProps {
   placeholder: string

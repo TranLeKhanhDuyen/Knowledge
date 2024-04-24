@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ImagePadding } from '@components'
+import { Image } from '@components'
 import groceries from '@assets/images/products/groceries.svg'
 import phone from '@assets/images/products/image-5.svg'
 export default {
-  title: 'Components/ImagePadding',
-  component: ImagePadding,
+  title: 'Components/Image',
+  component: Image,
   tags: ['autodocs'],
   argTypes: {
     additionalClass: { description: 'Add class to the image' },
@@ -12,7 +12,7 @@ export default {
   }
 } as Meta
 
-type Story = StoryObj<typeof ImagePadding>
+type Story = StoryObj<typeof Image>
 
 export const Square: Story = {
   args: {

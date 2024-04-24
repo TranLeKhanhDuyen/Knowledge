@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import menuIcon from '@assets/images/icons/menu.svg'
 import { ButtonIcon } from '@components'
+import { menuIcon } from '@assets/images'
 
 export default {
   title: 'Components/ButtonIcon',

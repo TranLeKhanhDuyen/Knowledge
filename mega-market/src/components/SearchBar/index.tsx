@@ -1,16 +1,13 @@
 import '@components/SearchBar/SearchBar.css'
 
-import searchIcon from '@assets/images/icons/search.svg'
-import listIcon from '@assets/images/icons/list.svg'
-import TextField from '@components/TextField'
+import { TextField } from '@components'
+import { listIcon, searchIcon } from '@assets/images'
 
 interface ISearchBarProps {
-  icon?: string
-  placeholder?: string
+  placeholder: string
   iconLeft?: string
   iconRight?: string
   onChange?: (value: string) => void
-  onClose?: () => void
 }
 
 const SearchBar = ({

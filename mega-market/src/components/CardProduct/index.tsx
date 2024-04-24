@@ -1,7 +1,6 @@
 import React from 'react'
+import { CardDiscount } from '@components'
 import './CardProduct.css'
-
-import CardDiscount from '@components/CardDiscount'
 
 interface ICardProductProps {
   imageUrl: string

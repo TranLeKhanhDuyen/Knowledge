@@ -46,7 +46,7 @@ const CardProduct: React.FC<ICardProductProps> = ({
         <div className='product-prices'>
           <span className='product-regular-price'>₹{regularPrice}</span>
           <span className='product-sale-price'>₹{salePrice}</span>
-          <span className='product-save-price'>Save - ₹{savePrice}</span>
+          <p className='product-save-price'>Save - ₹{savePrice}</p>
         </div>
       </div>
     </div>

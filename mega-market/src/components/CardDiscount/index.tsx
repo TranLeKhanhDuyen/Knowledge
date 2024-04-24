@@ -13,12 +13,12 @@ const CardDiscount = ({
 }: ICardDiscountProps) => {
   return (
     <div className={`card-discount-container ${additionalClass}`}>
-      <span className={`card-discount card-discount-percent${additionalClass}`}>
+      <p className={`card-discount card-discount-percent${additionalClass}`}>
         {percent}
-      </span>
-      <span className={`card-discount card-discount-title${additionalClass}`}>
+      </p>
+      <p className={`card-discount card-discount-title${additionalClass}`}>
         {title}
-      </span>
+      </p>
     </div>
   )
 }

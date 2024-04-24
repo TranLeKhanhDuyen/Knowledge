@@ -45,7 +45,7 @@ const TextField = ({
           onChange={handleChangeInput}
         />
         {iconRight && <img src={iconRight} alt='icon' />}
-        {error && <span className='error-message'>{error}</span>}
+        {error && <p className='error-message'>{error}</p>}
       </div>
     </>
   )

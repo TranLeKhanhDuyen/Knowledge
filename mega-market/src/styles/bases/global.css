@@ -8,3 +8,7 @@ html {
   font-family: var(--primary-font);
   line-height: 1;
 }
+
+.container {
+  margin: 0 120px;
+}

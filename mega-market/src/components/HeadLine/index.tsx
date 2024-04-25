@@ -1,14 +1,16 @@
 import '@components/HeadLine/HeadLine.css'
 
+type THeadline = 'primary' | 'secondary'
+
 export interface IHeadline extends React.HTMLAttributes<HTMLDivElement> {
   title: string
   subTitle?: string
-  additionalClass?: string
+  additionalClass?: THeadline
 }
 
 const HeadLine = ({ title, subTitle, additionalClass }: IHeadline) => {
   return (
-    <div className='headline-container'>
+    <div className={`headline-container ${additionalClass}`}>
       <span className={`headline headline-title ${additionalClass} `}>
         {title}
       </span>

@@ -1,16 +1,28 @@
 .headline-container {
   width: fit-content;
-  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 16px;
+  border-bottom: 3px solid;
+}
+
+.headline-container.primary {
+  border-color: var(--primary-color);
+}
+
+.headline-container.secondary {
+  border-color: var(--white-color);
 }
 
 .headline {
   font-weight: var(--fw-bold);
   font-size: var(--font-xl);
-  padding-bottom: 16px;
 }
 
-.headline-title {
+.headline-title.primary{
   color: var(--text-secondary-color);
+}
+
+.headline-title.secondary{
+  color: var(--white-color);
 }
 
 .headline-sub-title {

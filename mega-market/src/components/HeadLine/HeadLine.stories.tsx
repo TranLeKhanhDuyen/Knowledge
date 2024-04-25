@@ -15,9 +15,17 @@ export default {
 
 type Story = StoryObj<typeof Headline>
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
     title: 'Grab the best deal on\t',
-    subTitle: 'Smartphones'
+    subTitle: 'Smartphones',
+    additionalClass: 'primary'
+  }
+}
+
+export const Secondary: Story = {
+  args: {
+    title: 'Most Popular Categories\t',
+    additionalClass: 'secondary'
   }
 }

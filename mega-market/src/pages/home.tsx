@@ -1,8 +1,9 @@
 import './home.css'
-import { IconTextButton } from '@components'
+import { Headline, IconTextButton } from '@components'
 import locationIcon from '@assets/images/icons/location.svg'
 import truckIcon from '@assets/images/icons/iconoir-delivery-truck.svg'
 import discoundIcon from '@assets/images/icons/discount.svg'
+import Header from '@layout/header'
 
 const HomePage = () => {
   return (
@@ -30,6 +31,7 @@ const HomePage = () => {
           </article>
         </div>
       </div>
+      <Header/>
     </>
   )
 }

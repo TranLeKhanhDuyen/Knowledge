@@ -7,7 +7,7 @@ export interface IIconTextButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: TIconTextButtonSize
   iconPosition?: TIconPosition
-  title: string
+  title?: string
   subTitle?: string
   icon: string
   additionalClass?: string

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 21px 0;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+}
+
+.header-right {
+  display: flex;
+  gap: 30px;
+}
+
+.input-container-input-search {
+  width: 507px;
+}

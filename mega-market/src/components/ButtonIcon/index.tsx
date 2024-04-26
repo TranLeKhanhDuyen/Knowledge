@@ -5,10 +5,10 @@ type TButtonSize = 'sm' | 'md' | 'lg'
 
 export interface IButtonIconProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variants: TButtonIconVariant
+  variants?                            : TButtonIconVariant
   size?: TButtonSize
   icon: string
-  alt: string
+  alt?: string
   additionalClass?: string
   width?: string
   height?: string

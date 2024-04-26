@@ -1,24 +1,23 @@
-// // Icons
-// const searchIcon = require('@assets/icons/search.svg')
-// const listIcon = require('@assets/icons/list.svg')
-// const menuIcon = require('@assets/images/icons/menu.svg')
-// const locationIcon = require('@assets/images/icons/location.svg')
-// const truckIcon = require('@assets/images/icons/iconoir-delivery-truck.svg')
-// const arrowDownIconWhite = require('@assets/images/icons/arrow-down-1.svg')
-// const arrowDownIconGrey = require('@assets/images/icons/arrow-down-2.svg')
-// const buyIcon = require('@assets/images/icons/buy.svg')
-// const discountIcon = require('@assets/images/icons/discount.svg')
-// const userIcon = require('@assets/images/icons/user.svg')
+import searchIcon from './icons/search.svg'
+import listIcon from './icons/list.svg'
+import menuIcon from './icons/menu.svg'
+import locationIcon from './icons/location.svg'
+import truckIcon from './icons/iconoir-delivery-truck.svg'
+import arrowDownIconWhite from './icons/arrow-down-1.svg'
+import arrowDownIconGrey from './icons/arrow-down-2.svg'
+import buyIcon from './icons/buy.svg'
+import discountIcon from './icons/discount.svg'
+import userIcon from './icons/user.svg'
 
-// export {
-//   searchIcon,
-//   listIcon,
-//   menuIcon,
-//   locationIcon,
-//   truckIcon,
-//   arrowDownIconWhite,
-//   arrowDownIconGrey,
-//   buyIcon,
-//   discountIcon,
-//   userIcon
-// }
+export {
+  searchIcon,
+  listIcon,
+  menuIcon,
+  locationIcon,
+  truckIcon,
+  arrowDownIconWhite,
+  arrowDownIconGrey,
+  buyIcon,
+  discountIcon,
+  userIcon
+}

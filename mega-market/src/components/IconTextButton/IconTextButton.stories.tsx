@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-// Components
 import { IconTextButton } from '@components'
-import arrowDownIconWhite from '@assets/images/icons/arrow-down-1.svg'
-import locationIcon from '@assets/images/icons/location.svg'
-import truckIcon from '@assets/images/icons/iconoir-delivery-truck.svg'
+import { arrowDownIconWhite, locationIcon, truckIcon } from '@assets/images'
 
 export default {
   title: 'Components/IconTextButton',
@@ -24,9 +21,7 @@ export default {
     }
   }
 } as Meta
-
 type Story = StoryObj<typeof IconTextButton>
-
 export const Default: Story = {
   args: {
     size: 'sm',
@@ -35,7 +30,6 @@ export const Default: Story = {
     subTitle: '423651'
   }
 }
-
 export const IconLeft: Story = {
   ...Default,
   args: {
@@ -44,7 +38,6 @@ export const IconLeft: Story = {
     iconPosition: 'left'
   }
 }
-
 export const IconRight: Story = {
   ...Default,
   args: {

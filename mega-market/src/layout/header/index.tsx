@@ -1,28 +1,29 @@
 import './Header.css'
 
 import { ButtonIcon, IconTextButton, Logo } from '@components'
-import { buyIcon, menuIcon, userIcon } from '@assets/images'
 import SearchBar from '@components/SearchBar'
 
 const Header = () => {
   return (
     <header className='container header'>
       <div className='header-left'>
-        <ButtonIcon icon={menuIcon} size='sm' />
+        <ButtonIcon icon='menu' size='sm' variants='square' />
         <Logo />
       </div>
-      
+
+      <SearchBar additonalClass='search-header' />
       <div className='header-right'>
-        <SearchBar placeholder='search' />
         <IconTextButton
+          size='md'
           subTitle='Sign Up/Sign In'
-          icon={userIcon}
-          additionalClass='header-icon'
+          icon='user'
+          additionalClass='header-user-icon'
         />
         <IconTextButton
+          size='md'
           subTitle='Cart'
-          icon={buyIcon}
-          additionalClass='header-icon'
+          icon='buy'
+          additionalClass='header-buy-icon'
         />
       </div>
     </header>

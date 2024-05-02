@@ -1,4 +1,5 @@
 import React from 'react'
+import IconSvg from '@components/IconSvg'
 import './Contact.css'
 
 interface IContactProps {
@@ -7,10 +8,10 @@ interface IContactProps {
   phoneNumber: string
 }
 
-const Contact: React.FC<IContactProps> = ({ icon, name, phoneNumber }) => {
+const Contact: React.FC<IContactProps> = ({ name, phoneNumber }) => {
   return (
     <article className='contact'>
-      <img src={icon} alt='Contact Icon' className='contact-icon' />
+      <IconSvg name='call' />
       <aside className='contact-info'>
         <p className='contact-name'>{name}</p>
         <p className='contact-phone'>{phoneNumber}</p>

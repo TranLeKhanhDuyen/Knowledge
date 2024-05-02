@@ -1,5 +1,6 @@
 .topbar {
   background-color: var(--secondary-color);
+  width: 100vw;
   padding: 12px 0;
 }
 
@@ -12,11 +13,11 @@
   display: flex;
 }
 
-.icontext-btn-container.topbar-icon {
+.icontext-container.topbar-icon {
   padding: 0 12px;
 }
 
-.icontext-btn-container.topbar-icon:nth-child(1),
-.icontext-btn-container.topbar-icon:nth-child(2) {
+.icontext-container.topbar-icon:nth-child(1),
+.icontext-container.topbar-icon:nth-child(2) {
   border-right: 1px solid rgba(217, 217, 217, 1);
 }

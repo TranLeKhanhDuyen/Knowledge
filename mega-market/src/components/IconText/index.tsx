@@ -1,12 +1,12 @@
 import IconSvg, { IconSvgProps } from '@components/IconSvg'
-import '@components/IconTextButton/IconTextButton.css'
+import '@components/IconText/IconText.css'
 
-type TIconTextButtonSize = 'sm' | 'md' | 'lg'
+type TIconTextSize = 'sm' | 'md' | 'lg'
 type TIconPosition = 'left' | 'right'
 
-export interface IIconTextButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: TIconTextButtonSize
+export interface IIconTextProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {
+  size?: TIconTextSize
   iconPosition?: TIconPosition
   title?: string
   subTitle?: string
@@ -14,7 +14,7 @@ export interface IIconTextButtonProps
   additionalClass?: string
 }
 
-const IconTextButton: React.FC<IIconTextButtonProps> = ({
+const IconText: React.FC<IIconTextProps> = ({
   size = 'sm',
   iconPosition = 'left',
   title,
@@ -24,10 +24,10 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
   children,
   ...props
 }) => {
-  const containerClass = `icontext-btn-container icontext-btn-container-${size} ${
-    iconPosition === 'right' ? 'icontext-btn-container-right' : ''
+  const containerClass = `icontext-container icontext-container-${size} ${
+    iconPosition === 'right' ? 'icontext-container-right' : ''
   } ${additionalClass ?? ''}`
-  const iconClass = `img-icontext-btn-${size}`
+  const iconClass = `img-icontext-${size}`
   const titleClass = `icontext-title icontext-title-${size} ${
     additionalClass ?? ''
   }`
@@ -36,13 +36,13 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
   }`
 
   return (
-    <button className={containerClass} {...props}>
-      <IconSvg name={icon} className={iconClass}/>
+    <p className={containerClass} {...props}>
+      <IconSvg name={icon} className={iconClass} />
       {title && <span className={titleClass}>{title}</span>}
       {subTitle && <span className={subTitleClass}>{subTitle}</span>}
       {children}
-    </button>
+    </p>
   )
 }
 
-export default IconTextButton
+export default IconText

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-import arrowDownIconWhite  from '@assets/images/icons/arrow-down-1.svg'
 import { IconTextButton, IIconTextButtonProps } from '@components'
-
 import './Select.css'
 
 interface Option {
@@ -31,9 +29,8 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
 
   const selectButtonProps: IIconTextButtonProps = {
     size: 'sm',
-    icon: arrowDownIconWhite || '',
+    icon: 'arrow-down-white',
     title: selectedOption ? selectedOption.label : 'Groceries',
-    iconPosition: 'right',
     additionalClass: 'select',
     onClick: handleToggleSelect
   }
@@ -42,17 +39,17 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
     <div className='select-container'>
       <IconTextButton {...selectButtonProps} />
       {isOpen && (
-        <div className='options-container'>
+        <ul className='options-container'>
           {options.map((option) => (
-            <div
+            <li
               key={option.value}
               className='option'
               onClick={() => handleSelectOption(option)}
             >
               {option.label}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   )

@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { IconTextButton } from '@components'
-import { arrowDownIconWhite, locationIcon, truckIcon } from '@assets/images'
+import { IconText } from '@components'
 
 export default {
-  title: 'Components/IconTextButton',
-  component: IconTextButton,
+  title: 'Components/IconText',
+  component: IconText,
   tags: ['autodocs'],
   argTypes: {
     size: { description: 'The size of button' },
@@ -21,7 +20,7 @@ export default {
     }
   }
 } as Meta
-type Story = StoryObj<typeof IconTextButton>
+type Story = StoryObj<typeof IconText>
 export const Default: Story = {
   args: {
     size: 'sm',

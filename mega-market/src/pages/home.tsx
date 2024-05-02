@@ -1,8 +1,5 @@
 import './home.css'
-import { Headline, IconTextButton } from '@components'
-import locationIcon from '@assets/images/icons/location.svg'
-import truckIcon from '@assets/images/icons/iconoir-delivery-truck.svg'
-import discoundIcon from '@assets/images/icons/discount.svg'
+import {IconText } from '@components'
 import Header from '@layout/header'
 
 const HomePage = () => {
@@ -12,19 +9,19 @@ const HomePage = () => {
         <div className='container  topbar-container '>
           <span className='topbar-title'>Welcome to worldwide Megamart! </span>
           <article className='topbar-contents'>
-            <IconTextButton
-              icon={locationIcon}
+            <IconText
+              icon='location'
               title='Deliver to'
               subTitle='423651'
               additionalClass='topbar-icon'
             />
-            <IconTextButton
-              icon={truckIcon}
+            <IconText
+              icon='truck'
               title='Track your order'
               additionalClass='topbar-icon'
             />
-            <IconTextButton
-              icon={discoundIcon}
+            <IconText
+              icon='discount'
               title='All Offers'
               additionalClass='topbar-icon'
             />

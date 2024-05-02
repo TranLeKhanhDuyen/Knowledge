@@ -1,4 +1,4 @@
-.icontext-btn-container {
+.icontext-container {
   display: flex;
   align-items: center;
   border: none;
@@ -8,11 +8,11 @@
   width: max-content;
 }
 
-.icontext-btn-container-right {
+.icontext-container-right {
   flex-direction: row-reverse;
 }
 
-.select.icontext-btn-container {
+.select.icontext-container {
   background-color: var(--tertiary-color);
   padding: 9px 14px;
   border-radius: 18px;
@@ -38,12 +38,12 @@
   font-weight: var(--fw-bold);
 }
 
-.img-icontext-btn-sm {
+.img-icontext-sm {
   width: 18px;
   height: 18px;
 }
 
-.img-icontext-btn-md {
+.img-icontext-md {
   width: 24px;
   height: 24px;
 }

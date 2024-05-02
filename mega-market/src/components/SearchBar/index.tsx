@@ -1,30 +1,21 @@
 import '@components/SearchBar/SearchBar.css'
-import { TextField } from '@components'
-import { listIcon, searchIcon } from '@assets/images'
+import { ButtonIcon, TextField } from '@components'
 
 interface ISearchBarProps {
-  placeholder: string
-  iconLeft?: string
-  iconRight?: string
   onChange?: (value: string) => void
 }
 
-const SearchBar = ({
-  iconLeft = searchIcon,
-  iconRight = listIcon,
-  placeholder = 'Search',
-  onChange
-}: ISearchBarProps) => {
+const SearchBar = ({ onChange }: ISearchBarProps) => {
   return (
     <div className='search-container'>
+      <ButtonIcon icon='search' alt='search icon' />
       <TextField
         isShowLabel={false}
         additionalClass='input-search'
-        placeholder={placeholder}
+        placeholder='Search essentials, groceries and more...'
         onChange={onChange}
-        iconLeft={iconLeft}
-        iconRight={iconRight}
       />
+      <ButtonIcon icon='list' alt='list icon' />
     </div>
   )
 }

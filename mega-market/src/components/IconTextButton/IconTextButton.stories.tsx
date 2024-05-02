@@ -25,7 +25,7 @@ type Story = StoryObj<typeof IconTextButton>
 export const Default: Story = {
   args: {
     size: 'sm',
-    icon: locationIcon,
+    icon: 'location',
     title: 'Deliver to',
     subTitle: '423651'
   }
@@ -33,7 +33,7 @@ export const Default: Story = {
 export const IconLeft: Story = {
   ...Default,
   args: {
-    icon: truckIcon,
+    icon: 'truck',
     title: 'Track your order',
     iconPosition: 'left'
   }
@@ -41,7 +41,7 @@ export const IconLeft: Story = {
 export const IconRight: Story = {
   ...Default,
   args: {
-    icon: arrowDownIconWhite,
+    icon: 'arrow-down-white',
     title: 'Groceries',
     iconPosition: 'right',
     additionalClass: 'select'

@@ -1,3 +1,4 @@
+import IconSvg, { IconSvgProps } from '@components/IconSvg'
 import '@components/IconTextButton/IconTextButton.css'
 
 type TIconTextButtonSize = 'sm' | 'md' | 'lg'
@@ -9,7 +10,7 @@ export interface IIconTextButtonProps
   iconPosition?: TIconPosition
   title?: string
   subTitle?: string
-  icon?: string
+  icon: IconSvgProps['name']
   additionalClass?: string
 }
 
@@ -20,6 +21,7 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
   subTitle,
   icon,
   additionalClass,
+  children,
   ...props
 }) => {
   const containerClass = `icontext-btn-container icontext-btn-container-${size} ${
@@ -35,9 +37,10 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
 
   return (
     <button className={containerClass} {...props}>
-      {icon && <img className={iconClass} alt='icon' src={icon} />}
+      <IconSvg name={icon} className={iconClass}/>
       {title && <span className={titleClass}>{title}</span>}
       {subTitle && <span className={subTitleClass}>{subTitle}</span>}
+      {children}
     </button>
   )
 }

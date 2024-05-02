@@ -1,3 +1,4 @@
+import IconSvg, { IconSvgProps } from '@components/IconSvg'
 import '@components/ButtonIcon/ButtonIcon.css'
 
 type TButtonIconVariant = 'square' | 'circle'
@@ -5,21 +6,17 @@ type TButtonSize = 'sm' | 'md' | 'lg'
 
 export interface IButtonIconProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variants: TButtonIconVariant
+  variants?: TButtonIconVariant
   size?: TButtonSize
-  icon: string
+  icon: IconSvgProps['name']
   alt: string
   additionalClass?: string
-  width?: string
-  height?: string
 }
 
 const ButtonIcon = ({
-  variants = 'square',
-  size = 'md',
+  variants,
+  size,
   icon,
-  width,
-  height,
   alt = 'icon',
   additionalClass,
   onClick,
@@ -31,15 +28,7 @@ const ButtonIcon = ({
       onClick={onClick}
       {...props}
     >
-      {icon && (
-        <img
-          className='btn-icon'
-          alt={`Image depicts ${alt}`}
-          src={icon}
-          width={width}
-          height={height}
-        />
-      )}
+      <IconSvg name={icon} />
     </button>
   )
 }

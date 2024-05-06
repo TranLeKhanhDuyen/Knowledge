@@ -3,7 +3,7 @@ import { Circle, CircleDot } from 'lucide-react'
 import ButtonIcon from '@components/ButtonIcon'
 import { useState } from 'react'
 
-import './ImageSlider.css'
+import './BannerSlider.css'
 
 export interface IImageSliderProps
   extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -11,7 +11,7 @@ export interface IImageSliderProps
   additonalClass?: string
 }
 
-const ImageSlider = ({ imageUrls }: IImageSliderProps) => {
+const BannerSlider = ({ imageUrls }: IImageSliderProps) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const showNextImage = () => {
@@ -68,4 +68,4 @@ const ImageSlider = ({ imageUrls }: IImageSliderProps) => {
   )
 }
 
-export default ImageSlider
+export default BannerSlider

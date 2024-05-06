@@ -1,12 +1,13 @@
-import './home.css'
-import {IconText } from '@components'
+import { IconText, ImageSlider } from '@components'
+import { IMAGES } from '@components/Image'
 import Header from '@layout/header'
+import './home.css'
 
 const HomePage = () => {
   return (
     <>
       <div className='topbar'>
-        <div className='container  topbar-container '>
+        <div className='container topbar-container '>
           <span className='topbar-title'>Welcome to worldwide Megamart! </span>
           <article className='topbar-contents'>
             <IconText
@@ -28,7 +29,8 @@ const HomePage = () => {
           </article>
         </div>
       </div>
-      <Header/>
+      <Header />
+      <ImageSlider imageUrls={IMAGES} />
     </>
   )
 }

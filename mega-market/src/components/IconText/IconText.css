@@ -28,6 +28,8 @@
 
 .icontext-title-sm {
   font-size: var(--font-sm);
+  line-height: 18px;
+  font-weight: 400;
 }
 
 .icontext-title-md {

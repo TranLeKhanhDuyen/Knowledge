@@ -9,15 +9,20 @@
   justify-content: space-between;
 }
 
+.topbar-title {
+  font-size: var(--font-sm);
+  color: var(--text-secondary-color);
+  line-height: 14px;
+  font-weight: 400;
+}
+
 .topbar-contents {
   display: flex;
+  gap: 16px
 }
 
-.icontext-container.topbar-icon {
-  padding: 0 12px;
-}
-
-.icontext-container.topbar-icon:nth-child(1),
-.icontext-container.topbar-icon:nth-child(2) {
+.icontext-container.topbar-icon:nth-child(2),
+.icontext-container.topbar-icon:nth-child(1) {
   border-right: 1px solid rgba(217, 217, 217, 1);
+  padding-right: 12px;
 }

@@ -2,7 +2,7 @@
   width: 100%;
   outline: none;
   background-color: transparent;
-  font-size: var(--font-md);
+  font-size: var(--font-sm);
   border: 1px solid transparent;
   padding: 2px;
 }

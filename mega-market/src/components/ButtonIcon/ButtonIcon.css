@@ -9,6 +9,8 @@
   border: 1px solid transparent;
   border-radius: 10px;
   box-shadow: none;
+  width: fit-content;
+  height: fit-content;
 }
 
 .btn-square:hover {
@@ -20,6 +22,7 @@
   background: var(--tertiary-color);
   border: 1px solid transparent;
   border-radius: 50%;
+  padding: 15px;
 }
 
 .btn-circle:hover {
@@ -27,7 +30,7 @@
 }
 
 .btn-sm {
-  padding: 14px 12px;
+  padding: 11px;
 }
 
 .btn-md {

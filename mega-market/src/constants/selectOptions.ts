@@ -1,4 +1,4 @@
-const selectOptions = [
+export const selectOptions = [
   { value: 'groceries', label: 'Groceries' },
   { value: 'premium-fruits', label: 'Premium Fruits' },
   { value: 'home-kitchen', label: 'Home & Kitchen' },
@@ -9,4 +9,4 @@ const selectOptions = [
   { value: 'sports-toys-luggage', label: 'Sports, Toys & Luggage' }
 ]
 
-export default selectOptions
+

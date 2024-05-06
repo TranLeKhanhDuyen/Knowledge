@@ -10,7 +10,7 @@ interface ICardProductProps {
   regularPrice: number
   savePrice: number
   discountPercent: string
-  contentDiscount: string
+  contentDiscount?: string
   additionalClass?: string
 }
 

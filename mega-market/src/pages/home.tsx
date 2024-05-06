@@ -1,7 +1,8 @@
-import { IconText, ImageSlider } from '@components'
-import { IMAGES } from '@components/Image'
+import { IconText, ImageSlider, Select } from '@components'
 import Header from '@layout/header'
 import './home.css'
+import { IMAGES } from '@constants/images'
+import selectOptions from '@constants/selectOptions'
 
 const HomePage = () => {
   return (
@@ -30,6 +31,17 @@ const HomePage = () => {
         </div>
       </div>
       <Header />
+      <div className='select-container'>
+        <div className='container select-wrapper'>
+          {selectOptions.map((option, index) => (
+            <Select
+              key={index}
+              options={[option]}
+              onSelect={(value) => console.log(value)}
+            />
+          ))}
+        </div>
+      </div>
       <ImageSlider imageUrls={IMAGES} />
     </>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { IconTextButton, IIconTextButtonProps } from '@components'
 import './Select.css'
@@ -15,7 +15,13 @@ interface SelectProps {
 
 const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null)
+  const [selectedOption, setSelectedOption] = useState<Option | null>(
+    options[0] || null
+  )
+
+  useEffect(() => {
+    setSelectedOption(options[0] || null)
+  }, [options])
 
   const handleSelectOption = (option: Option) => {
     setSelectedOption(option)
@@ -30,16 +36,16 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
   const selectButtonProps: IIconTextButtonProps = {
     size: 'sm',
     icon: 'arrow-down-white',
-    title: selectedOption ? selectedOption.label : 'Groceries',
+    title: selectedOption ? selectedOption.label : 'Choose option',
     additionalClass: 'select',
     onClick: handleToggleSelect
   }
 
   return (
-    <div className='select-container'>
+    <div className='select-item'>
       <IconTextButton {...selectButtonProps} />
       {isOpen && (
-        <ul className='options-container'>
+        <ul className='options-select'>
           {options.map((option) => (
             <li
               key={option.value}

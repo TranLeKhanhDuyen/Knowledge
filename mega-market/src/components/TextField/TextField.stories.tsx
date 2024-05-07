@@ -21,20 +21,22 @@ export default {
 
 type Story = StoryObj<typeof TextField>
 
-export const InputSearch: Story = {
+export const InputText: Story = {
   args: {
     additionalClass: 'input-search',
-    placeholder: 'Search ...',
+    placeholder: 'Search ...'
   }
 }
 
-export const InputText: Story = {
-  ...InputSearch,
+export const InputSearch: Story = {
+  ...InputText,
   args: {
-    ...InputSearch.args,
+    ...InputText.args,
     isShowLabel: true,
     label: 'Email',
     placeholder: 'Enter email',
-    additionalClass: 'input-text'
+    additionalClass: 'input-text',
+    iconLeft: 'search',
+    iconRight: 'list'
   }
 }

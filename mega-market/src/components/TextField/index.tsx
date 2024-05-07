@@ -1,15 +1,16 @@
 import { FormEvent } from 'react'
 
+import IconSvg, { IconSvgProps } from '@components/IconSvg'
 import '@components/TextField/TextField.css'
 
-interface ITextFieldProps {
+export interface ITextFieldProps {
   isShowLabel?: boolean
   label?: string
   additionalClass?: string
   value?: string
   placeholder?: string
-  iconLeft?: string
-  iconRight?: string
+  iconLeft?: IconSvgProps['name']
+  iconRight?: IconSvgProps['name']
   onChange?: (value: string) => void
   validate?: (value: string) => string | undefined
 }
@@ -28,7 +29,6 @@ const TextField = ({
   const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
     onChange?.(event.currentTarget.value)
   }
-
   const error = validate ? validate(value || '') : undefined
 
   return (
@@ -36,7 +36,7 @@ const TextField = ({
       <label className={`label-input ${!isShowLabel && 'hide'}`}>{label}</label>
 
       <div className='input-container'>
-        {iconLeft && <img src={iconLeft} alt='icon' />}
+        {iconLeft && <IconSvg name={iconLeft} />}
         <input
           type='text'
           className={`text-field ${additionalClass}`}
@@ -44,7 +44,7 @@ const TextField = ({
           placeholder={placeholder}
           onChange={handleChangeInput}
         />
-        {iconRight && <img src={iconRight} alt='icon' />}
+        {iconRight && <IconSvg name={iconRight} />}
         {error && <p className='error-message'>{error}</p>}
       </div>
     </>

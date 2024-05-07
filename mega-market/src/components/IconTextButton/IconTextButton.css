@@ -5,6 +5,7 @@
   background-color: transparent;
   cursor: pointer;
   gap: 6px;
+  width: max-content;
 }
 
 .icontext-btn-container-right {

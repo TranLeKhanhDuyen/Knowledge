@@ -2,17 +2,18 @@
   width: 100%;
   outline: none;
   background-color: transparent;
-  font-size: var(--font-md);
+  font-size: var(--font-sm);
   border: 1px solid transparent;
   padding: 2px;
 }
 
 .input-container {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
   background-color: var(--tertiary-color);
-  padding: 15px;
+  /* padding: 15px; */
   cursor: pointer;
   border-radius: 10px;
 }

@@ -5,8 +5,8 @@ type TCardCategoryVariant = 'square' | 'circle'
 
 interface ICardCategoryProps {
   imageUrl: string
-  alt: string
-  name: string
+  alt?: string
+  name?: string
   discountPercent?: string
   additionalClass?: string
   variant?: TCardCategoryVariant

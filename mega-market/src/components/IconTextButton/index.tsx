@@ -1,4 +1,5 @@
-import '@components/IconTextButton/IconTextButton.css'
+import IconSvg, { IconSvgProps } from '@components/IconSvg'
+import './IconTextButton.css'
 
 type TIconTextButtonSize = 'sm' | 'md' | 'lg'
 type TIconPosition = 'left' | 'right'
@@ -9,7 +10,7 @@ export interface IIconTextButtonProps
   iconPosition?: TIconPosition
   title?: string
   subTitle?: string
-  icon?: string
+  icon: IconSvgProps['name']
   additionalClass?: string
 }
 
@@ -20,12 +21,15 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
   subTitle,
   icon,
   additionalClass,
+  children,
   ...props
 }) => {
   const containerClass = `icontext-btn-container icontext-btn-container-${size} ${
     iconPosition === 'right' ? 'icontext-btn-container-right' : ''
   } ${additionalClass ?? ''}`
-  const iconClass = `img-icontext-btn-${size}`
+  const iconClass = `img-icontext-btn img-icontext-btn-${size} ${
+    additionalClass ?? ''
+  }`
   const titleClass = `icontext-title icontext-title-${size} ${
     additionalClass ?? ''
   }`
@@ -35,9 +39,10 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
 
   return (
     <button className={containerClass} {...props}>
-      {icon && <img className={iconClass} alt='icon' src={icon} />}
+      <IconSvg name={icon} className={iconClass} />
       {title && <span className={titleClass}>{title}</span>}
       {subTitle && <span className={subTitleClass}>{subTitle}</span>}
+      {children}
     </button>
   )
 }

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ButtonIcon } from '@components'
-import { menuIcon } from '@assets/images'
+import { ButtonIcon, IButtonIconProps } from '@components'
 
 export default {
   title: 'Components/ButtonIcon',
@@ -14,14 +13,12 @@ export default {
   }
 } as Meta
 
-type Story = StoryObj<typeof ButtonIcon>
+type Story = StoryObj<IButtonIconProps>
 
 export const Default: Story = {
   args: {
     variants: 'square',
     size: 'md',
-    icon: menuIcon,
-    width: '26px',
-    height: '18px'
+    icon: 'menu'
   }
 }

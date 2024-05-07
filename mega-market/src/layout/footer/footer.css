@@ -1,0 +1,53 @@
+.footer {
+  background-color: var(--primary-color);
+}
+
+.footer-container {
+  display: flex;
+  padding-top: 80px;
+  gap: 80px;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-title {
+  margin-top: 14px;
+  color: var(--white-color);
+  font-weight: var(--fw-bold);
+  font-size: var(--font-lg);
+}
+
+.headline-content.footer {
+  border-color: var(--white-color);
+}
+
+.headline-title.footer {
+  color: var(--white-color);
+  font-weight: var(--fw-normal);
+  font-size: var(--font-lg);
+}
+
+.popular,
+.service {
+  list-style: disc;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popular li,
+.service li {
+  margin-left: 20px;
+  color: var(--white-color);
+  font-size: var(--font-md);
+}
+
+.contact-image {
+  display: flex;
+  gap: 20px;
+}

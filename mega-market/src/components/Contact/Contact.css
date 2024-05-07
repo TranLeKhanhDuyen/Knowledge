@@ -1,0 +1,14 @@
+.contact {
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--primary-color);
+  gap: 11px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  color: var(--white-color);
+  font-size: var(--font-md);
+  line-height: 20px;
+}

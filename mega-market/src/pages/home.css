@@ -39,7 +39,25 @@
   justify-content: space-between;
 }
 
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
 .product-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.banner-list {
+  margin-top: 40px;
+}
+
+.categories-list {
   display: flex;
   justify-content: space-between;
 }

@@ -6,13 +6,20 @@ type THeadline = 'primary' | 'secondary'
 export interface IHeadline extends React.HTMLAttributes<HTMLDivElement> {
   title: string
   subTitle?: string
-  additionalClass?: THeadline
+  variant?: THeadline
+  additionalClass?: string
+  showButton?: boolean
 }
 
-const HeadLine = ({ title, subTitle, additionalClass }: IHeadline) => {
+const HeadLine = ({
+  title,
+  subTitle,
+  additionalClass,
+  showButton = true
+}: IHeadline) => {
   return (
     <div className={`headline-container ${additionalClass}`}>
-      <p className='headline-content'>
+      <p className={`headline-content ${additionalClass}`}>
         <span className={`headline headline-title ${additionalClass} `}>
           {title}
         </span>
@@ -20,12 +27,15 @@ const HeadLine = ({ title, subTitle, additionalClass }: IHeadline) => {
           {subTitle}
         </span>
       </p>
-      <IconTextButton
-        additionalClass='headline-btn'
-        iconPosition='right'
-        title='View All'
-        icon='arrow-right'
-      />
+
+      {showButton && (
+        <IconTextButton
+          additionalClass='headline-btn'
+          iconPosition='right'
+          title='View All'
+          icon='arrow-right'
+        />
+      )}
     </div>
   )
 }

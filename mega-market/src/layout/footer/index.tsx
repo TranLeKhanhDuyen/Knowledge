@@ -1,6 +1,8 @@
 import { HeadLine, IconText, Logo } from '@components'
 import { contactImages } from '@constants/images'
+import { customerServices, popularCategories } from '@constants'
 import './footer.css'
+
 const Footer = () => {
   return (
     <div className='footer'>
@@ -23,7 +25,8 @@ const Footer = () => {
               title='Call Us'
               subTitle='+ 1 202-978-2132'
               type='secondary'
-              size='md'            />
+              size='md'
+            />
           </li>
           <li className='contact-title'>Download App</li>
           <li className='contact-image'>
@@ -39,14 +42,9 @@ const Footer = () => {
             title='Most Popular Categories'
             additionalClass='footer'
           />
-          <li> Staples</li>
-          <li> Beverages</li>
-          <li> Personal Care</li>
-          <li> Home Care</li>
-          <li> Baby Care</li>
-          <li> Vegetables & Fruits</li>
-          <li> Snacks & Foods</li>
-          <li> Da iry & Bakery</li>
+          {popularCategories.map((category, index) => (
+            <li key={index}>{category}</li>
+          ))}
         </ul>
 
         <ul className='service'>
@@ -55,12 +53,9 @@ const Footer = () => {
             title='Customers Service'
             additionalClass='footer'
           />
-          <li> About Us</li>
-          <li> Terms & Condition</li>
-          <li> FAQ</li>
-          <li> Privacy Policy</li>
-          <li> E-waste Policy</li>
-          <li> Cancellation & Return Policy</li>
+          {customerServices.map((service, index) => (
+            <li key={index}>{service}</li>
+          ))}
         </ul>
       </div>
     </div>

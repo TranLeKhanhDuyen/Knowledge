@@ -13,16 +13,16 @@ const BannerSlider = ({ imageUrls }: IImageSliderProps) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const showNextImage = () => {
-    setImageIndex((index) => {
-      if (index === imageUrls.length - 1) return 0
-      return index + 1
+    setImageIndex((prevState) => {
+      if (prevState === imageUrls.length - 1) return 0
+      return prevState + 1
     })
   }
 
   const showPreviousImage = () => {
-    setImageIndex((index) => {
-      if (index === 0) return imageUrls.length - 1
-      return index - 1
+    setImageIndex((currentState) => {
+      if (currentState === 0) return imageUrls.length - 1
+      return currentState - 1
     })
   }
 

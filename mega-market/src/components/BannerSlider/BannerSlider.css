@@ -38,12 +38,11 @@
   width: 100%;
   height: 100%;
   border-radius: 16px;
-
   display: flex;
   overflow: hidden;
 }
 
-.slider-navigation {
+.banner-slider-dots{
   position: absolute;
   bottom: 20px;
   left: 0;
@@ -51,34 +50,4 @@
   justify-content: center;
   gap: 7px;
   margin-left: 90px;
-}
-
-@keyframes squish {
-  50% {
-    scale: 1.4 0.6;
-  }
-}
-
-.img-slider-dot-btn {
-  all: unset;
-  display: block;
-  cursor: pointer;
-  width: 8px;
-  height: 8px;
-  transition: background-color 100ms ease-in-out;
-}
-
-.img-slider-dot-btn:hover {
-  scale: 1.1;
-}
-
-.img-slider-dot-btn.selected {
-  width: 24px;
-  height: 24px;
-}
-
-.img-slider-dot-btn > * {
-  fill: var(--white-color);
-  height: 100%;
-  width: 100%;
 }

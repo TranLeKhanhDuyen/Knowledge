@@ -15,8 +15,8 @@ const CardBadge: React.FC<ICardBadgeProps> = ({
 }) => {
   return (
     <aside className={`card-badge-container ${additionalClass}`} {...restProps}>
-      <p className={`card-badge card-badge-percent`}>{percent}</p>
-      <p className={`card-badge card-badge-title`}>{title}</p>
+      <p className={`card-badge badge-percent`}>{percent}</p>
+      <p className={`card-badge badge-title`}>{title}</p>
     </aside>
   )
 }

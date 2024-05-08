@@ -1,6 +1,6 @@
-import { Contact, HeadLine, IconText, Logo } from '@components'
-import './footer.css'
+import { HeadLine, IconText, Logo } from '@components'
 import { contactImages } from '@constants/images'
+import './footer.css'
 const Footer = () => {
   return (
     <div className='footer'>
@@ -9,20 +9,23 @@ const Footer = () => {
           <Logo variant='white' width='217px' height='44px' />
           <li className='contact-title'>Contact Us</li>
           <li>
-            <Contact
+            <IconText
               icon='call'
-              name='Whats App'
-              phoneNumber='+ 1 202-978-2132'
+              title='Whats App'
+              subTitle='+ 1 202-978-2132'
+              type='secondary'
+              size='md'
             />
           </li>
           <li>
-            <Contact
+            <IconText
               icon='call'
-              name='Call Us'
-              phoneNumber='+ 1 202-978-2132'
-            />
+              title='Call Us'
+              subTitle='+ 1 202-978-2132'
+              type='secondary'
+              size='md'            />
           </li>
-          <li className='contact-title'>Dowload App</li>
+          <li className='contact-title'>Download App</li>
           <li className='contact-image'>
             {contactImages.map((image, index) => (
               <img key={index} src={image} alt={`App Store ${index + 1}`} />

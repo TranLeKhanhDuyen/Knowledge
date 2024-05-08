@@ -14,22 +14,22 @@ interface ICardCategoryProps {
 
 const CardCategory: React.FC<ICardCategoryProps> = ({
   imageUrl,
-  alt,
-  name,
-  discountPercent,
+  alt = 'Image of category',
+  name = 'Electronics',
+  discountPercent = '50%',
   variant = 'circle',
-  additionalClass
+  additionalClass = ''
 }) => {
   return (
     <article
       className={`card-category-container card-category-container-${variant} ${additionalClass}`}
     >
       <figure
-        className={`category-img-wrapper category-img-wrapper-${variant} ${additionalClass}`}
+        className={`category-img-wrapper category-img-wrapper-${variant}`}
       >
-        <img className='category-img' src={imageUrl} alt={`Image at ${alt}`} />
+        <img className='category-img' src={imageUrl} alt={alt} />
       </figure>
-      <aside className={`category-details ${additionalClass}`}>
+      <aside className={`category-details`}>
         <p className={`category-name category-name-${variant}`}>{name}</p>
         {discountPercent && (
           <p

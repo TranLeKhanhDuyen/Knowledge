@@ -1,8 +1,9 @@
-import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
+import { IconSvg, IconSvgProps } from '@components'
 import './IconText.css'
 
 type TIconTextSize = 'sm' | 'md' | 'lg'
 type TIconPosition = 'left' | 'right'
+type TIconTextVariant = 'primary' | 'secondary'
 
 export interface IIconTextProps
   extends React.HTMLAttributes<HTMLParagraphElement> {
@@ -12,6 +13,7 @@ export interface IIconTextProps
   subTitle?: string
   icon: IconSvgProps['name']
   additionalClass?: string
+  type?: TIconTextVariant
 }
 
 const IconText: React.FC<IIconTextProps> = ({
@@ -20,28 +22,27 @@ const IconText: React.FC<IIconTextProps> = ({
   title,
   subTitle,
   icon,
-  additionalClass,
+  additionalClass = '',
   children,
+  type = 'primary',
   ...props
 }) => {
   const containerClass = `icontext-container icontext-container-${size} ${
     iconPosition === 'right' ? 'icontext-container-right' : ''
   } ${additionalClass ?? ''}`
-  const iconClass = `img-icontext-${size}`
-  const titleClass = `icontext-title icontext-title-${size} ${
-    additionalClass ?? ''
-  }`
-  const subTitleClass = `icontext-title icontext-sub-title ${
-    additionalClass ?? ''
-  }`
+  const iconClass = `img-icontext-${size} img-icontext-${type}`
+  const titleClass = `icontext-title icontext-title-${size} icontext-title-${type}`
+  const subTitleClass = `icontext-title icontext-sub-title-${type}`
 
   return (
-    <p className={containerClass} {...props}>
+    <article className={containerClass} {...props}>
       <IconSvg name={icon} className={iconClass} />
-      {title && <span className={titleClass}>{title}</span>}
-      {subTitle && <span className={subTitleClass}>{subTitle}</span>}
-      {children}
-    </p>
+      <aside className={`icontext-content icontext-content-${type}`}>
+        <p className={titleClass}>{title}</p>
+        <p className={subTitleClass}>{subTitle}</p>
+        {children}
+      </aside>
+    </article>
   )
 }
 

@@ -11,20 +11,21 @@ export interface IButtonIconProps
   icon: IconSvgProps['name']
   alt?: string
   additionalClass?: string
+  onClick?: () => void
 }
 
 const ButtonIcon = ({
-  variants,
-  size,
+  variants = 'square',
+  size = 'sm',
   icon,
   alt = 'icon',
-  additionalClass,
+  additionalClass = '',
   onClick,
   ...props
 }: IButtonIconProps) => {
   return (
     <button
-      className={`btn btn-${variants} btn-${size} ${additionalClass || ''}`}
+      className={`btn btn-${variants} btn-${size} ${additionalClass}`}
       onClick={onClick}
       {...props}
     >

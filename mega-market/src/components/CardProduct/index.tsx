@@ -18,21 +18,17 @@ const CardProduct: React.FC<ICardProductProps> = ({
   imageUrl,
   alt,
   name,
-  salePrice = 400000,
-  regularPrice = 455322,
-  savePrice = 0,
-  discountPercent = '50%',
+  salePrice,
+  regularPrice,
+  savePrice,
+  discountPercent,
   contentBadge = 'off',
-  additionalClass
+  additionalClass = ''
 }) => {
   return (
     <article className={`card-product-container ${additionalClass}`}>
-      <section className={`product ${additionalClass}`}>
-        <img
-          className='product-square'
-          src={imageUrl}
-          alt={`Image at ${alt}`}
-        />
+      <section className={`product`}>
+        <img className='product-square' src={imageUrl} alt={alt} />
         <CardBadge
           percent={discountPercent}
           title={contentBadge}
@@ -40,7 +36,7 @@ const CardProduct: React.FC<ICardProductProps> = ({
         />
       </section>
 
-      <section className={`product-details ${additionalClass}`}>
+      <section className={`product-details `}>
         <h2 className='product-name'>{name}</h2>
         <div className='product-prices'>
           <p>

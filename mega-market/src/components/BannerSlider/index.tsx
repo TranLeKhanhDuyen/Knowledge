@@ -1,9 +1,7 @@
 import React from 'react'
-import ButtonIcon from '@components/Common/ButtonIcon'
 import { useState } from 'react'
-
+import { SliderDots, ButtonIcon } from '@components'
 import './BannerSlider.css'
-import { SliderDots } from '@components'
 
 export interface IImageSliderProps
   extends React.ImgHTMLAttributes<HTMLImageElement> {

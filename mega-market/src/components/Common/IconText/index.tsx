@@ -1,5 +1,5 @@
-import IconSvg, { IconSvgProps } from '@components/IconSvg'
-import '@components/IconText/IconText.css'
+import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
+import './IconText.css'
 
 type TIconTextSize = 'sm' | 'md' | 'lg'
 type TIconPosition = 'left' | 'right'

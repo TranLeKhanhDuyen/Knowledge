@@ -1,6 +1,6 @@
 import React from 'react'
 import { Circle, CircleDot } from 'lucide-react'
-import ButtonIcon from '@components/ButtonIcon'
+import ButtonIcon from '@components/Common/ButtonIcon'
 import { useState } from 'react'
 
 import './BannerSlider.css'

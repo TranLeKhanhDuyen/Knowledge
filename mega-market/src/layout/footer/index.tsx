@@ -1,4 +1,4 @@
-import { Contact, Headline, IconText, Logo } from '@components'
+import { Contact, HeadLine, IconText, Logo } from '@components'
 import './footer.css'
 import { contactImages } from '@constants/images'
 const Footer = () => {
@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='footer'>
       <div className='container footer-container'>
         <ul className='contact-container'>
-          <Logo variant='white' width='217px' height='44px'/>
+          <Logo variant='white' width='217px' height='44px' />
           <li className='contact-title'>Contact Us</li>
           <li>
             <Contact
@@ -31,7 +31,7 @@ const Footer = () => {
         </ul>
 
         <ul className='popular'>
-          <Headline
+          <HeadLine
             showButton={false}
             title='Most Popular Categories'
             additionalClass='footer'
@@ -47,7 +47,7 @@ const Footer = () => {
         </ul>
 
         <ul className='service'>
-          <Headline
+          <HeadLine
             showButton={false}
             title='Customers Service'
             additionalClass='footer'

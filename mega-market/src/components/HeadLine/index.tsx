@@ -1,4 +1,4 @@
-import IconTextButton from '@components/IconTextButton'
+import IconTextButton from '@components/Common/IconTextButton'
 import './HeadLine.css'
 
 type THeadline = 'primary' | 'secondary'

@@ -1,5 +1,5 @@
 import React from 'react'
-import IconSvg, { IconSvgProps } from '@components/IconSvg'
+import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
 import './Contact.css'
 
 interface IContactProps {

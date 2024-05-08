@@ -1,4 +1,4 @@
-import IconSvg, { IconSvgProps } from '@components/IconSvg'
+import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
 import './ButtonIcon.css'
 
 type TButtonIconVariant = 'square' | 'circle'

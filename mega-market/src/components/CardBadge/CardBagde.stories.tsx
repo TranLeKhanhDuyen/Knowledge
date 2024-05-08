@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CardDiscount } from '@components'
+import { CardBadge } from '@components'
 
 export default {
-  title: 'Components/CardDiscount',
-  component: CardDiscount,
+  title: 'Components/CardBadge',
+  component: CardBadge,
   tags: ['autodocs'],
   argTypes: {
     additionalClass: { description: 'Add class to the button' },
@@ -13,7 +13,7 @@ export default {
   }
 } as Meta
 
-type Story = StoryObj<typeof CardDiscount>
+type Story = StoryObj<typeof CardBadge>
 
 export const Default: Story = {
   args: {

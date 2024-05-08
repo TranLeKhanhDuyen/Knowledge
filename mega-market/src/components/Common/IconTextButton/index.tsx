@@ -27,15 +27,9 @@ const IconTextButton: React.FC<IIconTextButtonProps> = ({
   const containerClass = `icontext-btn-container icontext-btn-container-${size} ${
     iconPosition === 'right' ? 'icontext-btn-container-right' : ''
   } ${additionalClass ?? ''}`
-  const iconClass = `img-icontext-btn img-icontext-btn-${size} ${
-    additionalClass ?? ''
-  }`
-  const titleClass = `icontext-title icontext-title-${size} ${
-    additionalClass ?? ''
-  }`
-  const subTitleClass = `icontext-title icontext-sub-title ${
-    additionalClass ?? ''
-  }`
+  const iconClass = `img-icontext-btn img-icontext-btn-${size}`
+  const titleClass = `icontext-title icontext-title-${size} `
+  const subTitleClass = `icontext-title icontext-sub-title `
 
   return (
     <button className={containerClass} {...props}>

@@ -1,11 +1,15 @@
-import React from 'react';
-import './App.css';
-import ContextExample from './Context';
+import React from "react";
+import ContextExample from "./Context";
+import ErrorBoundaryExampleApp, { ErrorBoundary } from "./ErrorBoundary";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <ContextExample/>
+      <ContextExample />
+      <ErrorBoundary>
+        <ErrorBoundaryExampleApp />
+      </ErrorBoundary>
     </div>
   );
 }

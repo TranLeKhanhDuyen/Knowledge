@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Header from "./layouts/Header";
+import HomePage from "./pages/HomePage";
+import Footer from "./layouts/Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-     
-      </header>
+      <Header />
+      <HomePage />
+      <Footer />
     </div>
   );
 }

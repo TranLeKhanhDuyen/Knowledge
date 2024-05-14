@@ -1,18 +1,52 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import CardItem from "../sections/CardItem";
 import { Product } from "../models/product.model";
-import CountProduct from "../sections/CountProduct";
+import ButtonField from "../components/ButtonField";
+import TextField from "../components/TextField";
+import SpinnerLoad from "../components/SpinnerLoading";
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [displayedProducts, setDisplayedProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [searchText, setSearchText] = useState<string>("");
+  const searchRef = useRef<any>(null);
 
-  const [count, setCount] = useState(0);
-  const [isCount, setIsCount] = useState(false);
+  const handleShowMore = () => {
+    setIsLoading(true);
+    const nextPage = page + 1;
+    const newProducts = products.slice(0, nextPage * 3);
+    setDisplayedProducts(newProducts);
+    setPage(nextPage);
+    setIsLoading(false);
+  };
+
+  const handleSearchText = (value: string) => {
+    clearTimeout(searchRef.current!);
+    searchRef.current = setTimeout(() => {
+      setSearchText(value);
+    }, 1000);
+  };
+
+  const searchValue = useMemo(() => {
+    return products.filter(
+      (item) =>
+        item.productName?.toUpperCase().indexOf(searchText.toUpperCase()) !== -1
+    );
+  }, [searchText]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("http://localhost:3001/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setTimeout(() => {
+          setProducts(data);
+          setDisplayedProducts(data.slice(0, 3));
+          setIsLoading(false);
+        }, 2000);
+      });
   }, []);
 
   return (
@@ -23,20 +57,53 @@ const HomePage = () => {
         overflowY: "auto",
       }}
     >
-      <div className="wrapper-card-items">
-        {products.map((item, index) => (
-          <CardItem
-            key={index}
-            id={item.id}
-            productName={item.productName}
-            description={item.description}
+      {isLoading && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <SpinnerLoad />
+        </div>
+      )}
+
+      {!isLoading && displayedProducts.length > 0 && (
+        <div>
+          <TextField
+            placeholder="Search..."
+            width="50%"
+            onChange={handleSearchText}
           />
-        ))}
-      </div>
-      <button onClick={() => setIsCount(true)}>Open Count</button>
-      <button onClick={() => setIsCount(false)}>Close Count</button>
-      <div>{count}</div>
-      {isCount && <CountProduct count={count} setCount={setCount} />}
+          <div className="wrapper-card-items">
+            {(searchText ? searchValue : displayedProducts || []).map(
+              (item, index) => (
+                <CardItem
+                  key={index}
+                  id={item.id}
+                  productName={item.productName}
+                  description={item.description}
+                />
+              )
+            )}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              {displayedProducts.length < products.length && (
+                <ButtonField loading={isLoading} onClick={handleShowMore}>
+                  Show More
+                </ButtonField>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

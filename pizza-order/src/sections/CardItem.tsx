@@ -2,23 +2,23 @@ import LogoPizza from "../assets/pizza.png";
 import { Product } from "../models/product.model";
 
 type CardItemProps = Product & {
-  handleRemoveProduct: (id: number) => void;
+  handleRemoveProduct?: (id: number) => void;
 };
 
 const CardItem = ({
   id,
-  title,
+  productName,
   description,
   handleRemoveProduct,
 }: CardItemProps) => {
   return (
-    <article className="card-items" onClick={() => handleRemoveProduct(id!)}>
+    <article className="card-items">
       <img src={LogoPizza} alt="pizza" className="card-image-pizza" />
       <div style={{ height: "50%", width: "100%" }}></div>
       <div className="card-content">
         <div>
           <p style={{ fontSize: "20px", fontWeight: "600", color: "#fff" }}>
-            {title}
+            {productName}
           </p>
           <p
             style={{

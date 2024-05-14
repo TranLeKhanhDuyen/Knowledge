@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "Margherita",
+      "description": "Classic pizza with tomatoes"
+    },
+    {
+      "id": 2,
+      "productName": "Pepperoni",
+      "description": "Pizza topped with pepperoni slices and mozzarella."
+    },
+    {
+      "id": 3,
+      "productName": "BBQ Chicken",
+      "description": "Pizza with BBQ sauce, chicken, and onions."
+    }
+  ]
+}

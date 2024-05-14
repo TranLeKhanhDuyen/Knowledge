@@ -5,18 +5,18 @@ type ProductItemProps = Product & {
 };
 
 const ProductItem = ({
-  title,
+  productName,
   description,
   handleChangePerson,
 }: ProductItemProps) => {
   return (
     <div>
-      <p>{title}</p>
+      <p>{productName}</p>
       <p>{description}</p>
       <button
         onClick={() =>
           handleChangePerson({
-            title: "Duyen Tran",
+            productName: "Duyen Tran",
             description: "Learn React",
           })
         }

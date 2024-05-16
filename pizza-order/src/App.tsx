@@ -1,3 +1,4 @@
+import React, { Suspense } from "react";
 import HomePage from "./pages/HomePage";
 import {
   createBrowserRouter,
@@ -6,8 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-import CreateProductPage from "./pages/CreateProductPage";
-import DetailProductPage from "./pages/DetailProductPage";
+const DetailProductPage = React.lazy(() => import("./pages/DetailProductPage"));
+const CreateProductPage = React.lazy(() => import("./pages/CreateProductPage"));
 
 const appRoutes: RouteObject[] = [
   {
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense>
+      <RouterProvider router={router} />;
+    </Suspense>
+  );
 }
 
 export default App;

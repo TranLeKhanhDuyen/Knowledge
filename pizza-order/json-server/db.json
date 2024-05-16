@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "Margherita",
+      "description": "Classic pizza with tomatoes"
+    },
+    {
+      "id": 2,
+      "productName": "Pepperoni",
+      "description": "Pizza topped with pepperoni slices and mozzarella."
+    },
+    {
+      "id": 3,
+      "productName": "BBQ Chicken",
+      "description": "Pizza with BBQ sauce, chicken, and onions."
+    },
+    {
+      "id": 4,
+      "productName": "Hawaiian",
+      "description": "Pizza with ham and pineapple."
+    },
+    {
+      "id": 5,
+      "productName": "Veggie",
+      "description": "Pizza with bell peppers, olives, and onions."
+    },
+    {
+      "id": 6,
+      "productName": "Meat Lovers",
+      "description": "Pizza with pepperoni, sausage, and bacon."
+    },
+    {
+      "id": 7,
+      "productName": "Supreme",
+      "description": "Pizza with a variety of toppings including pepperoni, sausage, bell peppers, onions, and olives."
+    },
+    {
+      "id": 8,
+      "productName": "Cheese",
+      "description": "Classic cheese pizza with mozzarella."
+    },
+    {
+      "id": 9,
+      "productName": "Buffalo Chicken",
+      "description": "Pizza with buffalo sauce, chicken, and ranch dressing."
+    },
+    {
+      "id": 10,
+      "productName": "Mushroom",
+      "description": "Pizza with mushrooms and mozzarella cheese."
+    }
+  ]
+}

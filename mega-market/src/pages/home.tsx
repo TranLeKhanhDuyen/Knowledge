@@ -37,6 +37,7 @@ const HomePage = () => {
                 title={item.title}
                 subTitle={item.subTitle}
                 additionalClass={item.additionalClass}
+                type='primary'
               />
             ))}
           </article>

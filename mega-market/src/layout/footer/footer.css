@@ -5,6 +5,7 @@
 .footer-container {
   display: flex;
   padding-top: 80px;
+  padding-bottom: 83px;
   gap: 80px;
 }
 

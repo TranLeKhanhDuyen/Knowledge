@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 // Components
-import { Headline } from '@components'
+import { HeadLine } from '@components'
 
 export default {
   title: 'Components/HeadLine',
-  component: Headline,
+  component: HeadLine,
   tags: ['autodocs'],
   argTypes: {
     title: { description: 'The title of headline' },
@@ -13,7 +13,7 @@ export default {
   }
 } as Meta
 
-type Story = StoryObj<typeof Headline>
+type Story = StoryObj<typeof HeadLine>
 
 export const Primary: Story = {
   args: {

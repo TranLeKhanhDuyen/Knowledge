@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-
+import React, { useState } from 'react'
 import { IconTextButton, IIconTextButtonProps } from '@components'
 import './Select.css'
 
@@ -18,10 +17,6 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(
     options[0] || null
   )
-
-  useEffect(() => {
-    setSelectedOption(options[0] || null)
-  }, [options])
 
   const handleSelectOption = (option: Option) => {
     setSelectedOption(option)

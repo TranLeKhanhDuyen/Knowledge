@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardDiscount } from '@components'
+import { CardBadge } from '@components'
 import './CardProduct.css'
 
 interface ICardProductProps {
@@ -10,7 +10,7 @@ interface ICardProductProps {
   regularPrice: number
   savePrice: number
   discountPercent: string
-  contentDiscount?: string
+  contentBadge?: string
   additionalClass?: string
 }
 
@@ -18,37 +18,35 @@ const CardProduct: React.FC<ICardProductProps> = ({
   imageUrl,
   alt,
   name,
-  salePrice = 400000,
-  regularPrice = 455322,
-  savePrice = 0,
-  discountPercent = '50%',
-  contentDiscount = 'off',
-  additionalClass
+  salePrice,
+  regularPrice,
+  savePrice,
+  discountPercent,
+  contentBadge = 'off',
+  additionalClass = ''
 }) => {
   return (
-    <div className={`card-product-container ${additionalClass}`}>
-      <div className={`product ${additionalClass}`}>
-        <img
-          className='product-square'
-          src={imageUrl}
-          alt={`Image at ${alt}`}
-        />
-        <CardDiscount
+    <article className={`card-product-container ${additionalClass}`}>
+      <section className={`product`}>
+        <img className='product-square' src={imageUrl} alt={alt} />
+        <CardBadge
           percent={discountPercent}
-          title={contentDiscount}
-          additionalClass='product-discount'
+          title={contentBadge}
+          additionalClass='product-badge'
         />
-      </div>
+      </section>
 
-      <div className={`product-details ${additionalClass}`}>
-        <div className='product-name'>{name}</div>
+      <section className={`product-details `}>
+        <h2 className='product-name'>{name}</h2>
         <div className='product-prices'>
-          <span className='product-regular-price'>₹{regularPrice}</span>
-          <span className='product-sale-price'>₹{salePrice}</span>
+          <p>
+            <span className='product-regular-price'>₹{regularPrice}</span>
+            <span className='product-sale-price'>₹{salePrice}</span>
+          </p>
           <p className='product-save-price'>Save - ₹{savePrice}</p>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   )
 }
 

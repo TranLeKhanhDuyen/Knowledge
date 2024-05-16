@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import {SliderDots} from '@components'
 import './ImageSlider.css'
 
 interface SliderProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -44,22 +45,12 @@ const ImageSlider: React.FC<SliderProps> = ({
         ))}
       </Slider>
 
-      {/* Custom dots */}
-      <ul className='slider-dots'>
-        {images.map((_, index) => (
-          <li
-            key={index}
-            className='slider-dot'
-            onClick={() => handleDotClick(index)}
-          >
-            <button
-              className={`slider-dot-button ${
-                currentSlide === index ? 'active' : 'inactive'
-              }`}
-            />
-          </li>
-        ))}
-      </ul>
+      <SliderDots
+        images={images}
+        currentSlide={currentSlide}
+        handleDotClick={handleDotClick}
+        additionalClass='images-slider-dots'
+      />
     </div>
   )
 }

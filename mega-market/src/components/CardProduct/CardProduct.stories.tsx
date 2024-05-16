@@ -16,7 +16,7 @@ export default {
     salePrice: { description: 'sale price content of product' },
     savePrice: { description: 'save price content of product' },
     discountPercent: { description: 'discount percent content of product' },
-    contentDiscount: { description: 'content percent content of product' }
+    contentBadge: { description: 'content percent content of product' }
   }
 } as Meta
 

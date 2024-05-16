@@ -1,4 +1,4 @@
-.card-discount-container {
+.card-badge-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
   border-radius: 0px 16px 0px 16px;
 }
 
-.card-discount {
+.card-badge {
   font-size: var(--font-md);
   font-weight: var(--fw-bold);
   color: var(--white-color);

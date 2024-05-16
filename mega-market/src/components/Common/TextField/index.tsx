@@ -1,7 +1,7 @@
 import { FormEvent } from 'react'
 
-import IconSvg, { IconSvgProps } from '@components/IconSvg'
-import '@components/TextField/TextField.css'
+import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
+import './TextField.css'
 
 export interface ITextFieldProps {
   isShowLabel?: boolean

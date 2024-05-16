@@ -8,3 +8,4 @@ export {
 export { selectOptions } from './selectOptions'
 export { phoneProduct, cardCategoryCirlce, cardCategorySquare } from './products'
 export { iconTexts } from './icons-text'
+export {popularCategories, customerServices} from './footer'

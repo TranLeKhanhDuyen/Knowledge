@@ -1,31 +1,33 @@
 import React from 'react'
-import { Circle, CircleDot } from 'lucide-react'
-import ButtonIcon from '@components/ButtonIcon'
 import { useState } from 'react'
-
+import { SliderDots, ButtonIcon } from '@components'
 import './BannerSlider.css'
 
 export interface IImageSliderProps
   extends React.ImgHTMLAttributes<HTMLImageElement> {
   imageUrls: string[]
-  additonalClass?: string
+  additionalClass?: string
 }
 
 const BannerSlider = ({ imageUrls }: IImageSliderProps) => {
   const [imageIndex, setImageIndex] = useState(0)
 
   const showNextImage = () => {
-    setImageIndex((index) => {
-      if (index === imageUrls.length - 1) return 0
-      return index + 1
+    setImageIndex((prevState) => {
+      if (prevState === imageUrls.length - 1) return 0
+      return prevState + 1
     })
   }
 
   const showPreviousImage = () => {
-    setImageIndex((index) => {
-      if (index === 0) return imageUrls.length - 1
-      return index - 1
+    setImageIndex((currentState) => {
+      if (currentState === 0) return imageUrls.length - 1
+      return currentState - 1
     })
+  }
+
+  const handleDotClick = (index: number) => {
+    setImageIndex(index)
   }
 
   return (
@@ -53,17 +55,12 @@ const BannerSlider = ({ imageUrls }: IImageSliderProps) => {
         onClick={showNextImage}
       />
 
-      <div className='slider-navigation'>
-        {imageUrls.map((_, index) => (
-          <button
-            key={index}
-            className='img-slider-dot-btn'
-            onClick={() => setImageIndex(index)}
-          >
-            {index === imageIndex ? <CircleDot /> : <Circle />}
-          </button>
-        ))}
-      </div>
+      <SliderDots
+        images={imageUrls}
+        currentSlide={imageIndex}
+        handleDotClick={handleDotClick}
+        additionalClass='banner-slider-dots'
+      />
     </div>
   )
 }

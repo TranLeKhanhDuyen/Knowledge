@@ -1,14 +1,15 @@
-import { icons } from '@constants/icons'
+import Icons from '@components/Icons/Icons'
 
 export interface IconSvgProps extends React.SVGProps<SVGSVGElement> {
-  name: keyof typeof icons
+  name: keyof typeof Icons
   className?: string
 }
 
 const IconSvg: React.FC<IconSvgProps> = ({ name, className = '' }) => {
+  const IconComponent = Icons[name]
   return (
     <span className={`icon icon-${name} ${className || ''}`}>
-      {icons[name]}
+      {IconComponent}
     </span>
   )
 }

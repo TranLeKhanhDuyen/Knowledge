@@ -11,4 +11,3 @@ export { SearchIcon } from './SearchIcon'
 export { TruckIcon } from './TruckIcon'
 export { ArrowDownWhiteIcon } from './ArrowDownWhiteIcon'
 export { ArrowLeftIcon } from './ArrowLeftIcon'
-

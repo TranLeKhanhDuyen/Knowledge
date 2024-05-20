@@ -1,4 +1,3 @@
-export { icons } from './icons'
 export {
   bannerImages,
   productImages,

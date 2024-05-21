@@ -23,4 +23,19 @@ describe('CardBadge component', () => {
 
     expect(container.firstChild).toHaveClass(additionalClass)
   })
+
+  test('matches snapshot', () => {
+    const title = 'Free Shipping'
+    const percent = '80%'
+    const additionalClass = 'special-class'
+    const { asFragment } = render(
+      <CardBadge
+        title={title}
+        percent={percent}
+        additionalClass={additionalClass}
+      />
+    )
+
+    expect(asFragment()).toMatchSnapshot()
+  })
 })

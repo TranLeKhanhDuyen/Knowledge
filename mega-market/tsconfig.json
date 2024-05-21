@@ -2,10 +2,12 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
     "module": "ESNext",
     "skipLibCheck": true,
     "types": ["vite/client", "node"],
+    "forceConsistentCasingInFileNames": true,
 
     /* Bundler mode */
     "moduleResolution": "node",
@@ -15,7 +17,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "types": ["node", "jest", "@testing-library/jest-dom"],
     "baseUrl": "./src",
     "paths": {
       "@*": ["*"]
@@ -29,6 +31,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "jest.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

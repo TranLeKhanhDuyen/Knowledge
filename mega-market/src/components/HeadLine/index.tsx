@@ -33,7 +33,7 @@ const HeadLine = ({
           additionalClass='headline-btn'
           iconPosition='right'
           title='View All'
-          icon='arrow-right'
+          icon='arrowRight'
         />
       )}
     </div>

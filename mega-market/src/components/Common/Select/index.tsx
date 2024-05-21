@@ -30,7 +30,7 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
 
   const selectButtonProps: IIconTextButtonProps = {
     size: 'sm',
-    icon: 'arrow-down-white',
+    icon: 'arrowDownWhite',
     title: selectedOption ? selectedOption.label : 'Choose option',
     additionalClass: 'select',
     onClick: handleToggleSelect

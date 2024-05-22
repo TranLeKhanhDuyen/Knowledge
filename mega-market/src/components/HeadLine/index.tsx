@@ -1,7 +1,8 @@
+import React from 'react'
 import IconTextButton from '@components/Common/IconTextButton'
 import './HeadLine.css'
 
-type THeadline = 'primary' | 'secondary'
+export type THeadline = 'primary' | 'secondary'
 
 export interface IHeadline extends React.HTMLAttributes<HTMLDivElement> {
   title: string
@@ -20,12 +21,14 @@ const HeadLine = ({
   return (
     <div className={`headline-container ${additionalClass}`}>
       <p className={`headline-content ${additionalClass}`}>
-        <span className={`headline headline-title ${additionalClass} `}>
+        <span className={`headline headline-title ${additionalClass}`}>
           {title}
         </span>
-        <span className={`headline headline-sub-title ${additionalClass}`}>
-          {subTitle}
-        </span>
+        {subTitle && (
+          <span className={`headline headline-sub-title ${additionalClass}`}>
+            {subTitle}
+          </span>
+        )}
       </p>
 
       {showButton && (
@@ -33,7 +36,7 @@ const HeadLine = ({
           additionalClass='headline-btn'
           iconPosition='right'
           title='View All'
-          icon='arrow-right'
+          icon='arrowRight'
         />
       )}
     </div>

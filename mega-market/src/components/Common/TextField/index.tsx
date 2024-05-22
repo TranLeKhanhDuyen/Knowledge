@@ -1,5 +1,4 @@
 import { FormEvent } from 'react'
-
 import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
 import './TextField.css'
 
@@ -33,13 +32,15 @@ const TextField = ({
 
   return (
     <>
-      <label className={`label-input ${!isShowLabel && 'hide'}`}>{label}</label>
+      {isShowLabel ? <label className={`label-input`}>{label}</label> : null}
 
       <div className='input-container'>
         {iconLeft && <IconSvg name={iconLeft} />}
         <input
           type='text'
-          className={`text-field ${additionalClass}`}
+          className={`text-field ${additionalClass} ${
+            !isShowLabel ? 'hide' : ''
+          }`}
           value={value}
           placeholder={placeholder}
           onChange={handleChangeInput}

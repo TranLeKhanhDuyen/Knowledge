@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IconTextButton, IIconTextButtonProps } from '@components'
+import IconTextButton, {IIconTextButtonProps } from '@components/Common/IconTextButton'
 import './Select.css'
 
 interface Option {
@@ -7,7 +7,7 @@ interface Option {
   label: string
 }
 
-interface SelectProps {
+export interface SelectProps {
   options: Option[]
   onSelect: (value: string) => void
 }
@@ -30,7 +30,7 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
 
   const selectButtonProps: IIconTextButtonProps = {
     size: 'sm',
-    icon: 'arrow-down-white',
+    icon: 'arrowDownWhite',
     title: selectedOption ? selectedOption.label : 'Choose option',
     additionalClass: 'select',
     onClick: handleToggleSelect

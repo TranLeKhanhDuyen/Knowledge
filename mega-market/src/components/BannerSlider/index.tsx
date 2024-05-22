@@ -44,13 +44,13 @@ const BannerSlider = ({ imageUrls }: IImageSliderProps) => {
       </div>
       <ButtonIcon
         variants='circle'
-        icon='arrow-left'
+        icon='arrowLeft'
         additionalClass='btn-slider btn-slider-left'
         onClick={showPreviousImage}
       />
       <ButtonIcon
         variants='circle'
-        icon='arrow-right'
+        icon='arrowRight'
         additionalClass='btn-slider btn-slider-right'
         onClick={showNextImage}
       />

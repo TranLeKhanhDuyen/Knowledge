@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconTextButton matches snapshot for custom class and no subtitle 1`] = `
+<DocumentFragment>
+  <button
+    class="icontext-btn-container icontext-btn-container-sm  custom-class"
+  >
+    <svg
+      class="img-icontext-btn img-icontext-btn-sm"
+      data-testid="icon-search"
+    />
+    <span
+      class="icontext-title icontext-title-sm "
+    >
+      Default Title
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`IconTextButton matches snapshot for default props 1`] = `
+<DocumentFragment>
+  <button
+    class="icontext-btn-container icontext-btn-container-sm  "
+  >
+    <svg
+      class="img-icontext-btn img-icontext-btn-sm"
+      data-testid="icon-search"
+    />
+    <span
+      class="icontext-title icontext-title-sm "
+    >
+      Default Title
+    </span>
+    <span
+      class="icontext-title icontext-sub-title "
+    >
+      Default SubTitle
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`IconTextButton matches snapshot for size=lg and iconPosition=right 1`] = `
+<DocumentFragment>
+  <button
+    class="icontext-btn-container icontext-btn-container-lg icontext-btn-container-right "
+  >
+    <svg
+      class="img-icontext-btn img-icontext-btn-lg"
+      data-testid="icon-search"
+    />
+    <span
+      class="icontext-title icontext-title-lg "
+    >
+      Default Title
+    </span>
+    <span
+      class="icontext-title icontext-sub-title "
+    >
+      Default SubTitle
+    </span>
+  </button>
+</DocumentFragment>
+`;

@@ -1,4 +1,4 @@
-import { IconSvg, IconSvgProps } from '@components'
+import IconSvg, {IconSvgProps } from '@components/Common/IconSvg'
 import './IconText.css'
 
 type TIconTextSize = 'sm' | 'md' | 'lg'

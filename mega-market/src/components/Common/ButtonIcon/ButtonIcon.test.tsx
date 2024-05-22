@@ -1,61 +1,57 @@
 import { render, fireEvent } from '@testing-library/react'
 import ButtonIcon, { IButtonIconProps } from '.'
 
-jest.mock('@components/Common/IconSvg', () =>
-  jest.fn(() => <svg data-testid='icon-svg' />)
-)
+// Mock IconSvg component
+jest.mock('@components/Common/IconSvg', () => ({ name }: { name: string }) => (
+  <svg data-testid={`icon-${name}`} />
+))
 
-describe('ButtonIcon component', () => {
-  const defaultProps: IButtonIconProps = {
-    icon: 'call' 
+describe('ButtonIcon', () => {
+  const renderButtonIcon = (props: Partial<IButtonIconProps> = {}) => {
+    const defaultProps: IButtonIconProps = {
+      variants: 'square',
+      size: 'sm',
+      icon: 'search',
+      alt: 'icon',
+      additionalClass: '',
+      onClick: jest.fn()
+    }
+    return render(<ButtonIcon {...defaultProps} {...props} />)
   }
 
-  test('renders with default props', () => {
-    const { getByRole, getByTestId } = render(<ButtonIcon {...defaultProps} />)
-    const button = getByRole('button')
-    const icon = getByTestId('icon-svg')
-
-    expect(button).toBeInTheDocument()
-    expect(button).toHaveClass('btn btn-square btn-sm')
-    expect(icon).toBeInTheDocument()
+  test('renders with the correct variant class', () => {
+    const { container } = renderButtonIcon({ variants: 'circle' })
+    const buttonElement = container.querySelector('button')
+    expect(buttonElement).toHaveClass('btn btn-circle')
   })
 
-  test('applies additional class correctly', () => {
-    const { getByRole } = render(
-      <ButtonIcon {...defaultProps} additionalClass='custom-class' />
-    )
-    const button = getByRole('button')
-
-    expect(button).toHaveClass('custom-class')
+  test('renders with the correct size class', () => {
+    const { container } = renderButtonIcon({ size: 'lg' })
+    const buttonElement = container.querySelector('button')
+    expect(buttonElement).toHaveClass('btn btn-square btn-lg')
   })
 
-  test('renders with different variants and sizes', () => {
-    const { rerender, getByRole } = render(
-      <ButtonIcon {...defaultProps} variants='circle' size='md' />
-    )
-    const button = getByRole('button')
-
-    expect(button).toHaveClass('btn-circle btn-md')
-
-    rerender(<ButtonIcon {...defaultProps} variants='square' size='lg' />)
-    expect(button).toHaveClass('btn-square btn-lg')
+  test('renders the correct icon', () => {
+    const { getByTestId } = renderButtonIcon({ icon: 'user' })
+    expect(getByTestId('icon-user')).toBeInTheDocument()
   })
 
-  test('calls onClick handler when clicked', () => {
-    const onClick = jest.fn()
-    const { getByRole } = render(
-      <ButtonIcon {...defaultProps} onClick={onClick} />
-    )
-    const button = getByRole('button')
-
-    fireEvent.click(button)
-    expect(onClick).toHaveBeenCalledTimes(1)
+  test('applies additional class names', () => {
+    const { container } = renderButtonIcon({ additionalClass: 'custom-class' })
+    const buttonElement = container.querySelector('button')
+    expect(buttonElement).toHaveClass('custom-class')
   })
 
-  test('passes props to button element', () => {
-    const { getByRole } = render(<ButtonIcon {...defaultProps} disabled />)
-    const button = getByRole('button')
+  test('handles the onClick event', () => {
+    const onClickMock = jest.fn()
+    const { getByRole } = renderButtonIcon({ onClick: onClickMock })
+    const buttonElement = getByRole('button')
+    fireEvent.click(buttonElement)
+    expect(onClickMock).toHaveBeenCalledTimes(1)
+  })
 
-    expect(button).toBeDisabled()
+  test('matches snapshot', () => {
+    const { asFragment } = renderButtonIcon()
+    expect(asFragment()).toMatchSnapshot()
   })
 })

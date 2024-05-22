@@ -1,8 +1,8 @@
-import { FormEvent } from 'react'
+import { ChangeEvent } from 'react'
 import IconSvg, { IconSvgProps } from '@components/Common/IconSvg'
 import './TextField.css'
 
-export interface ITextFieldProps {
+export interface ITextFieldProps extends React.HTMLProps<HTMLInputElement> {
   isShowLabel?: boolean
   label?: string
   additionalClass?: string
@@ -10,8 +10,9 @@ export interface ITextFieldProps {
   placeholder?: string
   iconLeft?: IconSvgProps['name']
   iconRight?: IconSvgProps['name']
-  onChange?: (value: string) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
   validate?: (value: string) => string | undefined
+  error?: string
 }
 
 const TextField = ({
@@ -23,21 +24,21 @@ const TextField = ({
   value,
   placeholder,
   onChange,
-  validate
+  validate,
+  error
 }: ITextFieldProps) => {
-  const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
-    onChange?.(event.currentTarget.value)
+  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(event)
   }
-  const error = validate ? validate(value || '') : undefined
+  const validationError = validate ? validate(value || '') : undefined
 
   return (
     <>
-      {isShowLabel ? <label className={`label-input`}>{label}</label> : null}
+      {isShowLabel ? <label className='label-input'>{label}</label> : null}
 
       <div className='input-container'>
         {iconLeft && <IconSvg name={iconLeft} />}
         <input
-          type='text'
           className={`text-field ${additionalClass} ${
             !isShowLabel ? 'hide' : ''
           }`}
@@ -46,7 +47,9 @@ const TextField = ({
           onChange={handleChangeInput}
         />
         {iconRight && <IconSvg name={iconRight} />}
-        {error && <p className='error-message'>{error}</p>}
+        {(error || validationError) && (
+          <p className='error-message'>{error || validationError}</p>
+        )}
       </div>
     </>
   )

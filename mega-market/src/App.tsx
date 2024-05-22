@@ -1,10 +1,16 @@
 import HomePage from '@pages/home'
 import './styles/main.css'
+import Register from '@pages/Authen/Register'
+
+// const appRoutes = [
+
+// ]
 
 function App() {
   return (
     <div className='app'>
-      <HomePage />
+      {/* <HomePage /> */}
+      <Register/>
     </div>
   )
 }

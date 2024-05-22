@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IconTextButton, IIconTextButtonProps } from '@components'
+import IconTextButton, {IIconTextButtonProps } from '@components/Common/IconTextButton'
 import './Select.css'
 
 interface Option {
@@ -7,7 +7,7 @@ interface Option {
   label: string
 }
 
-interface SelectProps {
+export interface SelectProps {
   options: Option[]
   onSelect: (value: string) => void
 }

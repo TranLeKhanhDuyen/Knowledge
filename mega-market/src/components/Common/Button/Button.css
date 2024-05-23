@@ -1,0 +1,23 @@
+.btn {
+  cursor: pointer;
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-weight: var(--fw-bold);
+  border-radius: 6px;
+  border: none;
+  padding: 10px 20px;
+  font-size: var(--font-md);
+}
+
+.btn.secondary{
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  font-weight: var(--fw-bold);
+  border-radius: 6px;
+  border: 1px solid var(--primary-color);
+  padding: 10px 20px;
+  font-size: var(--font-md);
+}

@@ -9,18 +9,26 @@ export interface FormProviderProps<T extends FieldValues> {
   children: ReactNode
   onSubmit: FormEventHandler<HTMLFormElement>
   methods: UseFormReturn<T>
+  additionalClass?: string
 }
 
-export const FormProvider = <T extends FieldValues>({
+const FormProvider = <T extends FieldValues>({
   children,
   onSubmit,
-  methods
+  methods,
+  additionalClass
 }: FormProviderProps<T>) => {
   return (
     <RHFormProvider {...methods}>
-      <form onSubmit={onSubmit} encType='multipart/form-data'>
+      <form
+        onSubmit={onSubmit}
+        className={additionalClass}
+        encType='multipart/form-data'
+      >
         {children}
       </form>
     </RHFormProvider>
   )
 }
+
+export default FormProvider

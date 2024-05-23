@@ -5,7 +5,7 @@ interface RHFTextFieldProps extends ITextFieldProps {
   name: string
 }
 
-export const RHFTextField = ({ name, ...other }: RHFTextFieldProps) => {
+const RHFTextField = ({ name, ...other }: RHFTextFieldProps) => {
   const { control } = useFormContext()
 
   return (
@@ -18,3 +18,5 @@ export const RHFTextField = ({ name, ...other }: RHFTextFieldProps) => {
     />
   )
 }
+
+export default RHFTextField

@@ -36,12 +36,10 @@ const TextField = ({
     <>
       {isShowLabel ? <label className='label-input'>{label}</label> : null}
 
-      <div className='input-container'>
+      <div className={`input-container ${additionalClass}`}>
         {iconLeft && <IconSvg name={iconLeft} />}
         <input
-          className={`text-field ${additionalClass} ${
-            !isShowLabel ? 'hide' : ''
-          }`}
+          className={`text-field ${!isShowLabel ? 'hide' : ''}`}
           value={value}
           placeholder={placeholder}
           onChange={handleChangeInput}

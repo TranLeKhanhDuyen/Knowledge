@@ -3,12 +3,11 @@
 exports[`TextField matches snapshot 1`] = `
 <div>
   <div
-    class="input-container"
+    class="input-container undefined"
   >
     <input
-      class="text-field undefined hide"
+      class="text-field hide"
       placeholder="Enter username"
-      type="text"
       value=""
     />
     <p

@@ -1,17 +1,13 @@
-import HomePage from '@pages/home'
-import './styles/main.css'
-import Register from '@pages/Authen/Register'
-
-// const appRoutes = [
-
-// ]
-
+import Router from '@Router/router'
+import { UserProvider } from '@services/models/userState'
+import { BrowserRouter } from 'react-router-dom'
 function App() {
   return (
-    <div className='app'>
-      {/* <HomePage /> */}
-      <Register/>
-    </div>
+    <BrowserRouter>
+      <UserProvider>
+        <Router />
+      </UserProvider>
+    </BrowserRouter>
   )
 }
 

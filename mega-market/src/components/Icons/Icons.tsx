@@ -6,6 +6,8 @@ import {
   CallIcon,
   CallOutLinedIcon,
   DiscountIcon,
+  EyeIcon,
+  EyeSlashIcon,
   ListIcon,
   LocationIcon,
   MenuIcon,
@@ -27,7 +29,9 @@ const Icons = {
   search: <SearchIcon />,
   user: <UserIcon />,
   arrowLeft: <ArrowLeftIcon />,
-  arrowRight: <ArrowRightIcon />
+  arrowRight: <ArrowRightIcon />,
+  eye: <EyeIcon/>,
+  eyeSlash: <EyeSlashIcon/>
 }
 
 export default Icons

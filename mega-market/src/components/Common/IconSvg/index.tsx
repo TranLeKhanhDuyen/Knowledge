@@ -1,4 +1,5 @@
 import Icons from '@components/Icons/Icons'
+import './IconSvg.css'
 
 export interface IconSvgProps extends React.SVGProps<SVGSVGElement> {
   name: keyof typeof Icons

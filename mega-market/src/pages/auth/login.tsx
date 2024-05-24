@@ -54,7 +54,7 @@ const LoginForm = () => {
             required: ValidationMessages.Required,
             pattern: {
               value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-              message: 'Invalid email address'
+              message: ValidationMessages.EmailPattern
             }
           }}
         />

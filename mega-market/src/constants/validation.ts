@@ -5,5 +5,6 @@ export enum ValidationMessages {
   ConfirmPasswordMatch = 'Passwords do not match',
   EmailExists = 'Email already exists',
   LoginFailed = 'Wrong email or password',
-  RegisterFailed = 'Register is failed'
+  RegisterFailed = 'Register is failed',
+  LogoutQuestion = 'Are you sure you want to log out?',
 }

@@ -22,6 +22,29 @@
   gap: 10px;
 }
 
+.error-placeholder {
+  min-height: 20px;
+  color: var(--red-color);
+}
+
+.navigate-authen {
+  text-align: center;
+  font-size: var(--font-md);
+  color: var(--back-color);
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.navigate-authen-link {
+  font-weight: var(--fw-bold);
+  color: var(--back-color);
+}
+
+.navigate-authen-link:hover {
+  color: var(--primary-color);
+}
+
+/* REGISTER */
 .register-background {
   background-image: url('../../assets/images/background/register-background.svg');
   min-width: 511px;
@@ -43,8 +66,4 @@
   font-weight: var(--fw-bold);
   font-size: var(--font-md);
   color: var(--white-color);
-}
-
-.error-placeholder {
-  min-height: 20px;
 }

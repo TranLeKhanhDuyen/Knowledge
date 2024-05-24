@@ -2,8 +2,15 @@ import './Header.css'
 
 import { ButtonIcon, IconTextButton, Logo } from '@components'
 import SearchBar from '@components/SearchBar'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+  const navigate = useNavigate()
+
+  const handleSignInClick = () => {
+    navigate('/auth/login')
+  }
+  
   return (
     <header className='container header'>
       <div className='header-left'>
@@ -18,6 +25,7 @@ const Header = () => {
           subTitle='Sign Up/Sign In'
           icon='user'
           additionalClass='header-user-icon'
+          onClick={handleSignInClick}
         />
         <IconTextButton
           size='md'

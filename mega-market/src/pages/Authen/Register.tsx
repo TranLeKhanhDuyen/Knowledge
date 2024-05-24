@@ -1,16 +1,19 @@
-import { useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { RegisterRequest, useUser } from '@services'
 import { Button, RHFTextField, FormProvider } from '@components'
 import './authen.css'
+import { ValidationMessages } from '@constants/validation'
 
 const RegisterForm = () => {
   const methods = useForm<RegisterRequest>()
   const { handleSubmit } = methods
   const [error, setError] = useState<string | null>(null)
   const { setUser } = useUser()
+  const navigate = useNavigate()
 
-  const onSubmit = (data: RegisterRequest) => {
+  const onSubmit: SubmitHandler<RegisterRequest> = (data) => {
     try {
       const existingUsers = JSON.parse(localStorage.getItem('users') || '[]')
       const userExists = existingUsers.some(
@@ -30,12 +33,13 @@ const RegisterForm = () => {
       const updatedUsers = [...existingUsers, newUser]
       localStorage.setItem('users', JSON.stringify(updatedUsers))
       setUser(newUser)
-      alert('Login is successful')
+      alert('Register is successful')
+      navigate('/auth/login')
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
       } else {
-        setError('Login is failed')
+        setError(ValidationMessages.RegisterFailed)
       }
     }
   }
@@ -58,12 +62,20 @@ const RegisterForm = () => {
           name='userName'
           label='UserName'
           isShowLabel
+          rules={{ required: ValidationMessages.Required }}
         />
         <RHFTextField
           additionalClass='form'
           name='email'
           label='Email'
           isShowLabel
+          rules={{
+            required: ValidationMessages.Required,
+            pattern: {
+              value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+              message: ValidationMessages.EmailPattern
+            }
+          }}
         />
         <RHFTextField
           additionalClass='form'
@@ -72,8 +84,13 @@ const RegisterForm = () => {
           type='password'
           isShowLabel
           iconRight='eye'
-          width='10px'
-          height='10px'
+          rules={{
+            required: ValidationMessages.Required,
+            minLength: {
+              value: 6,
+              message: ValidationMessages.PasswordMinLength
+            }
+          }}
         />
         <RHFTextField
           additionalClass='form'
@@ -82,12 +99,20 @@ const RegisterForm = () => {
           type='password'
           isShowLabel
           iconRight='eye'
+          rules={{
+            required: ValidationMessages.Required,
+            validate: (value: string) =>
+              value === methods.getValues('password') ||
+              ValidationMessages.ConfirmPasswordMatch
+          }}
         />
-        <div className='error-placeholder'>
-          {' '}
-          {error && <p className='error-message'>{error}</p>}
-        </div>
         <Button additionalClass='btn-register' type='submit' label='Register' />
+        <p className='navigate-authen'>
+          Yes i have an account?{' '}
+          <Link className='navigate-authen-link' to='/auth/login'>
+            Login
+          </Link>
+        </p>
       </FormProvider>
     </div>
   )

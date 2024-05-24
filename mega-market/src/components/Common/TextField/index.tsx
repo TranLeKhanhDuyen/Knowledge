@@ -25,7 +25,8 @@ const TextField = ({
   placeholder,
   onChange,
   validate,
-  error
+  error,
+  ...props
 }: ITextFieldProps) => {
   const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event)
@@ -34,7 +35,9 @@ const TextField = ({
 
   return (
     <>
-      {isShowLabel ? <label className='label-input'>{label}</label> : null}
+      {isShowLabel && (
+        <label className={`label-input ${additionalClass}`}>{label}</label>
+      )}
 
       <div className={`input-container ${additionalClass}`}>
         {iconLeft && <IconSvg name={iconLeft} />}
@@ -43,10 +46,13 @@ const TextField = ({
           value={value}
           placeholder={placeholder}
           onChange={handleChangeInput}
+          {...props}
         />
         {iconRight && <IconSvg name={iconRight} />}
+      </div>
+      <div className='error-placeholder'>
         {(error || validationError) && (
-          <p className='error-message'>{error || validationError}</p>
+          <p className='error-message-filed'>{error || validationError}</p>
         )}
       </div>
     </>

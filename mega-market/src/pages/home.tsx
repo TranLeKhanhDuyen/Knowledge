@@ -12,18 +12,42 @@ import {
 import {
   bannerImages,
   brandImages,
-  phoneProduct,
   selectOptions,
   iconTexts,
-  cardCategoryCirlce,
   cardCategorySquare
 } from '@constants'
-
 import { Footer, Header } from '@layout'
+import { Category } from '@services/models/category'
+import { useEffect, useState } from 'react'
+import { getCategories } from '@services/api/categories'
+import { Product } from '@services/models/product'
 
 import './home.css'
 
 const HomePage = () => {
+  // call api category
+  const [categories, setCategories] = useState<Category[]>([])
+  useEffect(() => {
+    getCategories().then(async (data) => {
+      setCategories(data)
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      if (data != null) {
+        const firstCategory = data[0]
+        setCategoryName(firstCategory.name || '')
+        setCategoryProducts(firstCategory.products || [])
+      }
+    })
+  }, [])
+
+  const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
+  const [categoryName, setCategoryName] = useState<string>('')
+
+  const handleClickCategory = (id: number) => {
+    const category = categories.find((data) => data.id === id)
+    setCategoryName(category?.name || '')
+    setCategoryProducts(category?.products || [])
+  }
+
   return (
     <>
       <div className='topbar'>
@@ -61,23 +85,26 @@ const HomePage = () => {
       <BannerSlider imageUrls={bannerImages} />
 
       <div className='container products'>
-        <div className=''>
+        <div>
           <HeadLine
             title='Grab the best deal on '
-            subTitle='Smartphones'
+            subTitle={categoryName}
             additionalClass='primary'
           />
           <ul className='product-list'>
-            {phoneProduct.map((product, index) => (
+            {categoryProducts.map((product, index) => (
               <li key={index}>
                 <CardProduct
-                  imageUrl={product.imageUrl}
-                  alt={product.alt}
-                  name={product.name}
-                  salePrice={product.salePrice}
-                  regularPrice={product.regularPrice}
-                  savePrice={product.savePrice}
-                  discountPercent={product.discountPercent}
+                  imageUrl={product?.image?.[0]?.url ?? ''}
+                  alt={product?.name ?? ''}
+                  name={product?.name ?? ''}
+                  salePrice={(
+                    ((product?.regular_price ?? 0) * (product?.discount ?? 0)) /
+                    100
+                  ).toFixed(2)}
+                  regularPrice={product?.regular_price ?? 0}
+                  savePrice={product.save_price}
+                  discountPercent={product?.discount?.toString() ?? '0'}
                 />
               </li>
             ))}
@@ -91,15 +118,23 @@ const HomePage = () => {
             additionalClass='primary'
           />
           <ul className='product-list categories-list'>
-            {cardCategoryCirlce.map((item, index) => (
-              <li key={index}>
-                <CardCategory imageUrl={item.imageUrl} variant='circle' />
-              </li>
-            ))}
+            {categories.map(
+              (item, index) =>
+                index < 6 && (
+                  <li key={index}>
+                    <CardCategory
+                      imageUrl={item.image}
+                      name={item.name}
+                      variant='circle'
+                      onClick={() => handleClickCategory(item.id)}
+                    />
+                  </li>
+                )
+            )}
           </ul>
         </div>
 
-        <div className=''>
+        <div>
           <HeadLine
             title='Top '
             subTitle='Electrictonic'
@@ -112,7 +147,7 @@ const HomePage = () => {
           />
         </div>
 
-        <div className=''>
+        <div>
           <HeadLine
             title='Daily '
             subTitle='Essentials'
@@ -135,7 +170,7 @@ const HomePage = () => {
 
       <footer className='footer'>
         <Footer />
-        <Copyright year={2022} companyName='Megamart' />
+        <Copyright year={2024} companyName='Megamart' />
       </footer>
     </>
   )

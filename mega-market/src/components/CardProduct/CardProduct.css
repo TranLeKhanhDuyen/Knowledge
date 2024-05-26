@@ -24,6 +24,10 @@
 
 .product-square {
   margin: 0 auto;
+  min-width: 290px;
+  object-fit: cover;
+  align-content: inherit;
+  object-position: top;
 }
 
 .card-badge-container.product-badge {

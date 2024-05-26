@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { SignInRequest, useUser } from '@services'
 import { RHFTextField, FormProvider, Button } from '@components'
-import './authen.css'
+import './auth.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { ValidationMessages } from '@constants/validation'
 
@@ -38,13 +38,13 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='container authen-container'>
+    <div className='container auth-container'>
       <FormProvider
         methods={methods}
         onSubmit={handleSubmit(onSubmit)}
-        additionalClass='authen-form'
+        additionalClass='auth-form'
       >
-        <h1 className='authen-title'>Welcome Back!</h1>
+        <h1 className='auth-title'>Welcome Back!</h1>
         <RHFTextField
           additionalClass='form'
           name='email'
@@ -71,9 +71,9 @@ const LoginForm = () => {
           {error && <p className='error-message'>{error}</p>}
         </div>
         <Button additionalClass='btn-register' type='submit' label='Login' />
-        <p className='navigate-authen'>
+        <p className='navigate-auth'>
           Don't have an account?{' '}
-          <Link className='navigate-authen-link' to='/auth/register'>
+          <Link className='navigate-auth-link' to='/auth/register'>
             Register
           </Link>
         </p>

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegisterRequest, useUser } from '@services'
 import { Button, RHFTextField, FormProvider } from '@components'
-import './authen.css'
+import './auth.css'
 import { ValidationMessages } from '@constants/validation'
 
 const RegisterForm = () => {
@@ -49,14 +49,14 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className='container authen-container'>
+    <div className='container auth-container'>
       <article className='register-background'></article>
       <FormProvider
         methods={methods}
         onSubmit={handleSubmit(onSubmit)}
-        additionalClass='authen-form'
+        additionalClass='auth-form'
       >
-        <h1 className='authen-title'>Please Fill out form to Register!</h1>
+        <h1 className='auth-title'>Please Fill out form to Register!</h1>
         <RHFTextField
           additionalClass='form'
           name='userName'
@@ -107,9 +107,9 @@ const RegisterForm = () => {
           }}
         />
         <Button additionalClass='btn-register' type='submit' label='Register' />
-        <p className='navigate-authen'>
+        <p className='navigate-auth'>
           Yes i have an account?{' '}
-          <Link className='navigate-authen-link' to='/auth/login'>
+          <Link className='navigate-auth-link' to='/auth/login'>
             Login
           </Link>
         </p>

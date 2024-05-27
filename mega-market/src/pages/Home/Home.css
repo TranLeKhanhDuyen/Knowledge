@@ -1,32 +1,3 @@
-.topbar {
-  background-color: var(--secondary-color);
-  width: 100vw;
-  padding: 12px 0;
-}
-
-.topbar-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.topbar-title {
-  font-size: var(--font-sm);
-  color: var(--text-secondary-color);
-  line-height: 14px;
-  font-weight: 400;
-}
-
-.topbar-contents {
-  display: flex;
-  gap: 16px;
-}
-
-.icontext-container.topbar-icon:nth-child(2),
-.icontext-container.topbar-icon:nth-child(1) {
-  border-right: 1px solid rgba(217, 217, 217, 1);
-  padding-right: 12px;
-}
-
 .select-container {
   padding: 16px 0;
   border-top: 1px solid var(--line-grey-color);

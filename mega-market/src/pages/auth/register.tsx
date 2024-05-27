@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegisterRequest, useUser } from '@services'
 import { Button, RHFTextField, FormProvider } from '@components'
-import './auth.css'
-import { ValidationMessages } from '@constants/validation'
+import { ValidationMessages } from '@constants'
+import './Auth.css'
 
 const RegisterForm = () => {
   const methods = useForm<RegisterRequest>()

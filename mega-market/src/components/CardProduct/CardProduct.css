@@ -20,14 +20,14 @@
   border-radius: 16px 16px 0 0;
   width: 100%;
   height: 189px;
+  align-items: center;
 }
 
 .product-square {
   margin: 0 auto;
-  min-width: 290px;
+  max-height: 158px;
   object-fit: cover;
   align-content: inherit;
-  object-position: top;
 }
 
 .card-badge-container.product-badge {
@@ -50,12 +50,12 @@
   font-weight: var(--fw-bold);
 }
 
-.product-regular-price {
+.product-sale-price {
   font-size: var(--font-md);
   font-weight: var(--fw-bold);
 }
 
-.product-sale-price {
+.product-regular-price {
   text-decoration: line-through;
   margin-left: 10px;
 }

@@ -3,7 +3,7 @@ import { Category } from '@services/models/category'
 import axios from 'axios'
 
 export const getCategories = async (): Promise<Category[]> => {
-  const response = await axios.get(`${BASE_URL}/categories`)
+  const response = await axios.get(`${BASE_URL}/category`)
 
   if (response.status !== 200) {
     throw new Error('Get categories failed')

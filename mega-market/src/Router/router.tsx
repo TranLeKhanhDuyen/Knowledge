@@ -1,6 +1,6 @@
-import LoginForm from '@pages/auth/login'
-import RegisterForm from '@pages/auth/register'
-import HomePage from '@pages/home'
+import LoginForm from '@pages/Auth/Login'
+import RegisterForm from '@pages/Auth/Register'
+import HomePage from '@pages/Home'
 import { useRoutes } from 'react-router-dom'
 
 const Router = () => {

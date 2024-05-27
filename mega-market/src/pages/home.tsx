@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
   CardProduct,
   IconText,
@@ -16,11 +17,11 @@ import {
   iconTexts,
   cardCategorySquare
 } from '@constants'
+
 import { Footer, Header } from '@layout'
-import { Category } from '@services/models/category'
-import { useEffect, useState } from 'react'
-import { getCategories } from '@services/api/categories'
-import { Product } from '@services/models/product'
+
+import { Category, getCategories, Product } from '@services'
+
 
 import './home.css'
 
@@ -70,7 +71,7 @@ const HomePage = () => {
 
       <Header />
 
-      <div className='select-container'>
+      <section className='select-container'>
         <div className='container select-wrapper'>
           {selectOptions.map((option, index) => (
             <Select
@@ -80,47 +81,58 @@ const HomePage = () => {
             />
           ))}
         </div>
-      </div>
+      </section>
 
-      <BannerSlider imageUrls={bannerImages} />
+      <section>
+        <BannerSlider imageUrls={bannerImages} />
+      </section>
 
-      <div className='container products'>
-        <div>
+      <section className='container products'>
+        <article>
           <HeadLine
             title='Grab the best deal on '
             subTitle={categoryName}
             additionalClass='primary'
           />
-          <ul className='product-list'>
-            {categoryProducts.map((product, index) => (
-              <li key={index}>
-                <CardProduct
-                  imageUrl={product?.image?.[0]?.url ?? ''}
-                  alt={product?.name ?? ''}
-                  name={product?.name ?? ''}
-                  salePrice={(
-                    ((product?.regular_price ?? 0) * (product?.discount ?? 0)) /
-                    100
-                  ).toFixed(2)}
-                  regularPrice={product?.regular_price ?? 0}
-                  savePrice={product.save_price}
-                  discountPercent={product?.discount?.toString() ?? '0'}
-                />
-              </li>
-            ))}
+          <ul className='list products-list'>
+            {categoryProducts.map(
+              (product, index) =>
+                index < 5 && (
+                  <li key={index}>
+                    <CardProduct
+                      imageUrl={product?.image?.[0]?.url ?? ''}
+                      alt={product?.name ?? ''}
+                      name={product?.name ?? ''}
+                      regularPrice={product?.regular_price ?? 0}
+                      discountPercent={product?.discount?.toString() ?? '0'}
+                      salePrice={(
+                        ((product?.regular_price ?? 0) *
+                          (product?.discount ?? 0)) /
+                        100
+                      ).toFixed(2)}
+                      savePrice={
+                        (product?.regular_price ?? 0) -
+                        ((product?.regular_price ?? 0) *
+                          (product?.discount ?? 0)) /
+                          100
+                      }
+                    />
+                  </li>
+                )
+            )}
           </ul>
-        </div>
+        </article>
 
-        <div className=''>
+        <article>
           <HeadLine
             title='Shop From '
             subTitle='To Categories'
             additionalClass='primary'
           />
-          <ul className='product-list categories-list'>
+          <ul className='list categories-list'>
             {categories.map(
               (item, index) =>
-                index < 6 && (
+                index < 7 && (
                   <li key={index}>
                     <CardCategory
                       imageUrl={item.image}
@@ -132,9 +144,9 @@ const HomePage = () => {
                 )
             )}
           </ul>
-        </div>
+        </article>
 
-        <div>
+        <article>
           <HeadLine
             title='Top '
             subTitle='Electrictonic'
@@ -145,15 +157,15 @@ const HomePage = () => {
             images={brandImages}
             displayCount={3}
           />
-        </div>
+        </article>
 
-        <div>
+        <article>
           <HeadLine
             title='Daily '
             subTitle='Essentials'
             additionalClass='primary'
           />
-          <ul className='product-list categories-list'>
+          <ul className='list categories-list'>
             {cardCategorySquare.map((item, index) => (
               <li key={index}>
                 <CardCategory
@@ -165,8 +177,8 @@ const HomePage = () => {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
+        </article>
+      </section>
 
       <footer className='footer'>
         <Footer />

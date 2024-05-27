@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-width: 227px;
+  width: 227px;
   min-height: 295px;
   border-radius: 16px;
   border: 1px solid var(--border-color);
@@ -11,6 +11,7 @@
 .card-product-container:hover {
   border-color: var(--primary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .product {
@@ -32,8 +33,8 @@
 
 .card-badge-container.product-badge {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -1px;
+  right: -1px;
   z-index: 1;
 }
 
@@ -48,6 +49,9 @@
 .product-name {
   font-size: var(--font-md);
   font-weight: var(--fw-bold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-sale-price {

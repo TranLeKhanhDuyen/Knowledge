@@ -1,0 +1,8 @@
+.copyright {
+  color: var(--white-color);
+  font-size: var(--font-sm);
+  text-align: center;
+  padding: 30px 0;
+  font-weight: var(--fw-normal);
+  border-top: 1px solid var(--white-color);
+}

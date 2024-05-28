@@ -1,0 +1,31 @@
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.slider-dot {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.slider-dot-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.slider-dot-button.active {
+  background-color: var(--primary-color);
+  width: 24px;
+  height: 8px;
+  border-radius: 7px;
+}
+
+.slider-dot-button.inactive {
+  background-color: var(--ellipse-color);
+}

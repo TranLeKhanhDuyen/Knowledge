@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField matches snapshot 1`] = `
+<div>
+  <div
+    class="input-container undefined"
+  >
+    <input
+      class="text-field hide"
+      placeholder="Enter username"
+      value=""
+    />
+    <p
+      class="error-message"
+    >
+      Username too short
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,38 @@
+.select-container {
+  padding: 16px 0;
+  border-top: 1px solid var(--line-grey-color);
+  border-bottom: 1px solid var(--line-grey-color);
+  margin-bottom: 20px;
+}
+
+.select-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.list {
+  margin-top: 40px;
+}
+
+.products-list {
+  display: flex;
+  gap: 16px;
+}
+
+.banner-list {
+  margin-top: 40px;
+}
+
+.categories-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 46px;
+}

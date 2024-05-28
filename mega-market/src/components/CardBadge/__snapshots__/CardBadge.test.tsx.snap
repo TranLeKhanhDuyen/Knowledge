@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardBadge component matches snapshot 1`] = `
+<DocumentFragment>
+  <aside
+    class="card-badge-container special-class"
+  >
+    <p
+      class="card-badge badge-percent"
+    >
+      80%
+    </p>
+    <p
+      class="card-badge badge-title"
+    >
+      Free Shipping
+    </p>
+  </aside>
+</DocumentFragment>
+`;

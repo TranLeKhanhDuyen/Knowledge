@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {
   CardProduct,
@@ -5,25 +6,25 @@ import {
   Select,
   ImageSlider,
   CardCategory,
-  HeadLine,
+  HeadLine
 } from '@components'
-
 import {
   bannerImages,
   brandImages,
   selectOptions,
   cardCategorySquare
 } from '@constants'
-
 import { Category, getCategories, Product } from '@services'
-
 import { MainLayout } from '@layout'
-
 import './home.css'
 
 const HomePage = () => {
-  // call api category
+  const navigate = useNavigate()
+  const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
+  const [categoryName, setCategoryName] = useState<string>('')
   const [categories, setCategories] = useState<Category[]>([])
+
+  // call api category
   useEffect(() => {
     getCategories().then(async (data) => {
       setCategories(data)
@@ -36,17 +37,21 @@ const HomePage = () => {
     })
   }, [])
 
-  const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
-  const [categoryName, setCategoryName] = useState<string>('')
-
   const handleClickCategory = (id: number) => {
     const category = categories.find((data) => data.id === id)
     setCategoryName(category?.name || '')
     setCategoryProducts(category?.products || [])
   }
 
+  const handleNavigateToCategories = () => {
+    navigate('/categories', { state: { categories } })
+  }
+
+  const handleClickProduct = () => {
+    navigate('/products', { state: { products: categoryProducts } })
+  }
+
   return (
-    <>
       <MainLayout>
         <section className='select-container'>
           <div className='container select-wrapper'>
@@ -70,6 +75,7 @@ const HomePage = () => {
               title='Grab the best deal on '
               subTitle={categoryName}
               additionalClass='primary'
+              onClick={handleClickProduct}
             />
             <ul className='list products-list'>
               {categoryProducts.map(
@@ -105,6 +111,8 @@ const HomePage = () => {
               title='Shop From '
               subTitle='To Categories'
               additionalClass='primary'
+              navigateTo='categories'
+              onClick={handleNavigateToCategories}
             />
             <ul className='list categories-list'>
               {categories.map(
@@ -162,7 +170,6 @@ const HomePage = () => {
 
       </footer> */}
       </MainLayout>
-    </>
   )
 }
 

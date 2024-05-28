@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import IconTextButton from '@components/Common/IconTextButton'
 import './HeadLine.css'
 
@@ -10,6 +11,7 @@ export interface IHeadline extends React.HTMLAttributes<HTMLDivElement> {
   variant?: THeadline
   additionalClass?: string
   showButton?: boolean
+  navigateTo?: string
   onClick?: () => void
 }
 
@@ -18,8 +20,19 @@ const HeadLine = ({
   subTitle,
   additionalClass,
   showButton = true,
+  navigateTo,
   onClick
 }: IHeadline) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick()
+    } else if (navigateTo) {
+      navigate(navigateTo)
+    }
+  }
+
   return (
     <div className={`headline-container ${additionalClass}`}>
       <p className={`headline-content ${additionalClass}`}>
@@ -39,7 +52,7 @@ const HeadLine = ({
           iconPosition='right'
           title='View All'
           icon='arrowRight'
-          onClick={onClick}
+          onClick={handleClick}
         />
       )}
     </div>

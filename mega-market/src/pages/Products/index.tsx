@@ -1,18 +1,24 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { MainLayout } from '@layout'
 import CardProduct from '@components/CardProduct'
 import './Product.css'
+import { Product } from '@services'
 
 const ProductPage = () => {
   const location = useLocation()
   const { products } = location.state || { products: [] }
+  const navigate = useNavigate()
+
+  const handleProductClick = (product: Product) => {
+    navigate(`/product/${product.id}`, { state: { product } })
+  }
 
   return (
     <MainLayout>
       <div>
         <h1 className='title-page'>Products Lists</h1>
         <section className='container product-page'>
-          {products.map((product: any, index: any) => (
+          {products?.map((product: any, index: any) => (
             <div key={index}>
               <CardProduct
                 imageUrl={product?.image?.[0]?.url ?? ''}
@@ -29,6 +35,7 @@ const ProductPage = () => {
                   ((product?.regular_price ?? 0) * (product?.discount ?? 0)) /
                     100
                 }
+                onClick={() => handleProductClick(product)}
               />
             </div>
           ))}

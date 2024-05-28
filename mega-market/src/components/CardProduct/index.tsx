@@ -12,6 +12,7 @@ interface ICardProductProps {
   discountPercent: string
   contentBadge?: string
   additionalClass?: string
+  onClick?: () => void
 }
 
 const CardProduct: React.FC<ICardProductProps> = ({
@@ -23,10 +24,14 @@ const CardProduct: React.FC<ICardProductProps> = ({
   savePrice,
   discountPercent,
   contentBadge = 'off',
+  onClick,
   additionalClass = ''
 }) => {
   return (
-    <article className={`card-product-container ${additionalClass}`}>
+    <article
+      className={`card-product-container ${additionalClass}`}
+      onClick={onClick}
+    >
       <section className={`product`}>
         <img className='product-square' src={imageUrl} alt={alt} />
         <CardBadge

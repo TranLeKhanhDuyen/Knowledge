@@ -9,7 +9,9 @@ const CategoriesPage = () => {
   const navigate = useNavigate()
 
   const handleCategoryClick = (category: any) => {
-    navigate(`/products/${category.id}`, { state: { products: category.products } })
+    navigate(`/products/${category.id}`, {
+      state: { products: category.products }
+    })
   }
 
   return (

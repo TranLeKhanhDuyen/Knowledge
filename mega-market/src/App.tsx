@@ -1,11 +1,13 @@
-import HomePage from '@pages/home'
-import './styles/main.css'
-
+import Router from '@Router/router'
+import { UserProvider } from '@services/models/userState'
+import { BrowserRouter } from 'react-router-dom'
 function App() {
   return (
-    <div className='app'>
-      <HomePage />
-    </div>
+    <BrowserRouter>
+      <UserProvider>
+        <Router />
+      </UserProvider>
+    </BrowserRouter>
   )
 }
 

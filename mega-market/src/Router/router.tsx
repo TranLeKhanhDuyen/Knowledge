@@ -1,13 +1,31 @@
-import LoginForm from '@pages/Auth/Login'
-import RegisterForm from '@pages/Auth/Register'
+import { LoginForm, RegisterForm } from '@pages'
+import CategoriesPage from '@pages/Categories'
 import HomePage from '@pages/Home'
+import ProductPage from '@pages/Products'
 import { useRoutes } from 'react-router-dom'
 
 const Router = () => {
   return useRoutes([
     {
       path: '',
-      element: <HomePage />
+      children: [
+        {
+          path: '',
+          element: <HomePage />
+        },
+        {
+          path: 'categories',
+          element: <CategoriesPage />
+        },
+        {
+          path: 'products/:categoryId',
+          element: <ProductPage />
+        },
+        {
+          path: 'products',
+          element: <ProductPage />
+        }
+      ]
     },
     {
       path: 'auth',

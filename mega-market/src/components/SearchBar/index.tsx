@@ -1,23 +1,26 @@
-import '@components/SearchBar/SearchBar.css'
+import { ChangeEvent } from 'react'
 import { ButtonIcon, TextField } from '@components'
+import './SearchBar.css'
 
 interface ISearchBarProps {
-  onChange?: (value: string) => void
-  additonalClass?: string
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  additionalClass?: string
 }
 
-const SearchBar = ({ onChange, additonalClass }: ISearchBarProps) => {
+const SearchBar = ({ onChange, additionalClass }: ISearchBarProps) => {
   return (
-    <div className={`search-container ${additonalClass}`}>
-      <ButtonIcon icon='search' alt='search icon' />
-      <TextField
-        isShowLabel={false}
-        additionalClass='input-search'
-        placeholder='Search essentials, groceries and more...'
-        onChange={onChange}
-      />
+    <article className={`search-container ${additionalClass}`}>
+      <div className='input-search'>
+        <ButtonIcon icon='search' alt='search icon' />
+        <TextField
+          isShowLabel={false}
+          additionalClass='input-search'
+          placeholder='Search essentials, groceries and more...'
+          onChange={onChange}
+        />
+      </div>
       <ButtonIcon icon='list' alt='list icon' />
-    </div>
+    </article>
   )
 }
 

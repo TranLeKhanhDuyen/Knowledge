@@ -1,5 +1,4 @@
 import { IconText } from '@components'
-import { iconTexts } from '@constants'
 import './Topbar.css'
 
 const Topbar = () => {
@@ -8,16 +7,25 @@ const Topbar = () => {
       <div className='container topbar-container '>
         <span className='topbar-title'>Welcome to worldwide Megamart! </span>
         <article className='topbar-contents'>
-          {iconTexts.map((item, index) => (
-            <IconText
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              subTitle={item.subTitle}
-              additionalClass={item.additionalClass}
-              type='primary'
-            />
-          ))}
+          <IconText
+            icon='location'
+            title={'Deliver to \u00A0'}
+            subTitle='423651'
+            additionalClass='topbar-icon'
+            type='primary'
+          />
+          <IconText
+            icon='truck'
+            title='Track your order'
+            additionalClass='topbar-icon'
+            type='primary'
+          />
+          <IconText
+            icon='discount'
+            title='All Offers'
+            additionalClass='topbar-icon'
+            type='primary'
+          />
         </article>
       </div>
     </div>

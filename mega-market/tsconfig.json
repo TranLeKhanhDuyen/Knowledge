@@ -6,7 +6,7 @@
     "allowJs": true,
     "module": "ESNext",
     "skipLibCheck": true,
-    "types": ["vite/client", "node"],
+    "types": ["vite/client", "node", "jest", "@testing-library/jest-dom"],
     "forceConsistentCasingInFileNames": true,
 
     /* Bundler mode */
@@ -17,7 +17,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node", "jest", "@testing-library/jest-dom"],
     "baseUrl": "./src",
     "paths": {
       "@*": ["*"]

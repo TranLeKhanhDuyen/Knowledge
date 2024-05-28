@@ -12,7 +12,7 @@ const ProductPage = () => {
       <div>
         <h1 className='title-page'>Products Lists</h1>
         <section className='container product-page'>
-          {products.map((product: any, index: any) => (
+          {products?.map((product: any, index: any) => (
             <div key={index}>
               <CardProduct
                 imageUrl={product?.image?.[0]?.url ?? ''}

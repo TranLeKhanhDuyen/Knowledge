@@ -1,5 +1,6 @@
 import { LoginForm, RegisterForm } from '@pages'
 import CategoriesPage from '@pages/Categories'
+import DetailPage from '@pages/Detail'
 import HomePage from '@pages/Home'
 import ProductPage from '@pages/Products'
 import { useRoutes } from 'react-router-dom'
@@ -24,6 +25,10 @@ const Router = () => {
         {
           path: 'products',
           element: <ProductPage />
+        },
+        {
+          path: 'product/:id',
+          element: <DetailPage />
         }
       ]
     },

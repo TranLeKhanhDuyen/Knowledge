@@ -23,12 +23,12 @@ const HeadLine = ({
   navigateTo,
   onClick
 }: IHeadline) => {
-  const navigate = useNavigate()
 
   const handleClick = () => {
     if (onClick) {
       onClick()
     } else if (navigateTo) {
+      const navigate = useNavigate()
       navigate(navigateTo)
     }
   }

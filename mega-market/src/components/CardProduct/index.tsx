@@ -6,7 +6,7 @@ interface ICardProductProps {
   imageUrl: string
   alt: string
   name: string
-  salePrice: number
+  salePrice: string
   regularPrice: number
   savePrice: number
   discountPercent: string
@@ -40,8 +40,8 @@ const CardProduct: React.FC<ICardProductProps> = ({
         <h2 className='product-name'>{name}</h2>
         <div className='product-prices'>
           <p>
-            <span className='product-regular-price'>₹{regularPrice}</span>
             <span className='product-sale-price'>₹{salePrice}</span>
+            <span className='product-regular-price'>₹{regularPrice}</span>
           </p>
           <p className='product-save-price'>Save - ₹{savePrice}</p>
         </div>

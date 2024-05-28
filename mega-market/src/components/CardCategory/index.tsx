@@ -10,15 +10,17 @@ interface ICardCategoryProps {
   discountPercent?: string
   additionalClass?: string
   variant?: TCardCategoryVariant
+  onClick?: () => void
 }
 
 const CardCategory: React.FC<ICardCategoryProps> = ({
   imageUrl,
   alt = 'Image of category',
   name = 'Electronics',
-  discountPercent = '50%',
+  discountPercent,
   variant = 'circle',
-  additionalClass = ''
+  additionalClass = '',
+  onClick
 }) => {
   return (
     <article
@@ -26,6 +28,7 @@ const CardCategory: React.FC<ICardCategoryProps> = ({
     >
       <figure
         className={`category-img-wrapper category-img-wrapper-${variant}`}
+        onClick={onClick}
       >
         <img className='category-img' src={imageUrl} alt={alt} />
       </figure>

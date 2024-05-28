@@ -1,7 +1,7 @@
 import { HeadLine, IconText, Logo } from '@components'
 import { contactImages } from '@constants/images'
 import { customerServices, popularCategories } from '@constants'
-import './footer.css'
+import './Footer.css'
 
 const Footer = () => {
   return (

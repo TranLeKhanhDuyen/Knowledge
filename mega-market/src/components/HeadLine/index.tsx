@@ -10,13 +10,15 @@ export interface IHeadline extends React.HTMLAttributes<HTMLDivElement> {
   variant?: THeadline
   additionalClass?: string
   showButton?: boolean
+  onClick?: () => void
 }
 
 const HeadLine = ({
   title,
   subTitle,
   additionalClass,
-  showButton = true
+  showButton = true,
+  onClick
 }: IHeadline) => {
   return (
     <div className={`headline-container ${additionalClass}`}>
@@ -37,6 +39,7 @@ const HeadLine = ({
           iconPosition='right'
           title='View All'
           icon='arrowRight'
+          onClick={onClick}
         />
       )}
     </div>

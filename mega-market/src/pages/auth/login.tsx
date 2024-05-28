@@ -2,9 +2,9 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import { SignInRequest, useUser } from '@services'
 import { RHFTextField, FormProvider, Button } from '@components'
-import './auth.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { ValidationMessages } from '@constants/validation'
+import './Auth.css'
 
 const LoginForm = () => {
   const methods = useForm<SignInRequest>()

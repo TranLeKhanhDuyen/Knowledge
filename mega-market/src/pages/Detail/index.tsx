@@ -1,14 +1,17 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import { MainLayout } from '@layout'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Button } from '@components'
+import { useUser } from '@services'
 import './Detail.css'
 
 const DetailPage = () => {
   const location = useLocation()
+  const navigate = useNavigate()
+  const { user } = useUser()
   const { product } = location.state || { product: {} }
   const [primaryImage, setPrimaryImage] = useState(
     product?.image?.[0]?.url ?? ''
@@ -25,6 +28,16 @@ const DetailPage = () => {
   }
 
   const handleAddToCart = () => {
+    if (!user) {
+      const confirmLogin = window.confirm(
+        'Please log in to add to cart products. Do you want to log in now?'
+      )
+      if (confirmLogin) {
+        navigate('/auth/login')
+      }
+      return
+    }
+
     const cart = JSON.parse(localStorage.getItem('cart') || '[]')
     cart.push({ ...product, quantity })
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -32,6 +45,15 @@ const DetailPage = () => {
   }
 
   const handleBuyNow = () => {
+    if (!user) {
+      const confirmLogin = window.confirm(
+        'Please log in to buy products. Do you want to log in now?'
+      )
+      if (confirmLogin) {
+        navigate('/auth/login')
+      }
+      return
+    }
     alert('update later')
   }
 

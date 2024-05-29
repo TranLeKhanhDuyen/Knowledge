@@ -52,6 +52,7 @@ const HomePage = () => {
   }
 
   const handleClickProduct = (product: Product) => {
+    console.log("product", product);
     navigate(`/product/${product.id}`, { state: { product } })
   }
 

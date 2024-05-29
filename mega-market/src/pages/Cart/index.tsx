@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { MainLayout } from '@layout'
 import { CartItem } from '@services'
 import { Button, ButtonIcon, QuantitySelector } from '@components'
 import './Cart.css'
+import PaymentForm from './PaymentForm'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
@@ -26,15 +29,6 @@ const CartPage = () => {
     setCartItems(newCartItems)
   }
 
-  const calculateTotal = () => {
-    // return selectedItems.reduce((total, index) => {
-    //   const item = cartItems[index]
-    //   const discountedPrice =
-    //     item.regular_price - (item.regular_price * item.discount) / 100
-    //   return total + calculatePrice(discountedPrice, item.quantity)
-    // }, 0)
-  }
-
   const handleSelectChange = (id: number) => {
     const item = cartItems.find((item) => item.id === id)
     if (!item) return
@@ -45,11 +39,8 @@ const CartPage = () => {
       return item
     })
     setCartItems(newCartItems)
-    // Update all selected state
     const allSelected = newCartItems.every((item) => item.isSelect)
     setSelectAll(allSelected)
-    // calculate selected items
-
   }
 
   const handleSelectAll = () => {
@@ -77,11 +68,44 @@ const CartPage = () => {
       'Are you sure you want to delete selected items?'
     )
     if (!confirmDelete) return
-    // const newCartItems =  cartItems.filter((_, index) => !selectedItems.includes(index))
-    // setCartItems(newCartItems)
-    // localStorage.setItem('cart', JSON.stringify(newCartItems))
-    // setSelectedItems([])
+
+    cartItems.forEach((item) => {
+      if (item.isSelect) {
+        const newCartItems = cartItems.filter((item) => !item.isSelect)
+        setCartItems(newCartItems)
+        localStorage.setItem('cart', JSON.stringify(newCartItems))
+      }
+    }
+    )
   }
+  // ======
+  const [isCheckout, setIsCheckout] = useState<boolean>(false);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
+
+  const stripePromise = loadStripe('pk_test_51PEsZWCgT346ujRuXsFWIIIR0qT129tvhVxbzq6GoLMqu7cNxA96xbA7SHnUEgtYrzHXO8PCaOosxc0cNP8fPrUD00fDNg7Jov');
+
+  const handleCheckout = async () => {
+    
+    const fetchClientSecret = useCallback(() => {
+      // Create a Checkout Session
+      return fetch("/create-checkout-session", {
+        method: "POST",
+      })
+        .then((res) => res.json())
+        .then((data) => data.clientSecret);
+    }, []);
+  
+    const options = {fetchClientSecret};
+    const clientSecret = await options.fetchClientSecret();
+    setClientSecret(clientSecret);
+
+    console.log("clientSecret", clientSecret);
+
+    setIsCheckout(true); 
+    
+
+  };
+
 
   return (
     <MainLayout>
@@ -132,10 +156,10 @@ const CartPage = () => {
 
                   <p className='amount-of-money'>
                     ₹
-                   {parseFloat(
+                    {parseFloat(
                       calculatePrice(
                         item.regular_price -
-                          (item.regular_price * item.discount) / 100,
+                        (item.regular_price * item.discount) / 100,
                         item.quantity
                       ).toFixed(2)
                     )}
@@ -162,23 +186,36 @@ const CartPage = () => {
               Select ({cartItems.filter((item) => item.isSelect).length}/ {cartItems.length})
             </span>
           </li>
-          <li onClick={handleDeleteSelectedItems}>Delete </li>
-          <li>Total payment : ₹ 
+          {cartItems.filter((item) => item.isSelect).length > 0 ? (
+            <li className='delete-all' onClick={handleDeleteSelectedItems}>Delete</li>
+          ) : <li></li>
+          }
+          <li>Total payment : ₹
             {cartItems.reduce((total, item) => {
               if (item.isSelect) {
                 const discountedPrice = item.regular_price - (item.regular_price * item.discount) / 100
                 const price = (total + calculatePrice(discountedPrice, item.quantity)).toFixed(2)
                 return parseFloat(price)
               }
-              return  parseFloat(total.toFixed(2))
+              return parseFloat(total.toFixed(2))
             }
               , 0)}
           </li>
           <li>
-            <Button additionalClass='secondary' label='Checkout' />
+            <Button additionalClass='secondary' label='Checkout'
+              onClick={
+                handleCheckout
+              }
+            />
           </li>
         </ul>
-
+        {isCheckout && clientSecret && (
+          <Elements stripe={stripePromise} options={{ 
+            clientSecret: "sk_test_51PEsZWCgT346ujRuB9YIv4Jtmux5UOh5M7l18Yx9hQDm6SWIRE5XEPmRyVDGkLUDC4vxDSIFN1amBQCTgz5aqZYO00OyMamDQqsk_test_51PEsZWCgT346ujRuB9YIv4Jtmux5UOh5M7l18Yx9hQDm6SWIRE5XEPmRyVDGkLUDC4vxDSIFN1amBQCTgz5aqZYO00OyMamDQq"
+           }}>
+            <PaymentForm clientSecret={clientSecret} />
+          </Elements>
+        )}
       </section>
     </MainLayout>
   )

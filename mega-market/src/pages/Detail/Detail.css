@@ -73,32 +73,6 @@
   text-align: justify;
 }
 
-.quantity-container {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--border-color);
-  width: fit-content;
-}
-
-.quantity-btn {
-  padding: 10px;
-  cursor: pointer;
-  font-size: var(--font-lg);
-}
-
-.quantity-btn-reduce {
-  border-right: 1px solid var(--border-color);
-}
-
-.quantity-btn-increase {
-  border-left: 1px solid var(--border-color);
-}
-
-.quantity {
-  min-width: 70px;
-  text-align: center;
-}
-
 .detail-actions {
   display: flex;
   gap: 10px;

@@ -1,4 +1,5 @@
 import { LoginForm, RegisterForm } from '@pages'
+import CartPage from '@pages/Cart'
 import CategoriesPage from '@pages/Categories'
 import DetailPage from '@pages/Detail'
 import HomePage from '@pages/Home'
@@ -29,6 +30,10 @@ const Router = () => {
         {
           path: 'product/:id',
           element: <DetailPage />
+        },
+        {
+          path: 'cart',
+          element: <CartPage />
         }
       ]
     },

@@ -16,6 +16,9 @@ const Header = () => {
     const confirmLogout = window.confirm(ValidationMessages.LogoutQuestion)
     if (confirmLogout) {
       setUser(null)
+      navigate('/')
+      // remove card from local storage
+      localStorage.removeItem('cart')
     }
   }
 
@@ -29,13 +32,8 @@ const Header = () => {
 
   const handleNavigateCardPage = () => {
     if (!user) {
-      const confirmLogin = window.confirm(
-        'Please log in to add to cart products. Do you want to log in now?'
-      )
-      if (confirmLogin) {
         navigate('/auth/login')
-      }
-      return
+        return
     }
     navigate('/cart')
   }

@@ -39,7 +39,16 @@ const DetailPage = () => {
     }
 
     const cart = JSON.parse(localStorage.getItem('cart') || '[]')
-    cart.push({ ...product, quantity })
+    const existingProductIndex = cart.findIndex(
+      (item: any) => item.id === product.id
+    )
+
+    if (existingProductIndex >= 0) {
+      cart[existingProductIndex].quantity += quantity
+    } else {
+      cart.push({ ...product, primaryImage, quantity })
+    }
+
     localStorage.setItem('cart', JSON.stringify(cart))
     alert('The product has been added to cart')
   }

@@ -13,7 +13,8 @@ import {
   MenuIcon,
   SearchIcon,
   TruckIcon,
-  UserIcon
+  UserIcon,
+  TrashIcon
 } from './index'
 
 const Icons = {
@@ -31,7 +32,8 @@ const Icons = {
   arrowLeft: <ArrowLeftIcon />,
   arrowRight: <ArrowRightIcon />,
   eye: <EyeIcon/>,
-  eyeSlash: <EyeSlashIcon/>
+  eyeSlash: <EyeSlashIcon/>,
+  trash: <TrashIcon/>
 }
 
 export default Icons

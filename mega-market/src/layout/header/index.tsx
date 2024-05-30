@@ -17,7 +17,6 @@ const Header = () => {
     if (confirmLogout) {
       setUser(null)
       navigate('/')
-      // remove card from local storage
       localStorage.removeItem('cart')
     }
   }
@@ -32,8 +31,8 @@ const Header = () => {
 
   const handleNavigateCardPage = () => {
     if (!user) {
-        navigate('/auth/login')
-        return
+      navigate('/auth/login')
+      return
     }
     navigate('/cart')
   }

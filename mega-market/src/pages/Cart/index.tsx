@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { MainLayout } from '@layout'
 import { CartItem } from '@services'
 import { Button, ButtonIcon, QuantitySelector } from '@components'
 import './Cart.css'
@@ -71,7 +70,6 @@ const CartPage = () => {
   }
 
   return (
-    <MainLayout>
       <section className='cart-page'>
         <ul className='container cart-header'>
           <li className='cart-header-title'>Choose</li>
@@ -180,7 +178,6 @@ const CartPage = () => {
           )}
         </ul>
       </section>
-    </MainLayout>
   )
 }
 

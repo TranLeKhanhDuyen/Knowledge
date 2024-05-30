@@ -13,8 +13,8 @@ export const MenuIcon = () => {
         x2='25.25'
         y2='1.25'
         stroke='#008ECC'
-        stroke-width='1.5'
-        stroke-linecap='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
       />
       <line
         x1='0.75'
@@ -22,8 +22,8 @@ export const MenuIcon = () => {
         x2='18.1591'
         y2='10.25'
         stroke='#008ECC'
-        stroke-width='1.5'
-        stroke-linecap='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
       />
       <line
         x1='0.75'
@@ -31,8 +31,8 @@ export const MenuIcon = () => {
         x2='12.25'
         y2='19.25'
         stroke='#008ECC'
-        stroke-width='1.5'
-        stroke-linecap='round'
+        strokeWidth='1.5'
+        strokeLinecap='round'
       />
     </svg>
   )

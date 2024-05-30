@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { MainLayout } from '@layout'
 import CardCategory from '@components/CardCategory'
 import './Categories.css'
 
@@ -15,23 +14,21 @@ const CategoriesPage = () => {
   }
 
   return (
-    <MainLayout>
-      <div>
-        <h1 className='title-page'>Categories List Of {}</h1>
-        <section className='container categories-page'>
-          {categories.map((item: any, index: number) => (
-            <article key={index}>
-              <CardCategory
-                imageUrl={item.image}
-                name={item.name}
-                variant='circle'
-                onClick={() => handleCategoryClick(item)}
-              />
-            </article>
-          ))}
-        </section>
-      </div>
-    </MainLayout>
+    <>
+      <h1 className='title-page'>Categories List Of {}</h1>
+      <section className='container categories-page'>
+        {categories.map((item: any, index: number) => (
+          <article key={index}>
+            <CardCategory
+              imageUrl={item.image}
+              name={item.name}
+              variant='circle'
+              onClick={() => handleCategoryClick(item)}
+            />
+          </article>
+        ))}
+      </section>
+    </>
   )
 }
 

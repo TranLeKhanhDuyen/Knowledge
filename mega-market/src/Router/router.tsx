@@ -1,3 +1,4 @@
+import { MainLayout } from '@layout'
 import { LoginForm, RegisterForm } from '@pages'
 import CartPage from '@pages/Cart'
 import CategoriesPage from '@pages/Categories'
@@ -13,27 +14,51 @@ const Router = () => {
       children: [
         {
           path: '',
-          element: <HomePage />
+          element: (
+            <MainLayout>
+              <HomePage />
+            </MainLayout>
+          )
         },
         {
           path: 'categories',
-          element: <CategoriesPage />
+          element: (
+            <MainLayout>
+              <CategoriesPage />
+            </MainLayout>
+          )
         },
         {
           path: 'products/:categoryId',
-          element: <ProductPage />
+          element: (
+            <MainLayout>
+              <ProductPage />
+            </MainLayout>
+          )
         },
         {
           path: 'products',
-          element: <ProductPage />
+          element: (
+            <MainLayout>
+              <ProductPage />
+            </MainLayout>
+          )
         },
         {
           path: 'product/:id',
-          element: <DetailPage />
+          element: (
+            <MainLayout>
+              <DetailPage />
+            </MainLayout>
+          )
         },
         {
           path: 'cart',
-          element: <CartPage />
+          element: (
+            <MainLayout>
+              <CartPage />
+            </MainLayout>
+          )
         }
       ]
     },

@@ -26,7 +26,9 @@ const LoginForm = () => {
       }
 
       setUser(user)
+
       navigate('/')
+
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)

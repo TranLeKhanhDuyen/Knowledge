@@ -13,9 +13,8 @@ import {
   brandImages,
   selectOptions,
   cardCategorySquare
-} from '@constants'
+} from '@mocks'
 import { Category, getCategories, Product } from '@services'
-import { MainLayout } from '@layout'
 import './home.css'
 
 const HomePage = () => {
@@ -24,11 +23,10 @@ const HomePage = () => {
   const [categoryName, setCategoryName] = useState<string>('')
   const [categories, setCategories] = useState<Category[]>([])
 
-  // call api category
   useEffect(() => {
     getCategories().then(async (data) => {
       setCategories(data)
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 500))
       if (data != null) {
         const firstCategory = data[0]
         setCategoryName(firstCategory.name || '')
@@ -56,7 +54,7 @@ const HomePage = () => {
   }
 
   return (
-    <MainLayout>
+    <>
       <section className='select-container'>
         <div className='container select-wrapper'>
           {selectOptions.map((option, index) => (
@@ -159,7 +157,7 @@ const HomePage = () => {
             {cardCategorySquare.map((item, index) => (
               <li key={index}>
                 <CardCategory
-                  imageUrl={item.imageUrl}
+                  imageUrl={item.image}
                   name={item.name}
                   discountPercent={item.discountPercent}
                   variant='square'
@@ -169,7 +167,7 @@ const HomePage = () => {
           </ul>
         </article>
       </section>
-    </MainLayout>
+    </>
   )
 }
 

@@ -1,4 +1,4 @@
-import Router from '@Router/router'
+import Router from '@router/router'
 import { UserProvider } from '@services/models/userState'
 import { BrowserRouter } from 'react-router-dom'
 function App() {

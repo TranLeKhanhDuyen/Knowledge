@@ -15,7 +15,6 @@ import {
   cardCategorySquare
 } from '@constants'
 import { Category, getCategories, Product } from '@services'
-import { MainLayout } from '@layout'
 import './home.css'
 
 const HomePage = () => {
@@ -24,7 +23,6 @@ const HomePage = () => {
   const [categoryName, setCategoryName] = useState<string>('')
   const [categories, setCategories] = useState<Category[]>([])
 
-  // call api category
   useEffect(() => {
     getCategories().then(async (data) => {
       setCategories(data)
@@ -56,7 +54,7 @@ const HomePage = () => {
   }
 
   return (
-    <MainLayout>
+    <>
       <section className='select-container'>
         <div className='container select-wrapper'>
           {selectOptions.map((option, index) => (
@@ -169,7 +167,7 @@ const HomePage = () => {
           </ul>
         </article>
       </section>
-    </MainLayout>
+    </>
   )
 }
 

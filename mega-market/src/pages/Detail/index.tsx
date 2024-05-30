@@ -5,7 +5,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Button } from '@components'
 import { useUser } from '@services'
-import { MainLayout } from '@layout'
 import './Detail.css'
 
 const DetailPage = () => {
@@ -32,6 +31,7 @@ const DetailPage = () => {
       const confirmLogin = window.confirm(
         'Please log in to add to cart products. Do you want to log in now?'
       )
+
       if (confirmLogin) {
         navigate('/auth/login')
       }
@@ -66,7 +66,6 @@ const DetailPage = () => {
   }
 
   return (
-    <MainLayout>
       <section className='container detail-page'>
         {product ? (
           <div className='detail-product'>
@@ -164,7 +163,6 @@ const DetailPage = () => {
           <p>Product not found</p>
         )}
       </section>
-    </MainLayout>
   )
 }
 

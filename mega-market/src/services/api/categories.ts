@@ -1,5 +1,5 @@
 import { BASE_URL } from '@constants/baseUrl'
-import { Category } from '@services/models/category'
+import { Category } from '@services'
 import { axiosRequest } from './helper'
 
 export const getCategories = async (): Promise<Category[]> => {

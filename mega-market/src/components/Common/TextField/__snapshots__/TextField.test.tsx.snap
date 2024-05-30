@@ -10,8 +10,12 @@ exports[`TextField matches snapshot 1`] = `
       placeholder="Enter username"
       value=""
     />
+  </div>
+  <div
+    class="error-placeholder"
+  >
     <p
-      class="error-message"
+      class="error-message-filed"
     >
       Username too short
     </p>

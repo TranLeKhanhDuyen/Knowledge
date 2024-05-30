@@ -6,7 +6,6 @@ import './Cart.css'
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
-  const [selectedItems, setSelectedItems] = useState<number[]>([])
   const [selectAll, setSelectAll] = useState<boolean>(false)
 
   useEffect(() => {
@@ -28,41 +27,47 @@ const CartPage = () => {
   }
 
   const calculateTotal = () => {
-    return selectedItems.reduce((total, index) => {
-      const item = cartItems[index]
-      const discountedPrice =
-        item.regular_price - (item.regular_price * item.discount) / 100
-      return total + calculatePrice(discountedPrice, item.quantity)
-    }, 0)
+    // return selectedItems.reduce((total, index) => {
+    //   const item = cartItems[index]
+    //   const discountedPrice =
+    //     item.regular_price - (item.regular_price * item.discount) / 100
+    //   return total + calculatePrice(discountedPrice, item.quantity)
+    // }, 0)
   }
 
-  const handleSelectChange = (index: number) => {
-    const newSelectedItems = [...selectedItems]
-    const selectedIndex = newSelectedItems.indexOf(index)
-    if (selectedIndex > -1) {
-      newSelectedItems.splice(selectedIndex, 1)
-    } else {
-      newSelectedItems.push(index)
-    }
-    setSelectedItems(newSelectedItems)
+  const handleSelectChange = (id: number) => {
+    const item = cartItems.find((item) => item.id === id)
+    if (!item) return
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === id) {
+        return { ...item, isSelect: !item.isSelect }
+      }
+      return item
+    })
+    setCartItems(newCartItems)
+    // Update all selected state
+    const allSelected = newCartItems.every((item) => item.isSelect)
+    setSelectAll(allSelected)
+    // calculate selected items
+
   }
 
   const handleSelectAll = () => {
-    if (selectAll) {
-      setSelectedItems([])
-    } else {
-      const allIndexes = cartItems.map((_, index) => index)
-      setSelectedItems(allIndexes)
-    }
-    setSelectAll((prev) => !prev)
+    const allSelected = cartItems.every((item) => item.isSelect)
+    const newCartItems = cartItems.map((item) => {
+      return { ...item, isSelect: !allSelected }
+    })
+    setCartItems(newCartItems)
+    setSelectAll(!allSelected)
   }
 
-  const handleDeleteItem = (index: number) => {
+  const handleDeleteItem = (id: number) => {
+    console.log("id cart", id);
     const confirmDelete = window.confirm(
       'Are you sure you want to delete this item?'
     )
     if (!confirmDelete) return
-    const newCartItems = cartItems.filter((_, i) => i !== index)
+    const newCartItems = cartItems.filter((item) => item.id !== id)
     setCartItems(newCartItems)
     localStorage.setItem('cart', JSON.stringify(newCartItems))
   }
@@ -72,12 +77,10 @@ const CartPage = () => {
       'Are you sure you want to delete selected items?'
     )
     if (!confirmDelete) return
-    const newCartItems = cartItems.filter(
-      (_, index) => !selectedItems.includes(index)
-    )
-    setCartItems(newCartItems)
-    localStorage.setItem('cart', JSON.stringify(newCartItems))
-    setSelectedItems([])
+    // const newCartItems =  cartItems.filter((_, index) => !selectedItems.includes(index))
+    // setCartItems(newCartItems)
+    // localStorage.setItem('cart', JSON.stringify(newCartItems))
+    // setSelectedItems([])
   }
 
   return (
@@ -99,8 +102,8 @@ const CartPage = () => {
                 <li key={index} className='cart-item'>
                   <input
                     type='checkbox'
-                    checked={selectedItems.includes(index)}
-                    onChange={() => handleSelectChange(index)}
+                    checked={item.isSelect}
+                    onChange={() => handleSelectChange(item.id)}
                   />
                   <img
                     src={item.primaryImage}
@@ -129,17 +132,20 @@ const CartPage = () => {
 
                   <p className='amount-of-money'>
                     ₹
-                    {calculatePrice(
-                      item.regular_price -
-                        (item.regular_price * item.discount) / 100,
-                      item.quantity
+                   {parseFloat(
+                      calculatePrice(
+                        item.regular_price -
+                          (item.regular_price * item.discount) / 100,
+                        item.quantity
+                      ).toFixed(2)
                     )}
+
                   </p>
 
                   <ButtonIcon
                     icon='trash'
                     className='cart-item-delete'
-                    onClick={() => handleDeleteItem(index)}
+                    onClick={() => handleDeleteItem(item.id)}
                   />
                 </li>
               ))}
@@ -153,11 +159,21 @@ const CartPage = () => {
           <li className='select-all' onClick={handleSelectAll}>
             <input type='checkbox' checked={selectAll} readOnly />
             <span>
-              Select ({selectedItems.length}/{cartItems.length})
+              Select ({cartItems.filter((item) => item.isSelect).length}/ {cartItems.length})
             </span>
           </li>
           <li onClick={handleDeleteSelectedItems}>Delete </li>
-          <li>Total payment: {calculateTotal()}</li>
+          <li>Total payment : ₹ 
+            {cartItems.reduce((total, item) => {
+              if (item.isSelect) {
+                const discountedPrice = item.regular_price - (item.regular_price * item.discount) / 100
+                const price = (total + calculatePrice(discountedPrice, item.quantity)).toFixed(2)
+                return parseFloat(price)
+              }
+              return  parseFloat(total.toFixed(2))
+            }
+              , 0)}
+          </li>
           <li>
             <Button additionalClass='secondary' label='Checkout' />
           </li>

@@ -1,11 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Slider, { Settings } from 'react-slick'
-import { MainLayout } from '@layout'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Button } from '@components'
 import { useUser } from '@services'
+import { MainLayout } from '@layout'
 import './Detail.css'
 
 const DetailPage = () => {

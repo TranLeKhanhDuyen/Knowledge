@@ -13,7 +13,7 @@ import {
   brandImages,
   selectOptions,
   cardCategorySquare
-} from '@constants'
+} from '@mocks'
 import { Category, getCategories, Product } from '@services'
 import './home.css'
 
@@ -26,7 +26,7 @@ const HomePage = () => {
   useEffect(() => {
     getCategories().then(async (data) => {
       setCategories(data)
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 500))
       if (data != null) {
         const firstCategory = data[0]
         setCategoryName(firstCategory.name || '')
@@ -157,7 +157,7 @@ const HomePage = () => {
             {cardCategorySquare.map((item, index) => (
               <li key={index}>
                 <CardCategory
-                  imageUrl={item.imageUrl}
+                  imageUrl={item.image}
                   name={item.name}
                   discountPercent={item.discountPercent}
                   variant='square'

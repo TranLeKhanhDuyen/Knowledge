@@ -50,7 +50,6 @@ const DetailPage = () => {
     }
 
     localStorage.setItem('cart', JSON.stringify(cart))
-    alert('The product has been added to cart')
   }
 
   const handleBuyNow = () => {

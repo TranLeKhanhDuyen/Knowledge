@@ -26,15 +26,6 @@ const CartPage = () => {
     setCartItems(newCartItems)
   }
 
-  const calculateTotal = () => {
-    // return selectedItems.reduce((total, index) => {
-    //   const item = cartItems[index]
-    //   const discountedPrice =
-    //     item.regular_price - (item.regular_price * item.discount) / 100
-    //   return total + calculatePrice(discountedPrice, item.quantity)
-    // }, 0)
-  }
-
   const handleSelectChange = (id: number) => {
     const item = cartItems.find((item) => item.id === id)
     if (!item) return
@@ -45,11 +36,8 @@ const CartPage = () => {
       return item
     })
     setCartItems(newCartItems)
-    // Update all selected state
     const allSelected = newCartItems.every((item) => item.isSelect)
     setSelectAll(allSelected)
-    // calculate selected items
-
   }
 
   const handleSelectAll = () => {
@@ -62,7 +50,6 @@ const CartPage = () => {
   }
 
   const handleDeleteItem = (id: number) => {
-    console.log("id cart", id);
     const confirmDelete = window.confirm(
       'Are you sure you want to delete this item?'
     )
@@ -77,10 +64,10 @@ const CartPage = () => {
       'Are you sure you want to delete selected items?'
     )
     if (!confirmDelete) return
-    // const newCartItems =  cartItems.filter((_, index) => !selectedItems.includes(index))
-    // setCartItems(newCartItems)
-    // localStorage.setItem('cart', JSON.stringify(newCartItems))
-    // setSelectedItems([])
+    const newCartItems = cartItems.filter((item) => !item.isSelect)
+    setCartItems(newCartItems)
+    setSelectAll(false)
+    localStorage.setItem('cart', JSON.stringify(newCartItems))
   }
 
   return (
@@ -132,14 +119,13 @@ const CartPage = () => {
 
                   <p className='amount-of-money'>
                     ₹
-                   {parseFloat(
+                    {parseFloat(
                       calculatePrice(
                         item.regular_price -
                           (item.regular_price * item.discount) / 100,
                         item.quantity
                       ).toFixed(2)
                     )}
-
                   </p>
 
                   <ButtonIcon
@@ -151,7 +137,7 @@ const CartPage = () => {
               ))}
             </ul>
           ) : (
-            <p>No items in the cart</p>
+            <p className='no-items'>No items in the cart</p>
           )}
         </article>
 
@@ -159,26 +145,40 @@ const CartPage = () => {
           <li className='select-all' onClick={handleSelectAll}>
             <input type='checkbox' checked={selectAll} readOnly />
             <span>
-              Select ({cartItems.filter((item) => item.isSelect).length}/ {cartItems.length})
+              Select ({cartItems.filter((item) => item.isSelect).length}/{' '}
+              {cartItems.length})
             </span>
           </li>
-          <li onClick={handleDeleteSelectedItems}>Delete </li>
-          <li>Total payment : ₹ 
+
+          {cartItems.filter((item) => item.isSelect).length > 0 ? (
+            <li onClick={handleDeleteSelectedItems}>Delete</li>
+          ) : (
+            <li></li>
+          )}
+
+          <li>
+            Total payment : ₹
             {cartItems.reduce((total, item) => {
               if (item.isSelect) {
-                const discountedPrice = item.regular_price - (item.regular_price * item.discount) / 100
-                const price = (total + calculatePrice(discountedPrice, item.quantity)).toFixed(2)
+                const discountedPrice =
+                  item.regular_price -
+                  (item.regular_price * item.discount) / 100
+                const price = (
+                  total + calculatePrice(discountedPrice, item.quantity)
+                ).toFixed(2)
                 return parseFloat(price)
               }
-              return  parseFloat(total.toFixed(2))
-            }
-              , 0)}
+              return parseFloat(total.toFixed(2))
+            }, 0)}
           </li>
-          <li>
-            <Button additionalClass='secondary' label='Checkout' />
-          </li>
+          {cartItems.length > 0 ? (
+            <li>
+              <Button additionalClass='secondary' label='Checkout' />
+            </li>
+          ) : (
+            <li></li>
+          )}
         </ul>
-
       </section>
     </MainLayout>
   )

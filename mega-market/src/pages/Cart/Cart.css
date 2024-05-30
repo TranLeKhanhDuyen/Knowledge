@@ -86,3 +86,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.no-items {
+  text-align: center;
+  padding: 40px;
+  font-size: var(--font-lg);
+  color: var(--text-secondary-color);
+}

@@ -31,14 +31,13 @@ const DetailPage = () => {
       const confirmLogin = window.confirm(
         'Please log in to add to cart products. Do you want to log in now?'
       )
-
       if (confirmLogin) {
         navigate('/auth/login')
       }
       return
     }
 
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+    const cart = JSON.parse(localStorage.getItem(`cart_${user.userName as string}`) || '[]')
     const existingProductIndex = cart.findIndex(
       (item: any) => item.id === product.id
     )
@@ -49,7 +48,8 @@ const DetailPage = () => {
       cart.push({ ...product, primaryImage, quantity })
     }
 
-    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.setItem(`cart_${user.userName as string}`, JSON.stringify(cart))
+    alert('The product has been added to cart')
   }
 
   const handleBuyNow = () => {

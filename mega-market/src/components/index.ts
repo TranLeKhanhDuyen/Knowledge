@@ -1,3 +1,4 @@
+export * from '@components/Common/ButtonIcon'
 export { default as ButtonIcon } from '@components/Common/ButtonIcon'
 export * from '@components/Common/IconTextButton'
 export { default as IconTextButton } from '@components/Common/IconTextButton'

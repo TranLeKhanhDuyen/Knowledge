@@ -40,7 +40,7 @@ export const IconLeft: Story = {
 export const IconRight: Story = {
   ...Default,
   args: {
-    icon: 'arrow-down-white',
+    icon: 'buy',
     title: 'Groceries',
     iconPosition: 'right',
     additionalClass: 'select'

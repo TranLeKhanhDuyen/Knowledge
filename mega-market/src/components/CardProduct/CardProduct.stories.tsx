@@ -27,9 +27,9 @@ export const Default: Story = {
     imageUrl: img1,
     alt: 'phone',
     name: 'Galaxy S22 Ultra',
-    salePrice: 32999,
+    salePrice: '32999',
     regularPrice: 74999,
     savePrice: 74999,
-    discountPercent: '56%'
+    discountPercent: '56'
   }
 }

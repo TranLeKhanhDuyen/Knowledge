@@ -26,7 +26,7 @@ const ImageSlider: React.FC<SliderProps> = ({
     slidesToScroll: displayCount,
     autoplay: false,
     autoplaySpeed: 3000,
-    beforeChange: (oldIndex, newIndex) => {
+    beforeChange: (_, newIndex) => {
       setCurrentSlide(newIndex)
     }
   }

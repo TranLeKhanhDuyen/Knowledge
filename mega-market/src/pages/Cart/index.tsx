@@ -8,7 +8,9 @@ const CartPage = () => {
   const [selectAll, setSelectAll] = useState<boolean>(false)
 
   useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+    const userData = localStorage.getItem('user') ?? '';
+    const user = JSON.parse(userData);
+    const cart = JSON.parse(localStorage.getItem(`cart_${user.userName as string}`) || '[]')
     setCartItems(cart)
   }, [])
 
@@ -55,7 +57,9 @@ const CartPage = () => {
     if (!confirmDelete) return
     const newCartItems = cartItems.filter((item) => item.id !== id)
     setCartItems(newCartItems)
-    localStorage.setItem('cart', JSON.stringify(newCartItems))
+    const userData = localStorage.getItem('user') ?? '';
+    const user = JSON.parse(userData);
+    localStorage.setItem(`cart_${user.userName as string}`, JSON.stringify(newCartItems))
   }
 
   const handleDeleteSelectedItems = () => {
@@ -66,7 +70,9 @@ const CartPage = () => {
     const newCartItems = cartItems.filter((item) => !item.isSelect)
     setCartItems(newCartItems)
     setSelectAll(false)
-    localStorage.setItem('cart', JSON.stringify(newCartItems))
+    const userData = localStorage.getItem('user') ?? '';
+    const user = JSON.parse(userData);
+    userData && localStorage.setItem(`cart_${user.userName as string}`, JSON.stringify(newCartItems))
   }
 
   return (
@@ -177,6 +183,7 @@ const CartPage = () => {
             <li></li>
           )}
         </ul>
+
       </section>
   )
 }

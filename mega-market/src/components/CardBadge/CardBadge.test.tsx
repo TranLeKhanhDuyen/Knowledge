@@ -4,7 +4,7 @@ import CardBadge from '.'
 describe('CardBadge component', () => {
   test('renders title and percent correctly', () => {
     const title = 'Discount'
-    const percent = '20%'
+    const percent = '20'
     const { getByText } = render(<CardBadge title={title} percent={percent} />)
 
     expect(getByText(title)).toBeInTheDocument()
@@ -16,7 +16,7 @@ describe('CardBadge component', () => {
     const { container } = render(
       <CardBadge
         title='Title'
-        percent='50%'
+        percent='50'
         additionalClass={additionalClass}
       />
     )
@@ -26,7 +26,7 @@ describe('CardBadge component', () => {
 
   test('matches snapshot', () => {
     const title = 'Free Shipping'
-    const percent = '80%'
+    const percent = '80'
     const additionalClass = 'special-class'
     const { asFragment } = render(
       <CardBadge

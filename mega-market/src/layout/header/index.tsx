@@ -1,8 +1,8 @@
 import { ButtonIcon, IconTextButton, Logo, SearchBar } from '@components'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '@services'
+import { ValidationMessages } from '@constants'
 import './Header.css'
-import { ValidationMessages } from '@constants/validation'
 
 const Header = () => {
   const navigate = useNavigate()
@@ -16,6 +16,8 @@ const Header = () => {
     const confirmLogout = window.confirm(ValidationMessages.LogoutQuestion)
     if (confirmLogout) {
       setUser(null)
+      navigate('/')
+      localStorage.removeItem('cart')
     }
   }
 
@@ -27,6 +29,14 @@ const Header = () => {
     }
   }
 
+  const handleNavigateCardPage = () => {
+    if (!user) {
+      navigate('/auth/login')
+      return
+    }
+    navigate('/cart')
+  }
+
   return (
     <header className='container header'>
       <div className='header-left'>
@@ -34,7 +44,7 @@ const Header = () => {
         <Logo />
       </div>
 
-      <SearchBar additonalClass='search-header' />
+      <SearchBar additionalClass='search-header' />
       <div className='header-right'>
         <IconTextButton
           size='md'
@@ -49,6 +59,7 @@ const Header = () => {
           subTitle='Cart'
           icon='buy'
           additionalClass='header-buy-icon'
+          onClick={handleNavigateCardPage}
         />
       </div>
     </header>

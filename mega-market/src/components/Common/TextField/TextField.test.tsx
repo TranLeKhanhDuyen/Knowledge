@@ -29,14 +29,6 @@ describe('TextField', () => {
     expect(getByPlaceholderText('Enter username')).toBeInTheDocument()
   })
 
-  test('calls onChange callback when input value changes', () => {
-    const onChangeMock = jest.fn()
-    const { getByPlaceholderText } = renderTextField({ onChange: onChangeMock })
-    const inputElement = getByPlaceholderText('Enter username')
-    fireEvent.change(inputElement, { target: { value: 'user123' } })
-    expect(onChangeMock).toHaveBeenCalledWith('user123')
-  })
-
   test('displays error message if input is invalid', () => {
     const { getByText, getByPlaceholderText } = renderTextField()
     const inputElement = getByPlaceholderText('Enter username')

@@ -26,8 +26,9 @@ const LoginForm = () => {
       }
 
       setUser(user)
-      alert('Logged in successfully')
+
       navigate('/')
+
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)

@@ -1,48 +1,56 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { RegisterRequest, useUser } from '@services'
+import { RegisterRequest } from '@services'
 import { Button, RHFTextField, FormProvider } from '@components'
 import { ValidationMessages } from '@constants'
+import { useUserStore } from '@stores/userStore'
 import './Auth.css'
 
 const RegisterForm = () => {
   const methods = useForm<RegisterRequest>()
   const { handleSubmit } = methods
   const [error, setError] = useState<string | null>(null)
-  const { setUser } = useUser()
+  const setUser = useUserStore((state) => state.setUser)
   const navigate = useNavigate()
 
-  const onSubmit: SubmitHandler<RegisterRequest> = (data) => {
-    try {
-      const existingUsers = JSON.parse(localStorage.getItem('users') || '[]')
-      const userExists = existingUsers.some(
-        (user: { email: string }) => user.email === data.email
-      )
+  const memoizedError = useMemo(() => error, [error])
 
-      if (userExists) {
-        throw new Error('Email already exists')
-      }
+  const onSubmit: SubmitHandler<RegisterRequest> = useCallback(
+    (data) => {
+      try {
+        const existingUsers = JSON.parse(localStorage.getItem('users') || '[]')
+        const userExists = existingUsers.some(
+          (user: { email: string }) => user.email === data.email
+        )
 
-      const newUser = {
-        userName: data.userName,
-        email: data.email,
-        password: data.password
-      }
+        if (userExists) {
+          throw new Error('Email already exists')
+        }
 
-      const updatedUsers = [...existingUsers, newUser]
-      localStorage.setItem('users', JSON.stringify(updatedUsers))
-      setUser(newUser)
-      alert('Register is successful')
-      navigate('/auth/login')
-    } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message)
-      } else {
-        setError(ValidationMessages.RegisterFailed)
+        const newUser = {
+          userName: data.userName,
+          email: data.email,
+          password: data.password
+        }
+
+        const updatedUsers = [...existingUsers, newUser]
+        localStorage.setItem('users', JSON.stringify(updatedUsers))
+        setUser(newUser)
+        alert('Register is successful')
+        navigate('/auth/login')
+      } catch (err) {
+        if (err instanceof Error) {
+          console.error('Registration error:', err.message)
+          setError(err.message)
+        } else {
+          console.error('Unknown registration error')
+          setError(ValidationMessages.RegisterFailed)
+        }
       }
-    }
-  }
+    },
+    [setUser, navigate]
+  )
 
   const handleEyeClick = () => {
     // update later
@@ -106,6 +114,7 @@ const RegisterForm = () => {
               ValidationMessages.ConfirmPasswordMatch
           }}
         />
+        {memoizedError && <p className='error-message'>{memoizedError}</p>}
         <Button additionalClass='btn-register' type='submit' label='Register' />
         <p className='navigate-auth'>
           Yes i have an account?{' '}

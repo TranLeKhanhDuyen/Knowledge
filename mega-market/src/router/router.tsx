@@ -1,11 +1,14 @@
-import { MainLayout } from '@layout'
-import { LoginForm, RegisterForm } from '@pages'
-import CartPage from '@pages/Cart'
-import CategoriesPage from '@pages/Categories'
-import DetailPage from '@pages/Detail'
-import HomePage from '@pages/Home'
-import ProductPage from '@pages/Products'
+import { lazy, Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
+import { MainLayout } from '@layout'
+
+const HomePage = lazy(() => import('@pages/Home'))
+const CategoriesPage = lazy(() => import('@pages/Categories'))
+const DetailPage = lazy(() => import('@pages/Detail'))
+const ProductPage = lazy(() => import('@pages/Products'))
+const CartPage = lazy(() => import('@pages/Cart'))
+const LoginForm = lazy(() => import('@pages/Auth/Login'))
+const RegisterForm = lazy(() => import('@pages/Auth/Register'))
 
 const Router = () => {
   return useRoutes([
@@ -16,7 +19,9 @@ const Router = () => {
           path: '',
           element: (
             <MainLayout>
-              <HomePage />
+              <Suspense fallback={<div>Loading...</div>}>
+                <HomePage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -24,15 +29,19 @@ const Router = () => {
           path: 'categories',
           element: (
             <MainLayout>
-              <CategoriesPage />
+              <Suspense fallback={<div>Loading...</div>}>
+                <CategoriesPage />
+              </Suspense>
             </MainLayout>
           )
         },
         {
-          path: 'products/:categoryId',
+          path: 'categories/:categoryId/products',
           element: (
             <MainLayout>
-              <ProductPage />
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProductPage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -40,7 +49,9 @@ const Router = () => {
           path: 'products',
           element: (
             <MainLayout>
-              <ProductPage />
+              <Suspense fallback={<div>Loading...</div>}>
+                <ProductPage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -48,7 +59,9 @@ const Router = () => {
           path: 'product/:id',
           element: (
             <MainLayout>
-              <DetailPage />
+              <Suspense fallback={<div>Loading...</div>}>
+                <DetailPage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -56,7 +69,9 @@ const Router = () => {
           path: 'cart',
           element: (
             <MainLayout>
-              <CartPage />
+              <Suspense fallback={<div>Loading...</div>}>
+                <CartPage />
+              </Suspense>
             </MainLayout>
           )
         }
@@ -67,14 +82,23 @@ const Router = () => {
       children: [
         {
           path: 'login',
-          element: <LoginForm />
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <LoginForm />
+            </Suspense>
+          )
         },
         {
           path: 'register',
-          element: <RegisterForm />
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <RegisterForm />
+            </Suspense>
+          )
         }
       ]
     }
   ])
 }
+
 export default Router

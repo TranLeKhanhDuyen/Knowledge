@@ -27,6 +27,7 @@
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",
+    "react-query": "^3.39.3",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.23.1",
     "react-slick": "^0.30.2",
@@ -34,7 +35,8 @@
     "slick-carousel": "^1.8.1",
     "slider": "^1.0.4",
     "validator": "^13.11.0",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.5",

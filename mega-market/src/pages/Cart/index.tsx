@@ -183,7 +183,6 @@ const CartPage = () => {
             <li></li>
           )}
         </ul>
-
       </section>
   )
 }

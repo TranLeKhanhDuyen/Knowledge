@@ -28,7 +28,6 @@ const LoginForm = () => {
       setUser(user)
 
       navigate('/')
-
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
@@ -48,6 +47,7 @@ const LoginForm = () => {
         <h1 className='auth-title'>Welcome Back!</h1>
         <RHFTextField
           additionalClass='form'
+          type='email'
           name='email'
           label='Email'
           isShowLabel

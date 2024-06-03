@@ -1,13 +1,12 @@
 import Router from '@router/router'
-import { UserProvider } from '@services/models/userState'
-import { BrowserRouter } from 'react-router-dom'
+import './App.css'
+import { AppProviders } from '@AppProvider'
+
 function App() {
   return (
-    <BrowserRouter>
-      <UserProvider>
-        <Router />
-      </UserProvider>
-    </BrowserRouter>
+    <AppProviders>
+      <Router />
+    </AppProviders>
   )
 }
 

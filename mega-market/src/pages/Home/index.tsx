@@ -14,7 +14,7 @@ import {
   selectOptions,
   cardCategorySquare
 } from '@mocks'
-import { getCategories, useCategoryProducts, Product } from '@services'
+import { getCategories, getCategoryProducts, Product } from '@services'
 import './home.css'
 
 const HomePage = () => {
@@ -26,7 +26,8 @@ const HomePage = () => {
     null
   )
 
-  const { data: categoryProducts, isLoading: productsLoading } = useCategoryProducts(selectedCategoryId ?? 0)
+  const { data: categoryProducts, isLoading: productsLoading } =
+    getCategoryProducts(selectedCategoryId ?? 0)
 
   const selectedCategory = useMemo(() => {
     return categories?.find((category) => category.id === selectedCategoryId)
@@ -61,6 +62,8 @@ const HomePage = () => {
               key={index}
               options={[option]}
               onSelect={(value) => console.log(value)}
+              icon='user'
+              additionalClass='select-category'
             />
           ))}
         </div>

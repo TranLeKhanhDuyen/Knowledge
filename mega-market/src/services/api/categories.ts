@@ -9,7 +9,7 @@ export const getCategories = () => {
   })
 }
 
-export const useCategoryProducts = (id: number) => {
+export const getCategoryProducts = (id: number) => {
   return useQuery(
     ['categoryProducts', id],
     async () => {

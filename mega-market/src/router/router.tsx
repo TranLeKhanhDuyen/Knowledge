@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
 import { MainLayout } from '@layout'
+import PurchaseOrderPage from '@pages/PurchaseOrder'
 
 const HomePage = lazy(() => import('@pages/Home'))
 const CategoriesPage = lazy(() => import('@pages/Categories'))
@@ -71,6 +72,16 @@ const Router = () => {
             <MainLayout>
               <Suspense fallback={<div>Loading...</div>}>
                 <CartPage />
+              </Suspense>
+            </MainLayout>
+          )
+        },
+        {
+          path: 'purchase-history',
+          element: (
+            <MainLayout>
+              <Suspense fallback={<div>Loading...</div>}>
+                <PurchaseOrderPage />
               </Suspense>
             </MainLayout>
           )

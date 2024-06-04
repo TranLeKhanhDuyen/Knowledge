@@ -8,5 +8,5 @@ export type {
   RegisterRequest
 } from '@services/request/authRequest'
 export { registerUser, loginUser } from '@services/api/auth'
-export { getCategories, useCategoryProducts } from '@services/api/categories'
+export { getCategories, getCategoryProducts } from '@services/api/categories'
 export { UserProvider, useUser } from '@services/models/userState'

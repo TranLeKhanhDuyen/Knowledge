@@ -39,9 +39,9 @@ const ImageSlider: React.FC<SliderProps> = ({
     <div className={`slider-container ${additionalClass}`}>
       <Slider {...settings}>
         {images.map((imageUrl, index) => (
-          <div key={index}>
+          <figure key={index}>
             <img src={imageUrl} alt={`Slide ${index}`} />
-          </div>
+          </figure>
         ))}
       </Slider>
 

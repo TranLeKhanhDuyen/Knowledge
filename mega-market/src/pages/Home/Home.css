@@ -7,7 +7,22 @@
 
 .select-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.select-category {
+  font-size: var(--font-sm);
+  color: var(--text-primary-color);
+  background-color: var(--tertiary-color);
+  border-radius: 18px;
+  padding: 9px 14px;
+  margin-right: 14px;
+}
+
+.select-category:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .products {

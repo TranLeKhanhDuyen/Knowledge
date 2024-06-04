@@ -1,5 +1,5 @@
 import { Topbar, Header, Footer } from '@layout'
-import {Copyright} from '@components'
+import { Copyright } from '@components'
 import './MainLayout.css'
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -9,11 +9,11 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <Topbar />
       </section>
 
-      <div>
+      <header>
         <Header />
-      </div>
+      </header>
 
-      {children}
+      <main>{children}</main>
 
       <footer className='footer'>
         <Footer />

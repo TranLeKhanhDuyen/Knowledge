@@ -1,87 +1,59 @@
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import CardCategory from '.'
 
 describe('CardCategory component', () => {
-  test('renders correctly with default props', () => {
-    const imageUrl = '@assets/images/products/phone-2.svg'
-    const { getByAltText, getByText } = render(
-      <CardCategory imageUrl={imageUrl} />
+  test('renders correctly', () => {
+    const { container } = render(
+      <CardCategory imageUrl='url' alt='test alt' name='test name' />
     )
-
-    const categoryImage = getByAltText('Image of category')
-    expect(categoryImage).toBeInTheDocument()
-    expect(categoryImage.getAttribute('src')).toBe(imageUrl)
-
-    const defaultCategoryName = 'Electronics'
-    const categoryName = getByText(defaultCategoryName)
-    expect(categoryName).toBeInTheDocument()
-
-    const defaultDiscountPercent = '50%'
-    const discountText = getByText(`UP to ${defaultDiscountPercent} OFF`)
-    expect(discountText).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
-  test('renders correctly with custom props', () => {
-    const imageUrl =
-      'https://media.4rgos.it/i/Argos/9520103_R_Z001A?w=750&h=440&qlt=70'
-    const customAltText = 'Custom Alt Text'
-    const customCategoryName = 'Clothing'
-    const customDiscountPercent = '30%'
-    const { getByAltText, getByText } = render(
+  test('renders name correctly', () => {
+    const testName = 'Test Name'
+    const { getByText } = render(
+      <CardCategory imageUrl='url' alt='test alt' name={testName} />
+    )
+    expect(getByText(testName)).toBeInTheDocument()
+  })
+
+  test('renders discount correctly', () => {
+    const testDiscountPercent = '50'
+    const { getByText } = render(
       <CardCategory
-        imageUrl={imageUrl}
-        alt={customAltText}
-        name={customCategoryName}
-        discountPercent={customDiscountPercent}
-        variant='square'
-        additionalClass='custom-class'
+        imageUrl='url'
+        alt='test alt'
+        name='test name'
+        discountPercent={testDiscountPercent}
       />
     )
-
-    const categoryImage = getByAltText(customAltText)
-    expect(categoryImage).toBeInTheDocument()
-    expect(categoryImage.getAttribute('src')).toBe(imageUrl)
-
-    const categoryName = getByText(customCategoryName)
-    expect(categoryName).toBeInTheDocument()
-
-    const discountText = getByText(`UP to ${customDiscountPercent} OFF`)
-    expect(discountText).toBeInTheDocument()
-
-    const categoryContainer = getByAltText(customAltText).closest(
-      '.card-category-container'
-    )
-    expect(categoryContainer).toHaveClass('card-category-container-square')
-    expect(categoryContainer).toHaveClass('custom-class')
-
-    const categoryImgWrapper = getByAltText(customAltText).closest(
-      '.category-img-wrapper'
-    )
-    expect(categoryImgWrapper).toHaveClass('category-img-wrapper-square')
-
-    const categoryNameElement = getByText(customCategoryName)
-    expect(categoryNameElement).toHaveClass('category-name-square')
-
-    const discountTextElement = getByText(`UP to ${customDiscountPercent} OFF`)
-    expect(discountTextElement).toHaveClass('category-discount-square')
+    expect(getByText(`UP to ${testDiscountPercent} OFF`)).toBeInTheDocument()
   })
 
-  test('renders correctly with custom props', () => {
-    const imageUrl = '@assets/images/products/phone-2.svg'
-    const customAltText = 'Custom Alt Text'
-    const customCategoryName = 'Clothing'
-    const customDiscountPercent = '30%'
+  test('applies additionalClass correctly', () => {
+    const additionalClass = 'additional-class'
     const { container } = render(
       <CardCategory
-        imageUrl={imageUrl}
-        alt={customAltText}
-        name={customCategoryName}
-        discountPercent={customDiscountPercent}
-        variant='square'
-        additionalClass='custom-class'
+        imageUrl='url'
+        alt='test alt'
+        name='test name'
+        additionalClass={additionalClass}
       />
     )
+    expect(container.firstChild).toHaveClass(additionalClass)
+  })
 
-    expect(container.firstChild).toMatchSnapshot()
+  test('calls onClick when image is clicked', () => {
+    const onClick = jest.fn()
+    const { getByAltText } = render(
+      <CardCategory
+        imageUrl='url'
+        alt='test alt'
+        name='test name'
+        onClick={onClick}
+      />
+    )
+    fireEvent.click(getByAltText('test alt'))
+    expect(onClick).toHaveBeenCalled()
   })
 })

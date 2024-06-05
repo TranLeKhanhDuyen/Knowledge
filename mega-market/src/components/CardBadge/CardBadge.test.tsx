@@ -2,40 +2,31 @@ import { render } from '@testing-library/react'
 import CardBadge from '.'
 
 describe('CardBadge component', () => {
-  test('renders title and percent correctly', () => {
-    const title = 'Discount'
-    const percent = '20'
-    const { getByText } = render(<CardBadge title={title} percent={percent} />)
-
-    expect(getByText(title)).toBeInTheDocument()
-    expect(getByText(percent)).toBeInTheDocument()
+  test('renders correctly', () => {
+    const { container } = render(<CardBadge percent='50' title='Test Title' />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 
-  test('applies additional class correctly', () => {
-    const additionalClass = 'custom-class'
+  test('renders percent and title correctly', () => {
+    const percent = '50'
+    const title = 'Test Title'
+    const { getByText } = render(<CardBadge percent={percent} title={title} />)
+    expect(getByText(`${percent}%`)).toBeInTheDocument()
+    expect(getByText(title)).toBeInTheDocument()
+  })
+
+  test('applies additionalClass correctly', () => {
+    const additionalClass = 'additional-class'
     const { container } = render(
       <CardBadge
-        title='Title'
         percent='50'
+        title='Test Title'
         additionalClass={additionalClass}
       />
     )
-
-    expect(container.firstChild).toHaveClass(additionalClass)
-  })
-
-  test('matches snapshot', () => {
-    const title = 'Free Shipping'
-    const percent = '80'
-    const additionalClass = 'special-class'
-    const { asFragment } = render(
-      <CardBadge
-        title={title}
-        percent={percent}
-        additionalClass={additionalClass}
-      />
+    expect(container.firstChild).toHaveClass(
+      'card-badge-container',
+      additionalClass
     )
-
-    expect(asFragment()).toMatchSnapshot()
   })
 })

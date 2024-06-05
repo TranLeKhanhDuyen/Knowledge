@@ -47,8 +47,6 @@ const DetailPage = () => {
   }, [user, product, primaryImage, quantity, navigate])
 
   const handleBuyNow = useCallback(() => {
-    if (!user) navigate('/auth/login')
-
     const cartKey = `cart_${user?.userName}`
     const cart = JSON.parse(localStorage.getItem(cartKey) || '[]')
     const existingProductIndex = cart.findIndex(

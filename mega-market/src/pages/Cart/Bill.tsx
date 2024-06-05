@@ -47,9 +47,9 @@ const Bill: React.FC<BillProps> = ({
           </li>
         ))}
       </ul>
-      <p>Total Payment: ₹{totalPayment.toFixed(2)}</p>
+      <p className='bill-total'>Total Payment: ₹{totalPayment.toFixed(2)}</p>
 
-      <div>
+      <div className='bill-buttons'>
         <Button label='Close' onClick={onClose} additionalClass='primary' />
         <Button
           label='Buy Now'

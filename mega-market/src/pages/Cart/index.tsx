@@ -20,6 +20,7 @@ const CartPage = () => {
   const [selectedItems, setSelectedItems] = useState<CartItem[]>([])
   const [totalPayment, setTotalPayment] = useState<number>(0)
   const [showMessage, setShowMessage] = useState<boolean>(false)
+  const [showConfirmDelete, setShowConfirmDelete] = useState<boolean>(false)
 
   useEffect(() => {
     const userData = localStorage.getItem('user') ?? ''
@@ -27,7 +28,12 @@ const CartPage = () => {
     const cart = JSON.parse(
       localStorage.getItem(`cart_${user.userName as string}`) || '[]'
     )
-    setCartItems(cart)
+    const updatedCart = cart.map((item: CartItem) => ({
+      ...item,
+      isSelect: location.state?.fromBuyNow ? true : false
+    }))
+
+    setCartItems(updatedCart)
   }, [location])
 
   const calculatePrice = (price: number, quantity: number) => price * quantity
@@ -76,7 +82,7 @@ const CartPage = () => {
     showToast('Item deleted successfully', 'success')
   }
 
-  const handleDeleteSelectedItems = () => {
+  const confirmDeleteSelectedItems = () => {
     const newCartItems = cartItems.filter((item) => !item.isSelect)
     setCartItems(newCartItems)
     setSelectAll(false)
@@ -87,7 +93,8 @@ const CartPage = () => {
         `cart_${user.userName as string}`,
         JSON.stringify(newCartItems)
       )
-    showToast('Selected items deleted successfully', 'success')
+    showToast('Delete products successfully', 'success')
+    setShowConfirmDelete(false)
   }
 
   const handleCheckout = () => {
@@ -96,6 +103,7 @@ const CartPage = () => {
       setShowMessage(true)
       return
     }
+
     const total = selected.reduce((total, item) => {
       const discountedPrice =
         item.regular_price - (item.regular_price * item.discount) / 100
@@ -218,7 +226,7 @@ const CartPage = () => {
         </li>
 
         {cartItems.filter((item) => item.isSelect).length > 0 ? (
-          <li onClick={handleDeleteSelectedItems}>Delete</li>
+          <li onClick={() => setShowConfirmDelete(true)}>Delete</li>
         ) : (
           <li></li>
         )}
@@ -263,8 +271,27 @@ const CartPage = () => {
 
       {showMessage && (
         <Message
+          labelClose='OK'
           message="You haven't chosen any product to buy yet."
           onClose={() => setShowMessage(false)}
+        />
+      )}
+
+      {showMessage && (
+        <Message
+          labelClose='OK'
+          message="You haven't chosen any product to buy yet."
+          onClose={() => setShowMessage(false)}
+        />
+      )}
+
+      {showConfirmDelete && (
+        <Message
+          labelClose='Cancel'
+          labelSubmit='Delete'
+          message='Do you want to remove selected products?'
+          onClose={() => setShowConfirmDelete(false)}
+          onSubmit={confirmDeleteSelectedItems}
         />
       )}
     </section>

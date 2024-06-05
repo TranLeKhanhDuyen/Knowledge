@@ -63,10 +63,6 @@ const Header = () => {
   }
 
   const handleNavigateCartPage = () => {
-    if (!user) {
-      navigate('/auth/login')
-      return
-    }
     navigate('/cart')
   }
 

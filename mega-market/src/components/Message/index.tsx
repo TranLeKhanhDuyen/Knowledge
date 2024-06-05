@@ -4,15 +4,39 @@ import './Message.css'
 
 interface MessageProps {
   message: string
-  onClose: () => void
+  labelClose: string
+  labelSubmit?: string
+  onClose?: () => void
+  onSubmit?: () => void
+  showSubmit?: boolean
 }
 
-const Message: React.FC<MessageProps> = ({ message, onClose }) => {
+const Message: React.FC<MessageProps> = ({
+  message,
+  onClose,
+  onSubmit,
+  showSubmit = true,
+  labelSubmit,
+  labelClose
+}) => {
   return (
     <div className='message-container'>
       <article className='message-wrapper'>
         <h3 className='message-title'>{message}</h3>
-        <Button label='OK' onClick={onClose} additionalClass='primary' />
+        <div className='message-buttons'>
+          <Button
+            label={labelClose}
+            onClick={onClose}
+            additionalClass='primary btn-message-close'
+          />
+          {showSubmit && labelSubmit && (
+            <Button
+              label={labelSubmit}
+              onClick={onSubmit}
+              additionalClass='secondary btn-message-submit'
+            />
+          )}
+        </div>
       </article>
     </div>
   )

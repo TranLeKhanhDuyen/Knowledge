@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { IconTextButton } from '@components'
-import { arrowDownIconWhite, locationIcon, truckIcon } from '@assets/images'
 
 export default {
   title: 'Components/IconTextButton',
@@ -41,7 +40,7 @@ export const IconLeft: Story = {
 export const IconRight: Story = {
   ...Default,
   args: {
-    icon: 'arrow-down-white',
+    icon: 'buy',
     title: 'Groceries',
     iconPosition: 'right',
     additionalClass: 'select'

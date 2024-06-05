@@ -8,19 +8,3 @@ export const getCategories = () => {
     return await axiosRequest<Category[]>(`${BASE_URL}/category`, 'GET')
   })
 }
-
-export const getCategoryProducts = (id: number) => {
-  return useQuery(
-    ['categoryProducts', id],
-    async () => {
-      const response = await axiosRequest<Category>(
-        `${BASE_URL}/category/${id}`,
-        'GET'
-      )
-      return response.products
-    },
-    {
-      enabled: !!id
-    }
-  )
-}

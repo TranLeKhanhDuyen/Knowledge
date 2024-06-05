@@ -1,30 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardCategory component renders correctly with custom props 1`] = `
+exports[`CardCategory component renders correctly 1`] = `
 <article
-  class="card-category-container card-category-container-square custom-class"
+  class="card-category-container card-category-container-circle "
 >
   <figure
-    class="category-img-wrapper category-img-wrapper-square"
+    class="category-img-wrapper category-img-wrapper-circle"
   >
     <img
-      alt="Custom Alt Text"
+      alt="test alt"
       class="category-img"
-      src="@assets/images/products/phone-2.svg"
+      src="url"
     />
   </figure>
   <aside
     class="category-details"
   >
     <p
-      class="category-name category-name-square"
+      class="category-name category-name-circle"
     >
-      Clothing
-    </p>
-    <p
-      class="category-discount category-discount-square"
-    >
-      UP to 30% OFF
+      test name
     </p>
   </aside>
 </article>

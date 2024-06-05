@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Button, showToast, Toast } from '@components'
 import { useUser } from '@services'
+import { useCartStore } from '@stores/useCartStore'
 import './Detail.css'
 
 const DetailPage = () => {
@@ -17,6 +18,7 @@ const DetailPage = () => {
     product?.image?.[0]?.url ?? ''
   )
   const [quantity, setQuantity] = useState(1)
+  const addToCart = useCartStore((state) => state.addToCart)
 
   const settings: Settings = {
     dots: false,
@@ -28,42 +30,37 @@ const DetailPage = () => {
   }
 
   const handleAddToCart = useCallback(() => {
-    if (!user) navigate('/auth/login')
-
-    const cartKey = `cart_${user?.userName}`
-    const cart = JSON.parse(localStorage.getItem(cartKey) || '[]')
-    const existingProductIndex = cart.findIndex(
-      (item: any) => item.id === product.id
-    )
-
-    if (existingProductIndex >= 0) {
-      cart[existingProductIndex].quantity += quantity
-    } else {
-      cart.push({ ...product, primaryImage, quantity })
+    if (!user) {
+      navigate('/auth/login')
+      return
     }
 
-    localStorage.setItem(cartKey, JSON.stringify(cart))
+    const newItem = {
+      ...product,
+      primaryImage,
+      quantity
+    }
+
+    addToCart(newItem)
     showToast('The product has been added to cart', 'success')
-  }, [user, product, primaryImage, quantity, navigate])
+  }, [user, product, primaryImage, quantity, navigate, addToCart])
 
   const handleBuyNow = useCallback(() => {
-    const cartKey = `cart_${user?.userName}`
-    const cart = JSON.parse(localStorage.getItem(cartKey) || '[]')
-    const existingProductIndex = cart.findIndex(
-      (item: any) => item.id === product.id
-    )
-
-    if (existingProductIndex >= 0) {
-      cart[existingProductIndex].quantity += quantity
-      cart[existingProductIndex].isSelect = true
-    } else {
-      cart.push({ ...product, primaryImage, quantity, isSelect: true })
+    if (!user) {
+      navigate('/auth/login')
+      return
     }
 
-    localStorage.setItem(cartKey, JSON.stringify(cart))
-    navigate('/cart')
-  }, [user, product, primaryImage, quantity, navigate])
+    const newItem = {
+      ...product,
+      primaryImage,
+      quantity,
+      isSelect: true
+    }
 
+    addToCart(newItem)
+    navigate('/cart')
+  }, [user, product, primaryImage, quantity, navigate, addToCart])
   return (
     <section className='container detail-page'>
       {product ? (

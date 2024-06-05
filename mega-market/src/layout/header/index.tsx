@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '@services'
-import { ValidationMessages } from '@constants'
 import {
   Button,
   ButtonIcon,
@@ -9,13 +8,28 @@ import {
   Logo,
   SearchBar
 } from '@components'
+import { useCartStore } from '@stores/useCartStore'
 import './Header.css'
 
 const Header = () => {
   const navigate = useNavigate()
   const { user, setUser } = useUser()
+  const cartItems = useCartStore((state) => state.cartItems)
+  const loadCartFromLocalStorage = useCartStore(
+    (state) => state.loadCartFromLocalStorage
+  )
+  const clearCartOnLogout = useCartStore(
+    (state) => state.clearCartOnLogout
+  )
   const [dropdownVisible, setDropdownVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    loadCartFromLocalStorage()
+  }, [loadCartFromLocalStorage])
+
+  // Count the number of product types in the shopping cart
+  const cartItemCount = cartItems.length
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -37,9 +51,10 @@ const Header = () => {
   }
 
   const handleLogoutClick = () => {
-      setUser(null)
-      navigate('/')
-      localStorage.removeItem('cart')
+    setUser(null)
+    navigate('/')
+    loadCartFromLocalStorage()
+    clearCartOnLogout() 
   }
 
   const handlePurchaseHistory = () => {
@@ -99,7 +114,7 @@ const Header = () => {
         </div>
         <IconTextButton
           size='md'
-          subTitle='Cart'
+          subTitle={`Cart (${cartItemCount})`}
           icon='buy'
           additionalClass='header-buy-icon'
           onClick={handleNavigateCartPage}

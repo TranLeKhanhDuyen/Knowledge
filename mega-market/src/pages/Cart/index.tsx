@@ -10,6 +10,7 @@ import {
   showToast
 } from '@components'
 import Bill from './Bill'
+import { useCartStore } from '@stores/useCartStore'
 import './Cart.css'
 
 const CartPage = () => {
@@ -22,19 +23,24 @@ const CartPage = () => {
   const [showMessage, setShowMessage] = useState<boolean>(false)
   const [showConfirmDelete, setShowConfirmDelete] = useState<boolean>(false)
 
+  const {
+    cartItems: storeCartItems,
+    loadCartFromLocalStorage,
+    removeFromCart
+  } = useCartStore()
+
   useEffect(() => {
-    const userData = localStorage.getItem('user') ?? ''
-    const user = JSON.parse(userData)
-    const cart = JSON.parse(
-      localStorage.getItem(`cart_${user.userName as string}`) || '[]'
-    )
-    const updatedCart = cart.map((item: CartItem) => ({
+    loadCartFromLocalStorage()
+  }, [loadCartFromLocalStorage])
+
+  useEffect(() => {
+    const updatedCart = storeCartItems.map((item: CartItem) => ({
       ...item,
       isSelect: location.state?.fromBuyNow ? true : false
     }))
 
     setCartItems(updatedCart)
-  }, [location])
+  }, [location, storeCartItems])
 
   const calculatePrice = (price: number, quantity: number) => price * quantity
 
@@ -71,28 +77,16 @@ const CartPage = () => {
   }
 
   const handleDeleteItem = (id: number) => {
-    const newCartItems = cartItems.filter((item) => item.id !== id)
-    setCartItems(newCartItems)
-    const userData = localStorage.getItem('user') ?? ''
-    const user = JSON.parse(userData)
-    localStorage.setItem(
-      `cart_${user.userName as string}`,
-      JSON.stringify(newCartItems)
-    )
+    removeFromCart(id)
     showToast('Item deleted successfully', 'success')
   }
 
   const confirmDeleteSelectedItems = () => {
-    const newCartItems = cartItems.filter((item) => !item.isSelect)
-    setCartItems(newCartItems)
+    const selectedIds = cartItems
+      .filter((item) => item.isSelect)
+      .map((item) => item.id)
+    selectedIds.forEach((id) => removeFromCart(id))
     setSelectAll(false)
-    const userData = localStorage.getItem('user') ?? ''
-    const user = JSON.parse(userData)
-    userData &&
-      localStorage.setItem(
-        `cart_${user.userName as string}`,
-        JSON.stringify(newCartItems)
-      )
     showToast('Delete products successfully', 'success')
     setShowConfirmDelete(false)
   }

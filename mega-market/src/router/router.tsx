@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react'
-import { useRoutes } from 'react-router-dom'
+import { Navigate, useRoutes } from 'react-router-dom'
 import { MainLayout } from '@layout'
 import PurchaseOrderPage from '@pages/PurchaseOrder'
+import { useUser } from '@services'
 
 const HomePage = lazy(() => import('@pages/Home'))
 const CategoriesPage = lazy(() => import('@pages/Categories'))
@@ -12,6 +13,7 @@ const LoginForm = lazy(() => import('@pages/Auth/Login'))
 const RegisterForm = lazy(() => import('@pages/Auth/Register'))
 
 const Router = () => {
+  const { user } = useUser()
   return useRoutes([
     {
       path: '',
@@ -68,22 +70,26 @@ const Router = () => {
         },
         {
           path: 'cart',
-          element: (
+          element: user ? (
             <MainLayout>
               <Suspense fallback={<div>Loading...</div>}>
                 <CartPage />
               </Suspense>
             </MainLayout>
+          ) : (
+            <Navigate to='/auth/login' replace />
           )
         },
         {
           path: 'purchase-history',
-          element: (
+          element: user ? (
             <MainLayout>
               <Suspense fallback={<div>Loading...</div>}>
                 <PurchaseOrderPage />
               </Suspense>
             </MainLayout>
+          ) : (
+            <Navigate to='/auth/login' replace />
           )
         }
       ]

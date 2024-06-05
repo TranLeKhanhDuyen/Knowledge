@@ -2,7 +2,13 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useCallback, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { RegisterRequest } from '@services'
-import { Button, RHFTextField, FormProvider } from '@components'
+import {
+  Button,
+  RHFTextField,
+  FormProvider,
+  showToast,
+  Toast
+} from '@components'
 import { ValidationMessages } from '@constants'
 import { useUserStore } from '@stores/userStore'
 import './Auth.css'
@@ -37,24 +43,18 @@ const RegisterForm = () => {
         const updatedUsers = [...existingUsers, newUser]
         localStorage.setItem('users', JSON.stringify(updatedUsers))
         setUser(newUser)
-        alert('Register is successful')
+        showToast('Register is successful', 'success')
         navigate('/auth/login')
       } catch (err) {
         if (err instanceof Error) {
-          console.error('Registration error:', err.message)
-          setError(err.message)
+          showToast(`Register is failed: ${err.message}`, 'error')
         } else {
-          console.error('Unknown registration error')
-          setError(ValidationMessages.RegisterFailed)
+          showToast('Unknown registration error', 'error')
         }
       }
     },
     [setUser, navigate]
   )
-
-  const handleEyeClick = () => {
-    // update later
-  }
 
   return (
     <div className='container auth-container'>
@@ -122,6 +122,7 @@ const RegisterForm = () => {
             Login
           </Link>
         </p>
+        <Toast />
       </FormProvider>
     </div>
   )

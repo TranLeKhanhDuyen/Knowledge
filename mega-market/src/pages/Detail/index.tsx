@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import { Button } from '@components'
+import { Button, showToast, Toast } from '@components'
 import { useUser } from '@services'
 import './Detail.css'
 
@@ -28,18 +28,9 @@ const DetailPage = () => {
   }
 
   const handleAddToCart = useCallback(() => {
-    if (!user) {
-      if (
-        window.confirm(
-          'Please log in to add to cart products. Do you want to log in now?'
-        )
-      ) {
-        navigate('/auth/login')
-      }
-      return
-    }
+    if (!user) navigate('/auth/login')
 
-    const cartKey = `cart_${user.userName}`
+    const cartKey = `cart_${user?.userName}`
     const cart = JSON.parse(localStorage.getItem(cartKey) || '[]')
     const existingProductIndex = cart.findIndex(
       (item: any) => item.id === product.id
@@ -52,22 +43,28 @@ const DetailPage = () => {
     }
 
     localStorage.setItem(cartKey, JSON.stringify(cart))
-    alert('The product has been added to cart')
+    showToast('The product has been added to cart', 'success')
   }, [user, product, primaryImage, quantity, navigate])
 
   const handleBuyNow = useCallback(() => {
-    if (!user) {
-      if (
-        window.confirm(
-          'Please log in to buy products. Do you want to log in now?'
-        )
-      ) {
-        navigate('/auth/login')
-      }
-      return
+    if (!user) navigate('/auth/login')
+
+    const cartKey = `cart_${user?.userName}`
+    const cart = JSON.parse(localStorage.getItem(cartKey) || '[]')
+    const existingProductIndex = cart.findIndex(
+      (item: any) => item.id === product.id
+    )
+
+    if (existingProductIndex >= 0) {
+      cart[existingProductIndex].quantity += quantity
+      cart[existingProductIndex].isSelect = true
+    } else {
+      cart.push({ ...product, primaryImage, quantity, isSelect: true })
     }
-    alert('Feature to be implemented')
-  }, [user, navigate])
+
+    localStorage.setItem(cartKey, JSON.stringify(cart))
+    navigate('/cart')
+  }, [user, product, primaryImage, quantity, navigate])
 
   return (
     <section className='container detail-page'>
@@ -84,7 +81,7 @@ const DetailPage = () => {
 
             <Slider {...settings}>
               {product?.image &&
-                product?.image?.map((image: any, index: any) => (
+                product?.image?.map((image: any, index: string) => (
                   <img
                     className='image-product'
                     key={index}
@@ -113,8 +110,8 @@ const DetailPage = () => {
               <span className='detail-price'>
                 ₹
                 {(
-                  ((product?.regular_price ?? 0) * (product?.discount ?? 0)) /
-                  100
+                  product.regular_price -
+                  (product.regular_price * product.discount) / 100
                 ).toFixed(2)}
               </span>
             </p>
@@ -122,9 +119,10 @@ const DetailPage = () => {
               <span className='detail-label'>Save Price: </span>
               <span className='detail-price'>
                 ₹
-                {(product?.regular_price ?? 0) -
-                  ((product?.regular_price ?? 0) * (product?.discount ?? 0)) /
-                    100}
+                {(
+                  product.regular_price -
+                  (product.regular_price * product.discount) / 100
+                ).toFixed(2)}
               </span>
             </p>
             <p>
@@ -164,6 +162,7 @@ const DetailPage = () => {
       ) : (
         <p>Product not found</p>
       )}
+      <Toast />
     </section>
   )
 }

@@ -37,12 +37,9 @@ const Header = () => {
   }
 
   const handleLogoutClick = () => {
-    const confirmLogout = window.confirm(ValidationMessages.LogoutQuestion)
-    if (confirmLogout) {
       setUser(null)
       navigate('/')
       localStorage.removeItem('cart')
-    }
   }
 
   const handlePurchaseHistory = () => {

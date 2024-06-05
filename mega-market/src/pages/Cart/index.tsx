@@ -1,15 +1,25 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { CartItem } from '@services'
-import { Button, ButtonIcon, QuantitySelector } from '@components'
+import {
+  Button,
+  ButtonIcon,
+  Message,
+  QuantitySelector,
+  Toast,
+  showToast
+} from '@components'
 import Bill from './Bill'
 import './Cart.css'
 
 const CartPage = () => {
+  const location = useLocation()
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [selectAll, setSelectAll] = useState<boolean>(false)
   const [showBill, setShowBill] = useState<boolean>(false)
   const [selectedItems, setSelectedItems] = useState<CartItem[]>([])
   const [totalPayment, setTotalPayment] = useState<number>(0)
+  const [showMessage, setShowMessage] = useState<boolean>(false)
 
   useEffect(() => {
     const userData = localStorage.getItem('user') ?? ''
@@ -18,7 +28,7 @@ const CartPage = () => {
       localStorage.getItem(`cart_${user.userName as string}`) || '[]'
     )
     setCartItems(cart)
-  }, [])
+  }, [location])
 
   const calculatePrice = (price: number, quantity: number) => price * quantity
 
@@ -55,10 +65,6 @@ const CartPage = () => {
   }
 
   const handleDeleteItem = (id: number) => {
-    const confirmDelete = window.confirm(
-      'Are you sure you want to delete this item?'
-    )
-    if (!confirmDelete) return
     const newCartItems = cartItems.filter((item) => item.id !== id)
     setCartItems(newCartItems)
     const userData = localStorage.getItem('user') ?? ''
@@ -67,13 +73,10 @@ const CartPage = () => {
       `cart_${user.userName as string}`,
       JSON.stringify(newCartItems)
     )
+    showToast('Item deleted successfully', 'success')
   }
 
   const handleDeleteSelectedItems = () => {
-    const confirmDelete = window.confirm(
-      'Are you sure you want to delete selected items?'
-    )
-    if (!confirmDelete) return
     const newCartItems = cartItems.filter((item) => !item.isSelect)
     setCartItems(newCartItems)
     setSelectAll(false)
@@ -84,10 +87,15 @@ const CartPage = () => {
         `cart_${user.userName as string}`,
         JSON.stringify(newCartItems)
       )
+    showToast('Selected items deleted successfully', 'success')
   }
 
   const handleCheckout = () => {
     const selected = cartItems.filter((item) => item.isSelect)
+    if (selected.length === 0) {
+      setShowMessage(true)
+      return
+    }
     const total = selected.reduce((total, item) => {
       const discountedPrice =
         item.regular_price - (item.regular_price * item.discount) / 100
@@ -127,6 +135,7 @@ const CartPage = () => {
     )
 
     setShowBill(false)
+    showToast('Purchase completed successfully', 'success')
   }
 
   return (
@@ -247,6 +256,15 @@ const CartPage = () => {
           totalPayment={totalPayment}
           onClose={() => setShowBill(false)}
           onBuyNow={handleBuyNow}
+        />
+      )}
+
+      <Toast />
+
+      {showMessage && (
+        <Message
+          message="You haven't chosen any product to buy yet."
+          onClose={() => setShowMessage(false)}
         />
       )}
     </section>

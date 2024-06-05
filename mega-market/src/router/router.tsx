@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import { MainLayout } from '@layout'
 import PurchaseOrderPage from '@pages/PurchaseOrder'
 import { useUser } from '@services'
+import { Spinner } from '@components'
 
 const HomePage = lazy(() => import('@pages/Home'))
 const CategoriesPage = lazy(() => import('@pages/Categories'))
@@ -22,7 +23,7 @@ const Router = () => {
           path: '',
           element: (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <HomePage />
               </Suspense>
             </MainLayout>
@@ -32,7 +33,7 @@ const Router = () => {
           path: 'categories',
           element: (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <CategoriesPage />
               </Suspense>
             </MainLayout>
@@ -42,7 +43,7 @@ const Router = () => {
           path: 'categories/:categoryId/products',
           element: (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <ProductPage />
               </Suspense>
             </MainLayout>
@@ -52,7 +53,7 @@ const Router = () => {
           path: 'products',
           element: (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <ProductPage />
               </Suspense>
             </MainLayout>
@@ -62,7 +63,7 @@ const Router = () => {
           path: 'product/:id',
           element: (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <DetailPage />
               </Suspense>
             </MainLayout>
@@ -72,7 +73,7 @@ const Router = () => {
           path: 'cart',
           element: user ? (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <CartPage />
               </Suspense>
             </MainLayout>
@@ -84,7 +85,7 @@ const Router = () => {
           path: 'purchase-history',
           element: user ? (
             <MainLayout>
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<Spinner />}>
                 <PurchaseOrderPage />
               </Suspense>
             </MainLayout>
@@ -100,7 +101,7 @@ const Router = () => {
         {
           path: 'login',
           element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner />}>
               <LoginForm />
             </Suspense>
           )
@@ -108,7 +109,7 @@ const Router = () => {
         {
           path: 'register',
           element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner />}>
               <RegisterForm />
             </Suspense>
           )

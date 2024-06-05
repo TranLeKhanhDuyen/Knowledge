@@ -6,7 +6,8 @@ import {
   Select,
   ImageSlider,
   CardCategory,
-  HeadLine
+  HeadLine,
+  Spinner
 } from '@components'
 import {
   bannerImages,
@@ -83,7 +84,7 @@ const HomePage = () => {
           />
           <ul className='list products-list'>
             {productsLoading ? (
-              <li>Loading...</li>
+              <Spinner />
             ) : (
               categoryProducts
                 ?.slice(0, 5)
@@ -124,7 +125,7 @@ const HomePage = () => {
           />
           <ul className='list categories-list'>
             {categoriesLoading ? (
-              <li>Loading...</li>
+               <Spinner />
             ) : (
               categories?.slice(0, 7).map((item) => (
                 <li key={item.id}>

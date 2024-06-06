@@ -1,7 +1,7 @@
 import { HeadLine, IconText, Logo } from '@components'
 import { contactImages } from '@mocks/images'
 import { customerServices, popularCategories } from '@mocks'
-import './Footer.css'
+import './footer.css'
 
 const Footer = () => {
   return (

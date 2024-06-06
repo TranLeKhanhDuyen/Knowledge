@@ -1,0 +1,3 @@
+import{S as e}from"./index-3cfbc138.js";import"./jsx-runtime-39fb3a81.js";import"./index-d1005068.js";import"./index-c2370680.js";import"./index-5c56a23c.js";import"./index-084bc635.js";import"./index-645fbfc4.js";import"./index-35c3c3d4.js";import"./index-e576e493.js";const l={title:"Components/SearchBar",component:e,tags:["autodocs"],argTypes:{}},r={args:{}};var o,t,a;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {}
+}`,...(a=(t=r.parameters)==null?void 0:t.docs)==null?void 0:a.source}}};const S=["Default"];export{r as Default,S as __namedExportsOrder,l as default};

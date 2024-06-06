@@ -16,13 +16,13 @@ import './Auth.css'
 const RegisterForm = () => {
   const methods = useForm<RegisterRequest>()
   const { handleSubmit } = methods
-  const [error, setError] = useState<string | null>(null)
+  const [error, _] = useState<string | null>(null)
   const setUser = useUserStore((state) => state.setUser)
   const navigate = useNavigate()
 
   const memoizedError = useMemo(() => error, [error])
 
-  const onSubmit: SubmitHandler<RegisterRequest> = useCallback(
+  const onSubmit: SubmitHandler<RegisterRequest> = useCallback( //HandleSubmit
     (data) => {
       try {
         const existingUsers = JSON.parse(localStorage.getItem('users') || '[]')

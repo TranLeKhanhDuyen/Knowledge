@@ -1,16 +1,17 @@
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { useState } from 'react'
-import { SignInRequest, useUser } from '@services'
-import { RHFTextField, FormProvider, Button } from '@components'
 import { Link, useNavigate } from 'react-router-dom'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { useEffect, useState } from 'react'
+import { SignInRequest } from '@services'
+import { RHFTextField, FormProvider, Button } from '@components'
 import { ValidationMessages } from '@constants/validation'
+import { useUser } from '@hooks/useUser'
 import './Auth.css'
 
 const LoginForm = () => {
   const methods = useForm<SignInRequest>()
   const { handleSubmit } = methods
   const [error, setError] = useState<string | null>(null)
-  const { setUser } = useUser()
+  const { user, setUser } = useUser()
   const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<SignInRequest> = (data) => {
@@ -26,8 +27,6 @@ const LoginForm = () => {
       }
 
       setUser(user)
-
-      navigate('/')
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
@@ -36,6 +35,12 @@ const LoginForm = () => {
       }
     }
   }
+
+  useEffect(() => {
+    if (user) {
+      navigate('/')
+    }
+  }, [user, navigate])
 
   return (
     <div className='container auth-container'>

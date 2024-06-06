@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useUser } from '@services'
 import {
   Button,
   ButtonIcon,
@@ -9,6 +8,7 @@ import {
   SearchBar
 } from '@components'
 import { useCartStore } from '@stores/useCartStore'
+import { useUser } from '@hooks/useUser'
 import './Header.css'
 
 const Header = () => {
@@ -54,7 +54,7 @@ const Header = () => {
     setUser(null)
     navigate('/')
     loadCartFromLocalStorage()
-    clearCartOnLogout() 
+    clearCartOnLogout()
   }
 
   const handlePurchaseHistory = () => {

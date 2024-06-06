@@ -16,7 +16,7 @@ import './Auth.css'
 const RegisterForm = () => {
   const methods = useForm<RegisterRequest>()
   const { handleSubmit } = methods
-  const [error, setError] = useState<string | null>(null)
+  const [error, _] = useState<string | null>(null)
   const setUser = useUserStore((state) => state.setUser)
   const navigate = useNavigate()
 

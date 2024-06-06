@@ -10,11 +10,10 @@ interface ICardBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 const CardBadge: React.FC<ICardBadgeProps> = ({
   percent,
   title,
-  additionalClass = '',
-  ...restProps
+  additionalClass = ''
 }) => {
   return (
-    <aside className={`card-badge-container ${additionalClass}`} {...restProps}>
+    <aside className={`card-badge-container ${additionalClass}`}>
       <p className={`card-badge badge-percent`}>{percent}%</p>
       <p className={`card-badge badge-title`}>{title}</p>
     </aside>

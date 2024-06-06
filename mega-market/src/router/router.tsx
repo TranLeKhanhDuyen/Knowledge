@@ -2,8 +2,8 @@ import { lazy, Suspense } from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 import { MainLayout } from '@layout'
 import PurchaseOrderPage from '@pages/PurchaseOrder'
-import { useUser } from '@services'
 import { Spinner } from '@components'
+import { useUser } from '@hooks/useUser'
 
 const HomePage = lazy(() => import('@pages/Home'))
 const CategoriesPage = lazy(() => import('@pages/Categories'))

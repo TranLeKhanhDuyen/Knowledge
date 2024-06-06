@@ -4,7 +4,14 @@
 
 .options-select {
   position: absolute;
-  border: 1px solid var(--line-grey-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  padding: 5px 0;
+  border-top: 1px solid var(--white-color);
+  border-bottom: 1px solid var(--white-color);
 }
 
 .select-icon {

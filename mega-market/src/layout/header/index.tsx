@@ -24,9 +24,9 @@ const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    loadCartFromLocalStorage()
-  }, [loadCartFromLocalStorage])
+  // useEffect(() => {
+  //   loadCartFromLocalStorage()
+  // }, [loadCartFromLocalStorage])
 
   // Count the number of product types in the shopping cart
   const cartItemCount = cartItems.length

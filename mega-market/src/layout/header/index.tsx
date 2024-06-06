@@ -9,7 +9,7 @@ import {
   SearchBar
 } from '@components'
 import { useCartStore } from '@stores/useCartStore'
-import './header.css'
+import './Header.css'
 
 const Header = () => {
   const navigate = useNavigate()

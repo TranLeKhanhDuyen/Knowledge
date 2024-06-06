@@ -15,7 +15,7 @@ import {
   cardCategorySquare
 } from '@mocks'
 import {getCategories, Product } from '@services'
-import './home.css'
+import './Home.css'
 
 const HomePage = () => {
   const navigate = useNavigate()

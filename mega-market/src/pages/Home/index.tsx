@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   CardProduct,
   BannerSlider,
@@ -14,44 +14,44 @@ import {
   selectOptions,
   cardCategorySquare
 } from '@mocks'
-import { Category, getCategories, Product } from '@services'
+import {getCategories, Product } from '@services'
 import './home.css'
 
 const HomePage = () => {
   const navigate = useNavigate()
   const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
   const [categoryName, setCategoryName] = useState<string>('')
-  const [categories, setCategories] = useState<Category[]>([])
+
+  const { data: categories } = getCategories()
 
   useEffect(() => {
-    getCategories().then(async (data) => {
-      setCategories(data)
-      await new Promise((resolve) => setTimeout(resolve, 500))
-      if (data != null) {
-        const firstCategory = data[0]
-        setCategoryName(firstCategory.name || '')
-        setCategoryProducts(firstCategory.products || [])
-      }
-    })
-  }, [])
+    if (categories && categories.length > 0) {
+      const firstCategory = categories[0]
+      setCategoryName(firstCategory?.name || '')
+      setCategoryProducts(firstCategory?.products || [])
+    }
+  }, [categories])
 
   const handleClickCategory = (id: number) => {
-    const category = categories.find((data) => data.id === id)
+    const category = categories?.find((data) => data.id === id)
     setCategoryName(category?.name || '')
     setCategoryProducts(category?.products || [])
   }
 
-  const handleNavigateToCategories = () => {
+  const handleNavigateToCategories = useCallback(() => {
     navigate('/categories', { state: { categories } })
-  }
+  }, [navigate, categories])
 
-  const handleNavigateProduct = () => {
+  const handleNavigateProduct = useCallback(() => {
     navigate('/products', { state: { products: categoryProducts } })
-  }
+  }, [navigate, categoryProducts])
 
-  const handleClickProduct = (product: Product) => {
-    navigate(`/product/${product.id}`, { state: { product } })
-  }
+  const handleClickProduct = useCallback(
+    (product: Product) => {
+      navigate(`/product/${product.id}`, { state: { product } })
+    },
+    [navigate]
+  )
 
   return (
     <>
@@ -62,6 +62,8 @@ const HomePage = () => {
               key={index}
               options={[option]}
               onSelect={(value) => console.log(value)}
+              icon='user'
+              additionalClass='select-category'
             />
           ))}
         </div>
@@ -80,32 +82,31 @@ const HomePage = () => {
             onClick={handleNavigateProduct}
           />
           <ul className='list products-list'>
-            {categoryProducts.map(
-              (product, index) =>
-                index < 5 && (
-                  <li key={index}>
-                    <CardProduct
-                      imageUrl={product?.image?.[0]?.url ?? ''}
-                      alt={product?.name ?? ''}
-                      name={product?.name ?? ''}
-                      regularPrice={product?.regular_price ?? 0}
-                      discountPercent={product?.discount?.toString() ?? '0'}
-                      salePrice={(
-                        ((product?.regular_price ?? 0) *
-                          (product?.discount ?? 0)) /
+            {categoryProducts
+              ?.slice(0, 5)
+              .map((product: Product, index: number) => (
+                <li key={index}>
+                  <CardProduct
+                    imageUrl={product?.image?.[0]?.url ?? ''}
+                    alt={product?.name ?? ''}
+                    name={product?.name ?? ''}
+                    regularPrice={product?.regular_price ?? 0}
+                    discountPercent={product?.discount?.toString() ?? '0'}
+                    salePrice={(
+                      ((product?.regular_price ?? 0) *
+                        (product?.discount ?? 0)) /
+                      100
+                    ).toFixed(2)}
+                    savePrice={
+                      (product?.regular_price ?? 0) -
+                      ((product?.regular_price ?? 0) *
+                        (product?.discount ?? 0)) /
                         100
-                      ).toFixed(2)}
-                      savePrice={
-                        (product?.regular_price ?? 0) -
-                        ((product?.regular_price ?? 0) *
-                          (product?.discount ?? 0)) /
-                          100
-                      }
-                      onClick={() => handleClickProduct(product)}
-                    />
-                  </li>
-                )
-            )}
+                    }
+                    onClick={() => handleClickProduct(product)}
+                  />
+                </li>
+              ))}
           </ul>
         </article>
 
@@ -118,19 +119,16 @@ const HomePage = () => {
             onClick={handleNavigateToCategories}
           />
           <ul className='list categories-list'>
-            {categories.map(
-              (item, index) =>
-                index < 7 && (
-                  <li key={index}>
-                    <CardCategory
-                      imageUrl={item.image}
-                      name={item.name}
-                      variant='circle'
-                      onClick={() => handleClickCategory(item.id)}
-                    />
-                  </li>
-                )
-            )}
+            {categories?.slice(0, 7).map((item) => (
+              <li key={item.id}>
+                <CardCategory
+                  imageUrl={item.image}
+                  name={item.name}
+                  variant='circle'
+                  onClick={() => handleClickCategory(item.id)}
+                />
+              </li>
+            ))}
           </ul>
         </article>
 

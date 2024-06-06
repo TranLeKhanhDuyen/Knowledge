@@ -1,0 +1,17 @@
+.select-item {
+  position: relative;
+}
+
+.options-select {
+  position: absolute;
+  border: 1px solid var(--line-grey-color);
+}
+
+.select-icon {
+  background: url('../../../assets/images/icons/arrow-down-1.svg') no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 12px;
+  height: 8px;
+  margin-left: 8px;
+}

@@ -1,13 +1,20 @@
+import { lazy, Suspense } from 'react'
+import { Navigate, useRoutes } from 'react-router-dom'
 import { MainLayout } from '@layout'
-import { LoginForm, RegisterForm } from '@pages'
-import CartPage from '@pages/Cart'
-import CategoriesPage from '@pages/Categories'
-import DetailPage from '@pages/Detail'
-import HomePage from '@pages/Home'
-import ProductPage from '@pages/Products'
-import { useRoutes } from 'react-router-dom'
+import PurchaseOrderPage from '@pages/PurchaseOrder'
+import { useUser } from '@services'
+import { Spinner } from '@components'
+
+const HomePage = lazy(() => import('@pages/Home'))
+const CategoriesPage = lazy(() => import('@pages/Categories'))
+const DetailPage = lazy(() => import('@pages/Detail'))
+const ProductPage = lazy(() => import('@pages/Products'))
+const CartPage = lazy(() => import('@pages/Cart'))
+const LoginForm = lazy(() => import('@pages/Auth/Login'))
+const RegisterForm = lazy(() => import('@pages/Auth/Register'))
 
 const Router = () => {
+  const { user } = useUser()
   return useRoutes([
     {
       path: '',
@@ -16,7 +23,9 @@ const Router = () => {
           path: '',
           element: (
             <MainLayout>
-              <HomePage />
+              <Suspense fallback={<Spinner />}>
+                <HomePage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -24,15 +33,19 @@ const Router = () => {
           path: 'categories',
           element: (
             <MainLayout>
-              <CategoriesPage />
+              <Suspense fallback={<Spinner />}>
+                <CategoriesPage />
+              </Suspense>
             </MainLayout>
           )
         },
         {
-          path: 'products/:categoryId',
+          path: 'categories/:categoryId/products',
           element: (
             <MainLayout>
-              <ProductPage />
+              <Suspense fallback={<Spinner />}>
+                <ProductPage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -40,7 +53,9 @@ const Router = () => {
           path: 'products',
           element: (
             <MainLayout>
-              <ProductPage />
+              <Suspense fallback={<Spinner />}>
+                <ProductPage />
+              </Suspense>
             </MainLayout>
           )
         },
@@ -48,16 +63,34 @@ const Router = () => {
           path: 'product/:id',
           element: (
             <MainLayout>
-              <DetailPage />
+              <Suspense fallback={<Spinner />}>
+                <DetailPage />
+              </Suspense>
             </MainLayout>
           )
         },
         {
           path: 'cart',
-          element: (
+          element: user ? (
             <MainLayout>
-              <CartPage />
+              <Suspense fallback={<Spinner />}>
+                <CartPage />
+              </Suspense>
             </MainLayout>
+          ) : (
+            <Navigate to='/auth/login' replace />
+          )
+        },
+        {
+          path: 'purchase-history',
+          element: user ? (
+            <MainLayout>
+              <Suspense fallback={<Spinner />}>
+                <PurchaseOrderPage />
+              </Suspense>
+            </MainLayout>
+          ) : (
+            <Navigate to='/auth/login' replace />
           )
         }
       ]
@@ -67,14 +100,23 @@ const Router = () => {
       children: [
         {
           path: 'login',
-          element: <LoginForm />
+          element: (
+            <Suspense fallback={<Spinner />}>
+              <LoginForm />
+            </Suspense>
+          )
         },
         {
           path: 'register',
-          element: <RegisterForm />
+          element: (
+            <Suspense fallback={<Spinner />}>
+              <RegisterForm />
+            </Suspense>
+          )
         }
       ]
     }
   ])
 }
+
 export default Router

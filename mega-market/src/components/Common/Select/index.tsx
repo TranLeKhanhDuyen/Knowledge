@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import IconTextButton, {IIconTextButtonProps } from '@components/Common/IconTextButton'
+import { IconSvgProps } from '../IconSvg'
 import './Select.css'
 
 interface Option {
@@ -10,9 +10,16 @@ interface Option {
 export interface SelectProps {
   options: Option[]
   onSelect: (value: string) => void
+  icon?: IconSvgProps['name']
+  additionalClass?: string
 }
 
-const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
+const Select: React.FC<SelectProps> = ({
+  options,
+  onSelect,
+  icon,
+  additionalClass
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(
     options[0] || null
@@ -28,17 +35,16 @@ const Select: React.FC<SelectProps> = ({ options, onSelect }) => {
     setIsOpen(!isOpen)
   }
 
-  const selectButtonProps: IIconTextButtonProps = {
-    size: 'sm',
-    icon: 'arrowDownWhite',
-    title: selectedOption ? selectedOption.label : 'Choose option',
-    additionalClass: 'select',
-    onClick: handleToggleSelect
-  }
-
   return (
-    <div className='select-item'>
-      <IconTextButton {...selectButtonProps} />
+    <div className={`select-item ${additionalClass}`}>
+      <div className='select-button' onClick={handleToggleSelect}>
+        <span className='select-label'>
+          {selectedOption ? selectedOption.label : 'Choose option'}
+        </span>
+        {icon && (
+          <span className={`select-icon ${isOpen ? 'open' : ''}`}></span>
+        )}
+      </div>
       {isOpen && (
         <ul className='options-select'>
           {options.map((option) => (

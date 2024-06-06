@@ -9,4 +9,4 @@ export type {
 } from '@services/request/authRequest'
 export { registerUser, loginUser } from '@services/api/auth'
 export { getCategories } from '@services/api/categories'
-export { UserProvider, useUser } from '@services/models/userState'
+export { UserProvider } from '@services/models/userState'

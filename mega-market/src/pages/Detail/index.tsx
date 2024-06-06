@@ -4,8 +4,8 @@ import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Button, showToast, Toast } from '@components'
-import { useUser } from '@services'
 import { useCartStore } from '@stores/useCartStore'
+import { useUser } from '@hooks/useUser'
 import './Detail.css'
 
 const DetailPage = () => {

@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import { Button, showToast, Toast } from '@components'
 import { useCartStore } from '@stores/useCartStore'
 import { useUser } from '@hooks/useUser'
+import { calculateSalePrice, calculateSavePrice } from '@utils/price'
 import './Detail.css'
 
 const DetailPage = () => {
@@ -61,6 +62,7 @@ const DetailPage = () => {
     addToCart(newItem)
     navigate('/cart')
   }, [user, product, primaryImage, quantity, navigate, addToCart])
+
   return (
     <section className='container detail-page'>
       {product ? (
@@ -101,23 +103,15 @@ const DetailPage = () => {
               <span className='detail-price'>{product.discount}%</span>
             </p>
             <p>
-              <span className='detail-label'> Sale Price: </span>
+              <span className='detail-label'>Sale Price: </span>
               <span className='detail-price'>
-                ₹
-                {(
-                  product.regular_price -
-                  (product.regular_price * product.discount) / 100
-                ).toFixed(2)}
+                ₹{calculateSalePrice(product.regular_price, product.discount)}
               </span>
             </p>
             <p>
               <span className='detail-label'>Save Price: </span>
               <span className='detail-price'>
-                ₹
-                {(
-                  product.regular_price -
-                  (product.regular_price * product.discount) / 100
-                ).toFixed(2)}
+                ₹{calculateSavePrice(product.regular_price, product.discount)}
               </span>
             </p>
             <p>

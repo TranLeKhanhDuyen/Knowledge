@@ -8,7 +8,7 @@ interface ICardProductProps {
   name: string
   salePrice: string
   regularPrice: number
-  savePrice: number
+  savePrice: string
   discountPercent: string
   contentBadge?: string
   additionalClass?: string

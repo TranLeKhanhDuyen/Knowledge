@@ -176,7 +176,7 @@ const CartPage = () => {
                     ₹
                     {item.regular_price -
                       (item.regular_price * item.discount) / 100}
-                  </span>
++                  </span>
                 </p>
 
                 <QuantitySelector

@@ -18,15 +18,16 @@ const Header = () => {
   const loadCartFromLocalStorage = useCartStore(
     (state) => state.loadCartFromLocalStorage
   )
-  const clearCartOnLogout = useCartStore(
-    (state) => state.clearCartOnLogout
-  )
+  const clearCartOnLogout = useCartStore((state) => state.clearCartOnLogout)
   const [dropdownVisible, setDropdownVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // useEffect(() => {
-  //   loadCartFromLocalStorage()
-  // }, [loadCartFromLocalStorage])
+
+  useEffect(() => {
+    if (user) {
+      loadCartFromLocalStorage()
+    }
+  }, [user, loadCartFromLocalStorage])
 
   // Count the number of product types in the shopping cart
   const cartItemCount = cartItems.length

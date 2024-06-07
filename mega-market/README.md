@@ -2,8 +2,8 @@
 
 ### OVERVIEW
 
-- This document provides planning for ReactJS practice - BookingCare.
-- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/feat/practice-react)
+- This document provides planning for ReactJS practice - MegaMarket.
+- GitHub: [repo](https://github.com/TranLeKhanhDuyen/intern-agility/tree/develop)
 
 ### TEAMSIZE
 
@@ -13,7 +13,8 @@
 
 - HTML5
 - CSS3
-- ReactJS
+- React + Vite
+- TypeScript
 
 ### SUPPORTED BROWSER
 
@@ -29,13 +30,13 @@
 - Step 01: Clone repository:
 
 ```
-git clone <https://github.com/TranLeKhanhDuyen/intern-agility.git>
+git clone <https://github.com/TranLeKhanhDuyen/intern-agility/tree/develop.git>
 ```
 
 - Step 02: Move to folder BookingCare:
 
 ```
-cd BookingCare
+cd mega-market
 ```
 
 - Step 03: Install dependencies:

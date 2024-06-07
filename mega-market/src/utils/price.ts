@@ -12,10 +12,19 @@ export const calculateSavePrice = (
   return (regularPrice - (regularPrice * discount) / 100).toFixed(2)
 }
 
-export const calculateTotalPrice = (price: number, quantity: number): string => {
+export const calculateTotalPrice = (
+  price: number,
+  quantity: number
+): string => {
   return (price * quantity).toFixed(2)
 }
 
-export const calculateTotalBill = (regularPrice: number, quantity: number, discount: number) => {
-return (( regularPrice - (regularPrice * discount) / 100) * quantity).toFixed(2)
+export const calculateTotalBill = (
+  regularPrice: number,
+  quantity: number,
+  discount: number
+) => {
+  return ((regularPrice - (regularPrice * discount) / 100) * quantity).toFixed(
+    2
+  )
 }

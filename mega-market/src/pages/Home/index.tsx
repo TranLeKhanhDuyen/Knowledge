@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   CardProduct,
   BannerSlider,
@@ -39,20 +39,17 @@ const HomePage = () => {
     setCategoryProducts(category?.products || [])
   }
 
-  const handleNavigateToCategories = useCallback(() => {
+  const handleNavigateToCategories = () => {
     navigate('/categories', { state: { categories } })
-  }, [navigate, categories])
+  }
 
-  const handleNavigateProduct = useCallback(() => {
+  const handleNavigateProduct = () => {
     navigate('/products', { state: { products: categoryProducts } })
-  }, [navigate, categoryProducts])
+  }
 
-  const handleClickProduct = useCallback(
-    (product: Product) => {
+  const handleClickProduct = (product: Product) => {
       navigate(`/product/${product.id}`, { state: { product } })
-    },
-    [navigate]
-  )
+    }
 
   return (
     <>
@@ -82,29 +79,27 @@ const HomePage = () => {
             additionalClass='primary'
             onClick={handleNavigateProduct}
           />
-          <ul className='list products-list'>
-            {categoryProducts
-              ?.slice(0, 5)
-              .map((product: Product, index: number) => (
-                <li key={index}>
-                  <CardProduct
-                    imageUrl={product?.image?.[0]?.url ?? ''}
-                    alt={product?.name ?? ''}
-                    name={product?.name ?? ''}
-                    regularPrice={product?.regular_price ?? 0}
-                    discountPercent={product?.discount?.toString() ?? '0'}
-                    salePrice={calculateSalePrice(
-                      product?.regular_price ?? 0,
-                      product?.discount ?? 0
-                    )}
-                    savePrice={calculateSavePrice(
-                      product?.regular_price ?? 0,
-                      product?.discount ?? 0
-                    )}
-                    onClick={() => handleClickProduct(product)}
-                  />
-                </li>
-              ))}
+          <ul className='list products-list list-items'>
+            {categoryProducts.map((product: Product) => (
+              <li key={product.id} className='item-in-list'>
+                <CardProduct
+                  imageUrl={product?.image?.[0]?.url ?? ''}
+                  alt={product?.name ?? ''}
+                  name={product?.name ?? ''}
+                  regularPrice={product?.regular_price ?? 0}
+                  discountPercent={product?.discount?.toString() ?? '0'}
+                  salePrice={calculateSalePrice(
+                    product?.regular_price ?? 0,
+                    product?.discount ?? 0
+                  )}
+                  savePrice={calculateSavePrice(
+                    product?.regular_price ?? 0,
+                    product?.discount ?? 0
+                  )}
+                  onClick={() => handleClickProduct(product)}
+                />
+              </li>
+            ))}
           </ul>
         </article>
 
@@ -116,9 +111,9 @@ const HomePage = () => {
             navigateTo='categories'
             onClick={handleNavigateToCategories}
           />
-          <ul className='list categories-list'>
-            {categories?.slice(0, 7).map((item) => (
-              <li key={item.id}>
+          <ul className='list categories-list list-items'>
+            {categories?.map((item) => (
+              <li key={item.id} className='item-in-list'>
                 <CardCategory
                   imageUrl={item.image}
                   name={item.name}
@@ -149,9 +144,9 @@ const HomePage = () => {
             subTitle='Essentials'
             additionalClass='primary'
           />
-          <ul className='list categories-list'>
+          <ul className='list list-items categories-list'>
             {cardCategorySquare.map((item, index) => (
-              <li key={index}>
+              <li key={index} className='item-in-list'>
                 <CardCategory
                   imageUrl={item.image}
                   name={item.name}

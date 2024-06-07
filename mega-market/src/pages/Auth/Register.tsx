@@ -22,7 +22,7 @@ const RegisterForm = () => {
 
   const memoizedError = useMemo(() => error, [error])
 
-  const onSubmit: SubmitHandler<RegisterRequest> = useCallback( //HandleSubmit
+  const handleOnSubmit: SubmitHandler<RegisterRequest> = useCallback( 
     (data) => {
       try {
         const existingUsers = JSON.parse(localStorage.getItem('users') || '[]')
@@ -61,7 +61,7 @@ const RegisterForm = () => {
       <article className='register-background'></article>
       <FormProvider
         methods={methods}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handleOnSubmit)}
         additionalClass='auth-form'
       >
         <h1 className='auth-title'>Please Fill out form to Register!</h1>

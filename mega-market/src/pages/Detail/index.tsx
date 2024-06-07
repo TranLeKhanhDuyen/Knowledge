@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useCallback, useState } from 'react'
+import {  useState } from 'react'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -30,10 +30,9 @@ const DetailPage = () => {
     autoplaySpeed: 3000
   }
 
-  const handleAddToCart = useCallback(() => {
+  const handleAddToCart = () => {
     if (!user) {
-      navigate('/auth/login')
-      return
+      return navigate('/auth/login')
     }
 
     const newItem = {
@@ -44,12 +43,11 @@ const DetailPage = () => {
 
     addToCart(newItem)
     showToast('The product has been added to cart', 'success')
-  }, [user, product, primaryImage, quantity, navigate, addToCart])
+  }
 
-  const handleBuyNow = useCallback(() => {
+  const handleBuyNow = () => {
     if (!user) {
-      navigate('/auth/login')
-      return
+      return navigate('/auth/login')
     }
 
     const newItem = {
@@ -61,7 +59,7 @@ const DetailPage = () => {
 
     addToCart(newItem)
     navigate('/cart')
-  }, [user, product, primaryImage, quantity, navigate, addToCart])
+  }
 
   return (
     <section className='container detail-page'>

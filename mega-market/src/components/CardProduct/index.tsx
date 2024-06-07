@@ -12,7 +12,7 @@ interface ICardProductProps {
   discountPercent: string
   contentBadge?: string
   additionalClass?: string
-  onClick?: () => void
+  onClick: () => void
 }
 
 const CardProduct: React.FC<ICardProductProps> = ({

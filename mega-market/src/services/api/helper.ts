@@ -1,10 +1,9 @@
-import { Category } from '@services/models/category'
 import axios, { Method } from 'axios'
 
 export const axiosRequest = async <T>(
   url: string,
   method: Method,
-  data?: Category
+  data?: Object
 ): Promise<T> => {
   const response = await axios({
     url,

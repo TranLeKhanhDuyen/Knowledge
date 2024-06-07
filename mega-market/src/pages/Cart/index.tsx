@@ -155,7 +155,7 @@ const CartPage = () => {
         {cartItems.length > 0 ? (
           <ul className='cart-items'>
             {cartItems.map((item, index) => (
-              <li key={index} className='cart-item'>
+              <li key={item.id} className='cart-item'>
                 <input
                   type='checkbox'
                   checked={item.isSelect}

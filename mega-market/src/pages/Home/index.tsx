@@ -14,8 +14,9 @@ import {
   selectOptions,
   cardCategorySquare
 } from '@mocks'
-import {getCategories, Product } from '@services'
-import './home.css'
+import { getCategories, Product } from '@services'
+import { calculateSalePrice, calculateSavePrice } from '@utils/price'
+import './Home.css'
 
 const HomePage = () => {
   const navigate = useNavigate()
@@ -92,17 +93,14 @@ const HomePage = () => {
                     name={product?.name ?? ''}
                     regularPrice={product?.regular_price ?? 0}
                     discountPercent={product?.discount?.toString() ?? '0'}
-                    salePrice={(
-                      ((product?.regular_price ?? 0) *
-                        (product?.discount ?? 0)) /
-                      100
-                    ).toFixed(2)}
-                    savePrice={
-                      (product?.regular_price ?? 0) -
-                      ((product?.regular_price ?? 0) *
-                        (product?.discount ?? 0)) /
-                        100
-                    }
+                    salePrice={calculateSalePrice(
+                      product?.regular_price ?? 0,
+                      product?.discount ?? 0
+                    )}
+                    savePrice={calculateSavePrice(
+                      product?.regular_price ?? 0,
+                      product?.discount ?? 0
+                    )}
                     onClick={() => handleClickProduct(product)}
                   />
                 </li>

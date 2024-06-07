@@ -22,6 +22,7 @@ const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
+
   useEffect(() => {
     if (user) {
       loadCartFromLocalStorage()

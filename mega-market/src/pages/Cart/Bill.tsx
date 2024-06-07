@@ -1,5 +1,6 @@
 import { Button } from '@components'
 import { CartItem } from '@services'
+import { calculateTotalBill } from '@utils/price'
 
 interface BillProps {
   selectedItems: CartItem[]
@@ -38,10 +39,7 @@ const Bill: React.FC<BillProps> = ({
             <p className='bill-content'>
               <span className='bill-title'>Amount: ₹</span>
               <span>
-                {' '}
-                {(item.regular_price -
-                  (item.regular_price * item.discount) / 100) *
-                  item.quantity}
+                {calculateTotalBill(item.regular_price, item.quantity, item.discount)}
               </span>
             </p>
           </li>

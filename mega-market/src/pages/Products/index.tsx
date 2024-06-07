@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import CardProduct from '@components/CardProduct'
 import { Product } from '@services'
+import { calculateSalePrice, calculateSavePrice } from '@utils/price'
 import './Product.css'
 
 const ProductPage = () => {
@@ -16,22 +17,22 @@ const ProductPage = () => {
     <>
       <h1 className='title-page'>Products Lists</h1>
       <section className='container product-page'>
-        {products?.map((product: any, index: number) => (
+        {products?.map((product: Product) => (
           <CardProduct
-            key={index}
+            key={product.id}
             imageUrl={product?.image?.[0]?.url ?? ''}
             alt={product?.name ?? ''}
             name={product?.name ?? ''}
             regularPrice={product?.regular_price ?? 0}
             discountPercent={product?.discount?.toString() ?? '0'}
-            salePrice={(
-              ((product?.regular_price ?? 0) * (product?.discount ?? 0)) /
-              100
-            ).toFixed(2)}
-            savePrice={
-              (product?.regular_price ?? 0) -
-              ((product?.regular_price ?? 0) * (product?.discount ?? 0)) / 100
-            }
+            salePrice={calculateSalePrice(
+              product?.regular_price ?? 0,
+              product?.discount ?? 0
+            )}
+            savePrice={calculateSavePrice(
+              product?.regular_price ?? 0,
+              product?.discount ?? 0
+            )}
             onClick={() => handleProductClick(product)}
           />
         ))}

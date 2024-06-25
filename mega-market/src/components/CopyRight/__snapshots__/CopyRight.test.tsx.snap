@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Copyright component matches snapshot 1`] = `
+<DocumentFragment>
+  <p
+    class="container copyright"
+  >
+    © 2024 All rights reserved. Snapshot Company.
+  </p>
+</DocumentFragment>
+`;

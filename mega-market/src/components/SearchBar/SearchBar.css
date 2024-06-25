@@ -1,0 +1,16 @@
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--tertiary-color);
+  border-radius: 10px;
+  gap: 10px;
+  border: 1px solid transparent;
+  margin-left: 15%;
+  margin-right: 2%;
+}
+
+.input-search {
+  display: flex;
+}

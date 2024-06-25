@@ -1,0 +1,24 @@
+.select-item {
+  position: relative;
+}
+
+.options-select {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  padding: 5px 0;
+  border-top: 1px solid var(--white-color);
+  border-bottom: 1px solid var(--white-color);
+}
+
+.select-icon {
+  background: url('../../../assets/images/icons/arrow-down-1.svg') no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 12px;
+  height: 8px;
+  margin-left: 8px;
+}

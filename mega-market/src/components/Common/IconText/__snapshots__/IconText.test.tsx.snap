@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconText matches snapshot 1`] = `
+<DocumentFragment>
+  <article
+    class="icontext-container icontext-container-sm  "
+  >
+    <svg
+      data-testid="icon-search"
+    />
+    <aside
+      class="icontext-content icontext-content-primary"
+    >
+      <p
+        class="icontext-title icontext-title-sm icontext-title-primary"
+      >
+        Default Title
+      </p>
+      <p
+        class="icontext-title icontext-sub-title-primary"
+      >
+        Default SubTitle
+      </p>
+    </aside>
+  </article>
+</DocumentFragment>
+`;

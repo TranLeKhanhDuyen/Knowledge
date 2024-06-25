@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardBadge component renders correctly 1`] = `
+<aside
+  class="card-badge-container "
+>
+  <p
+    class="card-badge badge-percent"
+  >
+    50
+    %
+  </p>
+  <p
+    class="card-badge badge-title"
+  >
+    Test Title
+  </p>
+</aside>
+`;

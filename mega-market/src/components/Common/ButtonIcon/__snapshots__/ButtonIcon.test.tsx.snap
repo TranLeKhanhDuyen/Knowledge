@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonIcon matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="btn btn-square btn-sm "
+  >
+    <svg
+      data-testid="icon-search"
+    />
+  </button>
+</DocumentFragment>
+`;

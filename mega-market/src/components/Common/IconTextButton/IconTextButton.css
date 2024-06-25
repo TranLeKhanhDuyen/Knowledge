@@ -1,0 +1,49 @@
+.icontext-btn-container {
+  display: flex;
+  align-items: flex-end;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  gap: 6px;
+  width: max-content;
+}
+
+.icontext-btn-container-right {
+  flex-direction: row-reverse;
+}
+
+.select.icontext-btn-container {
+  background-color: var(--tertiary-color);
+  padding: 9px 14px;
+  border-radius: 18px;
+}
+
+.select .icontext-title {
+  color: var(--black-color);
+}
+
+.icontext-title {
+  color: var(--text-secondary-color);
+}
+
+.icontext-title-sm {
+  font-size: var(--font-sm);
+}
+
+.icontext-title-md {
+  font-size: var(--font-md);
+}
+
+.icontext-sub-title {
+  font-weight: var(--fw-bold);
+}
+
+.img-icontext-btn-sm {
+  width: 18px;
+  height: 18px;
+}
+
+.img-icontext-btn-md {
+  width: 24px;
+  height: 24px;
+}

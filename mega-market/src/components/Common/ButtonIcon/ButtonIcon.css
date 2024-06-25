@@ -1,0 +1,33 @@
+.btn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.btn-square {
+  background: var(--tertiary-color);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: none;
+  width: fit-content;
+  height: fit-content;
+}
+
+.btn-circle {
+  background: var(--tertiary-color);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.btn-circle:hover {
+  border: 1px solid var(--primary-color);
+}
+
+.btn-sm {
+  padding: 11px;
+}
+
+.btn-md {
+  padding: 31px;
+}

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardCategory component renders correctly 1`] = `
+<article
+  class="card-category-container card-category-container-circle "
+>
+  <figure
+    class="category-img-wrapper category-img-wrapper-circle"
+  >
+    <img
+      alt="test alt"
+      class="category-img"
+      src="url"
+    />
+  </figure>
+  <aside
+    class="category-details"
+  >
+    <p
+      class="category-name category-name-circle"
+    >
+      test name
+    </p>
+  </aside>
+</article>
+`;
